@@ -79,7 +79,7 @@
     <projectile>
 		<flyOverhead>false</flyOverhead>
 		<damageDef>BulletBolter</damageDef>
-		<damageAmountBase>26</damageAmountBase>
+		<damageAmountBase>23</damageAmountBase>
 	 	<explosionRadius>1.0</explosionRadius>
 		<speed>80</speed>
     </projectile>
@@ -95,7 +95,7 @@
     <projectile>
 		<flyOverhead>false</flyOverhead>
 		<damageDef>Bullet</damageDef>
-		<damageAmountBase>26</damageAmountBase>
+		<damageAmountBase>19</damageAmountBase>
 		<speed>55</speed>
     </projectile>
   </ThingDef>
@@ -194,7 +194,7 @@
    <projectile>
 	 <flyOverhead>false</flyOverhead>
      <damageDef>Bullet</damageDef>
-     <damageAmountBase>42</damageAmountBase>
+     <damageAmountBase>35</damageAmountBase>
      <speed>100</speed>
    </projectile>
  </ThingDef>
@@ -209,7 +209,7 @@
    <projectile>
 	 <flyOverhead>false</flyOverhead>
      <damageDef>Bullet</damageDef>
-     <damageAmountBase>24</damageAmountBase>
+     <damageAmountBase>22</damageAmountBase>
      <speed>90</speed>
    </projectile>
  </ThingDef>
@@ -248,7 +248,7 @@
       <AccuracyShort>0.87</AccuracyShort>
       <AccuracyMedium>0.77</AccuracyMedium>
       <AccuracyLong>0.53</AccuracyLong>
-      <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
+      <RangedWeapon_Cooldown>0.96</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
       <li>IG_Ranged_Vet</li>
@@ -258,10 +258,10 @@
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <projectileDef>Bullet_StandardBolt</projectileDef>
-        <warmupTime>0.7</warmupTime>
+        <warmupTime>1.3</warmupTime>
         <range>32</range>
         <burstShotCount>3</burstShotCount>
-        <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+        <ticksBetweenBurstShots>18</ticksBetweenBurstShots>
         <soundCast>Bolter</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
 		<muzzleFlashScale>15</muzzleFlashScale>
@@ -479,7 +479,7 @@ Class="FactionColors.FactionItemDef">
       <AccuracyShort>0.71</AccuracyShort>
       <AccuracyMedium>0.50</AccuracyMedium>
       <AccuracyLong>0.32</AccuracyLong>
-      <RangedWeapon_Cooldown>0.20</RangedWeapon_Cooldown>
+      <RangedWeapon_Cooldown>1.00</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
       <li>IG_Ranged_Vet</li>
@@ -490,10 +490,10 @@ Class="FactionColors.FactionItemDef">
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <projectileDef>Bullet_StandardBolt</projectileDef>
-        <warmupTime>0.3</warmupTime>
+        <warmupTime>1.5</warmupTime>
         <range>20</range>
         <burstShotCount>8</burstShotCount>
-        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
         <soundCast>ShotAssaultRifle</soundCast>
         <soundCastTail>GunTail_Medium</soundCastTail>
 		<muzzleFlashScale>9</muzzleFlashScale>

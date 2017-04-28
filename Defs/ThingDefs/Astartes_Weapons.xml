@@ -127,7 +127,7 @@
     <thingClass>FactionColors.FactionItem</thingClass>
     <ItemMeshSize>(1.0, 1.0, 1.0)</ItemMeshSize>
     <defName>Astartes_PowerSword</defName>
-    <label>Astartes Power Sword</label>
+    <label>Astartes Power Axe</label>
     <description>A Power Axe is a Power Weapon that has been shaped into a axe of varying lengths and designs crafted from one of any number of different materials, though usually Adamantium. When its power cell is activated, often by touching a control located on the hilt, the blade is sheathed in a lethal corona of disruptive energy. This energy field allows the blade to carve through flesh, bone and most forms of armour plate alike, making a Power axe a highly effective Imperial close combat weapon. This is an Astartes pattern axe.</description>
 	<graphicData>
 		<texPath>Things/Astartes/Weapons/PowerAxe</texPath>
@@ -142,7 +142,7 @@
       <MeleeWeapon_DamageAmount>37</MeleeWeapon_DamageAmount>
       <MeleeWeapon_Cooldown>2.25</MeleeWeapon_Cooldown>
     </statBases>
-    <equippedAngleOffset>-45</equippedAngleOffset>
+    <equippedAngleOffset>-65</equippedAngleOffset>
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
@@ -202,7 +202,7 @@
         <projectileDef>Bullet_StandardBolt</projectileDef>
         <warmupTime>4.0</warmupTime>
         <range>32</range>
-        <burstShotCount>10</burstShotCount>
+        <burstShotCount>8</burstShotCount>
         <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
         <soundCast>Bolter</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
@@ -237,7 +237,7 @@
       <AccuracyShort>0.87</AccuracyShort>
       <AccuracyMedium>0.77</AccuracyMedium>
       <AccuracyLong>0.53</AccuracyLong>
-      <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
+      <RangedWeapon_Cooldown>0.86</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
       <li>Astartes_Ranged</li>
@@ -247,7 +247,7 @@
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <projectileDef>Bullet_StandardBolt</projectileDef>
-        <warmupTime>0.7</warmupTime>
+        <warmupTime>1.2</warmupTime>
         <range>38</range>
         <burstShotCount>4</burstShotCount>
         <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
@@ -283,7 +283,7 @@
       <AccuracyShort>0.71</AccuracyShort>
       <AccuracyMedium>0.50</AccuracyMedium>
       <AccuracyLong>0.32</AccuracyLong>
-      <RangedWeapon_Cooldown>0.50</RangedWeapon_Cooldown>
+      <RangedWeapon_Cooldown>0.60</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
       <li>Astartes_Assault</li>
@@ -293,7 +293,7 @@
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <projectileDef>Bullet_StandardBolt</projectileDef>
-        <warmupTime>0.7</warmupTime>
+        <warmupTime>0.9</warmupTime>
         <range>18</range>
         <soundCast>Bolter</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
