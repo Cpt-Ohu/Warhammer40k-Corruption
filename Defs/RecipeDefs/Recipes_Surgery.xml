@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RecipeDefs>
+
+  <RecipeDef Abstract="True" Name="SurgeryFlesh">
+    <effectWorking>Surgery</effectWorking>
+    <soundWorking>Recipe_Surgery</soundWorking>
+    <workSpeedStat>MedicalOperationSpeed</workSpeedStat>
+    <workSkill>Medicine</workSkill>
+    <workSkillLearnFactor>16</workSkillLearnFactor>
+  </RecipeDef>
+	
+  <RecipeDef ParentName="SurgeryFlesh">
+		<defName>TurnIntoServitor_MSU</defName>
+		<label>turn into servitor</label>
+		<description>Turns this pawn into a semi-organic robot for performing simple tasks.</description>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Creating Servitor.</jobString>
+		<workAmount>4500</workAmount>
+    <surgeonSurgerySuccessChanceExponent>2</surgeonSurgerySuccessChanceExponent>
+    <roomSurgerySuccessChanceFactorExponent>4</roomSurgerySuccessChanceFactorExponent>
+    <surgerySuccessChanceFactor>0.6</surgerySuccessChanceFactor>
+    <deathOnFailedSurgeryChance>0.25</deathOnFailedSurgeryChance>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ServitorImplants</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Component</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <exceptedThingDefs>
+        <li>HerbalMedicine</li>
+      </exceptedThingDefs>
+		</fixedIngredientFilter>
+		<skillRequirements>
+			<li>
+				<skill>Medicine</skill>
+				<minLevel>14</minLevel>
+			</li>
+		</skillRequirements>
+		<addsHediff>ServitorImplants</addsHediff>
+  </RecipeDef>
+
+  <RecipeDef ParentName="SurgeryFlesh">
+		<defName>InstallNeuroController_MSU</defName>
+		<label>install NeuroController</label>
+		<description>Installs joywire.</description>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing NeuroController.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>NeuroController</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>NeuroController</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>Brain</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>NeuroController</addsHediff>
+	</RecipeDef>
+
+  	  <RecipeDef ParentName="SurgeryFlesh">
+		<defName>InstallMechadendritesLabour_MSU</defName>
+		<label>install mechadendrites(labour)</label>
+		<description>Installs mechadendrites.</description>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing mechadendrites.</jobString>
+		<workAmount>3000</workAmount>
+		<targetsBodyPart>false</targetsBodyPart>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MechaDendrites_Labour</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>MechaDendrites_Labour</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>MechaDendrites_Labour</addsHediff>
+	</RecipeDef>
+
+  	  <RecipeDef ParentName="SurgeryFlesh">
+		<defName>InstallMechadendritesMedical_MSU</defName>
+		<label>install mechadendrites(medical)</label>
+		<description>Installs mechadendrites.</description>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing mechadendrites.</jobString>
+		<workAmount>3000</workAmount>
+		<targetsBodyPart>false</targetsBodyPart>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MechaDendrites_Medical</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>MechaDendrites_Medical</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>MechaDendrites_Medical</addsHediff>
+	</RecipeDef>
+
+  	  <RecipeDef ParentName="SurgeryFlesh">
+		<defName>InstallMechadendritesCombat_MSU</defName>
+		<label>install mechadendrites(combat)</label>
+		<description>Installs mechadendrites.</description>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing mechadendrites.</jobString>
+		<workAmount>3000</workAmount>
+		<targetsBodyPart>false</targetsBodyPart>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MechaDendrites_Combat</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>MechaDendrites_Combat</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>MechaDendrites_Combat</addsHediff>
+	</RecipeDef>
+
+  <RecipeDef ParentName="SurgeryFlesh">
+		<defName>Tend_MSU</defName>
+		<label>advanced tending</label>
+		<description>Tend to patients.</description>
+		<workerClass>Corruption.Recipe_TendInMSU</workerClass>
+		<jobString>Tending to patient.</jobString>
+		<workAmount>200</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+		</fixedIngredientFilter>
+	</RecipeDef>
+
+
+
+</RecipeDefs>

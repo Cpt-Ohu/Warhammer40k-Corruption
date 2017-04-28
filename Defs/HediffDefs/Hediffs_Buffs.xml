@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HediffDef Name="HediffPsykerBuff" Abstract="True">
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.8, 0.8, 0.35)</defaultLabelColor>
+  </HediffDef>
+
+  <HediffDef ParentName="HediffPsykerBuff" Name="Mindcontrol">
+    <defName>Mindcontrol</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.73, 0.08, 0.03)</defaultLabelColor>
+    <label>mindcontrol</label>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <compClass>Corruption.HediffComp_TemporaryRecruit</compClass>
+        <disappearsAfterTicks>
+          <min>600</min>
+          <max>900</max>
+        </disappearsAfterTicks>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef ParentName="HediffPsykerBuff" Name="BurnedRetina">
+    <defName>BurnedRetina</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.73, 0.08, 0.03)</defaultLabelColor>
+    <label>burned retina</label>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>
+          <min>600</min>
+          <max>900</max>
+        </disappearsAfterTicks>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>-0.65</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef ParentName="HediffPsykerBuff">
+    <defName>PsychicExhaustion</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.73, 0.08, 0.03)</defaultLabelColor>
+    <label>exhaustion</label>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>
+          <min>5000</min>
+          <max>6000</max>
+        </disappearsAfterTicks>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>BloodPumping</capacity>
+            <offset>-0.65</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.65</offset>
+          </li>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.55</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- =========================BuffVigor===================================== -->
+
+  <HediffDef ParentName="HediffPsykerBuff">
+    <defName>BuffVigor</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.1, 0.5, 0.9)</defaultLabelColor>
+    <label>vigor</label>
+    <comps>
+      <li Class="Corruption.HediffCompProperties_PostBuff">
+        <compClass>Corruption.HediffComp_PostBuff</compClass>
+        <postBuffHediff>PsychicExhaustion</postBuffHediff>
+        <disappearsAfterTicks>
+          <min>2000</min>
+          <max>3000</max>
+        </disappearsAfterTicks>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>BloodPumping</capacity>
+            <offset>1.0</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>1.00</offset>
+          </li>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.1</offset>
+          </li>
+
+        </capMods>
+        <statOffsets>
+      	<MoveSpeed>1.00</MoveSpeed>
+      	<CarryingCapacity>1.00</CarryingCapacity>
+      	<WorkSpeedGlobal>1.00</WorkSpeedGlobal>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- =========================BuffRage===================================== -->
+
+  <HediffDef ParentName="HediffPsykerBuff">
+    <defName>BuffRage</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.9, 0.5, 0.9)</defaultLabelColor>
+    <label>psychic rage</label>
+    <comps>
+      <li Class="Corruption.HediffCompProperties_PostBuff">
+        <compClass>Corruption.HediffComp_PostBuff</compClass>
+        <postBuffHediff>PsychicExhaustion</postBuffHediff>
+        <disappearsAfterTicks>
+          <min>1000</min>
+          <max>2000</max>
+        </disappearsAfterTicks>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+      	<MeleeHitChance>1.00</MeleeHitChance>
+      	<MeleeDPS>1.00</MeleeDPS>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+<!-- =========================BuffFocus===================================== -->
+
+  <HediffDef ParentName="HediffPsykerBuff">
+    <defName>BuffFocus</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.9, 0.5, 0.9)</defaultLabelColor>
+    <label>psychic focus</label>
+    <comps>
+      <li Class="Corruption.HediffCompProperties_PostBuff">
+        <compClass>Corruption.HediffComp_PostBuff</compClass>
+        <postBuffHediff>PsychicExhaustion</postBuffHediff>
+        <disappearsAfterTicks>
+          <min>1500</min>
+          <max>2000</max>
+        </disappearsAfterTicks>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>1.0</offset>
+          </li>
+        </capMods>
+        <statOffsets>
+      	<ShootingAccuracy>1.00</ShootingAccuracy>
+      	<GlobalLearningFactor>0.20</GlobalLearningFactor>
+      	<WorkSpeedGlobal>0.20</WorkSpeedGlobal>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- =========================BuffSuffocate===================================== -->
+
+  <HediffDef ParentName="HediffPsykerBuff">
+    <defName>BuffSuffocate</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.9, 0.1, 0.1)</defaultLabelColor>
+    <label>suffocating grip</label>
+    <comps>
+      <li Class="Corruption.HediffCompProperties_PostBuff">
+        <compClass>Corruption.HediffComp_PostBuff</compClass>
+        <IsPositiveBuff>false</IsPositiveBuff>
+        <disappearsAfterTicks>
+          <min>2000</min>
+          <max>3000</max>
+        </disappearsAfterTicks>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>-0.95</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

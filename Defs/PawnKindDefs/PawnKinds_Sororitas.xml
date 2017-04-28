@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<PawnKindDefs>
+
+
+
+
+  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
+    <defName>SororitasNurse</defName>
+    <label>nurse</label>
+    <race>Alien_Sororitas</race>
+    <combatPower>100</combatPower>
+    <baseRecruitDifficulty>0.70</baseRecruitDifficulty>
+    <backstoryCategory>Sororitas</backstoryCategory>
+    <defaultFactionType>AdeptusSororitas</defaultFactionType>
+    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+    <maxGenerationAge>80</maxGenerationAge>
+    <itemQuality>Excellent</itemQuality>
+    <apparelRequired>
+	 <li>IoM_Apparel_RobeGen</li>
+    </apparelRequired>
+    <apparelMoney>
+      <min>800</min>
+      <max>1200</max>
+    </apparelMoney>
+    <apparelTags>
+      <li>IoM_Apparel</li>
+    </apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelAllowHeadwearChance>0.2</apparelAllowHeadwearChance>
+    <weaponMoney>
+      <min>1000</min>
+      <max>3000</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>Sororitas_Support</li>
+    </weaponTags>
+    <techHediffsMoney>
+      <min>9000</min>
+      <max>9000</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <techHediffsChance>0.3</techHediffsChance>
+    <AfflictionProperty>
+      <LowerAfflictionLimit>0.90</LowerAfflictionLimit>
+      <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+      <LowerPsykerPowerLimit>Iota</LowerPsykerPowerLimit>
+      <UpperPsykerPowerLimit>Zeta</UpperPsykerPowerLimit>
+       <CommmonPsykerPowers>
+        <li>PsykerPower_HealSimple</li>
+       </CommmonPsykerPowers>
+    </AfflictionProperty>
+      <UseFixedGender>true</UseFixedGender>
+      <FixedGender>Female</FixedGender>
+  </PawnKindDef>
+
+
+  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
+    <defName>SororitasBattleSister</defName>
+    <label>battle sister</label>
+    <race>Alien_Sororitas</race>
+    <combatPower>100</combatPower>
+    <baseRecruitDifficulty>0.70</baseRecruitDifficulty>
+    <backstoryCategory>Sororitas</backstoryCategory>
+    <defaultFactionType>AdeptusSororitas</defaultFactionType>
+    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+    <maxGenerationAge>80</maxGenerationAge>
+    <itemQuality>Excellent</itemQuality>
+    <apparelMoney>
+      <min>9000</min>
+      <max>10000</max>
+    </apparelMoney>
+    <apparelTags>
+      <li>Sororitas_Apparel</li>
+    </apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelAllowHeadwearChance>0.2</apparelAllowHeadwearChance>
+    <weaponMoney>
+      <min>1000</min>
+      <max>3000</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>Sororitas_Melee</li>
+      <li>IG_Ranged_Vet</li>
+    </weaponTags>
+    <techHediffsMoney>
+      <min>9000</min>
+      <max>9000</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <techHediffsChance>0.3</techHediffsChance>
+    <AfflictionProperty>
+      <LowerAfflictionLimit>8</LowerAfflictionLimit>
+      <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+    </AfflictionProperty>
+      <UseFixedGender>true</UseFixedGender>
+      <FixedGender>Female</FixedGender>
+  </PawnKindDef>
+
+  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
+    <defName>SorotiasSergeant</defName>
+    <label>sister superior</label>
+    <race>Alien_Sororitas</race>
+    <combatPower>150</combatPower>
+    <baseRecruitDifficulty>0.80</baseRecruitDifficulty>
+    <backstoryCategory>Sororitas</backstoryCategory>
+    <defaultFactionType>AdeptusSororitas</defaultFactionType>
+    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+    <maxGenerationAge>80</maxGenerationAge>
+    <itemQuality>Excellent</itemQuality>
+    <apparelMoney>
+      <min>9000</min>
+      <max>10000</max>
+    </apparelMoney>
+    <apparelTags>
+      <li>Sororitas_Apparel</li>
+    </apparelTags>
+    <apparelRequired>
+	 <li>Apparel_Rosarius</li>
+    </apparelRequired>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelAllowHeadwearChance>0.7</apparelAllowHeadwearChance>
+    <weaponMoney>
+      <min>9000</min>
+      <max>9000</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>Sororitas_Melee</li>
+    </weaponTags>
+    <techHediffsMoney>
+      <min>9000</min>
+      <max>9000</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <techHediffsChance>0.8</techHediffsChance>
+    <AfflictionProperty>
+      <LowerAfflictionLimit>8</LowerAfflictionLimit>
+      <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+       <CommmonPsykerPowers>
+        <li>PsykerPower_HealSimple</li>
+       </CommmonPsykerPowers>
+    </AfflictionProperty>
+      <UseFixedGender>true</UseFixedGender>
+      <FixedGender>Female</FixedGender>
+  </PawnKindDef>
+
+  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
+    <defName>SorotiasSuperior</defName>
+    <label>superior advance</label>
+    <race>Alien_Sororitas</race>
+    <combatPower>160</combatPower>
+    <baseRecruitDifficulty>0.80</baseRecruitDifficulty>
+    <backstoryCategory>Sororitas</backstoryCategory>
+    <defaultFactionType>AdeptusSororitas</defaultFactionType>
+    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+    <factionLeader>true</factionLeader>
+    <maxGenerationAge>80</maxGenerationAge>
+    <itemQuality>Excellent</itemQuality>
+    <apparelMoney>
+      <min>9000</min>
+      <max>10000</max>
+    </apparelMoney>
+    <apparelTags>
+      <li>Sororitas_Apparel</li>
+    </apparelTags>
+    <apparelRequired>
+	 <li>Apparel_Rosarius</li>
+    </apparelRequired>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <weaponMoney>
+      <min>9000</min>
+      <max>9000</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>Sororitas_Melee</li>
+    </weaponTags>
+    <techHediffsMoney>
+      <min>9000</min>
+      <max>9000</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <techHediffsChance>0.9</techHediffsChance>
+    <AfflictionProperty>
+      <LowerAfflictionLimit>8</LowerAfflictionLimit>
+      <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+       <CommmonPsykerPowers>
+        <li>PsykerPower_HealSimple</li>
+        <li>PsykerPower_HealSelf</li>
+        <li>PsykerPower_HealNearby</li>
+       </CommmonPsykerPowers>
+    </AfflictionProperty>
+      <UseFixedGender>true</UseFixedGender>
+      <FixedGender>Female</FixedGender>
+  </PawnKindDef>
+
+</PawnKindDefs>

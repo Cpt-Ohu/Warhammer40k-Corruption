@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--=============== Bases ==============-->
+
+  <ThingDef>
+    <defName>WarpRift</defName>
+    <label>Warp Rift</label>
+    <description>A rift between realspace and the Immaterium.</description>
+    <category>Building</category>
+    <thingClass>Corruption.WarpRift</thingClass>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <repairEffect>Repair</repairEffect>
+    <filthLeaving>BuildingRubble</filthLeaving>
+    <altitudeLayer>Building</altitudeLayer>
+    <pathCost>150</pathCost>
+    <blockWind>true</blockWind>
+    <passability>Impassable</passability>
+    <fillPercent>1.0</fillPercent>
+    <size>(2,2)</size>
+    <statBases>
+      <MaxHitPoints>50000</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <Beauty>-100</Beauty>
+    </statBases>
+    <tickerType>Rare</tickerType>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <rotatable>true</rotatable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <castEdgeShadows>false</castEdgeShadows>
+    <forceDebugSpawnable>true</forceDebugSpawnable>
+    <graphicData>
+      <texPath>Things/Chaos/Demons/WarpRiftB</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+      <drawSize>(1,1)</drawSize>
+      <damageData>
+        <rect>(0.1,0.1,1.8,1.8)</rect>
+      </damageData>
+    </graphicData>
+    <comps>
+      <li Class="CompProperties_Glower">
+        <glowRadius>10</glowRadius>
+        <glowColor>(251,150,252,0)</glowColor>
+      </li>
+    </comps>
+
+  </ThingDef>
+
+</Defs>

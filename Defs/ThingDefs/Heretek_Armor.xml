@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+
+  <ThingDef ParentName="HatBase">
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <defName>Heretic_HelmetA</defName>
+    <label>guard helmet</label>
+    <description>A lightweight combat helmet.</description>
+    <graphicData>
+      <texPath>Things/Chaos/Damned/DamnedHelmetAIcon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>300</MarketValue>
+      <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+    </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>0.0</MoveSpeed>
+    </equippedStatOffsets>
+    <apparel>
+      <bodyPartGroups>
+        <li>UpperHead</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Chaos/Damned/DamnedHelmetA</worngraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <commonality>1</commonality>
+      <tags>
+        <li>CorruptedApparel</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>CorruptedApparel</li>
+      </defaultOutfitTags> 
+   </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="HatBase">
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <defName>Heretic_HelmetB</defName>
+    <label>guard helmet</label>
+    <description>A lightweight combat helmet.</description>
+    <graphicData>
+      <texPath>Things/Chaos/Damned/DamnedHelmetBIcon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>300</MarketValue>
+      <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+    </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>0.0</MoveSpeed>
+    </equippedStatOffsets>
+    <apparel>
+      <bodyPartGroups>
+        <li>UpperHead</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Chaos/Damned/DamnedHelmetB</worngraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <commonality>1</commonality>
+      <tags>
+        <li>CorruptedApparel</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>CorruptedApparel</li>
+      </defaultOutfitTags> 
+   </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="HatBase">
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <defName>Heretic_HelmetC</defName>
+    <label>guard helmet</label>
+    <description>A lightweight combat helmet.</description>
+    <graphicData>
+      <texPath>Things/Chaos/Damned/DamnedHelmetCIcon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>300</MarketValue>
+      <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+    </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>0.0</MoveSpeed>
+    </equippedStatOffsets>
+    <apparel>
+      <bodyPartGroups>
+        <li>UpperHead</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Chaos/Damned/DamnedHelmetC</worngraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <commonality>1</commonality>
+      <tags>
+        <li>CorruptedApparel</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>CorruptedApparel</li>
+      </defaultOutfitTags> 
+   </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>ChaosBanner</defName>
+    <label>Chaos Banner</label>
+    <description>A heretical symbol of chaos, worn as a back-banner.</description>
+    <graphicData>
+      <texPath>Things/Chaos/Details/UndivRing/UndivRing</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costStuffCount>50</costStuffCount>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <WorkToMake>6000</WorkToMake>
+      <MarketValue>100</MarketValue>
+      <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+      <Insulation_Cold>-3</Insulation_Cold>
+    </statBases>
+    <apparel>
+      <bodyPartGroups>
+        <li>Shoulders</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Chaos/Details/UndivRing/UndivRing</worngraphicPath>
+      <layers>
+        <li>Shell</li>
+      </layers>
+      <commonality>1</commonality>
+      <tags>
+        <li>CorruptedApparel</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>CorruptedApparel</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_StandardApparel" />
+  </ThingDef>
+
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>Apparel_CultistLeathers</defName>
+    <label>Leather straps</label>
+    <description>Rugged strips of leather whose origin is best left undiscussed.</description>
+    <graphicData>
+      <texPath>Things/Chaos/Leathers/CultistLeatheringIcon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costStuffCount>50</costStuffCount>
+    <stuffCategories>
+      <li>Leathery</li>
+    </stuffCategories>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <MaxHitPoints>90</MaxHitPoints>
+      <MarketValue>20</MarketValue>
+      <WorkToMake>6000</WorkToMake>
+      <ArmorRating_Blunt>0.03</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.03</ArmorRating_Sharp>
+      <Insulation_Cold>-3</Insulation_Cold>
+    </statBases>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Chaos/Leathers/CultistLeathering</worngraphicPath>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <commonality>1</commonality>
+      <tags>
+        <li>CorruptedApparel</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_StandardApparel" />
+  </ThingDef>
+
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>Apparel_CultistRobe</defName>
+    <label>Rugged Robe</label>
+    <description>Rugged robe made of leather whose origin is best left undiscussed.</description>
+    <graphicData>
+      <texPath>Things/Chaos/Apostle/DirtyRobe</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costStuffCount>50</costStuffCount>
+    <stuffCategories>
+      <li>Leathery</li>
+    </stuffCategories>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <MaxHitPoints>90</MaxHitPoints>
+      <MarketValue>20</MarketValue>
+      <WorkToMake>6000</WorkToMake>
+      <ArmorRating_Blunt>0.03</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.03</ArmorRating_Sharp>
+      <Insulation_Cold>-3</Insulation_Cold>
+    </statBases>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Chaos/Apostle/DirtyRobe</worngraphicPath>
+      <layers>
+        <li>Shell</li>
+      </layers>
+      <commonality>1</commonality>
+      <tags>
+        <li>CorruptedApparel</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_StandardApparel" />
+  </ThingDef>
+
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>Apparel_CultistHood</defName>
+    <label>Rugged Hood</label>
+    <description>Rugged hood made of leather whose origin is best left undiscussed.</description>
+    <graphicData>
+      <texPath>Things/Chaos/Apostle/DirtyHighHat</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costStuffCount>50</costStuffCount>
+    <stuffCategories>
+      <li>Leathery</li>
+    </stuffCategories>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <MaxHitPoints>90</MaxHitPoints>
+      <MarketValue>20</MarketValue>
+      <WorkToMake>6000</WorkToMake>
+      <ArmorRating_Blunt>0.03</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.03</ArmorRating_Sharp>
+      <Insulation_Cold>-3</Insulation_Cold>
+    </statBases>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Chaos/Apostle/DirtyHighHat</worngraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <commonality>1</commonality>
+      <tags>
+        <li>CorruptedApparel</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_StandardApparel" />
+  </ThingDef>
+
+</ThingDefs>

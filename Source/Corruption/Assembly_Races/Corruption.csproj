@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{74DCE0E4-19F5-415B-AF5E-BA651ECF87B1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Corruption</RootNamespace>
+    <AssemblyName>Corruption</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Assemblies\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony, Version=1.0.9.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\workshop\content\294100\839005762\Assemblies\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="AlienRace, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\workshop\content\294100\839005762\Assemblies\AlienRace.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\RimWorldWin_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FactionColors, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\FactionColors.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp">
+      <HintPath>..\..\..\Assemblies\roslyn\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\RimWorldWin_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Affliction.cs" />
+    <Compile Include="AfflictionDrawerUtility.cs" />
+    <Compile Include="Astartes\RecipeDef_AstartesImplant.cs" />
+    <Compile Include="Bill_MedicalTable.cs" />
+    <Compile Include="BookStuff\Bookshelf.cs" />
+    <Compile Include="BookStuff\ITab_Bookshelf.cs" />
+    <Compile Include="BookStuff\JobDriver_AddBookToLibrary.cs" />
+    <Compile Include="BookStuff\JobDriver_ReadBookLong.cs" />
+    <Compile Include="BookStuff\ReadableBooks.cs" />
+    <Compile Include="BookStuff\ReadableEffects.cs" />
+    <Compile Include="BookStuff\ReadableEffektEntry.cs" />
+    <Compile Include="BookStuff\ThingDef_Readables.cs" />
+    <Compile Include="HediffCompProperties_MechWeapons.cs" />
+    <Compile Include="Ships\ScenPart_StartWithShip.cs" />
+    <Compile Include="Worship\BuildingAltar.cs" />
+    <Compile Include="Worship\BuildingAltarDef.cs" />
+    <Compile Include="BuildingWorshipDef.cs" />
+    <Compile Include="Building_CommsConsoleIG.cs" />
+    <Compile Include="Building_MechanicusMedTable.cs" />
+    <Compile Include="ChaosGodsUtilities.cs" />
+    <Compile Include="Command_CastPower.cs" />
+    <Compile Include="CompAfflictionDrawer.cs" />
+    <Compile Include="CompCorruptionTickManager.cs" />
+    <Compile Include="CompEldarSpiritStone.cs" />
+    <Compile Include="CompMechanicusImplants.cs" />
+    <Compile Include="CompNeuroControllerImplant.cs" />
+    <Compile Include="CompPropertiesAfflictionDrawer.cs" />
+    <Compile Include="CompProperties_LaunchProjectile.cs" />
+    <Compile Include="CompProperties_MentalStateGiver.cs" />
+    <Compile Include="CompProperties_PsykerVerb.cs" />
+    <Compile Include="CompProperties_StartWithHediff.cs" />
+    <Compile Include="CompProperties_UseEffectPsykerPower.cs" />
+    <Compile Include="CompPsyker.cs" />
+    <Compile Include="CompSoulItem.cs" />
+    <Compile Include="CompStartWithHediff.cs" />
+    <Compile Include="CompThoughtlessAutomaton.cs" />
+    <Compile Include="CompUseEffect_PsychicPower.cs" />
+    <Compile Include="CorruptionStoryTracker.cs" />
+    <Compile Include="CorruptionStoryTrackerUtilities.cs" />
+    <Compile Include="CulturalToleranceCategory.cs" />
+    <Compile Include="DamageWorker_Heal.cs" />
+    <Compile Include="DefOfs\C_DamageDefOf.cs" />
+    <Compile Include="DefOfs\C_MapConditionDefOf.cs" />
+    <Compile Include="DefOfs\C_MentalStateDefOf.cs" />
+    <Compile Include="DefOfs\C_NeedDefOf.cs" />
+    <Compile Include="DefOfs\C_PawnKindDefOf.cs" />
+    <Compile Include="DefOfs\C_ThingDefOfs.cs" />
+    <Compile Include="DefOfs\C_DutyDefOfs.cs" />
+    <Compile Include="DefOfs\C_JobDefOf.cs" />
+    <Compile Include="DefOfs\C_SoulTraitDefOf.cs" />
+    <Compile Include="DefOfs\C_WorldObjectDefOfs.cs" />
+    <Compile Include="DefOfs\C_FactionDefOf.cs" />
+    <Compile Include="DefOfs\C_HediffDefOf.cs" />
+    <Compile Include="DefOfs\C_PsykerPowerDefOf.cs" />
+    <Compile Include="DefOfs\C_ThoughtDefOf.cs" />
+    <Compile Include="DemonDefOfs.cs" />
+    <Compile Include="DemonUtilities.cs" />
+    <Compile Include="Dialog_NegotiationIoM.cs" />
+    <Compile Include="FactionDialogMaker_IoM.cs" />
+    <Compile Include="HarmonyPatches.cs" />
+    <Compile Include="HediffCompProperties_DrawImplant.cs" />
+    <Compile Include="HediffCompProperties_PostBuff.cs" />
+    <Compile Include="HediffComp_DrawImplant.cs" />
+    <Compile Include="HediffComp_NeuroController.cs" />
+    <Compile Include="HediffComp_PostBuff.cs" />
+    <Compile Include="HediffComp_TurnServitor.cs" />
+    <Compile Include="ImplantDrawerType.cs" />
+    <Compile Include="IncidentWorker_CorruptedEffigy.cs" />
+    <Compile Include="IoM\JobDriver_ArrestOnMap.cs" />
+    <Compile Include="IoM\JobGiver_AssistArrest.cs" />
+    <Compile Include="Ships\Building_ShipTurret.cs" />
+    <Compile Include="Ships\CompProperties_ShipWeapon.cs" />
+    <Compile Include="Ships\CompShipWeapon.cs" />
+    <Compile Include="Ships\Dialog_LoadShipCargo.cs" />
+    <Compile Include="Ships\Dialog_TradeFromShips.cs" />
+    <Compile Include="Ships\HarmonyPatches.cs" />
+    <Compile Include="Ships\IncidentWorker_AerialRaid.cs" />
+    <Compile Include="Ships\ITab_Fleet.cs" />
+    <Compile Include="Ships\JobDriver_EnterShip.cs" />
+    <Compile Include="Ships\ITab_ShipCargo.cs" />
+    <Compile Include="Ships\JobDriver_InstallShipWeaponSystem.cs" />
+    <Compile Include="Ships\JobDriver_LeaveInShip.cs" />
+    <Compile Include="IoM\JobGiver_ArrestGovernor.cs" />
+    <Compile Include="IoM\LordJob_ArrestGovernor.cs" />
+    <Compile Include="IoM\LordToil_ArrestGovernor.cs" />
+    <Compile Include="Ships\LordToil_LeaveInShip.cs" />
+    <Compile Include="JobDriver_TendInMSU.cs" />
+    <Compile Include="MapCondition_IncomingIGHostile.cs" />
+    <Compile Include="Ships\CompProperties_Ship.cs" />
+    <Compile Include="Ships\CompShip.cs" />
+    <Compile Include="Ships\DropShipUtility.cs" />
+    <Compile Include="Ships\JobDriver_LoadCargoMultiple.cs" />
+    <Compile Include="Ships\JobDriver_UninstallShipWeaponSystem.cs" />
+    <Compile Include="Ships\JobGiver_EnterShipDuringLoad.cs" />
+    <Compile Include="Ships\LandedShip.cs" />
+    <Compile Include="Ships\LordJob_AerialAssault.cs" />
+    <Compile Include="Ships\ShipBase_Traveling.cs" />
+    <Compile Include="Ships\ShipDropSite.cs" />
+    <Compile Include="Ships\ShipNamespaceDefOfs.cs" />
+    <Compile Include="Ships\ShipTracker.cs" />
+    <Compile Include="Ships\TravelingShipArrivalAction.cs" />
+    <Compile Include="Ships\TravelingShips.cs" />
+    <Compile Include="Ships\TravelingShipsUtility.cs" />
+    <Compile Include="Ships\WeaponSystemShipBomb.cs" />
+    <Compile Include="Ships\WITab_LandedShip_Cargo.cs" />
+    <Compile Include="Ships\WorkGiver_InstallShipWeapon.cs" />
+    <Compile Include="Ships\JobGiver_LeaveInShip.cs" />
+    <Compile Include="Ships\JobGiver_LoadShipCargo.cs" />
+    <Compile Include="Ships\LoadShipCargoUtility.cs" />
+    <Compile Include="Ships\LordJob_LoadShipCargo.cs" />
+    <Compile Include="Ships\LordToil_LoadShipCargo.cs" />
+    <Compile Include="Ships\ShipBase.cs" />
+    <Compile Include="Ships\ShipState.cs" />
+    <Compile Include="Ships\ShipWeaponSlot.cs" />
+    <Compile Include="Ships\WeaponSystem.cs" />
+    <Compile Include="Ships\WeaponSystemShipLC.cs" />
+    <Compile Include="Ships\WeaponSystemType.cs" />
+    <Compile Include="Ships\WorkGiver_UninstallShipWeapon.cs" />
+    <Compile Include="StockGenerator_TagCorruption.cs" />
+    <Compile Include="Tithes\MapCondition_TitheCollectors.cs" />
+    <Compile Include="PawnRendererModded.cs" />
+    <Compile Include="Recipe_TendInMSU.cs" />
+    <Compile Include="Tithes\CompProperties_TitheContainer.cs" />
+    <Compile Include="Tithes\CompTitheContainer.cs" />
+    <Compile Include="Tithes\ITab_TitheContainer.cs" />
+    <Compile Include="Tithes\TitheContainer.cs" />
+    <Compile Include="Tithes\TitheDef.cs" />
+    <Compile Include="Tithes\TitheDefOfs.cs" />
+    <Compile Include="Tithes\TitheEntry.cs" />
+    <Compile Include="Tithes\TitheEntryForContainer.cs" />
+    <Compile Include="Tithes\TitheUtilities.cs" />
+    <Compile Include="Tithes\Window_IoMTitheArrival.cs" />
+    <Compile Include="Tithes\Workgiver_LoadTithes.cs" />
+    <Compile Include="Window_CCMBase.cs" />
+    <Compile Include="Dialog_RenameTemple.cs" />
+    <Compile Include="ChaosFollowerPawnKindDef.cs" />
+    <Compile Include="ChaosGods.cs" />
+    <Compile Include="AfflictionProperty.cs" />
+    <Compile Include="CompProperties_SoulItem.cs" />
+    <Compile Include="GodThoughtDefOf.cs" />
+    <Compile Include="HediffComp_DemonicPossession.cs" />
+    <Compile Include="HediffComp_NurglesMark.cs" />
+    <Compile Include="HediffComp_NurglesRot.cs" />
+    <Compile Include="HediffComp_TemporaryRecruit.cs" />
+    <Compile Include="IncidentWorker_CorruptiveDrone.cs" />
+    <Compile Include="Worship\ITab_Altar.cs" />
+    <Compile Include="ITab_IGCommsConsole.cs" />
+    <Compile Include="ITab_Pawn_Alignment.cs" />
+    <Compile Include="ItemEffigy.cs" />
+    <Compile Include="Worship\JobDriver_AttendSermon.cs" />
+    <Compile Include="JobDriver_CarryToMecMedTable.cs" />
+    <Compile Include="JobDriver_CastPsykerPowerVerb.cs" />
+    <Compile Include="JobDriver_CastPsykerPowerSelf.cs" />
+    <Compile Include="JobDriver_EnterMecMedBay.cs" />
+    <Compile Include="Worship\JobDriver_HoldSermon.cs" />
+    <Compile Include="JobDriver_HostileDemonSummoner.cs" />
+    <Compile Include="JobDriver_MSUPerformTreatment.cs" />
+    <Compile Include="JobDriver_OperateMSU.cs" />
+    <Compile Include="JobDriver_SummoningTribute.cs" />
+    <Compile Include="JobDriver_UseCCC.cs" />
+    <Compile Include="LordToilData_DemonSummoner.cs" />
+    <Compile Include="LordToil_DemonSummoner.cs" />
+    <Compile Include="MainTabWindow_Alignment.cs" />
+    <Compile Include="MapCondition_CorruptiveDrone.cs" />
+    <Compile Include="MentalState_KhorneKillWeak.cs" />
+    <Compile Include="Need_Soul.cs" />
+    <Compile Include="OtherGods.cs" />
+    <Compile Include="PatronInfo.cs" />
+    <Compile Include="ProjectileDef_WarpPower.cs" />
+    <Compile Include="Projectile_AoE.cs" />
+    <Compile Include="Projectile_Elemental.cs" />
+    <Compile Include="Projectile_Laser.cs" />
+    <Compile Include="Projectile_WarpGrower.cs" />
+    <Compile Include="Projectile_WarpPower.cs" />
+    <Compile Include="Projectile_Splinter.cs" />
+    <Compile Include="Projectile_WarpRecruiter.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PsykerPower.cs" />
+    <Compile Include="PsykerPowerCategory.cs" />
+    <Compile Include="PsykerPowerDef.cs" />
+    <Compile Include="PsykerPowerDefOf.cs" />
+    <Compile Include="PsykerPowerEntry.cs" />
+    <Compile Include="PsykerPowerLevel.cs" />
+    <Compile Include="PsykerPowerManager.cs" />
+    <Compile Include="PsykerPowerMasteryEntry.cs" />
+    <Compile Include="PsykerUtility.cs" />
+    <Compile Include="BookStuff\ReadablesManager.cs" />
+    <Compile Include="RoomRoleWorker_Church.cs" />
+    <Compile Include="Worship\SermonSpot.cs" />
+    <Compile Include="Worship\SermonThoughtDefOf.cs" />
+    <Compile Include="Worship\SermonUtility.cs" />
+    <Compile Include="SoulItemCategories.cs" />
+    <Compile Include="SoulTrait.cs" />
+    <Compile Include="SoulTraitDef.cs" />
+    <Compile Include="CorruptionDefOfs.cs" />
+    <Compile Include="SoulTraitDegreeData.cs" />
+    <Compile Include="StarMapObject.cs" />
+    <Compile Include="StarMapObjectType.cs" />
+    <Compile Include="Worship\TempleCardUtility.cs" />
+    <Compile Include="ThingComp_CorruptedItem.cs" />
+    <Compile Include="ThingDef_BuildingTwoColored.cs" />
+    <Compile Include="ThingDef_LaserProjectile.cs" />
+    <Compile Include="ThingRequestGroup_Corruption.cs" />
+    <Compile Include="ThoughtDefAutomaton.cs" />
+    <Compile Include="ThoughtWorker_AttendedSermonDark.cs" />
+    <Compile Include="ThoughtWorker_AttendedSermonPure.cs" />
+    <Compile Include="ThoughtWorker_AutomatonThoughts.cs" />
+    <Compile Include="ThoughtWorker_CorruptionStatus.cs" />
+    <Compile Include="ThoughtWorker_CorruptiveDrone.cs" />
+    <Compile Include="ThoughtWorker_CulturalTolerance.cs" />
+    <Compile Include="ThoughtWorker_KhornateNoKill.cs" />
+    <Compile Include="ThoughtWorker_KhornateKill.cs" />
+    <Compile Include="ThoughtWorker_NurgleGifts.cs" />
+    <Compile Include="ThoughtWorker_Tzeentchian.cs" />
+    <Compile Include="ThoughtWorker_Undivided.cs" />
+    <Compile Include="ThoughtWorker_Xenos.cs" />
+    <Compile Include="VerbProperties_WarpPower.cs" />
+    <Compile Include="Verb_CastWarpPower.cs" />
+    <Compile Include="WarpPowerUtilities.cs" />
+    <Compile Include="WarpRift.cs" />
+    <Compile Include="ITab_SMUOperation.cs" />
+    <Compile Include="Window_IoMAcknowledgement.cs" />
+    <Compile Include="Tithes\Window_IoMTitheDue.cs" />
+    <Compile Include="Worship\JobGiver_HoldSermon.cs" />
+    <Compile Include="Worship\LordJob_Sermon.cs" />
+    <Compile Include="Worship\LordToil_StartSermom.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="xml\Initializer.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\TestPawn.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Dieses Projekt verweist auf mindestens ein NuGet-Paket, das auf diesem Computer fehlt. Verwenden Sie die Wiederherstellung von NuGet-Paketen, um die fehlenden Dateien herunterzuladen. Weitere Informationen finden Sie unter "http://go.microsoft.com/fwlink/?LinkID=322105". Die fehlende Datei ist "{0}".</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

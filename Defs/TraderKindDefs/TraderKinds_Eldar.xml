@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DefPackage-TraderKindDef>
+
+  <TraderKindDef>
+    <defName>Visitor_Eldar_Ranger</defName>
+    <label>ranger</label>
+    <stockGenerators>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Silver</thingDef>
+        <countRange>
+          <min>200</min>
+          <max>700</max>
+        </countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Component</thingDef>
+        <countRange>
+          <min>-2</min>
+          <max>5</max>
+        </countRange>
+      </li>
+      <li Class="StockGenerator_Category">
+        <categoryDef>FoodMeals</categoryDef>
+        <thingDefCountRange>
+          <min>1</min>
+          <max>2</max>
+        </thingDefCountRange>
+        <countRange>
+          <min>0</min>
+          <max>3</max>
+        </countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Medicine</thingDef>
+        <countRange>
+          <min>0</min>
+          <max>6</max>
+        </countRange>
+      </li>
+      <li Class="StockGenerator_Category">
+        <categoryDef>Drugs</categoryDef>
+        <thingDefCountRange>
+          <min>-1</min>
+          <max>2</max>
+        </thingDefCountRange>
+        <totalPriceRange>
+          <min>300</min>
+          <max>500</max>
+        </totalPriceRange>
+      </li>
+      <li Class="Corruption.StockGenerator_TagCorruption">
+        <tradeTag>Xeno_Eldar</tradeTag>
+        <thingDefCountRange>
+          <min>0</min>
+          <max>2</max>
+        </thingDefCountRange>
+        <countRange>
+          <min>-1</min>
+          <max>2</max>
+        </countRange>
+      </li>
+
+      <li Class="StockGenerator_BuyWeirdOrganic" />
+    </stockGenerators>
+  </TraderKindDef>
+
+</DefPackage-TraderKindDef>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<BodyPartGroupDefs>
+
+  <BodyPartGroupDef>
+    <defName>NeckConnector</defName>
+    <label>Neck Connector</label>
+    <listOrder>100</listOrder>
+  </BodyPartGroupDef>
+  
+  <BodyPartGroupDef>
+    <defName>ManipulatorSpine</defName>
+    <label>Manipulator Spine</label>
+    <listOrder>200</listOrder>
+  </BodyPartGroupDef>
+
+  <BodyPartGroupDef>
+    <defName>ManipulatorBlade</defName>
+    <label>Manipulator Blase</label>
+    <listOrder>200</listOrder>
+  </BodyPartGroupDef>
+
+</BodyPartGroupDefs>

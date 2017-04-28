@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <AlienRace.BackstoryDef>
+    <defName>DE_Trueborn</defName>
+    <title>Trueborn</title>
+    <baseDescription>NAME was naturally conceived and born by a Dark Eldar couple, giving him an elevated status in society.</baseDescription>
+    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeFemale>Female</bodyTypeFemale>
+    <slot>Childhood</slot>
+    <workDisables>
+      <li>PlantWork</li>
+      <li>ManualDumb</li>
+    </workDisables>
+    <skillGains>
+      <li>
+        <defName>Melee</defName>
+        <amount>3</amount>
+      </li>
+    </skillGains>
+    <spawnCategories>
+      <li>DarkEldar</li>
+    </spawnCategories>
+  </AlienRace.BackstoryDef>
+
+  <AlienRace.BackstoryDef>
+    <defName>DE_Halfborn</defName>
+    <title>Half born</title>
+    <baseDescription>NAME was grown in a vat in Commorragh. These creations usually end up as slaves.</baseDescription>
+    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeFemale>Female</bodyTypeFemale>
+    <slot>Childhood</slot>
+    <workDisables>
+      <li>Social</li>
+    </workDisables>
+    <skillGains>
+      <li>
+        <defName>Crafting</defName>
+        <amount>2</amount>
+      </li>
+    </skillGains>
+    <spawnCategories>
+      <li>DarkEldar</li>
+    </spawnCategories>
+  </AlienRace.BackstoryDef>
+
+  <AlienRace.BackstoryDef>
+    <defName>DE_Torturer</defName>
+    <title>Torturer</title>
+    <titleShort>Torturer</titleShort>
+    <baseDescription>NAME has served as torturer for a trueborn master, conferring skills to inflict pain beyond human comprehension.</baseDescription>
+    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeFemale>Female</bodyTypeFemale>
+    <slot>Adulthood</slot>
+    <workDisables>
+    </workDisables>
+    <skillGains>
+      <li>
+        <defName>Melee</defName>
+        <amount>4</amount>
+      </li>
+    </skillGains>
+    <spawnCategories>
+      <li>DarkEldar</li>
+    </spawnCategories>
+  </AlienRace.BackstoryDef>
+
+  <AlienRace.BackstoryDef>
+    <defName>DE_Fallen</defName>
+    <title>Fallen</title>
+    <titleShort>Fallen</titleShort>
+    <baseDescription>NAME was a high-ranking member of society before making the wrong enemies, leaving HIM disgraced and stripped of most possessions.</baseDescription>
+    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeFemale>Female</bodyTypeFemale>
+    <slot>Adulthood</slot>
+    <workDisables>
+      <li>PlantWork</li>
+      <li>ManualDumb</li>
+      <li>Cooking</li>
+    </workDisables>
+    <skillGains>
+      <li>
+        <defName>Shooting</defName>
+        <amount>4</amount>
+      </li>
+    </skillGains>
+    <spawnCategories>
+      <li>DarkEldar</li>
+    </spawnCategories>
+  </AlienRace.BackstoryDef>
+
+  <AlienRace.BackstoryDef>
+    <defName>DE_Gladiator</defName>
+    <title>Gladiator</title>
+    <titleShort>Gladiator</titleShort>
+    <baseDescription>NAME was thrown into the gladiatorial arenas of Commorragh as punishment, and survived. This opened the way back into the service of a Kabal.</baseDescription>
+    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeFemale>Female</bodyTypeFemale>
+    <slot>Adulthood</slot>
+    <workDisables>
+      <li>PlantWork</li>
+      <li>ManualDumb</li>
+      <li>Cooking</li>
+    </workDisables>
+    <skillGains>
+      <li>
+        <defName>Melee</defName>
+        <amount>5</amount>
+      </li>
+    </skillGains>
+    <spawnCategories>
+      <li>DarkEldar</li>
+    </spawnCategories>
+  </AlienRace.BackstoryDef>
+
+  <AlienRace.BackstoryDef>
+    <defName>DE_Gladiator</defName>
+    <title>Gladiator</title>
+    <titleShort>Gladiator</titleShort>
+    <baseDescription>NAME was thrown into the gladiatorial arenas of Commorragh as punishment, and survived. This opened the way back into the service of a Kabal.</baseDescription>
+    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeFemale>Female</bodyTypeFemale>
+    <slot>Adulthood</slot>
+    <workDisables>
+      <li>PlantWork</li>
+      <li>ManualDumb</li>
+      <li>Cooking</li>
+    </workDisables>
+    <skillGains>
+      <li>
+        <defName>Melee</defName>
+        <amount>5</amount>
+      </li>
+    </skillGains>
+    <spawnCategories>
+      <li>DarkEldar</li>
+    </spawnCategories>
+  </AlienRace.BackstoryDef>
+
+  <AlienRace.BackstoryDef>
+    <defName>DE_Intrigant</defName>
+    <title>Intrigant</title>
+    <titleShort>Mercenary</titleShort>
+    <baseDescription>NAME raised to his position by excelling in playing the labyrinthine politics of Dark Eldar society.</baseDescription>
+    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeFemale>Female</bodyTypeFemale>
+    <slot>Adulthood</slot>
+    <workDisables>
+      <li>PlantWork</li>
+      <li>ManualDumb</li>
+      <li>Cooking</li>
+    </workDisables>
+    <skillGains>
+      <li>
+        <defName>Social</defName>
+        <amount>5</amount>
+      </li>
+    </skillGains>
+    <spawnCategories>
+      <li>DarkEldar</li>
+    </spawnCategories>
+  </AlienRace.BackstoryDef>
+
+  <AlienRace.BackstoryDef>
+    <defName>DE_Intrigant</defName>
+    <title>Intrigant</title>
+    <titleShort>Mercenary</titleShort>
+    <baseDescription>NAME raised to his position by excelling in playing the labyrinthine politics of Dark Eldar society.</baseDescription>
+    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeFemale>Female</bodyTypeFemale>
+    <slot>Adulthood</slot>
+    <workDisables>
+      <li>PlantWork</li>
+      <li>ManualDumb</li>
+      <li>Cooking</li>
+    </workDisables>
+    <skillGains>
+      <li>
+        <defName>Social</defName>
+        <amount>5</amount>
+      </li>
+    </skillGains>
+    <spawnCategories>
+      <li>DarkEldar</li>
+    </spawnCategories>
+  </AlienRace.BackstoryDef>
+
+</Defs>

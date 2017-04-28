@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+
+  <ThingDef Name="BaseEldarGun" ParentName="BaseMakeableGun" Abstract="True">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <tradeability>Sellable</tradeability>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_Shuriken</defName>
+    <label>shuriken</label>
+    <graphicData>
+      <texPath>Things/Eldar/bullet_shuriken</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <DamageAmountBase>2</DamageAmountBase>
+      <Speed>65</Speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_ShurikenAW</defName>
+    <label>shuriken</label>
+    <graphicData>
+      <texPath>Things/Eldar/bullet_shuriken</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <DamageAmountBase>3</DamageAmountBase>
+      <Speed>65</Speed>
+    </projectile>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BaseBullet" Class="Corruption.ThingDef_LaserProjectile">
+   <thingClass>Corruption.Projectile_Laser</thingClass>
+   <defName>Bullet_Spinner</defName>
+   <label>spinner cloud</label>
+   <graphicData>
+		<texPath>Things/Projectile/Bullet_Shotgun</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+   <projectile>
+		<flyOverhead>false</flyOverhead>
+		<damageDef>Laser</damageDef>
+		<damageAmountBase>20</damageAmountBase>
+		<speed>125</speed>
+   </projectile>
+    <preFiringInitialIntensity>0</preFiringInitialIntensity>
+    <preFiringFinalIntensity>1</preFiringFinalIntensity>
+    <postFiringInitialIntensity>1</postFiringInitialIntensity>
+    <postFiringFinalIntensity>0</postFiringFinalIntensity>
+    <preFiringDuration>7</preFiringDuration>
+    <postFiringDuration>60</postFiringDuration>
+ </ThingDef>
+
+  <ThingDef ParentName="BaseEldarGun" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>EL_ShurikenPistol</defName>
+    <label>shuriken pistol</label>
+    <description>Xenotech handheld weapon.</description>
+    <weaponTags>
+      <li>E_Ranged</li>
+    </weaponTags>
+    <graphicData>
+      <texPath>Things/Eldar/Weapons/eldar_pistol</texPath>
+      <graphicClass>Graphic_Single</graphicClass>      		 <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <statBases>
+      <WorkToMake>132000</WorkToMake>
+      <MarketValue>2200</MarketValue>
+      <AccuracyTouch>0.98</AccuracyTouch>
+      <AccuracyShort>0.71</AccuracyShort>
+      <AccuracyMedium>0.50</AccuracyMedium>
+      <AccuracyLong>0.35</AccuracyLong>
+      <RangedWeapon_Cooldown>0.9</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Wraithbone>30</Wraithbone>
+      <Component>2</Component>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_Shuriken</projectileDef>
+        <warmupTime>1</warmupTime>
+        <burstShotCount>3</burstShotCount>
+        <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+        <range>24</range>
+        <soundCast>Shuriken_Small</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseEldarGun" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>EL_ShurikenRifle</defName>
+    <label>shuriken catapult</label>
+    <description>Xenotech rifle with a lot of power.</description>
+    <weaponTags>
+      <li>E_Ranged</li>
+    </weaponTags>
+    <graphicData>
+      <texPath>Things/Eldar/Weapons/eldar_gun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <soundInteract>InteractRifle</soundInteract>
+    <statBases>
+      <WorkToMake>920000</WorkToMake>
+      <MarketValue>3650</MarketValue>
+      <AccuracyTouch>0.70</AccuracyTouch>
+      <AccuracyShort>0.87</AccuracyShort>
+      <AccuracyMedium>0.77</AccuracyMedium>
+      <AccuracyLong>0.64</AccuracyLong>
+      <RangedWeapon_Cooldown>0.9</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Wraithbone>100</Wraithbone>
+      <Component>4</Component>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_Shuriken</projectileDef>
+        <warmupTime>1.5</warmupTime>
+        <range>35</range>
+        <burstShotCount>8</burstShotCount>
+        <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+        <soundCast>Shuriken_Small</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseEldarGun" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>EL_SniperRifle</defName>
+    <label>eldar longrifle</label>
+    <description>Xenotech rifle used by Eldar Rangers. Long range, great accuracy and power.</description>
+    <weaponTags>
+      <li>E_Ranger</li>
+    </weaponTags>
+    <graphicData>
+      <texPath>Things/Eldar/Weapons/eldar_longrifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <soundInteract>InteractRifle</soundInteract>
+    <statBases>
+      <WorkToMake>120000</WorkToMake>
+      <MarketValue>850</MarketValue>
+      <AccuracyTouch>0.50</AccuracyTouch>
+      <AccuracyShort>0.86</AccuracyShort>
+      <AccuracyMedium>0.86</AccuracyMedium>
+      <AccuracyLong>0.88</AccuracyLong>
+      <RangedWeapon_Cooldown>2.33</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>100</Steel>
+      <Component>6</Component>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_SniperRifle</projectileDef>
+        <warmupTime>6</warmupTime>
+        <range>45</range>
+        <soundCast>Shuriken_Longrifle</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BaseEldarGun" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>EL_Deathspinner</defName>
+    <label>shuriken catapult</label>
+    <description>Xenotech rifle with a lot of power. Fires a monofilamentous web that slices through targets.</description>
+    <weaponTags>
+      <li>E_Warpspider</li>
+    </weaponTags>
+    <graphicData>
+      <texPath>Things/Eldar/Weapons/eldar_deathspinner</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <soundInteract>InteractRifle</soundInteract>
+    <statBases>
+      <WorkToMake>920000</WorkToMake>
+      <MarketValue>3650</MarketValue>
+      <AccuracyTouch>0.9</AccuracyTouch>
+      <AccuracyShort>0.87</AccuracyShort>
+      <AccuracyMedium>0.77</AccuracyMedium>
+      <AccuracyLong>0.20</AccuracyLong>
+      <RangedWeapon_Cooldown>0.9</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Wraithbone>100</Wraithbone>
+      <Component>4</Component>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_Spinner</projectileDef>
+        <warmupTime>3</warmupTime>
+        <range>10</range>
+        <burstShotCount>2</burstShotCount>
+        <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+        <soundCast>Shuriken_Small</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseEldarGun" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>EL_Flamer</defName>
+    <label>eldar flamer</label>
+    <description>Xenotech flamer.</description>
+    <weaponTags>
+      <li>E_Ranged</li>
+    </weaponTags>
+    <graphicData>
+      <texPath>Things/Eldar/Weapons/eldar_flamer</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <soundInteract>InteractRifle</soundInteract>
+    <statBases>
+      <WorkToMake>920000</WorkToMake>
+      <MarketValue>3650</MarketValue>
+      <AccuracyTouch>0.70</AccuracyTouch>
+      <AccuracyShort>0.87</AccuracyShort>
+      <AccuracyMedium>0.77</AccuracyMedium>
+      <AccuracyLong>0.64</AccuracyLong>
+      <RangedWeapon_Cooldown>0.9</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Wraithbone>100</Wraithbone>
+      <Component>4</Component>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_FlameThrower</projectileDef>
+        <warmupTime>1.5</warmupTime>
+        <range>8</range>
+        <burstShotCount>20</burstShotCount>
+        <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+        <soundCast>FlameThrower</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+
+
+
+  <!-- ============================================================== -->
+
+  <ThingDef ParentName="BaseMeleeWeaponNoTag" Class="FactionColors.FactionItemDef">
+    <defName>Eldar_Sword</defName>
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <label>eldar sword</label>
+    <description>Xenotech blade.</description>
+    <weaponTags>
+      <li>E_Melee</li>
+    </weaponTags>
+    <techLevel>Spacer</techLevel>
+    <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
+    <graphicData>
+      <texPath>Things/Eldar/Weapons/eldar_sword</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <WorkToMake>1140000</WorkToMake>
+      <MarketValue>3650</MarketValue>
+      <MeleeWeapon_DamageAmount>20</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2.0</MeleeWeapon_Cooldown>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+        <soundCast>SlashMetal</soundCast>
+      </li>
+    </verbs>
+    <costList>
+      <Wraithbone>30</Wraithbone>
+      <Component>2</Component>
+    </costList>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseMeleeWeaponNoTag" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>Eldar_Spear</defName>
+    <label>eldar spear</label>
+    <description>Xenotech pole weapon.</description>
+    <weaponTags>
+      <li>E_Melee</li>
+    </weaponTags>
+    <techLevel>Spacer</techLevel>
+    <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
+    <graphicData>
+      <texPath>Things/Eldar/Weapons/eldar_spear</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <WorkToMake>1140000</WorkToMake>
+      <MarketValue>3650</MarketValue>
+      <MeleeWeapon_DamageAmount>15</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2.0</MeleeWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Wraithbone>30</Wraithbone>
+      <Component>2</Component>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+        <soundCast>SlashMetal</soundCast>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Corruption</Category>
+        <GainRate>0.1</GainRate>
+	    <UnlockedPsykerPowers>
+	      <li>PsykerPower_EldritchBolt</li>
+	    </UnlockedPsykerPowers>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseEldarGun" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>EL_ShurikenRifleDA</defName>
+    <label>shuriken catapult</label>
+    <description>Xenotech rifle with a lot of power.</description>
+    <weaponTags>
+      <li>E_DireAvengers</li>
+    </weaponTags>
+    <graphicData>
+      <texPath>Things/Eldar/DireAvengers/DHCatapult</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+    </graphicData>
+    <soundInteract>InteractRifle</soundInteract>
+    <statBases>
+      <WorkToMake>920000</WorkToMake>
+      <MarketValue>3650</MarketValue>
+      <AccuracyTouch>0.70</AccuracyTouch>
+      <AccuracyShort>0.89</AccuracyShort>
+      <AccuracyMedium>0.80</AccuracyMedium>
+      <AccuracyLong>0.70</AccuracyLong>
+      <RangedWeapon_Cooldown>0.9</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Wraithbone>100</Wraithbone>
+      <Component>4</Component>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_ShurikenAW</projectileDef>
+        <warmupTime>1.5</warmupTime>
+        <range>35</range>
+        <burstShotCount>7</burstShotCount>
+        <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+        <soundCast>Shuriken_Small</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+
+
+</ThingDefs>

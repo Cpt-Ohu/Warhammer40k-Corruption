@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+
+  <TabIGConsole>Imperium</TabIGConsole>
+
+  <ImperialInstitutions>Imperial Institutions</ImperialInstitutions>
+
+  <StandardOperations>Standard Operations</StandardOperations>
+  <AdvancedOperations>Advanved Operations</AdvancedOperations>
+
+  <MSU_NoPatient>No Patient</MSU_NoPatient>
+
+  <TabMSU>MSU</TabMSU>
+
+  <IG_CCM_ContactFaction>Try and contact the [0]</IG_CCM_ContactFaction>
+
+  <UseCCC>Use the CCC</UseCCC>
+
+  <ImperialFrequencies>Imperial Frequencies</ImperialFrequencies>
+
+  <UnknownFrequencies>Unknown Frequencies</UnknownFrequencies>
+
+  <StarmapObjectInfo>Name: {0}
+Diameter: {1} km
+
+Population Status: {2}
+</StarmapObjectInfo>
+
+
+  <CurrentWorldInfoRect>Name: {0}
+
+This is the planet you're based on. Click for communication options within the planetary bounds.
+</CurrentWorldInfoRect>
+
+  <EnterSurgicalUnit>Enter Surgical Unit</EnterSurgicalUnit>
+
+  <CarryPrisonerSurgicalUnit>Place prisoner {0} in Surgical Unit</CarryPrisonerSurgicalUnit>
+
+  <CarryDownedSurgicalUnit>Place downed {0} in Surgical Unit</CarryDownedSurgicalUnit>
+
+  <NoMSUOperations>Currently no operations on {0} queued</NoMSUOperations>
+
+  <AddStandardSurgery>Standard Surgery</AddStandardSurgery>
+  <AddAdvancedSurgery>Advanced Surgery</AddAdvancedSurgery>
+
+  <AllowedTithes>Allowed Tithes</AllowedTithes>
+  <TabTitheContainer>Tithes</TabTitheContainer>
+
+</LanguageData>

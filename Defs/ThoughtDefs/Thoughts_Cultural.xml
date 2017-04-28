@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<ThoughtDef>
+    <defName>CulturalTolerance</defName>
+    <workerClass>Corruption.ThoughtWorker_CulturalTolerance</workerClass>
+    <stages>
+      <li>
+        <label>Monocultural colony</label>
+        <description>There are no filthy alien races scuttling around MY colony...</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+      <li>
+        <label>Multicultural colony</label>
+        <description>I'm stuck here with some aliens. I resent that.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+      <li>
+        <label>Lost among aliens</label>
+        <description>I'm surrounded by aliens! Get me out of here!</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+      <li>
+        <label>Monocultural colony</label>
+        <description>There are no aliens around here. Rather boring.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+      <li>
+        <label>Multicultural colony</label>
+        <description>There are aliens in this colony. I'm looking forward to cultural exchanges.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

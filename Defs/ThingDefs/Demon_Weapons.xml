@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+
+  <ThingDef ParentName="BaseMeleeWeaponNoTag" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>Hellblade</defName>
+    <label>Hellblade</label>
+    <description>Demonic weapon of Khorne.</description>
+    <weaponTags>
+      <li>WeaponsKhorne</li>
+    </weaponTags>
+    <techLevel>Spacer</techLevel>
+    <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
+    <graphicData>
+      <texPath>Things/Chaos/Demons/BloodletterSword</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <WorkToMake>1140000</WorkToMake>
+      <MarketValue>3650</MarketValue>
+      <MeleeWeapon_DamageAmount>15</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2.0</MeleeWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>90</Steel>
+      <Component>2</Component>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Corruption</Category>
+        <GainRate>1.5</GainRate>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseMeleeWeaponNoTag" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>Plaguesword</defName>
+    <label>Plaguesword</label>
+    <description>Demonic weapon of Nurgle.</description>
+    <weaponTags>
+      <li>WeaponsNurgle</li>
+    </weaponTags>
+    <techLevel>Spacer</techLevel>
+    <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
+    <graphicData>
+      <texPath>Things/Chaos/Demons/NurglingSword</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <WorkToMake>1140000</WorkToMake>
+      <MarketValue>3650</MarketValue>
+      <MeleeWeapon_DamageAmount>10</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2.0</MeleeWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>90</Steel>
+      <Component>2</Component>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>CutNurgle</meleeDamageDef>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Corruption</Category>
+        <GainRate>1.5</GainRate>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseMeleeWeaponNoTag" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>Plague-Scythe</defName>
+    <label>Plague-Scythe</label>
+    <description>Demonic weapon of Nurgle.</description>
+    <weaponTags>
+      <li>WeaponsNurgle</li>
+    </weaponTags>
+    <techLevel>Spacer</techLevel>
+    <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
+    <graphicData>
+      <texPath>Things/Chaos/Demons/NurglingScythe</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <WorkToMake>1140000</WorkToMake>
+      <MarketValue>3650</MarketValue>
+      <MeleeWeapon_DamageAmount>14</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2.0</MeleeWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>90</Steel>
+      <Component>2</Component>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>CutNurgle</meleeDamageDef>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Corruption</Category>
+        <GainRate>1.5</GainRate>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseMeleeWeaponNoTag" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>Daemonette_Claw</defName>
+    <label>Daemonette Claw</label>
+    <description>The claw of Slaaneshi Daemonettes.</description>
+    <weaponTags>
+      <li>WeaponsSlaanesh</li>
+    </weaponTags>
+    <techLevel>Spacer</techLevel>
+    <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
+    <graphicData>
+      <texPath>Things/Chaos/Demons/Daemonette_Claw</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <WorkToMake>1140000</WorkToMake>
+      <MarketValue>3650</MarketValue>
+      <MeleeWeapon_DamageAmount>10</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>1.3</MeleeWeapon_Cooldown>
+    </statBases>
+    <menuHidden>true</menuHidden>
+    <destroyOnDrop>true</destroyOnDrop>
+    <costList>
+      <Steel>90</Steel>
+      <Component>2</Component>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+      </li>
+    </verbs>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_LightningStrikeTzeentch</defName>
+    <label>elemental orb</label>
+    <graphicData>
+      <texPath>Things/Chaos/Demons/AoE_Tzeentch</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <thingClass>Corruption.Projectile_Elemental</thingClass>
+    <projectile>
+      <damageDef>Flame</damageDef>
+      <damageAmountBase>0</damageAmountBase>
+      <speed>10</speed>
+    </projectile>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BaseMeleeWeaponNoTag" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>Tzeentch_Staff</defName>
+    <label>Staff of Tzeentch</label>
+    <description>A staff imbued with the power of the Lord of Change, able to unleash lightning.</description>
+    <weaponTags>
+      <li>WeaponsTzeentch</li>
+    </weaponTags>
+    <techLevel>Spacer</techLevel>
+    <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
+    <graphicData>
+      <texPath>Things/Chaos/Demons/TzeentchStaff</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <WorkToMake>1140000</WorkToMake>
+      <MarketValue>3650</MarketValue>
+      <AccuracyTouch>0.79</AccuracyTouch>
+      <AccuracyShort>0.42</AccuracyShort>
+      <AccuracyMedium>0.18</AccuracyMedium>
+      <AccuracyLong>0.06</AccuracyLong>
+      <RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>90</Steel>
+      <Component>2</Component>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_LightningStrikeTzeentch</projectileDef>
+        <forcedMissRadius>3.5</forcedMissRadius>
+        <ai_IsIncendiary>true</ai_IsIncendiary>
+        <warmupTime>5</warmupTime>
+        <range>35</range>
+        <soundCast>InfernoCannon_Fire</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>14</muzzleFlashScale>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Corruption</Category>
+        <GainRate>1.5</GainRate>
+      </li>
+    </comps>
+  </ThingDef>
+
+</ThingDefs>

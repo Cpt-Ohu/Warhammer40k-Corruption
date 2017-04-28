@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+			<!--=====Adulthood=====-->
+
+<!-- Generic -->
+
+  <AlienRace.BackstoryDef>
+    <defName>Astartes_Artisan</defName>
+    <title>Astartes weaponsmith</title>
+    <titleShort>Weaponsmith</titleShort>
+    <baseDescription>NAME serves the chapter as a Teachmarine. HECAP has dedicated HIS life to crafting weapons of war and anything else his brotehrs need.
+</baseDescription>
+
+    <bodyTypeMale>Hulk</bodyTypeMale>
+    <bodyTypeFemale>Hulk</bodyTypeFemale>
+    <slot>Adulthood</slot>
+
+    <workDisables>
+     <li>None</li>
+    </workDisables>
+  
+    <skillGains>
+      <li>
+        <defName>Crafting</defName>
+        <amount>6</amount>
+      </li>
+      <li>
+        <defName>Construction</defName>
+        <amount>6</amount>
+      </li>	  
+      <li>
+        <defName>Artistic</defName>
+        <amount>3</amount>
+      </li>
+      <li>
+        <defName>Shooting</defName>
+        <amount>2</amount>
+      </li>
+      <li>
+        <defName>Melee</defName>
+        <amount>2</amount>
+      </li>		  
+    </skillGains>
+	
+    <spawnCategories>
+      <li>Astartes</li>
+    </spawnCategories>
+    
+  </AlienRace.BackstoryDef>
+
+ 
+
+
+
+<AlienRace.BackstoryDef>
+    <defName>Astartes_Apothacary</defName>
+    <title>Apothacary</title>
+    <titleShort>apothacary</titleShort>
+    <baseDescription>NAME serves the chapter as an Apothacary. In his hands rests the future of the chapter and the care for the wounded.</baseDescription>
+
+    <bodyTypeMale>Hulk</bodyTypeMale>
+    <bodyTypeFemale>Hulk</bodyTypeFemale>
+    <slot>Adulthood</slot>
+
+    <workDisables>
+     <li>None</li>
+    </workDisables>
+  
+    <skillGains>
+      <li>
+        <defName>Medicine</defName>
+        <amount>8</amount>
+      </li>
+      <li>
+        <defName>Shooting</defName>
+        <amount>4</amount>
+      </li>
+      <li>
+        <defName>Melee</defName>
+        <amount>5</amount>
+      </li>		  
+    </skillGains>
+    
+    <spawnCategories>
+	 <li>Astartes</li>
+    </spawnCategories>
+  </AlienRace.BackstoryDef>
+
+
+
+
+  <AlienRace.BackstoryDef>
+    <defName>Astartes_Chaplain</defName>
+    <title>Chaplain</title>
+    <titleShort>chaplain</titleShort>
+    <baseDescription>NAME serves the chapter as a Chaplain - keeper of faith and purity.</baseDescription>
+
+    <bodyTypeMale>Hulk</bodyTypeMale>
+    <bodyTypeFemale>Hulk</bodyTypeFemale>
+    <slot>Adulthood</slot>
+
+    <workDisables>
+     <li>None</li>
+    </workDisables>
+  
+    <skillGains>
+      <li>
+        <defName>Social</defName>
+        <amount>8</amount>
+      </li>	
+      <li>
+        <defName>Shooting</defName>
+        <amount>4</amount>
+      </li>
+      <li>
+        <defName>Melee</defName>
+        <amount>5</amount>
+      </li>
+    </skillGains>
+    
+    <spawnCategories>
+      <li>Astartes</li>
+    </spawnCategories>
+    
+  </AlienRace.BackstoryDef>
+
+
+	<!--===============================  Childhood  ================================-->
+
+
+  <AlienRace.BackstoryDef>
+    <defName>Astartes_Guard</defName>
+    <title>Guard cadet</title>
+    <titleShort>guard cadet</titleShort>
+    <baseDescription>NAME was born on one of the more prosperous planets in the Imperium. HECAP was slated to join the Imperial Guard, but caught the eye of an Astartes who brought him to the aspirant trials.</baseDescription>
+
+    <bodyTypeMale>Thin</bodyTypeMale>
+
+    <slot>Childhood</slot>
+
+    <workDisables>
+     <li>None</li>
+    </workDisables>
+  
+    <skillGains>
+      <li>
+        <defName>Social</defName>
+        <amount>4</amount>
+      </li>
+      <li>
+        <defName>Shooting</defName>
+        <amount>2</amount>
+      </li>
+      <li>
+        <defName>Melee</defName>
+        <amount>2</amount>
+      </li>
+      <li>
+        <defName>Construction</defName>
+        <amount>2</amount>
+      </li>
+      <li>
+        <defName>Medicine</defName>
+        <amount>2</amount>
+      </li>	  
+    </skillGains>
+    
+    <spawnCategories>
+      <li>Astartes</li>
+    </spawnCategories>
+    
+  </AlienRace.BackstoryDef>
+
+
+
+  <AlienRace.BackstoryDef>
+    <defName>Astartes_HiveWorld</defName>
+    <title>Hive world aspirant</title>
+    <titleShort>aspirant</titleShort>
+    <baseDescription>NAME was born on the lower levels of a hive world. The overpopulation and fierce competition meant that survival required quick wit and tounge and a disposition for violence.</baseDescription>
+
+    <bodyTypeMale>Hulk</bodyTypeMale>
+    <slot>Childhood</slot>
+
+    <workDisables>
+     <li>None</li>
+    </workDisables>
+  
+    <skillGains>
+      <li>
+        <defName>Social</defName>
+        <amount>3</amount>
+      </li>
+      <li>
+        <defName>Shooting</defName>
+        <amount>4</amount>
+      </li>	  
+      <li>
+        <defName>Construction</defName>
+        <amount>3</amount>
+      </li>
+      <li>
+        <defName>Melee</defName>
+        <amount>2</amount>
+      </li>	  
+    </skillGains>
+    
+    <spawnCategories>
+      <li>Astartes</li>
+    </spawnCategories>
+    
+  </AlienRace.BackstoryDef>
+
+  <AlienRace.BackstoryDef>
+    <defName>Astartes_DeathWorld</defName>
+    <title>Death world aspirant</title>
+    <titleShort>dwaspirant</titleShort>
+    <baseDescription>NAME was born on an imperial Death World, where every day was a struggle for survival. HECAP learned how to deal with flora and fauna and how to be a fearsome hunter.</baseDescription>
+
+    <bodyTypeMale>Hulk</bodyTypeMale>
+    <slot>Childhood</slot>
+
+    <workDisables>
+     <li>None</li>
+    </workDisables>
+  
+    <skillGains>
+      <li>
+        <defName>Melee</defName>
+        <amount>4</amount>
+      </li>
+      <li>
+        <defName>Shooting</defName>
+        <amount>2</amount>
+      </li>	  
+      <li>
+        <defName>Animals</defName>
+        <amount>2</amount>
+      </li>
+      <li>
+        <defName>Growing</defName>
+        <amount>4</amount>
+      </li>
+    </skillGains>
+    <spawnCategories>
+      <li>Astartes</li>
+    </spawnCategories>
+
+  </AlienRace.BackstoryDef>
+
+</Defs>

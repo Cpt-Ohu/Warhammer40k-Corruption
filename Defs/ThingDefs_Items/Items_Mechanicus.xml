@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>MecComponent_Energy</defName>
+    <label>mechanicus energy template</label>
+    <description>A compact assembly of gears, cogitators and energy packs designed for installing advanced power generators.</description>
+    <graphicData>
+      <texPath>Things/Mechanicus/Templates/MecTemplate_Energy</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>10</stackLimit>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>800</MarketValue>
+      <Mass>1.5</Mass>
+      <Flammability>1.0</Flammability>
+			<DeteriorationRate>1.0</DeteriorationRate>
+		</statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>IG_MecTemplates</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>MecComponent_Weapon</defName>
+    <label>mechanicus weapon template</label>
+    <description>A compact assembly of gears, cogitators and energy packs designed for installing advanced stationary weapons.</description>
+    <graphicData>
+      <texPath>Things/Mechanicus/Templates/MecTemplate_Weapon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>10</stackLimit>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>1200</MarketValue>
+      <Mass>1.5</Mass>
+      <Flammability>1.0</Flammability>
+			<DeteriorationRate>1.0</DeteriorationRate>
+		</statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>IG_MecTemplates</li>
+    </thingCategories>
+  </ThingDef>
+    
+  <ThingDef ParentName="ResourceBase">
+    <defName>MecComponent_General</defName>
+    <label>mechanicus common template</label>
+    <description>A compact assembly of gears, cogitators and energy packs used in a number of advanced technology.</description>
+    <graphicData>
+      <texPath>Things/Mechanicus/Templates/MecTemplate_General</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>10</stackLimit>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>600</MarketValue>
+      <Mass>1.5</Mass>
+      <Flammability>1.0</Flammability>
+			<DeteriorationRate>1.0</DeteriorationRate>
+		</statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>IG_MecTemplates</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>PowerArmorTemplate</defName>
+    <label>power armor template</label>
+    <description>An assembly of cogitators, power banks and armor plating that will yield a power armor after final assembly.</description>
+    <graphicData>
+      <texPath>Things/Mechanicus/Templates/MecTemplate_General</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>10</stackLimit>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <MarketValue>3500</MarketValue>
+      <Mass>15</Mass>
+      <Flammability>1.0</Flammability>
+			<DeteriorationRate>0.3</DeteriorationRate>
+		</statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>IG_MecTemplates</li>
+    </thingCategories>
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>MechanicumAssemblyBench</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>PoweredArmor</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <MecComponent_General>2</MecComponent_General>
+      <MecComponent_Energy>1</MecComponent_Energy>
+      <Component>5</Component>
+      <Ceramite>75</Ceramite>
+      <Plasteel>75</Plasteel>
+    </costList>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>TwinLinkedBolterTemplate</defName>
+    <label>twin linked bolter</label>
+    <description>A twin-linked heavy bolter, usually installed on vehicles or stationary defenses.</description>
+    <graphicData>
+      <texPath>Things/Mechanicus/Templates/MecTemplate_Crate</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>1</stackLimit>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <MarketValue>3500</MarketValue>
+      <Mass>15</Mass>
+      <Flammability>1.0</Flammability>
+			<DeteriorationRate>0.3</DeteriorationRate>
+		</statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>IG_MecTemplates</li>
+    </thingCategories>
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>MechanicumAssemblyBench</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>MecTec_ManufacturingLicenceIII</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <MecComponent_Weapon>2</MecComponent_Weapon>
+      <MecComponent_General>1</MecComponent_General>
+      <Component>5</Component>
+      <Steel>150</Steel>
+    </costList>
+    <tickerType>Normal</tickerType>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="Corruption.Ships.CompProperties_ShipWeapon">
+        <compClass>Corruption.Ships.CompShipWeapon</compClass>
+        <availableToShips>
+      	<li>OHUDropShip</li>
+      	<li>AquilaLander</li>
+      	<li>Valkyrie</li>
+	   </availableToShips>
+        <weaponSystemType>LightCaliber</weaponSystemType>
+        <TurretToInstall>ShipTurret_TwinBolter</TurretToInstall>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>PlasmaCannonTemplate</defName>
+    <label>Plasma Cannon Template</label>
+    <description>A plasma cannon, usually installed on vehicles or stationary defenses.</description>
+    <graphicData>
+      <texPath>Things/Mechanicus/Templates/MecTemplate_Crate</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>1</stackLimit>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <MarketValue>3500</MarketValue>
+      <Mass>15</Mass>
+      <Flammability>1.0</Flammability>
+			<DeteriorationRate>0.3</DeteriorationRate>
+		</statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>IG_MecTemplates</li>
+    </thingCategories>
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>MechanicumAssemblyBench</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>MecTec_ManufacturingLicenceIII</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <MecComponent_Weapon>2</MecComponent_Weapon>
+      <MecComponent_General>1</MecComponent_General>
+      <Component>5</Component>
+      <Steel>150</Steel>
+    </costList>
+    <tickerType>Normal</tickerType>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="Corruption.Ships.CompProperties_ShipWeapon">
+        <compClass>Corruption.Ships.CompShipWeapon</compClass>
+        <availableToShips>
+      	<li>OHUDropShip</li>
+      	<li>AquilaLander</li>
+      	<li>Valkyrie</li>
+	   </availableToShips>
+        <weaponSystemType>LightCaliber</weaponSystemType>
+        <TurretToInstall>ShipTurret_PlasmaCannon</TurretToInstall>
+
+      </li>
+    </comps>
+  </ThingDef>
+
+
+</ThingDefs>

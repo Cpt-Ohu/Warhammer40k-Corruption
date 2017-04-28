@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <!-- ==========================Standard=============================== -->
+
+  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+    <defName>Sororitas_PowerArmor</defName>
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <label>sororitas power armor</label>
+    <description>Sororitas power armor. May not be used by outsiders.</description>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>PoweredArmor</researchPrerequisite>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/Sororitas/Armor/SororitasArmorIcon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <WorkToMake>3250000</WorkToMake>
+      <MaxHitPoints>500</MaxHitPoints>
+      <MarketValue>1200</MarketValue>
+      <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.65</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.30</ArmorRating_Heat>
+      <Insulation_Cold>-45</Insulation_Cold>
+    </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.05</MoveSpeed>
+    </equippedStatOffsets>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <costList>
+      <Component>18</Component>
+      <Wraithbone>135</Wraithbone>
+    </costList>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Sororitas/Armor/SororitasArmor</worngraphicPath>
+      <layers>
+        <li>Shell</li>
+      </layers>
+      <commonality>1</commonality>
+      <tags>
+        <li>Sororitas_Apparel</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Sororitas_Apparel</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ArmorHelmetMakeableBase" Class="FactionColors.ApparelUniformDef">
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <defName>Sororitas_PowerArmorHelmet</defName>
+    <label>sororitas power armor helmet</label>
+    <description>Sororitas helmet. Use with care.</description>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>PoweredArmor</researchPrerequisite>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/Sororitas/Armor/SororitasHelmetIcon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <statBases>
+      <WorkToMake>60000</WorkToMake>
+      <MaxHitPoints>160</MaxHitPoints>
+      <MarketValue>1000</MarketValue>
+      <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.6</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.5</ArmorRating_Heat>
+      <ArmorRating_Electric>0</ArmorRating_Electric>
+      <Insulation_Cold>-3</Insulation_Cold>
+      <Insulation_Heat>3</Insulation_Heat>
+    </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.04</MoveSpeed>
+      <ShootingAccuracy>0.04</ShootingAccuracy>
+    </equippedStatOffsets>
+    <costList>
+      <Component>7</Component>
+      <Wraithbone>60</Wraithbone>
+    </costList>
+    <apparel>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Sororitas/Armor/SororitasHelmet</worngraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <commonality>5</commonality>
+      <tags>
+        <li>Sororitas_Apparel</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Sororitas_Apparel</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ArmorHelmetMakeableBase">
+    <defName>Sororitas_Cowl</defName>
+    <label>sororitas cowl</label>
+    <description>Sororitas cowl. Use with care.</description>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>PoweredArmor</researchPrerequisite>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/Sororitas/Armor/SororitasCowlIcon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <statBases>
+      <WorkToMake>60000</WorkToMake>
+      <MaxHitPoints>120</MaxHitPoints>
+      <MarketValue>200</MarketValue>
+      <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.2</ArmorRating_Heat>
+      <ArmorRating_Electric>0</ArmorRating_Electric>
+      <Insulation_Cold>-5</Insulation_Cold>
+      <Insulation_Heat>3</Insulation_Heat>
+    </statBases>
+    <equippedStatOffsets>
+      <MentalBreakThreshold>0.1</MentalBreakThreshold>
+      <SocialImpact>0.1</SocialImpact>
+    </equippedStatOffsets>
+    <costList>
+      <Component>7</Component>
+      <Wraithbone>60</Wraithbone>
+    </costList>
+    <apparel>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Sororitas/Armor/SororitasCowl</worngraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <commonality>5</commonality>
+      <tags>
+        <li>Sororitas_Apparel</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Sororitas_Apparel</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+  </ThingDef>
+
+	<ThingDef ParentName="ApparelBase">
+		<thingClass>PersonalShield</thingClass>
+		<defName>Apparel_Rosarius</defName>
+		<label>rosarius</label>
+		<description>A symbol of the Adeptus Munitorum harboring a single-person energy shield device. It will attempt to stop any rapidly-moving projectile or energy attack that comes from a distance. It does nothing against melee attacks or shots from point-blank range. It also prevents firing past touch range. </description>
+    <graphicData>
+      <texPath>Things/Sororitas/Armor/SororitasRosarius</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+		<statBases>
+			<MarketValue>1900</MarketValue>
+      <PersonalShieldRechargeRate>0.19</PersonalShieldRechargeRate>
+      <PersonalShieldEnergyMax>1.5</PersonalShieldEnergyMax>
+    </statBases>
+    <thingCategories>
+      <li>Sororitas_Support</li>
+    </thingCategories>
+    <apparel>
+			<bodyPartGroups>
+				<li>Torso</li>
+			</bodyPartGroups>
+			<layers>
+				<li>Accessory</li>
+			</layers>
+			<commonality>1</commonality>
+			<tags>
+				<li>PersonalShield</li>
+			</tags>
+		</apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(0.33,0.33,0.33,1)</only>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(0.65,0.65,0.65,1)</only>
+        </li>
+        <li>
+          <weight>6</weight>
+          <min>RGBA(0.3,0.3,0.3,1)</min>
+          <max>RGBA(0.5,0.5,0.5,1)</max>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(0.9,0.9,0.9,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+	</ThingDef>
+
+
+
+</ThingDefs>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <MentalStateDef Abstract="True" Name="BaseMentalState">
+    <minTicksBeforeRecovery>2000</minTicksBeforeRecovery>
+    <recoveryMtbDays>0.3</recoveryMtbDays>
+  </MentalStateDef>
+
+  <MentalStateDef ParentName="BaseMentalState">
+    <defName>LustViolent</defName>
+    <stateClass>MentalState_Berserk</stateClass>
+    <label>violent lust</label>
+    <category>Aggro</category>
+    <moodRecoveryThought>Catharsis</moodRecoveryThought>
+    <blockNormalThoughts>true</blockNormalThoughts>
+    <nameColor>(0.9,0.2,0.5)</nameColor>
+    <beginLetterLabel>Lust(Violent)</beginLetterLabel>
+    <beginLetter>{0} is bent on killing something!</beginLetter>
+    <beginLetterType>BadUrgent</beginLetterType>
+    <minTicksBeforeRecovery>2000</minTicksBeforeRecovery>
+    <recoveryMtbDays>0.3</recoveryMtbDays>
+    <maxTicksBeforeRecovery>10000</maxTicksBeforeRecovery>
+    <recoveryMessage>{0}'s lust for bloodshed has subsided.</recoveryMessage>
+    <baseInspectLine>Mental state: Violent Lust</baseInspectLine>
+    <recoverFromSleep>true</recoverFromSleep>
+    <recoverFromDowned>true</recoverFromDowned>
+  </MentalStateDef>
+
+  <MentalStateDef ParentName="BaseMentalState">
+    <defName>KhorneKillWeak</defName>
+    <stateClass>Corruption.MentalState_KhorneKillWeak</stateClass>
+    <label>kill the weak</label>
+    <category>Aggro</category>
+    <moodRecoveryThought>Catharsis</moodRecoveryThought>
+    <blockNormalThoughts>true</blockNormalThoughts>
+    <nameColor>(0.9,0.2,0.5)</nameColor>
+    <beginLetterLabel>Slaughterer!</beginLetterLabel>
+    <beginLetter>{0} is going to slaughter prisoners!</beginLetter>
+    <beginLetterType>BadUrgent</beginLetterType>
+    <minTicksBeforeRecovery>4000</minTicksBeforeRecovery>
+    <recoveryMtbDays>0.3</recoveryMtbDays>
+    <maxTicksBeforeRecovery>10000</maxTicksBeforeRecovery>
+    <recoveryMessage>{0}'s lust for bloodshed has subsided.</recoveryMessage>
+    <baseInspectLine>Mental state: Killing the weak</baseInspectLine>
+    <recoverFromSleep>true</recoverFromSleep>
+    <recoverFromDowned>true</recoverFromDowned>
+  </MentalStateDef>
+
+</Defs>

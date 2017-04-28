@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <StuffCategoryDef>
+    <defName>AdvancedAlloy</defName>
+    <label>advanced alloy</label>
+  </StuffCategoryDef>
+
+  <StuffCategoryDef>
+    <defName>EldarAlloy</defName>
+    <label>eldar alloy</label>
+  </StuffCategoryDef>
+
+</Defs>

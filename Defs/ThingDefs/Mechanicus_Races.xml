@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <ThingDef ParentName="BasePawn" Name="BaseServitor" Abstract="True">
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <statBases>
+      <PsychicSensitivity>0</PsychicSensitivity>
+      <ToxicSensitivity>0.5</ToxicSensitivity>
+      <Flammability>0.5</Flammability>
+      <ComfyTemperatureMin>-20</ComfyTemperatureMin>
+      <ComfyTemperatureMax>60</ComfyTemperatureMax>
+    </statBases>
+    <race>
+      <needsRest>false</needsRest>
+      <hasGenders>false</hasGenders>
+      <foodType>None</foodType>
+    </race>
+    <comps>
+      <li>
+        <compClass>Corruption.CompThoughtlessAutomaton</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+    <AlienRace.ThingDef_AlienRace ParentName="BasePawn">
+
+    <defName>Alien_Mechanicus_Member</defName>
+    <label>Human</label>
+    <description>A tech-enhanced and possibly gene-enhanced human.</description>
+    <uiIconPath>Things/Pawn/Humanlike/UI/IconHuman</uiIconPath>
+
+
+	<alienRace>
+        <generalSettings>
+            <MaleGenderProbability>0.5</MaleGenderProbability>
+            <PawnsSpecificBackstories>true</PawnsSpecificBackstories>
+            <ImmuneToAge>true</ImmuneToAge>
+			<ForcedRaceTraitEntries>
+            </ForcedRaceTraitEntries>
+			<alienPartGenerator>
+                <aliencrowntypes>
+	  <li>MechHeadA</li>
+	  <li>MechHeadB</li>
+	  <li>MechHeadC</li>
+	  <li>MechHeadD</li>
+	  <li>MechHeadE</li>
+                </aliencrowntypes>
+                <alienbodytypes>
+					<li>Hulk</li>
+					<li>Thin</li>
+					<li>Male</li>
+					<li>Female</li>
+					<li>Fat</li>
+                </alienbodytypes>
+                <alienskincolorgen Class="ColorGenerator_Options">
+                    <options>
+                        <li>
+							<weight>5</weight>
+							<only>RGBA(1.00,1.00,1.00,1)</only>
+						</li>
+                    </options>
+                </alienskincolorgen>
+
+                <customDrawSize>(1, 1)</customDrawSize>
+                <customPortraitDrawSize>(1, 1)</customPortraitDrawSize>
+            </alienPartGenerator>
+        </generalSettings>
+		<graphicPaths>
+            <li>
+                <head>Things/Mechanicus/MechanicusHeads/</head>
+                <body>Things/Mechanicus/Bodies/</body>
+            </li>
+        </graphicPaths>
+		<hairSettings>
+            <HasHair>false</HasHair>
+            <GetsGreyAt>5000</GetsGreyAt>
+        </hairSettings>
+
+		<relationSettings>
+            <relationChanceModifierChild>1</relationChanceModifierChild>
+            <relationChanceModifierExLover>1</relationChanceModifierExLover>
+            <relationChanceModifierExSpouse>1</relationChanceModifierExSpouse>
+            <relationChanceModifierFiance>1</relationChanceModifierFiance>
+            <relationChanceModifierLover>1</relationChanceModifierLover>
+            <relationChanceModifierParent>1</relationChanceModifierParent>
+            <relationChanceModifierSibling>1</relationChanceModifierSibling>
+            <relationChanceModifierSpouse>1</relationChanceModifierSpouse>
+        </relationSettings>
+	</alienRace>
+
+    <statBases>
+      <MarketValue>1750</MarketValue>
+      <MoveSpeed>4.61</MoveSpeed>
+      <Flammability>1.0</Flammability>
+      <ComfyTemperatureMin>12</ComfyTemperatureMin>
+      <ComfyTemperatureMax>32</ComfyTemperatureMax>
+      <LeatherAmount>20</LeatherAmount>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <defaultCooldownTime>1.75</defaultCooldownTime>
+        <meleeDamageBaseAmount>8</meleeDamageBaseAmount>
+        <meleeDamageDef>Blunt</meleeDamageDef>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <defaultCooldownTime>1.75</defaultCooldownTime>
+        <meleeDamageBaseAmount>8</meleeDamageBaseAmount>
+        <meleeDamageDef>Blunt</meleeDamageDef>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+    </verbs>
+    <race>
+      <thinkTreeMain>Humanlike</thinkTreeMain>
+      <thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
+      <intelligence>Humanlike</intelligence>
+      <makesFootprints>true</makesFootprints>
+      <lifeExpectancy>2000</lifeExpectancy>
+      <leatherColor>(211,194,143)</leatherColor>
+      <leatherCommonalityFactor>0.01</leatherCommonalityFactor>
+      <leatherInsulation>0.70</leatherInsulation>
+      <nameCategory>HumanStandard</nameCategory>
+      <body>Human</body>
+      <baseBodySize>1</baseBodySize>
+      <baseHealthScale>1.5</baseHealthScale>
+      <foodType>OmnivoreHuman</foodType>
+      <baseHungerRate>0.2</baseHungerRate>
+      <gestationPeriodDays>45</gestationPeriodDays>
+      <litterSizeCurve>
+        <points>
+          <li>(0.5, 0)</li>
+          <li>(1, 1)</li>
+          <li>(1.01, 0.02)</li>
+          <li>(3.5, 0)</li>
+        </points>
+      </litterSizeCurve>
+      <lifeStageAges>
+        <li>
+          <def>HumanlikeBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>HumanlikeToddler</def>
+          <minAge>1.2</minAge>
+        </li>
+        <li>
+          <def>HumanlikeChild</def>
+          <minAge>4</minAge>
+        </li>
+        <li>
+          <def>HumanlikeTeenager</def>
+          <minAge>13</minAge>
+        </li>
+        <li>
+          <def>HumanlikeAdult</def>
+          <minAge>18</minAge>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
+      <specialshadowData>
+        <volume>(0.3, 0.8, 0.4)</volume>
+        <offset>(0,0,-0.3)</offset>
+      </specialshadowData>
+      <ageGenerationCurve>
+        <points>
+          <li>(14,0)</li>
+          <li>(30,100)</li>
+          <li>(40,100)</li>
+          <li>(70,30)</li>
+          <li>(90,18)</li>
+          <li>(120,10)</li>
+          <li>(150,3)</li>
+          <li>(200,0)</li>
+        </points>
+      </ageGenerationCurve>
+      <hediffGiverSets>
+        <li>OrganicStandard</li>
+      </hediffGiverSets>	
+    </race>
+    <recipes>
+      <li>InstallPowerClaw</li>
+      <li>InstallScytherBlade</li>
+      <li>InstallBionicEye</li>
+      <li>InstallBionicArm</li>
+      <li>InstallBionicLeg</li>
+      <li>InstallSimpleProstheticArm</li>
+      <li>InstallSimpleProstheticLeg</li>
+      <li>InstallPegLeg</li>
+      <li>InstallDenture</li>
+      <li>InstallJoywire</li>
+      <li>InstallPainstopper</li>
+      <li>InstallNaturalHeart</li>
+      <li>InstallNaturalLung</li>
+      <li>InstallNaturalKidney</li>
+      <li>InstallNaturalLiver</li>
+      <li>ExciseCarcinoma</li>
+      <li>RemoveBodyPart</li>
+      <li>Euthanize</li>
+    </recipes>
+	<comps>
+     <li>
+        <compClass>Corruption.CompThoughtlessAutomaton</compClass>
+      </li>
+    </comps>
+  </AlienRace.ThingDef_AlienRace>
+
+
+
+
+
+  <AlienRace.ThingDef_AlienRace ParentName="BasePawn">
+    <defName>Mechanicum_Servitor</defName>
+    <label>servitor</label>
+    <description>A standard servitor. Maybe it was a vatgrown blank, maybe a convicted criminal. Whatever it was, not it's only capable of rudimentary tasks and closer to a machine than a human.</description>
+
+	<alienRace>
+        <generalSettings>
+            <MaleGenderProbability>0.5</MaleGenderProbability>
+            <PawnsSpecificBackstories>true</PawnsSpecificBackstories>
+            <ImmuneToAge>false</ImmuneToAge>
+			<ForcedRaceTraitEntries>
+            </ForcedRaceTraitEntries>
+			<alienPartGenerator>
+                <aliencrowntypes>
+	  <li>MechHeadA</li>
+	  <li>MechHeadB</li>
+	  <li>MechHeadC</li>
+	  <li>MechHeadD</li>
+                </aliencrowntypes>
+                <alienbodytypes>
+					<li>Hulk</li>
+					<li>Thin</li>
+					<li>Male</li>
+					<li>Female</li>
+					<li>Fat</li>
+                </alienbodytypes>
+                <alienskincolorgen Class="ColorGenerator_Options">
+                    <options>
+                        <li>
+							<weight>5</weight>
+							<only>RGBA(1.00,1.00,1.00,1)</only>
+						</li>
+                    </options>
+                </alienskincolorgen>
+
+                <customDrawSize>(1, 1)</customDrawSize>
+                <customPortraitDrawSize>(1, 1)</customPortraitDrawSize>
+            </alienPartGenerator>
+        </generalSettings>
+		<graphicPaths>
+            <li>
+                <head>Things/Mechanicus/MechanicusHeads/</head>
+                <body>Things/Mechanicus/Bodies/</body>
+            </li>
+        </graphicPaths>
+		<hairSettings>
+            <HasHair>false</HasHair>
+            <GetsGreyAt>5000</GetsGreyAt>
+        </hairSettings>
+
+		<relationSettings>
+            <relationChanceModifierChild>1</relationChanceModifierChild>
+            <relationChanceModifierExLover>1</relationChanceModifierExLover>
+            <relationChanceModifierExSpouse>1</relationChanceModifierExSpouse>
+            <relationChanceModifierFiance>1</relationChanceModifierFiance>
+            <relationChanceModifierLover>1</relationChanceModifierLover>
+            <relationChanceModifierParent>1</relationChanceModifierParent>
+            <relationChanceModifierSibling>1</relationChanceModifierSibling>
+            <relationChanceModifierSpouse>1</relationChanceModifierSpouse>
+        </relationSettings>
+	</alienRace>
+
+
+    <statBases>
+      <MoveSpeed>4.5</MoveSpeed>
+      <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.10</ArmorRating_Heat>
+      <MeatAmount>10</MeatAmount>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <defaultCooldownTime>1.75</defaultCooldownTime>
+        <meleeDamageBaseAmount>8</meleeDamageBaseAmount>
+        <meleeDamageDef>Blunt</meleeDamageDef>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <defaultCooldownTime>1.75</defaultCooldownTime>
+        <meleeDamageBaseAmount>8</meleeDamageBaseAmount>
+        <meleeDamageDef>Blunt</meleeDamageDef>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+    </verbs>
+    <race>
+      <intelligence>ToolUser</intelligence>
+      <thinkTreeMain>Humanlike</thinkTreeMain>
+      <body>Human</body>
+      <baseBodySize>1.0</baseBodySize>
+      <baseHealthScale>1.2</baseHealthScale>
+      <trainableIntelligence>Advanced</trainableIntelligence>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+      <soundCallIntervalRange>
+        <min>1000</min>
+        <max>2000</max>
+      </soundCallIntervalRange>
+      <soundMeleeHitPawn>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_MechanoidSlash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
+    </race>
+    <recipes>
+      <li>RemoveMechanoidBodyPart</li>
+      <li>ShutDownMechanoid</li>
+    </recipes>
+    <butcherProducts>
+      <Steel>50</Steel>
+      <Plasteel>15</Plasteel>
+      <Component>2</Component>
+    </butcherProducts>
+    <comps>
+      <li>
+        <compClass>CompColorable</compClass>
+      </li>
+      <li>
+        <compClass>FactionColors.CompRenderToolUserApparel</compClass>
+      </li>
+    </comps>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(0.38,0.27,0.14,1)</only>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(0.5,0.35,0.18,1)</only>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(0.9,0.62,0.35,1)</only>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.0,0.94,0.74,1)</only>
+        </li>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.0,0.94,0.84,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+
+
+  </AlienRace.ThingDef_AlienRace>
+
+  <ThingDef ParentName="BaseServitor">
+    <defName>Mechanicum_ServoSkull</defName>
+    <label>servitor</label>
+    <description>A standard ServoSkull. Fast and deadly if equipped properly.</description>
+    <statBases>
+      <MoveSpeed>7.5</MoveSpeed>
+      <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.10</ArmorRating_Heat>
+      <MeatAmount>0</MeatAmount>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <defaultCooldownTime>1</defaultCooldownTime>
+        <meleeDamageBaseAmount>5</meleeDamageBaseAmount>
+        <meleeDamageDef>Cut</meleeDamageDef>
+        <linkedBodyPartsGroup>ManipulatorBlade</linkedBodyPartsGroup>
+      </li>
+    </verbs>
+    <race>
+      <intelligence>ToolUser</intelligence>
+      <thinkTreeMain>Humanlike</thinkTreeMain>
+      <body>ServoSkull</body>
+      <baseBodySize>1.0</baseBodySize>
+      <baseHealthScale>1.2</baseHealthScale>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+        </li>
+      </lifeStageAges>
+      <soundCallIntervalRange>
+        <min>1000</min>
+        <max>2000</max>
+      </soundCallIntervalRange>
+      <soundMeleeHitPawn>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_MechanoidSlash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
+    </race>
+    <recipes>
+      <li>RemoveMechanoidBodyPart</li>
+      <li>ShutDownMechanoid</li>
+    </recipes>
+    <butcherProducts>
+      <Steel>10</Steel>
+      <Plasteel>5</Plasteel>
+      <Component>1</Component>
+    </butcherProducts>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>1.5</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0.1</chanceNeverExplodeFromDamage>
+      </li>
+    </comps>
+  </ThingDef>
+
+</ThingDefs>

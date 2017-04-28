@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RecipeDefs>
+
+	<RecipeDef>
+    <defName>MakeMecTemplateEnergy</defName>
+    <label>make energy template</label>
+    <description>Make a weapon template.</description>
+    <jobString>Creating template.</jobString>
+    <workSpeedStat>SmithingSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>15000</workAmount>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Component</li>
+          </thingDefs>
+        </filter>
+        <count>6</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Component</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <MecComponent_General>1</MecComponent_General>
+    </products>
+		<skillRequirements>
+			<li>
+				<skill>Crafting</skill>
+				<minLevel>5</minLevel>
+			</li>
+		</skillRequirements>
+    <workSkill>Crafting</workSkill>
+    <recipeUsers>
+	<li>MechanicumAssemblyBench</li>
+    </recipeUsers>
+  </RecipeDef>
+
+	<RecipeDef>
+    <defName>MakeMecTemplateWeapon</defName>
+    <label>make weapon template</label>
+    <description>Make a weapon template.</description>
+    <jobString>Creating template.</jobString>
+    <workSpeedStat>SmithingSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>15000</workAmount>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Component</li>
+          </thingDefs>
+        </filter>
+        <count>6</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Component</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <MecComponent_Weapon>1</MecComponent_Weapon>
+    </products>
+		<skillRequirements>
+			<li>
+				<skill>Crafting</skill>
+				<minLevel>5</minLevel>
+			</li>
+		</skillRequirements>
+    <workSkill>Crafting</workSkill>
+    <recipeUsers>
+	<li>MechanicumAssemblyBench</li>
+    </recipeUsers>
+  </RecipeDef>
+
+	<RecipeDef>
+    <defName>MakeMecTemplateGenral</defName>
+    <label>make all-purpose template</label>
+    <description>Make an all-purpose template.</description>
+    <jobString>Creating template.</jobString>
+    <workSpeedStat>SmithingSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>9000</workAmount>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Component</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Component</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <MecComponent_General>1</MecComponent_General>
+    </products>
+		<skillRequirements>
+			<li>
+				<skill>Crafting</skill>
+				<minLevel>5</minLevel>
+			</li>
+		</skillRequirements>
+    <workSkill>Crafting</workSkill>
+    <recipeUsers>
+	<li>MechanicumAssemblyBench</li>
+    </recipeUsers>
+  </RecipeDef>
+
+</RecipeDefs>

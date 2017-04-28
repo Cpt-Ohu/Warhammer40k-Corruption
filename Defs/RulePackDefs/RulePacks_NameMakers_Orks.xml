@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<NameMakerDefs>
+
+  <RulePackDef>
+    <defName>NamerOrkPerson</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->[orkname]</li>
+        <li>name->[orkpref] [orkname]</li>
+        <li>name->[orkname] [orksuff]</li>
+      </rulesStrings>
+      <rulesRaw>
+        <li Class="Rule_File">
+          <keyword>orkname</keyword>
+          <path>NameBanks/OrkNames</path>
+        </li>
+        <li Class="Rule_File">
+          <keyword>orkpref</keyword>
+          <path>NameBanks/OrkPref</path>
+        </li>
+        <li Class="Rule_File">
+          <keyword>orksuff</keyword>
+          <path>NameBanks/OrkSuff</path>
+        </li>
+      </rulesRaw>
+    </rulePack>
+  </RulePackDef>
+
+</NameMakerDefs>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <defName>Apparel_OrkishShirt</defName>
+    <label>Orkish vest</label>
+    <description>A crude assortment of thick leather straps sewn into a vest.</description>
+    <graphicData>
+      <texPath>Things/Orks/OrkLeatherVest/OrkLeatherVest</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <costStuffCount>50</costStuffCount>
+    <stuffCategories>
+      <li>Fabric</li>
+      <li>Leathery</li>
+    </stuffCategories>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <statBases>
+      <MarketValue>200</MarketValue>
+      <WorkToMake>5000</WorkToMake>
+      <Mass>2.25</Mass>
+      <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+      <Insulation_Cold>-3</Insulation_Cold>
+    </statBases>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Orks/OrkLeatherVest/OrkLeatherVest</worngraphicPath>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <commonality>1</commonality>
+      <tags>
+        <li>Ork</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Ork</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+      <li Class="FactionColors.ApparelDetailProps">
+        <compClass>FactionColors.ApparelDetailDrawer</compClass>
+        <DetailChance>0.5</DetailChance>
+	   <IsHeadDetail>false</IsHeadDetail>
+	   <ApparelDetails>
+		<li>
+			<DetailGraphicPath>Things/Orks/Pads/PadLeft</DetailGraphicPath>					
+<Commonality>10</Commonality>
+			<FactionTag>Orks</FactionTag>			
+		</li>
+	   </ApparelDetails>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <defName>Apparel_OrkishChestplate</defName>
+    <label>Orkish chestplate</label>
+    <description>A heavy metal plate held together with leathers and nails to form a basic chestplate.</description>
+    <graphicData>
+      <texPath>Things/Orks/OrkChestPlate/OrkChestPlate</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <statBases>
+      <MarketValue>600</MarketValue>
+      <WorkToMake>9000</WorkToMake>
+      <Mass>5.25</Mass>
+      <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+      <Insulation_Cold>-3</Insulation_Cold>
+    </statBases>
+    <costList>
+      <Steel>75</Steel>
+    </costList>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Orks/OrkChestPlate/OrkChestPlate</worngraphicPath>
+      <layers>
+        <li>Middle</li>
+      </layers>
+      <commonality>1</commonality>
+      <tags>
+        <li>Ork</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Ork</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+
+  </ThingDef>
+
+  <ThingDef ParentName="ArmorHelmetMakeableBase">
+    <defName>OrkHelmet</defName>
+    <label>Orkish Helmet</label>
+    <description>A crude Orkishg helmet.</description>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>Xenotech_Ork</researchPrerequisite>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/Orks/OrkHelmet/OrkHelmet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <WorkToMake>6000</WorkToMake>
+      <MaxHitPoints>100</MaxHitPoints>
+      <MarketValue>150</MarketValue>
+      <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.6</ArmorRating_Sharp>
+    </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.1</MoveSpeed>
+    </equippedStatOffsets>
+    <costList>
+      <Steel>60</Steel>
+    </costList>
+    <apparel>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Orks/OrkHelmet/OrkHelmet</worngraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <commonality>5</commonality>
+      <tags>
+        <li>OrkNob</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>OrkNob</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+      <li Class="FactionColors.ApparelDetailProps">
+        <compClass>FactionColors.ApparelDetailDrawer</compClass>
+        <DetailChance>0.9</DetailChance>
+	   <IsHeadDetail>true</IsHeadDetail>
+	   <ApparelDetails>
+		<li>
+			<DetailGraphicPath>Things/Orks/OrkDetails/Horndown</DetailGraphicPath>					<Commonality>10</Commonality>
+			<FactionTag>Orks</FactionTag>
+		</li>
+		<li>
+			<DetailGraphicPath>Things/Orks/OrkDetails/Hornup</DetailGraphicPath>					<Commonality>10</Commonality>
+			<FactionTag>Orks</FactionTag>			
+		</li>
+		<li>
+			<DetailGraphicPath>Things/Orks/OrkDetails/OrkJaw</DetailGraphicPath>					<Commonality>10</Commonality>
+			<FactionTag>Orks</FactionTag>
+		</li>
+	   </ApparelDetails>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="HatBase" Class="FactionColors.ApparelUniformDef">
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <defName>OrkBandana</defName>
+    <label>ork bandana</label>
+    <description>Orkish headgear, including night-vision-goggles.</description>
+    <graphicData>
+      <texPath>Things/Orks/OrkHelmet/OrkBandana</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <MarketValue>200</MarketValue>
+      <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.15</ArmorRating_Sharp>
+    </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>0.2</MoveSpeed>
+    </equippedStatOffsets>
+    <apparel>
+      <bodyPartGroups>
+        <li>UpperHead</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Orks/OrkHelmet/OrkBandana</worngraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <commonality>1</commonality>
+      <tags>
+        <li>OrkKommando</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>OrkKommando</li>
+      </defaultOutfitTags> 
+   </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+
+
+</ThingDefs>

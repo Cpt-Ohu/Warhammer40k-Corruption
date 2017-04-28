@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+
+  <Temple>Temple</Temple>
+
+  <Church>Church</Church>
+
+  <Shrine>Shrine</Shrine>
+
+  <Chapel>Chapel</Chapel>
+
+  <TabAltar>Altar</TabAltar>
+
+  <Preacher>Preacher</Preacher>
+
+  <RenameTemple>Rename</RenameTemple>
+
+  <NameTempleMessage>Name this place of worship.</NameTempleMessage>
+
+  <MorningSermons>Perform Morning Sermons</MorningSermons>
+
+  <EveningSermons>Perform Evening Sermons</EveningSermons>
+
+  <ForceSermonDebug>Debug: Force Sermon</ForceSermonDebug>
+
+  <ForceListenersDebug>Debug: Force Listeners</ForceListenersDebug>
+
+  <MessageSermonInterrupted>A sermon was interrupted</MessageSermonInterrupted>
+
+  <MessageSermonFinished>A sermon has ended</MessageSermonFinished>
+
+  <StartedSermonMessage>{0} is calling for {1} at {2}</StartedSermonMessage>
+
+  <MorningPrayer>Morning Prayers</MorningPrayer>
+  <EveningPrayer>Evening Prayers</EveningPrayer>
+
+</LanguageData>

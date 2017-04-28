@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <FactionDef Class="FactionColors.FactionDefUniform">
+    <defName>Orks</defName>
+    <label>An Ork Clan</label>
+    <description>A Clan of Orks. Once they have set foot on a planet, they are almost impossible to get rid of, barring exterminatus. They will grow until they have conquered the entire planet.</description>
+    <pawnsPlural>orks</pawnsPlural>
+    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <canSiege>true</canSiege>
+    <canStageAttacks>true</canStageAttacks>
+    <raidCommonality>80</raidCommonality>
+    <techLevel>Industrial</techLevel>
+    <backstoryCategory>Ork_Standard</backstoryCategory>
+    <factionNameMaker>NamerFactionPirate</factionNameMaker>
+    <pawnNameMaker>NamerOrkPerson</pawnNameMaker>
+    <humanlikeFaction>false</humanlikeFaction>
+    <hidden>true</hidden>
+    <autoFlee>false</autoFlee>
+    <hairTags>
+      <li>Urban</li>
+    </hairTags>
+    <startingGoodwill>
+      <min>-100</min>
+      <max>-100</max>
+    </startingGoodwill>
+    <naturalColonyGoodwill>
+      <min>-100</min>
+      <max>-100</max>
+    </naturalColonyGoodwill>
+    <pawnGroupMakers>
+      <li>
+        <kindDef>Normal</kindDef>
+        <options>
+            <OrkGretchin>100</OrkGretchin>
+            <OrkBoy>50</OrkBoy>
+            <OrkNob>10</OrkNob>
+        </options>
+      </li>
+    </pawnGroupMakers>
+    <Subfactions>
+	<li>
+		<SubfactionName>EvilSunz</SubfactionName>
+		<SubfactionLabel>Evil Sunz</SubfactionLabel>
+		<SubfactionDescription>Orks from the Evil Sunz Tribe.</SubfactionDescription>
+		<SubfactionColor1>(0.99,0.83,0.01,1)</SubfactionColor1>
+		<SubfactionColor2>RGBA(0.1,0.1,0.1,1)</SubfactionColor2>
+		<weight>10</weight>
+	</li>
+	<li>
+		<SubfactionName>BadMoons</SubfactionName>
+		<SubfactionLabel>Bad Moons</SubfactionLabel>
+		<SubfactionDescription>Orks from the Bad Moons Tribe.</SubfactionDescription>
+		<SubfactionColor1>(0.16,0.16,0.16,1)</SubfactionColor1>
+		<SubfactionColor2>RGBA(0.1,0.1,0.1,1)</SubfactionColor2>
+		<weight>10</weight>
+	</li>
+	<li>
+		<SubfactionName>Snakebites</SubfactionName>
+		<SubfactionLabel>Snakebites</SubfactionLabel>
+		<SubfactionDescription>Orks from the Snakebites Tribe.</SubfactionDescription>
+		<SubfactionColor1>(0.5,0.55,0.24,1)</SubfactionColor1>
+		<SubfactionColor2>RGBA(0.1,0.1,0.1,1)</SubfactionColor2>
+		<weight>10</weight>
+	</li>
+	<li>
+		<SubfactionName>Deathskulls</SubfactionName>
+		<SubfactionLabel>Deathskulls</SubfactionLabel>
+		<SubfactionDescription>Orks from the Deathskulls Tribe.</SubfactionDescription>
+		<SubfactionColor1>(0.0,0.57,0.76,1)</SubfactionColor1>
+		<SubfactionColor2>RGBA(0.0,0.57,0.76,1)</SubfactionColor2>
+		<weight>10</weight>
+	</li>
+	<li>
+		<SubfactionName>Blood Axes</SubfactionName>
+		<SubfactionLabel>Blood Axes</SubfactionLabel>
+		<SubfactionDescription>Orks from the Blood AxesTribe.</SubfactionDescription>
+		<SubfactionColor1>(0.7,0.00,0.00,1)</SubfactionColor1>
+		<SubfactionColor2>RGBA(0.3,0.3,0.3,1)</SubfactionColor2>
+		<weight>10</weight>
+	</li>
+
+    </Subfactions>
+  </FactionDef>
+</Defs>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+  <HediffDef>
+    <defName>ServitorImplants</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.73, 0.08, 0.03)</defaultLabelColor>
+    <label>mindcontrol</label>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <compClass>Corruption.HediffComp_TurnServitor</compClass>
+        <disappearsAfterTicks>
+          <min>1</min>
+          <max>1</max>
+        </disappearsAfterTicks>
+      </li>
+    </comps>
+  </HediffDef>
+
+</Defs>

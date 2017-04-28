@@ -1,0 +1,3 @@
+D:\Spiele\RimWorld1284Win\Mods\YaWH40Km\Source\Corruption\Assembly_Races\obj\Debug\WH40K_Corruption.csprojResolveAssemblyReference.cache
+D:\Spiele\RimWorld1284Win\Mods\YaWH40Km\Assemblies\WH40K_Corruption.dll
+D:\Spiele\RimWorld1284Win\Mods\YaWH40Km\Source\Corruption\Assembly_Races\obj\Debug\WH40K_Corruption.dll

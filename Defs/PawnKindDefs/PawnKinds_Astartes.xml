@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<PawnKindDefs>
+
+  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
+    <defName>Astartes_BattleBrotherAssault</defName>
+    <label>Assault Marine</label>
+    <race>Alien_Astartes</race>
+    <combatPower>100</combatPower>
+    <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
+    <backstoryCategory>Astartes</backstoryCategory>
+    <defaultFactionType>Astartes</defaultFactionType>
+    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+    <maxGenerationAge>58</maxGenerationAge>
+    <itemQuality>Good</itemQuality>
+    <apparelMoney>
+      <min>30000</min>
+      <max>40000</max>
+    </apparelMoney>
+    <apparelTags>
+      <li>Astartes_Armor</li>
+    </apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <weaponMoney>
+      <min>900</min>
+      <max>2500</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>Astartes_Melee</li>
+    </weaponTags>
+    <techHediffsMoney>
+      <min>6000</min>
+      <max>10000</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <techHediffsChance>0.9</techHediffsChance>
+    <AfflictionProperty>
+      <LowerAfflictionLimit>0.6</LowerAfflictionLimit>
+      <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+      <ResolveFactor>1.5</ResolveFactor>
+    </AfflictionProperty>
+    <AdditionalImplantCount>
+        <min>7</min>
+        <max>12</max>
+</AdditionalImplantCount>
+  </PawnKindDef>
+
+
+  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
+    <defName>Astartes_BattleBrotherTactical</defName>
+    <label>Tactical Marine</label>
+    <race>Alien_Astartes</race>
+    <combatPower>100</combatPower>
+    <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
+    <backstoryCategory>Astartes</backstoryCategory>
+    <defaultFactionType>Astartes</defaultFactionType>
+    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+    <maxGenerationAge>58</maxGenerationAge>
+    <itemQuality>Good</itemQuality>
+    <apparelMoney>
+      <min>30000</min>
+      <max>40000</max>
+    </apparelMoney>
+    <apparelTags>
+      <li>Astartes_Armor</li>
+    </apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <weaponMoney>
+      <min>5000</min>
+      <max>5000</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>Astartes_Ranged</li>
+    </weaponTags>
+    <techHediffsMoney>
+      <min>6000</min>
+      <max>10000</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <techHediffsChance>0.9</techHediffsChance>
+    <AfflictionProperty>
+      <LowerAfflictionLimit>0.6</LowerAfflictionLimit>
+      <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+      <ResolveFactor>1.5</ResolveFactor>
+    </AfflictionProperty>
+    <AdditionalImplantCount>
+        <min>7</min>
+        <max>12</max>
+</AdditionalImplantCount>
+  </PawnKindDef>
+
+  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
+    <defName>Astartes_BattleBrotherDevastator</defName>
+    <label>Devastator Marine</label>
+    <race>Alien_Astartes</race>
+    <combatPower>100</combatPower>
+    <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
+    <backstoryCategory>Astartes</backstoryCategory>
+    <defaultFactionType>Astartes</defaultFactionType>
+    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+    <maxGenerationAge>58</maxGenerationAge>
+    <itemQuality>Good</itemQuality>
+    <apparelMoney>
+      <min>30000</min>
+      <max>40000</max>
+    </apparelMoney>
+    <apparelTags>
+      <li>Astartes_Armor</li>
+    </apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <weaponMoney>
+      <min>5000</min>
+      <max>5000</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>Astartes_Heavy</li>
+    </weaponTags>
+    <techHediffsMoney>
+      <min>6000</min>
+      <max>10000</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <techHediffsChance>0.9</techHediffsChance>
+    <AfflictionProperty>
+      <LowerAfflictionLimit>0.6</LowerAfflictionLimit>
+      <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+      <ResolveFactor>1.5</ResolveFactor>
+    </AfflictionProperty>
+    <AdditionalImplantCount>
+        <min>7</min>
+        <max>12</max>
+</AdditionalImplantCount>
+  </PawnKindDef>
+
+  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
+    <defName>Astartes_Captain</defName>
+    <label>Captain</label>
+    <race>Alien_Astartes</race>
+    <combatPower>100</combatPower>
+    <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
+    <backstoryCategory>Astartes</backstoryCategory>
+    <defaultFactionType>Astartes</defaultFactionType>
+    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+    <maxGenerationAge>58</maxGenerationAge>
+    <itemQuality>Legendary</itemQuality>
+    <factionLeader>true</factionLeader>
+    <apparelMoney>
+      <min>30000</min>
+      <max>40000</max>
+    </apparelMoney>
+    <apparelTags>
+      <li>Astartes_Armor</li>
+    </apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <weaponMoney>
+      <min>5000</min>
+      <max>5000</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>Astartes_Ranged</li>
+      <li>Astartes_Heavy</li>
+    </weaponTags>
+    <techHediffsMoney>
+      <min>6000</min>
+      <max>10000</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <techHediffsChance>0.9</techHediffsChance>
+    <AfflictionProperty>
+      <LowerAfflictionLimit>0.6</LowerAfflictionLimit>
+      <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+      <ResolveFactor>1.5</ResolveFactor>
+    </AfflictionProperty>
+    <AdditionalImplantCount>
+        <min>7</min>
+        <max>12</max>
+</AdditionalImplantCount>
+  </PawnKindDef>
+
+</PawnKindDefs>

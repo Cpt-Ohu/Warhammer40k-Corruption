@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <ThingDef ParentName="ApparelBase" Name="Overlay_Head">
+    <defName>Overlay_Head</defName>
+    <label>chaos_headmark</label>
+    <description>Marks of the ruinous powers.</description>
+    <graphicData>
+      <texPath>Things/Chaos/BodyOverlays/Undivided_Head_Narrow_back</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costStuffCount>50</costStuffCount>
+    <thingCategories>
+      <li>Root</li>
+    </thingCategories>
+    <statBases>
+      <WorkToMake>100</WorkToMake>
+      <ArmorRating_Blunt>0.0</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.0</ArmorRating_Sharp>
+      <Insulation_Cold>0</Insulation_Cold>
+    </statBases>
+    <menuHidden>true</menuHidden>
+    <destroyOnDrop>true</destroyOnDrop>
+    <apparel>
+      <worngraphicPath>Things/Chaos/BodyOverlays/Undivided</worngraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <commonality>1</commonality>
+      <tags>
+      </tags>
+      <defaultOutfitTags>
+      </defaultOutfitTags>
+    </apparel>
+      <tradeability>Never</tradeability>
+  </ThingDef>
+
+  <ThingDef ParentName="Overlay_Head">
+    <defName>Overlay_Hair</defName>
+    <label>original hair</label>
+    <description>Original Pawn Hair. Probably a REALLY bad workaround.</description>
+  </ThingDef>
+
+  <ThingDef ParentName="ApparelBase">
+    <defName>Overlay_Undivided</defName>
+    <label>mark of chaos undivided</label>
+    <description>Marks of the ruinous powers.</description>
+    <graphicData>
+      <texPath>Things/Chaos/BodyOverlays/Undivided_Head_Narrow_back</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costStuffCount>50</costStuffCount>
+    <thingCategories>
+      <li>Root</li>
+    </thingCategories>
+    <statBases>
+      <WorkToMake>100</WorkToMake>
+      <ArmorRating_Blunt>0.0</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.0</ArmorRating_Sharp>
+      <Insulation_Cold>0</Insulation_Cold>
+    </statBases>
+    <menuHidden>true</menuHidden>
+    <destroyOnDrop>true</destroyOnDrop>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Chaos/BodyOverlays/Undivided</worngraphicPath>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <commonality>1</commonality>
+      <tags>
+      </tags>
+      <defaultOutfitTags>
+      </defaultOutfitTags>
+    </apparel>
+      <tradeability>Never</tradeability>
+  </ThingDef>
+
+  <ThingDef ParentName="ApparelBase">
+    <defName>Overlay_Khorne</defName>
+    <label>mark of khorne</label>
+    <description>Markings of Khorne, embedded into the flesh</description>
+    <graphicData>
+      <texPath>Things/Chaos/BodyOverlays/Khorne_Head_Narrow_back</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costStuffCount>50</costStuffCount>
+    <thingCategories>
+      <li>Root</li>
+    </thingCategories>
+    <statBases>
+      <WorkToMake>100</WorkToMake>
+      <ArmorRating_Blunt>0.0</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.0</ArmorRating_Sharp>
+      <Insulation_Cold>0</Insulation_Cold>
+    </statBases>
+    <menuHidden>true</menuHidden>
+    <destroyOnDrop>true</destroyOnDrop>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Chaos/BodyOverlays/Khorne</worngraphicPath>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <commonality>1</commonality>
+      <tags>
+      </tags>
+      <defaultOutfitTags>
+      </defaultOutfitTags>
+    </apparel>
+      <tradeability>Never</tradeability>
+  </ThingDef>
+
+  <ThingDef ParentName="ApparelBase">
+    <defName>Overlay_Nurgle</defName>
+    <label>mark of nurgle</label>
+    <description>Marks of decay, a gift of father Nurgle.</description>
+    <graphicData>
+      <texPath>Things/Chaos/BodyOverlays/Nurgle_Head_Narrow_back</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costStuffCount>50</costStuffCount>
+    <thingCategories>
+      <li>Root</li>
+    </thingCategories>
+    <statBases>
+      <WorkToMake>100</WorkToMake>
+      <ArmorRating_Blunt>0.0</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.0</ArmorRating_Sharp>
+      <Insulation_Cold>0</Insulation_Cold>
+    </statBases>
+    <menuHidden>true</menuHidden>
+    <destroyOnDrop>true</destroyOnDrop>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Chaos/BodyOverlays/Nurgle</worngraphicPath>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <commonality>1</commonality>
+      <tags>
+      </tags>
+      <defaultOutfitTags>
+      </defaultOutfitTags>
+    </apparel>
+      <tradeability>Never</tradeability>
+  </ThingDef>
+
+  <ThingDef ParentName="ApparelBase">
+    <defName>Overlay_Tzeentch</defName>
+    <label>mark of tzeentch</label>
+    <description>Marks of the changer of ways.</description>
+    <graphicData>
+      <texPath>Things/Chaos/BodyOverlays/Tzeentch_Head_Narrow_back</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costStuffCount>50</costStuffCount>
+    <thingCategories>
+      <li>Root</li>
+    </thingCategories>
+    <statBases>
+      <WorkToMake>100</WorkToMake>
+      <ArmorRating_Blunt>0.0</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.0</ArmorRating_Sharp>
+      <Insulation_Cold>0</Insulation_Cold>
+    </statBases>
+    <menuHidden>true</menuHidden>
+    <destroyOnDrop>true</destroyOnDrop>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Chaos/BodyOverlays/Tzeentch</worngraphicPath>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <commonality>1</commonality>
+      <tags>
+      </tags>
+      <defaultOutfitTags>
+      </defaultOutfitTags>
+    </apparel>
+      <tradeability>Never</tradeability>
+  </ThingDef>
+
+
+
+</ThingDefs>

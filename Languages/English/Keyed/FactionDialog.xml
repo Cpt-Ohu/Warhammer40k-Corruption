@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <RequestIoMAcknowledgement>Request to be officially recognized as a part of the Imperium</RequestIoMAcknowledgement>
+
+  <PlayerIsEnemyOfMankind>Your faction is considered an enemy of the Imperium</PlayerIsEnemyOfMankind>
+
+  <AlreadyIoMAcknowledged>Your faction is already recognized</AlreadyIoMAcknowledged>
+
+  <IoMAcknowledgementGrant>With the signing of this document the inhabitants of planet {0} in subsector {1} are henceforth officially acknowledged as citizens of the Imperium of Man. As such they humbly accept the rule of the Adeptus Terra and swear to be of service to its servants with diligence. 
+
+I, {2}, hereby accept my designation as Imperial Governor of {0}. In that I swear to uphold the Imperial Creed, Justice and Peace above all else. Further I swear to provide the Imperial Tithe as calculated by the Adeptus Administratum.
+</IoMAcknowledgementGrant>
+
+
+  <AcceptIoMAcknowledgement>Accept</AcceptIoMAcknowledgement>
+
+  <IoMAcknowledgementAccepted>This contract has been signed under the eyes of the Emperor and his humble servants of the Adeptus Terra.
+
+Your tithes have been calculated according to your planets designation and approximation of your productive capabilities. 
+
+
+Planet Designation: Frontier World
+Tithe Grade: Solutio Extremis
+
+Tithe calculations have been performed. The data has been transferred to your CCM.
+</IoMAcknowledgementAccepted>
+
+  <IoMAcknowledgementCongrats>Part of the Imperium</IoMAcknowledgementCongrats>
+
+  <IoMAcknowledgementDesc>Congratulations, citizens! Planet {0} has been officially declared part of the Imperium. {1} has been appointed Imperial Governor and as such will be held accountible by the Adeptus Terra.
+
+You may now request help by the official fighting forces of the Imperium. Your governor has been granted access to most Imperial Technology as manufactured by the Adeptus Mechanicus.
+
+You have been assigned a tithe grade. Your tithes will be collected in a years time.</IoMAcknowledgementDesc>
+
+  <IoMTitheDueTitle>Imperial Tithe is due!</IoMTitheDueTitle>
+
+  <IoMTitheDueDesc>The tithe to the Adeptus Administratum is now due. Refusing to pay the full amount will result in your governor being declared a traitor and your faction may be punished.</IoMTitheDueDesc>
+
+
+  <RebellionIoM>Refusal</RebellionIoM>
+  <RebellionIoMDesc>Your planetary governor has refused to pay the tithes. Whether this is due to not managing to collect the requested tithes or darker intentions, the governor has failed and will be rprimanded for his failure.
+
+Any further resistance at this stage will result in the application of force by a punative expediton.</RebellionIoMDesc>
+
+  <TitheDueIn>Tithe is due in:</TitheDueIn>
+
+  <LetterLabelGovernorDied>Governor died</LetterLabelGovernorDied>
+
+  <GovernorDiedDesc>Your planetary governor is dead. {0} of {1}has taken over the responsibilites for now.</GovernorDiedDesc>
+
+
+  <LetterLabelTithesDue>Tithe Collectors</LetterLabelTithesDue>
+
+  <PayTithe>Pay Tithe</PayTithe>
+
+  <RefuseTithe>Refuse Payment</RefuseTithe>
+
+  <PurchaseMecTemplates>Obtain Mechanicum Templates</PurchaseMecTemplates>
+  <PurchaseTemplate>Obtain Template</PurchaseTemplate>
+  <PurchaseTemplateConfirmation>Templates for {0} will be transferred into your CCM upon confirmation.</PurchaseTemplateConfirmation>
+
+  <MessageGovernorIsBeingArrested>The arbitors are now coming to arrest governor {0}</MessageGovernorIsBeingArrested>
+
+  <MessageGovernorArrestGoneHostile>The arbitors were attacked. They'll respond with force.</MessageGovernorArrestGoneHostile>
+
+
+</LanguageData>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <AlienRace.BackstoryDef>
+    <defName>Exodite</defName>
+    <title>Exodite child</title>
+    <baseDescription>NAME was born on an Eldar maiden world. Isolationism and Mistrust were prominent.</baseDescription>
+    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeFemale>Female</bodyTypeFemale>
+    <slot>Childhood</slot>
+    <workDisables>
+      <li>Social</li>
+    </workDisables>
+    <skillGains>
+      <li>
+        <defName>Melee</defName>
+        <amount>3</amount>
+      </li>
+      <li>
+        <defName>Growing</defName>
+        <amount>2</amount>
+      </li>
+      <li>
+        <defName>Animals</defName>
+        <amount>3</amount>
+      </li>
+      <li>
+        <defName>Social</defName>
+        <amount>-4</amount>
+      </li>
+    </skillGains>
+    <spawnCategories>
+      <li>Eldar</li>
+    </spawnCategories>
+  </AlienRace.BackstoryDef>
+
+
+  <AlienRace.BackstoryDef>
+    <defName>CraftworldOrigin</defName>
+    <title>Craftworld child</title>
+    <baseDescription>NAME was born on an Eldar craftworld. The path of the Eldar shaped HIS life.</baseDescription>
+    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeFemale>Female</bodyTypeFemale>
+    <slot>Childhood</slot>
+    <workDisables>
+    </workDisables>
+    <skillGains>
+      <li>
+        <defName>Shooting</defName>
+        <amount>2</amount>
+      </li>
+      <li>
+        <defName>Crafting</defName>
+        <amount>2</amount>
+      </li>
+      <li>
+        <defName>Social</defName>
+        <amount>2</amount>
+      </li>
+    </skillGains>
+    <spawnCategories>
+      <li>Eldar</li>
+    </spawnCategories>
+  </AlienRace.BackstoryDef>
+
+  <AlienRace.BackstoryDef>
+    <defName>CraftworldArtist</defName>
+    <title>Path of the artisan</title>
+    <titleShort>Artisan</titleShort>
+    <baseDescription>NAME has walked the path of the artisan, gaining reputation among his fellow eldar.</baseDescription>
+    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeFemale>Female</bodyTypeFemale>
+    <slot>Adulthood</slot>
+    <workDisables>
+    </workDisables>
+    <skillGains>
+      <li>
+        <defName>Artistic</defName>
+        <amount>6</amount>
+      </li>
+    </skillGains>
+    <spawnCategories>
+      <li>Eldar</li>
+    </spawnCategories>
+  </AlienRace.BackstoryDef>
+
+  <AlienRace.BackstoryDef>
+    <defName>CraftworldSeer</defName>
+    <title>Path of the seer</title>
+    <titleShort>Seer</titleShort>
+    <baseDescription>NAME has walked the path of the seer.</baseDescription>
+    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeFemale>Female</bodyTypeFemale>
+    <slot>Adulthood</slot>
+    <workDisables>
+    </workDisables>
+    <skillGains>
+      <li>
+        <defName>Melee</defName>
+        <amount>2</amount>
+      </li>
+      <li>
+        <defName>Research</defName>
+        <amount>3</amount>
+      </li>
+    </skillGains>
+    <spawnCategories>
+      <li>Eldar</li>
+    </spawnCategories>
+  </AlienRace.BackstoryDef>
+
+  <AlienRace.BackstoryDef>
+    <defName>CraftworldShaper</defName>
+    <title>Path of the shaper</title>
+    <titleShort>Shaper</titleShort>
+    <baseDescription>NAME has walked the path of the seer.</baseDescription>
+    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeFemale>Female</bodyTypeFemale>
+    <slot>Adulthood</slot>
+    <workDisables>
+    </workDisables>
+    <skillGains>
+      <li>
+        <defName>Construction</defName>
+        <amount>3</amount>
+      </li>
+      <li>
+        <defName>Crafting</defName>
+        <amount>3</amount>
+      </li>
+    </skillGains>
+    <spawnCategories>
+      <li>Eldar</li>
+    </spawnCategories>
+  </AlienRace.BackstoryDef>
+
+
+  <AlienRace.BackstoryDef>
+    <defName>CraftworldMariner</defName>
+    <title>Path of the mariner</title>
+    <titleShort>Mariner</titleShort>
+    <baseDescription>NAME has walked the path of the mariner.</baseDescription>
+    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeFemale>Female</bodyTypeFemale>
+    <slot>Adulthood</slot>
+    <workDisables>
+    </workDisables>
+    <skillGains>
+      <li>
+        <defName>Shooting</defName>
+        <amount>2</amount>
+      </li>
+      <li>
+        <defName>Crafting</defName>
+        <amount>1</amount>
+      </li>
+    </skillGains>
+    <spawnCategories>
+      <li>Eldar</li>
+    </spawnCategories>
+  </AlienRace.BackstoryDef>
+
+  <AlienRace.BackstoryDef>
+    <defName>CraftworldDreamer</defName>
+    <title>Path of the dreamer</title>
+    <titleShort>Dreamer</titleShort>
+    <baseDescription>NAME has walked the path of the dreamer.</baseDescription>
+    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeFemale>Female</bodyTypeFemale>
+    <slot>Adulthood</slot>
+    <workDisables>
+    </workDisables>
+    <skillGains>
+      <li>
+        <defName>Social</defName>
+        <amount>4</amount>
+      </li>
+      <li>
+        <defName>Crafting</defName>
+        <amount>-2</amount>
+      </li>
+      <li>
+        <defName>Construction</defName>
+        <amount>-2</amount>
+      </li>
+    </skillGains>
+    <spawnCategories>
+      <li>Eldar</li>
+    </spawnCategories>
+  </AlienRace.BackstoryDef>
+
+  <AlienRace.BackstoryDef>
+    <defName>CraftworldCommand</defName>
+    <title>Path of command</title>
+    <titleShort>Commander</titleShort>
+    <baseDescription>NAME has walked the path of command.</baseDescription>
+    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeFemale>Female</bodyTypeFemale>
+    <slot>Adulthood</slot>
+    <workDisables>
+    </workDisables>
+    <skillGains>
+      <li>
+        <defName>Melee</defName>
+        <amount>3</amount>
+      </li>
+      <li>
+        <defName>Shooting</defName>
+        <amount>3</amount>
+      </li>
+      <li>
+        <defName>Social</defName>
+        <amount>3</amount>
+      </li>
+    </skillGains>
+    <spawnCategories>
+      <li>Eldar</li>
+    </spawnCategories>
+  </AlienRace.BackstoryDef>
+
+</Defs>

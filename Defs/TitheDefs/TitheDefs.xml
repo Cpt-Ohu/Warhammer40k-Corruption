@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <Def Class="Corruption.Tithes.TitheDef">
+    <defName>TitheRawMaterials</defName>
+    <label>raw materials</label>
+    <wealthFactor>3</wealthFactor>
+    <categoryDefs>
+      <li>ResourcesRaw</li>
+    </categoryDefs>
+    <fixedTitheThings>
+    </fixedTitheThings>
+    <excludedTitheThings>
+    </excludedTitheThings>
+    <optionalTithe>false</optionalTithe>
+  </Def>
+
+  <Def Class="Corruption.Tithes.TitheDef">
+    <defName>TitheFood</defName>
+    <label>agricultutral produce</label>
+    <wealthFactor>2</wealthFactor>
+    <categoryDefs>
+      <li>FoodRaw</li>
+      <li>MeatRaw</li>
+      <li>PlantFoodRaw</li>
+      <li>AnimalProductRaw</li>
+    </categoryDefs>
+    <fixedTitheThings>
+      <li>MealNutrientPaste</li>
+    </fixedTitheThings>
+    <optionalTithe>false</optionalTithe>
+  </Def>
+
+  <Def Class="Corruption.Tithes.TitheDef">
+    <defName>TitheRawTextiles</defName>
+    <label>raw textiles</label>
+    <wealthFactor>1</wealthFactor>
+    <categoryDefs>
+      <li>Textiles</li>
+      <li>Leathers</li>
+    </categoryDefs>
+    <fixedTitheThings>
+    </fixedTitheThings>
+    <excludedTitheThings>
+    </excludedTitheThings>
+    <optionalTithe>false</optionalTithe>
+  </Def>
+
+  <Def Class="Corruption.Tithes.TitheDef">
+    <defName>TitheChemfuel</defName>
+    <label>chemfuel</label>
+    <wealthFactor>0.5</wealthFactor>
+    <categoryDefs>
+    </categoryDefs>
+    <fixedTitheThings>
+      <li>Chemfuel</li>
+    </fixedTitheThings>
+    <excludedTitheThings>
+    </excludedTitheThings>
+    <optionalTithe>false</optionalTithe>
+  </Def>
+
+  <Def Class="Corruption.Tithes.TitheDef">
+    <defName>TitheMedicine</defName>
+    <label>medicinal products</label>
+    <wealthFactor>0.1</wealthFactor>
+    <categoryDefs>
+      <li>Medicine</li>
+    </categoryDefs>
+    <fixedTitheThings>
+    </fixedTitheThings>
+    <excludedTitheThings>
+      <li>HerbalMedicine</li>
+    </excludedTitheThings>
+    <optionalTithe>true</optionalTithe>
+  </Def>
+
+</Defs>
