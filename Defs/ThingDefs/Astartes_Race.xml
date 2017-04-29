@@ -22,6 +22,9 @@
             </alienPartGenerator>
         </generalSettings>
 		<graphicPaths>
+            <li>
+                <body>Things/Pawn/Humanlike/Bodies/</body>
+            </li>
         </graphicPaths>
 		<hairSettings>
             <HasHair>true</HasHair>
