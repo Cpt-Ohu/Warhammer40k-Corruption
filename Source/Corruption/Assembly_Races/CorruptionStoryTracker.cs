@@ -10,6 +10,7 @@ using UnityEngine;
 using System.Reflection;
 using Verse.Sound;
 using Corruption.DefOfs;
+using OHUShips;
 
 namespace Corruption
 {
@@ -49,7 +50,6 @@ namespace Corruption
 
         public List<Faction> ImperialFactions = new List<Faction>();
         public List<Faction> XenoFactions = new List<Faction>();
-        public List<Ships.ShipBase> shipsInOrbit = new List<Ships.ShipBase>();
 
         // Tithe System
         public bool PlayerIsEnemyOfMankind = false;
@@ -118,7 +118,7 @@ namespace Corruption
                 {
                     this.DaysToTitheCollection--;
                 }
-                if (!this.currentTithes.NullOrEmpty() && this.DaysToTitheCollection == 0 && !TitheCollectionActive && this.AcknowledgedByImperium)
+                if (!this.currentTithes.NullOrEmpty() && this.DaysToTitheCollection == 0 && !TitheCollectionActive && this.AcknowledgedByImperium && this.PlanetaryGovernor != null)
                 {
                     InitializeTitheCollection();
                 }
@@ -130,11 +130,17 @@ namespace Corruption
         private void InitializeTitheCollection()
         {
             Tithes.MapCondition_TitheCollectors condition = (Tithes.MapCondition_TitheCollectors)MapConditionMaker.MakeCondition(C_MapConditionDefOf.TitheCollectorArrived, 420000, 0);
-            if (this.PlanetaryGovernor == null) Log.Error("Planetary Governor is null");
-            this.PlanetaryGovernor.Map.mapConditionManager.RegisterCondition(condition);
-            Find.WindowStack.Add(new Tithes.Window_IoMTitheArrival());
-        //    Find.LetterStack.ReceiveLetter("LetterLabelTithesDue".Translate(), condition.def.description, LetterType.BadUrgent, null);
-            TitheCollectionActive = true;
+            if (this.PlanetaryGovernor == null)
+            {
+                Log.Error("Initiated Tithe Collection with no Planetary Governor assigned");
+            }
+            else
+            {
+                this.PlanetaryGovernor.Map.mapConditionManager.RegisterCondition(condition);
+                Find.WindowStack.Add(new Tithes.Window_IoMTitheArrival());
+                //    Find.LetterStack.ReceiveLetter("LetterLabelTithesDue".Translate(), condition.def.description, LetterType.BadUrgent, null);
+                TitheCollectionActive = true;
+            }
         }
 
         public override void PostAdd()

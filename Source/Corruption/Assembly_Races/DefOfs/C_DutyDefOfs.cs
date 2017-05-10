@@ -11,11 +11,7 @@ namespace Corruption.DefOfs
     public static class C_DutyDefOfs
     {
         public static DutyDef ArrestGovernorDuty;
-
-        public static DutyDef LeaveInShip;
-
-        public static DutyDef LoadShipCargo;
-
+        
         public static DutyDef JoinSermon;
     }
 }

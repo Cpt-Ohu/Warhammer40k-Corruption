@@ -11,7 +11,6 @@ namespace Corruption
 {
     public static class AfflictionDrawerUtility
     {
-        
         public static Graphic GetHeadGraphic(Pawn p, string patronname)
         {
             string crownType;

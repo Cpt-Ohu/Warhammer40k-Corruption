@@ -74,6 +74,9 @@
     <weaponTags>
       <li>E_Ranged</li>
     </weaponTags>
+	<thingCategories>
+      <li>E_Ranged</li>
+    </thingCategories>
     <graphicData>
       <texPath>Things/Eldar/Weapons/eldar_pistol</texPath>
       <graphicClass>Graphic_Single</graphicClass>      		 <shaderType>CutoutComplex</shaderType>
@@ -116,6 +119,9 @@
     <weaponTags>
       <li>E_Ranged</li>
     </weaponTags>
+		<thingCategories>
+      <li>E_Ranged</li>
+    </thingCategories>
     <graphicData>
       <texPath>Things/Eldar/Weapons/eldar_gun</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -159,6 +165,9 @@
     <weaponTags>
       <li>E_Ranger</li>
     </weaponTags>
+		<thingCategories>
+      <li>E_Ranged</li>
+    </thingCategories>
     <graphicData>
       <texPath>Things/Eldar/Weapons/eldar_longrifle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -201,6 +210,9 @@
     <weaponTags>
       <li>E_Warpspider</li>
     </weaponTags>
+		<thingCategories>
+      <li>E_Ranged</li>
+    </thingCategories>
     <graphicData>
       <texPath>Things/Eldar/Weapons/eldar_deathspinner</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -244,6 +256,9 @@
     <weaponTags>
       <li>E_Ranged</li>
     </weaponTags>
+		<thingCategories>
+      <li>E_Ranged</li>
+    </thingCategories>
     <graphicData>
       <texPath>Things/Eldar/Weapons/eldar_flamer</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -292,6 +307,9 @@
     <weaponTags>
       <li>E_Melee</li>
     </weaponTags>
+		<thingCategories>
+      <li>E_Melee</li>
+    </thingCategories>
     <techLevel>Spacer</techLevel>
     <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
     <graphicData>
@@ -330,6 +348,9 @@
     <weaponTags>
       <li>E_Melee</li>
     </weaponTags>
+    <thingCategories>
+      <li>E_Melee</li>
+    </thingCategories>
     <techLevel>Spacer</techLevel>
     <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
     <graphicData>
@@ -381,6 +402,9 @@
     <weaponTags>
       <li>E_DireAvengers</li>
     </weaponTags>
+	    <thingCategories>
+      <li>E_Ranged</li>
+    </thingCategories>
     <graphicData>
       <texPath>Things/Eldar/DireAvengers/DHCatapult</texPath>
       <graphicClass>Graphic_Single</graphicClass>

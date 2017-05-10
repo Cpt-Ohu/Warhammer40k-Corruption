@@ -1,5 +1,4 @@
 ﻿using Corruption.DefOfs;
-using Corruption.Ships;
 using Corruption.Tithes;
 using RimWorld;
 using RimWorld.Planet;
@@ -10,6 +9,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 using Verse.AI.Group;
+using OHUShips;
 
 namespace Corruption
 {
@@ -324,8 +324,8 @@ namespace Corruption
                 arbites.Add(member);
             }
             
-            ShipBase dropShip = (ShipBase)ThingMaker.MakeThing(ThingDef.Named("AquilaLander"));
-            dropShip.shipState = ShipState.Incoming;
+            OHUShips.ShipBase dropShip = (OHUShips.ShipBase)ThingMaker.MakeThing(ThingDef.Named("AquilaLander"));
+            dropShip.shipState = OHUShips.ShipState.Incoming;
             dropShip.drawTickOffset = dropShip.compShip.sProps.TicksToImpact;
             Thing initialFuel = ThingMaker.MakeThing(DefOfs.C_ThingDefOfs.Chemfuel);
             initialFuel.stackCount = 2000;

@@ -8,6 +8,9 @@
       <researchPrerequisite>ChargedShot</researchPrerequisite>
     </recipeMaker>
     <tradeability>Sellable</tradeability>
+	    <thingCategories>
+      <li>Tau_RangedCommon</li>
+    </thingCategories>
   </ThingDef>
 
   <ThingDef ParentName="BaseBullet">

@@ -2,19 +2,19 @@
 <ThingDefs>
  
   <ThingDef ParentName="BuildingBase" Abstract="True" Name="BaseShip">
-    <thingClass>Corruption.Ships.ShipBase</thingClass>
+    <thingClass>OHUShips.ShipBase</thingClass>
     <defName>BasicShip</defName>
     <label>ship</label>
     <description>A launchable suborbital-ship.</description>
     <graphicData>
       <texPath>Things/Special/DropPod</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <shaderType>CutoutFlying</shaderType>
+      <shaderType>Cutout</shaderType>
       <drawSize>(2,2)</drawSize>
     </graphicData>
     <inspectorTabs>
-      <li>Corruption.Ships.ITab_ShipCargo</li>
-      <li>Corruption.Ships.ITab_Fleet</li>
+      <li>OHUShips.ITab_ShipCargo</li>
+      <li>OHUShips.ITab_Fleet</li>
     </inspectorTabs>
     <drawerType>RealtimeOnly</drawerType>
     <size>(1,1)</size>
@@ -51,7 +51,7 @@
   </ThingDef>
 
   <ThingDef ParentName="BaseShip">
-    <thingClass>Corruption.Ships.ShipBase</thingClass>
+    <thingClass>OHUShips.ShipBase</thingClass>
     <defName>OHUDropShip</defName>
     <label>OHU Dropship</label>
     <description>A small freighter designed primarily for planetary ressource extractions. Durable, easy to manufacture and powerful enough to reach orbital platforms or motherships.
@@ -67,8 +67,9 @@ Defensive Capabilities: 1x Light Caliber Front Gun
 Offensive Capabilities: 1x Payload Slot
 </description>
     <graphicData>
-      <texPath>Things/IoM/Ships/OHUDropShip</texPath>
+      <texPath>Things/Ships/OHUDropShip</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
       <drawSize>(9,9)</drawSize>
     </graphicData>
     <size>(7,2)</size>
@@ -80,19 +81,21 @@ Offensive Capabilities: 1x Payload Slot
     <designationCategory>Ship</designationCategory>
     <iconDrawScale>1</iconDrawScale>
     <statBases>
-      <MaxHitPoints>250</MaxHitPoints>
+      <MaxHitPoints>500</MaxHitPoints>
       <WorkToBuild>3000</WorkToBuild>
       <Flammability>0</Flammability>
     </statBases>
     <comps>
-      <li Class="Corruption.Ships.CompProperties_Ship">
+      <li Class="OHUShips.CompProperties_Ship">
         <TicksToImpact>200</TicksToImpact>
         <TicksToDespawn>200</TicksToDespawn>
+        <WorldMapTravelSpeedFactor>1</WorldMapTravelSpeedFactor>
+        <maxCargo>1000</maxCargo>
+        <maxPassengers>5</maxPassengers>
         <CanBeStartingShip>true</CanBeStartingShip>
         <LeavingShipDef>OHUDropShipLeaving</LeavingShipDef>
-        <FuelType>Chemfuel</FuelType>
         <IncomingAngle>65</IncomingAngle>
-        <ShadowGraphicPath>Things/IoM/Ships/OHUDropShipShadow</ShadowGraphicPath>
+        <ShadowGraphicPath>Things/Ships/OHUDropShipShadow</ShadowGraphicPath>
         <FleetIconGraphicPath>Things/IoM/Ships/OHUDropShipFleetIcon</FleetIconGraphicPath>
 
         <weaponSlots>
@@ -111,7 +114,7 @@ Offensive Capabilities: 1x Payload Slot
 
 	 </li>
       <li Class="CompProperties_Refuelable">
-        <fuelConsumptionRate>100.0</fuelConsumptionRate>
+        <fuelConsumptionRate>5.0</fuelConsumptionRate>
         <fuelCapacity>3000.0</fuelCapacity>
         <fuelFilter>
           <thingDefs>
@@ -135,6 +138,14 @@ Offensive Capabilities: 1x Payload Slot
 		<researchPrerequisites>
 			<li>ShipBasics</li>
 		</researchPrerequisites>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
   </ThingDef>
 
 
@@ -142,7 +153,7 @@ Offensive Capabilities: 1x Payload Slot
     <defName>OHUDropShipLeaving</defName>
     <label>Dropship(leaving)</label>
     <category>Skyfaller</category>
-		<thingClass>Corruption.Ships.ShipBase_Traveling</thingClass>
+		<thingClass>OHUShips.ShipBase_Traveling</thingClass>
 		<tickerType>Normal</tickerType>
     <graphicData>
       <texPath>Things/Special/DropPod</texPath>
@@ -158,13 +169,14 @@ Offensive Capabilities: 1x Payload Slot
 
 
   <ThingDef ParentName="BaseShip">
-    <thingClass>Corruption.Ships.ShipBase</thingClass>
+    <thingClass>OHUShips.ShipBase</thingClass>
     <defName>AquilaLander</defName>
     <label>aquila lander</label>
     <description>A light shuttle used to transport important staff.</description>
     <graphicData>
       <texPath>Things/IoM/Ships/AquilaLander</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
       <drawSize>(5,9)</drawSize>
     </graphicData>
     <size>(4,2)</size>
@@ -181,10 +193,12 @@ Offensive Capabilities: 1x Payload Slot
       <Flammability>0</Flammability>
     </statBases>
     <comps>
-      <li Class="Corruption.Ships.CompProperties_Ship">
+      <li Class="OHUShips.CompProperties_Ship">
         <TicksToImpact>200</TicksToImpact>
         <TicksToDespawn>200</TicksToDespawn>
-        <FuelType>Chemfuel</FuelType>
+        <WorldMapTravelSpeedFactor>3</WorldMapTravelSpeedFactor>
+        <maxCargo>300</maxCargo>
+        <maxPassengers>6</maxPassengers>
         <IncomingAngle>65</IncomingAngle>
         <LeavingShipDef>AquilaLanderLeaving</LeavingShipDef>
         <weaponSlots>
@@ -200,7 +214,7 @@ Offensive Capabilities: 1x Payload Slot
 	 </li>
       <li Class="CompProperties_Refuelable">
         <fuelConsumptionRate>1.0</fuelConsumptionRate>
-        <fuelCapacity>3000.0</fuelCapacity>
+        <fuelCapacity>1000.0</fuelCapacity>
         <fuelFilter>
           <thingDefs>
             <li>Chemfuel</li>
@@ -213,7 +227,6 @@ Offensive Capabilities: 1x Payload Slot
         <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
         <autoRefuelPercent>0.75</autoRefuelPercent>
       </li>
-
     </comps>
     <costList>
       <Steel>2000</Steel>
@@ -222,13 +235,21 @@ Offensive Capabilities: 1x Payload Slot
 		<researchPrerequisites>
 			<li>ShipBasics</li>
 		</researchPrerequisites>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
   </ThingDef>
 
   <ThingDef>
     <defName>AquilaLanderLeaving</defName>
     <label>Aquila Lander(leaving)</label>
     <category>Skyfaller</category>
-		<thingClass>Corruption.Ships.ShipBase_Traveling</thingClass>
+		<thingClass>OHUShips.ShipBase_Traveling</thingClass>
 		<tickerType>Normal</tickerType>
     <graphicData>
       <texPath>Things/Special/DropPod</texPath>
@@ -245,7 +266,7 @@ Offensive Capabilities: 1x Payload Slot
   <!--=============== Valkyrie ===============-->
 
   <ThingDef ParentName="BaseShip">
-    <thingClass>Corruption.Ships.ShipBase</thingClass>
+    <thingClass>OHUShips.ShipBase</thingClass>
     <defName>Valkyrie</defName>
     <label>valkyrie</label>
     <description>A heavy assault carrier.</description>
@@ -269,11 +290,13 @@ Offensive Capabilities: 1x Payload Slot
       <Flammability>0</Flammability>
     </statBases>
     <comps>
-      <li Class="Corruption.Ships.CompProperties_Ship">
+      <li Class="OHUShips.CompProperties_Ship">
         <TicksToImpact>200</TicksToImpact>
         <TicksToDespawn>200</TicksToDespawn>
+        <WorldMapTravelSpeedFactor>1.2</WorldMapTravelSpeedFactor>
+        <maxCargo>600</maxCargo>
+        <maxPassengers>8</maxPassengers>
         <LeavingShipDef>ValkyrieLeaving</LeavingShipDef>
-        <FuelType>Chemfuel</FuelType>
         <IncomingAngle>65</IncomingAngle>
         <ShadowGraphicPath>Things/IoM/Ships/ValkyrieShadow</ShadowGraphicPath>
         <weaponSlots>
@@ -335,7 +358,7 @@ Offensive Capabilities: 1x Payload Slot
     <defName>ValkyrieLeaving</defName>
     <label>Valkyrie(leaving)</label>
     <category>Skyfaller</category>
-		<thingClass>Corruption.Ships.ShipBase_Traveling</thingClass>
+		<thingClass>OHUShips.ShipBase_Traveling</thingClass>
 		<tickerType>Normal</tickerType>
     <graphicData>
       <texPath>Things/Special/DropPod</texPath>

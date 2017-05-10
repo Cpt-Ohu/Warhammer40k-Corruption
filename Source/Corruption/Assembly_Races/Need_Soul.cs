@@ -190,7 +190,17 @@ namespace Corruption
                 else
                 {
                     PawnAfflictionProps = new AfflictionProperty();
-                    this.PsykerPowerLevel = (PsykerPowerLevel)Rand.RangeInclusive(0, Enum.GetValues(typeof(PsykerPowerLevel)).Length - 1);
+                    float pNum = Rand.GaussianAsymmetric(2.5f, 0.45f, 2);
+                    if (pNum < 0)
+                    {
+                        pNum = 0;
+                    }
+                    else if (pNum > 7)
+                    {
+                        pNum = 7;
+                    }
+                    this.PsykerPowerLevel = (PsykerPowerLevel)pNum;
+
                     this.CulturalTolerance = (CulturalToleranceCategory)Rand.RangeInclusive(0, 2);
                     if (this.PsykerPowerLevel == PsykerPowerLevel.Omega)
                     {
@@ -534,7 +544,6 @@ namespace Corruption
                     PawnTechHediffsGenerator.GeneratePartsAndImplantsFor(this.pawn);
                 }
             }
-
             if (!pdef.DisallowedStartingHediffs.NullOrEmpty())
             {
                 foreach (HediffDef def in pdef.DisallowedStartingHediffs)
@@ -542,7 +551,7 @@ namespace Corruption
                     this.pawn.health.hediffSet.hediffs.RemoveAll(x => x.def == def);
                 }
             }
-
+            
             if (!pdef.ForcedStartingHediffs.NullOrEmpty())
             {
                 foreach (HediffDef hediffDef in pdef.ForcedStartingHediffs)
@@ -551,14 +560,14 @@ namespace Corruption
                     this.pawn.health.AddHediff(current);
                 }
             }
-
-            if (!pdef.ForcedStartingImplantRecipes.NullOrEmpty())
+            
+            if (!pdef.ForcedStartingImplantRecipes.NullOrEmpty() && !pdef.ForcedStartingImplantRecipes.NullOrEmpty())
             {
                 foreach (RecipeDef recipeDef in pdef.ForcedStartingImplantRecipes)
                 {
                     if (!recipeDef.targetsBodyPart || recipeDef.Worker.GetPartsToApplyOn(pawn, recipeDef).Any<BodyPartRecord>())
                     {
-                        recipeDef.Worker.ApplyOnPawn(pawn, recipeDef.Worker.GetPartsToApplyOn(pawn, recipeDef).RandomElement<BodyPartRecord>(), null, new List<Thing>());
+                        recipeDef.Worker.ApplyOnPawn(pawn, recipeDef.Worker.GetPartsToApplyOn(pawn, recipeDef).Any<BodyPartRecord>() ? recipeDef.Worker.GetPartsToApplyOn(pawn, recipeDef).RandomElement<BodyPartRecord>() : null, null, new List<Thing>());
                     }
                 }
             }

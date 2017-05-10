@@ -19,6 +19,9 @@
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <tradeability>Sellable</tradeability>
+	<thingCategories>
+      <li>Sororitas_Apparel</li>
+    </thingCategories>
     <statBases>
       <WorkToMake>3250000</WorkToMake>
       <MaxHitPoints>500</MaxHitPoints>
@@ -31,9 +34,6 @@
     <equippedStatOffsets>
       <MoveSpeed>-0.05</MoveSpeed>
     </equippedStatOffsets>
-    <thingCategories>
-      <li>Apparel</li>
-    </thingCategories>
     <costList>
       <Component>18</Component>
       <Wraithbone>135</Wraithbone>
@@ -82,6 +82,9 @@
       <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
       <researchPrerequisite>PoweredArmor</researchPrerequisite>
     </recipeMaker>
+		<thingCategories>
+      <li>Sororitas_Apparel</li>
+    </thingCategories>
     <graphicData>
       <texPath>Things/Sororitas/Armor/SororitasHelmetIcon</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -146,6 +149,9 @@
       <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
       <researchPrerequisite>PoweredArmor</researchPrerequisite>
     </recipeMaker>
+    <thingCategories>
+      <li>Sororitas_Apparel</li>
+    </thingCategories>
     <graphicData>
       <texPath>Things/Sororitas/Armor/SororitasCowlIcon</texPath>
       <graphicClass>Graphic_Single</graphicClass>

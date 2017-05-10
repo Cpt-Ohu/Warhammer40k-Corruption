@@ -17,7 +17,7 @@
       <li>Leathery</li>
     </stuffCategories>
     <thingCategories>
-      <li>Apparel</li>
+      <li>Ork_Armor</li>
     </thingCategories>
     <statBases>
       <MarketValue>200</MarketValue>
@@ -81,7 +81,7 @@
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <thingCategories>
-      <li>Apparel</li>
+      <li>Ork_Armor</li>
     </thingCategories>
     <statBases>
       <MarketValue>600</MarketValue>
@@ -140,6 +140,9 @@
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <tradeability>Sellable</tradeability>
+	    <thingCategories>
+      <li>Ork_Armor</li>
+    </thingCategories>
     <statBases>
       <WorkToMake>6000</WorkToMake>
       <MaxHitPoints>100</MaxHitPoints>
@@ -214,6 +217,9 @@
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <tradeability>Sellable</tradeability>
+	    <thingCategories>
+      <li>Ork_Armor</li>
+    </thingCategories>
     <statBases>
       <MaxHitPoints>100</MaxHitPoints>
       <MarketValue>200</MarketValue>

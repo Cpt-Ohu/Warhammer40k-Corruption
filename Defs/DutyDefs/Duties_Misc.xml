@@ -23,27 +23,4 @@
     </thinkNode>
   </DutyDef>
 
-  <DutyDef>
-    <defName>LoadShipCargo</defName>
-    <alwaysShowWeapon>false</alwaysShowWeapon>
-    <thinkNode Class="ThinkNode_Priority">
-      <subNodes>
-        <li Class="Corruption.Ships.JobGiver_LoadShipCargo"/>
-        <li Class="Corruption.Ships.JobGiver_EnterShipDuringLoad"/>
-      </subNodes>
-    </thinkNode>
-  </DutyDef>
-
-  <DutyDef>
-    <defName>LeaveInShip</defName>
-    <alwaysShowWeapon>true</alwaysShowWeapon>
-    <thinkNode Class="ThinkNode_Priority">
-      <subNodes>
-        <li Class="Corruption.Ships.JobGiver_LeaveInShip" />
-      </subNodes>
-    </thinkNode>
-  </DutyDef>
-
-
-
 </Defs>

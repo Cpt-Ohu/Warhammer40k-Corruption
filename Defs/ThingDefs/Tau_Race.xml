@@ -7,7 +7,7 @@
 
   <AlienRace.ThingDef_AlienRace ParentName="BasePawn">
     <defName>Alien_TauSHAS</defName>
-    <label>tau</label>
+    <label>tau (Shas)</label>
     <description>A Tau of the Fire Caste.</description>
     <uiIconPath>Things/Pawn/Humanlike/UI/IconHuman</uiIconPath>
 
@@ -195,7 +195,7 @@
 
   <AlienRace.ThingDef_AlienRace ParentName="BasePawn">
     <defName>Alien_TauPOR</defName>
-    <label>tau</label>
+    <label>tau (por)</label>
     <description>A Tau of the Fire Caste.</description>
     <uiIconPath>Things/Pawn/Humanlike/UI/IconHuman</uiIconPath>
 
@@ -386,7 +386,7 @@
 
   <AlienRace.ThingDef_AlienRace ParentName="BasePawn">
     <defName>Alien_TauAUN</defName>
-    <label>tau</label>
+    <label>tau (Aun)</label>
     <description>A Tau of the Ethereal Caste.</description>
     <uiIconPath>Things/Pawn/Humanlike/UI/IconHuman</uiIconPath>
 

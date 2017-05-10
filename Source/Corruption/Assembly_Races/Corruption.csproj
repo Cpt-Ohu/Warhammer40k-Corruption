@@ -25,8 +25,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -41,6 +43,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\workshop\content\294100\839005762\Assemblies\0Harmony.dll</HintPath>
     </Reference>
+    <Reference Include="0OHUShips, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\0OHUShips.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="AlienRace, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\workshop\content\294100\839005762\Assemblies\AlienRace.dll</HintPath>
@@ -54,9 +61,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Assemblies\FactionColors.dll</HintPath>
       <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.CodeAnalysis.CSharp">
-      <HintPath>..\..\..\Assemblies\roslyn\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -83,7 +87,6 @@
     <Compile Include="BookStuff\ReadableEffektEntry.cs" />
     <Compile Include="BookStuff\ThingDef_Readables.cs" />
     <Compile Include="HediffCompProperties_MechWeapons.cs" />
-    <Compile Include="Ships\ScenPart_StartWithShip.cs" />
     <Compile Include="Worship\BuildingAltar.cs" />
     <Compile Include="Worship\BuildingAltarDef.cs" />
     <Compile Include="BuildingWorshipDef.cs" />
@@ -140,54 +143,11 @@
     <Compile Include="IncidentWorker_CorruptedEffigy.cs" />
     <Compile Include="IoM\JobDriver_ArrestOnMap.cs" />
     <Compile Include="IoM\JobGiver_AssistArrest.cs" />
-    <Compile Include="Ships\Building_ShipTurret.cs" />
-    <Compile Include="Ships\CompProperties_ShipWeapon.cs" />
-    <Compile Include="Ships\CompShipWeapon.cs" />
-    <Compile Include="Ships\Dialog_LoadShipCargo.cs" />
-    <Compile Include="Ships\Dialog_TradeFromShips.cs" />
-    <Compile Include="Ships\HarmonyPatches.cs" />
-    <Compile Include="Ships\IncidentWorker_AerialRaid.cs" />
-    <Compile Include="Ships\ITab_Fleet.cs" />
-    <Compile Include="Ships\JobDriver_EnterShip.cs" />
-    <Compile Include="Ships\ITab_ShipCargo.cs" />
-    <Compile Include="Ships\JobDriver_InstallShipWeaponSystem.cs" />
-    <Compile Include="Ships\JobDriver_LeaveInShip.cs" />
     <Compile Include="IoM\JobGiver_ArrestGovernor.cs" />
     <Compile Include="IoM\LordJob_ArrestGovernor.cs" />
     <Compile Include="IoM\LordToil_ArrestGovernor.cs" />
-    <Compile Include="Ships\LordToil_LeaveInShip.cs" />
     <Compile Include="JobDriver_TendInMSU.cs" />
     <Compile Include="MapCondition_IncomingIGHostile.cs" />
-    <Compile Include="Ships\CompProperties_Ship.cs" />
-    <Compile Include="Ships\CompShip.cs" />
-    <Compile Include="Ships\DropShipUtility.cs" />
-    <Compile Include="Ships\JobDriver_LoadCargoMultiple.cs" />
-    <Compile Include="Ships\JobDriver_UninstallShipWeaponSystem.cs" />
-    <Compile Include="Ships\JobGiver_EnterShipDuringLoad.cs" />
-    <Compile Include="Ships\LandedShip.cs" />
-    <Compile Include="Ships\LordJob_AerialAssault.cs" />
-    <Compile Include="Ships\ShipBase_Traveling.cs" />
-    <Compile Include="Ships\ShipDropSite.cs" />
-    <Compile Include="Ships\ShipNamespaceDefOfs.cs" />
-    <Compile Include="Ships\ShipTracker.cs" />
-    <Compile Include="Ships\TravelingShipArrivalAction.cs" />
-    <Compile Include="Ships\TravelingShips.cs" />
-    <Compile Include="Ships\TravelingShipsUtility.cs" />
-    <Compile Include="Ships\WeaponSystemShipBomb.cs" />
-    <Compile Include="Ships\WITab_LandedShip_Cargo.cs" />
-    <Compile Include="Ships\WorkGiver_InstallShipWeapon.cs" />
-    <Compile Include="Ships\JobGiver_LeaveInShip.cs" />
-    <Compile Include="Ships\JobGiver_LoadShipCargo.cs" />
-    <Compile Include="Ships\LoadShipCargoUtility.cs" />
-    <Compile Include="Ships\LordJob_LoadShipCargo.cs" />
-    <Compile Include="Ships\LordToil_LoadShipCargo.cs" />
-    <Compile Include="Ships\ShipBase.cs" />
-    <Compile Include="Ships\ShipState.cs" />
-    <Compile Include="Ships\ShipWeaponSlot.cs" />
-    <Compile Include="Ships\WeaponSystem.cs" />
-    <Compile Include="Ships\WeaponSystemShipLC.cs" />
-    <Compile Include="Ships\WeaponSystemType.cs" />
-    <Compile Include="Ships\WorkGiver_UninstallShipWeapon.cs" />
     <Compile Include="StockGenerator_TagCorruption.cs" />
     <Compile Include="Tithes\MapCondition_TitheCollectors.cs" />
     <Compile Include="PawnRendererModded.cs" />
@@ -309,6 +269,7 @@
     <Content Include="xml\TestPawn.xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -142,7 +142,8 @@ namespace FactionColors
             if (eq.GetType() == typeof(FactionItem))
             {
                 FactionItemDef facdef = eq.def as FactionItemDef;
-                Vector3 scale = facdef.ItemMeshSize * alienRaceDef.alienRace.generalSettings.alienPartGenerator.CustomDrawSize.x;
+                float scalePawn = alienRaceDef != null ? alienRaceDef.alienRace.generalSettings.alienPartGenerator.CustomDrawSize.x : 1f;
+                Vector3 scale = facdef.ItemMeshSize * scalePawn;
                 Material Mat = eq.Graphic.MatAt(eq.Rotation);
                 Matrix4x4 matrix = default(Matrix4x4);
                 matrix.SetTRS(drawLoc, Quaternion.AngleAxis(num, Vector3.up), scale * 1.2f);

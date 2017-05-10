@@ -109,7 +109,7 @@
   <AlienRace.BackstoryDef>
     <defName>Aun_CHILD</defName>
     <title>Ethereal caste</title>
-    <baseDescription>NAME was born as a member of the Fire Caste. As such, the path of the warrior was HIS destiny.</baseDescription>
+    <baseDescription>NAME was born as Ethereal caste. As such NAME was destined to become a leading figure in Tau society.</baseDescription>
     <bodytypeMale>Thin</bodytypeMale>
     <bodyTypeFemale>Thin</bodyTypeFemale>
     <slot>Childhood</slot>

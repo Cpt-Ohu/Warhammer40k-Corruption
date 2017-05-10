@@ -76,6 +76,9 @@
     <weaponTags>
       <li>DE_Ranged_Std</li>
     </weaponTags>
+    <thingCategories>
+      <li>DE_Ranged_Std</li>
+    </thingCategories>
     <ItemMeshSize>(1.3, 1.3, 1.3)</ItemMeshSize>
     <graphicData>
       <texPath>Things/DarkEldar/Weapons/SplinterRifle</texPath>
@@ -127,6 +130,9 @@
     <weaponTags>
       <li>DE_Ranged_Std</li>
     </weaponTags>
+    <thingCategories>
+      <li>DE_Ranged_Std</li>
+    </thingCategories>
     <ItemMeshSize>(1.3, 1.3, 1.3)</ItemMeshSize>
     <graphicData>
       <texPath>Things/DarkEldar/Weapons/DarklightBlaster</texPath>
@@ -169,6 +175,9 @@
     <weaponTags>
       <li>DE_Ranged_Std</li>
     </weaponTags>
+    <thingCategories>
+      <li>DE_Ranged_Std</li>
+    </thingCategories>
     <ItemMeshSize>(1.3, 1.3, 1.3)</ItemMeshSize>
     <graphicData>
       <texPath>Things/DarkEldar/Weapons/ShredderCannon</texPath>
@@ -214,6 +223,9 @@
     <weaponTags>
       <li>DE_Ranged_Std</li>
     </weaponTags>
+    <thingCategories>
+      <li>DE_Ranged_Std</li>
+    </thingCategories>
     <ItemMeshSize>(0.8, 0.8, 0.8)</ItemMeshSize>
     <graphicData>
       <texPath>Things/DarkEldar/Weapons/SplinterPistol</texPath>
@@ -259,6 +271,9 @@
     <weaponTags>
       <li>DE_Melee_Std</li>
     </weaponTags>
+    <thingCategories>
+      <li>DE_Melee_Std</li>
+    </thingCategories>
     <techLevel>Spacer</techLevel>
     <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
     <graphicData>
@@ -296,6 +311,9 @@
     <weaponTags>
       <li>DE_Melee_Std</li>
     </weaponTags>
+    <thingCategories>
+      <li>DE_Melee_Std</li>
+    </thingCategories>
     <techLevel>Spacer</techLevel>
     <ItemMeshSize>(1.3, 1.3, 1.3)</ItemMeshSize>
     <graphicData>
@@ -333,6 +351,9 @@
     <weaponTags>
       <li>DE_Melee_Std</li>
     </weaponTags>
+    <thingCategories>
+      <li>DE_Melee_Std</li>
+    </thingCategories>
     <techLevel>Spacer</techLevel>
     <ItemMeshSize>(1.4, 1.4, 1.4)</ItemMeshSize>
     <graphicData>

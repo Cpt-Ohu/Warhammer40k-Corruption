@@ -33,7 +33,10 @@
     </verbs>
     <weaponTags>
       <li>Sororitas_Melee</li>
-    </weaponTags>
+    </weaponTags>	
+    <thingCategories>
+      <li>Sororitas_Melee</li>
+    </thingCategories>
     <comps>
       <li Class="Corruption.CompProperties_SoulItem">
         <compClass>Corruption.CompSoulItem</compClass>
@@ -75,6 +78,9 @@
     <weaponTags>
       <li>Sororitas_Melee</li>
     </weaponTags>
+	<thingCategories>
+      <li>Sororitas_Melee</li>
+    </thingCategories>
     <TickerType>Rare</TickerType>
     <comps>
       <li Class="Corruption.CompProperties_SoulItem">

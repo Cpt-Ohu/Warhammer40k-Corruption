@@ -56,5 +56,6 @@
 
   <CommandLaunchFleetFailDueToNotReady>At least one ship in the fleet isn't ready to launch.</CommandLaunchFleetFailDueToNotReady>
 
+  <CantAssignZeroHaulers>Cannot start shiploading with no haulers assigned.</CantAssignZeroHaulers>
 
 </LanguageData>

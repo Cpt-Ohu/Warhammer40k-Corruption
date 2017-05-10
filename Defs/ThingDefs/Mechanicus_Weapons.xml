@@ -24,7 +24,7 @@
     <tickerType>Never</tickerType>
     <techLevel>Spacer</techLevel>
     <thingCategories>
-      <li>WeaponsMelee</li>
+      <li>IG_MecMelee</li>
     </thingCategories>
     <comps>
       <li Class="CompProperties_Forbiddable"/>
@@ -57,8 +57,10 @@
     <recipeMaker>
       <researchPrerequisite>ChargedShot</researchPrerequisite>
     </recipeMaker>
-
     <tradeability>Sellable</tradeability>
+	<thingCategories>
+      <li>IG_MecRanged</li>
+    </thingCategories>
   </ThingDef>
 
   <ThingDef ParentName="BaseMechanicusGun"

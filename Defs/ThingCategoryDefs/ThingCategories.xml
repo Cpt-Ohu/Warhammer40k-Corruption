@@ -234,6 +234,12 @@
 	    <parent>IoMGear</parent>
 	  </ThingCategoryDef>
 
+	  <ThingCategoryDef>
+	    <defName>IoM_Armor</defName>
+	    <label>Imperial Armors</label>
+	    <parent>IoMGear</parent>
+	  </ThingCategoryDef>
+
 
 <ThingCategoryDef>
  <defName>CorruptedGear</defName>
@@ -291,6 +297,12 @@
 </ThingCategoryDef>
 
 	  <ThingCategoryDef>
+	    <defName>Ork_Armor</defName>
+	    <label>Ork Armor</label>
+	    <parent>OrkGear</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
 	    <defName>Ork_Kommandos</defName>
 	    <label>Ork Kommandos</label>
 	    <parent>OrkGear</parent>
@@ -308,11 +320,24 @@
 	    <parent>OrkGear</parent>
 	  </ThingCategoryDef>
 
+	  <ThingCategoryDef>
+	    <defName>Ork_Ranged</defName>
+	    <label>Ork Ranged</label>
+	    <parent>OrkGear</parent>
+	  </ThingCategoryDef>
+
 <ThingCategoryDef>
  <defName>EldarGear</defName>
  <label>Eldar gear</label>
  <parent>Root</parent>
 </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>E_Armor</defName>
+	    <label>Eldar Armor</label>
+	    <parent>EldarGear</parent>
+	  </ThingCategoryDef>
+
 
 	  <ThingCategoryDef>
 	    <defName>E_Artifacts</defName>
@@ -350,6 +375,12 @@
  <label>Dark Eldar</label>
  <parent>Root</parent>
 </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>DE_Armor</defName>
+	    <label>DE Armor</label>
+	    <parent>DarkEldar</parent>
+	  </ThingCategoryDef>
 
 	  <ThingCategoryDef>
 	    <defName>DE_Ranged_Std</defName>

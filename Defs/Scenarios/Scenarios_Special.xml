@@ -100,7 +100,7 @@ Beware of Xeno activities in the Sector. If unprepared an Invasion by non-human 
 				<thingDef>WoodLog</thingDef>
 				<count>100</count>
 			</li>
-			<li Class="Corruption.Ships.ScenPart_StartWithShip">
+			<li Class="OHUShips.ScenPart_StartWithShip">
 				<def>DropShip</def>
 				<ShipDef>OHUDropShip</ShipDef>
 			</li>

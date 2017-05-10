@@ -17,6 +17,9 @@
     <weaponTags>
       <li>Ork_Melee</li>
     </weaponTags>
+	<thingCategories>
+      <li>Ork_Melee</li>
+    </thingCategories>
     <tradeability>Sellable</tradeability>
   </ThingDef>
 
@@ -28,6 +31,9 @@
       <researchPrerequisite>ChargedShot</researchPrerequisite>
     </recipeMaker>
     <tradeability>Sellable</tradeability>
+		<thingCategories>
+      <li>Ork_Ranged</li>
+    </thingCategories>
   </ThingDef>
 
   <ThingDef ParentName="BaseBullet">

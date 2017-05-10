@@ -7,7 +7,7 @@
     <defName>ShipTurret_TwinBolter</defName>
     <label>twin linked bolter</label>
     <drawerType>RealtimeOnly</drawerType>
-    <thingClass>Corruption.Ships.Building_ShipTurret</thingClass>
+    <thingClass>OHUShips.Building_ShipTurret</thingClass>
     <graphicData>
       <texPath>Things/Mechanicus/Templates/MecTurret_Base</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -107,7 +107,7 @@
     <defName>ShipTurret_PlasmaCannon</defName>
     <label>plasma cannon</label>
     <drawerType>RealtimeOnly</drawerType>
-    <thingClass>Corruption.Ships.Building_ShipTurret</thingClass>
+    <thingClass>OHUShips.Building_ShipTurret</thingClass>
     <graphicData>
       <texPath>Things/Mechanicus/Templates/MecTurret_Base</texPath>
       <graphicClass>Graphic_Single</graphicClass>

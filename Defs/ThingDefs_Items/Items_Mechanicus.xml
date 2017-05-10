@@ -157,8 +157,8 @@
     <tickerType>Normal</tickerType>
     <comps>
       <li Class="CompProperties_Forbiddable"/>
-      <li Class="Corruption.Ships.CompProperties_ShipWeapon">
-        <compClass>Corruption.Ships.CompShipWeapon</compClass>
+      <li Class="OHUShips.CompProperties_ShipWeapon">
+        <compClass>OHUShips.CompShipWeapon</compClass>
         <availableToShips>
       	<li>OHUDropShip</li>
       	<li>AquilaLander</li>
@@ -212,8 +212,8 @@
     <tickerType>Normal</tickerType>
     <comps>
       <li Class="CompProperties_Forbiddable"/>
-      <li Class="Corruption.Ships.CompProperties_ShipWeapon">
-        <compClass>Corruption.Ships.CompShipWeapon</compClass>
+      <li Class="OHUShips.CompProperties_ShipWeapon">
+        <compClass>OHUShips.CompShipWeapon</compClass>
         <availableToShips>
       	<li>OHUDropShip</li>
       	<li>AquilaLander</li>

@@ -10,6 +10,9 @@
     <weaponTags>
       <li>WeaponsKhorne</li>
     </weaponTags>
+	    <thingCategories>
+      <li>WeaponsKhorne</li>
+    </thingCategories>
     <techLevel>Spacer</techLevel>
     <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
     <graphicData>
@@ -57,6 +60,9 @@
     <weaponTags>
       <li>WeaponsNurgle</li>
     </weaponTags>
+	    <thingCategories>
+      <li>WeaponsNurgle</li>
+	    </thingCategories>
     <techLevel>Spacer</techLevel>
     <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
     <graphicData>
@@ -104,6 +110,9 @@
     <weaponTags>
       <li>WeaponsNurgle</li>
     </weaponTags>
+		    <thingCategories>
+      <li>WeaponsNurgle</li>
+	    </thingCategories>
     <techLevel>Spacer</techLevel>
     <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
     <graphicData>
@@ -151,6 +160,9 @@
     <weaponTags>
       <li>WeaponsSlaanesh</li>
     </weaponTags>
+		    <thingCategories>
+      <li>WeaponsSlaanesh</li>
+	    </thingCategories>
     <techLevel>Spacer</techLevel>
     <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
     <graphicData>
@@ -210,7 +222,10 @@
     <description>A staff imbued with the power of the Lord of Change, able to unleash lightning.</description>
     <weaponTags>
       <li>WeaponsTzeentch</li>
-    </weaponTags>
+    </weaponTags>		    
+	<thingCategories>
+      <li>WeaponsTzeentch</li>
+	    </thingCategories>
     <techLevel>Spacer</techLevel>
     <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
     <graphicData>

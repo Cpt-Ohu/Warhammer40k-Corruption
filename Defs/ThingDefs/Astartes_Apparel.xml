@@ -105,7 +105,6 @@ The entire suit weighs upwards of several hundred kilos and requires a neuro-con
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <tradeability>Sellable</tradeability>
-
     <statBases>
       <WorkToMake>40000</WorkToMake>
       <MaxHitPoints>160</MaxHitPoints>
@@ -141,6 +140,9 @@ The entire suit weighs upwards of several hundred kilos and requires a neuro-con
         <li>Soldier</li>
       </defaultOutfitTags>
     </apparel>
+    <thingCategories>
+      <li>Astartes_Armor</li>
+    </thingCategories>
     <colorGenerator Class="ColorGenerator_Options">
       <options>
         <li>

@@ -12,6 +12,11 @@ namespace Corruption.Tithes
 
         public bool active = false;
 
+        public TitheEntryForContainer()
+        {
+            this.Tithe = new TitheEntryGlobal();
+        }
+
         public TitheEntryForContainer(TitheEntryGlobal tithe)
         {
             this.Tithe = tithe;

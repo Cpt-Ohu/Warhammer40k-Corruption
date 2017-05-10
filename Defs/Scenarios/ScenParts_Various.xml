@@ -4,18 +4,10 @@
   <!--================= player pawn filters =================-->
 
   <ScenPartDef>
-    <defName>GameStartDialog</defName>
-    <label>game start dialog</label>
-    <category>Misc</category>
-    <scenPartClass>ScenPart_GameStartDialog</scenPartClass>
-    <maxUses>1</maxUses>
-  </ScenPartDef>
-
-  <ScenPartDef>
     <defName>DropShip</defName>
     <label>start with ship</label>
     <category>Misc</category>
-    <scenPartClass>Corruption.Ships.ScenPart_StartWithShip</scenPartClass>
+    <scenPartClass>OHUShips.ScenPart_StartWithShip</scenPartClass>
     <maxUses>1</maxUses>
   </ScenPartDef>
 

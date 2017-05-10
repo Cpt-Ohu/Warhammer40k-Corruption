@@ -31,9 +31,6 @@
     <equippedStatOffsets>
       <MoveSpeed>-0.05</MoveSpeed>
     </equippedStatOffsets>
-    <thingCategories>
-      <li>Apparel</li>
-    </thingCategories>
     <costList>
       <Component>18</Component>
       <Wraithbone>135</Wraithbone>
@@ -57,6 +54,9 @@
         <li>KabaliteWarrior</li>
       </defaultOutfitTags>
     </apparel>
+    <thingCategories>
+      <li>DE_Armor</li>
+    </thingCategories>
     <colorGenerator Class="ColorGenerator_Options">
       <options>
         <li>
@@ -133,6 +133,9 @@
         <li>KabaliteWarrior</li>
       </defaultOutfitTags>
     </apparel>
+    <thingCategories>
+      <li>DE_Armor</li>
+    </thingCategories>
     <colorGenerator Class="ColorGenerator_Options">
       <options>
         <li>

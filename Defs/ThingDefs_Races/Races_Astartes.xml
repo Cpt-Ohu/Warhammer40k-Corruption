@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+
+  <!-- ============================ Astrartes ========================== -->
+
+  <ThingDef ParentName="BasePawn">
+    <defName>Astartes</defName>
+    <label>astartes</label>
+    <description>What was once mearly an exceptional human was turned into a demi-god of war thansk to the Emperors blessed gene-seed.</description>
+    <uiIconPath>Things/Pawn/Humanlike/UI/IconHuman</uiIconPath>
+    <statBases>
+      <MarketValue>10750</MarketValue>
+      <MoveSpeed>9.0</MoveSpeed>
+      <Flammability>0.9</Flammability>
+      <ComfyTemperatureMin>5</ComfyTemperatureMin>
+      <ComfyTemperatureMax>40</ComfyTemperatureMax>
+      <LeatherAmount>40</LeatherAmount>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <defaultCooldownTime>1.45</defaultCooldownTime>
+        <meleeDamageBaseAmount>12</meleeDamageBaseAmount>
+        <meleeDamageDef>Blunt</meleeDamageDef>
+        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+      </li>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <defaultCooldownTime>1.45</defaultCooldownTime>
+        <meleeDamageBaseAmount>12</meleeDamageBaseAmount>
+        <meleeDamageDef>Blunt</meleeDamageDef>
+        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+      </li>
+    </verbs>
+    <race>
+      <thinkTreeMain>Humanlike</thinkTreeMain>
+      <thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
+      <intelligence>Humanlike</intelligence>
+      <makesFootprints>true</makesFootprints>
+      <lifeExpectancy>1000</lifeExpectancy>
+      <leatherColor>(211,194,143)</leatherColor>
+      <leatherCommonalityFactor>0.01</leatherCommonalityFactor>
+      <leatherInsulation>0.780</leatherInsulation>
+      <leatherMarketValueFactor>3</leatherMarketValueFactor>
+      <nameCategory>HumanStandard</nameCategory>
+      <body>Human</body>
+      <baseBodySize>1.5</baseBodySize>
+      <baseHealthScale>2</baseHealthScale>
+      <foodType>OmnivoreHuman</foodType>
+      <gestationPeriodDays>45</gestationPeriodDays>
+      <litterSizeCurve>
+        <points>
+          <li>(0.5, 0)</li>
+          <li>(1, 1)</li>
+          <li>(1.01, 0.02)</li>
+          <li>(3.5, 0)</li>
+        </points>
+      </litterSizeCurve>
+      <lifeStageAges>
+        <li>
+          <def>HumanlikeBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>HumanlikeToddler</def>
+          <minAge>1.2</minAge>
+        </li>
+        <li>
+          <def>HumanlikeChild</def>
+          <minAge>4</minAge>
+        </li>
+        <li>
+          <def>HumanlikeTeenager</def>
+          <minAge>13</minAge>
+        </li>
+        <li>
+          <def>HumanlikeAdult</def>
+          <minAge>18</minAge>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
+      <specialshadowData>
+        <volume>(0.3, 0.8, 0.4)</volume>
+        <offset>(0,0,-0.3)</offset>
+      </specialshadowData>
+      <ageGenerationCurve>
+        <points>
+          <li>(20,0)</li>
+          <li>(200,100)</li>
+          <li>(400,80)</li>
+          <li>(600,50)</li>
+          <li>(800,20)</li>
+          <li>(1000,0)</li>
+        </points>
+      </ageGenerationCurve>
+      <hediffGiverSets>
+        <li>OrganicStandard</li>
+      </hediffGiverSets>
+    </race>
+    <recipes>
+      <li>InstallPowerClaw</li>
+      <li>InstallScytherBlade</li>
+      <li>InstallBionicEye</li>
+      <li>InstallBionicArm</li>
+      <li>InstallBionicLeg</li>
+      <li>InstallSimpleProstheticArm</li>
+      <li>InstallSimpleProstheticLeg</li>
+      <li>InstallPegLeg</li>
+      <li>InstallDenture</li>
+      <li>InstallJoywire</li>
+      <li>InstallPainstopper</li>
+      <li>InstallNaturalHeart</li>
+      <li>InstallNaturalLung</li>
+      <li>InstallNaturalKidney</li>
+      <li>InstallNaturalLiver</li>
+      <li>ExciseCarcinoma</li>
+      <li>RemoveBodyPart</li>
+      <li>Euthanize</li>
+    </recipes>
+  </ThingDef>
+
+
+
+</ThingDefs>

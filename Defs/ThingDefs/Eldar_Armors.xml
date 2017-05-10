@@ -21,6 +21,9 @@
     <tradeTags>
       <li>Xeno_Eldar</li>
     </tradeTags>
+	    <thingCategories>
+      <li>E_Armor</li>
+    </thingCategories>
     <tradeability>Sellable</tradeability>
     <statBases>
       <WorkToMake>3250000</WorkToMake>
@@ -34,9 +37,6 @@
     <equippedStatOffsets>
       <MoveSpeed>-0.05</MoveSpeed>
     </equippedStatOffsets>
-    <thingCategories>
-      <li>Apparel</li>
-    </thingCategories>
     <costList>
       <Component>18</Component>
       <Wraithbone>135</Wraithbone>
@@ -90,6 +90,9 @@
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <tradeability>Sellable</tradeability>
+		    <thingCategories>
+      <li>E_Armor</li>
+    </thingCategories>
     <statBases>
       <WorkToMake>60000</WorkToMake>
       <MaxHitPoints>160</MaxHitPoints>
@@ -158,6 +161,9 @@
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <tradeability>Sellable</tradeability>
+	<thingCategories>
+      <li>E_Armor</li>
+    </thingCategories>
     <statBases>
       <WorkToMake>3250000</WorkToMake>
       <MaxHitPoints>450</MaxHitPoints>
@@ -169,9 +175,6 @@
     </statBases>
     <equippedStatOffsets>
     </equippedStatOffsets>
-    <thingCategories>
-      <li>Apparel</li>
-    </thingCategories>
     <costList>
       <Component>18</Component>
       <Wraithbone>135</Wraithbone>
@@ -225,6 +228,9 @@
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <tradeability>Sellable</tradeability>
+		    <thingCategories>
+      <li>E_Armor</li>
+    </thingCategories>
     <statBases>
       <WorkToMake>60000</WorkToMake>
       <MaxHitPoints>160</MaxHitPoints>
@@ -317,8 +323,8 @@
       <ArmorRating_Blunt>0.30</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.50</ArmorRating_Sharp>
     </statBases>
-    <thingCategories>
-      <li>Apparel</li>
+	    <thingCategories>
+      <li>E_Armor</li>
     </thingCategories>
     <equippedStatOffsets>
       <MoveSpeed>-0.08</MoveSpeed>
@@ -373,8 +379,8 @@
       <ArmorRating_Blunt>0.30</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.50</ArmorRating_Sharp>
     </statBases>
-    <thingCategories>
-      <li>Apparel</li>
+	    <thingCategories>
+      <li>E_Armor</li>
     </thingCategories>
     <equippedStatOffsets>
       <MoveSpeed>-0.08</MoveSpeed>
@@ -410,7 +416,7 @@
   <ThingDef ParentName="ArmorMakeableBase">
     <defName>Eldar_RangerCowl</defName>
     <thingClass>FactionColors.ApparelUniform</thingClass>
-    <label>eldar ranger robe</label>
+    <label>eldar ranger cowl</label>
     <description>A cowl worn by Eldar rangers.</description>
     <techLevel>Spacer</techLevel>
     <recipeMaker>
@@ -439,8 +445,8 @@
     </statBases>
     <equippedStatOffsets>
     </equippedStatOffsets>
-    <thingCategories>
-      <li>Apparel</li>
+	    <thingCategories>
+      <li>E_Armor</li>
     </thingCategories>
     <apparel>
       <bodyPartGroups>
@@ -509,8 +515,8 @@
     </statBases>
     <equippedStatOffsets>
     </equippedStatOffsets>
-    <thingCategories>
-      <li>Apparel</li>
+	    <thingCategories>
+      <li>E_Armor</li>
     </thingCategories>
     <apparel>
       <bodyPartGroups>
@@ -577,8 +583,8 @@
     </statBases>
     <equippedStatOffsets>
     </equippedStatOffsets>
-    <thingCategories>
-      <li>Apparel</li>
+	    <thingCategories>
+      <li>E_Armor</li>
     </thingCategories>
     <apparel>
       <bodyPartGroups>
@@ -697,8 +703,8 @@
       <MoveSpeed>-0.05</MoveSpeed>
 	 <ShootingAccuracy>0.1</ShootingAccuracy>
     </equippedStatOffsets>
-    <thingCategories>
-      <li>Apparel</li>
+	    <thingCategories>
+      <li>E_DireAvengers</li>
     </thingCategories>
     <costList>
       <Component>18</Component>
@@ -753,6 +759,9 @@
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <tradeability>Sellable</tradeability>
+		    <thingCategories>
+      <li>E_DireAvengers</li>
+    </thingCategories>
     <statBases>
       <WorkToMake>60000</WorkToMake>
       <MaxHitPoints>160</MaxHitPoints>

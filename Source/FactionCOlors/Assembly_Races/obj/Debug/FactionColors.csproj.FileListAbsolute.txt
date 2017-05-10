@@ -50,3 +50,4 @@ D:\Spiele\RimWorld1393Win\Mods\YaWH40Km-Public_A16\Assemblies\FactionColors.dll.
 D:\Spiele\RimWorld1393Win\Mods\YaWH40Km-Public_A16\Assemblies\FactionColors.dll
 D:\Spiele\RimWorld1393Win\Mods\YaWH40Km-Public_A16\Source\FactionCOlors\Assembly_Races\obj\Debug\FactionColors.csprojResolveAssemblyReference.cache
 D:\Spiele\RimWorld1393Win\Mods\YaWH40Km-Public_A16\Source\FactionCOlors\Assembly_Races\obj\Debug\FactionColors.dll
+D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\YaWH40Km-Public_A16\Source\FactionCOlors\Assembly_Races\obj\Debug\FactionColors.csprojResolveAssemblyReference.cache

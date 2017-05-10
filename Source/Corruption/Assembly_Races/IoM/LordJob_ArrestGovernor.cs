@@ -1,4 +1,4 @@
-﻿using Corruption.Ships;
+﻿using OHUShips;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -13,13 +13,13 @@ namespace Corruption.IoM
     public class LordJob_ArrestGovernor : LordJob
     {
 
-        public LordJob_ArrestGovernor(ShipBase ship, IntVec3 center)
+        public LordJob_ArrestGovernor(OHUShips.ShipBase ship, IntVec3 center)
         {
             this.ship = ship;
             this.baseCenter = center;
         }
         
-        public ShipBase ship;
+        public OHUShips.ShipBase ship;
 
         private IntVec3 baseCenter;
 

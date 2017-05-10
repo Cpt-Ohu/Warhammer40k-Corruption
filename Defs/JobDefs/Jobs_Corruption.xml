@@ -110,40 +110,6 @@
     <casualInterruptible>false</casualInterruptible>
   </JobDef>
 
-  <JobDef>
-    <defName>LeaveInShip</defName>
-    <driverClass>Corruption.Ships.JobDriver_LeaveInShip</driverClass>
-    <reportString>leaving with ship</reportString>
-    <casualInterruptible>false</casualInterruptible>
-  </JobDef>
-
-  <JobDef>
-    <defName>EnterShip</defName>
-    <driverClass>Corruption.Ships.JobDriver_EnterShip</driverClass>
-    <reportString>entering ship</reportString>
-    <casualInterruptible>false</casualInterruptible>
-  </JobDef>
-
-  <JobDef>
-    <defName>LoadContainerMultiplePawns</defName>
-    <driverClass>Corruption.Ships.JobDriver_LoadCargoMultiple</driverClass>
-    <reportString>hauling TargetA.</reportString>
-  </JobDef>
-
-  <JobDef>
-    <defName>InstallShipWeapon</defName>
-    <driverClass>Corruption.Ships.JobDriver_InstallShipWeaponSystem</driverClass>
-    <reportString>Installing TargetA on TargetB</reportString>
-    <casualInterruptible>false</casualInterruptible>
-  </JobDef>
-
-  <JobDef>
-    <defName>UninstallShipWeapon</defName>
-    <driverClass>Corruption.Ships.JobDriver_UninstallShipWeaponSystem</driverClass>
-    <reportString>Uninstalling Ship Weapon</reportString>
-    <casualInterruptible>false</casualInterruptible>
-  </JobDef>
-
 
 
 </Defs>
