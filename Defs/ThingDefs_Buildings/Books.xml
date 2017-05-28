@@ -11,6 +11,7 @@
     <statBases>
 	  <MaxHitPoints>80</MaxHitPoints>
       <Flammability>1.0</Flammability>
+      <MarketValue>100</MarketValue>
     </statBases>
     <selectable>true</selectable>
     <altitudeLayer>Item</altitudeLayer>
@@ -273,6 +274,9 @@
 		</graphicData>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
 	    <thingClass>Corruption.BookStuff.ReadableBooks</thingClass>
+    <statBases>
+      <MarketValue>600</MarketValue>
+    </statBases>
     <stackLimit>1</stackLimit>
     <useHitPoints>false</useHitPoints>
     <thingCategories>
@@ -316,6 +320,9 @@
 		</graphicData>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
 	    <thingClass>Corruption.BookStuff.ReadableBooks</thingClass>
+    <statBases>
+      <MarketValue>600</MarketValue>
+    </statBases>
     <stackLimit>1</stackLimit>
     <useHitPoints>false</useHitPoints>
     <thingCategories>
@@ -357,6 +364,9 @@
 		</graphicData>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
 	    <thingClass>Corruption.BookStuff.ReadableBooks</thingClass>
+    <statBases>
+      <MarketValue>600</MarketValue>
+    </statBases>
     <stackLimit>1</stackLimit>
     <useHitPoints>false</useHitPoints>
     <thingCategories>
@@ -397,6 +407,9 @@
 		</graphicData>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
 	    <thingClass>Corruption.BookStuff.ReadableBooks</thingClass>
+    <statBases>
+      <MarketValue>300</MarketValue>
+    </statBases>
     <stackLimit>1</stackLimit>
     <useHitPoints>false</useHitPoints>
     <thingCategories>
@@ -439,6 +452,9 @@
 		</graphicData>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
 	    <thingClass>Corruption.BookStuff.ReadableBooks</thingClass>
+    <statBases>
+      <MarketValue>150</MarketValue>
+    </statBases>
     <stackLimit>1</stackLimit>
     <useHitPoints>false</useHitPoints>
     <thingCategories>
@@ -481,6 +497,9 @@
 		</graphicData>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
 	    <thingClass>Corruption.BookStuff.ReadableBooks</thingClass>
+    <statBases>
+      <MarketValue>600</MarketValue>
+    </statBases>
     <stackLimit>1</stackLimit>
     <useHitPoints>false</useHitPoints>
     <thingCategories>
@@ -522,6 +541,9 @@
 		</graphicData>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
 	    <thingClass>Corruption.BookStuff.ReadableBooks</thingClass>
+    <statBases>
+      <MarketValue>600</MarketValue>
+    </statBases>
     <stackLimit>1</stackLimit>
     <useHitPoints>false</useHitPoints>
     <thingCategories>
@@ -563,6 +585,9 @@
 		</graphicData>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
 	    <thingClass>Corruption.BookStuff.ReadableBooks</thingClass>
+    <statBases>
+      <MarketValue>600</MarketValue>
+    </statBases>
     <stackLimit>1</stackLimit>
     <useHitPoints>false</useHitPoints>
     <thingCategories>
@@ -643,6 +668,9 @@
 		</graphicData>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
 	    <thingClass>Corruption.BookStuff.ReadableBooks</thingClass>
+    <statBases>
+      <MarketValue>1000</MarketValue>
+    </statBases>
     <stackLimit>1</stackLimit>
     <useHitPoints>false</useHitPoints>
     <thingCategories>
@@ -704,6 +732,9 @@
 		</graphicData>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
 	    <thingClass>Corruption.BookStuff.ReadableBooks</thingClass>
+    <statBases>
+      <MarketValue>1200</MarketValue>
+    </statBases>
     <stackLimit>1</stackLimit>
     <useHitPoints>false</useHitPoints>
     <thingCategories>
@@ -747,6 +778,9 @@
  <defName>Readables_MindControl</defName>
 		<label>The Veil</label>
 <Description>A prosaic book full of ill-sounding, yet intriguing verses.</Description>
+    <statBases>
+      <MarketValue>2000</MarketValue>
+    </statBases>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -823,6 +857,9 @@
  <defName>Readables_TomeOfIsha</defName>
 		<label>Tome of Isha</label>
 <Description>A piece of literature that seems to be centered around a being called Isha. It seems to radiate warmth and an aura of peace.</Description>
+    <statBases>
+      <MarketValue>1000</MarketValue>
+    </statBases>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -885,6 +922,9 @@
  <defName>Readables_Druj</defName>
 		<label>Calling of Druj</label>
 <Description>A piece of literature that seems to be written in strange hyroglyphs, with some gibberish in High Gothic interspersed. It seems to radiate an aura of unease.</Description>
+    <statBases>
+      <MarketValue>1000</MarketValue>
+    </statBases>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -939,6 +979,9 @@
  <defName>Readables_Asumod</defName>
 		<label>Litany of Asumod</label>
 <Description>A piece of literature that seems to be written in strange hyroglyphs, with some gibberish in High Gothic interspersed. It seems to radiate an aura of anger.</Description>
+    <statBases>
+      <MarketValue>1000</MarketValue>
+    </statBases>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>

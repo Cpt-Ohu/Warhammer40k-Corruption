@@ -84,6 +84,22 @@
 		<speed>80</speed>
     </projectile>
   </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_StormBolt</defName>
+    <label>.75 cal Bolt</label>
+	<graphicData>
+		<texPath>Things/Projectile/Bullet_Big</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+    <projectile>
+		<flyOverhead>false</flyOverhead>
+		<damageDef>BulletBolter</damageDef>
+		<damageAmountBase>20</damageAmountBase>
+	 	<explosionRadius>1.0</explosionRadius>
+		<speed>80</speed>
+    </projectile>
+  </ThingDef>
   
   <ThingDef ParentName="BaseBullet">
     <defName>Bullet_Autogun</defName>
@@ -261,10 +277,10 @@
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <projectileDef>Bullet_StandardBolt</projectileDef>
-        <warmupTime>0.7</warmupTime>
+        <warmupTime>1.7</warmupTime>
         <range>32</range>
         <burstShotCount>3</burstShotCount>
-        <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+        <ticksBetweenBurstShots>40</ticksBetweenBurstShots>
         <soundCast>Bolter</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
 		<muzzleFlashScale>15</muzzleFlashScale>
@@ -489,12 +505,12 @@ Class="FactionColors.FactionItemDef">
     <soundInteract>InteractRifle</soundInteract>
     <statBases>
       <WorkToMake>20000</WorkToMake>
-      <MarketValue>1500</MarketValue>
+      <MarketValue>2500</MarketValue>
       <AccuracyTouch>1</AccuracyTouch>
-      <AccuracyShort>0.71</AccuracyShort>
-      <AccuracyMedium>0.50</AccuracyMedium>
-      <AccuracyLong>0.32</AccuracyLong>
-      <RangedWeapon_Cooldown>0.20</RangedWeapon_Cooldown>
+      <AccuracyShort>0.65</AccuracyShort>
+      <AccuracyMedium>0.40</AccuracyMedium>
+      <AccuracyLong>0.28</AccuracyLong>
+      <RangedWeapon_Cooldown>0.90</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
       <li>IG_Ranged_Vet</li>
@@ -507,12 +523,12 @@ Class="FactionColors.FactionItemDef">
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_StandardBolt</projectileDef>
-        <warmupTime>0.3</warmupTime>
+        <projectileDef>Bullet_StormBolt</projectileDef>
+        <warmupTime>2.0</warmupTime>
         <range>20</range>
-        <burstShotCount>8</burstShotCount>
-        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
-        <soundCast>ShotAssaultRifle</soundCast>
+        <burstShotCount>6</burstShotCount>
+        <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+        <soundCast>Bolter</soundCast>
         <soundCastTail>GunTail_Medium</soundCastTail>
 		<muzzleFlashScale>9</muzzleFlashScale>
       </li>

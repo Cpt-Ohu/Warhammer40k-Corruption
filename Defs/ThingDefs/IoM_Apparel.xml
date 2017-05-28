@@ -830,7 +830,59 @@
     </comps>
   </ThingDef>
 
-
-
+  <ThingDef ParentName="ApparelMakeableBase">
+    <defName>IoM_Apparel_RobeWanderer</defName>
+    <description>A simple robe, commonplace in the Galaxy.</description>
+    <label>wanderer's robe</label>
+    <recipeMaker>
+      <researchPrerequisite>ComplexClothing</researchPrerequisite>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/IoM/WandererRobe/LC_Icon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <costStuffCount>75</costStuffCount>
+    <stuffCategories>
+      <li>Leathery</li>
+      <li>Fabric</li>
+    </stuffCategories>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <statBases>      
+	<MarketValue>50</MarketValue>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToMake>50000</WorkToMake>
+      <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.1</ArmorRating_Heat>
+      <Insulation_Cold>-15</Insulation_Cold>
+      <Insulation_Heat>15</Insulation_Heat>
+    </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.04</MoveSpeed>
+    </equippedStatOffsets>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/IoM/WandererRobe/LC</worngraphicPath>
+      <layers>
+        <li>Shell</li>
+      </layers>
+      <commonality>1</commonality>
+      <tags>
+        <li>IoM_Apparel</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+      </defaultOutfitTags>
+    </apparel>
+  </ThingDef>
 
 </ThingDefs>

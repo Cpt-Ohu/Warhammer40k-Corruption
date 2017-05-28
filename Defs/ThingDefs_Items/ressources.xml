@@ -70,7 +70,7 @@
     <description>A heat absorbing plastic and metal composite.</description>
     <graphicData>
       <texPath>Things/Items/Resource/Armaplas</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>Graphic_StackCount</graphicClass>
       <color>(255,255,255)</color>
     </graphicData>
     <soundInteract>Metal_Drop</soundInteract>
@@ -108,7 +108,7 @@
     <description>A tough, heat absorbing ceramic composite.</description>
     <graphicData>
       <texPath>Things/Items/Resource/Ceramite</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>Graphic_StackCount</graphicClass>
       <color>(255,255,255)</color>
     </graphicData>
     <soundInteract>Metal_Drop</soundInteract>

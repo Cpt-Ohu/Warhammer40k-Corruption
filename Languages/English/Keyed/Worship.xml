@@ -35,4 +35,7 @@
   <MorningPrayer>Morning Prayers</MorningPrayer>
   <EveningPrayer>Evening Prayers</EveningPrayer>
 
+  <MessageReligiousSocialFight>{0} has started a social fight with {1} over religious matters.</MessageReligiousSocialFight>
+	
+
 </LanguageData>

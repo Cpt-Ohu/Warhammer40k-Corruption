@@ -209,9 +209,6 @@
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <costStuffCount>50</costStuffCount>
-    <stuffCategories>
-      <li>Leathery</li>
-    </stuffCategories>
     <thingCategories>
       <li>Apparel</li>
     </thingCategories>
@@ -245,7 +242,7 @@
   </ThingDef>
 
   <ThingDef ParentName="ApparelMakeableBase">
-    <defName>Apparel_CultistRobe</defName>
+    <defName>Apparel_HereticRobe</defName>
     <label>Rugged Robe</label>
     <description>Rugged robe made of leather whose origin is best left undiscussed.</description>
     <graphicData>
@@ -289,7 +286,7 @@
   </ThingDef>
 
   <ThingDef ParentName="ApparelMakeableBase">
-    <defName>Apparel_CultistHood</defName>
+    <defName>Apparel_HereticHood</defName>
     <label>Rugged Hood</label>
     <description>Rugged hood made of leather whose origin is best left undiscussed.</description>
     <graphicData>

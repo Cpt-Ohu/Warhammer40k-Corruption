@@ -31,7 +31,5 @@ namespace Corruption.Worship
                 pawn.mindState.duty = pawnDuty;
             }
         }
-        
-
     }
 }

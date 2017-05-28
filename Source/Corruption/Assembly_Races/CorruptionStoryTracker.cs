@@ -39,6 +39,7 @@ namespace Corruption
 
         public Pawn Astropath;
 
+        public Faction IoM;
         public Faction ChaosCult;
         public Faction DarkEldarKabal;
         public Faction EldarWarhost;
@@ -147,8 +148,9 @@ namespace Corruption
         {
    //           Log.Message("CreatingSubSector");
             CreateSubSector();
-   //           Log.Message("Objects created : " + this.SubSectorObjects.Count.ToString());
+            //           Log.Message("Objects created : " + this.SubSectorObjects.Count.ToString());
 
+            this.IoM = Find.FactionManager.FirstFactionOfDef(C_FactionDefOf.IoM_NPCFaction);
             this.ChaosCult = Find.FactionManager.FirstFactionOfDef(C_FactionDefOf.ChaosCult);
             this.DarkEldarKabal = Find.FactionManager.FirstFactionOfDef(C_FactionDefOf.DarkEldarKabal);
             this.EldarWarhost = Find.FactionManager.FirstFactionOfDef(C_FactionDefOf.EldarWarhost);
@@ -458,6 +460,7 @@ namespace Corruption
 
         public override void ExposeData()
         {
+            Scribe_References.LookReference<Faction>(ref this.IoM, "IoM");
             Scribe_References.LookReference<Faction>(ref this.PatronFaction, "PatronFaction");
             Scribe_References.LookReference<Faction>(ref this.ImperialGuard, "ImperialGuard");
             Scribe_References.LookReference<Faction>(ref this.AdeptusSororitas, "AdeptusSororitas");

@@ -11,6 +11,10 @@ namespace Corruption.Worship
 {
     public class LordJob_Sermon : LordJob
     {
+        public LordJob_Sermon()
+        {
+        }
+
         public LordJob_Sermon(BuildingAltar altar, bool isMorningPrayer = true)
         {
             this.altar = altar;
@@ -23,7 +27,6 @@ namespace Corruption.Worship
                 this.initialPosition = IntVec3.Invalid;
             }
             this.isMorningPrayer = isMorningPrayer;
-
         }
 
         private bool isMorningPrayer = true;

@@ -110,6 +110,14 @@
     <casualInterruptible>false</casualInterruptible>
   </JobDef>
 
+  <JobDef>
+    <defName>Pray</defName>
+    <driverClass>Corruption.Worship.JobDriver_Prayer</driverClass>
+    <reportString>praying.</reportString>
+    <joyDuration>3000</joyDuration>
+    <joyGainRate>1</joyGainRate>
+    <joyKind>Meditative</joyKind>
+  </JobDef>
 
 
 </Defs>

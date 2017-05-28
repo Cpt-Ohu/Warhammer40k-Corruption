@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+     <JobDef>
+        <defName>FollowAndCorrupt</defName>
+        <driverClass>Corruption.IoM.JobDriver_FollowAndCorrupt</driverClass>
+        <reportString>talking to TargetA.</reportString>
+        <joyDuration>600</joyDuration>
+        <joyGainRate>2</joyGainRate>
+        <joyMaxParticipants>20</joyMaxParticipants>
+        <joyKind>Worship</joyKind>
+    </JobDef>
+
+     <JobDef>
+        <defName>FollowAndPraise</defName>
+        <driverClass>Corruption.IoM.JobDriver_FollowAndPraiseEmperor</driverClass>
+        <reportString>talking to TargetA.</reportString>
+        <joyDuration>600</joyDuration>
+        <joyGainRate>2</joyGainRate>
+        <joyMaxParticipants>20</joyMaxParticipants>
+        <joyKind>Worship</joyKind>
+    </JobDef>
+
+     <JobDef>
+        <defName>FollowAndChat</defName>
+        <driverClass>Corruption.IoM.JobDriver_WanderAndChat</driverClass>
+        <reportString>talking to TargetA.</reportString>
+        <joyDuration>600</joyDuration>
+        <joyGainRate>2</joyGainRate>
+        <joyMaxParticipants>20</joyMaxParticipants>
+        <joyKind>Worship</joyKind>
+    </JobDef>
+
+     <JobDef>
+        <defName>FollowAndConvertTau</defName>
+        <driverClass>Corruption.IoM.JobDriver_FollowAndConvertTau</driverClass>
+        <reportString>talking to TargetA.</reportString>
+        <joyDuration>600</joyDuration>
+        <joyGainRate>2</joyGainRate>
+        <joyMaxParticipants>20</joyMaxParticipants>
+        <joyKind>Worship</joyKind>
+    </JobDef>
+
+     <JobDef>
+        <defName>FollowAndInvestigate</defName>
+        <driverClass>Corruption.IoM.JobDriver_FollowAndInvestigate</driverClass>
+        <reportString>talking to TargetA.</reportString>
+        <joyDuration>600</joyDuration>
+        <joyGainRate>2</joyGainRate>
+        <joyMaxParticipants>20</joyMaxParticipants>
+        <joyKind>Worship</joyKind>
+    </JobDef>
+
+
+</Defs>

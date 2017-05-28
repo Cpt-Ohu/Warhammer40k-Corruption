@@ -23,6 +23,8 @@ namespace FactionColors
 
         public string BannerGraphicPath = "UI/Flags/Plain";
 
+        public Dictionary<Faction, string> FactionGraphicPaths = new Dictionary<Faction, string>();
+
         public override void ExposeData()
         {
             base.ExposeData();

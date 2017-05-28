@@ -9,6 +9,7 @@ namespace Corruption.DefOfs
     [DefOf]
     public class C_FactionDefOf
     {
+        public static FactionDef IoM_NPCFaction;
         public static FactionDef ChaosCult;
         public static FactionDef DarkEldarKabal;
         public static FactionDef EldarWarhost;

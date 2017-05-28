@@ -155,7 +155,6 @@
 	    <parent>IG_Ranged</parent>
 	  </ThingCategoryDef>
 
-
 	  <ThingCategoryDef>
 	    <defName>IoM_Mechanicum</defName>
 	    <label>Mechanicum</label>
@@ -233,6 +232,13 @@
 	    <label>Holy Items</label>
 	    <parent>IoMGear</parent>
 	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IoM_CorruptedItems</defName>
+	    <label>Strange Items</label>
+	    <parent>IoMGear</parent>
+	  </ThingCategoryDef>
+
 
 	  <ThingCategoryDef>
 	    <defName>IoM_Armor</defName>

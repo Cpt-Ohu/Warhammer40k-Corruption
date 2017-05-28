@@ -27,4 +27,39 @@
     </hairTags>
   </FactionDef>
 
+  <FactionDef ParentName="PlayerFactionBase">
+    <defName>IoM_NPCFaction</defName>
+    <label>Imperium of Man</label>
+    <description>The realm of humans.</description>
+    <fixedName>Imperium</fixedName>
+    <isPlayer>false</isPlayer>
+    <basicMemberKind>IoM_Colonist</basicMemberKind>
+    <pawnsPlural>colonists</pawnsPlural>
+    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <factionBaseNameMaker>NamerFactionBasePlayerColony</factionBaseNameMaker>
+    <expandingIconTexture>World/WorldObjects/Expanding/Town</expandingIconTexture>
+    <startingResearchTags>
+      <li>ClassicStart</li>
+    </startingResearchTags>
+    <hairTags>
+      <li>Urban</li>
+    </hairTags>
+    <hidden>true</hidden>
+    <startingGoodwill>
+      <min>0</min>
+      <max>10</max>
+    </startingGoodwill>
+    <naturalColonyGoodwill>
+      <min>-100</min>
+      <max>100</max>
+    </naturalColonyGoodwill>
+    <canSiege>true</canSiege>
+    <canStageAttacks>false</canStageAttacks>
+    <raidCommonality>1</raidCommonality>
+    <techLevel>Ultra</techLevel>
+    <backstoryCategory>Civil</backstoryCategory>
+    <leaderTitle>Emperor</leaderTitle>
+  </FactionDef>
+
+
 </Defs>

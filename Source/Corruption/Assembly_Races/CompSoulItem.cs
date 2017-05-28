@@ -19,7 +19,11 @@ namespace Corruption
 
         private bool PsykerPowerAdded = false;
 
+        private bool randomCategoryResolved = false;
+
         private Graphic Overlay;
+
+        private SoulItemCategories itemCategory = SoulItemCategories.Neutral;
 
         public CompProperties_SoulItem SProps
         {
@@ -29,6 +33,7 @@ namespace Corruption
             }
         }
 
+     
         public List<PsykerPower> psykerItemPowers = new List<PsykerPower>();
 
         public void GetOverlayGraphic()
@@ -36,19 +41,18 @@ namespace Corruption
             if (SProps == null)
                 Log.Message("NoSprops");
 
-            if (SProps.Category == SoulItemCategories.Corruption)
+            if (itemCategory == SoulItemCategories.Corruption)
             {
      //           Log.Message("CorruptionItem");
                 this.Overlay = GraphicDatabase.Get<Graphic_Single>("UI/Glow_Corrupt", ShaderDatabase.MetaOverlay, Vector2.one, Color.white);
             }
-            else if (SProps.Category == SoulItemCategories.Redemption)
+            else if (itemCategory == SoulItemCategories.Redemption)
             {
   //              Log.Message("RedemptionItem");
                 this.Overlay = GraphicDatabase.Get<Graphic_Single>("UI/Glow_Holy", ShaderDatabase.MetaOverlay, Vector2.one, Color.white);
             }
             else
             {
-                Log.Message("NoGraphic");
                 return;
             }
         }
@@ -85,10 +89,10 @@ namespace Corruption
                             }
                         }
                     }
-
                 }
             }
         }
+        
 
         public override void PostSpawnSetup()
         {
@@ -160,7 +164,7 @@ namespace Corruption
         public void CalculateSoulChanges(Need_Soul nsoul, CompProperties_SoulItem cprops)
         {
             float num;
-            switch (cprops.Category)
+            switch (itemCategory)
             {
                 case (SoulItemCategories.Neutral):
                     {
@@ -207,7 +211,15 @@ namespace Corruption
 
         public override void CompTickRare()
         {
-      //      Log.Message("CompTick");
+            //      Log.Message("CompTick");
+            if (!this.randomCategoryResolved)
+            {
+                if (SProps.Category == SoulItemCategories.Random)
+                {
+                    this.itemCategory = (SoulItemCategories)Rand.RangeInclusive(0, 2);
+                }
+                this.randomCategoryResolved = true;
+            }
             this.CheckForOwner();     
         }
 
@@ -215,6 +227,8 @@ namespace Corruption
         {
             base.PostExposeData();
             Scribe_Values.LookValue<bool>(ref this.PsykerPowerAdded, "PsykerPowerAdded", false, false);
+            Scribe_Values.LookValue<bool>(ref this.randomCategoryResolved, "randomCategoryResolved", false, false);
+            Scribe_Values.LookValue<SoulItemCategories>(ref this.itemCategory, "itemCategory", SoulItemCategories.Neutral, false);
         }
     }
 }

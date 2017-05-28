@@ -32,9 +32,11 @@ namespace Corruption.DefOfs
         public static JobDef ArrestGovernor;
         public static JobDef LeaveInShip;
 
-        public static JobDef EnterShip;
-        public static JobDef LoadContainerMultiplePawns;
-        public static JobDef InstallShipWeapon;
-        public static JobDef UninstallShipWeapon;
+       
+        public static JobDef FollowAndChat;
+        public static JobDef FollowAndPraise;
+        public static JobDef FollowAndCorrupt;
+        public static JobDef FollowAndConvertTau;
+        public static JobDef FollowAndInvestigate;
     }
 }

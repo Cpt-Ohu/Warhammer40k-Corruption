@@ -117,7 +117,7 @@
 
   <ThingDef ParentName="ResourceBase">
     <defName>TwinLinkedBolterTemplate</defName>
-    <label>twin linked bolter</label>
+    <label>twin linked bolter(boxed)</label>
     <description>A twin-linked heavy bolter, usually installed on vehicles or stationary defenses.</description>
     <graphicData>
       <texPath>Things/Mechanicus/Templates/MecTemplate_Crate</texPath>
@@ -172,7 +172,7 @@
 
   <ThingDef ParentName="ResourceBase">
     <defName>PlasmaCannonTemplate</defName>
-    <label>Plasma Cannon Template</label>
+    <label>Plasma Cannon Template(boxed)</label>
     <description>A plasma cannon, usually installed on vehicles or stationary defenses.</description>
     <graphicData>
       <texPath>Things/Mechanicus/Templates/MecTemplate_Crate</texPath>
@@ -221,7 +221,61 @@
 	   </availableToShips>
         <weaponSystemType>LightCaliber</weaponSystemType>
         <TurretToInstall>ShipTurret_PlasmaCannon</TurretToInstall>
+      </li>
+    </comps>
+  </ThingDef>
 
+  <ThingDef ParentName="ResourceBase">
+    <defName>RocketLauncherShipTemplate</defName>
+    <label>Rocket Launcher(boxed)</label>
+    <description>A rocket launcher, usually installed on vehicles or stationary defenses.</description>
+    <graphicData>
+      <texPath>Things/Mechanicus/Templates/MecTemplate_Crate</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>1</stackLimit>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <MarketValue>3500</MarketValue>
+      <Mass>15</Mass>
+      <Flammability>1.0</Flammability>
+			<DeteriorationRate>0.3</DeteriorationRate>
+		</statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>IG_MecTemplates</li>
+    </thingCategories>
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>MechanicumAssemblyBench</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>MecTec_ManufacturingLicenceIII</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <MecComponent_Weapon>2</MecComponent_Weapon>
+      <MecComponent_General>1</MecComponent_General>
+      <Component>5</Component>
+      <Steel>150</Steel>
+    </costList>
+    <tickerType>Normal</tickerType>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="OHUShips.CompProperties_ShipWeapon">
+        <compClass>OHUShips.CompShipWeapon</compClass>
+        <availableToShips>
+      	<li>OHUDropShip</li>
+      	<li>AquilaLander</li>
+      	<li>Valkyrie</li>
+	   </availableToShips>
+        <weaponSystemType>LightCaliber</weaponSystemType>
+        <TurretToInstall>ShipTurret_RocketLauncher</TurretToInstall>
       </li>
     </comps>
   </ThingDef>

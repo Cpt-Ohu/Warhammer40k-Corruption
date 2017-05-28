@@ -13,5 +13,11 @@ namespace Corruption.DefOfs
         public static DutyDef ArrestGovernorDuty;
         
         public static DutyDef JoinSermon;
+        
+        public static DutyDef FollowAndChat;
+        public static DutyDef FollowAndPraise;
+        public static DutyDef FollowAndCorrupt;
+        public static DutyDef FollowAndConvertTau;
+        public static DutyDef FollowAndInvestigate;
     }
 }

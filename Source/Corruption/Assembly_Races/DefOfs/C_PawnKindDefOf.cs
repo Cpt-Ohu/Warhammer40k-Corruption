@@ -11,5 +11,6 @@ namespace Corruption.DefOfs
     public static class C_PawnKindDefOf
     {
         public static PawnKindDef ServitorColonist;
+        public static PawnKindDef IoM_WanderingTrader;
     }
 }

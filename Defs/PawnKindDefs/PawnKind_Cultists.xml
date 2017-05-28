@@ -65,7 +65,6 @@
       <max>2000</max>
     </apparelMoney>
     <apparelTags>
-      <li>IG_STApp</li>
       <li>CorruptedApparel</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
@@ -75,7 +74,8 @@
       <max>1200</max>
     </weaponMoney>
     <weaponTags>
-      <li>IG_Ranged_Ass</li>
+      <li>IG_Ranged_Std</li>
+      <li>Gun</li>
     </weaponTags>
     <techHediffsMoney>
       <min>100</min>
@@ -156,7 +156,7 @@
     </apparelMoney>
     <apparelRequired>
       <li>CoatNoble</li>
-      <li>Apparel_CultistHood</li>
+      <li>Apparel_HereticHood</li>
     </apparelRequired>
     <apparelTags>
       <li>Soldier</li>

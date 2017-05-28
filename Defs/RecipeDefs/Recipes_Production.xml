@@ -121,4 +121,98 @@
     </recipeUsers>
   </RecipeDef>
 
+	<RecipeDef>
+    <defName>MakeArmaplas</defName>
+    <label>make amaplas</label>
+    <description>Refine raw Plasteel into a more durable composite material.</description>
+    <jobString>Creating armaplas.</jobString>
+    <workSpeedStat>SmithingSpeed</workSpeedStat>
+    <effectWorking>Smelt</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>2000</workAmount>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Plasteel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Armaplas>1</Armaplas>
+    </products>
+		<skillRequirements>
+			<li>
+				<skill>Crafting</skill>
+				<minLevel>5</minLevel>
+			</li>
+		</skillRequirements>
+    <workSkill>Crafting</workSkill>
+    <recipeUsers>
+	<li>MechanicumAssemblyBench</li>
+    </recipeUsers>
+  </RecipeDef>
+
+	<RecipeDef>
+    <defName>MakeCeramite</defName>
+    <label>make ceramite</label>
+    <description>Refine metal and minerals extracted from rocks into a more durable composite material.</description>
+    <jobString>Creating armaplas.</jobString>
+    <workSpeedStat>SmithingSpeed</workSpeedStat>
+    <effectWorking>Smelt</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>2000</workAmount>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+			<li>
+				<filter>
+					<categories>
+						<li>StoneBlocks</li>
+					</categories>
+				</filter>
+				<count>50</count>
+			</li>
+
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Plasteel</li>
+      </thingDefs>
+			<categories>
+				<li>StoneBlocks</li>
+			</categories>
+    </fixedIngredientFilter>
+    <products>
+      <Ceramite>1</Ceramite>
+    </products>
+		<skillRequirements>
+			<li>
+				<skill>Crafting</skill>
+				<minLevel>5</minLevel>
+			</li>
+		</skillRequirements>
+    <workSkill>Crafting</workSkill>
+    <recipeUsers>
+	<li>MechanicumAssemblyBench</li>
+    </recipeUsers>
+  </RecipeDef>
+
+
+
 </RecipeDefs>

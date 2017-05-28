@@ -103,6 +103,9 @@
     </verbs>
   </ThingDef>
 
+  <!--=============== Plasma Cannon===============-->
+
+
   <ThingDef ParentName="BuildingBase">
     <defName>ShipTurret_PlasmaCannon</defName>
     <label>plasma cannon</label>
@@ -222,6 +225,112 @@
 			<explosionSpawnChance>0.0</explosionSpawnChance>
 		</projectile>
 	</ThingDef>
+
+
+  <!--=============== Rocket Launcher===============-->
+
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>ShipTurret_RocketLauncher</defName>
+    <label>rocket launcher</label>
+    <drawerType>RealtimeOnly</drawerType>
+    <thingClass>OHUShips.Building_ShipTurret</thingClass>
+    <graphicData>
+      <texPath>Things/Mechanicus/Templates/MecTurret_Base</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <damageData>
+        <rect>(0.2,0.2,0.6,0.6)</rect>
+      </damageData>
+    </graphicData>
+    <uiIconPath>Things/Mechanicus/Templates/Turret_RocketLauncher</uiIconPath>
+    <size>(1,1)</size>
+    <stealable>false</stealable>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <WorkToBuild>2500</WorkToBuild>
+      <Mass>100</Mass>
+      <Beauty>-60</Beauty>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>4.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0.3</chanceNeverExplodeFromDamage>
+      </li>
+    </comps>
+    <description>A rocket launcher designed for close air-to-air and air-to-ground combat.</description>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <fillPercent>0.4</fillPercent>
+    <castEdgeShadows>false</castEdgeShadows>
+    <hasTooltip>true</hasTooltip>
+    <costList>
+      <Steel>250</Steel>
+      <Component>2</Component>
+      <MecComponent_Weapon>1</MecComponent_Weapon>
+    </costList>
+    <altitudeLayer>Blueprint</altitudeLayer>
+
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <specialDisplayRadius>25.9</specialDisplayRadius>
+    <building>
+			<ai_combatDangerous>true</ai_combatDangerous>
+      <turretGunDef>Gun_RocketLauncherShip</turretGunDef>
+      <turretBurstCooldownTime>7.0</turretBurstCooldownTime>
+      <turretTopgraphicPath>Things/Mechanicus/Templates/Turret_RocketLauncher</turretTopgraphicPath>
+	 <isInert>true</isInert>
+      <isEdifice>false</isEdifice>
+
+    </building>
+    <designationHotKey>Misc4</designationHotKey>
+    <researchPrerequisites>
+      <li>GunTurrets</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHumanGun">
+    <defName>Gun_RocketLauncherShip</defName>
+    <label>rocket launcher</label>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/ChargeRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <menuHidden>true</menuHidden>
+    <description>Jury-rigged gun attached to a turret.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>false</canBeSpawningInventory>
+    <tradeability>Never</tradeability>
+    <destroyOnDrop>true</destroyOnDrop>
+    <statBases>
+      <AccuracyTouch>0.80</AccuracyTouch>
+      <AccuracyShort>0.65</AccuracyShort>
+      <AccuracyMedium>0.31</AccuracyMedium>
+      <AccuracyLong>0.22</AccuracyLong>
+      <RangedWeapon_Cooldown>25.0</RangedWeapon_Cooldown>
+    </statBases>
+    <weaponTags>
+      <li>TurretGun</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_Rocket</projectileDef>
+        <warmupTime>5.0</warmupTime>
+        <range>30</range>
+        <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>Bolter</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
 
 
 

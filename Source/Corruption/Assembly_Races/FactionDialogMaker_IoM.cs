@@ -317,7 +317,7 @@ namespace Corruption
                 }));
                 return diaOption;
             }
-            float goodwillDelta = 12f * FactionDialogMaker_IoM.negotiator.GetStatValue(StatDefOf.GiftImpact, true);
+            float goodwillDelta = 5f * FactionDialogMaker_IoM.negotiator.GetStatValue(StatDefOf.GiftImpact, true);
             DiaOption diaOption2 = new DiaOption("OfferGift".Translate() + " (" + "SilverForGoodwill".Translate(new object[]
             {
                 300,
@@ -326,7 +326,7 @@ namespace Corruption
             diaOption2.action = delegate
             {
                 TradeUtility.LaunchThingsOfType(ThingDefOf.Silver, 300, map, null);
-                CorruptionStoryTrackerUtilities.AffectGoodwillWithSpacerFaction(faction, Faction.OfPlayer, goodwillDelta);
+                CorruptionStoryTrackerUtilities.AffectGoodwillWithSpacerFaction(Faction.OfPlayer, faction, goodwillDelta);
             };
             string text = "SilverGiftSent".Translate(new object[]
             {

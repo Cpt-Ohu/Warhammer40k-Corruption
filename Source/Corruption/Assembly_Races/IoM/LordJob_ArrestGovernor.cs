@@ -29,7 +29,6 @@ namespace Corruption.IoM
             LordToil lordToil_wait = new LordToil_DefendPoint(baseCenter, 50f);
             lordToil_wait.AddFailCondition(() => CorruptionStoryTrackerUtilities.currentStoryTracker.PlanetaryGovernor.Dead);
             stateGraph.AddToil(lordToil_wait);
-            Log.Message(ship.Position.ToString());
 
             LordToil lordToil_leaveInShip = new LordToil_LeaveInShip();
 

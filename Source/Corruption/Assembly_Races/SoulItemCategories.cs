@@ -9,6 +9,8 @@ namespace Corruption
     {
         Corruption,
         Redemption,
-        Neutral
+        Neutral,
+        Random
+            
     }
 }

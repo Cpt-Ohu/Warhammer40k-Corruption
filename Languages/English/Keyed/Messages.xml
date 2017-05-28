@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <IoM_WandererArrives>A wanderer named {0} was passing by and seems interested in staying for a while. Looks like HECAP has a few interesting things HECAP might be willing to trade.</IoM_WandererArrives>
+
+  <MessageLoneWandererLeaving>The wanderer is leaving.</MessageLoneWandererLeaving>
+  <MessageGroupWandererLeaving>The wandering troupe is leaving.</MessageGroupWandererLeaving>
+
+
+</LanguageData>

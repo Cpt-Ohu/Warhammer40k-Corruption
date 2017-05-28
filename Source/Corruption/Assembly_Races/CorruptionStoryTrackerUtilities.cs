@@ -108,6 +108,18 @@ namespace Corruption
             }
         }
 
+        public static Need_Soul GetPawnSoul(Pawn pawn)
+        {
+            if (pawn.needs != null)
+            {
+                return pawn.needs.TryGetNeed<Need_Soul>();
+            }
+            else
+            {
+                Log.Error("Tried to get Pawns soul with missing needs");
+                return null;
+            }
+        }
         public static void DrawImperialTitheTab(CorruptionStoryTracker tracker, Rect rect)
         {
             Text.Anchor = TextAnchor.MiddleCenter;

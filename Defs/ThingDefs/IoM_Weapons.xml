@@ -20,9 +20,12 @@
     <statBases>
       <MarketValue>10000</MarketValue>
       <WorkToMake>18000</WorkToMake>
-      <MeleeWeapon_DamageAmount>50</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_DamageAmount>30</MeleeWeapon_DamageAmount>
       <MeleeWeapon_Cooldown>1.95</MeleeWeapon_Cooldown>
     </statBases>
+    <thingCategories>
+      <li>IoM_HolyItems</li>
+    </thingCategories>
     <equippedAngleOffset>0</equippedAngleOffset>
     <stuffCategories>
       <li>Metallic</li>
@@ -80,6 +83,10 @@
 		<stuffCategories>
 			<li>Metallic</li>
 		</stuffCategories>
+    <thingCategories>
+      <li>IoM_CorruptedItems</li>
+    </thingCategories>
+
 		<verbs>
 			<li>
 				<verbClass>Verb_MeleeAttack</verbClass>
@@ -90,7 +97,7 @@
     <comps>
       <li Class="Corruption.CompProperties_SoulItem">
         <compClass>Corruption.CompSoulItem</compClass>
-        <Category>Corruption</Category>
+        <Category>Random</Category>
         <GainRate>1.0</GainRate>
       </li>
     </comps>
@@ -128,11 +135,13 @@
     <comps>
       <li Class="Corruption.CompProperties_SoulItem">
         <compClass>Corruption.CompSoulItem</compClass>
-        <Category>Corruption</Category>
+        <Category>Random</Category>
         <GainRate>1.0</GainRate>
       </li>
     </comps>
-
+    <thingCategories>
+      <li>IoM_CorruptedItems</li>
+    </thingCategories>
   </ThingDef>
 
 	<ThingDef ParentName="BaseMeleeWeaponNoTag">
@@ -166,11 +175,13 @@
     <comps>
       <li Class="Corruption.CompProperties_SoulItem">
         <compClass>Corruption.CompSoulItem</compClass>
-        <Category>Corruption</Category>
+        <Category>Random</Category>
         <GainRate>1.5</GainRate>
       </li>
     </comps>
-
+    <thingCategories>
+      <li>IoM_CorruptedItems</li>
+    </thingCategories>
   </ThingDef>
 
 	<ThingDef ParentName="BaseMeleeWeaponNoTag">
@@ -204,11 +215,14 @@
     <comps>
       <li Class="Corruption.CompProperties_SoulItem">
         <compClass>Corruption.CompSoulItem</compClass>
-        <Category>Redemption</Category>
+        <Category>Random</Category>
         <GainRate>1.0</GainRate>
-        <IsHolyItem>true</IsHolyItem>
+        <IsHolyItem>false</IsHolyItem>
       </li>
     </comps>
+    <thingCategories>
+      <li>IoM_CorruptedItems</li>
+    </thingCategories>
 
   </ThingDef>
 
