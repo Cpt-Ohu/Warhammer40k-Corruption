@@ -22,7 +22,7 @@ namespace Corruption
             soul.GainNeed(factor * 0.00001f);
 
             PsychicDroneLevel psychicDroneLevel = PsychicDroneLevel.None;
-            MapCondition_PsychicEmanation activeCondition = p.Map.mapConditionManager.GetActiveCondition<MapCondition_PsychicEmanation>();
+            GameCondition_PsychicEmanation activeCondition = p.Map.gameConditionManager.GetActiveCondition<GameCondition_PsychicEmanation>();
             if (activeCondition != null && activeCondition.def.droneLevel > psychicDroneLevel)
             {
                 psychicDroneLevel = activeCondition.def.droneLevel;

@@ -60,7 +60,7 @@ namespace Corruption.Tithes
                         TitheEntryGlobal entry = titheContainer.currentTitheEntries[i].Tithe;
                         Thing stuff = ThingMaker.MakeThing(entry.thingDefs.RandomElement());
                         stuff.stackCount = (int)((1 - entry.tithePercent) * entry.requestedTitheAmount / stuff.def.BaseMarketValue);
-                        titheContainer.GetInnerContainer().TryAdd(stuff);
+                        titheContainer.GetDirectlyHeldThings().TryAdd(stuff);
                     }
                 }
             }

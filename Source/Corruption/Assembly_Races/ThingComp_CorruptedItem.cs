@@ -33,9 +33,9 @@ namespace Corruption
             else return 0;
         }
 
-        public override void PostSpawnSetup()
+        public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            base.PostSpawnSetup();
+            base.PostSpawnSetup(respawningAfterLoad);
 
         }
 

@@ -59,7 +59,7 @@ namespace FactionColors
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.LookValue<Color>(ref this.col, "col", Color.white, false);
+            Scribe_Values.Look<Color>(ref this.col, "col", Color.white, false);
         }
     }
 }

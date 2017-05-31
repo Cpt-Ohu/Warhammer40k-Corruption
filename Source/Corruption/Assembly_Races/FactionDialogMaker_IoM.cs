@@ -45,7 +45,7 @@ namespace Corruption
                 });
                 text2 = text2.AdjustedFor(negotiator);
                 FactionDialogMaker_IoM.root = new DiaNode(text2);
-                if (!FactionBaseUtility.IsPlayerAttackingAnyFactionBaseOf(faction))
+                if (!SettlementUtility.IsPlayerAttackingAnySettlementOf(faction))
                 {
                     FactionDialogMaker_IoM.root.options.Add(FactionDialogMaker_IoM.OfferGiftOption(negotiator.Map));
                 }
@@ -64,7 +64,7 @@ namespace Corruption
                     text,
                     negotiator.LabelShort
                 }));
-                if (!FactionBaseUtility.IsPlayerAttackingAnyFactionBaseOf(faction))
+                if (!SettlementUtility.IsPlayerAttackingAnySettlementOf(faction))
                 {
                     FactionDialogMaker_IoM.root.options.Add(FactionDialogMaker_IoM.OfferGiftOption(negotiator.Map));
                 }

@@ -7,20 +7,20 @@ using Verse;
 
 namespace Corruption
 {
-    public class CompMechanicusImplantManager : ThingComp, IThingContainerOwner
+    public class CompMechanicusImplantManager : ThingComp, IThingHolder
     {
-        public ThingContainer innerContainer;
+        public ThingOwner innerContainer;
 
         public Pawn pawn;
 
         public CompMechanicusImplantManager()
         {
-            this.innerContainer = new ThingContainer(this, false);
+            this.innerContainer = new ThingOwner<Thing>(this, false, LookMode.Deep);
         }
 
         public CompMechanicusImplantManager(Pawn pawn)
         {
-            this.innerContainer = new ThingContainer(this, false);
+            this.innerContainer = new ThingOwner<Thing>(this, false, LookMode.Deep);
             this.pawn = pawn;
         }
 
@@ -30,11 +30,6 @@ namespace Corruption
             {
                 return this.parent.Spawned;
             }
-        }
-
-        public ThingContainer GetInnerContainer()
-        {
-            return this.innerContainer;
         }
 
         public IntVec3 GetPosition()
@@ -66,6 +61,16 @@ namespace Corruption
             matrixHead.SetTRS(headVec, Quaternion.AngleAxis(angle, Vector3.up), new Vector3(1.0f, 1f, 1.0f));
             Graphics.DrawMesh(MeshPool.humanlikeHeadSet.MeshAt(this.parent.Rotation), matrixHead, headmat, 0);
             Graphics.DrawMesh(MeshPool.humanlikeHairSetAverage.MeshAt(this.parent.Rotation), matrixHead, hairmat, 0);
+        }
+
+        public void GetChildHolders(List<IThingHolder> outChildren)
+        {
+            ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, this.GetDirectlyHeldThings());
+        }
+
+        public ThingOwner GetDirectlyHeldThings()
+        {
+            return this.innerContainer;
         }
     }
 }

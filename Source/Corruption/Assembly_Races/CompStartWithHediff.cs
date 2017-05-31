@@ -25,9 +25,9 @@ namespace Corruption
             }
         }
 
-        public override void PostSpawnSetup()
+        public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            base.PostSpawnSetup();
+            base.PostSpawnSetup(respawningAfterLoad);
             if (pawn != null && pawn.health != null)
             {
                 foreach (HediffDef hdef in cprops.StartsWithHediffs)

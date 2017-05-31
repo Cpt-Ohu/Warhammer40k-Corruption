@@ -26,7 +26,7 @@ namespace Corruption
                             pawn.story.childhood = this.Pawn.story.childhood;
                             pawn.story.adulthood = this.Pawn.story.adulthood;
                             medTable.patient.Destroy(DestroyMode.Vanish);
-                            medTable.patient = pawn;
+                            medTable.TryAcceptThing(pawn);
                             return true;
                         }
                     }

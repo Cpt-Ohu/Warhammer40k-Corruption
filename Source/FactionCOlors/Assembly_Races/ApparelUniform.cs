@@ -27,9 +27,9 @@ namespace FactionColors
                     {
                         Log.Error("Uniform Apparel " + this.ToString() + " is missing a CompFactionColors");
                     }
-                    if (this.wearer != null)
+                    if (this.Wearer != null)
                     {
-                        FactionDefUniform udef = this.wearer.Faction.def as FactionDefUniform;
+                        FactionDefUniform udef = this.Wearer.Faction.def as FactionDefUniform;
                         if (udef != null)
                         {
                                 Col1 = udef.FactionColor1;
@@ -66,9 +66,9 @@ namespace FactionColors
                 if (FirstSpawned)
                 {
                     CompFactionColor compF = this.GetComp<CompFactionColor>();                    
-                    if (this.wearer != null)
+                    if (this.Wearer != null)
                     {
-                        FactionDefUniform udef = this.wearer.Faction.def as FactionDefUniform;
+                        FactionDefUniform udef = this.Wearer.Faction.def as FactionDefUniform;
                         if (udef != null)
                         {
                                 Col2 = udef.FactionColor2;
@@ -103,9 +103,9 @@ namespace FactionColors
 
         private void SetFactionColor(ref Color color, CompFactionColor compF)
         {
-            if (this.wearer != null)
+            if (this.Wearer != null)
             {
-                FactionDefUniform udef = this.wearer.Faction.def as FactionDefUniform;
+                FactionDefUniform udef = this.Wearer.Faction.def as FactionDefUniform;
                 if (udef != null)
                 {
                     if ((compF != null && compF.CProps.UseCamouflageColor))
@@ -152,17 +152,17 @@ namespace FactionColors
 
         }
 
-        public override void SpawnSetup(Map map)
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
-            base.SpawnSetup(map);
+            base.SpawnSetup(map, respawningAfterLoad);
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.LookValue<bool>(ref FirstSpawned, "FirstSpawned", false, false);
-            Scribe_Values.LookValue<Color>(ref Col1, "Col1", Color.white, false);
-            Scribe_Values.LookValue<Color>(ref Col2, "Col2", Color.white, false);
+            Scribe_Values.Look<bool>(ref FirstSpawned, "FirstSpawned", false, false);
+            Scribe_Values.Look<Color>(ref Col1, "Col1", Color.white, false);
+            Scribe_Values.Look<Color>(ref Col2, "Col2", Color.white, false);
         }
     }
 }

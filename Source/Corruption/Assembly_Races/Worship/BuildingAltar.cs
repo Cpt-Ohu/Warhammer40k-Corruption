@@ -25,7 +25,7 @@ namespace Corruption
         {
             get
             {
-                return (OptionMorning && (GenLocalDate.HourInt(this.Map) < 6 && GenLocalDate.HourInt(this.Map) > 10));
+                return (OptionMorning && (GenLocalDate.HourFloat(this.Map) < 6 && GenLocalDate.HourFloat(this.Map) > 10));
             }
         }
 
@@ -33,7 +33,7 @@ namespace Corruption
         {
             get
             {
-                return (OptionEvening && (GenLocalDate.HourInt(this.Map) < 18 && GenLocalDate.HourInt(this.Map) > 22));
+                return (OptionEvening && (GenLocalDate.HourFloat(this.Map) < 18 && GenLocalDate.HourFloat(this.Map) > 22));
             }
         }
 
@@ -45,9 +45,9 @@ namespace Corruption
             }
         }
 
-        public override void SpawnSetup(Map map)
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
-            base.SpawnSetup(map);
+            base.SpawnSetup(map, respawningAfterLoad);
             this.preacher = Map.mapPawns.FreeColonistsSpawned.RandomElement<Pawn>();
             RoomName = "Temple";
             TickManager f = Find.TickManager;
@@ -61,7 +61,7 @@ namespace Corruption
             base.Tick();
             if (this.OptionMorning)
             {
-                if (Rand.RangeInclusive(6, 10) == GenLocalDate.HourInt(this.Map))
+                if (Rand.RangeInclusive(6, 10) == GenLocalDate.HourFloat(this.Map))
                 {
                     if (!HeldSermon)
                     {
@@ -74,7 +74,7 @@ namespace Corruption
 
             if (this.OptionEvening)
             {
-                if (Rand.RangeInclusive(18, 22) == GenLocalDate.HourInt(this.Map))
+                if (Rand.RangeInclusive(18, 22) == GenLocalDate.HourFloat(this.Map))
                 {
                     if (!HeldSermon)
                     {
@@ -84,7 +84,7 @@ namespace Corruption
                 }
             }
 
-            if (GenLocalDate.HourInt(this.Map) == 1 || GenLocalDate.HourInt(this.Map) == 12)
+            if (GenLocalDate.HourFloat(this.Map) == 1 || GenLocalDate.HourFloat(this.Map) == 12)
             {
                 this.HeldSermon = false;
             }
@@ -94,14 +94,14 @@ namespace Corruption
         {
             base.ExposeData();
 
-            Scribe_References.LookReference<Pawn>(ref this.preacher, "preacher", false);
-            Scribe_Values.LookValue<string>(ref this.RoomName, "RoomName", "Temple", false);
-            Scribe_Values.LookValue<bool>(ref this.OptionEvening, "OptionEvening", false, false);
-            Scribe_Values.LookValue<bool>(ref this.OptionMorning, "OptionMorning", false, false);
-            Scribe_Values.LookValue<bool>(ref this.HeldSermon, "HeldSermon", true, false);
-            Scribe_Values.LookValue<bool>(ref this.CalledInFlock, "CalledInFlock", false, false);
+            Scribe_References.Look<Pawn>(ref this.preacher, "preacher", false);
+            Scribe_Values.Look<string>(ref this.RoomName, "RoomName", "Temple", false);
+            Scribe_Values.Look<bool>(ref this.OptionEvening, "OptionEvening", false, false);
+            Scribe_Values.Look<bool>(ref this.OptionMorning, "OptionMorning", false, false);
+            Scribe_Values.Look<bool>(ref this.HeldSermon, "HeldSermon", true, false);
+            Scribe_Values.Look<bool>(ref this.CalledInFlock, "CalledInFlock", false, false);
 
-            Scribe_Values.LookValue<bool>(ref this.HeldSermon, "HeldSermon", true, false);
+            Scribe_Values.Look<bool>(ref this.HeldSermon, "HeldSermon", true, false);
 
         }        
     }

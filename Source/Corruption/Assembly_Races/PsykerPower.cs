@@ -68,9 +68,9 @@ namespace Corruption
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_References.LookReference<Pawn>(ref this.pawn, "pawn", false);
-            Scribe_Defs.LookDef<PsykerPowerDef>(ref this.powerdef, "powerdef");
-            Scribe_Collections.LookList<ThingComp>(ref this.comps, "comps", LookMode.Reference, new object[0]);
+            Scribe_References.Look<Pawn>(ref this.pawn, "pawn", false);
+            Scribe_Defs.Look<PsykerPowerDef>(ref this.powerdef, "powerdef");
+            Scribe_Collections.Look<ThingComp>(ref this.comps, "comps", LookMode.Reference, new object[0]);
 
         }
 

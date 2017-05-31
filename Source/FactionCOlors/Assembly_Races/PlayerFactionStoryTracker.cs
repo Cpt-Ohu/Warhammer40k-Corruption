@@ -28,9 +28,9 @@ namespace FactionColors
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.LookValue<Color>(ref this.PlayerColorOne, "PlayerColorOne", Color.red, false);
-            Scribe_Values.LookValue<Color>(ref this.PlayerColorTwo, "PlayerColorTwo", Color.red, false);
-            Scribe_Values.LookValue<string>(ref this.BannerGraphicPath, "BannerGraphicPath", "UI/Flags/Plain", false);
+            Scribe_Values.Look<Color>(ref this.PlayerColorOne, "PlayerColorOne", Color.red, false);
+            Scribe_Values.Look<Color>(ref this.PlayerColorTwo, "PlayerColorTwo", Color.red, false);
+            Scribe_Values.Look<string>(ref this.BannerGraphicPath, "BannerGraphicPath", "UI/Flags/Plain", false);
         }
 
         public override void Draw()

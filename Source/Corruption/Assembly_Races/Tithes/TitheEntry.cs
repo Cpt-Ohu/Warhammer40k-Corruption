@@ -66,7 +66,7 @@ namespace Corruption.Tithes
                 TitheContainer current = (TitheContainer)list[j];
                 for (int k = 0; k < this.thingDefs.Count; k++)
                 {
-                    int items = current.GetInnerContainer().TotalStackCountOfDef(thingDefs[k]);
+                    int items = current.GetDirectlyHeldThings().TotalStackCountOfDef(thingDefs[k]);
                     num += items * thingDefs[k].BaseMarketValue;
                 }
             }
@@ -93,10 +93,10 @@ namespace Corruption.Tithes
 
         public void ExposeData()
         {
-            Scribe_Defs.LookDef<TitheDef>(ref this.titheDef, "titheDef");
-            Scribe_Values.LookValue<float>(ref this.requestedTitheAmount, "requestedTitheAmount", 1000, true);
-          //  Scribe_Values.LookValue<float>(ref this.collectedTitheAmount, "collectedTitheAmount", 0, true);
-            Scribe_Values.LookValue<int>(ref this.ID, "ID", 0, true);
+            Scribe_Defs.Look<TitheDef>(ref this.titheDef, "titheDef");
+            Scribe_Values.Look<float>(ref this.requestedTitheAmount, "requestedTitheAmount", 1000, true);
+          //  Scribe_Values.Look<float>(ref this.collectedTitheAmount, "collectedTitheAmount", 0, true);
+            Scribe_Values.Look<int>(ref this.ID, "ID", 0, true);
         }
 
         public string GetUniqueLoadID()

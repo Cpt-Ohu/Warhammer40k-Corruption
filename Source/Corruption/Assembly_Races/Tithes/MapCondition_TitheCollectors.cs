@@ -7,13 +7,13 @@ using Verse;
 
 namespace Corruption.Tithes
 {
-    public class MapCondition_TitheCollectors : MapCondition
+    public class MapCondition_TitheCollectors : GameCondition
     {
         public override void End()
         {
             Window_IoMTitheDue window = new Window_IoMTitheDue(CorruptionStoryTrackerUtilities.currentStoryTracker);
             Find.WindowStack.Add(window);
-            this.mapConditionManager.ActiveConditions.Remove(this);
+            this.gameConditionManager.ActiveConditions.Remove(this);
         }
     }
 }

@@ -91,15 +91,15 @@ namespace Corruption.Worship
 
         private bool ShouldBeCalledOff()
         {
-            return !PartyUtility.AcceptableMapConditionsToContinueParty(base.Map) || (!this.altar.Position.Roofed(base.Map) && !JoyUtility.EnjoyableOutsideNow(base.Map, null));
+            return !PartyUtility.AcceptableGameConditionsToContinueParty(base.Map) || (!this.altar.Position.Roofed(base.Map) && !JoyUtility.EnjoyableOutsideNow(base.Map, null));
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_References.LookReference<BuildingAltar>(ref this.altar, "altar");
-            Scribe_Values.LookValue<IntVec3>(ref this.initialPosition, "initialPosition", IntVec3.Zero);
-            Scribe_Values.LookValue<bool>(ref this.isMorningPrayer, "isMorningPrayer", false);
+            Scribe_References.Look<BuildingAltar>(ref this.altar, "altar");
+            Scribe_Values.Look<IntVec3>(ref this.initialPosition, "initialPosition", IntVec3.Zero);
+            Scribe_Values.Look<bool>(ref this.isMorningPrayer, "isMorningPrayer", false);
         }
     }
 }

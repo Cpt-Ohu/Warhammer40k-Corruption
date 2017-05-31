@@ -27,7 +27,7 @@ namespace FactionColors
         {
             get
             {
-                return this.apparel.wearer;
+                return this.apparel.Wearer;
             }
         }
 
@@ -69,7 +69,7 @@ namespace FactionColors
                     CompPauldronDrawer drawer;
                     if ((drawer = curr.TryGetComp<CompPauldronDrawer>()) != null)
                     {
-                        drawer.PostSpawnSetup();
+                        drawer.PostSpawnSetup(false);
                         if (drawer.PauldronGraphic != null)
                         {
                             if (drawer.CheckPauldronRotation(pawn, drawer.padType))
@@ -101,18 +101,16 @@ namespace FactionColors
             }
             return true;
         }
-       
-
-
-        public override void PostSpawnSetup()
+        
+        public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            base.PostSpawnSetup();
+            base.PostSpawnSetup(respawningAfterLoad);
             ShoulderPadEntry entry = this.pprops.PauldronEntries.RandomElementByWeight((ShoulderPadEntry x) => x.commonality);
             this.graphicPath = entry.padTexPath;
 
             if (entry.UseFactionTextures)
             {
-                this.graphicPath += ("_" + this.apparel.wearer.Faction.Name);
+                this.graphicPath += ("_" + this.apparel.Wearer.Faction.Name);
             }
             this.shader = ShaderDatabase.ShaderFromType(entry.shaderType);
             this.useSecondaryColor = entry.UseSecondaryColor;
@@ -122,10 +120,10 @@ namespace FactionColors
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.LookValue<string>(ref this.graphicPath, "graphicPath", null, false);
-            Scribe_Values.LookValue<Shader>(ref this.shader, "shader", ShaderDatabase.Cutout, false);
-            Scribe_Values.LookValue<ShoulderPadType>(ref this.padType, "padType", ShoulderPadType.Both, false);
-            Scribe_Values.LookValue<bool>(ref this.useSecondaryColor, "useSecondaryColor", false, false);
+            Scribe_Values.Look<string>(ref this.graphicPath, "graphicPath", null, false);
+            Scribe_Values.Look<Shader>(ref this.shader, "shader", ShaderDatabase.Cutout, false);
+            Scribe_Values.Look<ShoulderPadType>(ref this.padType, "padType", ShoulderPadType.Both, false);
+            Scribe_Values.Look<bool>(ref this.useSecondaryColor, "useSecondaryColor", false, false);
 
         }
 

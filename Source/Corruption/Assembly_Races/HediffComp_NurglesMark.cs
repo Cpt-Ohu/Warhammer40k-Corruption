@@ -21,9 +21,9 @@ namespace Corruption
             }
         }
 
-        public override void CompPostTick()
+        public override void CompPostTick(ref float severityAdjustment)
         {
-            base.CompPostTick();
+            base.CompPostTick(ref severityAdjustment);
             if (lastTick < Find.TickManager.TicksGame + 6000)
             {
                 FilthMaker.MakeFilth(this.Pawn.DrawPos.ToIntVec3(), this.Pawn.Map, ThingDefOf.FilthVomit, 1);

@@ -14,22 +14,22 @@ namespace FactionColors
 
         private Apparel app;
 
-        private Pawn wearer;
+        private Pawn Wearer;
 
         private PawnRenderer renderer;
 
         private bool DoRender;
 
-        public override void PostSpawnSetup()
+        public override void PostSpawnSetup(bool respawnAfterLoad)
         {
-            base.PostSpawnSetup();
+            base.PostSpawnSetup(respawnAfterLoad);
             if ((this.app = this.parent as Apparel) != null)
             {
-                if ((this.wearer = app.wearer) != null)
+                if ((this.Wearer = app.Wearer) != null)
                 {
-                    if((this.renderer = wearer.Drawer.renderer) == null)
+                    if((this.renderer = Wearer.Drawer.renderer) == null)
                     {
-                        Log.Error("No PawnRenderer for :" + this.wearer.ToString());
+                        Log.Error("No PawnRenderer for :" + this.Wearer.ToString());
                     }
                     else
                     {
@@ -55,10 +55,10 @@ namespace FactionColors
         {
             if (DoRender)
             {
-                Vector3 drawLoc = this.wearer.DrawPos;
-                if (this.wearer.GetPosture() == PawnPosture.Standing)
+                Vector3 drawLoc = this.Wearer.DrawPos;
+                if (this.Wearer.GetPosture() == PawnPosture.Standing)
                 {
-                    Rot4 bodyFacing = this.wearer.Rotation;
+                    Rot4 bodyFacing = this.Wearer.Rotation;
                     Quaternion quat = Quaternion.identity;
                     DrawApparelOnTooluser(this.renderer, drawLoc, bodyFacing, quat);
                 }

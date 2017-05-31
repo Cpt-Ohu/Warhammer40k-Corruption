@@ -11,7 +11,7 @@ namespace Corruption
             public override float GetScore(Room room)
             {
                 int num = 0;
-                List<Thing> allContainedThings = room.AllContainedThings;
+                List<Thing> allContainedThings = room.ContainedAndAdjacentThings;
                 for (int i = 0; i < allContainedThings.Count; i++)
                 {
                     Thing thing = allContainedThings[i];

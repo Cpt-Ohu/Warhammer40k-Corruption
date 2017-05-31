@@ -59,9 +59,9 @@ namespace Corruption
 
         public bool IsActive;
 
-        public override void PostSpawnSetup()
+        public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            base.PostSpawnSetup();
+            base.PostSpawnSetup(respawningAfterLoad);
             this.psykerPowerManager = new PsykerPowerManager(this);
             ChaosFollowerPawnKindDef pdef = this.psyker.kindDef as ChaosFollowerPawnKindDef;
             if (pdef != null && pdef.RenamePawns)
@@ -250,7 +250,7 @@ namespace Corruption
                 }
                 if (newverb.CasterIsPawn)
                 {
-                    if (newverb.CasterPawn.story.DisabledWorkTags.Contains(WorkTags.Violent))
+                    if (newverb.CasterPawn.story.DisabledWorkTypes.Contains(WorkTypeDefOf.Hunting))
                     {
                         command_CastPower.Disable("IsIncapableOfViolence".Translate(new object[]
                         {
@@ -281,7 +281,7 @@ namespace Corruption
         {
             if (entry.EquipmentDependent && entry.DependendOn != null)
             {
-                if (psyker.equipment.AllEquipment.Any(item => item.def == entry.DependendOn))
+                if (psyker.equipment.AllEquipmentListForReading.Any(item => item.def == entry.DependendOn))
                 {
                     return true;
                 }
@@ -334,7 +334,7 @@ namespace Corruption
                     }
                     if (newverb.CasterIsPawn)
                     {
-                        if (newverb.CasterPawn.story.DisabledWorkTags.Contains(WorkTags.Violent))
+                        if (newverb.CasterPawn.story.DisabledWorkTypes.Contains(WorkTypeDefOf.Hunting))
                         {
                             command_CastPower.Disable("IsIncapableOfViolence".Translate(new object[]
                             {
@@ -406,7 +406,7 @@ namespace Corruption
                 }
                 if (newverb.CasterIsPawn)
                 {
-                    if (newverb.CasterPawn.story.DisabledWorkTags.Contains(WorkTags.Violent))
+                    if (newverb.CasterPawn.story.DisabledWorkTypes.Contains(WorkTypeDefOf.Hunting))
                     {
                         command_CastPower.Disable("IsIncapableOfViolence".Translate(new object[]
                         {
@@ -490,32 +490,32 @@ namespace Corruption
         public override void PostExposeData()
         {
             base.PostExposeData();
-            //            Scribe_Collections.LookDictionary<PsykerPower, Verb_CastWarpPower>(ref this.psykerPowers, "psykerPowers", LookMode.Deep, LookMode.Reference);
+            //            Scribe_Collections.Look<PsykerPower, Verb_CastWarpPower>(ref this.psykerPowers, "psykerPowers", LookMode.Deep, LookMode.Reference);
 
-            //          Scribe_Collections.LookList<PsykerPower>(ref this.allPowers, "allPowers", LookMode.Deep, new object[]
+            //          Scribe_Collections.Look<PsykerPower>(ref this.allPowers, "allPowers", LookMode.Deep, new object[]
             //          {
             //              this.psyker,
             //              new object()
             //          });
-            //          Scribe_Collections.LookList<PsykerPower>(ref this.temporaryApparelPowers, "temporaryApparelPowers", LookMode.Reference, new object[]
+            //          Scribe_Collections.Look<PsykerPower>(ref this.temporaryApparelPowers, "temporaryApparelPowers", LookMode.Reference, new object[]
             //          {
             //              this.psyker,
             //              new object()
             //          });
-            //       Scribe_Collections.LookList<PsykerPower>(ref this.temporaryWeaponPowers, "temporaryWeaponPowers", LookMode.Reference, new object[0]);
-            Scribe_Collections.LookList(ref this.allpsykerPowers, "allpsykerPowers", LookMode.Deep, new object[0]);
+            //       Scribe_Collections.Look<PsykerPower>(ref this.temporaryWeaponPowers, "temporaryWeaponPowers", LookMode.Reference, new object[0]);
+            Scribe_Collections.Look(ref this.allpsykerPowers, "allpsykerPowers", LookMode.Deep, new object[0]);
 
 
-            Scribe_Values.LookValue<string>(ref this.patronName, "patronName", "Emperor", false);
-            Scribe_Values.LookValue<int>(ref this.TicksToCast, "TicksToCast", 0, false);
-            Scribe_Values.LookValue<int>(ref this.TicksToCastMax, "TicksToCastMax", 1, false);
-            Scribe_Values.LookValue<float>(ref this.TicksToCastPercentage, "TicksToCastPercentage", 1, false);
-            Scribe_Values.LookValue<bool>(ref this.IsActive, "IsActive", false, false);
-            Scribe_Values.LookValue<bool>(ref this.ShotFired, "ShotFired", true, false);
-  //          Scribe_Deep.LookDeep<Verb_CastWarpPower>(ref this.curVerb, "curVerb", null);
+            Scribe_Values.Look<string>(ref this.patronName, "patronName", "Emperor", false);
+            Scribe_Values.Look<int>(ref this.TicksToCast, "TicksToCast", 0, false);
+            Scribe_Values.Look<int>(ref this.TicksToCastMax, "TicksToCastMax", 1, false);
+            Scribe_Values.Look<float>(ref this.TicksToCastPercentage, "TicksToCastPercentage", 1, false);
+            Scribe_Values.Look<bool>(ref this.IsActive, "IsActive", false, false);
+            Scribe_Values.Look<bool>(ref this.ShotFired, "ShotFired", true, false);
+  //          Scribe_Deep.Look<Verb_CastWarpPower>(ref this.curVerb, "curVerb", null);
   //          Scribe_TargetInfo.LookTargetInfo(ref this.CurTarget, "CurTarget", null);
 
-            Scribe_Deep.LookDeep<PsykerPowerManager>(ref this.psykerPowerManager, "psykerPowerManager", new object[]
+            Scribe_Deep.Look<PsykerPowerManager>(ref this.psykerPowerManager, "psykerPowerManager", new object[]
                 {
                   this
                 });

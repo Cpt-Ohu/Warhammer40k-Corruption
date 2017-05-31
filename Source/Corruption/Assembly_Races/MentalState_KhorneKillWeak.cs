@@ -39,10 +39,10 @@ namespace Corruption
          //           Log.Message("Chosen Victim :" + Victim.ToString());
                     Job job = new Job(JobDefOf.Goto, Victim.Position);
                     Job job2 = new Job(JobDefOf.AttackStatic, Victim);
-                    this.pawn.QueueJob(job);
-                    this.pawn.QueueJob(job2);
+                    this.pawn.jobs.jobQueue.EnqueueLast(job);
+                    this.pawn.jobs.jobQueue.EnqueueLast(job2);
                     this.pawn.jobs.EndCurrentJob(JobCondition.InterruptForced);
-                    Victim.QueueJob(new Job(JobDefOf.FleeAndCower));
+                    Victim.jobs.jobQueue.EnqueueLast(new Job(JobDefOf.FleeAndCower));
                     Victim.jobs.EndCurrentJob(JobCondition.InterruptForced);
                 }
             }

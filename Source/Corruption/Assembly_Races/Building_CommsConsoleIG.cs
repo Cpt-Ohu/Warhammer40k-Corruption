@@ -19,13 +19,13 @@ namespace Corruption
         {
             get
             {
-                return (!base.Spawned || !base.Map.mapConditionManager.ConditionIsActive(MapConditionDefOf.SolarFlare)) && this.powerComp.PowerOn;
+                return (!base.Spawned || !base.Map.gameConditionManager.ConditionIsActive(GameConditionDefOf.SolarFlare)) && this.powerComp.PowerOn;
             }
         }
 
-        public override void SpawnSetup(Map map)
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
-            base.SpawnSetup(map);
+            base.SpawnSetup(map, respawningAfterLoad);
             this.powerComp = base.GetComp<CompPowerTrader>();
             this.corruptionStoryTracker = Find.World.worldObjects.AllWorldObjects.Find(x => x.def == C_WorldObjectDefOf.CorruptionStoryTracker) as CorruptionStoryTracker;
             if (this.corruptionStoryTracker == null) Log.Message("StoryTracker not found");
@@ -59,7 +59,7 @@ namespace Corruption
                     item2
                 };
             }
-            if (base.Spawned && base.Map.mapConditionManager.ConditionIsActive(MapConditionDefOf.SolarFlare))
+            if (base.Spawned && base.Map.gameConditionManager.ConditionIsActive(GameConditionDefOf.SolarFlare))
             {
                 FloatMenuOption item3 = new FloatMenuOption("CannotUseSolarFlare".Translate(), null, MenuOptionPriority.Default, null, null, 0f, null, null);
                 return new List<FloatMenuOption>
@@ -118,7 +118,7 @@ namespace Corruption
 
         public override void ExposeData()
         {
-            Scribe_References.LookReference<CorruptionStoryTracker>(ref this.corruptionStoryTracker, "corruptionStoryTracker");
+            Scribe_References.Look<CorruptionStoryTracker>(ref this.corruptionStoryTracker, "corruptionStoryTracker");
             base.ExposeData();
         }
 

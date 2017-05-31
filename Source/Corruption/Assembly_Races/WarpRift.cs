@@ -33,8 +33,8 @@ namespace Corruption
                 spawnedGroup.Clear();
             }
         }
-        
-        public override void DrawAt(Vector3 drawLoc)
+     
+        public override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
     //        base.DrawAt(drawLoc);
         }

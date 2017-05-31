@@ -58,7 +58,7 @@ namespace Corruption.IoM
                             }
                             else
                             {
-                                talkee.needs.mood.thoughts.memories.TryGainMemoryThought(ThoughtDefOf.SleepDisturbed, talker);
+                                talkee.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.SleepDisturbed, talker);
                             }
                         }
                         else if (talkerSoul.NoPatron && !talkeeSoul.NoPatron)
@@ -132,7 +132,7 @@ namespace Corruption.IoM
             return pawn.skills.GetSkill(SkillDefOf.Social).Level - talkee.skills.GetSkill(SkillDefOf.Social).Level;
         }
 
-        public static Toil GotoPawn(Pawn pawn, Pawn talkee, PrisonerInteractionMode mode)
+        public static Toil GotoPawn(Pawn pawn, Pawn talkee, PrisonerInteractionModeDef mode)
         {
             Toil toil = new Toil();
             toil.initAction = delegate

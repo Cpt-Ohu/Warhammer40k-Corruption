@@ -18,7 +18,7 @@ namespace Corruption
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.LookValue<TargetIndex>(ref this.Spot, "Spot", TargetIndex.C);
+            Scribe_Values.Look<TargetIndex>(ref this.Spot, "Spot", TargetIndex.C);
         }
 
         protected override IEnumerable<Toil> MakeNewToils()

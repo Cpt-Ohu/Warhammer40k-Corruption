@@ -36,7 +36,7 @@ namespace Corruption.BookStuff
             this.AddFinishAction(delegate
             {
                 Job newjob = new Job(DefDatabase<JobDef>.GetNamed("AddBookToLibrary"), TargetB, TargetA);
-                pawn.QueueJob(newjob);
+                pawn.jobs.jobQueue.EnqueueLast(newjob);
             });
          //   yield return Bookshelf.PlaceBookInShelf(tempbook, this.TargetA.Thing as Bookshelf);
             yield break;
@@ -312,7 +312,7 @@ namespace Corruption.BookStuff
                 }
                 if (flag)
                 {
-                    if (this.pawn.Map.reservationManager.FirstReserverOf(bookshelf, bookshelf.Faction) == reader)
+                    if (this.pawn.Map.reservationManager.FirstReserverWhoseReservationsRespects(bookshelf, pawn) == reader)
                     {
                         this.pawn.Map.reservationManager.Release(bookshelf, reader);
                     }

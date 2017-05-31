@@ -8,7 +8,7 @@ using Verse;
 
 namespace Corruption
 {
-    public class MapCondition_CorruptiveDrone : MapCondition
+    public class MapCondition_CorruptiveDrone : GameCondition
     {
         private SkyColorSet CorruptiveDroneColors;
 
@@ -19,10 +19,11 @@ namespace Corruption
             ColorInt colorInt3 = new ColorInt(170, 95, 60);
             this.CorruptiveDroneColors = new SkyColorSet(colorInt.ToColor, colorInt2.ToColor, colorInt3.ToColor, 1.0f);
         }
+        
 
         public override SkyTarget? SkyTarget()
         {
-            return new SkyTarget?(new SkyTarget(this.CorruptiveDroneColors)
+            return new SkyTarget?(new SkyTarget(0f, this.CorruptiveDroneColors, 1f, 0f)
             {
                 glow = 0.85f
             });

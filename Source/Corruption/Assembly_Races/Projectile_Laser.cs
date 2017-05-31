@@ -34,9 +34,9 @@ namespace Corruption
         public float startFireChance = 0;
         public bool canStartFire = false;
 
-        public override void SpawnSetup(Map map)
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
 		{
-			base.SpawnSetup(map);
+			base.SpawnSetup(map, respawningAfterLoad);
             drawingTexture = this.def.DrawMatSingle;          
 		}
 
@@ -65,7 +65,7 @@ namespace Corruption
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.LookValue<int>(ref tickCounter, "tickCounter", 0);
+            Scribe_Values.Look<int>(ref tickCounter, "tickCounter", 0);
 
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {

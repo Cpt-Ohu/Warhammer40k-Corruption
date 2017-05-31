@@ -11,8 +11,8 @@ namespace Corruption.IoM
     public class IncidentWorker_WanderingTrader : IncidentWorker_NeutralGroup
     {
         protected IoMChatType ChatType;
-
-        protected override bool TryResolveParms(IncidentParms parms)
+        
+        protected override bool TryResolveParmsGeneral(IncidentParms parms)
         {
             parms.faction = CorruptionStoryTrackerUtilities.currentStoryTracker.IoM;            
             return true;
@@ -26,7 +26,7 @@ namespace Corruption.IoM
         public override bool TryExecute(IncidentParms parms)
         {
             Map map = (Map)parms.target;
-            if (!this.TryResolveParms(parms))
+            if (!this.TryResolveParmsGeneral(parms))
             {
                 return false;
             }
@@ -37,7 +37,7 @@ namespace Corruption.IoM
                 return false;
             }
             IntVec3 loc;
-            RCellFinder.TryFindRandomPawnEntryCell(out loc, map);
+            RCellFinder.TryFindRandomPawnEntryCell(out loc, map, 0.8f);
             GenSpawn.Spawn(pawn, loc, map);
             IntVec3 chillSpot;
             RCellFinder.TryFindRandomSpotJustOutsideColony(pawn, out chillSpot);
@@ -51,11 +51,11 @@ namespace Corruption.IoM
                 pawn.Name                
             });
             text3 = text3.AdjustedFor(pawn);
-            Find.LetterStack.ReceiveLetter(label, text3, LetterType.Good, pawn, null);
+            Find.LetterStack.ReceiveLetter(label, text3, LetterDefOf.Good, pawn, null);
             return true;
         }
 
-        private bool TryConvertOnePawnToSmallTrader(Pawn pawn, Faction faction, Map map)
+        private bool TryConvertOnePawnToSmallTrader(Pawn pawn, Faction faction, Map map )
         {
             Lord lord = pawn.GetLord();
             pawn.mindState.wantsToTradeWithColony = true;
@@ -63,7 +63,13 @@ namespace Corruption.IoM
             TraderKindDef traderKindDef = DefOfs.C_TraderKindDefs.Visitor_IoM_Wanderer;
             pawn.trader.traderKind = traderKindDef;
             pawn.inventory.DestroyAll(DestroyMode.Vanish);
-            foreach (Thing current in TraderStockGenerator.GenerateTraderThings(traderKindDef, map))
+
+            ItemCollectionGeneratorParams parms = default(ItemCollectionGeneratorParams);
+            parms.traderDef = traderKindDef;
+            parms.forTile = map.Tile;
+            parms.forFaction = faction;
+
+            foreach (Thing current in ItemCollectionGeneratorDefOf.TraderStock.Worker.Generate(parms)) //in ItemCollectionGenerator_TraderStock.thingsBeingGeneratedNow(traderKindDef, map))
             {
                 Pawn pawn2 = current as Pawn;
                 if (pawn2 != null)

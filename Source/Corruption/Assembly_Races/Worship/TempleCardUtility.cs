@@ -102,13 +102,13 @@ namespace Corruption
                     if (chair != null)
                     {
                         Job J = new Job(C_JobDefOf.AttendSermon, altar.preacher, altar, chair);
-                        p.QueueJob(J);
+                        p.jobs.jobQueue.EnqueueLast(J);
                         p.jobs.EndCurrentJob(JobCondition.InterruptForced);
                     }
                     else
                     {
                         Job J = new Job(C_JobDefOf.AttendSermon, altar.preacher, altar, result);
-                        p.QueueJob(J);
+                        p.jobs.jobQueue.EnqueueLast(J);
                         p.jobs.EndCurrentJob(JobCondition.InterruptForced);
                     }
                 }

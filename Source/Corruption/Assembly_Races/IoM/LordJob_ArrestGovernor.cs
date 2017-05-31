@@ -32,7 +32,7 @@ namespace Corruption.IoM
 
             LordToil lordToil_leaveInShip = new LordToil_LeaveInShip();
 
-            LordToil lordToil_leaveMap = new LordToil_ExitMapBest(LocomotionUrgency.Jog);
+            LordToil lordToil_leaveMap = new LordToil_ExitMapAndEscortCarriers();
 
             Transition leaveMapEarly = new Transition(lordToil_leaveInShip, lordToil_leaveMap);
             leaveMapEarly.AddTrigger(new Trigger_Custom((TriggerSignal x) => ship.Destroyed || !ship.Spawned));
@@ -82,7 +82,7 @@ namespace Corruption.IoM
             stateGraph.AddTransition(killedGovernor);
 
             Transition transition_leaveWithGovernor = new Transition(lordToil_main, lordToil_leaveInShip);
-            transition_leaveWithGovernor.AddTrigger(new Trigger_Custom((TriggerSignal x) => this.ship.GetInnerContainer().Contains(CorruptionStoryTrackerUtilities.currentStoryTracker.PlanetaryGovernor)));
+            transition_leaveWithGovernor.AddTrigger(new Trigger_Custom((TriggerSignal x) => this.ship.GetDirectlyHeldThings().Contains(CorruptionStoryTrackerUtilities.currentStoryTracker.PlanetaryGovernor)));
 
             stateGraph.AddToil(lordToil_leaveInShip);
             stateGraph.AddTransition(transition_leaveWithGovernor);
@@ -106,8 +106,8 @@ namespace Corruption.IoM
 
         public override void ExposeData()
         {
-            Scribe_References.LookReference<ShipBase>(ref this.ship, "ship", false);
-            Scribe_Values.LookValue<IntVec3>(ref this.baseCenter, "baseCenter", IntVec3.North);
+            Scribe_References.Look<ShipBase>(ref this.ship, "ship", false);
+            Scribe_Values.Look<IntVec3>(ref this.baseCenter, "baseCenter", IntVec3.North);
         }
 
     }   

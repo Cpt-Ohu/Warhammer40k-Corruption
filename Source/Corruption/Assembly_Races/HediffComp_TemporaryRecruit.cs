@@ -23,9 +23,9 @@ namespace Corruption
             }
         }
 
-        public override void CompPostTick()
+        public override  void CompPostTick(ref float severityAdjustment)
         {
-            base.CompPostTick();
+            base.CompPostTick(ref severityAdjustment);
             MoteMaker.MakeStaticMote(this.Pawn.Position, this.Pawn.Map, ThingDefOf.Mote_MicroSparks);
         }
 

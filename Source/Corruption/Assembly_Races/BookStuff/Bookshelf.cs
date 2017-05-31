@@ -39,14 +39,14 @@ namespace Corruption.BookStuff
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Collections.LookList<ThingDef>(ref StoredBooks, "StoredBooks", LookMode.Def, null);
-            Scribe_Collections.LookList<ThingDef>(ref MissingBooksList, "MissingBooksList", LookMode.Def, null);
+            Scribe_Collections.Look<ThingDef>(ref StoredBooks, "StoredBooks", LookMode.Def, null);
+            Scribe_Collections.Look<ThingDef>(ref MissingBooksList, "MissingBooksList", LookMode.Def, null);
         }
 
 
-        public override void SpawnSetup(Map map)
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
-            base.SpawnSetup(map);
+            base.SpawnSetup(map, respawningAfterLoad);
             this.BookCategories = Tdef.BookCategories;
         }
 
@@ -98,7 +98,7 @@ namespace Corruption.BookStuff
                         Action storebook = delegate
                         {
                             Job newjob = new Job(DefDatabase<JobDef>.GetNamed("AddBookToLibrary"), current, this);
-                            myPawn.QueueJob(newjob);
+                            myPawn.jobs.jobQueue.EnqueueLast(newjob);
                             myPawn.jobs.StopAll();
                             myPawn.Reserve(this);
                         };
@@ -115,7 +115,7 @@ namespace Corruption.BookStuff
                         Action action = delegate
                         {
                             Job newJob = new Job(DefDatabase<JobDef>.GetNamed("SitAndRead"), this);
-                            myPawn.QueueJob(newJob);
+                            myPawn.jobs.jobQueue.EnqueueLast(newJob);
                             myPawn.jobs.StopAll();
                             pawn = myPawn;
                             myPawn.Reserve(this);

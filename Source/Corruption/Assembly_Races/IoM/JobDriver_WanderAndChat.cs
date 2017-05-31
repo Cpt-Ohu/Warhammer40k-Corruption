@@ -47,7 +47,7 @@ namespace Corruption.IoM
 
             for (int i = 0; i < Rand.Range(2, 5); i++)
             {
-                yield return Toils_InterpersonalToilsIoM.GotoPawn(this.pawn, this.Talkee, PrisonerInteractionMode.Chat);
+                yield return Toils_InterpersonalToilsIoM.GotoPawn(this.pawn, this.Talkee, PrisonerInteractionModeDefOf.Chat);
                 yield return Toils_InterpersonalToilsIoM.ChatToPawn(this.pawn, this.Talkee, ChatType);
             }
 
@@ -61,7 +61,7 @@ namespace Corruption.IoM
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.LookValue<IoMChatType>(ref this.chatType, "chatType");
+            Scribe_Values.Look<IoMChatType>(ref this.chatType, "chatType");
         }
     }
 

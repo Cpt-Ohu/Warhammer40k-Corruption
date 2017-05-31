@@ -16,9 +16,9 @@ namespace Corruption
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.LookValue<TargetIndex>(ref this.AltarIndex, "AltarIndex", TargetIndex.A);
-            Scribe_Values.LookValue<TargetIndex>(ref this.AltarInteractionCell, "AltarInteractionCell", TargetIndex.B);
-            Scribe_References.LookReference<Pawn>(ref this.pawn, "pawn", false);
+            Scribe_Values.Look<TargetIndex>(ref this.AltarIndex, "AltarIndex", TargetIndex.A);
+            Scribe_Values.Look<TargetIndex>(ref this.AltarInteractionCell, "AltarInteractionCell", TargetIndex.B);
+            Scribe_References.Look<Pawn>(ref this.pawn, "pawn", false);
         }
         
         protected override IEnumerable<Toil> MakeNewToils()

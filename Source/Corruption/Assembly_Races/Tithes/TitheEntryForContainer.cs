@@ -24,8 +24,8 @@ namespace Corruption.Tithes
 
         public void ExposeData()
         {
-            Scribe_Values.LookValue<bool>(ref this.active, "active");
-            Scribe_References.LookReference(ref this.Tithe, "Tithe");
+            Scribe_Values.Look<bool>(ref this.active, "active");
+            Scribe_References.Look(ref this.Tithe, "Tithe");
         }
     }
 }

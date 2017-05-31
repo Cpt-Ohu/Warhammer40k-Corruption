@@ -283,7 +283,7 @@ namespace Corruption
 
         public static void AffectGoodwillWithSpacerFaction(Faction faction, Faction other, float goodwillChange)
         {
-            if (goodwillChange > 0f && ((faction.IsPlayer && FactionBaseUtility.IsPlayerAttackingAnyFactionBaseOf(other)) || (other.IsPlayer && FactionBaseUtility.IsPlayerAttackingAnyFactionBaseOf(faction))))
+            if (goodwillChange > 0f && ((faction.IsPlayer && SettlementUtility.IsPlayerAttackingAnySettlementOf(other)) || (other.IsPlayer && SettlementUtility.IsPlayerAttackingAnySettlementOf(faction))))
             {
                 return;
             }
@@ -299,7 +299,7 @@ namespace Corruption
                     Find.LetterStack.ReceiveLetter("LetterLabelRelationsChangeBad".Translate(), "RelationsBrokenDown".Translate(new object[]
                     {
                 faction.Name
-                    }), LetterType.BadNonUrgent, null);
+                    }), LetterDefOf.BadNonUrgent, null);
                 }
             }
             if (faction.HostileTo(other) && faction.GoodwillWith(other) > 0f)
@@ -310,7 +310,7 @@ namespace Corruption
                     Find.LetterStack.ReceiveLetter("LetterLabelRelationsChangeGood".Translate(), "RelationsWarmed".Translate(new object[]
                     {
                 faction.Name
-                    }), LetterType.BadNonUrgent, null);
+                    }), LetterDefOf.BadNonUrgent, null);
                 }
             }
         }
@@ -345,7 +345,7 @@ namespace Corruption
             dropShip.SetFaction(arbites[0].Faction);
             foreach (Pawn current in arbites)
             {
-                dropShip.GetInnerContainer().TryAdd(current);
+                dropShip.GetDirectlyHeldThings().TryAdd(current);
             }
 
             List<ShipBase> tmp = new List<ShipBase>();

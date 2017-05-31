@@ -62,9 +62,9 @@ namespace Corruption
 
         public void ExposeData()
         {
-            Scribe_Collections.LookDictionary<PsykerPowerLevel, int>(ref this.PowerLevelSlots, "PowerLevelSlots", LookMode.Value, LookMode.Value);
-  //          Scribe_Deep.LookDeep<CompPsyker>(ref this.compPsyker, "compPsyker", null);
-            Scribe_Values.LookValue<CompPsyker>(ref this.compPsyker, "compPsyker", null);
+            Scribe_Collections.Look<PsykerPowerLevel, int>(ref this.PowerLevelSlots, "PowerLevelSlots", LookMode.Value, LookMode.Value);
+  //          Scribe_Deep.Look<CompPsyker>(ref this.compPsyker, "compPsyker", null);
+            Scribe_Values.Look<CompPsyker>(ref this.compPsyker, "compPsyker", null);
         }
 
         public List<PsykerPower> powersint = new List<PsykerPower>();

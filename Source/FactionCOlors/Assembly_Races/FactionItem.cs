@@ -39,9 +39,9 @@ namespace FactionColors
             }
         }
 
-        public override void SpawnSetup(Map map)
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
-            base.SpawnSetup(map);
+            base.SpawnSetup(map, respawningAfterLoad);
             FactionItemDef newDef = this.def as FactionItemDef;
             meshSize = newDef.ItemMeshSize;
             drawPos = this.DrawPos;
@@ -87,9 +87,9 @@ namespace FactionColors
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.LookValue<bool>(ref FirstSpawned, "FirstSpawned", false, false);
-            Scribe_Values.LookValue<Color>(ref col1, "col1", Color.white, false);
-            Scribe_Values.LookValue<Color>(ref col2, "col2", Color.white, false);
+            Scribe_Values.Look<bool>(ref FirstSpawned, "FirstSpawned", false, false);
+            Scribe_Values.Look<Color>(ref col1, "col1", Color.white, false);
+            Scribe_Values.Look<Color>(ref col2, "col2", Color.white, false);
         }
 
     }

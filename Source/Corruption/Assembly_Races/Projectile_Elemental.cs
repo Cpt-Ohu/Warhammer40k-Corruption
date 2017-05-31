@@ -31,7 +31,7 @@ namespace Corruption
             Graphics.DrawMesh(MeshPool.plane10, matrix, mat, 0);
         }
 
-        public override void DrawAt(Vector3 drawLoc)
+        public override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
             Vector3 vector = destination;
             Vector3 distance = this.destination - this.origin;

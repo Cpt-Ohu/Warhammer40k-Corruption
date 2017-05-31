@@ -62,7 +62,7 @@ namespace Corruption.Worship
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.LookValue<Toil>(ref this.LastToil, "LastToil");
+            Scribe_Values.Look<Toil>(ref this.LastToil, "LastToil");
         }
 
         protected void ThrowMote(Pawn pawn)

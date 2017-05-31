@@ -40,7 +40,7 @@ namespace Corruption.IoM
         {
             if (this.Governor != null && pawn.Map.reservationManager.IsReserved(this.Governor, pawn.Faction) && pawn.Faction != this.Governor.Faction)
             {
-                Pawn followee = pawn.Map.reservationManager.FirstReserverOf(this.Governor, pawn.Faction);
+                Pawn followee = pawn.Map.reservationManager.FirstReserverWhoseReservationsRespects(this.Governor, pawn);
                 if (followee == null)
                 {
                     Log.Error(base.GetType() + "has null followee.");

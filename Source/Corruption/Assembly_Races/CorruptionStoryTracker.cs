@@ -110,7 +110,7 @@ namespace Corruption
                     PlanetaryGovernor.LabelCap,
                     PlanetaryGovernor.filth
                 });
-                Find.LetterStack.ReceiveLetter("LetterLabelGovernorDied".Translate(), deadDesc, LetterType.BadUrgent, null);
+                Find.LetterStack.ReceiveLetter("LetterLabelGovernorDied".Translate(), deadDesc, LetterDefOf.BadUrgent, null);
             }
 
             if (GenLocalDate.HourOfDay(Find.VisibleMap) == 4)
@@ -130,16 +130,16 @@ namespace Corruption
         }        
         private void InitializeTitheCollection()
         {
-            Tithes.MapCondition_TitheCollectors condition = (Tithes.MapCondition_TitheCollectors)MapConditionMaker.MakeCondition(C_MapConditionDefOf.TitheCollectorArrived, 420000, 0);
+            Tithes.MapCondition_TitheCollectors condition = (Tithes.MapCondition_TitheCollectors)GameConditionMaker.MakeCondition(C_GameConditionDefOf.TitheCollectorArrived, 420000, 0);
             if (this.PlanetaryGovernor == null)
             {
                 Log.Error("Initiated Tithe Collection with no Planetary Governor assigned");
             }
             else
             {
-                this.PlanetaryGovernor.Map.mapConditionManager.RegisterCondition(condition);
+                this.PlanetaryGovernor.Map.gameConditionManager.RegisterCondition(condition);
                 Find.WindowStack.Add(new Tithes.Window_IoMTitheArrival());
-                //    Find.LetterStack.ReceiveLetter("LetterLabelTithesDue".Translate(), condition.def.description, LetterType.BadUrgent, null);
+                //    Find.LetterStack.ReceiveLetter("LetterLabelTithesDue".Translate(), condition.def.description, LetterDefOf.BadUrgent, null);
                 TitheCollectionActive = true;
             }
         }
@@ -184,9 +184,6 @@ namespace Corruption
                     PawnKindDef kinddef = DefDatabase<PawnKindDef>.AllDefsListForReading.FirstOrDefault(x => x.defaultFactionType == current.def && x.factionLeader);
                     if (kinddef != null)
                     {
- //                               Log.Message("Generating Leader with: " + kinddef.defName);
-                        PawnGenerationRequest request = new PawnGenerationRequest(kinddef, current, PawnGenerationContext.NonPlayer, null, true, false, false, false, true, false, 1f, false, true, true, null, null, null, null, null, null);
-
     //                                  Log.Message("GeneratedRequest");
                         Pawn pawn = PawnGenerator.GeneratePawn(kinddef, current);
 
@@ -460,27 +457,27 @@ namespace Corruption
 
         public override void ExposeData()
         {
-            Scribe_References.LookReference<Faction>(ref this.IoM, "IoM");
-            Scribe_References.LookReference<Faction>(ref this.PatronFaction, "PatronFaction");
-            Scribe_References.LookReference<Faction>(ref this.ImperialGuard, "ImperialGuard");
-            Scribe_References.LookReference<Faction>(ref this.AdeptusSororitas, "AdeptusSororitas");
-            Scribe_References.LookReference<Faction>(ref this.Mechanicus, "Mechanicus");
-            Scribe_References.LookReference<Faction>(ref this.EldarWarhost, "EldarWarhost");
-            Scribe_References.LookReference<Faction>(ref this.DarkEldarKabal, "DarkEldarKabal");
-            Scribe_References.LookReference<Faction>(ref this.ChaosCult, "ChaosCult");
-            Scribe_References.LookReference<Faction>(ref this.Tau, "Tau");
-            Scribe_Collections.LookList<Faction>(ref this.ImperialFactions, "ImperialFactions", LookMode.Reference, new object[0]);
-            Scribe_Collections.LookList<Faction>(ref this.XenoFactions, "XenoFactions", LookMode.Reference, new object[0]);
-            Scribe_Collections.LookList<StarMapObject>(ref this.SubSectorObjects, "SubSectorObjects", LookMode.Deep, new object[0]);
-            Scribe_Values.LookValue<bool>(ref this.IoMCanHelp, "FactionCanHelp", false, true);
-            Scribe_Values.LookValue<bool>(ref this.activeRaid, "activeRaid", false, true);
-            Scribe_Values.LookValue<bool>(ref this.PlayerIsEnemyOfMankind, "PlayerIsEnemyOfMankind", false, true);
-            Scribe_Values.LookValue<bool>(ref this.AcknowledgedByImperium, "AcknowledgedByImperium", false, true);
-            Scribe_Values.LookValue<int>(ref this.DaysAfterHelp, "DaysAfterHelp", 4, false);
-            Scribe_Values.LookValue<int>(ref this.DaysToTitheCollection, "DaysToTitheCollection", 30, false);
-            Scribe_Values.LookValue<float>(ref this.ColonyCorruptionAvg, "ColonyCorruptionAvg", 0.8f, false);
-            Scribe_Values.LookValue<string>(ref this.SubsectorName, "SubsectorName", "Aurelia", false);
-            Scribe_Collections.LookList<Tithes.TitheEntryGlobal>(ref this.currentTithes, "currentTithes", LookMode.Deep, new object[0]);
+            Scribe_References.Look<Faction>(ref this.IoM, "IoM");
+            Scribe_References.Look<Faction>(ref this.PatronFaction, "PatronFaction");
+            Scribe_References.Look<Faction>(ref this.ImperialGuard, "ImperialGuard");
+            Scribe_References.Look<Faction>(ref this.AdeptusSororitas, "AdeptusSororitas");
+            Scribe_References.Look<Faction>(ref this.Mechanicus, "Mechanicus");
+            Scribe_References.Look<Faction>(ref this.EldarWarhost, "EldarWarhost");
+            Scribe_References.Look<Faction>(ref this.DarkEldarKabal, "DarkEldarKabal");
+            Scribe_References.Look<Faction>(ref this.ChaosCult, "ChaosCult");
+            Scribe_References.Look<Faction>(ref this.Tau, "Tau");
+            Scribe_Collections.Look<Faction>(ref this.ImperialFactions, "ImperialFactions", LookMode.Reference, new object[0]);
+            Scribe_Collections.Look<Faction>(ref this.XenoFactions, "XenoFactions", LookMode.Reference, new object[0]);
+            Scribe_Collections.Look<StarMapObject>(ref this.SubSectorObjects, "SubSectorObjects", LookMode.Deep, new object[0]);
+            Scribe_Values.Look<bool>(ref this.IoMCanHelp, "FactionCanHelp", false, true);
+            Scribe_Values.Look<bool>(ref this.activeRaid, "activeRaid", false, true);
+            Scribe_Values.Look<bool>(ref this.PlayerIsEnemyOfMankind, "PlayerIsEnemyOfMankind", false, true);
+            Scribe_Values.Look<bool>(ref this.AcknowledgedByImperium, "AcknowledgedByImperium", false, true);
+            Scribe_Values.Look<int>(ref this.DaysAfterHelp, "DaysAfterHelp", 4, false);
+            Scribe_Values.Look<int>(ref this.DaysToTitheCollection, "DaysToTitheCollection", 30, false);
+            Scribe_Values.Look<float>(ref this.ColonyCorruptionAvg, "ColonyCorruptionAvg", 0.8f, false);
+            Scribe_Values.Look<string>(ref this.SubsectorName, "SubsectorName", "Aurelia", false);
+            Scribe_Collections.Look<Tithes.TitheEntryGlobal>(ref this.currentTithes, "currentTithes", LookMode.Deep, new object[0]);
             base.ExposeData();
         }
     }

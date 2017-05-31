@@ -38,7 +38,7 @@ namespace Corruption
             this.FailOnAggroMentalState(TargetIndex.A);
             yield return Toils_Reserve.Reserve(TargetIndex.A, 1);
             yield return Toils_Reserve.Reserve(TargetIndex.B, 1);
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.OnCell).FailOnDestroyedNullOrForbidden(TargetIndex.A).FailOnDespawnedNullOrForbidden(TargetIndex.B).FailOn(() => this.DropPod.GetInnerContainer().Count > 0).FailOn(() => !this.Takee.Downed).FailOn(() => !this.pawn.CanReach(TargetA, PathEndMode.OnCell, Danger.Deadly, false, TraverseMode.ByPawn)).FailOnSomeonePhysicallyInteracting(TargetIndex.A);
+            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.OnCell).FailOnDestroyedNullOrForbidden(TargetIndex.A).FailOnDespawnedNullOrForbidden(TargetIndex.B).FailOn(() => this.DropPod.GetDirectlyHeldThings().Count > 0).FailOn(() => !this.Takee.Downed).FailOn(() => !this.pawn.CanReach(TargetA, PathEndMode.OnCell, Danger.Deadly, false, TraverseMode.ByPawn)).FailOnSomeonePhysicallyInteracting(TargetIndex.A);
             yield return Toils_Haul.StartCarryThing(TargetIndex.A, false, false);
             yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.InteractionCell);
             Toil toil = new Toil();

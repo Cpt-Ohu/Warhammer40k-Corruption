@@ -22,9 +22,9 @@ namespace Corruption
 
         private bool IsSpawned;
 
-        public override void PostSpawnSetup()
+        public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            base.PostSpawnSetup();
+            base.PostSpawnSetup(respawningAfterLoad);
             if (this.Eldar == null)
             {
                 Log.Error("Tried to put Spirit Stone Comp on non-Pawn");
@@ -53,7 +53,7 @@ namespace Corruption
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.LookValue<bool>(ref this.IsSpawned, "IsSpawned", true, false);
+            Scribe_Values.Look<bool>(ref this.IsSpawned, "IsSpawned", true, false);
         }
     }
 }

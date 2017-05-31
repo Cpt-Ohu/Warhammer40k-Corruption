@@ -92,15 +92,15 @@ namespace Corruption
                 }
             }
         }
-        
 
-        public override void PostSpawnSetup()
+
+        public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             if (this.parent.def.tickerType == TickerType.Never)
             {
                 this.parent.def.tickerType = TickerType.Rare;
             }
-            base.PostSpawnSetup();
+            base.PostSpawnSetup(respawningAfterLoad);
         //    Log.Message("GettingOverlay");
             GetOverlayGraphic();
             Find.TickManager.RegisterAllTickabilityFor(this.parent);
@@ -110,23 +110,23 @@ namespace Corruption
         {
             CompEquippable tempcomp;
             Apparel tempthing;
-            if (this.parent != null && !this.parent.Spawned && this.parent.holdingContainer == null)
+            if (this.parent != null && !this.parent.Spawned && this.parent.holdingOwner == null)
             {
                 //         Log.Message("Begin Check");
                 if (this.parent is Apparel)
                 {
                     //             Log.Message("Soul item is Apparel");
                     tempthing = this.parent as Apparel;
-                    this.Owner = tempthing.wearer;
+                    this.Owner = tempthing.Wearer;
                 }
                 else if ((tempcomp = this.parent.TryGetComp<CompEquippable>()) != null && tempcomp.PrimaryVerb.CasterPawn != null)
                 {
                     //         Log.Message("IsGun");
                     this.Owner = tempcomp.PrimaryVerb.CasterPawn;
                 }
-                else if (this.parent.holdingContainer != null && this.parent.holdingContainer.owner is Pawn_CarryTracker)
+                else if (this.parent.holdingOwner != null && this.parent.holdingOwner.Owner is Pawn_CarryTracker)
                 {
-                    Pawn_CarryTracker tracker = this.parent.holdingContainer.owner as Pawn_CarryTracker;
+                    Pawn_CarryTracker tracker = this.parent.holdingOwner.Owner as Pawn_CarryTracker;
                     this.Owner = tracker.pawn;
                 }
                 if ((this.Owner != null))
@@ -226,9 +226,10 @@ namespace Corruption
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.LookValue<bool>(ref this.PsykerPowerAdded, "PsykerPowerAdded", false, false);
-            Scribe_Values.LookValue<bool>(ref this.randomCategoryResolved, "randomCategoryResolved", false, false);
-            Scribe_Values.LookValue<SoulItemCategories>(ref this.itemCategory, "itemCategory", SoulItemCategories.Neutral, false);
+            Scribe_Values.Look<bool>(ref this.PsykerPowerAdded, "PsykerPowerAdded", false, false);
+            Scribe_Values.Look<bool>(ref this.randomCategoryResolved, "randomCategoryResolved", false, false);
+            Scribe_Values.Look<SoulItemCategories>(ref this.itemCategory, "itemCategory", SoulItemCategories.Neutral, false);
+
         }
     }
 }

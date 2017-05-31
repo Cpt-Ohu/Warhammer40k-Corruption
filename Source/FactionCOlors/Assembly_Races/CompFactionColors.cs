@@ -13,9 +13,9 @@ namespace FactionColors
 
         public Color SecondaryColor = Color.white;
         
-        public override void PostSpawnSetup()
+        public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            base.PostSpawnSetup();
+            base.PostSpawnSetup(respawningAfterLoad);
             if (base.parent.GetType() == typeof(ApparelUniform))
             {
                 ApparelUniform app = base.parent as ApparelUniform;

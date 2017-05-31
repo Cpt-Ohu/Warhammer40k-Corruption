@@ -292,7 +292,7 @@ namespace Corruption
                     this.pawn.LabelShort,
                     this.Patron.ToString()
                     });
-                    Find.LetterStack.ReceiveLetter(label, text2, LetterType.BadNonUrgent, this.pawn, null);
+                    Find.LetterStack.ReceiveLetter(label, text2, LetterDefOf.BadNonUrgent, this.pawn, null);
                 }
             }
             if (NoPatron == false)
@@ -362,7 +362,7 @@ namespace Corruption
                 list.Add(compPsyker);
                 typeof(ThingWithComps).GetField("comps", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(this.pawn, list);
             }
-            compPsyker.PostSpawnSetup();
+            compPsyker.PostSpawnSetup(true);
             this.compPsyker = compPsyker;
         }
 
@@ -577,26 +577,26 @@ namespace Corruption
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Deep.LookDeep<ReadablesManager>(ref this.readablesManager, "readablesManager", new object[0]);
-    //        Scribe_Deep.LookDeep<PatronInfo>(ref this.patronInfo, "patronInfo", new object());
-            Scribe_Values.LookValue<bool>(ref this.NoPatron, "NoPatron", true, false);
-            Scribe_Values.LookValue<bool>(ref this.IsImmune, "IsImmune", false, false);
-            Scribe_Values.LookValue<string>(ref this.patronInfo.PatronName, "PatronName", "Emperor", false);
+            Scribe_Deep.Look<ReadablesManager>(ref this.readablesManager, "readablesManager", new object[0]);
+    //        Scribe_Deep.Look<PatronInfo>(ref this.patronInfo, "patronInfo", new object());
+            Scribe_Values.Look<bool>(ref this.NoPatron, "NoPatron", true, false);
+            Scribe_Values.Look<bool>(ref this.IsImmune, "IsImmune", false, false);
+            Scribe_Values.Look<string>(ref this.patronInfo.PatronName, "PatronName", "Emperor", false);
 
 
-            //        Scribe_Collections.LookList<SoulTrait>(ref this.SoulTraits, "SoulTraits", LookMode.Deep, new object[0]);
-            Scribe_Collections.LookList<Pawn>(ref this.OpposingDevotees, "OpposingDevotees", LookMode.Reference, new object[0]);
+            //        Scribe_Collections.Look<SoulTrait>(ref this.SoulTraits, "SoulTraits", LookMode.Deep, new object[0]);
+            Scribe_Collections.Look<Pawn>(ref this.OpposingDevotees, "OpposingDevotees", LookMode.Reference, new object[0]);
 
-            Scribe_Values.LookValue<ChaosGods>(ref this.Patron, "Patron", ChaosGods.Undivided, false);
+            Scribe_Values.Look<ChaosGods>(ref this.Patron, "Patron", ChaosGods.Undivided, false);
 
-            Scribe_Values.LookValue<PsykerPowerLevel>(ref this.PsykerPowerLevel, "PsykerPowerLevel", PsykerPowerLevel.Rho, false);
-            Scribe_Values.LookValue<CulturalToleranceCategory>(ref this.CulturalTolerance, "CulturalTolerance", CulturalToleranceCategory.Neutral, false);
+            Scribe_Values.Look<PsykerPowerLevel>(ref this.PsykerPowerLevel, "PsykerPowerLevel", PsykerPowerLevel.Rho, false);
+            Scribe_Values.Look<CulturalToleranceCategory>(ref this.CulturalTolerance, "CulturalTolerance", CulturalToleranceCategory.Neutral, false);
 
-            //        Scribe_Deep.LookDeep<AfflictionProperty>(ref this.PawnAfflictionProps, "PawnAfflictionProps", null);
+            //        Scribe_Deep.Look<AfflictionProperty>(ref this.PawnAfflictionProps, "PawnAfflictionProps", null);
             
-            Scribe_Deep.LookDeep<SoulTrait>(ref this.DevotionTrait, "DevotionTrait", new object[0]);
-            Scribe_Deep.LookDeep<SoulTrait>(ref this.PatronTrait, "PatronTrait", new object[0]);
-            Scribe_Deep.LookDeep<SoulTrait>(ref this.CommonSoulTrait, "CommonSoulTrait", new object[0]);
+            Scribe_Deep.Look<SoulTrait>(ref this.DevotionTrait, "DevotionTrait", new object[0]);
+            Scribe_Deep.Look<SoulTrait>(ref this.PatronTrait, "PatronTrait", new object[0]);
+            Scribe_Deep.Look<SoulTrait>(ref this.CommonSoulTrait, "CommonSoulTrait", new object[0]);
             //   {
             //       CorruptionDefOfs.Devotion,
             //       this.DevotionTrait.SDegree                

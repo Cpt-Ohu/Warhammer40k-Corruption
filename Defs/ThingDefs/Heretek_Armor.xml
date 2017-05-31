@@ -311,8 +311,7 @@
     </statBases>
     <apparel>
       <bodyPartGroups>
-        <li>Torso</li>
-        <li>Shoulders</li>
+        <li>UpperHead</li>
       </bodyPartGroups>
       <worngraphicPath>Things/Chaos/Apostle/DirtyHighHat</worngraphicPath>
       <layers>

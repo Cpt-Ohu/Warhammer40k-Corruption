@@ -95,9 +95,9 @@ namespace Corruption.BookStuff
                 Destroy();
             }
         }
-        public override void SpawnSetup(Map map)
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
-            base.SpawnSetup(map);
+            base.SpawnSetup(map, respawningAfterLoad);
             ReadFormXML();
             if (OpenBook == null)
             {
@@ -107,8 +107,8 @@ namespace Corruption.BookStuff
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Collections.LookList<string>(ref BookText, "BookText", LookMode.Undefined, null);
-            Scribe_References.LookReference<Pawn>(ref currentReader, "currentReader");
+            Scribe_Collections.Look<string>(ref BookText, "BookText", LookMode.Undefined, null);
+            Scribe_References.Look<Pawn>(ref currentReader, "currentReader");
         }
         private List<string> TextChooping(List<string> textlist)
         {

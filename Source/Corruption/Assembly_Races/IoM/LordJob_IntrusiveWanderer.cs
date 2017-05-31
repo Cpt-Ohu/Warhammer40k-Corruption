@@ -58,7 +58,7 @@ namespace Corruption.IoM
             StateGraph stateGraph2 = new LordJob_TravelAndExit(IntVec3.Invalid).CreateGraph();
             LordToil startingToil2 = stateGraph.AttachSubgraph(stateGraph2).StartingToil;
             LordToil target = stateGraph2.lordToils[1];
-            LordToil_ExitMapBest lordToil_ExitMapBest = new LordToil_ExitMapBest(LocomotionUrgency.Walk, true);
+            LordToil_ExitMapAndEscortCarriers lordToil_ExitMapBest = new LordToil_ExitMapAndEscortCarriers();
             stateGraph.AddToil(lordToil_ExitMapBest);
             Transition transition = new Transition(startingToil, lordToil_ExitMapBest);
             transition.AddSources(new LordToil[]
@@ -129,12 +129,12 @@ namespace Corruption.IoM
 
         public override void ExposeData()
         {
-            Scribe_References.LookReference<Pawn>(ref this.centralPawn, "centralPawn", false);
-            Scribe_Values.LookValue<IntVec3>(ref this.chillSpot, "chillSpot", default(IntVec3), false);
-            Scribe_Values.LookValue<IoMChatType>(ref this.chatType, "chatType", IoMChatType.SimpleChat, false);
-            Scribe_Values.LookValue<bool>(ref this.InquisitorFoundHeretic, "InquisitorFoundHeretic", false, false);
-            Scribe_Values.LookValue<bool>(ref this.isOfficialMission, "isOfficialMission", false, false);
-            Scribe_References.LookReference<Faction>(ref this.factionInt, "factionInt", false);
+            Scribe_References.Look<Pawn>(ref this.centralPawn, "centralPawn", false);
+            Scribe_Values.Look<IntVec3>(ref this.chillSpot, "chillSpot", default(IntVec3), false);
+            Scribe_Values.Look<IoMChatType>(ref this.chatType, "chatType", IoMChatType.SimpleChat, false);
+            Scribe_Values.Look<bool>(ref this.InquisitorFoundHeretic, "InquisitorFoundHeretic", false, false);
+            Scribe_Values.Look<bool>(ref this.isOfficialMission, "isOfficialMission", false, false);
+            Scribe_References.Look<Faction>(ref this.factionInt, "factionInt", false);
         }
 
         private void SwitchToHostileFaction()

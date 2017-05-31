@@ -33,9 +33,9 @@ namespace Corruption
             this.Victim = this.Pawn;           
         }
 
-        public override void CompPostTick()
+        public override  void CompPostTick(ref float severityAdjustment)
         {
-            base.CompPostTick();
+            base.CompPostTick(ref severityAdjustment);
             if (this.Pawn.def.race.Humanlike)
             {
                 soul.GainNeed(-0.00005f);

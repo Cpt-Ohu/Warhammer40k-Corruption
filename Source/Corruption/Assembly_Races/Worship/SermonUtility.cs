@@ -44,7 +44,7 @@ namespace Corruption
         {
             List<Building> chairs = new List<Building>();
 
-            foreach (Building t in room.AllContainedThings)
+            foreach (Building t in room.ContainedAndAdjacentThings)
             {
                 if (t.def.building.isSittable)
                 {
@@ -167,7 +167,7 @@ namespace Corruption
 
             soul.GainNeed(num);
           
-            pawn.needs.mood.thoughts.memories.TryGainMemoryThought(SermonUtility.GetSermonThoughts(preacher, pawn));
+            pawn.needs.mood.thoughts.memories.TryGainMemory(SermonUtility.GetSermonThoughts(preacher, pawn));
         }
 
         public static void HoldSermonTickCheckEnd(Pawn preacher, BuildingAltar altar)
@@ -277,13 +277,13 @@ namespace Corruption
                 if (chair != null)
                 {
                     Job J = new Job(C_JobDefOf.AttendSermon, altar.preacher, altar, chair);
-                    attendee.QueueJob(J);
+                    attendee.jobs.jobQueue.EnqueueLast(J);
                     attendee.jobs.EndCurrentJob(JobCondition.InterruptForced);
                 }
                 else
                 {
                     Job J = new Job(C_JobDefOf.AttendSermon, altar.preacher, altar, result);
-                    attendee.QueueJob(J);
+                    attendee.jobs.jobQueue.EnqueueLast(J);
                     attendee.jobs.EndCurrentJob(JobCondition.InterruptForced);
                 }
             }
@@ -307,7 +307,7 @@ namespace Corruption
         {
             IntVec3 b = altar.def.interactionCellOffset.RotatedBy(altar.Rotation) + altar.Position;
             Job job = new Job(C_JobDefOf.HoldSermon, altar, b);
-            altar.preacher.QueueJob(job);
+            altar.preacher.jobs.jobQueue.EnqueueLast(job);
             altar.preacher.jobs.EndCurrentJob(JobCondition.InterruptForced);
         //    BuildingAltar.GetSermonFlock(altar);
         }
