@@ -70,8 +70,7 @@
           </capMods>
         <statOffsets>
       	<MedicalOperationSpeed>0.3</MedicalOperationSpeed>
-      	<HealingSpeed>0.2</HealingSpeed>
-      	<SurgerySuccessChance>0.2</SurgerySuccessChance>
+      	<MedicalPotency>0.2</MedicalPotency>
         </statOffsets>
 
       </li>

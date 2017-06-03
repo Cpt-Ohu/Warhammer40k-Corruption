@@ -21,6 +21,7 @@
     </statBases>
     <menuHidden>true</menuHidden>
     <destroyOnDrop>true</destroyOnDrop>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Eyes</li>
@@ -29,7 +30,6 @@
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
       </tags>
       <defaultOutfitTags>
@@ -59,6 +59,7 @@
     </statBases>
     <menuHidden>true</menuHidden>
     <destroyOnDrop>true</destroyOnDrop>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -67,7 +68,6 @@
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
       </tags>
       <defaultOutfitTags>

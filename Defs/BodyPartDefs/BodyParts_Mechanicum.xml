@@ -39,10 +39,9 @@
     <skinCovered>false</skinCovered>
     <isSolid>true</isSolid>
     <isAlive>false</isAlive>
-    <activities>
-      <li>Manipulation_way0</li>
-      <li>Manipulation_tool</li>
-    </activities>
+    <tags>
+      <li>ManipulationLimbCore</li>
+    </tags>
   </BodyPartDef>
 
   <BodyPartDef>
@@ -54,6 +53,10 @@
     <skinCovered>false</skinCovered>
     <isSolid>true</isSolid>
     <isAlive>false</isAlive>
+    <tags>
+      <li>ManipulationLimbSegment</li>
+    </tags>
+
   </BodyPartDef>
 
   <BodyPartDef>
@@ -64,9 +67,9 @@
     <skinCovered>false</skinCovered>
     <isSolid>true</isSolid>
     <isAlive>false</isAlive>
-    <activities>
-      <li>Consciousness_brain</li>
-    </activities>
+    <tags>
+      <li>ConsciousnessSource</li>
+    </tags>
   </BodyPartDef>
   
 </Defs>

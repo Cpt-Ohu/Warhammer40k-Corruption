@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<MapConditionDefs>
+<GameConditionDefs>
 
 
-  <MapConditionDef>
+  <GameConditionDef>
     <defName>CorruptiveDrone</defName>
     <conditionClass>Corruption.MapCondition_CorruptiveDrone</conditionClass>
     <label>corruptive drone</label>
@@ -14,9 +14,9 @@
       <li>PsychicDrone</li>
     </exclusiveConditions>
     <canBePermanent>true</canBePermanent>
-  </MapConditionDef>
+  </GameConditionDef>
 
-  <MapConditionDef>
+  <GameConditionDef>
     <defName>TitheCollectorArrived</defName>
     <conditionClass>Corruption.Tithes.MapCondition_TitheCollectors</conditionClass>
 
@@ -24,8 +24,8 @@
     <description>The tithe collectors have arrived. Time to give the Emperor his due. Your tithe containers will be transported offworld once the ships prepare to leave again.</description>
     <canBePermanent>false</canBePermanent>
     <endMessage>The tithe collectors are preparing to leave.</endMessage>
-  </MapConditionDef>
+  </GameConditionDef>
 
 
   
-</MapConditionDefs>
+</GameConditionDefs>

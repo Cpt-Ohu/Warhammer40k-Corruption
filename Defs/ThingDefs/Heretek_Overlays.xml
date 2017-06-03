@@ -21,12 +21,12 @@
     </statBases>
     <menuHidden>true</menuHidden>
     <destroyOnDrop>true</destroyOnDrop>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <worngraphicPath>Things/Chaos/BodyOverlays/Undivided</worngraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
       </tags>
       <defaultOutfitTags>
@@ -61,6 +61,7 @@
     </statBases>
     <menuHidden>true</menuHidden>
     <destroyOnDrop>true</destroyOnDrop>
+		<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -70,7 +71,6 @@
       <layers>
         <li>OnSkin</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
       </tags>
       <defaultOutfitTags>
@@ -99,6 +99,7 @@
     </statBases>
     <menuHidden>true</menuHidden>
     <destroyOnDrop>true</destroyOnDrop>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -108,7 +109,6 @@
       <layers>
         <li>OnSkin</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
       </tags>
       <defaultOutfitTags>
@@ -137,6 +137,7 @@
     </statBases>
     <menuHidden>true</menuHidden>
     <destroyOnDrop>true</destroyOnDrop>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -146,7 +147,6 @@
       <layers>
         <li>OnSkin</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
       </tags>
       <defaultOutfitTags>
@@ -175,6 +175,7 @@
     </statBases>
     <menuHidden>true</menuHidden>
     <destroyOnDrop>true</destroyOnDrop>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -184,7 +185,6 @@
       <layers>
         <li>OnSkin</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
       </tags>
       <defaultOutfitTags>

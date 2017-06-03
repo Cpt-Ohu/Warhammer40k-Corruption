@@ -41,6 +41,7 @@ The entire suit weighs upwards of several hundred kilos and requires a neuro-con
       <Ceramite>150</Ceramite>
       <Plasteel>150</Plasteel>
     </costList>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -56,7 +57,6 @@ The entire suit weighs upwards of several hundred kilos and requires a neuro-con
         <li>Middle</li>
         <li>Shell</li>
       </layers>
-      <commonality>2</commonality>
       <tags>
         <li>Astartes_Armor</li>
       </tags>
@@ -124,6 +124,7 @@ The entire suit weighs upwards of several hundred kilos and requires a neuro-con
       <Component>7</Component>
       <Plasteel>60</Plasteel>
     </costList>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
@@ -132,7 +133,6 @@ The entire suit weighs upwards of several hundred kilos and requires a neuro-con
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>2</commonality>
       <tags>
         <li>Astartes_Armor</li>
       </tags>

@@ -6,7 +6,7 @@
 		<label>Chaos Cult</label>
     <description>A small community of survivors.\n\nThese people have lived here for decades or centuries, and have lost most of the technology that brought them to this world. They usually work with simple mechanical tools and defend themselves with advanced gunpowder weapons.\n\nThey are concerned with the practical matters of trade, trust, and survival.</description>
     <pawnsPlural>cultists</pawnsPlural>
-    <factionBaseSelectionWeight>0.1</factionBaseSelectionWeight>
+    <BaseSelectionWeight>0.1</BaseSelectionWeight>
     <requiredCountAtGameStart>1</requiredCountAtGameStart>
     <canMakeRandomly>true</canMakeRandomly>
     <raidCommonality>100</raidCommonality>
@@ -24,7 +24,7 @@
       <max>10</max>
     </startingGoodwill>
 		<factionNameMaker>NamerFactionOutlander</factionNameMaker>
-		<factionBaseNameMaker>NamerFactionBaseOutlander</factionBaseNameMaker>
+		<BaseNameMaker>NamerFactionBaseOutlander</BaseNameMaker>
 		<techLevel>Industrial</techLevel>
 		<backstoryCategory>Civil</backstoryCategory>
 		<hairTags>
@@ -43,9 +43,9 @@
     <visitorTraderKinds>
       <li>Visitor_Outlander_Standard</li>
     </visitorTraderKinds>
-    <factionBaseTraderKinds>
-      <li>FactionBase_Outlander_Standard</li>
-    </factionBaseTraderKinds>
+    <baseTraderKinds>
+      <li>Base_Outlander_Standard</li>
+    </baseTraderKinds>
     <allowedArrivalTemperatureRange>
       <min>-40</min>
       <max>45</max>

@@ -4,7 +4,7 @@
   <IncidentDef>
     <defName>Visitor_IoMWanderer</defName>
     <label>wanderer</label>
-    <targetType>BaseMap</targetType>
+    <targetType>MapPlayerHome</targetType>
     <workerClass>Corruption.IoM.IncidentWorker_WanderingTrader</workerClass>
     <category>AllyArrival</category>
     <baseChance>4</baseChance>

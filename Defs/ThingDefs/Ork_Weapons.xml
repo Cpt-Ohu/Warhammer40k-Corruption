@@ -85,7 +85,7 @@
         <range>20</range>
         <burstShotCount>4</burstShotCount>
         <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
-        <soundCast>ShotSurvivalRifle</soundCast>
+        <soundCast>ShotBoltActionRifle</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
       </li>

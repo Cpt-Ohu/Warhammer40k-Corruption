@@ -18,6 +18,7 @@
     <equippedStatOffsets>
       <MoveSpeed>0.0</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>UpperHead</li>
@@ -26,7 +27,6 @@
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>IG</li>
       </tags>

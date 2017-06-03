@@ -330,8 +330,8 @@
     </thingCategories>
 	<IsABook>true</IsABook>
 	<BookText>
-	<li>Research is far from dead.</li>
-      <li>Research without caution is dangerous.</li>
+	<li>Intellectual is far from dead.</li>
+      <li>Intellectual without caution is dangerous.</li>
       <li>If you did not document it, it didn't happen.</li>
       <li>Think before you act.</li>
       <li>Show respect: Do NOT plagiarize.</li>
@@ -343,7 +343,7 @@
 	</BookText>
 	<CloseTexture>Things/Items/Books/Cover_BookScientific</CloseTexture>
 	<TicksToRead>9000</TicksToRead>
-	<SkillToLearn>Research</SkillToLearn>
+	<SkillToLearn>Intellectual</SkillToLearn>
 	<SkillGainFactor>0.8</SkillGainFactor>
 	<TextSpeedShowFactor>2.0</TextSpeedShowFactor>
     <tradeTags>
@@ -385,7 +385,7 @@
 	</BookText>
 	<CloseTexture>Things/Items/Books/Cover_BookScientific</CloseTexture>
 	<TicksToRead>150000</TicksToRead>
-	<SkillToLearn>Research</SkillToLearn>
+	<SkillToLearn>Intellectual</SkillToLearn>
 	<SkillGainFactor>0.2</SkillGainFactor>
 	<TextSpeedShowFactor>0.5</TextSpeedShowFactor>
     <tradeTags>
