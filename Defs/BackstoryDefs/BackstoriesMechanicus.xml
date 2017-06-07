@@ -44,7 +44,7 @@
         <amount>-2</amount>
       </li>
       <li>
-        <defName>Research</defName>
+        <defName>Intellectual</defName>
         <amount>2</amount>
       </li>
     </skillGains>
@@ -115,7 +115,7 @@
         <amount>3</amount>
       </li>
       <li>
-        <defName>Research</defName>
+        <defName>Intellectual</defName>
         <amount>2</amount>
       </li>
       <li>
@@ -152,7 +152,7 @@
         <amount>3</amount>
       </li>
       <li>
-        <defName>Research</defName>
+        <defName>Intellectual</defName>
         <amount>2</amount>
       </li>
       <li>
@@ -197,7 +197,7 @@
         <amount>4</amount>
       </li>
       <li>
-        <defName>Research</defName>
+        <defName>Intellectual</defName>
         <amount>2</amount>
       </li>
     </skillGains>
@@ -231,7 +231,7 @@
         <amount>3</amount>
       </li>
       <li>
-        <defName>Research</defName>
+        <defName>Intellectual</defName>
         <amount>6</amount>
       </li>
     </skillGains>
@@ -261,7 +261,7 @@
         <amount>3</amount>
       </li>
       <li>
-        <defName>Research</defName>
+        <defName>Intellectual</defName>
         <amount>4</amount>
       </li>
       <li>
@@ -295,7 +295,7 @@
         <amount>3</amount>
       </li>
       <li>
-        <defName>Research</defName>
+        <defName>Intellectual</defName>
         <amount>4</amount>
       </li>
       <li>

@@ -17,12 +17,13 @@ namespace Corruption
     {
         static HarmonyPatches()
         {
+            Log.Message("Generating Corruption Harmony Patches");
             HarmonyInstance harmony = HarmonyInstance.Create("rimworld.ohu.corruption.main");
 
-            harmony.Patch(AccessTools.Method(typeof(RimWorld.ThoughtHandler), "CanGetThought", new Type[] { typeof(ThoughtDef) }), null, new HarmonyMethod(typeof(HarmonyPatches), "CanGetThoughtPostfix"), null);
-            harmony.Patch(AccessTools.Method(typeof(RimWorld.MainTabWindow_Inspect), "DoInspectPaneButtons", null), null, new HarmonyMethod(typeof(HarmonyPatches), "DoInspectPaneButtons", null));
-            harmony.Patch(AccessTools.Method(typeof(RimWorld.FactionGenerator), "GenerateFactionsIntoWorld", new Type[] { typeof(string) }), null, new HarmonyMethod(typeof(HarmonyPatches), "GenerateFactionsIntoWorldPostFix"), null);
-            harmony.Patch(AccessTools.Method(typeof(Verse.PawnGenerator), "GenerateInitialHediffs", null), null, new HarmonyMethod(typeof(HarmonyPatches), "GenerateInitialHediffsPostFix", null));
+ //           harmony.Patch(AccessTools.Method(typeof(RimWorld.ThoughtUtility), "CanGetThought"), null, new HarmonyMethod(typeof(HarmonyPatches), "CanGetThoughtPostfix"), null);
+            harmony.Patch(AccessTools.Method(typeof(RimWorld.MainTabWindow_Inspect), "DoInspectPaneButtons"), null, new HarmonyMethod(typeof(HarmonyPatches), "DoInspectPaneButtons", null));
+            harmony.Patch(AccessTools.Method(typeof(RimWorld.FactionGenerator), "GenerateFactionsIntoWorld"), null, new HarmonyMethod(typeof(HarmonyPatches), "GenerateFactionsIntoWorldPostFix"), null);
+            harmony.Patch(AccessTools.Method(typeof(Verse.PawnGenerator), "GenerateInitialHediffs"), null, new HarmonyMethod(typeof(HarmonyPatches), "GenerateInitialHediffsPostFix", null));
 
         }
 

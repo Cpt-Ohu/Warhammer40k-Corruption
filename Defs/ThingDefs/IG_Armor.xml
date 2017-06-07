@@ -34,6 +34,7 @@
     <costList>
       <Plasteel>135</Plasteel>
     </costList>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -43,7 +44,6 @@
       <layers>
         <li>Middle</li>
       </layers>
-      <commonality>2</commonality>
       <tags>
         <li>IG_STApp</li>
       </tags>
@@ -63,8 +63,21 @@
       <li Class="FactionColors.CompProperties_FactionColor">
         <compClass>FactionColors.CompFactionColor</compClass>
       </li>
-    </comps>
+      <li Class="FactionColors.CompProperties_PauldronDrawer">
+        <compClass>FactionColors.CompPauldronDrawer</compClass>
+  		 <PauldronEntryChance>1.0</PauldronEntryChance>
 
+        <PauldronEntries>
+		<li>
+        	 <shoulderPadType>Both</shoulderPadType>
+  		 <shaderType>Cutout</shaderType>
+  		 <UseSecondaryColor>true</UseSecondaryColor>
+    		 <padTexPath>Things/IG/IG_Pauldrons/Flak_Pauldrons</padTexPath>
+  		 <commonality>10</commonality>
+		</li>
+        </PauldronEntries>
+      </li>
+    </comps>
   </ThingDef>
 
   <ThingDef ParentName="HatBase" Class="FactionColors.ApparelUniformDef">
@@ -86,6 +99,7 @@
     <equippedStatOffsets>
       <MoveSpeed>0.0</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>UpperHead</li>
@@ -94,7 +108,6 @@
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>IG_STApp</li>
       </tags>
@@ -139,6 +152,7 @@
     <equippedStatOffsets>
       <MoveSpeed>-0.04</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -149,7 +163,6 @@
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>IG_Commissar</li>
       </tags>

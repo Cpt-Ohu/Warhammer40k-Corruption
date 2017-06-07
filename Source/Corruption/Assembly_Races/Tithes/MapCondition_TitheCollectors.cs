@@ -7,7 +7,7 @@ using Verse;
 
 namespace Corruption.Tithes
 {
-    public class MapCondition_TitheCollectors : GameCondition
+    public class GameCondition_TitheCollectors : GameCondition
     {
         public override void End()
         {

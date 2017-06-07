@@ -298,6 +298,61 @@
     </MainVerb>
   </ThingDef>
 
+  <!-- =========================Doombolt===================================== -->
+
+  <ThingDef ParentName="BaseBullet" Class="Corruption.ThingDef_LaserProjectile">
+   <thingClass>Corruption.Projectile_Smoking</thingClass>
+   <defName>PSYDoomBolt</defName>
+   <label>Doom Bolt</label>
+   <graphicData>
+		<texPath>Things/Chaos/Projectiles/Bullet_DoomBolt</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+   <projectile>
+		<flyOverhead>true</flyOverhead>
+		<damageDef>Laser</damageDef>
+		<damageAmountBase>8</damageAmountBase>
+		<speed>40</speed>
+			<explosionRadius>3.0</explosionRadius>
+			<preExplosionSpawnThingDef>FilthFuel</preExplosionSpawnThingDef>
+			<explosionSpawnChance>0.6</explosionSpawnChance>
+   </projectile>
+    <preFiringInitialIntensity>0</preFiringInitialIntensity>
+    <preFiringFinalIntensity>2</preFiringFinalIntensity>
+    <postFiringInitialIntensity>2</postFiringInitialIntensity>
+    <postFiringFinalIntensity>0</postFiringFinalIntensity>
+    <preFiringDuration>2</preFiringDuration>
+    <postFiringDuration>120</postFiringDuration>
+    <StartFireChance>0.000</StartFireChance>
+    <causesExplosion>true</causesExplosion>
+    <smokeGraphicPath>Things/Chaos/Projectiles/DoomBolt_Shadow</smokeGraphicPath>
+ </ThingDef>
+
+  <ThingDef Class="Corruption.PsykerPowerDef" ParentName="BasePsykerPower" Name="DoomBoltBase">
+    <defName>PsykerPower_DoomBolt</defName>
+    <label>Doombolt</label>
+    <uiIconPath>UI/Psyker/Lightning</uiIconPath>
+    <description>Cast forth a bolt of raw chaotic energy.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <IconGraphicPath>UI/Glow_Corrupt</IconGraphicPath>
+    <MainVerb Class="Corruption.VerbProperties_WarpPower">
+        <verbClass>Corruption.Verb_CastWarpPower</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>PSYDoomBolt</projectileDef>
+        <warmupTime>1</warmupTime>
+        <TicksToRecharge>1200</TicksToRecharge>
+        <range>24</range>
+        <burstShotCount>5</burstShotCount>
+        <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+        <soundCast>WarpBolt</soundCast>
+        <muzzleFlashScale>20</muzzleFlashScale>
+        <CorruptionFactor>1</CorruptionFactor>
+        <isPrimary>false</isPrimary>
+        <DrawProjectileOnTarget>false</DrawProjectileOnTarget>
+    </MainVerb>
+  </ThingDef>
+
+
   <!-- =========================Warpfire===================================== -->
 
   <ThingDef ParentName="BaseBullet" Class="Corruption.ThingDef_LaserProjectile">
@@ -751,7 +806,7 @@
     <defName>PSYWarpFire</defName>
     <label>warpfire orb</label>
     <graphicData>
-      <texPath>Things/Chaos/Warpstaff/Bullet_WarpfireBig</texPath>
+      <texPath>Things/Chaos/Projectiles/Bullet_WarpfireBig</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
     </graphicData>

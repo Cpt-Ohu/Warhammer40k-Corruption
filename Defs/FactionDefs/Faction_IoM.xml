@@ -15,7 +15,7 @@
     <isPlayer>true</isPlayer>
     <basicMemberKind>IoM_Colonist</basicMemberKind>
     <pawnsPlural>colonists</pawnsPlural>
-    <factionBaseNameMaker>NamerFactionBasePlayerColony</factionBaseNameMaker>
+    <BaseNameMaker>NamerFactionBasePlayerColony</BaseNameMaker>
     <techLevel>Industrial</techLevel>
     <backstoryCategory>Civil</backstoryCategory>
     <expandingIconTexture>World/WorldObjects/Expanding/Town</expandingIconTexture>
@@ -36,7 +36,7 @@
     <basicMemberKind>IoM_Colonist</basicMemberKind>
     <pawnsPlural>colonists</pawnsPlural>
     <requiredCountAtGameStart>1</requiredCountAtGameStart>
-    <factionBaseNameMaker>NamerFactionBasePlayerColony</factionBaseNameMaker>
+    <BaseNameMaker>NamerFactionBasePlayerColony</BaseNameMaker>
     <expandingIconTexture>World/WorldObjects/Expanding/Town</expandingIconTexture>
     <startingResearchTags>
       <li>ClassicStart</li>

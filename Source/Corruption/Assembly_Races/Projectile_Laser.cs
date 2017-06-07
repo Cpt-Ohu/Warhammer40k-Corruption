@@ -11,7 +11,7 @@ namespace Corruption
 {
     public class Projectile_Laser : Projectile
     {
-        // Variables.
+        // Variables
         public int tickCounter = 0;
         public Thing hitThing = null;
 
@@ -29,6 +29,41 @@ namespace Corruption
         public float preFiringFinalIntensity = 0f;
         public float postFiringInitialIntensity = 0f;
         public float postFiringFinalIntensity = 0f;
+
+        protected ThingDef_LaserProjectile additionalParameters
+        {
+            get
+            {
+                return this.def as ThingDef_LaserProjectile;
+            }
+        }
+
+        private Material smokeMaterialInt;
+
+        public Material SmokeMaterial
+        {
+            get
+            {
+                if (!this.additionalParameters.smokeGraphicPath.NullOrEmpty())
+                {
+                    if (this.smokeMaterialInt == null)
+                    {
+                        this.smokeMaterialInt = GraphicDatabase.Get<Graphic_Single>(this.additionalParameters.smokeGraphicPath, ShaderDatabase.MoteGlow).MatSingle;
+                    }
+                }
+                else
+                {
+                    this.smokeMaterialInt = null;
+                }
+                return smokeMaterialInt;
+            }
+        }
+
+        protected void DoBaseTick()
+        {
+            base.Tick();
+        }
+
         public int preFiringDuration = 0;
         public int postFiringDuration = 0;
         public float startFireChance = 0;
@@ -43,9 +78,8 @@ namespace Corruption
         /// <summary>
         /// Get parameters from XML.
         /// </summary>
-        public void GetParametersFromXml()
+        public virtual void GetParametersFromXml()
         {
-            ThingDef_LaserProjectile additionalParameters = def as ThingDef_LaserProjectile;
 
             preFiringDuration = additionalParameters.preFiringDuration;
             postFiringDuration = additionalParameters.postFiringDuration;

@@ -27,6 +27,7 @@
       <ArmorRating_Sharp>0.1</ArmorRating_Sharp>
       <Insulation_Cold>-3</Insulation_Cold>
     </statBases>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -35,7 +36,6 @@
       <layers>
         <li>OnSkin</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>Ork</li>
       </tags>
@@ -94,6 +94,7 @@
     <costList>
       <Steel>75</Steel>
     </costList>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -102,7 +103,6 @@
       <layers>
         <li>Middle</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>Ork</li>
       </tags>
@@ -156,6 +156,7 @@
     <costList>
       <Steel>60</Steel>
     </costList>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
@@ -164,7 +165,6 @@
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>5</commonality>
       <tags>
         <li>OrkNob</li>
       </tags>
@@ -229,6 +229,7 @@
     <equippedStatOffsets>
       <MoveSpeed>0.2</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>UpperHead</li>
@@ -237,7 +238,6 @@
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>OrkKommando</li>
       </tags>

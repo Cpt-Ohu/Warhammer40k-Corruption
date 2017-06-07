@@ -37,6 +37,7 @@
     <equippedStatOffsets>
       <MoveSpeed>-0.04</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -48,7 +49,6 @@
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>IoM_Apparel</li>
       </tags>
@@ -147,6 +147,7 @@
     <equippedStatOffsets>
       <MoveSpeed>-0.04</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -158,7 +159,6 @@
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>IoM_Inquisition</li>
       </tags>
@@ -252,6 +252,7 @@
     <equippedStatOffsets>
       <MoveSpeed>-0.04</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>UpperHead</li>
@@ -260,7 +261,6 @@
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>IoM_Inquisition</li>
       </tags>
@@ -310,6 +310,7 @@
     <equippedStatOffsets>
       <MoveSpeed>-0.04</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -321,7 +322,6 @@
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>IoM_Apparel</li>
       </tags>
@@ -396,6 +396,7 @@
       <li>AdvancedAlloy</li>
     </stuffCategories>
     <costStuffCount>100</costStuffCount>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -407,7 +408,6 @@
       <layers>
         <li>Middle</li>
       </layers>
-      <commonality>0.1</commonality>
       <tags>
         <li>IG_Commissar</li>
         <li>IG_VetApp</li>
@@ -470,6 +470,7 @@
       <li>AdvancedAlloy</li>
     </stuffCategories>
     <costStuffCount>75</costStuffCount>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>UpperHead</li>
@@ -477,9 +478,7 @@
       <worngraphicPath>Things/IoM/Arbites/ArbitesHelmet</worngraphicPath>
       <layers>
         <li>Overhead</li>
-      </layers>
-      <commonality>0.1</commonality>
-      <tags>
+      </layers>      <tags>
         <li>IG_Commissar</li>
         <li>IG_VetApp</li>
       </tags>
@@ -522,6 +521,7 @@
     <costList>
       <PowerArmorTemplate>1</PowerArmorTemplate>
     </costList>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -534,7 +534,6 @@
         <li>Middle</li>
         <li>Shell</li>
       </layers>
-      <commonality>2</commonality>
       <tags>
         <li>Outlander</li>
         <li>Spacer</li>
@@ -613,6 +612,7 @@
       <MecComponent_General>2</MecComponent_General>
       <Ceramite>70</Ceramite>
     </costList>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
@@ -621,7 +621,6 @@
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>2</commonality>
       <tags>
         <li>Military</li>
       </tags>
@@ -682,6 +681,7 @@
     <equippedStatOffsets>
       <MoveSpeed>-0.03</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -692,7 +692,6 @@
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>0.1</commonality>
       <tags>
         <li>Noble</li>
       </tags>
@@ -771,6 +770,7 @@
     <equippedStatOffsets>
       <MoveSpeed>-0.03</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -781,7 +781,6 @@
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>0.1</commonality>
       <tags>
         <li>IoM_Officer</li>
       </tags>
@@ -864,6 +863,7 @@
     <equippedStatOffsets>
       <MoveSpeed>-0.04</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -875,7 +875,6 @@
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>IoM_Apparel</li>
       </tags>

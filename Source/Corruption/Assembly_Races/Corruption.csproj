@@ -98,6 +98,7 @@
     <Compile Include="IoM\Incident_WanderingTrader.cs" />
     <Compile Include="IoM\LordToil_WanderAndChat.cs" />
     <Compile Include="IoM\StockGenerator_Effigy.cs" />
+    <Compile Include="Projectile_Smoking.cs" />
     <Compile Include="Worship\BuildingAltar.cs" />
     <Compile Include="Worship\BuildingAltarDef.cs" />
     <Compile Include="BuildingWorshipDef.cs" />

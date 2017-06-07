@@ -22,6 +22,7 @@
     <equippedStatOffsets>
       <MoveSpeed>0.0</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>UpperHead</li>
@@ -30,7 +31,6 @@
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>CorruptedApparel</li>
       </tags>
@@ -74,6 +74,7 @@
     <equippedStatOffsets>
       <MoveSpeed>0.0</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>UpperHead</li>
@@ -82,7 +83,6 @@
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>CorruptedApparel</li>
       </tags>
@@ -126,6 +126,7 @@
     <equippedStatOffsets>
       <MoveSpeed>0.0</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>UpperHead</li>
@@ -134,7 +135,6 @@
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>CorruptedApparel</li>
       </tags>
@@ -181,6 +181,7 @@
       <ArmorRating_Sharp>0.1</ArmorRating_Sharp>
       <Insulation_Cold>-3</Insulation_Cold>
     </statBases>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Shoulders</li>
@@ -189,7 +190,6 @@
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>CorruptedApparel</li>
       </tags>
@@ -221,6 +221,7 @@
       <ArmorRating_Sharp>0.03</ArmorRating_Sharp>
       <Insulation_Cold>-3</Insulation_Cold>
     </statBases>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -230,7 +231,6 @@
       <layers>
         <li>OnSkin</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>CorruptedApparel</li>
       </tags>
@@ -265,6 +265,7 @@
       <ArmorRating_Sharp>0.03</ArmorRating_Sharp>
       <Insulation_Cold>-3</Insulation_Cold>
     </statBases>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -274,7 +275,6 @@
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>CorruptedApparel</li>
       </tags>
@@ -309,6 +309,7 @@
       <ArmorRating_Sharp>0.03</ArmorRating_Sharp>
       <Insulation_Cold>-3</Insulation_Cold>
     </statBases>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>UpperHead</li>
@@ -317,7 +318,6 @@
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>CorruptedApparel</li>
       </tags>

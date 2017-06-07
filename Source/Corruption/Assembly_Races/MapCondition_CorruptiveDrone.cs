@@ -8,11 +8,11 @@ using Verse;
 
 namespace Corruption
 {
-    public class MapCondition_CorruptiveDrone : GameCondition
+    public class GameCondition_CorruptiveDrone : GameCondition
     {
         private SkyColorSet CorruptiveDroneColors;
 
-        public MapCondition_CorruptiveDrone()
+        public GameCondition_CorruptiveDrone()
         {
             ColorInt colorInt = new ColorInt(240, 141, 74);
             ColorInt colorInt2 = new ColorInt(254, 245, 176);

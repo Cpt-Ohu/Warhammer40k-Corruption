@@ -38,6 +38,7 @@
       <Component>18</Component>
       <Wraithbone>135</Wraithbone>
     </costList>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -49,7 +50,6 @@
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>Sororitas_Apparel</li>
       </tags>
@@ -109,6 +109,7 @@
       <Component>7</Component>
       <Wraithbone>60</Wraithbone>
     </costList>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
@@ -117,7 +118,6 @@
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>5</commonality>
       <tags>
         <li>Sororitas_Apparel</li>
       </tags>
@@ -176,6 +176,7 @@
       <Component>7</Component>
       <Wraithbone>60</Wraithbone>
     </costList>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
@@ -184,7 +185,6 @@
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>5</commonality>
       <tags>
         <li>Sororitas_Apparel</li>
       </tags>
@@ -203,7 +203,7 @@
   </ThingDef>
 
 	<ThingDef ParentName="ApparelBase">
-		<thingClass>PersonalShield</thingClass>
+		<thingClass>ShieldBelt</thingClass>
 		<defName>Apparel_Rosarius</defName>
 		<label>rosarius</label>
 		<description>A symbol of the Adeptus Munitorum harboring a single-person energy shield device. It will attempt to stop any rapidly-moving projectile or energy attack that comes from a distance. It does nothing against melee attacks or shots from point-blank range. It also prevents firing past touch range. </description>
@@ -214,20 +214,20 @@
     <tickerType>Normal</tickerType>
 		<statBases>
 			<MarketValue>1900</MarketValue>
-      <PersonalShieldRechargeRate>0.19</PersonalShieldRechargeRate>
-      <PersonalShieldEnergyMax>1.5</PersonalShieldEnergyMax>
+      <EnergyShieldRechargeRate>0.19</EnergyShieldRechargeRate>
+      <EnergyShieldEnergyMax>1.5</EnergyShieldEnergyMax>
     </statBases>
     <thingCategories>
       <li>Sororitas_Support</li>
     </thingCategories>
+	<generateCommonality>1</generateCommonality>
     <apparel>
 			<bodyPartGroups>
 				<li>Torso</li>
 			</bodyPartGroups>
 			<layers>
-				<li>Accessory</li>
+				<li>Belt</li>
 			</layers>
-			<commonality>1</commonality>
 			<tags>
 				<li>PersonalShield</li>
 			</tags>

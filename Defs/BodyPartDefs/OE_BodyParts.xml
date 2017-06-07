@@ -10,9 +10,9 @@
     <skinCovered>false</skinCovered>
     <useDestroyedOutLabel>true</useDestroyedOutLabel>
     <beautyRelated>true</beautyRelated>
-    <activities>
-      <li>Sight_source</li>
-    </activities>
+    <tags>
+      <li>SightSource</li>
+    </tags>
     <hitChanceFactors>
       <li>
         <key>Blunt</key>
@@ -29,9 +29,9 @@
     <skinCovered>false</skinCovered>
     <useDestroyedOutLabel>true</useDestroyedOutLabel>
     <beautyRelated>true</beautyRelated>
-    <activities>
-      <li>Sight_source</li>
-    </activities>
+    <tags>
+      <li>SightSource</li>
+    </tags>
     <hitChanceFactors>
       <li>
         <key>Blunt</key>
@@ -48,9 +48,9 @@
     <oldInjuryBaseChance>0.08</oldInjuryBaseChance>
     <skinCovered>true</skinCovered>
     <beautyRelated>true</beautyRelated>
-    <activities>
-      <li>Hearing_source</li>
-    </activities>
+    <tags>
+      <li>HearingSource</li>
+    </tags>
   </BodyPartDef>
 
   <BodyPartDef>
@@ -61,9 +61,9 @@
     <oldInjuryBaseChance>0.08</oldInjuryBaseChance>
     <skinCovered>true</skinCovered>
     <beautyRelated>true</beautyRelated>
-    <activities>
-      <li>Hearing_source</li>
-    </activities>
+    <tags>
+      <li>HearingSource</li>
+    </tags>
   </BodyPartDef>
 
   <BodyPartDef>
@@ -85,10 +85,10 @@
     <skinCovered>false</skinCovered>
     <isSolid>true</isSolid>
     <beautyRelated>true</beautyRelated>
-    <activities>
-      <li>Eating_source</li>
-      <li>Talking_source</li>
-    </activities>
+    <tags>
+      <li>EatingSource</li>
+      <li>TalkingSource</li>
+    </tags>
   </BodyPartDef>
 
   <BodyPartDef>
@@ -98,9 +98,9 @@
     <oldInjuryBaseChance>0.08</oldInjuryBaseChance>
     <bleedingRateMultiplier>1.2</bleedingRateMultiplier>
     <skinCovered>false</skinCovered>
-    <activities>
-      <li>Eating_digestion</li>
-    </activities>
+    <tags>
+      <li>EatingSource</li>
+    </tags>
   </BodyPartDef>
  
   <BodyPartDef>

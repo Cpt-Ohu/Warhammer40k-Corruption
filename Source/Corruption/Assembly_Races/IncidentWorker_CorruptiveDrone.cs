@@ -21,7 +21,7 @@ namespace Corruption
 
         protected override void DoConditionAndLetter(Map map, int duration, Gender gender)
         {
-            MapCondition_CorruptiveDrone MapCondition_corruptiveDrone = (MapCondition_CorruptiveDrone)GameConditionMaker.MakeCondition(C_GameConditionDefOf.CorruptiveDrone, duration, 0);
+            GameCondition_CorruptiveDrone MapCondition_corruptiveDrone = (GameCondition_CorruptiveDrone)GameConditionMaker.MakeCondition(C_GameConditionDefOf.CorruptiveDrone, duration, 0);
             map.gameConditionManager.RegisterCondition(MapCondition_corruptiveDrone);
             string text = "LetterIncidentCorruptiveDrone".Translate();
             Find.LetterStack.ReceiveLetter("LetterLabelCorruptiveDrone".Translate(), text, LetterDefOf.BadNonUrgent, null);

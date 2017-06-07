@@ -130,7 +130,7 @@ namespace Corruption
         }        
         private void InitializeTitheCollection()
         {
-            Tithes.MapCondition_TitheCollectors condition = (Tithes.MapCondition_TitheCollectors)GameConditionMaker.MakeCondition(C_GameConditionDefOf.TitheCollectorArrived, 420000, 0);
+            Tithes.GameCondition_TitheCollectors condition = (Tithes.GameCondition_TitheCollectors)GameConditionMaker.MakeCondition(C_GameConditionDefOf.TitheCollectorArrived, 420000, 0);
             if (this.PlanetaryGovernor == null)
             {
                 Log.Error("Initiated Tithe Collection with no Planetary Governor assigned");

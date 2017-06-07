@@ -30,6 +30,7 @@
       <ArmorRating_Sharp>0.03</ArmorRating_Sharp>
       <Insulation_Cold>-3</Insulation_Cold>
     </statBases>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -39,7 +40,6 @@
       <layers>
         <li>OnSkin</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>Tau_Aux</li>
         <li>Tau_Basic</li>
@@ -97,6 +97,7 @@
     <costList>
       <Plasteel>135</Plasteel>
     </costList>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -106,7 +107,6 @@
       <layers>
         <li>Middle</li>
       </layers>
-      <commonality>2</commonality>
       <tags>
         <li>Tau_Basic</li>
       </tags>
@@ -155,6 +155,7 @@
     <tradeTags>
       <li>Xeno_TauAux</li>
     </tradeTags>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>UpperHead</li>
@@ -163,7 +164,6 @@
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>Tau_Basic</li>
       <li>Tau_Aux</li>
@@ -223,6 +223,7 @@
     <costList>
       <Plasteel>135</Plasteel>
     </costList>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -232,7 +233,6 @@
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>2</commonality>
       <tags>
         <li>Tau_Aux</li>
       </tags>

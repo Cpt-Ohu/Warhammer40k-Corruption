@@ -16,11 +16,12 @@ namespace FactionColors
     {
         static HarmonyPatches()
         {
+            Log.Message("Generating Patches");
             HarmonyInstance harmony = HarmonyInstance.Create("rimworld.ohu.factionColors.main");
 
             harmony.Patch(AccessTools.Method(typeof(Verse.PawnGraphicSet), "ResolveApparelGraphics", null),null , new HarmonyMethod(typeof(HarmonyPatches), "ResolveApparelGraphicsOriginal"));
-            harmony.Patch(AccessTools.Method(typeof(Verse.PawnRenderer), "DrawEquipmentAiming", new Type[] { typeof(Thing), typeof(Vector3), typeof(float) }), new HarmonyMethod(typeof(HarmonyPatches), "DrawEquipmentAimingModded"), null);
-            harmony.Patch(AccessTools.Method(typeof(RimWorld.FactionGenerator), "GenerateFactionsIntoWorld", new Type[] { typeof(string) }), null, new HarmonyMethod(typeof(HarmonyPatches), "GenerateFactionsIntoWorldPostFix"));
+            harmony.Patch(AccessTools.Method(typeof(Verse.PawnRenderer), "DrawEquipmentAiming"), new HarmonyMethod(typeof(HarmonyPatches), "DrawEquipmentAimingModded"), null);
+            harmony.Patch(AccessTools.Method(typeof(RimWorld.FactionGenerator), "GenerateFactionsIntoWorld"), null, new HarmonyMethod(typeof(HarmonyPatches), "GenerateFactionsIntoWorldPostFix"));
         }
 
         public static void GenerateFactionsIntoWorldPostFix()
@@ -108,7 +109,7 @@ namespace FactionColors
                         }
                 }
             }
-
+            
             float num = aimAngle - 90f;
             Mesh mesh;
             if (aimAngle > 20f && aimAngle < 160f)
@@ -153,10 +154,11 @@ namespace FactionColors
                 //                matrix.SetTRS(drawLoc, Quaternion.AngleAxis(num, Vector3.up), facdef.ItemMeshSize);
                 //                Graphics.DrawMesh(mesh, matrix, matSingle, 0);
                 //               Graphics.DrawMesh()
+                
             }
 
             else
-            {
+            {                
                 Graphics.DrawMesh(mesh, drawLoc, Quaternion.AngleAxis(num, Vector3.up), matSingle, 0);
             }
 

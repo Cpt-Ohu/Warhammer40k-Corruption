@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Corruption
 {
-    public class MapCondition_IncomingIGHostile
+    public class GameCondition_IncomingIGHostile
     {
     }
 }

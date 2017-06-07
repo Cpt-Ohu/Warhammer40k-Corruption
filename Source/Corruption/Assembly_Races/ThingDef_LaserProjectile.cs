@@ -20,5 +20,7 @@ namespace Corruption
         public int postFiringDuration = 0;
         public float StartFireChance;
         public bool CanStartFire = false;
+        public string smokeGraphicPath = null;
+        public bool causesExplosion = false;
     }
 }

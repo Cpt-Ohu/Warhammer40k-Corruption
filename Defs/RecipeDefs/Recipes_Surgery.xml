@@ -16,9 +16,7 @@
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Creating Servitor.</jobString>
 		<workAmount>4500</workAmount>
-    <surgeonSurgerySuccessChanceExponent>2</surgeonSurgerySuccessChanceExponent>
-    <roomSurgerySuccessChanceFactorExponent>4</roomSurgerySuccessChanceFactorExponent>
-    <surgerySuccessChanceFactor>0.6</surgerySuccessChanceFactor>
+    <surgerySuccessChanceFactor>0.7</surgerySuccessChanceFactor>
     <deathOnFailedSurgeryChance>0.25</deathOnFailedSurgeryChance>
 		<ingredients>
 			<li>
