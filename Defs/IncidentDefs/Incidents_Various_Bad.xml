@@ -8,7 +8,12 @@
 		<category>Misc</category>
     <letterLabel>Corruptive drone</letterLabel>
     <letterText>There are whispers in the air that resonate in your peoples heads.</letterText>
+<<<<<<< HEAD
     <letterDef>BadUrgent</letterDef>
+=======
+    <letterDef>BadNonUrgent</letterDef>
+    <targetType>MapPlayerHome</targetType>
+>>>>>>> origin/A17
     <gameCondition>CorruptiveDrone</gameCondition>
     <baseChance>0.7</baseChance>
     <minRefireDays>15</minRefireDays>
@@ -26,7 +31,11 @@
     <letterLabel>Effigy</letterLabel>
     <letterText>A colonist has produced a small effigy. Whether it was lying around or personally made remains a mystery.</letterText>
     <letterDef>BadNonUrgent</letterDef>
+<<<<<<< HEAD
     <targetType>MapPlayerHome</targetType>
+=======
+    <targetDef>MapPlayerHome</targetType>
+>>>>>>> origin/A17
     <baseChance>4.0</baseChance>
     <minRefireDays>15</minRefireDays>
   </IncidentDef>
