@@ -38,27 +38,6 @@ namespace Corruption
             }
         }
 
-        private Material smokeMaterialInt;
-
-        public Material SmokeMaterial
-        {
-            get
-            {
-                if (!this.additionalParameters.smokeGraphicPath.NullOrEmpty())
-                {
-                    if (this.smokeMaterialInt == null)
-                    {
-                        this.smokeMaterialInt = GraphicDatabase.Get<Graphic_Single>(this.additionalParameters.smokeGraphicPath, ShaderDatabase.MoteGlow).MatSingle;
-                    }
-                }
-                else
-                {
-                    this.smokeMaterialInt = null;
-                }
-                return smokeMaterialInt;
-            }
-        }
-
         protected void DoBaseTick()
         {
             base.Tick();

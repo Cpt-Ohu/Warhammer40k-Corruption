@@ -40,7 +40,7 @@ namespace OHUShips
             command_Action.icon = DropShipUtility.TradeCommandTex;
             command_Action.action = delegate
             {
-                FactionBase factionBase = CaravanVisitUtility.FactionBaseVisitedNow(caravan);
+                Settlement factionBase = CaravanVisitUtility.SettlementVisitedNow(caravan);
                 if (factionBase != null && factionBase.CanTradeNow)
                 {
                     caravan.UnloadCargoForTrading();
@@ -50,7 +50,7 @@ namespace OHUShips
                     PawnRelationUtility.Notify_PawnsSeenByPlayer(factionBase.Goods.OfType<Pawn>(), ref empty, ref empty2, "LetterRelatedPawnsTradingWithFactionBase".Translate(), false);
                     if (!empty2.NullOrEmpty())
                     {
-                        Find.LetterStack.ReceiveLetter(empty, empty2, LetterType.Good, factionBase, null);
+                        Find.LetterStack.ReceiveLetter(empty, empty2, LetterDefOf.Good, factionBase, null);
                     }
                 }
             };
@@ -134,7 +134,7 @@ namespace OHUShips
                 {
                     vec3 = new IntVec3(100, 1, 100);
                 }
-                Map visibleMap = MapGenerator.GenerateMap(vec3, landedShip.Tile, newWorldObject, null, null);
+                Map visibleMap = MapGenerator.GenerateMap(vec3, newWorldObject, MapGeneratorDefOf.MainMap, null, null);
                 Current.Game.VisibleMap = visibleMap;
             }, "GeneratingMap", true, new Action<Exception>(GameAndMapInitExceptionHandlers.ErrorWhileGeneratingMap));
             LongEventHandler.QueueLongEvent(delegate
@@ -143,7 +143,7 @@ namespace OHUShips
                 Pawn pawn = landedShip.PawnsListForReading[0];
                 Predicate<IntVec3> extraCellValidator = (IntVec3 x) => x.GetRegion(map).CellCount >= 600;
                 TravelingShipsUtility.EnterMapWithShip(landedShip, map, CaravanEnterMode.Center);
-                Find.CameraDriver.JumpTo(map.Center);
+                Find.CameraDriver.JumpToVisibleMapLoc(map.Center);
                 Find.MainTabsRoot.EscapeCurrentTab(false);
             }, "SpawningColonists", true, new Action<Exception>(GameAndMapInitExceptionHandlers.ErrorWhileGeneratingMap));
         }
@@ -206,7 +206,7 @@ namespace OHUShips
             return (pawn.Name + " of " + pawn.Faction.ToString());
         }
 
-        public static void MakepawnInfos(ThingContainer container)
+        public static void MakepawnInfos(ThingOwner container)
         {
             foreach (Thing t in container)
             {
@@ -231,7 +231,7 @@ namespace OHUShips
         public static LandedShip MakeLandedShip(TravelingShips incomingShips, Faction faction, int startingTile, bool addToWorldPawnsIfNotAlready)
         {
         //    Log.Message("Making LandedShip");
-       //     TravelingShipsUtility.MakepawnInfos(incomingShips.ships[0].GetInnerContainer());
+       //     TravelingShipsUtility.MakepawnInfos(incomingShips.ships[0].GetDirectlyHeldThings());
             if (startingTile < 0 && addToWorldPawnsIfNotAlready)
             {
                 Log.Warning("Tried to create a caravan but chose not to spawn a caravan but pass pawns to world. This can cause bugs because pawns can be discarded.");
@@ -333,21 +333,21 @@ namespace OHUShips
                 DropShipUtility.ReimbarkWorldPawnsForLandedShip(current);
             }
             travelingShips.SetFaction(landedShip.Faction);
-            TravelingShipsUtility.AddAllLandedPawnsToWorld(landedShip);
+            TravelingShipsUtility.RemoveLandedShipPawns(landedShip);
             if (Find.World.worldObjects.Contains(landedShip))
             {
                 Find.World.worldObjects.Remove(landedShip);
             }
         }
 
-        public static void AddAllLandedPawnsToWorld(LandedShip landedShip)
+        public static void RemoveLandedShipPawns(LandedShip landedShip)
         {
             for (int i = 0; i< landedShip.PawnsListForReading.Count; i++)
             {
                 Pawn pawn = landedShip.PawnsListForReading[i];
-                if (!Find.WorldPawns.Contains(pawn))
+                if (Find.WorldPawns.Contains(pawn))
                 {
-                    Find.WorldPawns.PassToWorld(pawn, PawnDiscardDecideMode.Decide);
+                    Find.WorldPawns.RemovePawn(pawn);
                 }
             }
         }
@@ -360,7 +360,7 @@ namespace OHUShips
                 allPawns = DropShipUtility.AllPawnsInShip(current);
                 for (int k = 0; k < allPawns.Count; k++)
                 {
-                    ThingContainer innerContainer2 = current.GetInnerContainer();
+                    ThingOwner innerContainer2 = current.GetDirectlyHeldThings();
                     for (int l = 0; l < innerContainer2.Count; l++)
                     {
                         if (!(innerContainer2[l] is Pawn))

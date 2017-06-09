@@ -15,45 +15,87 @@ namespace Corruption
         
         private bool istraveling = true;
 
-        public Mesh drawingMesh;
+        private bool exploded = false;
 
-
-        public override void PerformPreFiringTreatment()
+        private Vector3 ActualPosition
         {
-            Graphics.DrawMesh(MeshPool.plane10, this.DrawPos + new Vector3(0,0.1f,0), this.ExactRotation, this.def.DrawMatSingle, 0);
-            base.Comps_PostDraw();
-            //DetermineImpactExactPosition();
-            //drawingScale = new Vector3(1f, 1f, (this.destination - this.ExactPosition).magnitude);
-            drawingScale = new Vector3(1f, 1f, (this.ExactPosition - this.origin).magnitude);
-            drawingPosition = this.ExactPosition + ((this.ExactPosition - this.origin) / 2) + Vector3.up * this.def.Altitude;
-            drawingMatrix.SetTRS(drawingPosition, this.ExactRotation, drawingScale);
+            get
+            {
+                if (this.istraveling)
+                {
+                    return this.ExactPosition;
+                }
+                else
+                {
+                    return this.destination;
+                }
+            }
+        }
+
+        private Vector3 SmokeDrawingPos
+        {
+            get
+            {
+                return this.ActualPosition - (this.ActualPosition - this.origin) / 2f;
+            }
+        }
+
+        private Mesh drawingMesh;
+        
+        private Graphic smokeMaterialInt;
+
+        public Graphic SmokeMaterial
+        {
+            get
+            {
+                if (!this.additionalParameters.smokeGraphicPath.NullOrEmpty())
+                {
+                    if (this.smokeMaterialInt == null)
+                    {
+                        this.smokeMaterialInt = GraphicDatabase.Get<Graphic_Single>(this.additionalParameters.smokeGraphicPath, ShaderDatabase.MoteGlow);
+                    }
+                }
+                else
+                {
+                    this.smokeMaterialInt = null;
+                }
+                return smokeMaterialInt;
+            }
         }
 
         public override void Draw()
         {
             base.Comps_PostDraw();
-            Graphics.DrawMesh(MeshPool.plane10, this.ExactPosition, this.ExactRotation, this.def.DrawMatSingle, 0);
+            if (this.istraveling || !this.exploded)
+            {
+                Graphics.DrawMesh(MeshPool.plane10, this.ActualPosition, this.ExactRotation, this.def.DrawMatSingle, 2);
+            }
             if (this.SmokeMaterial != null)
             {
-                UnityEngine.Graphics.DrawMesh(MeshPool.plane10, drawingMatrix, SolidColorMaterials.NewSolidColorMaterial(Color.red, ShaderDatabase.Cutout), 0); //FadedMaterialPool.FadedVersionOf(SmokeMaterial, drawingIntensity), 0);
-               // Graphics.DrawMesh(MeshPool.plane10, this.ExactPosition, new Quaternion(, this.SmokeMaterial, 0); 
+               // Graphics.DrawMesh(drawingMesh, this.drawingPosition, this.ExactRotation, this.smokeMaterialInt.MatSingle, 0);
+
+                Graphics.DrawMesh(drawingMesh, this.SmokeDrawingPos, this.ExactRotation, FadedMaterialPool.FadedVersionOf(this.smokeMaterialInt.MatSingle,this.drawingIntensity), 2);
+                //GenDraw.DrawMeshNowOrLater(this.drawingMesh, this.drawingPosition, this.ExactRotation, this.smokeMaterialInt.MatSingle, true);
+                //this.smokeMaterialInt.DrawWorker(this.drawingPosition, Rot4.North, null, null);
+                // Graphics.DrawMesh(MeshPool.plane10, this.ExactPosition, new Quaternion(, this.SmokeMaterial, 0); 
             }
         }
 
         public override void GetPreFiringDrawingParameters()
         {
             base.GetPreFiringDrawingParameters();
-            drawingScale = new Vector3(1f, 1f, (this.ExactPosition - this.origin).magnitude);
-            drawingPosition = this.ExactPosition + ((this.ExactPosition - this.origin) / 2) + Vector3.up * this.def.Altitude;
-            drawingMatrix.SetTRS(drawingPosition, this.ExactRotation, drawingScale);
+
         }
 
         public override void GetPostFiringDrawingParameters()
         {
             base.GetPostFiringDrawingParameters();
-            drawingScale = new Vector3(1f, 1f, (this.destination - this.ExactPosition).magnitude);
-            drawingPosition = this.ExactPosition + ((this.ExactPosition - this.origin) / 2) + Vector3.up * this.def.Altitude;
-            drawingMatrix.SetTRS(drawingPosition, this.ExactRotation, drawingScale);
+            //drawingScale = new Vector3(1f, 1f, (this.destination - this.ExactPosition).magnitude);
+            drawingPosition = this.ActualPosition + ((this.ActualPosition - this.origin) / 2) + Vector3.up * Altitudes.AltitudeFor(AltitudeLayer.Projectile);
+            //drawingMatrix.SetTRS(drawingPosition, this.ExactRotation, drawingScale);
+
+            this.SmokeMaterial.drawSize = new Vector2(1f, 1f * (this.ActualPosition - this.origin).magnitude);
+            drawingMesh = this.SmokeMaterial.MeshAt(Rot4.North);
         }
 
         public override void Tick()
@@ -73,13 +115,12 @@ namespace Corruption
                 // Pre firing.
                 if (tickCounter < preFiringDuration)
                 {
-                    GetPreFiringDrawingParameters();
                     tickCounter++;
+                    GetPreFiringDrawingParameters();
                 }
                 // Firing.
                 else if (tickCounter > this.preFiringDuration && this.istraveling)
                 {
-                    Log.Message("Traveling");
                     GetPostFiringDrawingParameters();
                 }
                 // Post firing.
@@ -119,7 +160,12 @@ namespace Corruption
             {
                 if (this.def.projectile.explosionDelay == 0)
                 {
-                    this.Explode();
+                    this.istraveling = false;
+                    if (!this.exploded)
+                    {
+                        this.Explode();
+                        this.exploded = true;
+                    }
                     return;
                 }
                 this.landed = true;
@@ -138,10 +184,10 @@ namespace Corruption
                 else
                 {
                     SoundDefOf.BulletImpactGround.PlayOneShot(new TargetInfo(base.Position, map, false));
-                    MoteMaker.MakeStaticMote(this.ExactPosition, map, ThingDefOf.Mote_ShotHit_Dirt, 1f);
+                    MoteMaker.MakeStaticMote(this.ActualPosition, map, ThingDefOf.Mote_ShotHit_Dirt, 1f);
                     if (base.Position.GetTerrain(map).takeSplashes)
                     {
-                        MoteMaker.MakeWaterSplash(this.ExactPosition, map, Mathf.Sqrt((float)this.def.projectile.damageAmountBase) * 1f, 4f);
+                        MoteMaker.MakeWaterSplash(this.ActualPosition, map, Mathf.Sqrt((float)this.def.projectile.damageAmountBase) * 1f, 4f);
                     }
                 }
             }
@@ -151,7 +197,6 @@ namespace Corruption
         protected virtual void Explode()
         {
             Map map = base.Map;
-            this.Destroy(DestroyMode.Vanish);
             ThingDef preExplosionSpawnThingDef = this.def.projectile.preExplosionSpawnThingDef;
             float explosionSpawnChance = this.def.projectile.explosionSpawnChance;
             GenExplosion.DoExplosion(base.Position, map, this.def.projectile.explosionRadius, this.def.projectile.damageDef, this.launcher, this.def.projectile.soundExplode, this.def, this.equipmentDef, this.def.projectile.postExplosionSpawnThingDef, this.def.projectile.explosionSpawnChance, 1, false, preExplosionSpawnThingDef, explosionSpawnChance, 1);

@@ -56,7 +56,7 @@ namespace OHUShips
                 {
                     return null;
                 }
-                TransferableOneWay transferableOneWay = this.leftToLoad.Find((TransferableOneWay x) => x.countToTransfer != 0 && x.HasAnyThing);
+                TransferableOneWay transferableOneWay = this.leftToLoad.Find((TransferableOneWay x) => x.CountToTransfer != 0 && x.HasAnyThing);
                 if (transferableOneWay != null)
                 {
                     return transferableOneWay.AnyThing;
@@ -104,7 +104,7 @@ namespace OHUShips
             TransferableOneWay transferableOneWay = new TransferableOneWay();
             this.leftToLoad.Add(transferableOneWay);
             transferableOneWay.things.AddRange(t.things);
-            transferableOneWay.countToTransfer = count;
+            transferableOneWay.AdjustTo(count);
         }
 
 
@@ -113,23 +113,18 @@ namespace OHUShips
             Lord lord = LoadShipCargoUtility.FindLoadLord(ship, map);
             if (lord != null)
             {
-                for (int i=0; i < lord.ownedPawns.Count; i++)
-                {
-                    lord.ownedPawns[i].jobs.EndCurrentJob(Verse.AI.JobCondition.InterruptForced);
-               //     lord.ownedPawns[i].ClearMind();
-                }
                 map.lordManager.RemoveLord(lord);
             }
         }
 
         public void Notify_PawnEntered(Pawn p)
         {
+            p.ClearMind(true);
             this.SubtractFromToLoadList(p);
         }
 
         public void SubtractFromToLoadList(Thing t)
         {
-       //     Log.Message("Removing from loadList");
             if (this.leftToLoad == null)
             {
                 return;
@@ -139,19 +134,18 @@ namespace OHUShips
             {
                 return;
             }
-            transferableOneWay.countToTransfer -= t.stackCount;
-            if (transferableOneWay.countToTransfer <= 0)
+            transferableOneWay.AdjustBy(-t.stackCount);
+            if (transferableOneWay.CountToTransfer <= 0)
             {
                 this.leftToLoad.Remove(transferableOneWay);
             }
             if (!this.AnythingLeftToLoad)
             {
-                ship.compShip.cargoLoadingActive = false;
-
+                this.cargoLoadingActive = false;
                 this.TryRemoveLord(this.parent.Map);
                 this.leftToLoad.Clear();
-                
-                Messages.Message("MessageFinishedLoadingShipCargo".Translate(), this.parent, MessageSound.Benefit);
+                this.leftToLoad = new List<TransferableOneWay>();
+                Messages.Message("MessageFinishedLoadingShipCargo".Translate(new object[] { this.ship.ShipNick }), this.parent, MessageSound.Benefit);
             }
         }
 

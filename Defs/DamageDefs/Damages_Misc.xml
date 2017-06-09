@@ -138,6 +138,25 @@
     <soundExplosion>Explosion_Bomb</soundExplosion>
   </DamageDef>
 
+  <DamageDef ParentName="LocalInjuryBase">
+    <defName>WarpfireViolet</defName>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <label>Warpfire</label>
+    <hasForcefulImpact>false</hasForcefulImpact>
+    <makesBlood>false</makesBlood>
+    <canInterruptJobs>false</canInterruptJobs>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} was consumed by warpfire.</deathMessage>
+    <hediff>Burn</hediff>
+    <armorCategory>Heat</armorCategory>
+    <spreadOut>true</spreadOut>
+    <explosionDamage>15</explosionDamage>
+    <explosionHeatEnergyPerCell>15</explosionHeatEnergyPerCell>
+    <explosionCellMote>Mote_BlastExtinguisher</explosionCellMote>
+    <explosionColorCenter>(0.65, 0.48, 0.95)</explosionColorCenter>
+    <explosionColorEdge>(0.3, 0.3, 0.3)</explosionColorEdge>
+    <soundExplosion>Explosion_Flame</soundExplosion>
+  </DamageDef>
 
 
 

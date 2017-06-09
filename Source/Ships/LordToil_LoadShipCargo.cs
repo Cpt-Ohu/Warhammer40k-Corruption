@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Verse;
 using Verse.AI;
 using Verse.AI.Group;
 
@@ -15,11 +14,6 @@ namespace OHUShips
         public LordToil_LoadShipCargo(ShipBase ship)
         {
             this.ship = ship;
-        }
-
-        public override void LordToilTick()
-        {
-            base.LordToilTick();
         }
 
         public override bool AllowSatisfyLongNeeds

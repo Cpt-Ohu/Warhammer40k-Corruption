@@ -28,7 +28,12 @@ namespace FactionColors
         {
             Log.Message("Generating PlayerFaction Story Tracker");
             PlayerFactionStoryTracker corrTracker = (PlayerFactionStoryTracker)WorldObjectMaker.MakeWorldObject(FactionColorsDefOf.PlayerFactionStoryTracker);
-            corrTracker.Tile = TileFinder.RandomStartingTile();
+            int tile = 0;
+            while (!(Find.WorldObjects.AnyWorldObjectAt(tile) || Find.WorldGrid[tile].biome == BiomeDefOf.Ocean))
+            {
+                tile = Rand.Range(0, Find.WorldGrid.TilesCount);
+            }
+            corrTracker.Tile = tile;
             Find.WorldObjects.Add(corrTracker);
         }
 

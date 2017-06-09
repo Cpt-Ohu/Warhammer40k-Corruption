@@ -27,6 +27,10 @@ namespace OHUShips
                     ShipBase ship = (ShipBase)TargetA.Thing;
                     Action action = delegate
                     {
+                        if (pawn.carryTracker.CarriedThing != null)
+                        {
+                            ship.TryAcceptThing(pawn.carryTracker.CarriedThing);
+                        }
                         ship.TryAcceptThing(pawn, true);
                     };
 

@@ -7,12 +7,15 @@ using Verse;
 using UnityEngine;
 using RimWorld;
 using Verse.Sound;
+using System.Reflection;
 
 namespace OHUShips
 {
     public class LandedShip : Caravan
     {
         public List<ShipBase> ships = new List<ShipBase>();
+
+        public bool isTargeting = false;
 
         public LandedShip()
         {
@@ -28,7 +31,7 @@ namespace OHUShips
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Collections.LookList<ShipBase>(ref this.ships, "ships", LookMode.Deep, new object[0]);
+            Scribe_Collections.Look<ShipBase>(ref this.ships, "ships", LookMode.Deep, new object[0]);
         }
 
         private Material cachedMat;
@@ -48,8 +51,25 @@ namespace OHUShips
         public override void Tick()
         {
             base.Tick();
+            if (Find.Targeter.IsTargeting)
+            {
+                if (this.isTargeting)
+                {
+                    GhostDrawer.DrawGhostThing(UI.MouseCell(), this.ships[0].Rotation, this.ships[0].def, null, new Color(0.5f, 1f, 0.6f, 0.4f), AltitudeLayer.Blueprint);
+                }
+            }
+            else
+            {
+                this.isTargeting = false;
+            }
         }
-        
+
+        public override void Draw()
+        {
+            base.Draw();
+
+        }
+
         public override void PostRemove()
         {
             base.PostRemove();
@@ -73,7 +93,7 @@ namespace OHUShips
             {
                 for (int i = 0; i < this.ships.Count; i++)
                 {
-                    ThingContainer innerContainer = this.ships[i].GetInnerContainer();
+                    ThingOwner innerContainer = this.ships[i].GetDirectlyHeldThings();
                     for (int j = 0; j < innerContainer.Count; j++)
                     {
                         Pawn pawn = innerContainer[j] as Pawn;
@@ -128,7 +148,7 @@ namespace OHUShips
             }
             else
             {
-                FactionBase factionBase = CaravanVisitUtility.FactionBaseVisitedNow(this);
+                Settlement factionBase = CaravanVisitUtility.SettlementVisitedNow(this);
                 if (factionBase != null)
                 {
                     stringBuilder.Append("CaravanVisiting".Translate(new object[]
@@ -165,7 +185,7 @@ namespace OHUShips
                     yield return TravelingShipsUtility.ShipTouchdownCommand(this, true);
                     yield return TravelingShipsUtility.ShipTouchdownCommand(this, false);
                 }
-                FactionBase factionBase = CaravanVisitUtility.FactionBaseVisitedNow(this);
+                Settlement factionBase = CaravanVisitUtility.SettlementVisitedNow(this);
                 if (factionBase != null && factionBase.CanTradeNow)
                 {
                     yield return TravelingShipsUtility.TradeCommand(this);
@@ -183,7 +203,7 @@ namespace OHUShips
         {
             for (int i = 0; i < this.ships.Count; i++)
             {
-                ThingContainer container = this.ships[i].GetInnerContainer();
+                ThingOwner container = this.ships[i].GetDirectlyHeldThings();
                 for (int k = 0; k < container.Count; k++)
                 {
                     if (!this.Goods.Contains(container[k]))
@@ -193,12 +213,12 @@ namespace OHUShips
                         {
                             if (!pawn.IsColonist)
                             {
-                                this.AddToStock(pawn, this.PawnsListForReading[0]);
+                                this.GetDirectlyHeldThings().TryAdd(pawn);
                             }
                         }
                         else
                         {
-                            this.AddToStock(container[k], this.PawnsListForReading[0]);
+                            this.GetDirectlyHeldThings().TryAdd(container[k]);
                         }
                     }
                 }
@@ -215,7 +235,7 @@ namespace OHUShips
             for (int i = 0; i < this.PawnsListForReading.Count; i++)
             {
                 this.tmpThingsToRemove.Clear();
-                ThingContainer carrier = this.PawnsListForReading[i].inventory.GetInnerContainer();
+                ThingOwner carrier = this.PawnsListForReading[i].inventory.GetDirectlyHeldThings();
                 for (int k = 0; k < carrier.Count; k++)
                 {
                     if (allCargo.Contains(carrier[k]))
@@ -233,7 +253,7 @@ namespace OHUShips
             List<Thing> stockInShips = new List<Thing>();
             foreach(ShipBase ship in this.ships)
             {
-                stockInShips.AddRange(ship.GetInnerContainer());
+                stockInShips.AddRange(ship.GetDirectlyHeldThings());
             }
 
             for (int i=0; i < allCargo.Count; i++)

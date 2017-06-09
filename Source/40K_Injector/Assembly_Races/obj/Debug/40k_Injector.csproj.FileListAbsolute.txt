@@ -1,2 +1,0 @@
-D:\Spiele\RimWorld1249Win\Mods\WH40k_Eigenproduktion\Assemblies\40K_Injector.dll
-D:\Spiele\RimWorld1249Win\Mods\WH40k_Eigenproduktion\Source\40K_Injector\Assembly_Races\obj\Debug\40K_Injector.dll

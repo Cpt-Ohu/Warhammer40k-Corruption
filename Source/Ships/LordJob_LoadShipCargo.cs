@@ -19,7 +19,7 @@ namespace OHUShips
         {
             this.ship = ship;
         }
-        
+
         public override StateGraph CreateGraph()
         {
             StateGraph stateGraph = new StateGraph();
@@ -31,7 +31,6 @@ namespace OHUShips
 
             Transition transition = new Transition(loadToil, lordToil_End);
             transition.AddTrigger(new Trigger_PawnLost());
-    //        transition.AddTrigger(new Trigger_TicksPassed(7500));
             transition.AddPreAction(new TransitionAction_Message("MessageFailedToLoadTransportersBecauseColonistLost".Translate(), MessageSound.Negative));
             transition.AddPreAction(new TransitionAction_Custom(new Action(this.CancelLoadingProcess)));
             stateGraph.AddTransition(transition);
@@ -42,12 +41,12 @@ namespace OHUShips
         private void CancelLoadingProcess()
         {
             this.ship.compShip.CancelLoadCargo(this.Map);
-        }        
-
+        }
+        
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_References.LookReference<ShipBase>(ref this.ship, "ship");
+            Scribe_References.Look<ShipBase>(ref this.ship, "ship");
         }
     }
 }

@@ -31,7 +31,12 @@ namespace Corruption
         {
             Log.Message("Generating Corruption Story Tracker");
             CorruptionStoryTracker corrTracker = (CorruptionStoryTracker)WorldObjectMaker.MakeWorldObject(DefOfs.C_WorldObjectDefOf.CorruptionStoryTracker);
-            corrTracker.Tile = TileFinder.RandomStartingTile();
+            int tile = 0;
+            while (!(Find.WorldObjects.AnyWorldObjectAt(tile) || Find.WorldGrid[tile].biome == BiomeDefOf.Ocean))
+            {
+                tile = Rand.Range(0, Find.WorldGrid.TilesCount);
+            }
+            corrTracker.Tile = tile;
             Find.WorldObjects.Add(corrTracker);
         }
 

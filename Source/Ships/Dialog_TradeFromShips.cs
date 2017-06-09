@@ -39,6 +39,14 @@ namespace OHUShips
             base.PostClose();
         }
 
+        private bool EnvironmentAllowsEatingVirtualPlantsNow
+        {
+            get
+            {
+                return VirtualPlantsUtility.EnvironmentAllowsEatingVirtualPlantsNowAt(this.landedShip.Tile);
+            }
+        }
+
         private void RecacheTradeablblesAndMassCapacity()
         {
             List<Thing> tradeables = new List<Thing>();
@@ -70,7 +78,7 @@ namespace OHUShips
             {
                 for (int i = 0; i < landedShip.ships.Count; i++)
                 {
-                    ThingContainer container = landedShip.ships[i].GetInnerContainer();
+                    ThingOwner container = landedShip.ships[i].GetDirectlyHeldThings();
                     tmpToRemove.Clear();
                     for (int k = 0; k < container.Count; k++)
                     {
