@@ -63,71 +63,6 @@
       <li Class="FactionColors.CompProperties_FactionColor">
         <compClass>FactionColors.CompFactionColor</compClass>
       </li>
-      <li Class="FactionColors.CompProperties_PauldronDrawer">
-        <compClass>FactionColors.CompPauldronDrawer</compClass>
-  		 <PauldronEntryChance>1.0</PauldronEntryChance>
-
-        <PauldronEntries>
-		<li>
-        	 <shoulderPadType>Both</shoulderPadType>
-  		 <shaderType>Cutout</shaderType>
-  		 <UseSecondaryColor>true</UseSecondaryColor>
-    		 <padTexPath>Things/IG/IG_Pauldrons/Flak_Pauldrons</padTexPath>
-  		 <commonality>10</commonality>
-		</li>
-        </PauldronEntries>
-      </li>
-    </comps>
-  </ThingDef>
-
-  <ThingDef ParentName="HatBase" Class="FactionColors.ApparelUniformDef">
-    <thingClass>FactionColors.ApparelUniform</thingClass>
-    <defName>IG_Helmet</defName>
-    <label>imperial guard helmet</label>
-    <description>A lightweight combat helmet.</description>
-    <graphicData>
-      <texPath>Things/IG/IG_HelmetBase/IG_Helmet_Icon</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <shaderType>CutoutComplex</shaderType>
-    </graphicData>
-    <statBases>
-      <MaxHitPoints>150</MaxHitPoints>
-      <MarketValue>300</MarketValue>
-      <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
-      <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
-    </statBases>
-    <equippedStatOffsets>
-      <MoveSpeed>0.0</MoveSpeed>
-    </equippedStatOffsets>
-	<generateCommonality>2</generateCommonality>
-    <apparel>
-      <bodyPartGroups>
-        <li>UpperHead</li>
-      </bodyPartGroups>
-      <worngraphicPath>Things/IG/IG_HelmetBase/IG_Helmet</worngraphicPath>
-      <layers>
-        <li>Overhead</li>
-      </layers>
-      <tags>
-        <li>IG_STApp</li>
-      </tags>
-      <defaultOutfitTags>
-        <li>IG_STApp</li>
-      </defaultOutfitTags> 
-   </apparel>
-    <colorGenerator Class="ColorGenerator_Options">
-      <options>
-        <li>
-          <weight>10</weight>
-          <only>RGBA(1.00,1.00,1.00,1)</only>
-        </li>
-      </options>
-    </colorGenerator>
-
-    <comps>
-      <li Class="FactionColors.CompProperties_FactionColor">
-        <compClass>FactionColors.CompFactionColor</compClass>
-      </li>
     </comps>
   </ThingDef>
 
@@ -174,5 +109,187 @@
       <Plasteel>135</Plasteel>
     </costList>
   </ThingDef>
+
+  <!-- ==========================Valhallan=============================== -->
+  <ThingDef ParentName="HatMakeableBase" Name="ValhallanHat">
+    <defName>Apparel_ValhallanUshanhka</defName>
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <label>ushanka</label>
+    <description>A fur cap with ear flaps found in many cold regions.</description>
+    <recipeMaker>
+      <researchPrerequisite>ComplexClothing</researchPrerequisite>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/IG/Valhallan/Valhallan_Ushanka</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costStuffCount>25</costStuffCount>
+    <stuffCategories>
+      <li>Fabric</li>
+      <li>Leathery</li>
+    </stuffCategories>
+    <statBases>
+      <WorkToMake>5000</WorkToMake>
+      <Mass>0.14</Mass>
+      <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.03</ArmorRating_Sharp>
+      <Insulation_Heat>20</Insulation_Heat>
+    </statBases>
+    <equippedStatOffsets>
+      <SocialImpact>0.1</SocialImpact>
+    </equippedStatOffsets>
+    <apparel>
+      <bodyPartGroups>
+        <li>UpperHead</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/IG/Valhallan/Valhallan_Ushanka</worngraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <tags>
+        <li>Valhallan</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Worker</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+	<ThingDef ParentName="ApparelMakeableBase">
+		<defName>Apparel_ValhallanCoat</defName>
+		<label>greatcoat</label>
+		<description>A thick greatcoat for staying warm in even the coldest of temperatures.</description>
+		<graphicData>
+			<texPath>Things/Pawn/Humanlike/Apparel/Parka/Parka</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<techLevel>Neolithic</techLevel>
+		<costStuffCount>120</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		<thingCategories>
+			<li>Apparel</li>
+		</thingCategories>
+		<statBases>
+			<MaxHitPoints>180</MaxHitPoints>
+			<WorkToMake>20000</WorkToMake>
+			<Mass>3.8</Mass>
+			<ArmorRating_Sharp>0.09</ArmorRating_Sharp>
+			<ArmorRating_Heat>0.09</ArmorRating_Heat>
+			<Insulation_Cold>-40</Insulation_Cold>
+			<Insulation_Heat>-3</Insulation_Heat>
+		</statBases>
+		<equippedStatOffsets>
+			<MoveSpeed>-0.05</MoveSpeed>
+			<WorkSpeedGlobal>-0.20</WorkSpeedGlobal>
+		</equippedStatOffsets>
+		<apparel>
+			<bodyPartGroups>
+				<li>Torso</li>
+				<li>Shoulders</li>
+				<li>Arms</li>
+			</bodyPartGroups>
+			<worngraphicPath>Things/Pawn/Humanlike/Apparel/Parka/Parka</worngraphicPath>
+			<layers>
+				<li>Shell</li>
+			</layers>
+			<tags>
+				<li>Valhallan</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Worker</li>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+		</apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+	</ThingDef>
+
+  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <defName>IG_UniformShirt</defName>
+    <label>imperial undershirt</label>
+    <description>A uniform shirt worn by the soldiers of the IG.</description>
+    <graphicData>
+      <texPath>Things/IG/IG_Tunic/IG_Tunic_Icon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costStuffCount>50</costStuffCount>
+    <stuffCategories>
+      <li>Fabric</li>
+      <li>Leathery</li>
+    </stuffCategories>
+    <thingCategories>
+      <li>IG_STApp</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <WorkToMake>5000</WorkToMake>
+      <MarketValue>100</MarketValue>
+      <Mass>0.25</Mass>
+      <ArmorRating_Blunt>0.03</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.03</ArmorRating_Sharp>
+      <Insulation_Cold>-3</Insulation_Cold>
+    </statBases>
+	<generateCommonality>1</generateCommonality>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/IG/IG_Tunic/IG_Tunic</worngraphicPath>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <tags>
+      <li>IG_STApp</li>
+      </tags>
+      <defaultOutfitTags>
+      <li>IG_STApp</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+
+
 
 </ThingDefs>

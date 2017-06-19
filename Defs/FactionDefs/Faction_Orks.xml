@@ -31,9 +31,9 @@
       <li>
         <kindDef>Normal</kindDef>
         <options>
-            <OrkGretchin>100</OrkGretchin>
-            <OrkBoy>50</OrkBoy>
-            <OrkNob>10</OrkNob>
+            <OrkGretchin>50</OrkGretchin>
+            <OrkBoy>100</OrkBoy>
+            <OrkNob>50</OrkNob>
         </options>
       </li>
     </pawnGroupMakers>

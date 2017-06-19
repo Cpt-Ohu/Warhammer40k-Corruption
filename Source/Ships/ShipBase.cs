@@ -26,7 +26,10 @@ namespace OHUShips
         public Dictionary<ShipWeaponSlot, WeaponSystemShipBomb> Payload = new Dictionary<ShipWeaponSlot, WeaponSystemShipBomb>();
         public Dictionary<ShipWeaponSlot, Thing> weaponsToInstall = new Dictionary<ShipWeaponSlot, Thing>();
         public Dictionary<ShipWeaponSlot, Thing> weaponsToUninstall = new Dictionary<ShipWeaponSlot, Thing>();
-        
+
+        public bool shouldSpawnTurrets = false;
+        //public bool shouldDeepSave = true;
+
         public List<Pawn> assignedNewPawns = new List<Pawn>();
 
         public void GetChildHolders(List<IThingHolder> outChildren)
@@ -37,6 +40,14 @@ namespace OHUShips
         public ThingOwner GetDirectlyHeldThings()
         {
             return this.innerContainer;
+        }
+                
+        public override Graphic Graphic
+        {
+            get
+            {
+                return GraphicDatabase.Get<Graphic_Single>(this.def.graphicData.texPath, ShaderDatabase.ShaderFromType(this.def.graphicData.shaderType), this.def.graphicData.drawSize, this.DrawColor, this.DrawColorTwo);
+            }
         }
 
         #region FactionColorStuff
@@ -114,16 +125,6 @@ namespace OHUShips
         #endregion
 
 
-        public List<Pawn> worldPawns = new List<Pawn>();
-        
-        public override Graphic Graphic
-        {
-            get
-            {
-                return GraphicDatabase.Get<Graphic_Single>(this.def.graphicData.texPath, ShaderDatabase.ShaderFromType(this.def.graphicData.shaderType), this.def.graphicData.drawSize, this.DrawColor, this.DrawColorTwo);
-            }
-        }
-        
         public string ShipNick = "Ship";
         
         public ShipState shipState = ShipState.Stationary;
@@ -247,7 +248,6 @@ namespace OHUShips
         {
             base.PostMake();
             this.InitiateShipProperties();
-            InitiateColors();
         }
         
         public int MaxLaunchDistance(bool LaunchAsFleet)
@@ -407,7 +407,6 @@ namespace OHUShips
                     int num = GenDate.TicksPerHour;
                     this.timeToLiftoff += num;
                     this.timeWaited += num;
-                    Log.Message("waiting");
                     if (this.timeWaited >= maxTimeToWait)
                     {
                         this.ShouldWait = false;
@@ -416,7 +415,6 @@ namespace OHUShips
                 }
                 if (this.timeToLiftoff == 0)
                 {
-                    Log.Message("Lifting Off");
                     this.shipState = ShipState.Outgoing;
                     this.ActivatedLaunchSequence = false;
                     this.timeWaited = 0;
@@ -463,7 +461,7 @@ namespace OHUShips
           //      Find.WorldSelector.Select(parentLandedShip);
                 TravelingShipsUtility.LaunchLandedFleet(this.parentLandedShip, target.Tile, target.Cell, arriveMode, arrivalAction);
                 this.landedShipCached = null;
-                Find.MainTabsRoot.SetCurrentTab(MainButtonDefOf.World, false);
+                //Find.MainTabsRoot.SetCurrentTab(MainButtonDefOf.World, false);
             }
         }
 
@@ -532,13 +530,14 @@ namespace OHUShips
                     Pawn pawn1 = thing as Pawn;
                     if (pawn1 != null && dropPawns && !pawn1.IsPrisoner && pawn1.def.race.Humanlike || (dropitems && thing.GetType() != typeof(Pawn)))
                     {
-                        if(GenPlace.TryPlaceThing(thing, base.Position, this.Map, ThingPlaceMode.Near, out thing2, delegate (Thing placedThing, int count)
+                        if(innerContainer.TryDrop(thing, base.Position, this.Map, ThingPlaceMode.Near, out thing2, delegate (Thing placedThing, int count)
                         {
                             if (Find.TickManager.TicksGame < 1200 && TutorSystem.TutorialMode && placedThing.def.category == ThingCategory.Item)
                             {
                                 Find.TutorialState.AddStartingItem(placedThing);
                             }
                         }))
+                            
                         {
 
                         Pawn pawn2 = thing2 as Pawn;
@@ -600,8 +599,8 @@ namespace OHUShips
             bool flag;
             if (thing.holdingOwner != null)
             {
-                thing.holdingOwner.TryTransferToContainer(thing, this.innerContainer, thing.stackCount);
-                flag = true;
+                flag = thing.holdingOwner.TryTransferToContainer(thing, this.innerContainer, thing.stackCount);
+                
             }
             else
             {
@@ -620,7 +619,6 @@ namespace OHUShips
         
         public void PrepareForLaunchIn(int ticksToLiftoff, bool noOneLeftBehind = false)
         {
-            Log.Message("Preparing for launch");
             this.ActivatedLaunchSequence = true;
             this.timeToLiftoff = ticksToLiftoff;
             this.NoneLeftBehind = noOneLeftBehind;
@@ -664,16 +662,20 @@ namespace OHUShips
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
+            //this.shouldDeepSave = true;
             this.DeepsaveTurrets = false;
-            foreach(KeyValuePair<ShipWeaponSlot, Building_ShipTurret> current in this.installedTurrets)
+            if (shouldSpawnTurrets)
             {
-                if (current.Value != null && !current.Value.Spawned)
+                foreach (KeyValuePair<ShipWeaponSlot, Building_ShipTurret> current in this.installedTurrets)
                 {
-                    IntVec3 drawLoc = this.Position + DropShipUtility.AdjustedIntVecForShip(this, current.Key.turretPosOffset);
-                    GenSpawn.Spawn(current.Value, drawLoc, this.Map);
+                    if (current.Value != null && !current.Value.Spawned)
+                    {
+                        IntVec3 drawLoc = this.Position + DropShipUtility.AdjustedIntVecForShip(this, current.Key.turretPosOffset);
+                        GenSpawn.Spawn(current.Value, drawLoc, this.Map);
+                    }
                 }
             }
-
+            this.shouldSpawnTurrets = false;
             if (shipState == ShipState.Incoming)
             {
                 SoundDef.Named("ShipTakeoff_SuborbitalLaunch").PlayOneShotOnCamera();
@@ -842,7 +844,7 @@ namespace OHUShips
         public void StartChoosingDestination(ShipBase ship, bool launchAsFleet)
         {
             this.LaunchAsFleet = launchAsFleet;
-            Find.MainTabsRoot.SetCurrentTab(MainButtonDefOf.World, true);
+            CameraJumper.TryJump(CameraJumper.GetWorldTarget(this));
             Find.WorldSelector.ClearSelection();
             int tile;
             if (this.parentLandedShip != null)
@@ -1063,12 +1065,10 @@ namespace OHUShips
             Scribe_Values.Look<bool>(ref this.ShouldWait, "ShouldWait", false, false);
             Scribe_Values.Look<bool>(ref this.NoneLeftBehind, "NoneLeftBehind", false, false);
             Scribe_Values.Look<bool>(ref this.keepShipReference, "keepShipReference", false, false);
+            Scribe_Values.Look<bool>(ref this.shouldSpawnTurrets, "shouldSpawnTurrets", false, false);
+            //Scribe_Values.Look<bool>(ref this.shouldDeepSave, "shouldDeepSave", true, false);
             Scribe_Values.Look<string>(ref this.ShipNick, "ShipNick", "Ship", false);
             Scribe_Values.Look<ShipState>(ref this.shipState, "shipState", ShipState.Stationary, false);
-
-            Scribe_Values.Look<Color>(ref this.Col1, "Col1", Color.white, false);
-            Scribe_Values.Look<Color>(ref this.Col2, "Col2", Color.white, false);
-
             Scribe_Values.Look<int>(ref this.timeToLiftoff, "timeToLiftoff", 200, false);
             Scribe_Values.Look<int>(ref this.drawTickOffset, "drawTickOffset", 0, false);
             Scribe_Values.Look<int>(ref this.timeWaited, "timeWaited", 200, false);
@@ -1091,12 +1091,11 @@ namespace OHUShips
                 Scribe_Collections.Look<WeaponSystem, bool>(ref this.assignedSystemsToModify, "assignedSystemsToModify", LookMode.Reference, LookMode.Value);
             }
 
-            Scribe_Collections.Look<Pawn>(ref this.worldPawns, "worldPawns", LookMode.Reference, new object[0]);
-            Scribe_Deep.Look<ThingOwner>(ref this.innerContainer, "innerContainer", new object[]
-            {
+                Scribe_Deep.Look<ThingOwner>(ref this.innerContainer, "innerContainer", new object[]
+                {
                 this
-            });
-
+                });
+            
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
                 this.InitiateInstalledTurrets();

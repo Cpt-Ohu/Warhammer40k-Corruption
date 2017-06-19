@@ -10,6 +10,7 @@ using UnityEngine;
 using Verse;
 using Verse.AI.Group;
 using OHUShips;
+using Corruption.Domination;
 
 namespace Corruption
 {
@@ -25,6 +26,8 @@ namespace Corruption
         public static Texture2D ShipsArrival = ContentFinder<Texture2D>.Get("UI/Images/ShipArrival", true);
         public static readonly Texture2D DropTexture = ContentFinder<Texture2D>.Get("UI/Buttons/UnloadShip", true);
 
+        public static readonly Texture2D JoinBattle = ContentFinder<Texture2D>.Get("UI/Commands/CommandJoinBattle", true);
+
         public static Texture2D Aquila = ContentFinder<Texture2D>.Get("UI/Images/IoM_Aquila", true);
 
         public static string BuffNegGraphicPath = "UI/Psyker/BuffNegative";
@@ -39,6 +42,25 @@ namespace Corruption
                 return Find.WorldObjects.AllWorldObjects.FirstOrDefault(x => x.def == C_WorldObjectDefOf.CorruptionStoryTracker) as CorruptionStoryTracker;
             }
         }
+
+        public static void GenerateRandomBattleZone()
+        {
+            BattleZone zone = (BattleZone)WorldObjectMaker.MakeWorldObject(C_WorldObjectDefOf.BattleZone);
+            List<Faction> factions = new List<Faction>();
+            int num = Rand.RangeInclusive(2, 3);
+            while (factions.Count < 2)
+            {
+                Faction fac = Find.FactionManager.AllFactions.RandomElement();
+                if (!factions.Contains(fac) && factions.FindAll(x => !fac.HostileTo(x)).Count == 0 && !fac.def.pawnGroupMakers.NullOrEmpty())
+                {
+                    factions.Add(fac);
+                }
+            }
+            zone.InitializeBattle(BattleSize.Random, BattleType.OpenField, factions, "NamerBattleGeneric");
+            zone.Tile = TileFinder.RandomStartingTile();
+            Find.WorldObjects.Add(zone);
+        }
+
 
         public static string ReturnImperialFactionDescription(Faction faction)
         {

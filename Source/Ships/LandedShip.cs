@@ -14,6 +14,7 @@ namespace OHUShips
     public class LandedShip : Caravan
     {
         public List<ShipBase> ships = new List<ShipBase>();
+        public Dictionary<ShipBase, List<string>> shipsPassengerList = new Dictionary<ShipBase, List<string>>();
 
         public bool isTargeting = false;
 
@@ -34,7 +35,7 @@ namespace OHUShips
             Scribe_Collections.Look<ShipBase>(ref this.ships, "ships", LookMode.Deep, new object[0]);
         }
 
-        private Material cachedMat;
+        public Material cachedMat;
 
         public override Material Material
         {
@@ -42,12 +43,12 @@ namespace OHUShips
             {
                 if (this.cachedMat == null)
                 {
-                    this.cachedMat = MaterialPool.MatFrom(ships[0].def.graphicData.texPath, ShaderDatabase.WorldOverlayTransparentLit, ships[0].DrawColor);
+                    this.cachedMat = MaterialPool.MatFrom(ships[0].def.graphicData.texPath, ShaderDatabase.WorldOverlayCutout, ships[0].DrawColor, WorldMaterials.WorldObjectRenderQueue);
                 }
                 return cachedMat;
             }
         }
-        
+
         public override void Tick()
         {
             base.Tick();
@@ -87,19 +88,44 @@ namespace OHUShips
             }
         }
 
-        public IEnumerable<Thing> allLandedShipCargo
+        //public List<Thing> AllLandedShipCargo
+        //{
+        //    get
+        //    {
+        //        List<Thing> list = new List<Thing>();
+        //        Log.Message("A");
+        //        list.AddRange(this.allLandedShipCargo);
+        //        Log.Message("B");
+        //        List<Thing> inventory = (CaravanInventoryUtility.AllInventoryItems(this));
+        //        for (int i = 0; i < inventory.Count; i++)
+        //        {
+        //            if (!list.Contains(inventory[i]))
+        //            {
+        //                list.Add(inventory[i]);
+        //            }
+        //        }
+        //        Log.Message("D");
+        //        list.AddRange(this.PawnsListForReading.FindAll(x => !x.IsColonist).Cast<Thing>());
+
+        //        Log.Message("E");
+        //        return list;
+        //    }
+        //}
+
+        public IEnumerable<Thing> AllLandedShipCargo
         {
             get
             {
                 for (int i = 0; i < this.ships.Count; i++)
                 {
                     ThingOwner innerContainer = this.ships[i].GetDirectlyHeldThings();
+                   
                     for (int j = 0; j < innerContainer.Count; j++)
                     {
                         Pawn pawn = innerContainer[j] as Pawn;
                         if (pawn != null && !pawn.IsColonist)
                         {
-                            yield return innerContainer[j];
+                                yield return innerContainer[j];
                         }
                         else
                         {
@@ -226,28 +252,31 @@ namespace OHUShips
         }
 
         private List<Thing> tmpThingsToRemove = new List<Thing>();
-
+        
         public void ReloadStockIntoShip()
         {
-            List<Thing> allCargo = this.allLandedShipCargo.ToList<Thing>();
+            List<Thing> allCargo = this.AllLandedShipCargo.ToList<Thing>();
             allCargo.AddRange(this.PawnsListForReading.Cast<Thing>().ToList());
             List<Thing> remainingCargo = new List<Thing>();
             for (int i = 0; i < this.PawnsListForReading.Count; i++)
             {
                 this.tmpThingsToRemove.Clear();
                 ThingOwner carrier = this.PawnsListForReading[i].inventory.GetDirectlyHeldThings();
-                for (int k = 0; k < carrier.Count; k++)
+                if (carrier != null)
                 {
-                    if (allCargo.Contains(carrier[k]))
+                    for (int k = 0; k < carrier.Count; k++)
                     {
-                        this.tmpThingsToRemove.Add(carrier[k]);
+                        if (allCargo.Contains(carrier[k]))
+                        {
+                            this.tmpThingsToRemove.Add(carrier[k]);
+                        }
+                        else
+                        {
+                            remainingCargo.Add(carrier[k]);
+                        }
                     }
-                    else
-                    {
-                        remainingCargo.Add(carrier[k]);
-                    }
+                    carrier.RemoveAll(x => this.tmpThingsToRemove.Contains(x));
                 }
-                carrier.RemoveAll(x => this.tmpThingsToRemove.Contains(x));
             }
 
             List<Thing> stockInShips = new List<Thing>();
@@ -263,11 +292,8 @@ namespace OHUShips
                     remainingCargo.Add(allCargo[i]);
                 }
             }
-
             DropShipUtility.LoadNewCargoIntoRandomShips(remainingCargo, this.ships);
         }
-
-    }
-        
+    }       
     
 }

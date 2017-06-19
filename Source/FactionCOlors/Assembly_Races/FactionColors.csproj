@@ -42,6 +42,7 @@
     </Reference>
     <Reference Include="AlienRace">
       <HintPath>..\..\..\..\..\..\..\workshop\content\294100\839005762\Assemblies\AlienRace.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\RimWorldWin_Data\Managed\Assembly-CSharp.dll</HintPath>
@@ -90,6 +91,10 @@
     <Compile Include="ApparelDetailDrawer.cs" />
     <Compile Include="ApparelDetailProps.cs" />
     <Compile Include="FactionUniform.cs" />
+    <Compile Include="GraphicData_FC.cs" />
+    <Compile Include="Graphic_ApparelRandom.cs" />
+    <Compile Include="Graphic_RandomApparel.cs" />
+    <Compile Include="Graphic_RandomApparelMulti.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="ITab_FactionColor.cs" />
     <Compile Include="PlayerFactionStoryTracker.cs" />

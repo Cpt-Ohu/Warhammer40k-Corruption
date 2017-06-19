@@ -14,8 +14,6 @@ namespace OHUShips
     {
         public LandedShip landedShip;
 
-
-
         public Dialog_TradeFromShips(LandedShip landedShip, Pawn playerNegotiator, ITrader trader) : base(playerNegotiator, trader)
         {
             this.landedShip = landedShip;
@@ -30,6 +28,10 @@ namespace OHUShips
         {
             this.RecacheTradeablblesAndMassCapacity();
             base.DoWindowContents(inRect);
+        }
+
+        private void LoadShipTradeables()
+        {
 
         }
 
@@ -101,8 +103,22 @@ namespace OHUShips
                     container.RemoveAll(x => tmpToRemove.Contains(x));
                 }
             }
-            this.landedShip.ReloadStockIntoShip();
+            this.LoadNewCargo();
         }
 
+        private void LoadNewCargo()
+        {
+            List<Pawn> pawns = this.landedShip.PawnsListForReading;
+            for (int i=0; i < pawns.Count; i++)
+            {
+                ThingOwner<Thing> innerContainer = pawns[i].inventory.innerContainer;
+                innerContainer.TryTransferAllToContainer(this.landedShip.ships.RandomElement().GetDirectlyHeldThings());
+                //for (int j = 0; j < inventory.Count; j++)
+                //{
+                //    Thing thing = inventory[j];
+                //    thingsToRemove.Add(thing);
+                //}
+            }
+        }
     }
 }

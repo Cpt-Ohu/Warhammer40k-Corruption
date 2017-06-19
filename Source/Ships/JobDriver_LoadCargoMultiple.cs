@@ -19,8 +19,8 @@ namespace OHUShips
             ShipBase ship = (ShipBase)TargetB;
             yield return Toils_Reserve.Reserve(TargetIndex.A, 1);
             yield return Toils_Reserve.ReserveQueue(TargetIndex.A, 1);
-            yield return Toils_Reserve.Reserve(TargetIndex.B, 10);
-            yield return Toils_Reserve.ReserveQueue(TargetIndex.B, 10);
+            yield return Toils_Reserve.Reserve(TargetIndex.B, 10, 1);
+            yield return Toils_Reserve.ReserveQueue(TargetIndex.B, 10, 1);
             Toil toil = Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnSomeonePhysicallyInteracting(TargetIndex.A);
             yield return toil;
             yield return Toils_Construct.UninstallIfMinifiable(TargetIndex.A).FailOnSomeonePhysicallyInteracting(TargetIndex.A);

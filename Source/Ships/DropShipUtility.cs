@@ -1,8 +1,10 @@
-﻿using RimWorld;
+﻿using Harmony;
+using RimWorld;
 using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using UnityEngine;
 using Verse;
@@ -48,34 +50,19 @@ namespace OHUShips
             }
         }
 
-        public static void PassWorldPawnsForLandedShip(ShipBase ship)
-        {
-            List<Pawn> pawnsToMove = new List<Pawn>();
-            foreach (Thing current in ship.GetDirectlyHeldThings())
-            {
-                Pawn pawn = current as Pawn;
-                if (pawn != null && !ship.worldPawns.Contains(pawn))
-                {
-                    pawnsToMove.Add(pawn);
-                }
-            }
 
-            ship.worldPawns.AddRange(pawnsToMove);
-            ship.GetDirectlyHeldThings().RemoveAll(x => pawnsToMove.Contains<Pawn>(x as Pawn));
-        }
-
-        public static void ReimbarkWorldPawnsForLandedShip(ShipBase ship)
+        public static void ReimbarkWorldPawnsForShip(ShipBase ship)
         {
             List<Thing> pawnsToMove = new List<Thing>();
-            foreach (Pawn current in ship.worldPawns)
+            foreach (Pawn current in ship.GetDirectlyHeldThings())
             {
+                current.holdingOwner = ship.GetDirectlyHeldThings();
                 if (!ship.GetDirectlyHeldThings().Contains(current))
                 {
                     pawnsToMove.Add(current);
                 }
             }
             ship.GetDirectlyHeldThings().TryAddRange(pawnsToMove);
-            ship.worldPawns.RemoveAll(x => pawnsToMove.Contains(x));
         }
 
         public static List<ShipBase> ShipsOnMap(Map map)
@@ -203,7 +190,6 @@ namespace OHUShips
 
         public static bool FactionHasDropShips(Faction faction)
         {
-            Log.Message(AvailableDropShipsForFaction(faction).Count.ToString());
             if (!AvailableDropShipsForFaction(faction).NullOrEmpty())
             {
                 return true;
@@ -256,6 +242,7 @@ namespace OHUShips
         {
             foreach (ShipBase current in shipsToDrop)
             {
+                current.shouldSpawnTurrets = true;
                 IntVec3 dropLoc;
                 //      if (TryFindShipDropLocationNear(dropCenter, 200, map, out dropLoc, current.def.size))
                 //   if (DropCellFinder.TryFindRaidDropCenterClose(out dropLoc, map))
@@ -277,7 +264,6 @@ namespace OHUShips
                     current.ActivatedLaunchSequence = false;
                     current.shipState = ShipState.Incoming;
                     ShipBase_Traveling incomingShip = new ShipBase_Traveling(current, false, arrivalAction);
-                    //             Log.Message("Dropping " + incomingShip.containingShip.ShipNick);
                     GenSpawn.Spawn(incomingShip, dropLoc, map);
                 }
 
@@ -407,17 +393,15 @@ namespace OHUShips
             {
                 TransferableOneWay oneWay = new TransferableOneWay();
                 oneWay.things.AddRange(transferables[i].things);
+                oneWay.AdjustTo(transferables[i].CountToTransfer);
+                Pawn pawn = oneWay.AnyThing as Pawn;
+
                 tmpTransferables.Add(oneWay);
             }
 
-            List<TransferableOneWay> tmpPawns = new List<TransferableOneWay>();
-            List<TransferableOneWay> tmpItems = new List<TransferableOneWay>();
             foreach (Pawn current in ship.GetDirectlyHeldThings().Where(x => x is Pawn))
             {
-                if (!current.RaceProps.Eats(FoodTypeFlags.Plant))
-                {
                     DropShipUtility.AddThingsToTransferables(tmpTransferables, current);
-                }
             }
             for (int i = 0; i < ship.GetDirectlyHeldThings().Count; i++)
             {
@@ -426,7 +410,6 @@ namespace OHUShips
                     DropShipUtility.AddThingsToTransferables(tmpTransferables, ship.GetDirectlyHeldThings()[i]);
                 }
             }
-            
             return DaysWorthOfFoodCalculator.ApproxDaysWorthOfFood(tmpTransferables, canEatPlants, IgnorePawnsInventoryMode.DontIgnore);            
         }
 
@@ -439,7 +422,13 @@ namespace OHUShips
                 transferables.Add(transferableOneWay);
             }
             transferableOneWay.things.Add(thing);
-            transferableOneWay.AdjustTo(thing.stackCount);
+            DropShipUtility.AdjustToOneWayReflection(transferableOneWay, thing.stackCount);
+        }
+
+        private static void AdjustToOneWayReflection(TransferableOneWay transferable, int amount)
+        {
+            int count = Traverse.Create(transferable).Field("countToTransfer").GetValue<int>();
+            count = amount;
         }
 
 
@@ -447,11 +436,13 @@ namespace OHUShips
         {
             for (int i = 0; i < newCargo.Count; i++)
             {
+                newCargo[i].holdingOwner = null;
                 int num = 0;
                 while (!ships.RandomElement().TryAcceptThing(newCargo[i], true))
                 {
                     Pawn pawn = newCargo[i] as Pawn;
                     ships.RandomElement().TryAcceptThing(newCargo[i], true);
+                    
                     num++;
                 }
 

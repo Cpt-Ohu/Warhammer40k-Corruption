@@ -67,7 +67,6 @@ namespace OHUShips
 
         public override bool TryExecute(IncidentParms parms)
         {
-            Log.Message("A");
             Map map = (Map)parms.target;
             this.ResolveRaidPoints(parms);
             if (!this.TryResolveRaidFaction(parms))
@@ -87,7 +86,6 @@ namespace OHUShips
             IncidentParmsUtility.AdjustPointsForGroupArrivalParams(parms);
             PawnGroupMakerParms defaultPawnGroupMakerParms = IncidentParmsUtility.GetDefaultPawnGroupMakerParms(parms);
             List<Pawn> list = PawnGroupMakerUtility.GeneratePawns(PawnGroupKindDefOf.Normal, defaultPawnGroupMakerParms, true).ToList<Pawn>();
-            Log.Message("Assaulters: " + list.Count.ToString());
             if (list.Count == 0)
             {
                 Log.Error("Got no pawns spawning raid from parms " + parms);

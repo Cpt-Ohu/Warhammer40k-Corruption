@@ -98,7 +98,6 @@ namespace OHUShips
         {
             base.ExposeData();
             Scribe_Defs.Look<ThingDef>(ref this.ShipDef, "ShipDef");
-
         }
 
 

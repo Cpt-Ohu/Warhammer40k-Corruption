@@ -31,6 +31,10 @@ namespace OHUShips
 
             harmony.Patch(AccessTools.Method(typeof(RimWorld.TransferableOneWayWidget), "AddSection"), new HarmonyMethod(typeof(HarmonyPatches), "AddSectionPrefix"), null);
 
+            harmony.Patch(AccessTools.Method(typeof(CaravanInventoryUtility), "AllInventoryItems"), new HarmonyMethod(typeof(HarmonyPatches), "AllInventoryItemsPrefix"), null);
+
+            //harmony.Patch(AccessTools.Method(typeof(RimWorld.Transferable), "AdjustTo"),new HarmonyMethod(typeof(HarmonyPatches), "AdjustToPrefix"), null);
+
         }
 
         public static void AnyColonistTameAnimalOrPrisonerOfColonyPostFix(ref bool __result, MapPawns __instance)
@@ -47,6 +51,41 @@ namespace OHUShips
                     }
                 }
             }
+        }
+
+        public static bool AllInventoryItemsPrefix(ref Caravan caravan, ref List<Thing> __result)
+        {
+            __result = new List<Thing>();
+                List<Pawn> pawnsListForReading = caravan.PawnsListForReading;
+                for (int i = 0; i < pawnsListForReading.Count; i++)
+                {
+                    Pawn pawn = pawnsListForReading[i];
+                    for (int j = 0; j < pawn.inventory.innerContainer.Count; j++)
+                    {
+                        Thing item = pawn.inventory.innerContainer[j];
+                        __result.Add(item);
+                    }
+                }
+                LandedShip landedShip = caravan as LandedShip;
+
+            Predicate<Thing> cargoValidator = delegate (Thing t)
+            {
+                Pawn pawn = t as Pawn;
+                if (pawn != null)
+                {
+                    if (pawn.IsColonist || pawn.records.GetAsInt(RecordDefOf.TimeAsColonistOrColonyAnimal) > 0)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            };
+
+            if (landedShip != null)
+                {
+                __result.AddRange(landedShip.AllLandedShipCargo.Where(x => cargoValidator(x)));
+                }            
+            return false;
         }
 
         public static void MaxCountTransferablePostFix(TransferableOneWay __instance)
@@ -68,7 +107,7 @@ namespace OHUShips
             for (int i = 0; i < tmp.Count; i++)
             {
                 Dialog_LoadShipCargo.RemoveExistingTransferable(tmp[i], Find.VisibleMap);
-                tmp[i].AdjustTo(0);
+                //tmp[i].AdjustTo(tmp[i].GetMinimum());
             }
         }
 
@@ -84,6 +123,49 @@ namespace OHUShips
                 }
             }
         }
+
+        //public static bool AdjustToPrefix(ref Transferable __instance, int destination)
+        //{
+        //    if (!Find.WindowStack.Windows.Any(x => x.GetType() == typeof(Dialog_LoadShipCargo)))
+        //    {
+        //        if (!__instance.CanAdjustTo(destination).Accepted)
+        //        {
+        //            Log.Error("Failed to adjust transferable counts");
+        //            return false;
+        //        }
+        //    }
+
+        //    int countTotransferInt = Traverse.Create(__instance).Field("countToTransfer").GetValue<int>();
+        //    Log.Message(countTotransferInt.ToString());
+
+        //    Log.Message(destination.ToString() + " vs. " + countTotransferInt.ToString() + " vs " + __instance.CountToTransfer.ToString());
+        //    Log.Message(__instance.GetMaximum().ToString() + "  " + __instance.GetMinimum());
+        //    countTotransferInt = __instance.ClampAmount(destination);
+        //    return false;
+        //}
+
+        //public static bool CanAdjustToPostFix(ref TransferableOneWay instance, ref AcceptanceReport _result, int destination)
+        //{
+        //    Log.Message(destination.ToString() + " vs. " + instance.CountToTransfer.ToString());
+              
+        //    if (destination == instance.CountToTransfer)
+        //    {
+        //        return true;
+        //    }
+        //    int num = instance.ClampAmount(destination);
+        //    if (num != instance.CountToTransfer)
+        //    {
+        //        return true;
+        //    }
+        //    if (destination < instance.CountToTransfer)
+        //    {
+        //        Log.Message("Underflow");
+        //        return instance.UnderflowReport().Accepted;
+        //    }
+
+        //    Log.Message("Overrflow");
+        //    return instance.OverflowReport().Accepted;
+        //}
 
         public static void GenerateFactionsIntoWorldPostFix()
         {

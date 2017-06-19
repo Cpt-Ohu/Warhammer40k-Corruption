@@ -28,7 +28,7 @@
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -86,7 +86,13 @@
     <Compile Include="BookStuff\ReadableEffects.cs" />
     <Compile Include="BookStuff\ReadableEffektEntry.cs" />
     <Compile Include="BookStuff\ThingDef_Readables.cs" />
+    <Compile Include="DefOfs\C_MapGeneratorDefOf.cs" />
     <Compile Include="DefOfs\C_TraderKindDefs.cs" />
+    <Compile Include="Domination\BattleSize.cs" />
+    <Compile Include="Domination\BattleType.cs" />
+    <Compile Include="Domination\BattleZone.cs" />
+    <Compile Include="Domination\Dialog_ChooseBattleSides.cs" />
+    <Compile Include="Domination\GenStep_BattleZone.cs" />
     <Compile Include="IoM\IoMChatType.cs" />
     <Compile Include="IoM\IoM_StoryUtilities.cs" />
     <Compile Include="IoM\JobDriver_WanderAndChat.cs" />

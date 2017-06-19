@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <AlienRace.BackstoryDef>
-    <defName>Exodite</defName>
+    <defName>ExoditeOrigin</defName>
     <title>Exodite child</title>
     <baseDescription>NAME was born on an Eldar maiden world. Isolationism and Mistrust were prominent.</baseDescription>
     <bodytypeMale>Male</bodytypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Childhood</slot>
     <workDisables>
-      <li>Social</li>
     </workDisables>
     <skillGains>
       <li>

@@ -202,5 +202,12 @@ namespace Corruption
             GenExplosion.DoExplosion(base.Position, map, this.def.projectile.explosionRadius, this.def.projectile.damageDef, this.launcher, this.def.projectile.soundExplode, this.def, this.equipmentDef, this.def.projectile.postExplosionSpawnThingDef, this.def.projectile.explosionSpawnChance, 1, false, preExplosionSpawnThingDef, explosionSpawnChance, 1);
         }
 
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref this.ticksToDetonation, "ticksToDetonation", 0);
+            Scribe_Values.Look(ref this.istraveling, "istraveling", true);
+            Scribe_Values.Look(ref this.exploded, "exploded", true);
+        }
     }
 }

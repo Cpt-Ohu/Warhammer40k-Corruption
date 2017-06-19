@@ -19,9 +19,17 @@ namespace FactionColors
             Log.Message("Generating Patches");
             HarmonyInstance harmony = HarmonyInstance.Create("rimworld.ohu.factionColors.main");
 
-            harmony.Patch(AccessTools.Method(typeof(Verse.PawnGraphicSet), "ResolveApparelGraphics", null),null , new HarmonyMethod(typeof(HarmonyPatches), "ResolveApparelGraphicsOriginal"));
+            harmony.Patch(AccessTools.Method(typeof(Verse.PawnGraphicSet), "ResolveApparelGraphics", null), new HarmonyMethod(typeof(HarmonyPatches), "ResolveApparelGraphicsOriginal"), null);
             harmony.Patch(AccessTools.Method(typeof(Verse.PawnRenderer), "DrawEquipmentAiming"), new HarmonyMethod(typeof(HarmonyPatches), "DrawEquipmentAimingModded"), null);
             harmony.Patch(AccessTools.Method(typeof(RimWorld.FactionGenerator), "GenerateFactionsIntoWorld"), null, new HarmonyMethod(typeof(HarmonyPatches), "GenerateFactionsIntoWorldPostFix"));
+            harmony.Patch(AccessTools.Method(typeof(Verse.Root_Entry), "Update"), new HarmonyMethod(typeof(HarmonyPatches), "UpdatePrefix"), null);
+        }
+
+        public static bool UpdatePrefix()
+        {
+            GraphicDatabase.Clear();
+            //GraphicDatabase.DebugLogAllGraphics();
+            return true;
         }
 
         public static void GenerateFactionsIntoWorldPostFix()
@@ -37,7 +45,7 @@ namespace FactionColors
             Find.WorldObjects.Add(corrTracker);
         }
 
-        public static void ResolveApparelGraphicsOriginal(PawnGraphicSet __instance)
+        public static bool ResolveApparelGraphicsOriginal(PawnGraphicSet __instance)
         {
             __instance.ClearCache();
             __instance.apparelGraphics.Clear();
@@ -46,7 +54,7 @@ namespace FactionColors
             {
                 ApparelGraphicRecord item;
                 if (current.GetComp<CompFactionColor>() != null)
-                {
+                {                    
                     if ((ApparelGraphicGetterFC.TryGetGraphicApparelModded(current, __instance.pawn.story.bodyType, out item)))
                     {
                         if (current.GetComp<ApparelDetailDrawer>() != null && !current.Spawned)
@@ -63,10 +71,11 @@ namespace FactionColors
                 }
             }
             //    Corruption.AfflictionDrawerUtility.DrawChaosOverlays(this.pawn);
-            foreach (Apparel app in OriginalItems)
-            {
-                ApparelDetailDrawer.DrawDetails(__instance.pawn, app);
-            }
+            //foreach (Apparel app in OriginalItems)
+            //{
+            //    ApparelDetailDrawer.DrawDetails(__instance.pawn, app);
+            //}
+            return false;
         }
 
         private static ThingDef_AlienRace AlienDefFor(Thing eq, out Pawn pawn)

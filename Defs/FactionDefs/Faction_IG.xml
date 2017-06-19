@@ -86,6 +86,16 @@
 		<SubfactionColor1>(0.50,0.54,0.62,1)</SubfactionColor1>
 		<SubfactionColor2>RGBA(0.61,0.57,0.36,1)</SubfactionColor2>
 		<weight>10</weight>
+      <SubfactionPawnGroupMakers>
+      <li>
+        <kindDef>Normal</kindDef>
+        <options>
+            <IG_ValhallanTrooper>100</IG_ValhallanTrooper>
+            <IG_Sergeant>20</IG_Sergeant>
+        </options>
+      </li>
+      </SubfactionPawnGroupMakers>
+
 	</li>
 	<li>
 		<SubfactionName>Konig 33rd</SubfactionName>

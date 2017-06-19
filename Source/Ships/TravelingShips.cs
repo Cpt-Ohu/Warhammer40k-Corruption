@@ -39,17 +39,9 @@ namespace OHUShips
             {
                 if (this.cachedMat == null)
                 {
-                    this.cachedMat = MaterialPool.MatFrom(ships[0].def.graphicData.texPath, ShaderDatabase.WorldOverlayTransparentLit, ships[0].DrawColor);
+                    this.cachedMat = MaterialPool.MatFrom(ships[0].def.graphicData.texPath, ShaderDatabase.WorldOverlayCutout, ships[0].DrawColor, WorldMaterials.WorldObjectRenderQueue);
                 }
                 return cachedMat;
-            }
-        }
-
-        public override void Draw()
-        {
-            if (this.ships.Count > 0)
-            {
-                base.Draw();
             }
         }
         

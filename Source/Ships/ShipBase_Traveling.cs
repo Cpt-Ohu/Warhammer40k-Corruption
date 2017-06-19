@@ -146,8 +146,8 @@ namespace OHUShips
                     }
                 }
             }
-
             GenSpawn.Spawn(this.containingShip, base.Position, this.Map, this.containingShip.Rotation);
+
             this.containingShip.ShipUnload(false, this.dropPawnsOnTochdown, this.dropItemsOnTouchdown);
             this.DeSpawn();
         }
@@ -196,7 +196,8 @@ namespace OHUShips
             }
             travelingShips.AddShip(this.containingShip, true);
             travelingShips.SetFaction(this.containingShip.Faction);
-            
+
+            foreach (ShipBase ship in travelingShips.ships)
             this.Destroy(DestroyMode.Vanish);
         }
 

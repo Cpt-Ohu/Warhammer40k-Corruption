@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <PawnKindDefs>
 
-  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
+  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef" Name="IGTrooperBase">
     <defName>IG_Trooper</defName>
     <label>Trooper</label>
     <race>Human</race>
@@ -14,6 +14,7 @@
     <forceNormalGearQuality>true</forceNormalGearQuality>
     <apparelRequired>
 	 <li>IG_Armor</li>
+	 <li>IG_UniformShirt</li>
     </apparelRequired>
     <apparelMoney>
       <min>1800</min>
@@ -59,6 +60,7 @@
     <itemQuality>Normal</itemQuality>
     <apparelRequired>
 	 <li>IG_Armor</li>
+	 <li>IG_UniformShirt</li>
     </apparelRequired>
     <apparelMoney>
       <min>1800</min>
@@ -105,6 +107,7 @@
     <itemQuality>Good</itemQuality>
     <apparelRequired>
 	 <li>IG_Armor</li>
+	 <li>IG_UniformShirt</li>
     </apparelRequired>
     <apparelMoney>
       <min>1800</min>
@@ -281,5 +284,23 @@
       <ResolveFactor>1.4</ResolveFactor>
     </AfflictionProperty>
   </PawnKindDef>
+
+  <!-- ==========================Valhallan=============================== -->
+
+  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef" ParentName="IGTrooperBase">
+    <defName>IG_ValhallanTrooper</defName>
+    <label>Trooper</label>
+    <race>Human</race>
+    <apparelRequired>
+	 <li>Apparel_ValhallanCoat</li>
+    </apparelRequired>
+    <apparelTags>
+      <li>Valhallan</li>
+    </apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+  </PawnKindDef>
+
+
 
 </PawnKindDefs>

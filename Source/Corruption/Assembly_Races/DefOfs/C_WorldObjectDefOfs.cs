@@ -10,5 +10,6 @@ namespace Corruption.DefOfs
     public static class C_WorldObjectDefOf
     {
         public static WorldObjectDef CorruptionStoryTracker;
+        public static WorldObjectDef BattleZone;
     }
 }

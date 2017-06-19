@@ -202,7 +202,6 @@ namespace OHUShips
                 if (currentWeapon.Value == null)
                 {
                     List<Thing> list = DropShipUtility.availableWeaponsForSlot(this.ship.Map, currentWeapon.Key);
-                    //         Log.Message("List of potentials  " + list.Count.ToString());
                     list.OrderBy(x => x.Position.DistanceToSquared(this.ship.Position));
                     for (int i = 0; i < list.Count; i++)
                     {

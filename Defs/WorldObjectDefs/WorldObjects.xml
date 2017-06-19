@@ -26,5 +26,17 @@
     <texture>World/WorldObjects/Caravan</texture>
   </WorldObjectDef>
 
+  <WorldObjectDef>
+    <defName>BattleZone</defName>
+    <label>battle zone</label>
+    <description>A place where a battle is being fought.</description>
+    <worldObjectClass>Corruption.Domination.BattleZone</worldObjectClass>
+    <texture>World/WorldObjects/BattleZone</texture>
+    <expandingIcon>true</expandingIcon>
+    <expandingIconTexture>World/WorldObjects/Expanding/BattleZone</expandingIconTexture>
+    <expandingIconPriority>80</expandingIconPriority>
+    <isTempIncidentMapOwner>true</isTempIncidentMapOwner>
+  </WorldObjectDef>
+
   
 </Defs>

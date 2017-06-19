@@ -109,6 +109,11 @@ namespace Corruption
 
             //   DiaOption optA = new DiaOption();
             //   yield return optA;
+
+            yield return new DiaOption("Debug: Spawn Battles")
+            {
+                link = FactionDialogMaker_IoM.DebugBattleZone()
+            };
             yield break;
         }
 
@@ -116,6 +121,22 @@ namespace Corruption
         {
             DiaNode node = new DiaNode("PurchaseMecTemplates".Translate());
             node.options.AddRange(AvailableMechanicusTemplates(map, faction));
+            node.options.Add(FactionDialogMaker_IoM.OKToRoot());
+            return node;
+        }
+
+        private static DiaNode DebugBattleZone()
+        {
+            DiaNode node = new DiaNode("PurchaseMecTemplates".Translate());
+            node.options.Add(new DiaOption("STuff")
+            {
+                action = delegate
+                {
+                    CorruptionStoryTrackerUtilities.GenerateRandomBattleZone();
+                }
+
+            });
+        
             node.options.Add(FactionDialogMaker_IoM.OKToRoot());
             return node;
         }

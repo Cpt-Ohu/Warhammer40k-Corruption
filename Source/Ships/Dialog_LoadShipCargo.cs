@@ -156,23 +156,6 @@ namespace OHUShips
             this.CalculateAndRecacheTransferables();
         }
 
-        private void RemoveExistingTransferables()
-        {
-            List<Thing> thingsInCargoToRemov = new List<Thing>();
-            for (int i = 0; i < this.transferables.Count; i++)
-            {
-                for (int j = 0; j < this.transferables[i].things.Count; j++)
-                {
-                    if (this.ship.GetDirectlyHeldThings().Contains(this.transferables[i].things[j]))
-                    {
-                        thingsInCargoToRemov.Add(this.transferables[i].things[j]);
-                        this.transferables[i].AdjustBy(-this.transferables[i].things[j].stackCount);
-                    }
-                }
-                this.transferables[i].things.RemoveAll(x => thingsInCargoToRemov.Contains(x));
-            }
-        }
-
         private bool EnvironmentAllowsEatingVirtualPlantsNow
         {
             get
@@ -205,12 +188,8 @@ namespace OHUShips
                     Thing thing = tmpShips[k].GetDirectlyHeldThings().FirstOrDefault(x => x == (transferable.things[j]));
                     if (thing != null)
                     {
-  //                      Log.Message(transferable.things[j].Label + " got: " + transferable.things[j].stackCount);
-  //                      Log.Message("FOund again");
                         thingsInCargoToRemov.Add(transferable.things[j]);
- //                       Log.Message(transferable.CountToTransfer.ToString() + " before to transfer");
                         //                  transferable.CountToTransfer -= transferable.things[j].stackCount;
-                        Log.Message(transferable.CountToTransfer.ToString() + " set to transfer: " + transferable.things[j].stackCount + " vs " + thing.stackCount);
                     }
                 }
             }
@@ -284,9 +263,12 @@ namespace OHUShips
                 transferableOneWay = new TransferableOneWay();
                 this.transferables.Add(transferableOneWay);
             }
-            Dialog_LoadShipCargo.RemoveExistingTransferable(transferableOneWay, null, this.ship);
-            transferableOneWay.AdjustBy(-countAlreadyIn);
+
+            // Dialog_LoadShipCargo.RemoveExistingTransferable(transferableOneWay, null, this.ship);
+
             transferableOneWay.things.Add(t);
+            transferableOneWay.AdjustBy(-countAlreadyIn);
+
         }
 
         private void DoBottomButtons(Rect rect)

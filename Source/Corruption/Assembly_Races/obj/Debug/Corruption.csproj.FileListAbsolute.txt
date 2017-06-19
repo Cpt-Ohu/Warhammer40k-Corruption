@@ -46,3 +46,4 @@ D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\YaWH40Km-Public_A17\Assemblies\Co
 D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\YaWH40Km-Public_A17\Assemblies\Corruption.dll.lastcodeanalysissucceeded
 D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\YaWH40Km-Public_A17\Source\Corruption\Assembly_Races\obj\Debug\Corruption.dll
 D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\YaWH40Km-Public_A17\Source\Corruption\Assembly_Races\obj\Debug\Corruption.pdb
+D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\YaWH40Km-Public_A17\Source\Corruption\Assembly_Races\obj\Debug\Corruption.csprojResolveAssemblyReference.cache

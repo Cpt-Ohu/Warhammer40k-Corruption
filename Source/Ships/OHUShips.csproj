@@ -39,8 +39,9 @@
       <HintPath>..\..\..\..\RimWorldWin_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="FactionColors">
-      <HintPath>..\..\..\YaWH40Km-Public_A16\Assemblies\FactionColors.dll</HintPath>
+    <Reference Include="FactionColors, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Assemblies\FactionColors.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -93,6 +94,7 @@
     <Compile Include="ShipState.cs" />
     <Compile Include="ShipTracker.cs" />
     <Compile Include="ShipWeaponSlot.cs" />
+    <Compile Include="Transferable_Ship.cs" />
     <Compile Include="TravelingShipArrivalAction.cs" />
     <Compile Include="TravelingShips.cs" />
     <Compile Include="TravelingShipsUtility.cs" />

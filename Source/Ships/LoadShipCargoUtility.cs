@@ -39,7 +39,6 @@ namespace OHUShips
                         for (int j = 0; j < transferableOneWay.things.Count; j++)
                         {
                             LoadShipCargoUtility.neededThings.Add(transferableOneWay.things[j]);
-                          //  Log.Message(transferableOneWay.things[j].Label);
                         }
                     }
                 }
