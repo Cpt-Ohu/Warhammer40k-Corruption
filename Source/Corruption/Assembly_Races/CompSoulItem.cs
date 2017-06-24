@@ -135,22 +135,25 @@ namespace Corruption
                     {
                         this.CalculateSoulChanges(soul, SProps);
                     }
-                    if (!PsykerPowerAdded)
+                    if (CorruptionModSettings.AllowPsykers)
                     {
-                        CompPsyker compPsyker;
-                        if ((compPsyker = Owner.TryGetComp<CompPsyker>()) != null)
+                        if (!PsykerPowerAdded)
                         {
-                            for (int i = 0; i < SProps.UnlockedPsykerPowers.Count; i++)
+                            CompPsyker compPsyker;
+                            if ((compPsyker = Owner.TryGetComp<CompPsyker>()) != null)
                             {
-                                if (soul.PsykerPowerLevel >= SProps.UnlockedPsykerPowers[i].PowerLevel)
+                                for (int i = 0; i < SProps.UnlockedPsykerPowers.Count; i++)
                                 {
-                                    //    Log.Message("Adding Power to: " + compPsyker.psyker + " : " + SProps.UnlockedPsykerPowers[i].defName);
-                                    compPsyker.allpsykerPowers.Add(new PsykerPowerEntry(SProps.UnlockedPsykerPowers[i], true, this.parent.def));
+                                    if (soul.PsykerPowerLevel >= SProps.UnlockedPsykerPowers[i].PowerLevel)
+                                    {
+                                        //    Log.Message("Adding Power to: " + compPsyker.psyker + " : " + SProps.UnlockedPsykerPowers[i].defName);
+                                        compPsyker.allpsykerPowers.Add(new PsykerPowerEntry(SProps.UnlockedPsykerPowers[i], true, this.parent.def));
+                                    }
                                 }
+                                compPsyker.UpdatePowers();
                             }
-                            compPsyker.UpdatePowers();
+                            PsykerPowerAdded = true;
                         }
-                        PsykerPowerAdded = true;
                     }
 
                 }

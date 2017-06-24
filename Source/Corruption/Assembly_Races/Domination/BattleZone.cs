@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Verse;
+using Verse.AI;
 using Verse.Sound;
 
 namespace Corruption.Domination
 {
-    public class BattleZone : MapParent
+    public class BattleZone : MapParent, IBattleZone
     {
         public List<Faction> WarringFactions = new List<Faction>();
         
@@ -25,6 +26,8 @@ namespace Corruption.Domination
 
         private bool battleResolved = false;
 
+        public Faction winningFaction;
+
         public int[] battlePointRange = new int[2] { 0, 0 };
 
         public BattleZone()
@@ -38,7 +41,7 @@ namespace Corruption.Domination
             {
                 return this.battleName;
             }
-        }
+        }              
 
         public override string GetInspectString()
         {
@@ -93,7 +96,7 @@ namespace Corruption.Domination
             {
                 return this.battleName;
             }
-        }
+        }           
 
         public override void PostMake()
         {
@@ -159,6 +162,23 @@ namespace Corruption.Domination
             }
         }
 
+        public bool StartResolving()
+        {
+            List<IAttackTarget> acticeAdversaries = new List<IAttackTarget>();
+            for (int i = 0; i < this.WarringFactions.Count; i++)
+            {
+                acticeAdversaries.Clear();
+                acticeAdversaries.AddRange(Map.attackTargetsCache.TargetsHostileToFaction(this.WarringFactions[i]));
+                if (acticeAdversaries.Count < 1 || !acticeAdversaries.Any(x => GenHostility.IsActiveThreat(x)))
+                {
+                    this.winningFaction = this.WarringFactions[i];
+                    this.battleResolved = true;
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void GenerateMap()
         {
             LongEventHandler.QueueLongEvent(delegate
@@ -193,7 +213,6 @@ namespace Corruption.Domination
                     current.SetHostileTo(Faction.OfPlayer, true);
                 }
             }
-
         }
     }
 }

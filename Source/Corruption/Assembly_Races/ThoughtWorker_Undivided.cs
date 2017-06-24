@@ -21,7 +21,6 @@ namespace Corruption
                 totalCorruption += cpawn.needs.TryGetNeed<Need_Soul>().CurLevel;
             }
             ColonyCorruptionAvg = totalCorruption / ColonyPawns.Count;
-
             switch(ColonyCorruptionCategory)
             {
                 case SoulAffliction.Corrupted:
@@ -37,8 +36,6 @@ namespace Corruption
                     return ThoughtState.ActiveAtStage(3);
                 default:
                     return ThoughtState.ActiveAtStage(2);
-
-
             }
 
         }

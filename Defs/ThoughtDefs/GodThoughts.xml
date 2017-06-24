@@ -2,16 +2,16 @@
 <Defs>
 
 <Corruption.ThoughtDefCorruption>
-    <defName>Khornate_NoKill</defName>
-    <workerClass>Corruption.ThoughtWorker_KhornateNoKill</workerClass>
+    <defName>Khornate</defName>
+    <workerClass>Corruption.ThoughtWorker_Khornate</workerClass>
     <requiredSoulTraits>
       <li>Khorne_Fervor</li>
     </requiredSoulTraits>
     <stages>
       <li>
-        <label>Khornate Urge</label>
-        <description>I haven't tasted battle in a while...</description>
-        <baseMoodEffect>-10</baseMoodEffect>
+        <label>Khornate Deprivation</label>
+        <description>I DEMAND THE GLORY OF A KILL!</description>
+        <baseMoodEffect>-25</baseMoodEffect>
       </li>
       <li>
         <label>Khornate Desire</label>
@@ -19,20 +19,10 @@
         <baseMoodEffect>-15</baseMoodEffect>
       </li>
       <li>
-        <label>Khornate Deprivation</label>
-        <description>I DEMAND THE GLORY OF A KILL!</description>
-        <baseMoodEffect>-25</baseMoodEffect>
+        <label>Khornate Urge</label>
+        <description>I haven't tasted battle in a while...</description>
+        <baseMoodEffect>-10</baseMoodEffect>
       </li>
-    </stages>
-  </Corruption.ThoughtDefCorruption>
-
-  <Corruption.ThoughtDefCorruption>
-    <defName>Khornate_Kill</defName>
-    <workerClass>Corruption.ThoughtWorker_KhornateKill</workerClass>
-    <requiredSoulTraits>
-      <li>Khorne_Fervor</li>
-    </requiredSoulTraits>
-    <stages>
       <li>
         <label>Khornate sacrifice</label>
         <description>I got to kill someone in the name of Khorne!</description>

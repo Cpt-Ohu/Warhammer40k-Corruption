@@ -187,4 +187,52 @@
   </PawnKindDef>
 
 
+  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
+    <defName>KhornateBerserker</defName>
+    <label>Khornate Berserker</label>
+    <race>Human</race>
+    <combatPower>100</combatPower>
+    <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
+    <backstoryCategory>Civil</backstoryCategory>
+    <defaultFactionType>ChaosCult</defaultFactionType>
+    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+    <maxGenerationAge>58</maxGenerationAge>
+    <itemQuality>Normal</itemQuality>
+    <apparelMoney>
+      <min>100</min>
+      <max>200</max>
+    </apparelMoney>
+    <apparelRequired>
+      <li>Apparel_CultistLeathers</li>
+    </apparelRequired>
+    <apparelTags>
+      <li>CorruptedApparel</li>
+    </apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelAllowHeadwearChance>0.0</apparelAllowHeadwearChance>
+    <weaponMoney>
+      <min>2500</min>
+      <max>3600</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>Melee</li>
+    </weaponTags>
+    <techHediffsMoney>
+      <min>10</min>
+      <max>100</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <techHediffsChance>0.1</techHediffsChance>
+    <AfflictionProperty>
+      <LowerAfflictionLimit>0</LowerAfflictionLimit>
+      <UpperAfflictionLimit>0.25</UpperAfflictionLimit>
+      <Patron>Khorne</Patron>
+    </AfflictionProperty>
+    <UseForcedPatron>true</UseForcedPatron>
+  </PawnKindDef>
+
+
+
 </PawnKindDefs>

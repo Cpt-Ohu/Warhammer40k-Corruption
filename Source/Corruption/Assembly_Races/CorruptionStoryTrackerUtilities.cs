@@ -26,6 +26,8 @@ namespace Corruption
         public static Texture2D ShipsArrival = ContentFinder<Texture2D>.Get("UI/Images/ShipArrival", true);
         public static readonly Texture2D DropTexture = ContentFinder<Texture2D>.Get("UI/Buttons/UnloadShip", true);
 
+        public static Texture2D CorruptionLogoTexture = ContentFinder<Texture2D>.Get("UI/Images/Preview", true);
+
         public static readonly Texture2D JoinBattle = ContentFinder<Texture2D>.Get("UI/Commands/CommandJoinBattle", true);
 
         public static Texture2D Aquila = ContentFinder<Texture2D>.Get("UI/Images/IoM_Aquila", true);

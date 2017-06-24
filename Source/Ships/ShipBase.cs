@@ -1,5 +1,4 @@
-﻿
-using FactionColors;
+﻿using FactionColors;
 using RimWorld;
 using RimWorld.Planet;
 using System;
@@ -26,30 +25,7 @@ namespace OHUShips
         public Dictionary<ShipWeaponSlot, WeaponSystemShipBomb> Payload = new Dictionary<ShipWeaponSlot, WeaponSystemShipBomb>();
         public Dictionary<ShipWeaponSlot, Thing> weaponsToInstall = new Dictionary<ShipWeaponSlot, Thing>();
         public Dictionary<ShipWeaponSlot, Thing> weaponsToUninstall = new Dictionary<ShipWeaponSlot, Thing>();
-
-        public bool shouldSpawnTurrets = false;
-        //public bool shouldDeepSave = true;
-
-        public List<Pawn> assignedNewPawns = new List<Pawn>();
-
-        public void GetChildHolders(List<IThingHolder> outChildren)
-        {
-            ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, this.GetDirectlyHeldThings());
-        }
-
-        public ThingOwner GetDirectlyHeldThings()
-        {
-            return this.innerContainer;
-        }
-                
-        public override Graphic Graphic
-        {
-            get
-            {
-                return GraphicDatabase.Get<Graphic_Single>(this.def.graphicData.texPath, ShaderDatabase.ShaderFromType(this.def.graphicData.shaderType), this.def.graphicData.drawSize, this.DrawColor, this.DrawColorTwo);
-            }
-        }
-
+        
         #region FactionColorStuff
 
 
@@ -75,9 +51,7 @@ namespace OHUShips
                 return Col2;
             }
         }
-
-
-
+        
         private void InitiateColors()
         {
             if (FirstSpawned)
@@ -123,8 +97,30 @@ namespace OHUShips
             }
         }
         #endregion
+        
+        public bool shouldSpawnTurrets = false;
+        //public bool shouldDeepSave = true;
 
+        public List<Pawn> assignedNewPawns = new List<Pawn>();
 
+        public void GetChildHolders(List<IThingHolder> outChildren)
+        {
+            ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, this.GetDirectlyHeldThings());
+        }
+
+        public ThingOwner GetDirectlyHeldThings()
+        {
+            return this.innerContainer;
+        }
+                
+        public override Graphic Graphic
+        {
+            get
+            {
+                return GraphicDatabase.Get<Graphic_Single>(this.def.graphicData.texPath, ShaderDatabase.ShaderFromType(this.def.graphicData.shaderType), this.def.graphicData.drawSize, this.DrawColor, this.DrawColorTwo);
+            }
+        }
+        
         public string ShipNick = "Ship";
         
         public ShipState shipState = ShipState.Stationary;
@@ -517,9 +513,11 @@ namespace OHUShips
 
         public void ShipUnload(bool wasDestroyed = false, bool dropPawns = true, bool dropitems = false)
         {
-            for (int i = 0; i < this.innerContainer.Count; i++)
+            List<Thing> allCargo = new List<Thing>();
+            allCargo.AddRange(this.GetDirectlyHeldThings());
+            for (int i = 0; i < allCargo.Count; i++)
             {
-                Thing thing = this.innerContainer[i];
+                Thing thing = allCargo[i];
                 Thing thing2;
                 if (wasDestroyed && Rand.Range(0, 1f) < 0.3f)
                 {
@@ -530,31 +528,30 @@ namespace OHUShips
                     Pawn pawn1 = thing as Pawn;
                     if (pawn1 != null && dropPawns && !pawn1.IsPrisoner && pawn1.def.race.Humanlike || (dropitems && thing.GetType() != typeof(Pawn)))
                     {
-                        if(innerContainer.TryDrop(thing, base.Position, this.Map, ThingPlaceMode.Near, out thing2, delegate (Thing placedThing, int count)
+                        if(this.GetDirectlyHeldThings().TryDrop(thing, base.Position, this.Map, ThingPlaceMode.Near, out thing2, delegate (Thing placedThing, int count)
                         {
                             if (Find.TickManager.TicksGame < 1200 && TutorSystem.TutorialMode && placedThing.def.category == ThingCategory.Item)
                             {
                                 Find.TutorialState.AddStartingItem(placedThing);
                             }
-                        }))
-                            
+                        }))                            
                         {
 
                         Pawn pawn2 = thing2 as Pawn;
-                        if (pawn2 != null)
-                        {
-                            if (pawn2.RaceProps.Humanlike)
+                            if (pawn2 != null)
                             {
-                                TaleRecorder.RecordTale(TaleDefOf.LandedInPod, new object[]
+                                if (pawn2.RaceProps.Humanlike)
                                 {
+                                    TaleRecorder.RecordTale(TaleDefOf.LandedInPod, new object[]
+                                    {
                             pawn2
-                                });
-                            }
-                            if (pawn2.IsColonist && pawn2.Spawned && !base.Map.IsPlayerHome)
-                            {
-                                pawn2.drafter.Drafted = true;
-                            }
-                            }
+                                    });
+                                }
+                                if (pawn2.IsColonist && pawn2.Spawned && !base.Map.IsPlayerHome)
+                                {
+                                    pawn2.drafter.Drafted = true;
+                                }
+                            }                            
                         }
                     }
                     else
@@ -563,6 +560,7 @@ namespace OHUShips
                     }
                 }
             }
+            allCargo.Clear();
          
             SoundDef.Named("DropPodOpen").PlayOneShot(new TargetInfo(base.Position, base.Map, false));
         }

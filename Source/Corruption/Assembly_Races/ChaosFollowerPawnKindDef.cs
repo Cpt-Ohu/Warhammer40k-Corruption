@@ -11,6 +11,8 @@ namespace Corruption
     {
         public AfflictionProperty AfflictionProperty;
 
+        public bool UseForcedPatron = false;
+
         public bool RenamePawns = false;
 
         public bool UseFixedGender = false;

@@ -9,9 +9,10 @@ using Verse.AI;
 namespace Corruption.Worship
 {
     public class JoyGiver_Pray : JoyGiver
-    {
+    {        
         public override Job TryGiveJob(Pawn pawn)
         {
+            Log.Message("Trying to give prayer to: " + pawn.NameStringShort);
             if (pawn.ownership == null)
             {
                 return null;

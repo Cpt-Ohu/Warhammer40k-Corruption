@@ -174,7 +174,7 @@ namespace OHUShips
         {
             List<ShipBase> ships = caravan.ships;
             DropShipUtility.DropShipGroups(TravelingShipsUtility.CenterCell(map), map, ships, TravelingShipArrivalAction.EnterMapFriendly);            
-            caravan.RemoveAllPawns();
+            //caravan.RemoveAllPawns();
             if (caravan.Spawned)
             {
                 Find.WorldObjects.Remove(caravan);
@@ -212,7 +212,6 @@ namespace OHUShips
             }
         }
 
-
         public static void InitializePayloadAndTurrets(List<ShipBase> ships, List<Building_ShipTurret> turrets, List<WeaponSystemShipBomb> bombs)
         {
             for (int i = 0; i < ships.Count; i++)
@@ -226,11 +225,14 @@ namespace OHUShips
         {
             foreach (KeyValuePair<ShipBase, List<string>> entry in landedShip.shipsPassengerList)
             {
-                for (int i=0; i < landedShip.PawnsListForReading.Count; i++)
+                List<Pawn> caravanPassengers = new List<Pawn>();
+                caravanPassengers.AddRange(landedShip.PawnsListForReading);
+
+                for (int i=0; i < caravanPassengers.Count; i++)
                 {
-                    if (entry.Value.Contains(landedShip.PawnsListForReading[i].ThingID))
+                    if (entry.Value.Contains(caravanPassengers[i].ThingID))
                     {
-                        landedShip.PawnsListForReading[i].holdingOwner = entry.Key.GetDirectlyHeldThings();
+                        entry.Key.TryAcceptThing(caravanPassengers[i]);
                     }
                 }
             }
@@ -238,7 +240,6 @@ namespace OHUShips
 
         public static LandedShip MakeLandedShip(TravelingShips incomingShips, Faction faction, int startingTile, bool addToWorldPawnsIfNotAlready)
         {
-        //    Log.Message("Making LandedShip");
        //     TravelingShipsUtility.MakepawnInfos(incomingShips.ships[0].GetDirectlyHeldThings());
             if (startingTile < 0 && addToWorldPawnsIfNotAlready)
             {
@@ -262,6 +263,7 @@ namespace OHUShips
             {
                // current.shouldDeepSave = false;
                 List<Thing> passengers = current.GetDirectlyHeldThings().ToList();
+                
                 List<string> passengerIDs = new List<string>();
                 for (int i = 0; i < passengers.Count; i++)
                 {

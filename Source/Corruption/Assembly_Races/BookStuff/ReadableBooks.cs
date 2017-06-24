@@ -169,11 +169,14 @@ namespace Corruption.BookStuff
             {
                 case (ReadableEffectCategory.LearnPsykerPower):
                     {
-                        CompPsyker compPsyker;
-                        if ((compPsyker = this.currentReader.GetComp<CompPsyker>()) != null)
+                        if (CorruptionModSettings.AllowPsykers)
                         {
-                            compPsyker.psykerPowerManager.AddPsykerPower(entry.PsykerPowerUnlocked);
-                            return;
+                            CompPsyker compPsyker;
+                            if ((compPsyker = this.currentReader.GetComp<CompPsyker>()) != null)
+                            {
+                                compPsyker.psykerPowerManager.AddPsykerPower(entry.PsykerPowerUnlocked);
+                                return;
+                            }
                         }
                         return;
                     }

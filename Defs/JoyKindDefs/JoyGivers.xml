@@ -12,7 +12,7 @@
   <JoyGiverDef>
     <defName>Pray</defName>
     <giverClass>Corruption.Worship.JoyGiver_Pray</giverClass>
-    <baseChance>6</baseChance>
+    <baseChance>80</baseChance>
     <pctPawnsEverDo>1.0</pctPawnsEverDo>
     <jobDef>Pray</jobDef>
     <joyKind>Meditative</joyKind>

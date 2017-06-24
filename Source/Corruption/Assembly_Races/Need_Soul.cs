@@ -27,6 +27,8 @@ namespace Corruption
 
         private const float ThreshPure = 0.9f;
 
+        public PawnKillTracker PawnKillTracker;
+
         public CompPsyker compPsyker = new CompPsyker();
 
         public PsykerPowerLevel PsykerPowerLevel;
@@ -119,6 +121,7 @@ namespace Corruption
 
         public override void SetInitialLevel()
         {
+            this.PawnKillTracker = new PawnKillTracker();
             if (!SoulInitialized)
             {
                 FieldInfo info = typeof(StatsReportUtility).GetField("cachedDrawEntries", BindingFlags.NonPublic | BindingFlags.Static);
@@ -143,7 +146,10 @@ namespace Corruption
                 //           catch
                 //           { }
 
-                InitiatePsykerComp();
+                if (CorruptionModSettings.AllowPsykers)
+                {
+                    InitiatePsykerComp();
+                }
 
                 ChaosFollowerPawnKindDef pdef = this.pawn.kindDef as ChaosFollowerPawnKindDef;
                 //       Log.Message("Name is: " + this.pawn.Name.ToStringFull);
@@ -158,9 +164,13 @@ namespace Corruption
 
                         PawnAfflictionProps = new AfflictionProperty();
                         this.PawnAfflictionProps = pdef.AfflictionProperty;
-                        int pllow = (int)this.PawnAfflictionProps.LowerPsykerPowerLimit;
-                        int plup = (int)this.PawnAfflictionProps.UpperAfflictionLimit;
-                        this.PsykerPowerLevel = (PsykerPowerLevel)Rand.RangeInclusive(pllow, plup);
+                        if (CorruptionModSettings.AllowPsykers)
+                        {
+                            int pllow = (int)this.PawnAfflictionProps.LowerPsykerPowerLimit;
+                            int plup = (int)this.PawnAfflictionProps.UpperAfflictionLimit;
+                            this.PsykerPowerLevel = (PsykerPowerLevel)Rand.RangeInclusive(pllow, plup);
+                        }
+
 
                         if (PawnAfflictionProps.IsImmune)
                         {
@@ -184,7 +194,12 @@ namespace Corruption
                         {
                             this.patronInfo.PatronName = PawnAfflictionProps.IsofFaith.ToString();
                         }
+                        
                         this.CulturalTolerance = PawnAfflictionProps.PrimaryToleranceCategory;
+                        if (pdef.UseForcedPatron)
+                        {
+                            this.GainPatron(pdef.AfflictionProperty.Patron, true);
+                        }
                     }
                 }
                 else
@@ -213,21 +228,22 @@ namespace Corruption
                         this.curLevelInt = Rand.Range(0.4f, 0.99f);
                     }
                 }
-
-                if (this.PawnAfflictionProps.CommmonPsykerPowers != null)
+                if (CorruptionModSettings.AllowPsykers)
                 {
-                    for (int i = 0; i < this.PawnAfflictionProps.CommmonPsykerPowers.Count; i++)
+                    if (this.PawnAfflictionProps.CommmonPsykerPowers != null)
                     {
-
-                        try
+                        for (int i = 0; i < this.PawnAfflictionProps.CommmonPsykerPowers.Count; i++)
                         {
-                            this.compPsyker.psykerPowerManager.AddPsykerPower(this.PawnAfflictionProps.CommmonPsykerPowers[i]);
+
+                            try
+                            {
+                                this.compPsyker.psykerPowerManager.AddPsykerPower(this.PawnAfflictionProps.CommmonPsykerPowers[i]);
+                            }
+                            catch
+                            { }
                         }
-                        catch
-                        { }
                     }
                 }
-
                 if (this.DevotionTrait == null)
                 {
                     if ((PawnAfflictionProps != null && PawnAfflictionProps.IsImmune))
@@ -264,10 +280,13 @@ namespace Corruption
 
                 this.SoulInitialized = true;
 
-                if (this.compPsyker.patronName != patronInfo.PatronName)
+                if (CorruptionModSettings.AllowPsykers)
                 {
-                    this.compPsyker.patronName = patronInfo.PatronName;
-                    PortraitsCache.SetDirty(this.pawn);
+                    if (this.compPsyker.patronName != patronInfo.PatronName)
+                    {
+                        this.compPsyker.patronName = patronInfo.PatronName;
+                        PortraitsCache.SetDirty(this.pawn);
+                    }
                 }
 
             }
@@ -275,6 +294,10 @@ namespace Corruption
 
         public override void NeedInterval()
         {
+            if (this.patronInfo.PatronName == "Khorne" || this.patronInfo.PatronName == "Slaanesh")
+            {
+                this.PawnKillTracker.lastKillTick--;
+            }
 
             if (this.curLevelInt < 0f)
             {
@@ -593,8 +616,9 @@ namespace Corruption
             Scribe_Values.Look<CulturalToleranceCategory>(ref this.CulturalTolerance, "CulturalTolerance", CulturalToleranceCategory.Neutral, false);
 
             //        Scribe_Deep.Look<AfflictionProperty>(ref this.PawnAfflictionProps, "PawnAfflictionProps", null);
-            
+
             Scribe_Deep.Look<SoulTrait>(ref this.DevotionTrait, "DevotionTrait", new object[0]);
+            Scribe_Deep.Look(ref this.PawnKillTracker, "PawnKillTracker", new object[0]);
             Scribe_Deep.Look<SoulTrait>(ref this.PatronTrait, "PatronTrait", new object[0]);
             Scribe_Deep.Look<SoulTrait>(ref this.CommonSoulTrait, "CommonSoulTrait", new object[0]);
             //   {

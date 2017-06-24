@@ -108,76 +108,7 @@ namespace FactionColors
             }
             FirstSpawn = false;
         }
- 
-
-        public static bool ReturnApparelDetails(Apparel curr, out ApparelGraphicRecord result)
-        {
-            ApparelDetailDrawer drawer;
-            if((drawer = curr.TryGetComp<ApparelDetailDrawer>()) != null)
-            {
-          //      Log.Message("Checking Available Details");
-                if (drawer.HasDetail)
-                {
-        //            Log.Message("Found Detail");
-                    ApparelGraphicRecord recDetail;
-                    if (ApparelDetailDrawer.TryGetApparelDetails(curr, drawer.DetailGraphic, out recDetail))
-                    {
-          //              Log.Message("Gotten ApparelDetailRecord");
-                        result = recDetail;
-                        return true;
-                    }
-                }
-            }
-            result = new ApparelGraphicRecord();
-            return false;
-        }
-
-        public static bool TryGetApparelDetails(Apparel curr, Graphic detailgraphic, out ApparelGraphicRecord recDetail)
-        {
-  //          Log.Message("Trying to get GraphicRecord");
-            Apparel temp1 = new Apparel();
-            if (curr.def.apparel.LastLayer == ApparelLayer.Overhead)
-            {
-                temp1.def = FactionColorsDefOf.Overlay_Headgear;
-            }
-            else
-            {
-                temp1.def = FactionColorsDefOf.Overlay_Body;
-            }
- //           Log.Message("GraphicRecord of DEF: "+ temp1.def.ToString());
-            recDetail = new ApparelGraphicRecord(detailgraphic, temp1);
-            return true;
-        }
-
-
-        public static void DrawDetails(Pawn pawn, Apparel curr)
-        {
-            try
-            {
-                if (pawn.needs != null && pawn.story != null && !pawn.kindDef.factionLeader)
-                {
-                    ApparelDetailDrawer drawer;
-                    if ((drawer = curr.TryGetComp<ApparelDetailDrawer>()) != null)
-                    {
-                        drawer.PostSpawnSetup(false);
-                        if (drawer.HasDetail)
-                        {
-                            ApparelGraphicRecord recDetail;
-                            if (ApparelDetailDrawer.TryGetApparelDetails(curr, drawer.DetailGraphic, out recDetail))
-                            {
-  //                              Log.Message("Inserting Detail");
-                                pawn.Drawer.renderer.graphics.apparelGraphics.Add(recDetail);
-                            }
-                        }
-                    }
-                }
-            }
-            catch
-            {
-            }
-
-        }
-
+                        
         public static bool GetDetailGraphic(Pawn pawn, Apparel curr, Rot4 bodyFacing, out Material detailGraphic)
         {
             detailGraphic = null;

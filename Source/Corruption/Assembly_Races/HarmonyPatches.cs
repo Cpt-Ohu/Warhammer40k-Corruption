@@ -20,10 +20,11 @@ namespace Corruption
             Log.Message("Generating Corruption Harmony Patches");
             HarmonyInstance harmony = HarmonyInstance.Create("rimworld.ohu.corruption.main");
 
- //           harmony.Patch(AccessTools.Method(typeof(RimWorld.ThoughtUtility), "CanGetThought"), null, new HarmonyMethod(typeof(HarmonyPatches), "CanGetThoughtPostfix"), null);
+            harmony.Patch(AccessTools.Method(typeof(RimWorld.ThoughtUtility), "CanGetThought"), null, new HarmonyMethod(typeof(HarmonyPatches), "CanGetThoughtPostfix"), null);
             harmony.Patch(AccessTools.Method(typeof(RimWorld.MainTabWindow_Inspect), "DoInspectPaneButtons"), null, new HarmonyMethod(typeof(HarmonyPatches), "DoInspectPaneButtons", null));
             harmony.Patch(AccessTools.Method(typeof(RimWorld.FactionGenerator), "GenerateFactionsIntoWorld"), null, new HarmonyMethod(typeof(HarmonyPatches), "GenerateFactionsIntoWorldPostFix"), null);
             harmony.Patch(AccessTools.Method(typeof(Verse.PawnGenerator), "GenerateInitialHediffs"), null, new HarmonyMethod(typeof(HarmonyPatches), "GenerateInitialHediffsPostFix", null));
+            harmony.Patch(AccessTools.Method(typeof(RimWorld.RecordsUtility), "Notify_PawnKilled"), null, new HarmonyMethod(typeof(HarmonyPatches), "Notify_PawnKilledPostFix", null));
 
         }
 
@@ -127,22 +128,23 @@ namespace Corruption
                 return false;            
         }
         
-        public static void CanGetThoughtPostfix(ThoughtDef def, SituationalThoughtHandler __instance, ref bool __result)
+        public static void CanGetThoughtPostfix(ref bool __result, ThoughtDef def, Pawn pawn)
         {
             if (__result)
             {
                 try
                 {
                     Need_Soul soul;
-                    if (HarmonyPatches.HasSoulTraitNullyfyingTraits(def, __instance.pawn, out soul))
+                    if (HarmonyPatches.HasSoulTraitNullyfyingTraits(def, pawn, out soul))
                     {
+                        Log.Message("HasSoulTrait");
                         __result = false;
                         return;
                     }
                     ThoughtDefCorruption Tdef = def as ThoughtDefCorruption;
                     if (Tdef != null)
                     {
-                        if (IsAutomaton(__instance.pawn))
+                        if (IsAutomaton(pawn))
                         {
                             if (Tdef.IsAutomatonThought)
                             {
@@ -156,15 +158,53 @@ namespace Corruption
                         }
                         if (!Tdef.requiredSoulTraits.NullOrEmpty())
                         {
-                            for (int i = 0; i < soul.SoulTraits.Count; i++)
-                            {
-                                if (!Tdef.requiredSoulTraits.Contains(soul.SoulTraits[i].SDef))
-                                {
-                                    __result = false;
-                                }
-                            }
+                            //Log.Message("Checking: " + Tdef.defName.ToString());
+                            //foreach (SoulTraitDef cur in Tdef.requiredSoulTraits)
+                            //{
+                            //    Log.Message("Requires " + cur.defName);
+                            //}
+                            //foreach (SoulTrait cur in soul.SoulTraits)
+                            //{
+                            //    Log.Message("pawn has " + cur.SDef.defName);
+                            //}
+
+                            //List<SoulTrait> straitlist = soul.SoulTraits;
+                            //foreach (SoulTrait strait in straitlist)
+                            //{
+                            //    foreach (SoulTraitDef ttrait in Tdef.requiredSoulTraits)
+                            //    {
+                            //        if (ttrait.defName == strait.SDef.defName)
+                            //        {
+                            //            __result = true;
+                            //        }
+                            //        else
+                            //        {
+                            //            __result = false;
+                            //            break;
+                            //        }
+                            //    }
+                            //}
+                            List<SoulTraitDef> soulTraitDefs = soul.SoulTraits.Select(x => x.SDef).ToList();
+                            __result = soulTraitDefs.Intersect(Tdef.requiredSoulTraits).Any();
+
+
+                            //for (int i = 0; i < soul.SoulTraits.Count; i++)
+                            //{
+                            //    if (Tdef.requiredSoulTraits.Any(x => soul.SoulTraits[i].SDef.defName == x.defName))
+                            //    {
+                            //        __result = false;
+                            //    }
+                            //    //else
+                            //    //{
+                            //    //    Log.Message("Accepted Thought");
+                            //    //}
+                            //}
                         }
                     }
+                }
+                catch(Exception ex)
+                {
+                    Log.Message(ex.Message);
                 }
                 finally
                 {
@@ -184,6 +224,25 @@ namespace Corruption
                 int x = pepe.needs.AllNeeds.Count;
                 pepe.needs.AllNeeds.Insert(x - 1, need);
                 //          pepe.needs.AllNeeds.Add(need);
+            }
+        }
+        public static void Notify_PawnKilledPostFix(Pawn killed, Pawn killer)
+        {
+            Need_Soul soul = CorruptionStoryTrackerUtilities.GetPawnSoul(killer);
+            if (soul != null)
+            {
+                if (soul.patronInfo.PatronName == "Khorne" || soul.patronInfo.PatronName == "Slaanesh")
+                {
+                    soul.PawnKillTracker.lastKillTick = soul.PawnKillTracker.lastKillTick < 1 ? 1000 : soul.PawnKillTracker.lastKillTick + 1000;
+                    if (killed.def.race.Humanlike)
+                    {
+                        soul.PawnKillTracker.curKillCount += 3;
+                    }
+                    else
+                    {
+                        soul.PawnKillTracker.curKillCount += 1;
+                    }
+                }
             }
         }
 

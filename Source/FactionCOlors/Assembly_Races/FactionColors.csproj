@@ -36,13 +36,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Assemblies\0Harmony.dll</HintPath>
     </Reference>
-    <Reference Include="0OHUShips, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Assemblies\0OHUShips.dll</HintPath>
-    </Reference>
     <Reference Include="AlienRace">
       <HintPath>..\..\..\..\..\..\..\workshop\content\294100\839005762\Assemblies\AlienRace.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\RimWorldWin_Data\Managed\Assembly-CSharp.dll</HintPath>
@@ -51,6 +46,7 @@
     <Reference Include="Corruption, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Assemblies\Corruption.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

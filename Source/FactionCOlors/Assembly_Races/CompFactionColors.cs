@@ -10,7 +10,7 @@ namespace FactionColors
 {
     public class CompFactionColor : ThingComp
     {
-        public string randomGraphicPath;
+        public string randomGraphicPath = "";
 
         public Color SecondaryColor = Color.white;
         
@@ -31,7 +31,10 @@ namespace FactionColors
 
         public void ResolveRandomGraphics()
         {
-            this.randomGraphicPath = this.CProps.RandomGraphicPaths.RandomElementByWeight(x => x.Second).First;
+            if (this.randomGraphicPath.NullOrEmpty())
+            {
+                this.randomGraphicPath = this.CProps.RandomGraphicPaths.RandomElementByWeight(x => x.Second).First;
+            }
         }
 
         public CompProperties_FactionColor CProps
@@ -45,7 +48,7 @@ namespace FactionColors
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.Look(ref this.randomGraphicPath, "randomGraphicPath", "");
+            Scribe_Values.Look<string>(ref this.randomGraphicPath, "randomGraphicPath", "");
         }
 
     }    

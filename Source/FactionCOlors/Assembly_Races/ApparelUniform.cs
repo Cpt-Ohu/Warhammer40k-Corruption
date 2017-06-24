@@ -20,8 +20,6 @@ namespace FactionColors
         public Color Col1 = Color.red;
         public Color Col2 = Color.grey;
         public Graphic Detail;
-        public bool isRandomizedGraphic = false;
-        private string randomGraphicPath;
 
         private FactionDefUniform udef
         {
@@ -46,7 +44,7 @@ namespace FactionColors
             {
                 if (this.compF.CProps.IsRandomMultiGraphic)
                 {
-                    string singlePath = this.def.apparel.wornGraphicPath + "/" + this.randomGraphicPath;
+                    string singlePath = this.def.apparel.wornGraphicPath + "/" + this.compF.randomGraphicPath;
                     return GraphicDatabase.Get<Graphic_Single>(singlePath, ShaderDatabase.CutoutComplex, this.def.graphicData.drawSize, this.DrawColor, this.DrawColorTwo);
 
                 }
@@ -216,8 +214,6 @@ namespace FactionColors
             Scribe_Values.Look<bool>(ref FirstSpawned, "FirstSpawned", false, false);
             Scribe_Values.Look<Color>(ref Col1, "Col1", Color.white, false);
             Scribe_Values.Look<Color>(ref Col2, "Col2", Color.white, false);
-            Scribe_Values.Look<bool>(ref isRandomizedGraphic, "isRandomizedGraphic", false, false);
-            Scribe_Values.Look<string>(ref randomGraphicPath, "randomGraphicPath", "", false);
         }
     }
 }

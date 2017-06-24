@@ -16,7 +16,7 @@
             <ImmuneToAge>false</ImmuneToAge>
 			<ForcedRaceTraitEntries>
                 <li>
-                    <defname>Beauty</defname>
+                    <defname>Bloodlust</defname>
                     <degree>0</degree>
                     <chance>100</chance>
                 </li>
