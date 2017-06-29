@@ -6,7 +6,7 @@
     <label>Imperial Guard</label>
     <description>Men and women from the Emperor's Hammer. They are the first, last and often only line of defence the Imperium has against what is out there</description>
     <pawnsPlural>guardsmen</pawnsPlural>
-    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <requiredCountAtGameStart>0</requiredCountAtGameStart>
     <fixedName>Imperial Guard</fixedName>
     <canSiege>true</canSiege>
     <canStageAttacks>true</canStageAttacks>

@@ -244,6 +244,7 @@ namespace OHUShips
         {
             base.PostMake();
             this.InitiateShipProperties();
+            this.InitiateColors();
         }
         
         public int MaxLaunchDistance(bool LaunchAsFleet)
@@ -501,13 +502,25 @@ namespace OHUShips
             this.compShip.TryRemoveLord(this.Map);
             base.DeSpawn();
             this.DeepsaveTurrets = true;
-    //        this.SavePotentialWorldPawns();
+            //        this.SavePotentialWorldPawns();
+            List<ShipWeaponSlot> slotsToRemove = new List<ShipWeaponSlot>();
             foreach (KeyValuePair<ShipWeaponSlot, Building_ShipTurret> current in this.installedTurrets)
             {
                 if (current.Value != null)
                 {
-                    current.Value.DeSpawn();
+                    if (!current.Value.Destroyed)
+                    {
+                        current.Value.DeSpawn();
+                    }
+                    else
+                    {
+                        slotsToRemove.Add(current.Key);
+                    }
                 }
+            }
+            for (int i=0; i < slotsToRemove.Count; i++)
+            {
+                this.installedTurrets[slotsToRemove[i]] = null;
             }
         }
 
@@ -554,13 +567,12 @@ namespace OHUShips
                             }                            
                         }
                     }
-                    else
+                    else if (dropitems && thing.GetType() != typeof(Pawn))
                     {
                         this.GetDirectlyHeldThings().TryDrop(thing, ThingPlaceMode.Near, out thing);
                     }
                 }
             }
-            allCargo.Clear();
          
             SoundDef.Named("DropPodOpen").PlayOneShot(new TargetInfo(base.Position, base.Map, false));
         }
@@ -964,10 +976,10 @@ namespace OHUShips
                 return true;
             }
             
-            if (target.WorldObject is FactionBase && target.WorldObject.Faction != Faction.OfPlayer)
+            if (target.WorldObject is Settlement || target.WorldObject is Site )
             {
                 Find.WorldTargeter.closeWorldTabWhenFinished = false;
-                FactionBase factionBase = target.WorldObject as FactionBase;
+                MapParent localMapParent = target.WorldObject as MapParent;
                 List<FloatMenuOption> list = new List<FloatMenuOption>();
                 if (!target.WorldObject.Faction.HostileTo(Faction.OfPlayer))
                 {
@@ -993,15 +1005,15 @@ namespace OHUShips
                     this.TryLaunch(target, PawnsArriveMode.EdgeDrop, TravelingShipArrivalAction.EnterMapFriendly);
                     CameraJumper.TryHideWorld();
                 }, MenuOptionPriority.Default, null, null, 0f, null, null));
-                list.Add(new FloatMenuOption("DropInCenter".Translate(), delegate
-                {
-                    if (!this.ReadyForTakeoff || this.LaunchAsFleet && DropShipUtility.currentShipTracker.ShipsInFleet(this.fleetID).Any(s => !s.ReadyForTakeoff))
-                    {
-                        return;
-                    }
-                    this.TryLaunch(target, PawnsArriveMode.CenterDrop, TravelingShipArrivalAction.EnterMapFriendly);
-                    CameraJumper.TryHideWorld();
-                }, MenuOptionPriority.Default, null, null, 0f, null, null));
+                //list.Add(new FloatMenuOption("DropInCenter".Translate(), delegate
+                //{
+                //    if (!this.ReadyForTakeoff || this.LaunchAsFleet && DropShipUtility.currentShipTracker.ShipsInFleet(this.fleetID).Any(s => !s.ReadyForTakeoff))
+                //    {
+                //        return;
+                //    }
+                //    this.TryLaunch(target, PawnsArriveMode.CenterDrop, TravelingShipArrivalAction.EnterMapFriendly);
+                //    CameraJumper.TryHideWorld();
+                //}, MenuOptionPriority.Default, null, null, 0f, null, null));
 
                     list.Add(new FloatMenuOption("AttackFactionBaseAerial".Translate(), delegate
                     {

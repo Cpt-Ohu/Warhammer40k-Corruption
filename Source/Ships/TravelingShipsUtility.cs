@@ -80,7 +80,7 @@ namespace OHUShips
             for (int i = 0; i < allWorldObjects.Count; i++)
             {
                 WorldObject worldObject = allWorldObjects[i];
-                if (worldObject.Tile == landedShip.Tile && worldObject != landedShip)
+                if (worldObject.Tile == landedShip.Tile && worldObject != landedShip && settlePermanent)
                 {
                     flag = true;
                     break;
@@ -113,16 +113,26 @@ namespace OHUShips
                 return;
             }
             MapParent newWorldObject;
+            Map mapToDropIn;
+            bool foundMapParent = false;
             if (settlePermanent)
             {
                 newWorldObject = SettleUtility.AddNewHome(landedShip.Tile, faction);
             }
             else
             {
-                newWorldObject = (ShipDropSite)WorldObjectMaker.MakeWorldObject(ShipNamespaceDefOfs.ShipDropSite);
-                newWorldObject.SetFaction(faction);
-                newWorldObject.Tile = landedShip.Tile;
-                Find.WorldObjects.Add(newWorldObject);
+                newWorldObject = Find.WorldObjects.MapParentAt(landedShip.Tile);
+                if (newWorldObject != null)
+                {
+                    foundMapParent = true;
+                }
+                else
+                {
+                    newWorldObject = (ShipDropSite)WorldObjectMaker.MakeWorldObject(ShipNamespaceDefOfs.ShipDropSite);
+                    newWorldObject.SetFaction(faction);
+                    newWorldObject.Tile = landedShip.Tile;
+                    Find.WorldObjects.Add(newWorldObject);
+                }
             }
             LongEventHandler.QueueLongEvent(delegate
             {
@@ -130,13 +140,19 @@ namespace OHUShips
                 if (settlePermanent)
                 {
                     vec3 = Find.World.info.initialMapSize;
+                    mapToDropIn = MapGenerator.GenerateMap(vec3, newWorldObject, MapGeneratorDefOf.MainMap, null, null);
+                }
+                else if (newWorldObject != null && foundMapParent)
+                {
+                    Site site = newWorldObject as Site;
+                    mapToDropIn = GetOrGenerateMapUtility.GetOrGenerateMap(landedShip.Tile, SiteCoreWorker.MapSize, newWorldObject.def);
                 }
                 else
                 {
                     vec3 = new IntVec3(100, 1, 100);
+                    mapToDropIn = MapGenerator.GenerateMap(vec3, newWorldObject, MapGeneratorDefOf.MainMap, null, null);
                 }
-                Map visibleMap = MapGenerator.GenerateMap(vec3, newWorldObject, MapGeneratorDefOf.MainMap, null, null);
-                Current.Game.VisibleMap = visibleMap;
+                Current.Game.VisibleMap = mapToDropIn;
             }, "GeneratingMap", true, new Action<Exception>(GameAndMapInitExceptionHandlers.ErrorWhileGeneratingMap));
             LongEventHandler.QueueLongEvent(delegate
             {

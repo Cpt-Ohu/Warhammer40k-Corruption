@@ -213,7 +213,7 @@
     </graphicData>
     <minifiedDef>MinifiedFurniture</minifiedDef>
     <castEdgeShadows>true</castEdgeShadows>
-    <altitudeLayer>ItemImportant</altitudeLayer>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
     <socialPropernessMatters>false</socialPropernessMatters>
     <fillPercent>0.05</fillPercent>
     <building>
@@ -238,7 +238,7 @@
     </stuffCategories>
     <costStuffCount>10</costStuffCount>
     <pathCost>50</pathCost>
-    <passability>PassThroughOnly</passability>
+    <passability>Standable</passability>
     <designationCategory>Worship</designationCategory>
     <uiIconPath>Things/IG/Structures/IG_WallAquilaUI</uiIconPath>
   </ThingDef>

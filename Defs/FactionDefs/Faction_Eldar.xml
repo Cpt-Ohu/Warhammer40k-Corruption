@@ -6,7 +6,7 @@
     <label>alatoic eldar</label>
     <description>Eldar from a craftworld.</description>
     <pawnsPlural>eldar</pawnsPlural>
-    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <requiredCountAtGameStart>0</requiredCountAtGameStart>
     <fixedName>Alatoic</fixedName>
     <canSiege>true</canSiege>
     <canStageAttacks>true</canStageAttacks>

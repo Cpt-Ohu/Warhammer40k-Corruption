@@ -15,7 +15,7 @@
     <defName>Bullet_Shuriken</defName>
     <label>shuriken</label>
     <graphicData>
-      <texPath>Things/Eldar/bullet_shuriken</texPath>
+      <texPath>Things/Eldar/Projectiles/bullet_shuriken</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>Cutout</shaderType>
     </graphicData>
@@ -31,7 +31,7 @@
     <defName>Bullet_ShurikenAW</defName>
     <label>shuriken</label>
     <graphicData>
-      <texPath>Things/Eldar/bullet_shuriken</texPath>
+      <texPath>Things/Eldar/Projectiles/bullet_shuriken</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>Cutout</shaderType>
     </graphicData>
@@ -157,6 +157,35 @@
     </verbs>
   </ThingDef>
 
+
+
+  <!-- =========================LongRifle===================================== -->
+
+  <ThingDef ParentName="BaseBullet" Class="Corruption.ThingDef_LaserProjectile">
+   <thingClass>Corruption.Projectile_Smoking</thingClass>
+   <defName>Projectile_EldarLongrifle</defName>
+   <label>Eldar Longrifle Shuriken</label>
+   <graphicData>
+		<texPath>Things/Eldar/Projectiles/bullet_shuriken</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+   <projectile>
+		<flyOverhead>true</flyOverhead>
+		<damageDef>Bullet</damageDef>
+		<damageAmountBase>40</damageAmountBase>
+		<speed>120</speed>
+   </projectile>
+    <preFiringInitialIntensity>0</preFiringInitialIntensity>
+    <preFiringFinalIntensity>2</preFiringFinalIntensity>
+    <postFiringInitialIntensity>2</postFiringInitialIntensity>
+    <postFiringFinalIntensity>0</postFiringFinalIntensity>
+    <preFiringDuration>2</preFiringDuration>
+    <postFiringDuration>10</postFiringDuration>
+    <StartFireChance>0.000</StartFireChance>
+    <smokeGraphicPath>Things/Eldar/Projectiles/shuriken_tail</smokeGraphicPath>
+ </ThingDef>
+
+
   <ThingDef ParentName="BaseEldarGun" Class="FactionColors.FactionItemDef">
     <thingClass>FactionColors.FactionItem</thingClass>
     <defName>EL_SniperRifle</defName>
@@ -191,7 +220,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_SniperRifle</projectileDef>
+        <projectileDef>Projectile_EldarLongrifle</projectileDef>
         <warmupTime>6</warmupTime>
         <range>45</range>
         <soundCast>Shuriken_Longrifle</soundCast>

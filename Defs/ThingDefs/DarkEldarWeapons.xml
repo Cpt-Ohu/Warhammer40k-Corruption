@@ -15,7 +15,7 @@
     <defName>Bullet_Splinter</defName>
     <label>splinter</label>
     <graphicData>
-      <texPath>Things/Eldar/bullet_shuriken</texPath>
+      <texPath>Things/Eldar/Projectiles/bullet_shuriken</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
