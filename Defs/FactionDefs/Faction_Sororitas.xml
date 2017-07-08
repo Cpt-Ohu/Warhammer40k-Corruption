@@ -6,7 +6,7 @@
     <label>Sisters of Battle</label>
     <description>The military branch of the Adeptus Sororitas.</description>
     <pawnsPlural>sisters of battle</pawnsPlural>
-    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <requiredCountAtGameStart>0</requiredCountAtGameStart>
     <fixedName>Sisters of Battle</fixedName>
     <canSiege>true</canSiege>
     <canStageAttacks>true</canStageAttacks>

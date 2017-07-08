@@ -65,6 +65,11 @@ namespace OHUShips
             }
         }
 
+        protected override string GetLetterLabel(IncidentParms parms)
+        {
+            return parms.raidStrategy.letterLabelEnemy;
+        }
+
         public override bool TryExecute(IncidentParms parms)
         {
             Map map = (Map)parms.target;
@@ -75,10 +80,7 @@ namespace OHUShips
             }
 
             IntVec3 dropCenter;
-            if (!DropCellFinder.TryFindRaidDropCenterClose(out dropCenter, map))
-            {
-                dropCenter = DropCellFinder.FindRaidDropCenterDistant(map);
-            }
+            dropCenter = DropCellFinder.FindRaidDropCenterDistant(map);
 
             this.ResolveRaidStrategy(parms);
             this.ResolveRaidArriveMode(parms);
@@ -91,7 +93,7 @@ namespace OHUShips
                 Log.Error("Got no pawns spawning raid from parms " + parms);
                 return false;
             }
-            TargetInfo target = TargetInfo.Invalid;
+            TargetInfo target = new TargetInfo(dropCenter, map);
             List<ShipBase> ships = DropShipUtility.CreateDropShips(list, parms.faction);
 
             DropShipUtility.DropShipGroups(dropCenter, map, ships, TravelingShipArrivalAction.EnterMapAssault);

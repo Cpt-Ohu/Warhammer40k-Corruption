@@ -98,8 +98,8 @@ namespace Corruption.BookStuff
                         Action storebook = delegate
                         {
                             Job newjob = new Job(DefDatabase<JobDef>.GetNamed("AddBookToLibrary"), current, this);
-                            myPawn.jobs.jobQueue.EnqueueLast(newjob);
-                            myPawn.jobs.StopAll();
+                            myPawn.jobs.jobQueue.EnqueueFirst(newjob);
+                            //myPawn.jobs.StopAll();
                             myPawn.Reserve(this);
                         };
                         list.Add(new FloatMenuOption("AddBookToLibrary".Translate(new object[] { current.LabelCap}), storebook));
@@ -115,8 +115,8 @@ namespace Corruption.BookStuff
                         Action action = delegate
                         {
                             Job newJob = new Job(DefDatabase<JobDef>.GetNamed("SitAndRead"), this);
-                            myPawn.jobs.jobQueue.EnqueueLast(newJob);
-                            myPawn.jobs.StopAll();
+                            myPawn.jobs.jobQueue.EnqueueFirst(newJob);
+                            //myPawn.jobs.StopAll();
                             pawn = myPawn;
                             myPawn.Reserve(this);
                         };
@@ -154,7 +154,6 @@ namespace Corruption.BookStuff
 
             ReadableBooks bookint = (ReadableBooks)pawn.jobs.curJob.GetTarget(book).Thing;
             Bookshelf bookshelf = (Bookshelf)pawn.jobs.curJob.GetTarget(shelf).Thing;
-            Log.Message("Trying to place book");
             Toil toil = new Toil();
             toil.defaultCompleteMode = ToilCompleteMode.Instant;
             toil.AddPreInitAction(delegate

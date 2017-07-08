@@ -6,7 +6,7 @@
     <label>Adeptus Astartes</label>
     <description>A space marine chapter.</description>
     <pawnsPlural>astartes</pawnsPlural>
-    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <requiredCountAtGameStart>0</requiredCountAtGameStart>
     <fixedName>Ultramarines</fixedName>
     <canSiege>true</canSiege>
     <canStageAttacks>true</canStageAttacks>

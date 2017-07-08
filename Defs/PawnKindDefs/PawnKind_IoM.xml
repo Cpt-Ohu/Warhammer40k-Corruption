@@ -91,7 +91,6 @@
       <li>IoM_Apparel</li>
     </apparelTags>
     <apparelRequired>
-	 <li>IoM_Apparel_RobeWanderer</li>
 	 <li>Apparel_BasicShirt</li>
     </apparelRequired>
     <apparelMoney>

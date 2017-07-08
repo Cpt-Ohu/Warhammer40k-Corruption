@@ -87,7 +87,9 @@ namespace Corruption
 
         public override void Tick()
         {
-            for (int i = 0; i < Find.Maps.Count; i++)
+            if (CorruptionModSettings.AllowFactions)
+            {
+                for (int i = 0; i < Find.Maps.Count; i++)
 
             {
                 if (Find.Maps[i].lordManager.lords.Any(x => x.LordJob.GetType() == typeof(LordJob_AssaultColony)))
@@ -124,7 +126,9 @@ namespace Corruption
                     InitializeTitheCollection();
                 }
                 CalculateColonyCorruption();
-                EldarTicksDaily();
+
+                    EldarTicksDaily();
+                }
                 CorruptionTicksDaily();
             }
         }        
@@ -144,21 +148,37 @@ namespace Corruption
             }
         }
 
-        public override void PostAdd()
+        private void GenerateAndSetFactions()
         {
-   //           Log.Message("CreatingSubSector");
-            CreateSubSector();
-            //           Log.Message("Objects created : " + this.SubSectorObjects.Count.ToString());
+            this.IoM = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.IoM_NPCFaction);
+            Find.World.factionManager.Add(this.IoM);
 
-            this.IoM = Find.FactionManager.FirstFactionOfDef(C_FactionDefOf.IoM_NPCFaction);
-            this.ChaosCult = Find.FactionManager.FirstFactionOfDef(C_FactionDefOf.ChaosCult);
-            this.DarkEldarKabal = Find.FactionManager.FirstFactionOfDef(C_FactionDefOf.DarkEldarKabal);
-            this.EldarWarhost = Find.FactionManager.FirstFactionOfDef(C_FactionDefOf.EldarWarhost);
-            this.ImperialGuard = Find.FactionManager.FirstFactionOfDef(C_FactionDefOf.ImperialGuard);
-            this.Orks = Find.FactionManager.FirstFactionOfDef(C_FactionDefOf.Orks);
-            this.AdeptusSororitas = Find.FactionManager.FirstFactionOfDef(C_FactionDefOf.AdeptusSororitas);
-            this.Mechanicus = Find.FactionManager.FirstFactionOfDef(C_FactionDefOf.Mechanicus);
-            this.Tau = Find.FactionManager.FirstFactionOfDef(C_FactionDefOf.TauVanguard);
+            this.ChaosCult = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.ChaosCult);
+            Find.World.factionManager.Add(this.ChaosCult);
+
+            this.DarkEldarKabal = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.DarkEldarKabal);
+            Find.World.factionManager.Add(this.DarkEldarKabal);
+
+            this.EldarWarhost = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.EldarWarhost);
+            Find.World.factionManager.Add(this.EldarWarhost);
+
+            this.ImperialGuard = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.ImperialGuard);
+            Find.World.factionManager.Add(this.ImperialGuard);
+
+            this.Orks = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.Orks);
+            Find.World.factionManager.Add(this.Orks);
+
+            this.AdeptusSororitas = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.AdeptusSororitas);
+            Find.World.factionManager.Add(this.AdeptusSororitas);
+
+            this.Mechanicus = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.Mechanicus);
+            Find.World.factionManager.Add(this.Mechanicus);
+
+            this.Tau = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.TauVanguard);
+            Find.World.factionManager.Add(this.Tau);
+
+
+
             if (!this.ImperialFactions.Contains(this.ImperialGuard))
             {
                 this.ImperialFactions.Add(this.ImperialGuard);
@@ -174,20 +194,20 @@ namespace Corruption
             List<Faction> list = new List<Faction>();
             list.AddRange(this.ImperialFactions);
             list.AddRange(this.XenoFactions);
-     //               Log.Message("CheckingFactionLeaders for " + list.Count.ToString() + " factions");
+            //               Log.Message("CheckingFactionLeaders for " + list.Count.ToString() + " factions");
             foreach (Faction current in list)
             {
                 if (current.leader == null)
                 {
-  //                  Log.Message("NoLeader");
-  //                       Log.Message("NoLeader for "+ current.GetCallLabel());
+                    //                  Log.Message("NoLeader");
+                    //                       Log.Message("NoLeader for "+ current.GetCallLabel());
                     PawnKindDef kinddef = DefDatabase<PawnKindDef>.AllDefsListForReading.FirstOrDefault(x => x.defaultFactionType == current.def && x.factionLeader);
                     if (kinddef != null)
                     {
-    //                                  Log.Message("GeneratedRequest");
+                        //                                  Log.Message("GeneratedRequest");
                         Pawn pawn = PawnGenerator.GeneratePawn(kinddef, current);
 
-    //                                  Log.Message("Generated Leader");
+                        //                                  Log.Message("Generated Leader");
                         current.leader = pawn;
                         if (current.leader.RaceProps.IsFlesh)
                         {
@@ -205,10 +225,23 @@ namespace Corruption
                 }
                 else
                 {
-           //         Log.Message("Leader Found");
-         //                        Log.Message("Leader for " + current.Name + " is " + current.leader.Label);
+                    //         Log.Message("Leader Found");
+                    //                        Log.Message("Leader for " + current.Name + " is " + current.leader.Label);
                 }
             }
+
+
+        }
+
+        public override void PostAdd()
+        {
+            if (CorruptionModSettings.AllowFactions)
+            {
+                this.GenerateAndSetFactions();
+                CreateSubSector();
+            }
+
+           
             base.PostAdd();
         }
 
@@ -347,24 +380,26 @@ namespace Corruption
 
         public void CorruptionTicksDaily()
         {
-            if (ColonyCorruptionAvg < 0.4)
+            if (CorruptionModSettings.AllowFactions)
             {
-                EldarWarhost.SetHostileTo(Faction.OfPlayer, true);
-                if (EldarWarhost.def.raidCommonality < 100)
+                if (ColonyCorruptionAvg < 0.4)
                 {
-                    EldarWarhost.def.raidCommonality += 10;
-                }
-                AdeptusSororitas.SetHostileTo(Faction.OfPlayer, true);
-                if (this.PatronFaction == AdeptusSororitas)
-                {
-                    this.PatronFaction = null;
-                }
-                if (AdeptusSororitas.def.raidCommonality < 100)
-                {
-                    AdeptusSororitas.def.raidCommonality += 10;
+                    EldarWarhost.SetHostileTo(Faction.OfPlayer, true);
+                    if (EldarWarhost.def.raidCommonality < 100)
+                    {
+                        EldarWarhost.def.raidCommonality += 10;
+                    }
+                    AdeptusSororitas.SetHostileTo(Faction.OfPlayer, true);
+                    if (this.PatronFaction == AdeptusSororitas)
+                    {
+                        this.PatronFaction = null;
+                    }
+                    if (AdeptusSororitas.def.raidCommonality < 100)
+                    {
+                        AdeptusSororitas.def.raidCommonality += 10;
+                    }
                 }
             }
-
             if (this.DaysToTitheCollection == 0)
             {
                 

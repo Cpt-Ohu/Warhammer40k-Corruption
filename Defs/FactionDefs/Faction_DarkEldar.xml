@@ -6,7 +6,7 @@
     <label>dark eldar</label>
     <description>Dark Eldar from a kabal.</description>
     <pawnsPlural>dark eldar</pawnsPlural>
-    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <requiredCountAtGameStart>0</requiredCountAtGameStart>
     <fixedName>DarkEldar</fixedName>
     <canSiege>true</canSiege>
     <canStageAttacks>true</canStageAttacks>

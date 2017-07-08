@@ -35,7 +35,7 @@
     <isPlayer>false</isPlayer>
     <basicMemberKind>IoM_Colonist</basicMemberKind>
     <pawnsPlural>colonists</pawnsPlural>
-    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <requiredCountAtGameStart>0</requiredCountAtGameStart>
     <BaseNameMaker>NamerFactionBasePlayerColony</BaseNameMaker>
     <expandingIconTexture>World/WorldObjects/Expanding/Town</expandingIconTexture>
     <startingResearchTags>
