@@ -32,11 +32,14 @@ namespace OHUShips
             }
         }
 
+<<<<<<< HEAD
         public override void Draw()
         {
             base.Draw();
         }
 
+=======
+>>>>>>> origin/A17
         public override void ExposeData()
         {
             base.ExposeData();
