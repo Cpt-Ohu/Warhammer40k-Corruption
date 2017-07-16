@@ -248,32 +248,28 @@ namespace OHUShips
             this.InitiateShipProperties();
             this.InitiateColors();
         }
-        
-        public int MaxLaunchDistance(bool LaunchAsFleet)
-        {
-            float fuel = this.refuelableComp.Fuel;
-            if (LaunchAsFleet && this.fleetID != -1)
-            {
-                List<ShipBase> fleetShips = DropShipUtility.currentShipTracker.ShipsInFleet(this.fleetID);
-                ShipBase lowest = fleetShips.Aggregate((curMin, x) => (curMin == null || x.refuelableComp.Fuel < curMin.refuelableComp.Fuel ? x : curMin));
-                fuel = lowest.refuelableComp.Fuel;
-            }
-
-           return Mathf.FloorToInt(fuel / 2.25f);            
-        }
 
         public int MaxLaunchDistanceEverPossible(bool LaunchAsFleet)
         {
-            float fuel = this.refuelableComp.Fuel;
             if (LaunchAsFleet && this.fleetID != -1)
             {
                 List<ShipBase> fleetShips = DropShipUtility.currentShipTracker.ShipsInFleet(this.fleetID);
-                ShipBase lowest = fleetShips.Aggregate((curMin, x) => (curMin == null || x.refuelableComp.Props.fuelCapacity < curMin.refuelableComp.Props.fuelCapacity ? x : curMin));
-                fuel = lowest.refuelableComp.Fuel;
+
+                ShipBase lowest = fleetShips.Aggregate((curMin, x) => (curMin == null || x.MaxLaunchDistanceEverPossible(false) < curMin.MaxLaunchDistanceEverPossible(false) ? x : curMin));
+                return (int)(lowest.MaxShipFlightTicks * lowest.compShip.sProps.WorldMapTravelSpeedFactor);
+            }
+            return (int)((this.MaxShipFlightTicks * this.compShip.sProps.WorldMapTravelSpeedFactor * 0.0000416f) / 0.005F);
+        }
+
+        public int MaxShipFlightTicks
+        {
+            get
+            {
+                float consumption = this.refuelableComp.Props.fuelConsumptionRate;
+                float fuel = this.refuelableComp.Fuel;
+                return (int)((fuel / consumption) * 60);
             }
 
-            return Mathf.FloorToInt(fuel / 2.25f);
-            
         }
 
         public bool ReadyForTakeoff
@@ -913,7 +909,7 @@ namespace OHUShips
                     return null;
                 }
                 int num = Find.WorldGrid.TraversalDistanceBetween(tile, target.Tile);
-                if (num <= this.MaxLaunchDistance(this.LaunchAsFleet))
+                if (num <= this.MaxLaunchDistanceEverPossible(this.LaunchAsFleet))
                 {
                     return null;
                 }
@@ -960,12 +956,12 @@ namespace OHUShips
                         return false;
                     }
                     int num = (Find.WorldGrid.TraversalDistanceBetween(tile, target.Tile));
-                    if (num > ship.MaxLaunchDistance(true))
+                    if (num > ship.MaxLaunchDistanceEverPossible(true))
                     {
                         Messages.Message("MessageFleetLaunchImpossible".Translate(), MessageSound.RejectInput);
                         return false;
                     }
-                    if (!(2*num > ship.MaxLaunchDistance(true)))
+                    if (!(2*num > ship.MaxLaunchDistanceEverPossible(true)))
                     {
                         canBomb = false;
                     }
@@ -975,7 +971,7 @@ namespace OHUShips
             {
                 int num = Find.WorldGrid.TraversalDistanceBetween(tile, target.Tile);
 
-                if (num > this.MaxLaunchDistance(this.LaunchAsFleet))
+                if (num > this.MaxLaunchDistanceEverPossible(this.LaunchAsFleet))
                 {
                     Messages.Message("MessageTransportPodsDestinationIsTooFar".Translate(new object[]
                     {
@@ -983,7 +979,7 @@ namespace OHUShips
                     }), MessageSound.RejectInput);
                     return false;
                 }
-                if (!(2 * num > this.MaxLaunchDistance(true)))
+                if (!(2 * num > this.MaxLaunchDistanceEverPossible(true)))
                 {
                     canBomb = false;
                 }
@@ -1094,12 +1090,12 @@ namespace OHUShips
 
         private void DrawFleetLaunchRadii(bool launchAsFleet, int tile)
         {
-            GenDraw.DrawWorldRadiusRing(tile, this.MaxLaunchDistance(launchAsFleet));
+            GenDraw.DrawWorldRadiusRing(tile, this.MaxLaunchDistanceEverPossible(launchAsFleet));
             if (launchAsFleet)
             {
                 foreach (ShipBase ship in DropShipUtility.currentShipTracker.ShipsInFleet(this.fleetID))
                 {
-                    GenDraw.DrawWorldRadiusRing(tile, ship.MaxLaunchDistance(launchAsFleet));
+                    GenDraw.DrawWorldRadiusRing(tile, ship.MaxLaunchDistanceEverPossible(launchAsFleet));
                 }
             }
         }
@@ -1123,7 +1119,7 @@ namespace OHUShips
 
 
             Scribe_References.Look(ref this.ParkingMap, "ParkingMap");
-            Scribe_Values.Look<IntVec3>(ref this.ParkingPosition, "ParkingMap", IntVec3.Zero , false);
+            Scribe_Values.Look<IntVec3>(ref this.ParkingPosition, "ParkingPosition", IntVec3.Zero , false);
 
 
 

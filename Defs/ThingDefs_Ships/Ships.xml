@@ -327,7 +327,7 @@ Maximum Cargo Capacity: 80 kg
 		<li>Pirate</li>
 	   </availableToFactions>
         <LeavingShipDef>OHUAlbatrosLeaving</LeavingShipDef>
-        <IncomingAngle>65</IncomingAngle>
+        <IncomingAngle>35</IncomingAngle>
         <ShadowGraphicPath>Things/Ships/OHUAlbatrosShadow</ShadowGraphicPath>
         <FleetIconGraphicPath>Things/Ships/OHUDropShipFleetIcon</FleetIconGraphicPath>
 
