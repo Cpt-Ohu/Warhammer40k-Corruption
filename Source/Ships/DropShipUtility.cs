@@ -24,6 +24,10 @@ namespace OHUShips
         public static readonly Texture2D Rename = ContentFinder<Texture2D>.Get("UI/Buttons/Rename", true);
         public static readonly Texture2D shipButton = ContentFinder<Texture2D>.Get("UI/Buttons/ButtonShip", true);
         public static readonly Texture2D DropTexture = ContentFinder<Texture2D>.Get("UI/Buttons/UnloadShip", true);
+        public static readonly Texture2D ParkingSingle = ContentFinder<Texture2D>.Get("UI/Commands/CommandParkingShipSingle", true);
+        public static readonly Texture2D ParkingFleet = ContentFinder<Texture2D>.Get("UI/Commands/CommandParkingShipFleet", true);
+        public static readonly Texture2D ReturnParkingSingle = ContentFinder<Texture2D>.Get("UI/Commands/CommandLaunchParkingSingle", true);
+        public static readonly Texture2D ReturnParkingFleet = ContentFinder<Texture2D>.Get("UI/Commands/CommandLaunchParkingFleet", true);
 
         public static readonly Texture2D TouchDownCommandTex = ContentFinder<Texture2D>.Get("UI/Commands/CommandTouchDown", true);
 
@@ -90,11 +94,11 @@ namespace OHUShips
 
         public static Vector3 drawOffsetFor(ShipBase ship, int ticks, bool isShadow = false)
         {
-            int angle = ship.compShip.sProps.IncomingAngle;            
+            float angle = ship.compShip.sProps.IncomingAngle * Mathf.PI / 180f;
             float num = (float)(ticks * ticks) * 0.01f;
             int sign = 1;
             int signHorizontal = 1;
-            if (ship.shipState == ShipState.Outgoing)
+            if (ship.shipState == ShipState.Incoming)
             {
                 sign = -1;
             }

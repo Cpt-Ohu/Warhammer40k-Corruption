@@ -44,6 +44,7 @@ namespace Corruption
         public Faction DarkEldarKabal;
         public Faction EldarWarhost;
         public Faction ImperialGuard;
+        public Faction AdeptusAstartes;
         public Faction Orks;
         public Faction Mechanicus;
         public Faction Tau;
@@ -165,6 +166,9 @@ namespace Corruption
             this.ImperialGuard = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.ImperialGuard);
             Find.World.factionManager.Add(this.ImperialGuard);
 
+            this.AdeptusAstartes = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.Astartes);
+            Find.World.factionManager.Add(this.AdeptusAstartes);
+
             this.Orks = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.Orks);
             Find.World.factionManager.Add(this.Orks);
 
@@ -185,6 +189,7 @@ namespace Corruption
             }
             if (!this.ImperialFactions.Contains(this.Mechanicus)) this.ImperialFactions.Add(this.Mechanicus);
             if (!this.ImperialFactions.Contains(this.AdeptusSororitas)) this.ImperialFactions.Add(this.AdeptusSororitas);
+            if (!this.ImperialFactions.Contains(this.AdeptusAstartes)) this.ImperialFactions.Add(this.AdeptusAstartes);
 
             if (!this.XenoFactions.Contains(this.EldarWarhost)) this.XenoFactions.Add(this.EldarWarhost);
             if (!this.XenoFactions.Contains(this.Tau)) this.XenoFactions.Add(this.Tau);

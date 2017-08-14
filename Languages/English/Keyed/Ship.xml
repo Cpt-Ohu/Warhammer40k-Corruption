@@ -62,4 +62,29 @@
 
   <CantAssignZeroHaulers>Cannot start shiploading with no haulers assigned.</CantAssignZeroHaulers>
 
+  <CommandSetParkingPosition>Set Parking</CommandSetParkingPosition>
+
+  <CommandSetParkingPositionDesc>Set the ships current position as a parking spot to return to.</CommandSetParkingPositionDesc>
+
+  <CommandTravelParkingPosition>Return ship</CommandTravelParkingPosition>
+
+  <CommandTravelParkingPositionDesc>Return this ship to its parking position.</CommandTravelParkingPositionDesc>
+
+  <CommandTravelParkingPositionFleet>Return fleet</CommandTravelParkingPositionFleet>
+
+  <CommandTravelParkingPositionFleetDesc>Return every ship in the fleet to its parking position.</CommandTravelParkingPositionFleetDesc>
+
+  <MessagePassengersFull>{0} tried to enter {1}, but there were no empty seats.</MessagePassengersFull>
+
+  <ShipSeatsFull>Too many pawns assigned as passengers.</ShipSeatsFull>
+
+
+  <ShipPassengersFull>Enter ship (No free seats).</ShipPassengersFull>
+
+  <DrawPassengerUse>{0}/{1} passengers</DrawPassengerUse>
+
+  <TooBigShipMassUsage>The assigned passengers and cargo are too heavy for this ship.</TooBigShipMassUsage>
+
+  <ShipOutOfFuelCrash>The ship "{0}" ran out of fuel and went down with all {1} passengers being lost.</ShipOutOfFuelCrash>
+
 </LanguageData>

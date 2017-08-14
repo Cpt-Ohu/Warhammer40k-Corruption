@@ -221,7 +221,21 @@ namespace OHUShips
                     yield return CaravanJourneyDestinationUtility.TakeOffCommand(base.Tile);
                 }
 
-
+                if (!this.ships.Any(x => x.ParkingMap == null))
+                {
+                    Command_Action command_Action4 = new Command_Action();
+                    command_Action4.defaultLabel = "CommandTravelParkingPosition".Translate();
+                    command_Action4.defaultDesc = "CommandTravelParkingPositionDesc".Translate();
+                    command_Action4.icon = DropShipUtility.ReturnParkingFleet;
+                    command_Action4.action = delegate
+                    {
+                        foreach (ShipBase ship in this.ships)
+                        {
+                            ship.TryLaunch(new GlobalTargetInfo(ship.ParkingPosition, ship.ParkingMap), PawnsArriveMode.CenterDrop, TravelingShipArrivalAction.EnterMapFriendly, false);
+                        }
+                    };
+                    yield return command_Action4;
+                }
             }
         }
 

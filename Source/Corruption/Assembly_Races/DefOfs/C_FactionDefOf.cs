@@ -18,5 +18,6 @@ namespace Corruption.DefOfs
         public static FactionDef AdeptusSororitas;
         public static FactionDef Mechanicus;
         public static FactionDef TauVanguard;
+        public static FactionDef Astartes;
     }
 }

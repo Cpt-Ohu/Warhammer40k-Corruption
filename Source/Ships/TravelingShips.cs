@@ -210,12 +210,35 @@ namespace OHUShips
         public override void Tick()
         {
             base.Tick();
+            this.BurnFuel();
+            if (this.ships.Count < 1)
+            {
+                this.RemoveAllPawnsFromWorldPawns();
+                this.RemoveAllPods();
+                Find.WorldObjects.Remove(this);
+            }
             this.traveledPct += this.TraveledPctStepPerTick;
             if (this.traveledPct >= 1f)
             {                
                 this.traveledPct = 1f;
                 this.Arrived();
             }
+        }
+
+        private void BurnFuel()
+        {
+            foreach (ShipBase ship in this.ships)
+            {
+                ship.refuelableComp.ConsumeFuel(ship.refuelableComp.Props.fuelConsumptionRate / 60f);
+                if (!ship.refuelableComp.HasFuel && !ship.Destroyed)
+                {
+                    Messages.Message("ShipOutOfFuelCrash".Translate(new object[] { ship.ShipNick }), MessageSound.SeriousAlert);
+                    ship.Destroy();
+                    DropShipUtility.currentShipTracker.AllWorldShips.Remove(ship);
+                }
+            }
+
+            this.ships.RemoveAll(x => x.Destroyed);
         }
 
         public void AddShip(ShipBase ship, bool justLeftTheMap)

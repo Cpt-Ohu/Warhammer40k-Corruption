@@ -6,7 +6,7 @@
     <ProjectGuid>{CBF85EFA-5337-4817-A8FE-4674E0CA189F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
-    <AssemblyName>OHUShips</AssemblyName>
+    <AssemblyName>0OHUShips</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -44,7 +44,6 @@
       <HintPath>..\..\Assemblies\FactionColors.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />

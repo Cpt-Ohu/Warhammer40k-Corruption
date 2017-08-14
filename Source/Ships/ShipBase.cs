@@ -25,7 +25,7 @@ namespace OHUShips
         public Dictionary<ShipWeaponSlot, WeaponSystemShipBomb> Payload = new Dictionary<ShipWeaponSlot, WeaponSystemShipBomb>();
         public Dictionary<ShipWeaponSlot, Thing> weaponsToInstall = new Dictionary<ShipWeaponSlot, Thing>();
         public Dictionary<ShipWeaponSlot, Thing> weaponsToUninstall = new Dictionary<ShipWeaponSlot, Thing>();
-        
+                
         #region FactionColorStuff
 
 
@@ -170,14 +170,16 @@ namespace OHUShips
         private bool isTargeting = false;
         
         public bool keepShipReference;
-
-        public KeyValuePair<Map, IntVec3> fixedPosition;
-        
+                
         public int fleetID = -1;
 
         public bool LaunchAsFleet;
 
         public bool performBombingRun;
+
+        public Map ParkingMap;
+
+        public IntVec3 ParkingPosition;
 
         private LandedShip landedShipCached;
 
@@ -246,32 +248,28 @@ namespace OHUShips
             this.InitiateShipProperties();
             this.InitiateColors();
         }
-        
-        public int MaxLaunchDistance(bool LaunchAsFleet)
-        {
-            float fuel = this.refuelableComp.Fuel;
-            if (LaunchAsFleet && this.fleetID != -1)
-            {
-                List<ShipBase> fleetShips = DropShipUtility.currentShipTracker.ShipsInFleet(this.fleetID);
-                ShipBase lowest = fleetShips.Aggregate((curMin, x) => (curMin == null || x.refuelableComp.Fuel < curMin.refuelableComp.Fuel ? x : curMin));
-                fuel = lowest.refuelableComp.Fuel;
-            }
-
-           return Mathf.FloorToInt(fuel / 2.25f);            
-        }
 
         public int MaxLaunchDistanceEverPossible(bool LaunchAsFleet)
         {
-            float fuel = this.refuelableComp.Fuel;
             if (LaunchAsFleet && this.fleetID != -1)
             {
                 List<ShipBase> fleetShips = DropShipUtility.currentShipTracker.ShipsInFleet(this.fleetID);
-                ShipBase lowest = fleetShips.Aggregate((curMin, x) => (curMin == null || x.refuelableComp.Props.fuelCapacity < curMin.refuelableComp.Props.fuelCapacity ? x : curMin));
-                fuel = lowest.refuelableComp.Fuel;
+
+                ShipBase lowest = fleetShips.Aggregate((curMin, x) => (curMin == null || x.MaxLaunchDistanceEverPossible(false) < curMin.MaxLaunchDistanceEverPossible(false) ? x : curMin));
+                return (int)(lowest.MaxShipFlightTicks * lowest.compShip.sProps.WorldMapTravelSpeedFactor);
+            }
+            return (int)((this.MaxShipFlightTicks * this.compShip.sProps.WorldMapTravelSpeedFactor * 0.0000416f) / 0.005F);
+        }
+
+        public int MaxShipFlightTicks
+        {
+            get
+            {
+                float consumption = this.refuelableComp.Props.fuelConsumptionRate;
+                float fuel = this.refuelableComp.Fuel;
+                return (int)((fuel / consumption) * 60);
             }
 
-            return Mathf.FloorToInt(fuel / 2.25f);
-            
         }
 
         public bool ReadyForTakeoff
@@ -590,7 +588,7 @@ namespace OHUShips
                 {
                     if ((this.innerContainer.ToList<Thing>().Count(x => x is Pawn) >= this.compShip.sProps.maxPassengers))
                     {
-                        
+                        Messages.Message("MessagePassengersFull".Translate(new object[] { pawn.NameStringShort, this.ShipNick }), this, MessageSound.RejectInput);
                         return false;
                     }
                 }
@@ -723,8 +721,14 @@ namespace OHUShips
                         selPawn.jobs.TryTakeOrderedJob(job);
                     }
                 };
+            if (DropShipUtility.AllPawnsInShip(this).Count < this.compShip.sProps.maxPassengers +1)
+            {
                 yield return new FloatMenuOption("EnterShip".Translate(), action, MenuOptionPriority.Default, null, null, 0f, null, null);
-            
+            }
+            else
+            {
+                yield return new FloatMenuOption("ShipPassengersFull".Translate(), null, MenuOptionPriority.Default, null, null, 0f, null, null);
+            }
         }
 
         public bool TryInstallTurret(ShipWeaponSlot slot, CompShipWeapon comp)
@@ -824,17 +828,47 @@ namespace OHUShips
                     };
                     yield return command_Action2;
                 }
-                if (1 > 2)
                 {
                     Command_Action command_Action3 = new Command_Action();
                     command_Action3.defaultLabel = "CommandSetParkingPosition".Translate();
                     command_Action3.defaultDesc = "CommandSetParkingPositionDesc".Translate();
-                    command_Action3.icon = DropShipUtility.LoadCommandTex;
+                    command_Action3.icon = DropShipUtility.ParkingSingle;
                     command_Action3.action = delegate
                     {
-                        this.fixedPosition = new KeyValuePair<Map, IntVec3>(this.Map, this.Position);
+                        this.ParkingMap = this.Map;
+                        this.ParkingPosition = this.Position;
+
                     };
                     yield return command_Action3;
+                }
+                if (this.ParkingMap != null && this.ReadyForTakeoff)
+                {
+                    this.LaunchAsFleet = true;
+                    Command_Action command_Action4 = new Command_Action();
+                    command_Action4.defaultLabel = "CommandTravelParkingPosition".Translate();
+                    command_Action4.defaultDesc = "CommandTravelParkingPositionDesc".Translate();
+                    command_Action4.icon = DropShipUtility.ReturnParkingSingle;
+                    command_Action4.action = delegate
+                    {
+                        foreach (ShipBase ship in DropShipUtility.currentShipTracker.ShipsInFleet(this.fleetID))
+                        {
+                            ship.TryLaunch(new GlobalTargetInfo(ship.ParkingPosition, ship.ParkingMap), PawnsArriveMode.CenterDrop, TravelingShipArrivalAction.EnterMapFriendly, false);
+                        }
+                    };
+                    yield return command_Action4;
+                }
+
+                if (this.ParkingMap != null && !DropShipUtility.currentShipTracker.ShipsInFleet(this.fleetID).Any(x => x.ParkingMap != null || !x.ReadyForTakeoff))
+                {
+                    Command_Action command_Action5 = new Command_Action();
+                    command_Action5.defaultLabel = "CommandTravelParkingPositionFleet".Translate();
+                    command_Action5.defaultDesc = "CommandTravelParkingPositionFleetDesc".Translate();
+                    command_Action5.icon = DropShipUtility.ReturnParkingFleet;
+                    command_Action5.action = delegate
+                    {
+                        this.TryLaunch(new GlobalTargetInfo(this.ParkingPosition, this.ParkingMap), PawnsArriveMode.CenterDrop, TravelingShipArrivalAction.EnterMapFriendly, false);
+                    };
+                    yield return command_Action5;
                 }
             }
 
@@ -875,7 +909,7 @@ namespace OHUShips
                     return null;
                 }
                 int num = Find.WorldGrid.TraversalDistanceBetween(tile, target.Tile);
-                if (num <= this.MaxLaunchDistance(this.LaunchAsFleet))
+                if (num <= this.MaxLaunchDistanceEverPossible(this.LaunchAsFleet))
                 {
                     return null;
                 }
@@ -922,12 +956,12 @@ namespace OHUShips
                         return false;
                     }
                     int num = (Find.WorldGrid.TraversalDistanceBetween(tile, target.Tile));
-                    if (num > ship.MaxLaunchDistance(true))
+                    if (num > ship.MaxLaunchDistanceEverPossible(true))
                     {
                         Messages.Message("MessageFleetLaunchImpossible".Translate(), MessageSound.RejectInput);
                         return false;
                     }
-                    if (!(2*num > ship.MaxLaunchDistance(true)))
+                    if (!(2*num > ship.MaxLaunchDistanceEverPossible(true)))
                     {
                         canBomb = false;
                     }
@@ -937,7 +971,7 @@ namespace OHUShips
             {
                 int num = Find.WorldGrid.TraversalDistanceBetween(tile, target.Tile);
 
-                if (num > this.MaxLaunchDistance(this.LaunchAsFleet))
+                if (num > this.MaxLaunchDistanceEverPossible(this.LaunchAsFleet))
                 {
                     Messages.Message("MessageTransportPodsDestinationIsTooFar".Translate(new object[]
                     {
@@ -945,7 +979,7 @@ namespace OHUShips
                     }), MessageSound.RejectInput);
                     return false;
                 }
-                if (!(2 * num > this.MaxLaunchDistance(true)))
+                if (!(2 * num > this.MaxLaunchDistanceEverPossible(true)))
                 {
                     canBomb = false;
                 }
@@ -983,7 +1017,7 @@ namespace OHUShips
                 List<FloatMenuOption> list = new List<FloatMenuOption>();
                 if (!target.WorldObject.Faction.HostileTo(Faction.OfPlayer))
                 {
-                    list.Add(new FloatMenuOption("VisitFactionBase".Translate(new object[]
+                    list.Add(new FloatMenuOption("VisitSettlement".Translate(new object[]
                     {
                         target.WorldObject.Label
                     }), delegate
@@ -1056,12 +1090,12 @@ namespace OHUShips
 
         private void DrawFleetLaunchRadii(bool launchAsFleet, int tile)
         {
-            GenDraw.DrawWorldRadiusRing(tile, this.MaxLaunchDistance(launchAsFleet));
+            GenDraw.DrawWorldRadiusRing(tile, this.MaxLaunchDistanceEverPossible(launchAsFleet));
             if (launchAsFleet)
             {
                 foreach (ShipBase ship in DropShipUtility.currentShipTracker.ShipsInFleet(this.fleetID))
                 {
-                    GenDraw.DrawWorldRadiusRing(tile, ship.MaxLaunchDistance(launchAsFleet));
+                    GenDraw.DrawWorldRadiusRing(tile, ship.MaxLaunchDistanceEverPossible(launchAsFleet));
                 }
             }
         }
@@ -1082,6 +1116,11 @@ namespace OHUShips
             Scribe_Values.Look<int>(ref this.timeToLiftoff, "timeToLiftoff", 200, false);
             Scribe_Values.Look<int>(ref this.drawTickOffset, "drawTickOffset", 0, false);
             Scribe_Values.Look<int>(ref this.timeWaited, "timeWaited", 200, false);
+
+
+            Scribe_References.Look(ref this.ParkingMap, "ParkingMap");
+            Scribe_Values.Look<IntVec3>(ref this.ParkingPosition, "ParkingPosition", IntVec3.Zero , false);
+
 
 
             Scribe_Values.Look<bool>(ref this.DeepsaveTurrets, "DeepsaveTurrets", false, false);
