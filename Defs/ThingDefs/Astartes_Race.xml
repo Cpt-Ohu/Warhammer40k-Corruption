@@ -82,7 +82,7 @@
       <leatherCommonalityFactor>0.01</leatherCommonalityFactor>
       <leatherInsulation>0.70</leatherInsulation>
       <nameCategory>HumanStandard</nameCategory>
-      <body>Human</body>
+      <body>Astartes</body>
       <baseBodySize>1</baseBodySize>
       <baseHealthScale>1</baseHealthScale>
       <foodType>OmnivoreHuman</foodType>

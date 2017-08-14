@@ -32,6 +32,9 @@ Definition of the Implants
     <tradeTags>
       <li>BodyPartOrImplant</li>
     </tradeTags>
+    <techHediffsTags>
+      <li>AstartesImplant</li>
+    </techHediffsTags>
     <comps>
       <li Class="CompProperties_Forbiddable"/>
     </comps>

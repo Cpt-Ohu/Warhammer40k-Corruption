@@ -3,7 +3,7 @@
 <Defs>
   
   	<HediffDef Name="addedAstartesImplant" Abstract="True">
-		<hediffClass>Hediff_AddedPart</hediffClass>
+		<hediffClass>HediffWithComps</hediffClass>
          <defaultLabelColor>(35,150,35)</defaultLabelColor>
 		<isBad>false</isBad>
 	</HediffDef>
