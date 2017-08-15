@@ -25,7 +25,31 @@ namespace OHUShips
         public Dictionary<ShipWeaponSlot, WeaponSystemShipBomb> Payload = new Dictionary<ShipWeaponSlot, WeaponSystemShipBomb>();
         public Dictionary<ShipWeaponSlot, Thing> weaponsToInstall = new Dictionary<ShipWeaponSlot, Thing>();
         public Dictionary<ShipWeaponSlot, Thing> weaponsToUninstall = new Dictionary<ShipWeaponSlot, Thing>();
+                        
+        public bool shouldSpawnTurrets = false;
+        //public bool shouldDeepSave = true;
+
+        public List<Pawn> assignedNewPawns = new List<Pawn>();
+
+        public void GetChildHolders(List<IThingHolder> outChildren)
+        {
+            ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, this.GetDirectlyHeldThings());
+        }
+
+        public ThingOwner GetDirectlyHeldThings()
+        {
+            return this.innerContainer;
+        }
                 
+        public override Graphic Graphic
+        {
+            get
+            {
+                return GraphicDatabase.Get<Graphic_Single>(this.def.graphicData.texPath, ShaderDatabase.ShaderFromType(this.def.graphicData.shaderType), this.def.graphicData.drawSize, this.DrawColor, this.DrawColorTwo);
+            }
+        }
+
+
         #region FactionColorStuff
 
 
@@ -51,7 +75,9 @@ namespace OHUShips
                 return Col2;
             }
         }
-        
+
+
+
         private void InitiateColors()
         {
             if (FirstSpawned)
@@ -97,30 +123,7 @@ namespace OHUShips
             }
         }
         #endregion
-        
-        public bool shouldSpawnTurrets = false;
-        //public bool shouldDeepSave = true;
 
-        public List<Pawn> assignedNewPawns = new List<Pawn>();
-
-        public void GetChildHolders(List<IThingHolder> outChildren)
-        {
-            ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, this.GetDirectlyHeldThings());
-        }
-
-        public ThingOwner GetDirectlyHeldThings()
-        {
-            return this.innerContainer;
-        }
-                
-        public override Graphic Graphic
-        {
-            get
-            {
-                return GraphicDatabase.Get<Graphic_Single>(this.def.graphicData.texPath, ShaderDatabase.ShaderFromType(this.def.graphicData.shaderType), this.def.graphicData.drawSize, this.DrawColor, this.DrawColorTwo);
-            }
-        }
-        
         public string ShipNick = "Ship";
         
         public ShipState shipState = ShipState.Stationary;
@@ -248,17 +251,17 @@ namespace OHUShips
             this.InitiateShipProperties();
             this.InitiateColors();
         }
-
-        public int MaxLaunchDistanceEverPossible(bool LaunchAsFleet)
+        
+        public int MaxLaunchDistanceEverPossible(bool LaunchAsFleet, bool includeReturnFlight = false)
         {
             if (LaunchAsFleet && this.fleetID != -1)
             {
                 List<ShipBase> fleetShips = DropShipUtility.currentShipTracker.ShipsInFleet(this.fleetID);
 
                 ShipBase lowest = fleetShips.Aggregate((curMin, x) => (curMin == null || x.MaxLaunchDistanceEverPossible(false) < curMin.MaxLaunchDistanceEverPossible(false) ? x : curMin));
-                return (int)(lowest.MaxShipFlightTicks * lowest.compShip.sProps.WorldMapTravelSpeedFactor);
+                return (int)((lowest.MaxShipFlightTicks * lowest.compShip.sProps.WorldMapTravelSpeedFactor * 0.0000416f) / 0.005F);
             }
-            return (int)((this.MaxShipFlightTicks * this.compShip.sProps.WorldMapTravelSpeedFactor * 0.0000416f) / 0.005F);
+            return (int)((this.MaxShipFlightTicks * this.compShip.sProps.WorldMapTravelSpeedFactor * 0.0000416f)/ 0.005F);
         }
 
         public int MaxShipFlightTicks
@@ -267,10 +270,19 @@ namespace OHUShips
             {
                 float consumption = this.refuelableComp.Props.fuelConsumptionRate;
                 float fuel = this.refuelableComp.Fuel;
-                return (int)((fuel / consumption) * 60);
+                return (int)((fuel / consumption) * 60) - MapFlightTicks;
             }
 
         }
+
+        private int MapFlightTicks
+        {
+            get
+            {
+                return this.compShip.sProps.TicksToImpact + this.compShip.sProps.TicksToDespawn;
+            }
+        }       
+        
 
         public bool ReadyForTakeoff
         {
@@ -586,7 +598,7 @@ namespace OHUShips
                 Pawn pawn = thing as Pawn;
                 if (pawn.def.race.Humanlike)
                 {
-                    if ((this.innerContainer.ToList<Thing>().Count(x => x is Pawn) >= this.compShip.sProps.maxPassengers))
+                    if ((this.innerContainer.ToList<Thing>().Count(x => x is Pawn && x.def.race.Humanlike) >= this.compShip.sProps.maxPassengers))
                     {
                         Messages.Message("MessagePassengersFull".Translate(new object[] { pawn.NameStringShort, this.ShipNick }), this, MessageSound.RejectInput);
                         return false;
@@ -624,7 +636,7 @@ namespace OHUShips
             }
             return false;
         }
-        
+                
         public void PrepareForLaunchIn(int ticksToLiftoff, bool noOneLeftBehind = false)
         {
             this.ActivatedLaunchSequence = true;
@@ -850,10 +862,7 @@ namespace OHUShips
                     command_Action4.icon = DropShipUtility.ReturnParkingSingle;
                     command_Action4.action = delegate
                     {
-                        foreach (ShipBase ship in DropShipUtility.currentShipTracker.ShipsInFleet(this.fleetID))
-                        {
-                            ship.TryLaunch(new GlobalTargetInfo(ship.ParkingPosition, ship.ParkingMap), PawnsArriveMode.CenterDrop, TravelingShipArrivalAction.EnterMapFriendly, false);
-                        }
+                        this.TryLaunch(new GlobalTargetInfo(this.ParkingPosition, this.ParkingMap), PawnsArriveMode.CenterDrop, TravelingShipArrivalAction.EnterMapFriendly, false);
                     };
                     yield return command_Action4;
                 }
@@ -866,7 +875,11 @@ namespace OHUShips
                     command_Action5.icon = DropShipUtility.ReturnParkingFleet;
                     command_Action5.action = delegate
                     {
-                        this.TryLaunch(new GlobalTargetInfo(this.ParkingPosition, this.ParkingMap), PawnsArriveMode.CenterDrop, TravelingShipArrivalAction.EnterMapFriendly, false);
+                        foreach (ShipBase ship in DropShipUtility.currentShipTracker.ShipsInFleet(this.fleetID))
+                        {
+                            ship.TryLaunch(new GlobalTargetInfo(ship.ParkingPosition, ship.ParkingMap), PawnsArriveMode.CenterDrop, TravelingShipArrivalAction.EnterMapFriendly, false);
+                        }
+
                     };
                     yield return command_Action5;
                 }
@@ -908,6 +921,7 @@ namespace OHUShips
                 {
                     return null;
                 }
+                Log.Message("Max: " + this.MaxLaunchDistanceEverPossible(false).ToString());
                 int num = Find.WorldGrid.TraversalDistanceBetween(tile, target.Tile);
                 if (num <= this.MaxLaunchDistanceEverPossible(this.LaunchAsFleet))
                 {
@@ -1091,15 +1105,16 @@ namespace OHUShips
         private void DrawFleetLaunchRadii(bool launchAsFleet, int tile)
         {
             GenDraw.DrawWorldRadiusRing(tile, this.MaxLaunchDistanceEverPossible(launchAsFleet));
+            GenDraw.DrawWorldRadiusRing(tile, (int)(this.MaxLaunchDistanceEverPossible(launchAsFleet) * 0.48f));
             if (launchAsFleet)
             {
                 foreach (ShipBase ship in DropShipUtility.currentShipTracker.ShipsInFleet(this.fleetID))
                 {
                     GenDraw.DrawWorldRadiusRing(tile, ship.MaxLaunchDistanceEverPossible(launchAsFleet));
+                    GenDraw.DrawWorldRadiusRing(tile, (int)(ship.MaxLaunchDistanceEverPossible(launchAsFleet)*0.48f));
                 }
             }
-        }
-               
+        }               
 
         public override void ExposeData()
         {
@@ -1139,11 +1154,11 @@ namespace OHUShips
             {
                 Scribe_Collections.Look<WeaponSystem, bool>(ref this.assignedSystemsToModify, "assignedSystemsToModify", LookMode.Reference, LookMode.Value);
             }
-
-                Scribe_Deep.Look<ThingOwner>(ref this.innerContainer, "innerContainer", new object[]
-                {
-                this
-                });
+            
+            Scribe_Deep.Look<ThingOwner>(ref this.innerContainer, "innerContainer", new object[]
+            {
+             this
+            });
             
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {

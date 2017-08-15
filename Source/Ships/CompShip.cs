@@ -56,7 +56,7 @@ namespace OHUShips
                 {
                     return null;
                 }
-                TransferableOneWay transferableOneWay = this.leftToLoad.Find((TransferableOneWay x) => x.CountToTransfer != 0 && x.HasAnyThing);
+                TransferableOneWay transferableOneWay = this.leftToLoad.Find((TransferableOneWay x) => x.CountToTransfer > 0 && x.HasAnyThing);
                 if (transferableOneWay != null)
                 {
                     return transferableOneWay.AnyThing;
@@ -88,7 +88,7 @@ namespace OHUShips
         {
             if (!t.HasAnyThing || t.CountToTransfer <= 0)
             {
-                Log.Message("NoThingsToTransfer");
+                //Log.Message("NoThingsToTransfer");
                 return;
             }
             if (this.leftToLoad == null)
@@ -110,33 +110,41 @@ namespace OHUShips
 
         public void TryRemoveLord(Map map)
         {
+            List<Pawn> pawns = new List<Pawn>();
             Lord lord = LoadShipCargoUtility.FindLoadLord(ship, map);
             if (lord != null)
             {
+                pawns.AddRange(lord.ownedPawns);
                 map.lordManager.RemoveLord(lord);
+            }
+
+            foreach (Pawn p in pawns)
+            {
+                Lord lord1 = p.GetLord();
             }
         }
 
         public void Notify_PawnEntered(Pawn p)
         {
             p.ClearMind(true);
-            this.SubtractFromToLoadList(p);
+            this.SubtractFromToLoadList(p, 1);
         }
 
-        public void SubtractFromToLoadList(Thing t)
+        public void SubtractFromToLoadList(Thing t, int count)
         {
             if (this.leftToLoad == null)
             {
                 return;
             }
-            TransferableOneWay transferableOneWay = TransferableUtility.TransferableMatching<TransferableOneWay>(t, this.leftToLoad);
+            TransferableOneWay transferableOneWay = TransferableUtility.TransferableMatchingDesperate(t, this.leftToLoad);
             if (transferableOneWay == null)
             {
                 return;
             }
-            transferableOneWay.AdjustBy(-t.stackCount);
+            transferableOneWay.AdjustBy(-count);
             if (transferableOneWay.CountToTransfer <= 0)
             {
+                //Log.Message("Removing Transferable: " + transferableOneWay.AnyThing.ToString());
                 this.leftToLoad.Remove(transferableOneWay);
             }
             if (!this.AnythingLeftToLoad)
@@ -149,6 +157,10 @@ namespace OHUShips
             }
         }
 
-
+        public void NotifyItemAdded(Thing t, int count = 0)
+        {
+            //Log.Message("Notifying: " + count.ToString());
+            this.SubtractFromToLoadList(t, count);
+        }
     }
 }
