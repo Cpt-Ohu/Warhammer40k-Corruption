@@ -45,25 +45,6 @@ namespace Corruption
             }
         }
 
-        public static void GenerateRandomBattleZone()
-        {
-            BattleZone zone = (BattleZone)WorldObjectMaker.MakeWorldObject(C_WorldObjectDefOf.BattleZone);
-            List<Faction> factions = new List<Faction>();
-            int num = Rand.RangeInclusive(2, 3);
-            while (factions.Count < 2)
-            {
-                Faction fac = Find.FactionManager.AllFactions.RandomElement();
-                if (!factions.Contains(fac) && factions.FindAll(x => !fac.HostileTo(x)).Count == 0 && !fac.def.pawnGroupMakers.NullOrEmpty())
-                {
-                    factions.Add(fac);
-                }
-            }
-            zone.InitializeBattle(BattleSize.Random, BattleType.OpenField, factions, "NamerBattleGeneric");
-            zone.Tile = TileFinder.RandomStartingTile();
-            Find.WorldObjects.Add(zone);
-        }
-
-
         public static string ReturnImperialFactionDescription(Faction faction)
         {
 

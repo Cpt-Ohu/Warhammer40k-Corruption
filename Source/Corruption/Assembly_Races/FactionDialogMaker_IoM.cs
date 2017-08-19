@@ -132,7 +132,7 @@ namespace Corruption
             {
                 action = delegate
                 {
-                    CorruptionStoryTrackerUtilities.GenerateRandomBattleZone();
+                    Domination.DominationUtilities.GenerateRandomBattleZone();
                 }
 
             });

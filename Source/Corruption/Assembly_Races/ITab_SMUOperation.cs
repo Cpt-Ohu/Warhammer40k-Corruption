@@ -134,11 +134,10 @@ namespace Corruption
                 List<FloatMenuOption> list = new List<FloatMenuOption>();
 
                 List<RecipeDef> advancedRecipes = DefDatabase<RecipeDef>.AllDefsListForReading.FindAll(x => x.defName.Contains("_MSU") || x.defName == "Euthanize");
-                advancedRecipes.AddRange(DefDatabase<RecipeDef>.AllDefsListForReading.FindAll(x => x is Astartes.RecipeDef_AstartesImplant));
-
+                //advancedRecipes.AddRange(DefDatabase<RecipeDef>.AllDefsListForReading.FindAll(x => x is Astartes.RecipeDef_AstartesImplant));
+                Log.Message(advancedRecipes.Count.ToString() + " recipes");
                 foreach (RecipeDef current in advancedRecipes)
                 {
-
                     if (current.AvailableNow && CheckAstartesRecipeDef(current, patient))
                     {
                         IEnumerable<ThingDef> enumerable = current.PotentiallyMissingIngredients(null, medTable.Map);

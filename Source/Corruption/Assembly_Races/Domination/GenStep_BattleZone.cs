@@ -15,79 +15,99 @@ namespace Corruption.Domination
 
         public Dictionary<Faction, List<Pawn>> assembledForces = new Dictionary<Faction, List<Pawn>>();
 
+        public IntVec3 battleCenter;
+
+        public Dictionary<PoliticalAlliance, IntVec3> AllianceEntryPoints = new Dictionary<PoliticalAlliance, IntVec3>();
         public Dictionary<Faction, IntVec3> spawnPoints = new Dictionary<Faction, IntVec3>();
 
         public override void Generate(Map map)
         {
             this.battleZone = (BattleZone)map.ParentHolder;
-            foreach(Faction current in this.battleZone.WarringFactions)
-            {
-                PawnGroupMakerParms pawnGroupMakerParms = new PawnGroupMakerParms();
-                pawnGroupMakerParms.tile = map.Tile;
-                pawnGroupMakerParms.generateFightersOnly = true;
-                pawnGroupMakerParms.faction = current;
-                pawnGroupMakerParms.points = Rand.Range(battleZone.battlePointRange[0], battleZone.battlePointRange[1]);
-                this.assembledForces.Add(current, PawnGroupMakerUtility.GeneratePawns(PawnGroupKindDefOf.Normal, pawnGroupMakerParms, true).ToList<Pawn>());
-                IntVec3 spawnPoint;
-                //CellFinder.TryRandomClosewalkCellNear(CellFinder.RandomEdgeCell(map), map, 100, out spawnPoint);
-                CellFinder.TryFindRandomEdgeCellWith(delegate (IntVec3 x)
-                {
 
-                    if (!this.isValidArmySpawnPoint(x, map))
-                    {
-                        return false;
-                    }               
-
-                    return true;
-                }, map, Rot4.Random, CellFinder.EdgeRoadChance_Always, out spawnPoint);
-
-                this.spawnPoints.Add(current, spawnPoint);
-            }
+            this.GenerateArmySpawnPoints(map);
 
             if (this.battleZone.DefendingFaction != null)
             {
                 IntVec3 campCenter;
                 CellFinder.TryRandomClosewalkCellNear(map.Center, map, 100, out campCenter);
-                this.spawnPoints[this.battleZone.DefendingFaction] = campCenter;
+                this.AllianceEntryPoints[this.battleZone.DefendingFaction] = campCenter;
+                this.battleCenter = campCenter;
+            }
+            else
+            {
+                this.battleCenter = map.Center;
             }
 
 
-            foreach(Faction current in this.battleZone.WarringFactions)
+            this.SpawnArmies(map);
+        }
+
+        private void GenerateArmySpawnPoints(Map map)
+        {
+            foreach (PoliticalAlliance alliance in this.battleZone.WarringAlliances)
             {
-                Log.Message("SPawning for: " + current.Name);
-                foreach (Pawn current2 in this.assembledForces[current])
+                IntVec3 spawnPoint;
+                if(!CellFinder.TryFindRandomEdgeCellWith((IntVec3 c) => c.Standable(map) && !map.roofGrid.Roofed(c) && this.isValidArmySpawnPoint(c, map) && c.GetRoom(map, RegionType.Set_Passable).TouchesMapEdge, map, CellFinder.EdgeRoadChance_Always, out spawnPoint))
                 {
-                    Log.Message("SPawning Soldier");
-                    IntVec3 loc = CellFinder.RandomClosewalkCellNear(this.spawnPoints[current], map, 8, null);
-                    GenSpawn.Spawn(current2, loc, map, Rot4.Random, false);
+                    Log.Error("No Entry point found for: " + alliance.AllianceName);
                 }
-                IntVec3 AttackPoint = IntVec3.North;
-                if (this.battleZone.DefendingFaction != null)
+
+                if (!this.AllianceEntryPoints.ContainsKey(alliance))
                 {
-                    if (current == this.battleZone.DefendingFaction)
-                    {
-                        AttackPoint = spawnPoints[current];
-                    }
+                    this.AllianceEntryPoints.Add(alliance, spawnPoint);
                 }
-                else
+                
+                foreach (Faction current in alliance.GetFactions())
                 {
-                    AttackPoint = spawnPoints.Where(x => x.Value == spawnPoints[current]).RandomElement().Value;
+                    PawnGroupMakerParms pawnGroupMakerParms = new PawnGroupMakerParms();
+                    pawnGroupMakerParms.tile = map.Tile;
+                    pawnGroupMakerParms.generateFightersOnly = true;
+                    pawnGroupMakerParms.faction = current;
+                    pawnGroupMakerParms.points = Rand.Range(battleZone.battlePointRange[0], battleZone.battlePointRange[1]);
+                    this.assembledForces.Add(current, PawnGroupMakerUtility.GeneratePawns(PawnGroupKindDefOf.Normal, pawnGroupMakerParms, true).ToList<Pawn>());
                 }
-                LordMaker.MakeNewLord(current, new LordJob_DefendPoint(map.Center),map, assembledForces[current]); 
             }
         }
 
         private bool isValidArmySpawnPoint(IntVec3 position, Map map)
         {
             bool result = true;
-            foreach (KeyValuePair<Faction, IntVec3> current in this.spawnPoints)
+            foreach (KeyValuePair<PoliticalAlliance, IntVec3> current in this.AllianceEntryPoints)
             {
-                if (position.InHorDistOf(current.Value, 50))
+                if (position.InHorDistOf(current.Value, 100f))
                 {
                     result = false;
                 }
             }
             return result;
+        }
+        
+        private void SpawnArmies(Map map)
+        {
+            foreach (PoliticalAlliance alliance in this.battleZone.WarringAlliances)
+            {
+                foreach (Faction faction in alliance.GetFactions())
+                {
+                    foreach (Pawn current2 in this.assembledForces[faction])
+                    {
+                        IntVec3 loc = CellFinder.RandomClosewalkCellNear(this.AllianceEntryPoints[alliance], map, 8, null);
+                        GenSpawn.Spawn(current2, loc, map, Rot4.Random, false);
+                    }
+                    IntVec3 AttackPoint = IntVec3.North;
+                    if (this.battleZone.DefendingFaction != null)
+                    {
+                        if (alliance == this.battleZone.DefendingFaction)
+                        {
+                            AttackPoint = AllianceEntryPoints[alliance];
+                        }
+                    }
+                    else
+                    {
+                        AttackPoint = AllianceEntryPoints.Where(x => x.Value == AllianceEntryPoints[alliance]).RandomElement().Value;
+                    }
+                    LordMaker.MakeNewLord(faction, new LordJob_DoBattle(this.battleCenter), map, assembledForces[faction]);
+                }
+            }
         }
     }
 }

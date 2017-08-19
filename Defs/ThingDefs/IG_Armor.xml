@@ -111,7 +111,7 @@
   </ThingDef>
 
   <!-- ==========================Valhallan=============================== -->
-  <ThingDef ParentName="HatMakeableBase" Name="ValhallanHat">
+  <ThingDef ParentName="HatMakeableBase" Name="ValhallanHat" Class="FactionColors.ApparelUniformDef">
     <defName>Apparel_ValhallanUshanhka</defName>
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <label>ushanka</label>
@@ -168,7 +168,7 @@
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="HatMakeableBase">
+  <ThingDef ParentName="HatMakeableBase" Class="FactionColors.ApparelUniformDef">
     <defName>Apparel_ValhallanPilotka</defName>
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <label>pilotka</label>
@@ -225,7 +225,8 @@
     </comps>
   </ThingDef>
 
-	<ThingDef ParentName="ApparelMakeableBase">
+	<ThingDef ParentName="ApparelMakeableBase" Class="FactionColors.ApparelUniformDef">
+    	<thingClass>FactionColors.ApparelUniform</thingClass>
 		<defName>Apparel_ValhallanCoat</defName>
 		<label>greatcoat</label>
 		<description>A thick greatcoat for staying warm in even the coldest of temperatures.</description>

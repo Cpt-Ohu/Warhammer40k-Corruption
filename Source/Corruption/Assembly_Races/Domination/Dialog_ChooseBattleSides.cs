@@ -12,22 +12,21 @@ namespace Corruption.Domination
     public class Dialog_ChooseBattleSides : Window
     {
         private BattleZone battleZone;
-        private Faction currentChosenFaction;
         private string curFactionName
         {
             get
             {
-                if (this.currentChosenFaction == null)
+                if (this.battleZone.PlayerChosen == null)
                 {
                     return "None".Translate();
                 }
-                else if (this.currentChosenFaction == Faction.OfPlayer)
+                else if (this.battleZone.PlayerChosen == CorruptionStoryTrackerUtilities.currentStoryTracker.DominationTracker.PlayerAlliance)
                 {
                     return "BattleAttackBoth".Translate();
                 }
                 else
                 {
-                    return this.currentChosenFaction.Name;
+                    return this.battleZone.PlayerChosen.AllianceName;
                 }
             }
         }
@@ -61,10 +60,10 @@ namespace Corruption.Domination
             {
                 List<FloatMenuOption> list = new List<FloatMenuOption>();
                 list.Add(new FloatMenuOption("SpectateBattle".Translate(), delegate { battleZone.PlayerChosen = null; }, MenuOptionPriority.Default, null, null, 0, null));
-                list.Add(new FloatMenuOption("BattleAttackBoth".Translate(), delegate { battleZone.PlayerChosen = Faction.OfPlayer; }, MenuOptionPriority.Default, null, null, 0, null));
-                foreach (Faction current in battleZone.WarringFactions)
+                list.Add(new FloatMenuOption("BattleAttackBoth".Translate(), delegate { battleZone.PlayerChosen = CorruptionStoryTrackerUtilities.currentStoryTracker.DominationTracker.PlayerAlliance; }, MenuOptionPriority.Default, null, null, 0, null));
+                foreach (PoliticalAlliance current in battleZone.WarringAlliances)
                 {
-                    list.Add(new FloatMenuOption(current.Name.CapitalizeFirst(), delegate { battleZone.PlayerChosen = current; }, MenuOptionPriority.Low, null, null, 0, null));
+                    list.Add(new FloatMenuOption(current.AllianceName.CapitalizeFirst(), delegate { battleZone.PlayerChosen = current; }, MenuOptionPriority.Low, null, null, 0, null));
 
                 }
                 Find.WindowStack.Add(new FloatMenu(list, null, false));
@@ -107,6 +106,7 @@ namespace Corruption.Domination
             if (Widgets.ButtonText(rectA, "JoinBattle".Translate(), true, false, true))
             {
                 this.battleZone.GenerateMap();
+                if (this.battleZone.HasMap) Log.Message("FOundMap");
                 this.Close();
             }
 

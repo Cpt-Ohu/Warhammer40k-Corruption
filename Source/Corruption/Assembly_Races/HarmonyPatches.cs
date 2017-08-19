@@ -38,7 +38,7 @@ namespace Corruption
                 tile = Rand.Range(0, Find.WorldGrid.TilesCount);
             }
             corrTracker.Tile = tile;
-            Find.WorldObjects.Add(corrTracker);
+            Find.WorldObjects.Add(corrTracker);            
         }
 
         private static Texture2D patronIcon
@@ -137,7 +137,7 @@ namespace Corruption
                     Need_Soul soul;
                     if (HarmonyPatches.HasSoulTraitNullyfyingTraits(def, pawn, out soul))
                     {
-                        Log.Message("HasSoulTrait");
+                        //Log.Message("HasSoulTrait");
                         __result = false;
                         return;
                     }

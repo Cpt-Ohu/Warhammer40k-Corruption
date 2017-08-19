@@ -9,7 +9,7 @@ namespace Corruption.Domination
 {
     public interface IBattleZone : ILoadReferenceable
     {
-        void InitializeBattle(BattleSize battleSize, BattleType battleType, List<Faction> participatingFactions, string battleNameRulePack, Faction defendingFaction = null);
+        void InitializeBattle(BattleSize battleSize, BattleType battleType, List<PoliticalAlliance> participatingAlliances, string battleNameRulePack, PoliticalAlliance defendingAlliance = null);
 
         string BattleName
         {

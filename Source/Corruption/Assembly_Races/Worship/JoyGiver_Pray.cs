@@ -12,22 +12,20 @@ namespace Corruption.Worship
     {        
         public override Job TryGiveJob(Pawn pawn)
         {
-            Log.Message("Trying to give prayer to: " + pawn.NameStringShort);
             if (pawn.ownership == null)
             {
                 return null;
             }
-           
             Room ownedRoom = pawn.ownership.OwnedRoom;
             if (ownedRoom == null)
             {
                 return null;
             }
-            Need_Soul soul = pawn.needs.TryGetNeed<Need_Soul>();
+            Need_Soul soul = CorruptionStoryTrackerUtilities.GetPawnSoul(pawn);
             if (soul != null)
             {
                 float chance;
-                switch (soul.DevotionTraitDegree.degree)
+                switch (soul.DevotionTrait.SDegree)
                 {
                     case -2:
                         {
@@ -60,11 +58,9 @@ namespace Corruption.Worship
                             break;
                         }
                 }
-
+                
                 if (chance > Rand.Range(0f, 1f))
                 {
-
-
                     IntVec3 c2;
                     if (!(from c in ownedRoom.Cells
                           where c.Standable(pawn.Map) && !c.IsForbidden(pawn) && pawn.CanReserveAndReach(c, PathEndMode.OnCell, Danger.None, 1)

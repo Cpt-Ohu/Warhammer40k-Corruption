@@ -11,58 +11,88 @@ namespace Corruption.Worship
 {
     public class JobDriver_Prayer : JobDriver_RelaxAlone
     {
-        public Toil LastToil;
-
-        Need_Soul soul
-        {
-            get
-            {
-                Pawn pawn = this.GetActor();
-                if (pawn != null && pawn.needs != null)
-                {
-                    return pawn.needs.TryGetNeed<Need_Soul>();
-                }
-                return null;
-            }
-        }
-
         [DebuggerHidden]
         protected override IEnumerable<Toil> MakeNewToils()
         {
+            Toil lastToil = new Toil();
             IEnumerator<Toil> enumerator = base.MakeNewToils().GetEnumerator();
             while (enumerator.MoveNext())
             {
-                Toil current = enumerator.Current;
-                LastToil = current;
-
-                yield return current;
+                lastToil = enumerator.Current;
+                yield return enumerator.Current;
             }
 
-            LastToil.preTickActions.Add(new Action(delegate
+            lastToil.AddPreInitAction(new Action(delegate
             {
-                this.ThrowMote(this.pawn);
+                this.ThrowMote(this.GetActor());
             }));
 
-            LastToil.tickAction += delegate
+            lastToil.tickAction = new Action(delegate 
             {
-                if (this.soul != null)
+                if (Find.TickManager.TicksGame % 120 == 0)
+                this.ThrowMote(this.GetActor());
+
+                });
+
+            lastToil.AddFinishAction(new Action(delegate
+            {
+                Need_Soul soul = CorruptionStoryTrackerUtilities.GetPawnSoul(this.GetActor());
+                if (soul != null)
                 {
-                    float num = 0.0005f / 60;
+                    float num = 0.005f;
                     if (soul.NoPatron)
                     {
-                        num *= -1f * Rand.Range(0.01f, 0.1f);
+                        num *= -1f * Rand.Range(0.5f, 1);
                     }
                     soul.GainNeed(num);
                 }
-            };
+            }));
+            //Toil LastToil = new Toil();
+            //IEnumerator<Toil> enumerator = base.MakeNewToils().GetEnumerator();
+            //while (enumerator.MoveNext())
+            //{
+            //    Toil current = enumerator.Current;
+            //    LastToil = current;
+
+            //    yield return current;
+            //}
+
+            //LastToil.preTickActions.Add(new Action(delegate
+            //{
+            //    this.ThrowMote(this.pawn);
+            //}));
+
+            ////LastToil.tickAction += delegate
+            ////{
+            ////    if (this.soul != null)
+            ////    {
+            ////        float num = 0.0005f / 60;
+            ////        if (soul.NoPatron)
+            ////        {
+            ////            num *= -1f * Rand.Range(0.01f, 0.1f);
+            ////        }
+            ////        soul.GainNeed(num);
+            ////    }
+            ////};
+            //this.AddFinishAction(new Action(delegate
+            //{
+            //    Need_Soul soul = CorruptionStoryTrackerUtilities.GetPawnSoul(this.GetActor());
+            //    if (soul != null)
+            //    {
+            //        float num = 0.0005f / 60;
+            //        if (soul.NoPatron)
+            //        {
+            //            num *= -1f * Rand.Range(0.01f, 0.1f);
+            //        }
+            //        soul.GainNeed(num);
+            //    }
+            //}));
 
             yield break;
         }
-
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look<Toil>(ref this.LastToil, "LastToil");
         }
 
         protected void ThrowMote(Pawn pawn)

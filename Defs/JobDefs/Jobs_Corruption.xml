@@ -111,10 +111,10 @@
   </JobDef>
 
   <JobDef>
-    <defName>Pray</defName>
+    <defName>PrayCorruption</defName>
     <driverClass>Corruption.Worship.JobDriver_Prayer</driverClass>
     <reportString>praying.</reportString>
-    <joyDuration>3000</joyDuration>
+    <joyDuration>2500</joyDuration>
     <joyGainRate>1</joyGainRate>
     <joyKind>Meditative</joyKind>
   </JobDef>

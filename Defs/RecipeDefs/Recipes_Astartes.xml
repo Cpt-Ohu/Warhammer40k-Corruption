@@ -36,7 +36,7 @@
 		</fixedIngredientFilter>
 		<addsHediff>SecondHeart</addsHediff>
 		<appliedOnFixedBodyParts>
-			<li>SecondHeart</li>
+			<li>Torso</li>
 		</appliedOnFixedBodyParts>
 	</RecipeDef>
 
@@ -75,7 +75,7 @@
 		</fixedIngredientFilter>
 		<addsHediff>ossmodula</addsHediff>
 		<appliedOnFixedBodyParts>
-			<li>Ossmodula</li>
+			<li>Torso</li>
 		</appliedOnFixedBodyParts>
 
 	</Corruption.Astartes.RecipeDef_AstartesImplant>
@@ -116,7 +116,7 @@
 		</fixedIngredientFilter>
 		<addsHediff>biscorpea</addsHediff>
 		<appliedOnFixedBodyParts>
-			<li>Biscorpea</li>
+			<li>Torso</li>
 		</appliedOnFixedBodyParts>
 
 	</Corruption.Astartes.RecipeDef_AstartesImplant>
@@ -158,7 +158,7 @@
 		</fixedIngredientFilter>
 		<addsHediff>haemastamen</addsHediff>
 		<appliedOnFixedBodyParts>
-			<li>Haemastamen</li>
+			<li>Torso</li>
 		</appliedOnFixedBodyParts>
 
 	</Corruption.Astartes.RecipeDef_AstartesImplant>
@@ -199,7 +199,7 @@
 		</fixedIngredientFilter>
 		<addsHediff>LarramansOrgan</addsHediff>
 		<appliedOnFixedBodyParts>
-			<li>LarramansOrgan</li>
+			<li>Torso</li>
 		</appliedOnFixedBodyParts>
 
 	</Corruption.Astartes.RecipeDef_AstartesImplant>
@@ -281,7 +281,7 @@
 		</fixedIngredientFilter>
 		<addsHediff>preomnor</addsHediff>
 		<appliedOnFixedBodyParts>
-			<li>Preomnor</li>
+			<li>Stomach</li>
 		</appliedOnFixedBodyParts>
 
 	</Corruption.Astartes.RecipeDef_AstartesImplant>
@@ -323,7 +323,7 @@
 		</fixedIngredientFilter>
 		<addsHediff>omophagea</addsHediff>
 		<appliedOnFixedBodyParts>
-			<li>Omophagea</li>
+			<li>Stomach</li>
 		</appliedOnFixedBodyParts>
 
 	</Corruption.Astartes.RecipeDef_AstartesImplant >
@@ -364,7 +364,7 @@
 		</fixedIngredientFilter>
 		<addsHediff>MultiLung</addsHediff>
 		<appliedOnFixedBodyParts>
-			<li>MultiLung</li>
+			<li>Torso</li>
 		</appliedOnFixedBodyParts>
 
 	</Corruption.Astartes.RecipeDef_AstartesImplant>
@@ -405,8 +405,7 @@
 		</fixedIngredientFilter>
 		<addsHediff>occulobe</addsHediff>
 		<appliedOnFixedBodyParts>
-			<li>LeftEye</li>
-			<li>RightEye</li>
+			<li>Brain</li>
 		</appliedOnFixedBodyParts>
 
 	</Corruption.Astartes.RecipeDef_AstartesImplant>
@@ -489,7 +488,7 @@
 		</fixedIngredientFilter>
 		<addsHediff>SusanMembrane</addsHediff>
 		<appliedOnFixedBodyParts>
-			<li>SusanMembrane</li>
+			<li>Brain</li>
 		</appliedOnFixedBodyParts>
 
 	</Corruption.Astartes.RecipeDef_AstartesImplant>
@@ -530,7 +529,7 @@
 		</fixedIngredientFilter>
 		<addsHediff>MelanchromicOrgan</addsHediff>
 		<appliedOnFixedBodyParts>
-			<li>MelanchromicOrgan</li>
+			<li>Torso</li>
 		</appliedOnFixedBodyParts>
 
 	</Corruption.Astartes.RecipeDef_AstartesImplant>
@@ -571,8 +570,7 @@
 		</fixedIngredientFilter>
 		<addsHediff>OoliticKidney</addsHediff>
 		<appliedOnFixedBodyParts>
-			<li>LeftKidney</li>
-			<li>RightKidney</li>
+			<li>Torso</li>
 		</appliedOnFixedBodyParts>
 
 	</Corruption.Astartes.RecipeDef_AstartesImplant>
@@ -613,7 +611,7 @@
 		</fixedIngredientFilter>
 		<addsHediff>neuroglottis</addsHediff>
 		<appliedOnFixedBodyParts>
-			<li>Neuroglottis</li>
+			<li>Jaw</li>
 		</appliedOnFixedBodyParts>
 
 	</Corruption.Astartes.RecipeDef_AstartesImplant>
@@ -654,7 +652,7 @@
 		</fixedIngredientFilter>
 		<addsHediff>mucranoid</addsHediff>
 		<appliedOnFixedBodyParts>
-			<li>Mucranoid</li>
+			<li>Torso</li>
 		</appliedOnFixedBodyParts>
 
 	</Corruption.Astartes.RecipeDef_AstartesImplant>
@@ -695,7 +693,7 @@
 		</fixedIngredientFilter>
 		<addsHediff>BetchersGlands</addsHediff>
 		<appliedOnFixedBodyParts>
-			<li>BetchersGlands</li>
+			<li>Jaw</li>
 		</appliedOnFixedBodyParts>
 
 	</Corruption.Astartes.RecipeDef_AstartesImplant>
@@ -736,7 +734,7 @@
 		</fixedIngredientFilter>
 		<addsHediff>progenoid</addsHediff>
 		<appliedOnFixedBodyParts>
-			<li>Progenoid</li>
+			<li>Torso</li>
 		</appliedOnFixedBodyParts>
 
 	</Corruption.Astartes.RecipeDef_AstartesImplant>
@@ -776,10 +774,6 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>BlackCarpace</addsHediff>
-		<appliedOnFixedBodyParts>
-			<li>BlackCarpace</li>
-		</appliedOnFixedBodyParts>
-
 	</Corruption.Astartes.RecipeDef_AstartesImplant>
 
 

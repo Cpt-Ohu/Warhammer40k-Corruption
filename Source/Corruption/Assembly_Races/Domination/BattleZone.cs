@@ -12,11 +12,13 @@ namespace Corruption.Domination
 {
     public class BattleZone : MapParent, IBattleZone
     {
-        public List<Faction> WarringFactions = new List<Faction>();
+        public List<PoliticalAlliance> WarringAlliances = new List<PoliticalAlliance>();
         
-        public Faction PlayerChosen;
+        public PoliticalAlliance PlayerChosen;
 
-        public Faction DefendingFaction;
+        public PoliticalAlliance DefendingFaction;
+
+        public BattleResult Result;
 
         private string battleName;
 
@@ -26,7 +28,7 @@ namespace Corruption.Domination
 
         private bool battleResolved = false;
 
-        public Faction winningFaction;
+        public PoliticalAlliance winningFaction;                
 
         public int[] battlePointRange = new int[2] { 0, 0 };
 
@@ -41,24 +43,34 @@ namespace Corruption.Domination
             {
                 return this.battleName;
             }
-        }              
+        }
+
+        public override MapGeneratorDef MapGeneratorDef
+        {
+            get
+            {
+                return DefOfs.C_MapGeneratorDefOf.MapGeneratorBattleZone;
+            }
+        }
 
         public override string GetInspectString()
         {
 
             StringBuilder stringBuilder = new StringBuilder();
             string desc = "";
-            for (int i =0; i< this.WarringFactions.Count; i++)
+            for (int i =0; i< this.WarringAlliances.Count; i++)
             {
-                desc += WarringFactions[i].Name + " vs. ";
+                desc += WarringAlliances[i].AllianceName + (i < this.WarringAlliances.Count -1 ? " vs. " : "");
             }
             stringBuilder.Append(desc);
             stringBuilder.Append(base.GetInspectString());
             return stringBuilder.ToString();
         }
 
-        public void InitializeBattle(BattleSize battleSize, BattleType battleType, List<Faction> participatingFactions, string battleNameRulePack, Faction defendingFaction = null)
+        public void InitializeBattle(BattleSize battleSize, BattleType battleType, List<PoliticalAlliance> participatingAlliance, string battleNameRulePack, PoliticalAlliance defendingFaction = null)
         {
+
+            this.Result = new BattleResult();
             if (battleSize == BattleSize.Random)
             {
                 this.BattleSize = (BattleSize)Rand.RangeInclusive(0, 2);
@@ -78,13 +90,13 @@ namespace Corruption.Domination
                 }
                 else
                 {
-                    this.DefendingFaction = participatingFactions.RandomElement();
+                    this.DefendingFaction = participatingAlliance.RandomElement();
                 }
             }
 
-            foreach (Faction current in participatingFactions)
+            foreach (PoliticalAlliance current in participatingAlliance)
             {
-                this.WarringFactions.Add(current);
+                this.WarringAlliances.Add(current);
             }
 
             this.battleName = NameGenerator.GenerateName(RulePackDef.Named(battleNameRulePack));
@@ -137,8 +149,31 @@ namespace Corruption.Domination
         public override bool ShouldRemoveMapNow(out bool alsoRemoveWorldObject)
         {
             alsoRemoveWorldObject = true;
-            return this.battleResolved;
+            if (this.battleResolved)
+            {
+                if (this.EnemiesRouted)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
+
+        private bool EnemiesRouted
+        {
+            get
+            {
+                foreach (Faction fac in this.Result.Loser.GetFactions())
+                {
+                    if (!this.Map.mapPawns.AllPawns.Any(x => (x.Faction == fac && (!x.Downed || x.Dead)) || x.Faction == Faction.OfPlayer))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+
 
         public override IEnumerable<Gizmo> GetGizmos()
         {
@@ -162,55 +197,82 @@ namespace Corruption.Domination
             }
         }
 
+        public override void Tick()
+        {
+            base.Tick();
+            if (!this.battleResolved && this.HasMap)
+            {
+                this.CheckBattle();
+            }
+        }
+
+        private void CheckBattle()
+        {
+            if (Find.TickManager.TicksGame % 205 == 0)
+            {
+                this.StartResolving();
+            }
+        }
+
         public bool StartResolving()
         {
-            List<IAttackTarget> acticeAdversaries = new List<IAttackTarget>();
-            for (int i = 0; i < this.WarringFactions.Count; i++)
+            for (int i = 0; i < this.WarringAlliances.Count; i++)
             {
-                acticeAdversaries.Clear();
-                acticeAdversaries.AddRange(Map.attackTargetsCache.TargetsHostileToFaction(this.WarringFactions[i]));
-                if (acticeAdversaries.Count < 1 || !acticeAdversaries.Any(x => GenHostility.IsActiveThreat(x)))
+                int adversaryCount = 0;
+                foreach (Faction current in this.WarringAlliances[i].GetFactions())
                 {
-                    this.winningFaction = this.WarringFactions[i];
+                    adversaryCount += DominationUtilities.ActiveFightersFor(current, this.Map);
+                }
+                if (adversaryCount < 1)
+                {
+                    //Log.Message("FOund Winner: " + this.WarringAlliances[i].AllianceName);
+                    this.winningFaction = this.WarringAlliances[i];
                     this.battleResolved = true;
-                    return true;
                 }
             }
-            return false;
+            if (this.battleResolved)
+            {
+                PoliticalAlliance loserFaction = this.WarringAlliances.FirstOrDefault(x => x != this.winningFaction);
+                //Log.Message("Losers: " + loserFaction.AllianceName);
+                this.Result.ResolveFactions(this.winningFaction, loserFaction, this.Map);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public override void PostRemove()
+        {
+            base.PostRemove();
         }
 
         public void GenerateMap()
         {
+            Map newMap;
             LongEventHandler.QueueLongEvent(delegate
             {
-                IntVec3 vec3;
-                if (2 > 1)
-                {
-                    vec3 = Find.World.info.initialMapSize;
-                }
-                else
-                {
-                   // vec3 = new IntVec3(100, 1, 100);
-                }
-                Map visibleMap = MapGenerator.GenerateMap(vec3, this, DefOfs.C_MapGeneratorDefOf.MapGeneratorBattleZone, null, null);
-                Current.Game.VisibleMap = visibleMap;
+                newMap = GetOrGenerateMapUtility.GetOrGenerateMap(this.Tile, Find.World.info.initialMapSize, this.def);
+                newMap.info.parent = this;
+                Find.CameraDriver.JumpToVisibleMapLoc(newMap.Center);
             }, "GeneratingMap", true, new Action<Exception>(GameAndMapInitExceptionHandlers.ErrorWhileGeneratingMap));
-            LongEventHandler.QueueLongEvent(delegate
-            {
-                Map map = this.Map;
-                Find.CameraDriver.JumpToVisibleMapLoc(map.Center);
-                Find.MainTabsRoot.EscapeCurrentTab(false);
-            }, "SpawningColonists", true, new Action<Exception>(GameAndMapInitExceptionHandlers.ErrorWhileGeneratingMap));
+            
+            //LongEventHandler.QueueLongEvent(delegate
+            //{
+            //    Map map = this.Map;
+            //    Find.CameraDriver.JumpToVisibleMapLoc(map.Center);
+            //    Find.MainTabsRoot.EscapeCurrentTab(false);
+            //}, "SpawningColonists", true, new Action<Exception>(GameAndMapInitExceptionHandlers.ErrorWhileGeneratingMap));
+        }
 
-            foreach (Faction current in this.WarringFactions)
+        private void ResolvePlayerDecision()
+        {
+            foreach (PoliticalAlliance current in this.WarringAlliances)
             {
-                if (this.PlayerChosen == Faction.OfPlayer)
+                if (this.PlayerChosen != current && this.PlayerChosen == null)
                 {
-                    current.SetHostileTo(Faction.OfPlayer, true);
-                }
-                else if (this.PlayerChosen != current && this.PlayerChosen == null)
-                {
-                    current.SetHostileTo(Faction.OfPlayer, true);
+                    current.SetHostileTo(CorruptionStoryTrackerUtilities.currentStoryTracker.DominationTracker.PlayerAlliance);
                 }
             }
         }

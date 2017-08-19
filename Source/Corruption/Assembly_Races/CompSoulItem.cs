@@ -21,7 +21,19 @@ namespace Corruption
 
         private bool randomCategoryResolved = false;
 
-        private Graphic Overlay;
+        private string OverlayPath = "";
+
+        protected Graphic OverlayGraphic
+        {
+            get
+            {
+                if (this.OverlayPath != "")
+                {
+                    return GraphicDatabase.Get<Graphic_Single>(OverlayPath, ShaderDatabase.MetaOverlay, Vector2.one, Color.white);
+                }
+                return null;
+            }
+        }
 
         private SoulItemCategories itemCategory = SoulItemCategories.Neutral;
 
@@ -38,23 +50,24 @@ namespace Corruption
 
         public void GetOverlayGraphic()
         {
-            if (SProps == null)
-                Log.Message("NoSprops");
 
-            if (itemCategory == SoulItemCategories.Corruption)
-            {
-     //           Log.Message("CorruptionItem");
-                this.Overlay = GraphicDatabase.Get<Graphic_Single>("UI/Glow_Corrupt", ShaderDatabase.MetaOverlay, Vector2.one, Color.white);
-            }
-            else if (itemCategory == SoulItemCategories.Redemption)
-            {
-  //              Log.Message("RedemptionItem");
-                this.Overlay = GraphicDatabase.Get<Graphic_Single>("UI/Glow_Holy", ShaderDatabase.MetaOverlay, Vector2.one, Color.white);
-            }
-            else
-            {
-                return;
-            }
+                if (itemCategory == SoulItemCategories.Corruption)
+                {
+                    this.OverlayPath = "UI/Glow_Corrupt";
+
+                    //this.Overlay = GraphicDatabase.Get<Graphic_Single>("UI/Glow_Corrupt", ShaderDatabase.MetaOverlay, Vector2.one, Color.white);
+                }
+                else if (itemCategory == SoulItemCategories.Redemption)
+                {
+                    //Log.Message("RedemptionItem");
+                    this.OverlayPath = "UI/Glow_Holy";
+                    //this.Overlay = GraphicDatabase.Get<Graphic_Single>("UI/Glow_Holy", ShaderDatabase.MetaOverlay, Vector2.one, Color.white);
+                }
+                else
+                {
+                    //Log.Message("Returning");
+                    return;
+                }
         }
 
         public void UpdatePsykerUnlocks(Need_Soul soul)
@@ -93,16 +106,22 @@ namespace Corruption
             }
         }
 
+        public override void Initialize(CompProperties props)
+        {
+            base.Initialize(props);
+            this.itemCategory = SProps.Category;
+            //Log.Message("Init with: " + this.itemCategory.ToString());
+        }
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
+            GetOverlayGraphic();
             if (this.parent.def.tickerType == TickerType.Never)
             {
                 this.parent.def.tickerType = TickerType.Rare;
             }
             base.PostSpawnSetup(respawningAfterLoad);
-        //    Log.Message("GettingOverlay");
-            GetOverlayGraphic();
+         //   Log.Message("GettingOverlay");
             Find.TickManager.RegisterAllTickabilityFor(this.parent);
         }
         
@@ -110,9 +129,9 @@ namespace Corruption
         {
             CompEquippable tempcomp;
             Apparel tempthing;
-            if (this.parent != null && !this.parent.Spawned && this.parent.holdingOwner == null)
+            if (this.parent != null && !this.parent.Spawned)
             {
-                //         Log.Message("Begin Check");
+                        //Log.Message("Begin Check");
                 if (this.parent is Apparel)
                 {
                     //             Log.Message("Soul item is Apparel");
@@ -121,7 +140,7 @@ namespace Corruption
                 }
                 else if ((tempcomp = this.parent.TryGetComp<CompEquippable>()) != null && tempcomp.PrimaryVerb.CasterPawn != null)
                 {
-                    //         Log.Message("IsGun");
+                     //Log.Message("IsGun");
                     this.Owner = tempcomp.PrimaryVerb.CasterPawn;
                 }
                 else if (this.parent.holdingOwner != null && this.parent.holdingOwner.Owner is Pawn_CarryTracker)
@@ -177,7 +196,7 @@ namespace Corruption
                     }
                 case (SoulItemCategories.Corruption):
                     {
-             //           Log.Message("Corrupted Item");
+                        //Log.Message("Corrupted Item");
                         sign = -1;
                         break;
                     }
@@ -194,27 +213,26 @@ namespace Corruption
                     }
             }
             num = sign * cprops.GainRate * 0.2f / 14000;
- //           Log.Message(num.ToString());
             nsoul.GainNeed(num);
         }       
 
         public override void PostDrawExtraSelectionOverlays()
         {
-            if (Overlay == null) Log.Message("NoOverlay");
-            if (Overlay != null)
+            //if (Overlay == null) Log.Message("NoOverlay");
+            if (OverlayGraphic != null)
             {
                 Vector3 drawPos = this.parent.DrawPos;
                 drawPos.y = Altitudes.AltitudeFor(AltitudeLayer.MoteOverhead);
                 Vector3 s = new Vector3(2.0f, 2.0f, 2.0f);
                 Matrix4x4 matrix = default(Matrix4x4);
                 matrix.SetTRS(drawPos, Quaternion.AngleAxis(0, Vector3.up), s);
-                Graphics.DrawMesh(MeshPool.plane10, matrix, this.Overlay.MatSingle, 0);
+                Graphics.DrawMesh(MeshPool.plane10, matrix, this.OverlayGraphic.MatSingle, 0);
             }
         }
 
         public override void CompTickRare()
         {
-            //      Log.Message("CompTick");
+            //Log.Message("CompTickRare");
             if (!this.randomCategoryResolved)
             {
                 if (SProps.Category == SoulItemCategories.Random)
@@ -231,6 +249,7 @@ namespace Corruption
             base.PostExposeData();
             Scribe_Values.Look<bool>(ref this.PsykerPowerAdded, "PsykerPowerAdded", false, false);
             Scribe_Values.Look<bool>(ref this.randomCategoryResolved, "randomCategoryResolved", false, false);
+            Scribe_Values.Look<string>(ref this.OverlayPath, "OverlayPath", "", false);
             Scribe_Values.Look<SoulItemCategories>(ref this.itemCategory, "itemCategory", SoulItemCategories.Neutral, false);
 
         }

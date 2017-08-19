@@ -60,6 +60,7 @@ namespace Corruption
         public List<Tithes.TitheEntryGlobal> currentTithes = new List<Tithes.TitheEntryGlobal>();
         public int DaysToTitheCollection = -1;
         public Pawn PlanetaryGovernor;
+        public Domination.DominationTracker DominationTracker;
 
         public bool setTithesDirty = false;
         public int curTitheID = 0;
@@ -151,6 +152,8 @@ namespace Corruption
 
         private void GenerateAndSetFactions()
         {
+            this.GenerateGenericAlliances();
+
             this.IoM = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.IoM_NPCFaction);
             Find.World.factionManager.Add(this.IoM);
 
@@ -187,13 +190,37 @@ namespace Corruption
             {
                 this.ImperialFactions.Add(this.ImperialGuard);
             }
-            if (!this.ImperialFactions.Contains(this.Mechanicus)) this.ImperialFactions.Add(this.Mechanicus);
-            if (!this.ImperialFactions.Contains(this.AdeptusSororitas)) this.ImperialFactions.Add(this.AdeptusSororitas);
-            if (!this.ImperialFactions.Contains(this.AdeptusAstartes)) this.ImperialFactions.Add(this.AdeptusAstartes);
+            if (!this.ImperialFactions.Contains(this.Mechanicus))
+            {
+                this.ImperialFactions.Add(this.Mechanicus);
+            }
+            if (!this.ImperialFactions.Contains(this.AdeptusSororitas))
+            {
+                this.ImperialFactions.Add(this.AdeptusSororitas);
+            }
+            if (!this.ImperialFactions.Contains(this.AdeptusAstartes))
+            {
+                this.ImperialFactions.Add(this.AdeptusAstartes);
+            }
 
-            if (!this.XenoFactions.Contains(this.EldarWarhost)) this.XenoFactions.Add(this.EldarWarhost);
-            if (!this.XenoFactions.Contains(this.Tau)) this.XenoFactions.Add(this.Tau);
-            if (!this.XenoFactions.Contains(this.ChaosCult)) this.XenoFactions.Add(this.ChaosCult);
+            this.DominationTracker.CreateImperiumOfManAlliance();
+
+            if (!this.XenoFactions.Contains(this.EldarWarhost))
+            {
+                this.XenoFactions.Add(this.EldarWarhost);
+                this.DominationTracker.AddNewAlliance(EldarWarhost.Name, EldarWarhost);
+            }
+            
+            if (!this.XenoFactions.Contains(this.Tau))
+            {
+                this.XenoFactions.Add(this.Tau);
+                this.DominationTracker.AddNewAlliance(Tau.Name, this.Tau);
+            }
+            if (!this.XenoFactions.Contains(this.ChaosCult))
+            {
+                this.XenoFactions.Add(this.ChaosCult);
+                this.DominationTracker.AddNewAlliance(ChaosCult.Name, ChaosCult);
+            }
 
 
             List<Faction> list = new List<Faction>();
@@ -234,14 +261,24 @@ namespace Corruption
                     //                        Log.Message("Leader for " + current.Name + " is " + current.leader.Label);
                 }
             }
+        }
 
-
+        private void GenerateGenericAlliances()
+        {
+            foreach (Faction current in Find.World.factionManager.AllFactions)
+            {
+                if (current.HasName)
+                {
+                    this.DominationTracker.AddNewAlliance(current.Name, current);
+                }
+            }            
         }
 
         public override void PostAdd()
         {
             if (CorruptionModSettings.AllowFactions)
             {
+                this.DominationTracker = new Domination.DominationTracker();
                 this.GenerateAndSetFactions();
                 CreateSubSector();
             }
@@ -518,6 +555,7 @@ namespace Corruption
             Scribe_Values.Look<float>(ref this.ColonyCorruptionAvg, "ColonyCorruptionAvg", 0.8f, false);
             Scribe_Values.Look<string>(ref this.SubsectorName, "SubsectorName", "Aurelia", false);
             Scribe_Collections.Look<Tithes.TitheEntryGlobal>(ref this.currentTithes, "currentTithes", LookMode.Deep, new object[0]);
+            Scribe_Deep.Look<Domination.DominationTracker>(ref this.DominationTracker, "DominationTracker", new object[0]);
             base.ExposeData();
         }
     }

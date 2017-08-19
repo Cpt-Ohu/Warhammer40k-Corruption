@@ -584,7 +584,7 @@ namespace Corruption
                 }
             }
             
-            if (!pdef.ForcedStartingImplantRecipes.NullOrEmpty() && !pdef.ForcedStartingImplantRecipes.NullOrEmpty())
+            if (!pdef.ForcedStartingImplantRecipes.NullOrEmpty())
             {
                 foreach (RecipeDef recipeDef in pdef.ForcedStartingImplantRecipes)
                 {
