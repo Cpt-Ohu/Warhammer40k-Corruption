@@ -8,15 +8,5 @@
     <jobDef>SitAndRead</jobDef>
     <joyKind>Study</joyKind>
   </JoyGiverDef>
-  
-  <JoyGiverDef>
-    <defName>Pray</defName>
-    <giverClass>Corruption.Worship.JoyGiver_Pray</giverClass>
-    <baseChance>80</baseChance>
-    <pctPawnsEverDo>1.0</pctPawnsEverDo>
-    <jobDef>Pray</jobDef>
-    <joyKind>Meditative</joyKind>
-  </JoyGiverDef>
-
 
 </Defs>
