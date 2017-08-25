@@ -156,37 +156,60 @@ namespace Corruption
             {
                 this.GenerateGenericAlliances();
             }
-            
-            this.IoM = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.IoM_NPCFaction);
-            Find.World.factionManager.Add(this.IoM);
-            
-            this.ChaosCult = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.ChaosCult);
-            Find.World.factionManager.Add(this.ChaosCult);
-            
-            this.DarkEldarKabal = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.DarkEldarKabal);
-            Find.World.factionManager.Add(this.DarkEldarKabal);
-            
-            this.EldarWarhost = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.EldarWarhost);
-            Find.World.factionManager.Add(this.EldarWarhost);
-            
-            this.ImperialGuard = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.ImperialGuard);
-            Find.World.factionManager.Add(this.ImperialGuard);
-            
-            this.AdeptusAstartes = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.Astartes);
-            Find.World.factionManager.Add(this.AdeptusAstartes);
-            
-            this.Orks = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.Orks);
-            Find.World.factionManager.Add(this.Orks);
-            
-            this.AdeptusSororitas = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.AdeptusSororitas);
-            Find.World.factionManager.Add(this.AdeptusSororitas);
-            
-            this.Mechanicus = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.Mechanicus);
-            Find.World.factionManager.Add(this.Mechanicus);
-            
-            this.Tau = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.TauVanguard);
-            Find.World.factionManager.Add(this.Tau);
-            
+            if (this.IoM == null)
+            {
+                this.IoM = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.IoM_NPCFaction);
+            }
+            if (Find.World.factionManager.FirstFactionOfDef(C_FactionDefOf.IoM_NPCFaction) != null)
+            { 
+                Find.World.factionManager.Add(this.IoM);
+            }
+            if (this.ChaosCult == null)
+            {
+                this.ChaosCult = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.ChaosCult);
+                Find.World.factionManager.Add(this.ChaosCult);
+            }
+            if (this.DarkEldarKabal == null)
+            {
+                this.DarkEldarKabal = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.DarkEldarKabal);
+                Find.World.factionManager.Add(this.DarkEldarKabal);
+            }
+            if (this.EldarWarhost == null)
+            {
+                this.EldarWarhost = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.EldarWarhost);
+                Find.World.factionManager.Add(this.EldarWarhost);
+            }
+            if (this.ImperialGuard == null)
+            {
+                this.ImperialGuard = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.ImperialGuard);
+                Find.World.factionManager.Add(this.ImperialGuard);
+            }
+            if (this.AdeptusAstartes == null)
+            {
+                this.AdeptusAstartes = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.Astartes);
+                Find.World.factionManager.Add(this.AdeptusAstartes);
+            }
+            if (this.Orks == null)
+            {
+                this.Orks = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.Orks);
+                Find.World.factionManager.Add(this.Orks);
+            }
+
+            if (this.AdeptusSororitas == null)
+            {
+                this.AdeptusSororitas = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.AdeptusSororitas);
+                Find.World.factionManager.Add(this.AdeptusSororitas);
+            }
+            if (this.Mechanicus == null)
+            {
+                this.Mechanicus = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.Mechanicus);
+                Find.World.factionManager.Add(this.Mechanicus);
+            }
+            if (this.Tau == null)
+            {
+                this.Tau = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.TauVanguard);
+                Find.World.factionManager.Add(this.Tau);
+            }
 
             if (!this.ImperialFactions.Contains(this.ImperialGuard))
             {

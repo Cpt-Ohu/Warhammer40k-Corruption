@@ -121,7 +121,7 @@ namespace FactionColors
         {
             base.PostExposeData();
             Scribe_Values.Look<string>(ref this.graphicPath, "graphicPath", null, false);
-            Scribe_Values.Look<Shader>(ref this.shader, "shader", ShaderDatabase.Cutout, false);
+            //Scribe_Values.Look<Shader>(ref this.shader, "shader", ShaderDatabase.Cutout, false);
             Scribe_Values.Look<ShoulderPadType>(ref this.padType, "padType", ShoulderPadType.Both, false);
             Scribe_Values.Look<bool>(ref this.useSecondaryColor, "useSecondaryColor", false, false);
 

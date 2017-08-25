@@ -45,11 +45,11 @@ namespace FactionColors
                 if (this.compF.CProps.IsRandomMultiGraphic)
                 {
                     string singlePath = this.def.apparel.wornGraphicPath + "/" + this.compF.randomGraphicPath;
-                    return GraphicDatabase.Get<Graphic_Single>(singlePath, ShaderDatabase.CutoutComplex, this.def.graphicData.drawSize, this.DrawColor, this.DrawColorTwo);
+                    return GraphicDatabase.Get<Graphic_Single>(singlePath, ShaderDatabase.CutoutComplex, this.def.graphicData.drawSize, this.Col1, this.Col2);
 
                 }
                 
-                return GraphicDatabase.Get<Graphic_Single>(this.def.graphicData.texPath, ShaderDatabase.CutoutComplex, this.def.graphicData.drawSize, this.DrawColor, this.DrawColorTwo);
+                return GraphicDatabase.Get<Graphic_Single>(this.def.graphicData.texPath, ShaderDatabase.CutoutComplex, this.def.graphicData.drawSize, this.Col1, this.Col2);
             }
         }
 
@@ -66,10 +66,10 @@ namespace FactionColors
                     }
                     if (this.Wearer != null)
                     {
-                        FactionDefUniform udef = this.Wearer.Faction.def as FactionDefUniform;
-                        if (udef != null)
+                        FactionColorEntry myEntry;
+                        if (FactionColorUtilities.currentPlayerStoryTracker.GetColorEntry(Wearer.Faction, out myEntry))
                         {
-                                Col1 = udef.FactionColor1;
+                            Col1 = myEntry.FactionColor1;
                         }
                     }
                     else
@@ -105,11 +105,10 @@ namespace FactionColors
                     CompFactionColor compF = this.GetComp<CompFactionColor>();                    
                     if (this.Wearer != null)
                     {
-                        FactionDefUniform udef = this.Wearer.Faction.def as FactionDefUniform;
-                        if (udef != null)
+                        FactionColorEntry myEntry;
+                        if (FactionColorUtilities.currentPlayerStoryTracker.GetColorEntry(Wearer.Faction, out myEntry))
                         {
-                                Col2 = udef.FactionColor2;
-                            
+                            Col2 = myEntry.FactionColor2;
                         }
                     }
                     else

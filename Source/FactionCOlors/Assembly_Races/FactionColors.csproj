@@ -47,7 +47,7 @@
     </Reference>
     <Reference Include="Corruption, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Assemblies\Corruption.dll</HintPath>
+      <HintPath>..\..\..\..\Warhammer_TEST\Assemblies\Corruption.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -80,6 +80,7 @@
     <Compile Include="CompRenderToolUserApparel.cs" />
     <Compile Include="Deepstrike_Thingdef.cs" />
     <Compile Include="Dialog_ChooseColor.cs" />
+    <Compile Include="FactionColorEntry.cs" />
     <Compile Include="FactionColorsDefOf.cs" />
     <Compile Include="FactionColorUtilities.cs" />
     <Compile Include="FactionDefUniform.cs" />

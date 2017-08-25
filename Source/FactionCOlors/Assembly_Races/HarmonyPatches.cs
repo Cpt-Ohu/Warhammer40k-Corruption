@@ -22,6 +22,7 @@ namespace FactionColors
             harmony.Patch(AccessTools.Method(typeof(Verse.PawnGraphicSet), "ResolveApparelGraphics", null), new HarmonyMethod(typeof(HarmonyPatches), "ResolveApparelGraphicsOriginal"), null);
             harmony.Patch(AccessTools.Method(typeof(Verse.PawnRenderer), "DrawEquipmentAiming"), new HarmonyMethod(typeof(HarmonyPatches), "DrawEquipmentAimingModded"), null);
             harmony.Patch(AccessTools.Method(typeof(RimWorld.FactionGenerator), "GenerateFactionsIntoWorld"), null, new HarmonyMethod(typeof(HarmonyPatches), "GenerateFactionsIntoWorldPostFix"));
+            harmony.Patch(AccessTools.Method(typeof(RimWorld.Faction), "ExposeData"), null, new HarmonyMethod(typeof(HarmonyPatches), "ExposeFactionDataPostfix"));
             //harmony.Patch(AccessTools.Method(typeof(Verse.Root_Entry), "Update"), new HarmonyMethod(typeof(HarmonyPatches), "UpdatePrefix"), null);
         }
 
@@ -177,6 +178,14 @@ namespace FactionColors
             }
 
             return false;
+        }
+
+        public static void ExposeFactionDataPostfix(ref Faction __instance)
+        {
+            if (__instance is FactionUniform)
+            {
+                Scribe_Defs.Look(ref __instance.def, "FactionDef");
+            }
         }
     }
 }

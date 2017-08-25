@@ -66,10 +66,10 @@ namespace FactionColors
                 {
                     if (this.Wearer != null)
                     {
-                        FactionDefUniform udef = this.Wearer.Faction.def as FactionDefUniform;
-                        if (udef != null)
+                        FactionColorEntry myEntry;
+                        if (FactionColorUtilities.currentPlayerStoryTracker.GetColorEntry(Wearer.Faction, out myEntry))
                         {
-                            Col1 = udef.FactionColor1;
+                            Col1 = myEntry.FactionColor1;
                         }
                     }
                     else
@@ -104,11 +104,10 @@ namespace FactionColors
                 {
                     if (this.Wearer != null)
                     {
-                        FactionDefUniform udef = this.Wearer.Faction.def as FactionDefUniform;
-                        if (udef != null)
+                        FactionColorEntry myEntry;
+                        if (FactionColorUtilities.currentPlayerStoryTracker.GetColorEntry(Wearer.Faction, out myEntry))
                         {
-                            Col2 = udef.FactionColor2;
-
+                            Col2 = myEntry.FactionColor2;
                         }
                     }
                     else
