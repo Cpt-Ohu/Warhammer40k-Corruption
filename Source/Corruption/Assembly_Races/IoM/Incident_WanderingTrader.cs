@@ -30,29 +30,21 @@ namespace Corruption.IoM
             {
                 return false;
             }
+            Pawn centerPawn = null;
+
+            if (IoM_StoryUtilities.GenerateIntrusiveWanderer(map, DefOfs.C_PawnKindDefOf.IoM_WanderingTrader, parms.faction, this.ChatType, "IoM_WandererArrives", out centerPawn))
+            {
+                this.TryConvertOnePawnToSmallTrader(centerPawn, parms.faction, map);
+                return true;
+            }
 
             Pawn pawn = PawnGenerator.GeneratePawn(DefOfs.C_PawnKindDefOf.IoM_WanderingTrader, parms.faction);
             if (pawn == null)
             {
                 return false;
             }
-            IntVec3 loc;
-            RCellFinder.TryFindRandomPawnEntryCell(out loc, map, 0.8f);
-            GenSpawn.Spawn(pawn, loc, map);
-            IntVec3 chillSpot;
-            RCellFinder.TryFindRandomSpotJustOutsideColony(pawn, out chillSpot);
-            LordJob_IntrusiveWanderer lordJob = new LordJob_IntrusiveWanderer(chillSpot, pawn, ChatType);
-            Lord lord = LordMaker.MakeNewLord(parms.faction, lordJob, map);
-            lord.AddPawn(pawn);
-            this.TryConvertOnePawnToSmallTrader(pawn, parms.faction, map);
-            string label = "LetterLabelSingleVisitorArrives".Translate();
-            string text3 = "IoM_WandererArrives".Translate(new object[]
-            {
-                pawn.Name                
-            });
-            text3 = text3.AdjustedFor(pawn);
-            Find.LetterStack.ReceiveLetter(label, text3, LetterDefOf.Good, pawn, null);
-            return true;
+
+            return false;
         }
 
         private bool TryConvertOnePawnToSmallTrader(Pawn pawn, Faction faction, Map map )

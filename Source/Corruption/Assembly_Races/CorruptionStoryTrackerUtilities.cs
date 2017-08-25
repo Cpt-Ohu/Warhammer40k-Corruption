@@ -11,6 +11,9 @@ using Verse;
 using Verse.AI.Group;
 using OHUShips;
 using Corruption.Domination;
+using Verse.AI;
+using Corruption.IoM;
+using System.Reflection;
 
 namespace Corruption
 {
@@ -362,8 +365,169 @@ namespace Corruption
             }
             DropShipUtility.DropShipGroups(dropCenter, map, tmp, TravelingShipArrivalAction.EnterMapFriendly);
             LordMaker.MakeNewLord(dropShip.Faction, new IoM.LordJob_ArrestGovernor(dropShip, dropCenter),map, arbites);
+        }
+
+        public static bool IsPsyker(Pawn pawn)
+        {
+            Need_Soul soul = CorruptionStoryTrackerUtilities.GetPawnSoul(pawn);
+            if (soul.PsykerPowerLevel >= PsykerPowerLevel.Iota)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool PsykerReadyToFire(Pawn psyker)
+        {
+            CompPsyker psycomp = psyker.TryGetComp<CompPsyker>();
+            if (psycomp != null)
+            {
+                return (psycomp.IsActive && psycomp.ShotFired);
+            }
+            return false;
+        }
+
+        public static Job AI_CastPsykerPowerJob(Pawn pawn, PsykerPowerDef powerDef, Thing target, JobDef forcedJobDef = null)
+        {
+            CompPsyker compPsyker = pawn.TryGetComp<CompPsyker>();
+            if (compPsyker != null)
+            {
+                Verb_CastWarpPower verb = (Verb_CastWarpPower)Activator.CreateInstance(powerDef.MainVerb.verbClass);
+                verb.verbProps = powerDef.MainVerb;
+                verb.caster = pawn;
+                compPsyker.CurTarget = null;
+                compPsyker.CurTarget = target;
+                compPsyker.curVerb = verb;
+                compPsyker.curPower = powerDef;
+                compPsyker.curRotation = target.Rotation;
+                Job job = null;
+                if (forcedJobDef != null)
+                {
+                    job = new Job(forcedJobDef, target);
+                }
+                else
+                {
+                    job = CompPsyker.PsykerJob(verb.warpverbprops.PsykerPowerCategory, target);
+                }
+                job.playerForced = true;
+                job.verbToUse = verb;
+                Pawn pawn2 = target as Pawn;
+                if (pawn2 != null)
+                {
+                    job.killIncappedTarget = pawn2.Downed;
+                }
+
+                return job;
+            }
+            return null;
+        }
+
+        public static bool CheckCastOpportunicPsykerPower(Pawn pawn)
+        {
+            Map map = pawn.Map;
 
 
+
+
+
+            return false;
+        }
+
+        public static void AIGetPsykerTarget(Pawn psyker, AIPsykerPowerCategory aiCategory, float maxRange, out Thing target)
+        {
+
+            switch (aiCategory)
+            {
+
+                case (AIPsykerPowerCategory.DamageDealer):
+                case (AIPsykerPowerCategory.BuffGiverHostile):
+                case (AIPsykerPowerCategory.MentalStateGiverHostile):
+                    {
+                        target = (Thing)AttackTargetFinder.BestAttackTarget(psyker, TargetScanFlags.NeedLOSToPawns | TargetScanFlags.NeedLOSToNonPawns | TargetScanFlags.NeedReachableIfCantHitFromMyPos | TargetScanFlags.NeedThreat, null, 0f, 50f, default(IntVec3), 3.40282347E+38f, false);
+                        return;
+                    }
+                case (AIPsykerPowerCategory.BuffGiverFriendly):
+                case (AIPsykerPowerCategory.MentalStateGiverFriendly):
+                    {
+                        Predicate<Thing> validator = delegate (Thing t)
+                        {
+                            Pawn pawn3 = (Pawn)t;
+                            return pawn3.Faction == psyker.Faction && !pawn3.InBed();
+                        };
+                        target = GenClosest.ClosestThingReachable(psyker.Position, psyker.Map, ThingRequest.ForGroup(ThingRequestGroup.Pawn), PathEndMode.OnCell, TraverseParms.For(psyker, Danger.Deadly, TraverseMode.ByPawn, false), 50f, validator, null, 0, -1, false, RegionType.Set_Passable, false);
+                        return;
+                    }
+                case (AIPsykerPowerCategory.AoEFriendly):
+                    {
+                        target = psyker;
+                        return;
+                    }
+                case (AIPsykerPowerCategory.AoEHostile):
+                    {
+                        List<IAttackTarget> potentialTargets = (psyker.Map.attackTargetsCache.GetPotentialTargetsFor(psyker)).FindAll(x => (x as Thing).Position.InHorDistOf(psyker.Position, maxRange));
+                        if (potentialTargets.Count > 1)
+                        {
+                            target = psyker;
+                        }
+                        target = null;
+                        return;
+                    }
+                default:
+                    {
+                        target = null;
+                        return;
+                    }
+            }
+        }
+
+        public static bool GetRandOffensivePsykerPower(Pawn pawn, out PsykerPowerDef powerDef, out AIPsykerPowerCategory aiCategory)
+        {
+            Need_Soul soul = CorruptionStoryTrackerUtilities.GetPawnSoul(pawn);
+            if (soul != null)
+            {
+                CompPsyker compPsyker = soul.compPsyker;
+                if (compPsyker != null)
+                {
+                    Predicate<PsykerPower> validator = delegate (PsykerPower p)
+                    {
+                            AIPsykerPowerCategory cat = p.powerdef.AICategory;
+                            return (cat != AIPsykerPowerCategory.MentalStateGiverFriendly && cat != AIPsykerPowerCategory.AoEFriendly);                        
+                    };
+                    compPsyker.UpdatePowers();
+                    List<PsykerPower> offensivePowers = compPsyker.allPowers.FindAll(x => validator(x));
+                    if (offensivePowers.Count > 0)
+                    {
+                        PsykerPowerDef newDef = offensivePowers.RandomElement().powerdef;
+                        if (newDef != null)
+                        {
+                            aiCategory = newDef.AICategory;
+                            powerDef = newDef;
+                            return true;
+                        }
+                    }
+                }
+            }
+            powerDef = null;
+            aiCategory = AIPsykerPowerCategory.DamageDealer;
+            return false;
+        }
+
+         
+        public static void InitiateServitorComp(Pawn pawn)
+        {
+            CompServitor compServitor = new CompServitor();
+            compServitor.parent = pawn;
+            CompProperties_Refuelable cprops = new CompProperties_Refuelable();
+            cprops.compClass = typeof(CompServitor);
+            compServitor.Initialize(cprops);
+            FieldInfo info = typeof(ThingWithComps).GetField("comps", BindingFlags.NonPublic | BindingFlags.Instance);
+            if (info != null)
+            {
+                List<ThingComp> list = info.GetValue(pawn) as List<ThingComp>;
+                list.Add(compServitor);
+                typeof(ThingWithComps).GetField("comps", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(pawn, list);
+            }
         }
     }
+
 }

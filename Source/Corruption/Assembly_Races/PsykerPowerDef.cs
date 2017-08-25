@@ -27,5 +27,7 @@ namespace Corruption
         public string IconGraphicPath;
 
         public VerbProperties_WarpPower MainVerb;
+        
+        public AIPsykerPowerCategory AICategory = AIPsykerPowerCategory.DamageDealer;
     }
 }

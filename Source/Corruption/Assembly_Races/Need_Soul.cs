@@ -155,6 +155,10 @@ namespace Corruption
                 //       Log.Message("Name is: " + this.pawn.Name.ToStringFull);
                 if (pdef != null)
                 {
+                    if (pdef.IsServitor)
+                    {
+                        CorruptionStoryTrackerUtilities.InitiateServitorComp(pawn);
+                    }
                     if (pdef.UseFixedGender)
                     {
                         this.pawn.gender = pdef.FixedGender;

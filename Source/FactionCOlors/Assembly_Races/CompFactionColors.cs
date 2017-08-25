@@ -49,6 +49,7 @@ namespace FactionColors
         {
             base.PostExposeData();
             Scribe_Values.Look<string>(ref this.randomGraphicPath, "randomGraphicPath", "");
+            Scribe_Values.Look<Color>(ref this.SecondaryColor, "SecondaryColor", Color.white);
         }
 
     }    

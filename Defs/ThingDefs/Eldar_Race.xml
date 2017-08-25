@@ -85,22 +85,7 @@
             <relationChanceModifierSpouse>1</relationChanceModifierSpouse>
         </relationSettings>
 		<raceRestriction>
-		  
-		  <apparelList>
-                 <li>Eldar_PowerArmor</li>
-                 <li>Eldar_PowerArmorHelmet</li>
-                 <li>Eldar_WarlockRobe</li>
-                 <li>Eldar_WarlockHelmet</li>
-                 <li>EldarRangerArmor</li>
-                 <li>EldarHelmetNeutral</li>
-                 <li>Eldar_PowerArmor</li>
-                 <li>Eldar_RangerHelmet</li>
-                 <li>Eldar_RangerRobe</li>
-                 <li>Eldar_DAArmor</li>
-                 <li>Eldar_DAHelmet</li>
-</apparelList>
-          <onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
-        </raceRestriction>
+		          </raceRestriction>
 
 	</alienRace>
     <statBases>

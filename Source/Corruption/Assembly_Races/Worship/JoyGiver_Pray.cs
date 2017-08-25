@@ -62,6 +62,32 @@ namespace Corruption.Worship
                 if (chance > Rand.Range(0f, 1f))
                 {
                     IntVec3 c2;
+                    //Look for Items of Worship
+                    List<Thing> worshipBuildings = ownedRoom.ContainedAndAdjacentThings.FindAll(x => x.def.designationCategory == DefOfs.C_DesignationCategoryDefOf.Worship);
+                    if (!worshipBuildings.NullOrEmpty())
+                    {
+                        Thing chosen = null;
+                        if ((from b in worshipBuildings
+                              where b is Building && !b.IsForbidden(pawn) && pawn.CanReserveAndReach(b, PathEndMode.OnCell, Danger.None, 1)
+                              select b).TryRandomElement(out chosen))
+                        {
+                            if (chosen.def.hasInteractionCell)
+                            {
+                                c2 = chosen.InteractionCell;
+                            }
+                            else
+                            {
+                                c2 = GenAdj.CellsAdjacent8Way(chosen).Where(x => x.Standable(pawn.Map)).RandomElement();
+                            }
+
+                            return new Job(this.def.jobDef, c2);
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                    //Try random cell
                     if (!(from c in ownedRoom.Cells
                           where c.Standable(pawn.Map) && !c.IsForbidden(pawn) && pawn.CanReserveAndReach(c, PathEndMode.OnCell, Danger.None, 1)
                           select c).TryRandomElement(out c2))

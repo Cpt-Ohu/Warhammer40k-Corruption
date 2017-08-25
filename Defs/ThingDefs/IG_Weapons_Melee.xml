@@ -136,6 +136,7 @@
     <label>Imperial Staff</label>
     <description>A simple staff of office.</description>
 	<graphicData>
+      <drawSize>(1.2,1.2)</drawSize>
 		<texPath>Things/IG/Weapons/ForceStaff</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>

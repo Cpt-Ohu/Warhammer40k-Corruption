@@ -12,21 +12,51 @@ namespace Corruption.Domination
     public class DominationTracker : IExposable
     {
         public List<IBattleZone> battleZones = new List<IBattleZone>();
-        
-        public PoliticalAlliance ImperiumOfMan;
 
-        private int NextAllianceLoadID = 0;        
-                        
-        private List<PoliticalAlliance> politicalAlliancesInt = new List<PoliticalAlliance>();
+        public List<DominationConflict> AllConflicts = new List<DominationConflict>();
 
-        public void GetAllianceByName(string name)
+        public void AddNewConflict(PoliticalAlliance first, PoliticalAlliance second)
         {
-
+            this.AllConflicts.Add(new DominationConflict(first, second));
         }
 
-        public void GetAllianceOfFaction(Faction faction)
+        public bool CheckPawnDiedInWar(Pawn pawn, DamageInfo dinfo)
         {
+            if (pawn.def.race.Humanlike)
+            {
+                Pawn attacker = dinfo.Instigator as Pawn;
+                if (attacker != null && attacker.Faction != pawn.Faction)
+                {
+                    DominationConflict conflict;
+                    if (this.FactionsAtWar(pawn.Faction, attacker.Faction, out conflict))
+                    {
+                        PoliticalAlliance victimAlliance = this.GetAllianceOfFaction(pawn.Faction);
+                        PoliticalAlliance instigatorAlliance = this.GetAllianceOfFaction(pawn.Faction);
+                        conflict.AdjustWarWearinessFor(victimAlliance, 0.002f * pawn.kindDef.combatPower);
+                        float triumphFactor = victimAlliance.IsPlayerAlliance ? 0.05f : 0.001f;
+                        conflict.AdjustWarWearinessFor(instigatorAlliance, -triumphFactor * pawn.kindDef.combatPower);
+                    }
 
+                }
+            }
+            return false;
+        }
+
+        public PoliticalAlliance ImperiumOfMan;
+
+        private int NextAllianceLoadID = 0;
+        private int NextWarLoadID = 0;
+
+        private List<PoliticalAlliance> politicalAlliancesInt = new List<PoliticalAlliance>();
+
+        public PoliticalAlliance GetAllianceByName(string name)
+        {
+            return this.politicalAlliancesInt.FirstOrDefault(x => x.AllianceName == name);
+        }
+
+        public PoliticalAlliance GetAllianceOfFaction(Faction faction)
+        {
+            return this.politicalAlliancesInt.FirstOrDefault(x => x.GetFactions().Contains(faction));
         }
 
         public PoliticalAlliance PlayerAlliance
@@ -35,6 +65,37 @@ namespace Corruption.Domination
             {
                 return this.politicalAlliancesInt.FirstOrDefault(x => x.IsPlayerAlliance);
             }
+        }
+
+        public bool GetAllianceWar(PoliticalAlliance firstAlliance, PoliticalAlliance secAlliance, out DominationConflict conflict)
+        {
+            DominationConflict potentialConflict = this.AllConflicts.FirstOrDefault(x => ((x.First == firstAlliance && x.Second == secAlliance) || (x.Second == secAlliance && x.First == firstAlliance)));
+
+            if (potentialConflict != null)
+            {
+                conflict = potentialConflict;
+                return true;
+            }
+            conflict = null;
+            return false;
+        }
+
+        public bool FactionsAtWar(Faction first, Faction second, out DominationConflict conflict)
+        {
+            PoliticalAlliance firstAlliance = this.GetAllianceOfFaction(first);
+            PoliticalAlliance secAlliance = this.GetAllianceOfFaction(second);
+            if (firstAlliance == null || secAlliance == null)
+            {
+                conflict = null;
+                return false;
+            }
+            conflict = this.AllConflicts.FirstOrDefault(x => ((x.First == firstAlliance && x.Second == secAlliance) || (x.Second == secAlliance && x.First == firstAlliance)));
+            if (conflict != null)
+            {
+                return true;
+            }
+        
+            return false;
         }
 
         public PoliticalAlliance GetRandomAlliance()
@@ -62,7 +123,12 @@ namespace Corruption.Domination
         {
             this.NextAllianceLoadID++;
             return this.NextAllianceLoadID;
-                
+        }
+
+        public int GetNextWarID()
+        {
+            this.NextWarLoadID++;
+            return this.NextWarLoadID;
         }
 
         public void ExposeData()

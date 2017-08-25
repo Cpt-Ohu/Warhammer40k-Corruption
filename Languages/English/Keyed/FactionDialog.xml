@@ -66,4 +66,10 @@ Any further resistance at this stage will result in the application of force by 
   <MessageGovernorArrestGoneHostile>The arbitors were attacked. They'll respond with force.</MessageGovernorArrestGoneHostile>
 
 
+  <RequestNursesNode>Request Sororitas Nurses</RequestNursesNode>
+
+  <RequestNurses>Request Sororitas Nurses to treat your sick({0})</RequestNurses>
+  <RequestHealersConfirmed>Confirm request for nurses. The Adeptus will take a donation of {0} silver.</RequestHealersConfirmed>
+
+
 </LanguageData>

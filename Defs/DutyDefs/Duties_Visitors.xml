@@ -115,4 +115,35 @@
     </thinkNode>
   </DutyDef>
 
+    <DutyDef>
+    <defName>FollowAndConvertTau</defName>
+    <alwaysShowWeapon>false</alwaysShowWeapon>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="Corruption.IoM.JobGiver_FollowAndConvertTau"/>
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+  
+    <DutyDef>
+    <defName>FollowAndHeal</defName>
+    <alwaysShowWeapon>false</alwaysShowWeapon>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="Corruption.IoM.JobGiver_MiracleHeal"/>
+            <li Class="ThinkNode_ConditionalRandom">              		<chance>0.5</chance>
+      	<subNodes>
+        <li Class="Corruption.IoM.JobGiver_FollowAndChat"/>
+                <li Class="JobGiver_StandAndBeSociallyActive">
+                  <ticksRange>
+                    <min>350</min>
+                    <max>750</max>
+                  </ticksRange>
+                </li>
+      	</subNodes>
+            </li> 
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+
 </Defs>

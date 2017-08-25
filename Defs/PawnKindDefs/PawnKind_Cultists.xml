@@ -135,6 +135,14 @@
       <UpperAfflictionLimit>0.25</UpperAfflictionLimit>
       <LowerPsykerPowerLimit>Iota</LowerPsykerPowerLimit>
       <UpperPsykerPowerLimit>Delta</UpperPsykerPowerLimit>
+       <CommmonPsykerPowers>
+        <li>PsykerPower_DoomBolt</li>
+        <li>PsykerPower_FireLance</li>
+        <li>PsykerPower_Scourging</li>
+        <li>PsykerPower_EmpyrealInferno</li>
+        <li>PsykerPower_Mindcontrol</li>
+        <li>PsykerPower_BuffRage</li>
+       </CommmonPsykerPowers>
     </AfflictionProperty>
   </PawnKindDef>
 
@@ -183,7 +191,16 @@
       <UpperAfflictionLimit>0.10</UpperAfflictionLimit>
       <LowerPsykerPowerLimit>Iota</LowerPsykerPowerLimit>
       <UpperPsykerPowerLimit>Delta</UpperPsykerPowerLimit>
+       <CommmonPsykerPowers>
+        <li>PsykerPower_DoomBolt</li>
+        <li>PsykerPower_FireLance</li>
+        <li>PsykerPower_Scourging</li>
+        <li>PsykerPower_EmpyrealInferno</li>
+        <li>PsykerPower_Mindcontrol</li>
+        <li>PsykerPower_BuffRage</li>
+       </CommmonPsykerPowers>
     </AfflictionProperty>
+
   </PawnKindDef>
 
 

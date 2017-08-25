@@ -11,4 +11,14 @@
     <pointsScaleable>false</pointsScaleable>
   </IncidentDef>
 
+  <IncidentDef>
+    <defName>Visitor_Healer</defName>
+    <label>healer arrives</label>
+    <targetType>MapPlayerHome</targetType>
+    <workerClass>Corruption.IoM.IncidentWorker_VisitingHealer</workerClass>
+    <category>AllyArrival</category>
+    <baseChance>1</baseChance>
+    <pointsScaleable>false</pointsScaleable>
+  </IncidentDef>
+
 </Defs>

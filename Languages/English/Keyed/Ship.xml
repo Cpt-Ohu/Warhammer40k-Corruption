@@ -87,4 +87,7 @@
 
   <ShipOutOfFuelCrash>The ship "{0}" ran out of fuel and went down with all {1} passengers being lost.</ShipOutOfFuelCrash>
 
+
+  <MessageBombedSettlement>Your ships have bombed {0} of {1}. It has been destroyed.</MessageBombedSettlement>
+
 </LanguageData>

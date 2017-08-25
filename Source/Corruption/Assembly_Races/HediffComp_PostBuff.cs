@@ -56,7 +56,7 @@ namespace Corruption
             base.CompPostTick(ref severityAdjustment);
             DrawBuff();
         }
-
+        
         public override bool CompShouldRemove
         {
             get

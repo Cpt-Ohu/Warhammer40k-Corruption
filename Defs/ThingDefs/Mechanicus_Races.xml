@@ -22,14 +22,11 @@
     </comps>
   </ThingDef>
 
-    <AlienRace.ThingDef_AlienRace ParentName="BasePawn">
-
+    <AlienRace.ThingDef_AlienRace ParentName="BasePawn" Name="MechanicusMember">
     <defName>Alien_Mechanicus_Member</defName>
     <label>Human</label>
     <description>A tech-enhanced and possibly gene-enhanced human.</description>
     <uiIconPath>Things/Pawn/Humanlike/UI/IconHuman</uiIconPath>
-
-
 	<alienRace>
         <generalSettings>
             <MaleGenderProbability>0.5</MaleGenderProbability>
@@ -60,7 +57,6 @@
 						</li>
                     </options>
                 </alienskincolorgen>
-
                 <customDrawSize>(1, 1)</customDrawSize>
                 <customPortraitDrawSize>(1, 1)</customPortraitDrawSize>
             </alienPartGenerator>
@@ -208,6 +204,67 @@
     </comps>
   </AlienRace.ThingDef_AlienRace>
 
+  <AlienRace.ThingDef_AlienRace ParentName="MechanicusMember">
+    <defName>Mechanicum_Servitor</defName>
+    <label>servitor</label>
+    <description>A standard servitor. Maybe it was a vatgrown blank, maybe a convicted criminal. Whatever it was, not it's only capable of rudimentary tasks and closer to a machine than a human.</description>
+	<alienRace>
+        <generalSettings>
+            <MaleGenderProbability>0.5</MaleGenderProbability>
+            <PawnsSpecificBackstories>true</PawnsSpecificBackstories>
+            <ImmuneToAge>true</ImmuneToAge>
+			<ForcedRaceTraitEntries>
+            </ForcedRaceTraitEntries>
+			<alienPartGenerator>
+                <aliencrowntypes>
+	  <li>MechHeadA</li>
+	  <li>MechHeadB</li>
+	  <li>MechHeadC</li>
+	  <li>MechHeadD</li>
+	  <li>MechHeadE</li>
+                </aliencrowntypes>
+                <alienbodytypes>
+					<li>Hulk</li>
+					<li>Thin</li>
+					<li>Male</li>
+					<li>Female</li>
+					<li>Fat</li>
+                </alienbodytypes>
+                <alienskincolorgen Class="ColorGenerator_Options">
+                    <options>
+                        <li>
+							<weight>5</weight>
+							<only>RGBA(1.00,1.00,1.00,1)</only>
+						</li>
+                    </options>
+                </alienskincolorgen>
+                <customDrawSize>(1, 1)</customDrawSize>
+                <customPortraitDrawSize>(1, 1)</customPortraitDrawSize>
+            </alienPartGenerator>
+        </generalSettings>
+		<graphicPaths>
+            <li>
+                <head>Things/Mechanicus/MechanicusHeads/</head>
+                <body>Things/Mechanicus/Bodies/</body>
+            </li>
+        </graphicPaths>
+		<hairSettings>
+            <HasHair>false</HasHair>
+            <GetsGreyAt>5000</GetsGreyAt>
+        </hairSettings>
+
+		<relationSettings>
+            <relationChanceModifierChild>1</relationChanceModifierChild>
+            <relationChanceModifierExLover>1</relationChanceModifierExLover>
+            <relationChanceModifierExSpouse>1</relationChanceModifierExSpouse>
+            <relationChanceModifierFiance>1</relationChanceModifierFiance>
+            <relationChanceModifierLover>1</relationChanceModifierLover>
+            <relationChanceModifierParent>1</relationChanceModifierParent>
+            <relationChanceModifierSibling>1</relationChanceModifierSibling>
+            <relationChanceModifierSpouse>1</relationChanceModifierSpouse>
+        </relationSettings>
+	</alienRace>
+  </AlienRace.ThingDef_AlienRace>
 
 
 

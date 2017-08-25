@@ -214,5 +214,50 @@
   </RecipeDef>
 
 
+ <RecipeDef>
+    <defName>MakeServitorFuel</defName>
+    <label>make servitor fuel</label>
+    <description>Cook up some disgusting grey ooze that fuels a servitor.</description>
+    <jobString>Making servitor fuel.</jobString>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <requiredGiverWorkType>Cooking</requiredGiverWorkType>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+		<fixedIngredientFilter>
+      <thingDefs>
+        <li>Component</li>
+      </thingDefs>
+			<categories>
+				<li>FoodRaw</li>
+			</categories>
+		</fixedIngredientFilter>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>FoodRaw</li>
+          </categories>
+        </filter>
+        <count>5</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Component</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+		<products>
+			<IoM_ServitorFuel>50</IoM_ServitorFuel>
+		</products>
+		<workSkill>Cooking</workSkill>
+    <recipeUsers>
+	<li>TableMachining</li>
+    </recipeUsers>
+	</RecipeDef>
 
 </RecipeDefs>

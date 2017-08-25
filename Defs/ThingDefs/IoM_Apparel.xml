@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ThingDefs>
 
-  <ThingDef ParentName="ApparelMakeableBase">
+  <ThingDef ParentName="IGArmorMakeable">
     <thingClass>FactionColors.ApparelComposite</thingClass>
     <defName>IoM_Apparel_LeathArmor</defName>
     <description>A heavy leather robe, reinforced with steel.</description>
@@ -275,7 +275,7 @@
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="ApparelMakeableBase">
+  <ThingDef ParentName="IGApparelMakeable">
     <thingClass>FactionColors.ApparelComposite</thingClass>
     <defName>IoM_Apparel_RobeGen</defName>
     <description>A simple robe, commonplace in the Galaxy.</description>
@@ -358,7 +358,7 @@
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="ArmorMakeableBase">
+  <ThingDef ParentName="IGArmorMakeable">
     <defName>IoM_CarapaceArmor</defName>
     <label>carapace armor</label>
     <description>Imperial armor made up by overlapping plates of advanced composite materials. Very heavy, but protective.</description>
@@ -390,7 +390,7 @@
     </thingCategories>
     <costList>
       <Component>3</Component>
-      <Plasteel>20</Plasteel>
+      <Plasteel>25</Plasteel>
     </costList>
     <stuffCategories>
       <li>AdvancedAlloy</li>
@@ -432,7 +432,7 @@
 
   </ThingDef>
 
-  <ThingDef ParentName="ArmorMakeableBase">
+  <ThingDef ParentName="IGArmorMakeable">
     <defName>IoM_CarapaceHelmet</defName>
     <label>carapace helmet</label>
     <description>Imperial helmet made up by plates of advanced materials. Very heavy, but protective.</description>
@@ -469,7 +469,7 @@
     <stuffCategories>
       <li>AdvancedAlloy</li>
     </stuffCategories>
-    <costStuffCount>75</costStuffCount>
+    <costStuffCount>30</costStuffCount>
 	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
@@ -488,7 +488,7 @@
     </apparel>
   </ThingDef>
 
-  <ThingDef ParentName="ApparelMakeableBase">
+  <ThingDef ParentName="IGApparelMakeable">
     <defName>CoatNoble</defName>
     <label>noble coat</label>
     <description>An embroidered coat with shoulderpads, usually worn by nobles and high ranking officials.</description>
@@ -577,7 +577,7 @@
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="ApparelMakeableBase">
+  <ThingDef ParentName="IGApparelMakeable">
     <defName>CoatOfficer</defName>
     <label>officer coat</label>
     <description>An embroidered coat with shoulderpads, usually worn by military officials.</description>

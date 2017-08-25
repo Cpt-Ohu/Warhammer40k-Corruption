@@ -9,7 +9,7 @@ using UnityEngine;
 using Verse;
 using Verse.AI;
 
-namespace Corruption
+namespace Corruption.IoM
 {
     public class FactionDialogMaker_IoM
     {
@@ -107,9 +107,13 @@ namespace Corruption
                 };
             }
 
-            //   DiaOption optA = new DiaOption();
-            //   yield return optA;
-
+            if (faction == tracker.AdeptusSororitas)
+            {
+                yield return new DiaOption("RequestNursesNode".Translate())
+                {
+                    link = FactionDialogMaker_IoM.RequestHealer(map)
+                };
+            }
             yield return new DiaOption("Debug: Spawn Battles")
             {
                 link = FactionDialogMaker_IoM.DebugBattleZone()
@@ -284,14 +288,75 @@ namespace Corruption
 
         private static DiaOption ConfirmPurchase(Map map, ResearchProjectDef def)
         {
+            DiaOption node = new DiaOption("Confirm".Translate())
+            {
+                linkLateBind = FactionDialogMaker_IoM.ResetToRoot()
+            };
+            node.action = delegate
+            {
+                TradeUtility.LaunchThingsOfType(ThingDefOf.Silver, (int)def.baseCost, map, null);
+                FactionDialogMaker_IoM.GrantMecResearch(def);
+            };
+            return node;
+        }
+
+        private static DiaNode RequestHealer(Map map)
+        {
+            DiaNode node = new DiaNode("RequestSororitasNurse".Translate());
+            float sororitasGoowdill = CorruptionStoryTrackerUtilities.currentStoryTracker.AdeptusSororitas.RelationWith(Faction.OfPlayer).goodwill;
+            if (sororitasGoowdill > 50)
+            {
+                string optionText = "RequestNurses".Translate(new object[] { 1000 });
+                if (FactionDialogMaker_IoM.AmountSendableSilver(map) < 1000)
+                {
+                    DiaOption diaOption = new DiaOption(optionText);
+                    diaOption.Disable("NeedSilverLaunchable".Translate(new object[]
+                    {
+                    1000
+                    }));
+                    node.options.Add(diaOption);
+                }
+                else
+                {
+                    DiaOption diaOption2 = new DiaOption(optionText);
+                    diaOption2.action = delegate
+                    {
+
+                    };
+                    string text = "RequestHealersConfirmed".Translate(new object[]
+                    {
+                            1000
+                    }).CapitalizeFirst();
+                    diaOption2.link = new DiaNode(text)
+                    {
+                        options =
+                            {
+                                FactionDialogMaker_IoM.ConfirmGetHealer(map),
+                                new DiaOption("GoBack".Translate())
+                            {
+                                linkLateBind = FactionDialogMaker_IoM.ResetToRoot()
+                            }
+
+                            }
+                    };
+                    node.options.Add(diaOption2);
+                }
+            }
+            return node;
+        }
+
+
+        private static DiaOption ConfirmGetHealer(Map map)
+        {
             DiaOption option = new DiaOption("Confirm".Translate())
             {
                 linkLateBind = FactionDialogMaker_IoM.ResetToRoot()
             };
             option.action = delegate
             {
-                TradeUtility.LaunchThingsOfType(ThingDefOf.Silver, (int)def.baseCost, map, null);
-                FactionDialogMaker_IoM.GrantMecResearch(def);
+                TradeUtility.LaunchThingsOfType(ThingDefOf.Silver, 1000, map, null);
+                Pawn pawn = null;
+                IoM.IoM_StoryUtilities.GenerateIntrusiveWanderer(map, DefOfs.C_PawnKindDefOf.SororitasNurse, CorruptionStoryTrackerUtilities.currentStoryTracker.AdeptusSororitas, IoMChatType.VisitingHealer, "IoM_HealerArrives", out pawn) ;
             };
             return option;
         }

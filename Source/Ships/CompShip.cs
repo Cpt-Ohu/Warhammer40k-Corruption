@@ -162,5 +162,11 @@ namespace OHUShips
             //Log.Message("Notifying: " + count.ToString());
             this.SubtractFromToLoadList(t, count);
         }
+
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
+            Scribe_Collections.Look<ShipWeaponSlot>(ref this.sProps.weaponSlots, "weaponSlots", LookMode.Deep);
+        }
     }
 }

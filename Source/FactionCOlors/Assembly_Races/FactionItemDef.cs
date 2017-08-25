@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace FactionColors
 {
-    class FactionItemDef : ThingDef
+    public class FactionItemDef : ThingDef
     {
         public Vector3 ItemMeshSize = new Vector3(1f, 1f, 1f);
     }

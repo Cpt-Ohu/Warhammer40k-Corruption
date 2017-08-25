@@ -12,5 +12,7 @@ namespace Corruption.DefOfs
         public static ThoughtDef MasochistPain;
 
         public static ThoughtDef Pain;
+
+        public static ThoughtDef ServitorDied;
     }
 }

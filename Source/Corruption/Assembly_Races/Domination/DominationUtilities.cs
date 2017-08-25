@@ -35,7 +35,6 @@ namespace Corruption.Domination
                 PoliticalAlliance alliance = CorruptionStoryTrackerUtilities.currentStoryTracker.DominationTracker.GetRandomAlliance();
                 if (!alliances.Contains(alliance) && alliances.FindAll(x => !alliance.HostileTo(x)).Count == 0 && !alliance.LeadingFaction.def.pawnGroupMakers.NullOrEmpty())
                 {
-                    Log.Message("Adding Alliance " + alliance.AllianceName);
                     alliances.Add(alliance);
                 }
             }

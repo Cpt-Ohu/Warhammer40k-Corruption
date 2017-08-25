@@ -17,10 +17,14 @@ namespace Corruption
             this.PawnFactionOri = this.Pawn.Faction;
             this.Pawn.jobs.EndCurrentJob(Verse.AI.JobCondition.InterruptForced);
 
-            if (this.Pawn.Faction != Faction.OfPlayer)
-            {
-                InteractionWorker_RecruitAttempt.DoRecruit(this.Pawn.Map.mapPawns.FreeColonists.RandomElement<Pawn>(), this.Pawn, 1f, false);
-            }
+            this.Pawn.SetFactionDirect(CorruptionStoryTrackerUtilities.currentStoryTracker.IoM);
+
+            Find.ColonistBar.MarkColonistsDirty();
+            //if (this.Pawn.Faction != Faction.OfPlayer)
+            //{
+
+            //    InteractionWorker_RecruitAttempt.DoRecruit(this.Pawn.Map.mapPawns.FreeColonists.RandomElement<Pawn>(), this.Pawn, 1f, false);
+            //}
         }
 
         public override  void CompPostTick(ref float severityAdjustment)
@@ -40,6 +44,11 @@ namespace Corruption
                         this.Pawn.SetFactionDirect(PawnFactionOri);
                         Find.ColonistBar.MarkColonistsDirty();
                         this.Pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.PanicFlee);
+                    }
+                    else
+                    {
+                        this.Pawn.SetFactionDirect(Faction.OfPlayer);
+                        Find.ColonistBar.MarkColonistsDirty();
                     }
                     return true;
                 }

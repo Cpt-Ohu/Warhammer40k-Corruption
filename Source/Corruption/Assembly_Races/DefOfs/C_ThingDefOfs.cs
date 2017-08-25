@@ -18,6 +18,10 @@ namespace Corruption.DefOfs
         
         public static ThingDef WarpRift;
 
-        public static ThingDef Chemfuel;   
+        public static ThingDef Chemfuel;
+
+        public static ThingDef ShrineEmperor;
+
+        public static ThingDef IoM_ServitorFuel;        
     }
 }

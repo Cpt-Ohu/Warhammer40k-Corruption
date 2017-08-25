@@ -12,5 +12,6 @@ namespace Corruption.DefOfs
     {
         public static PawnKindDef ServitorColonist;
         public static PawnKindDef IoM_WanderingTrader;
+        public static PawnKindDef SororitasNurse;
     }
 }

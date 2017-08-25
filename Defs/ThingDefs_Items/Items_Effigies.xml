@@ -9,8 +9,8 @@
     <label>Effigy of the Emperor</label>
     <description>A small item of worship in the shape of the emperor of mankind. May sooth the mind.</description>
     <graphicData>
-      <texPath>Things/Worship/Effigy_Emperor</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Worship/Effigies/Effigy_Emperor</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
     </graphicData>
     <soundInteract>Metal_Drop</soundInteract>
     <soundDrop>Standard_Drop</soundDrop>
@@ -29,6 +29,13 @@
       <li>Woody</li>
       <li>Stony</li>
     </stuffCategories>
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Redemption</Category>
+        <GainRate>10.0</GainRate>
+      </li>
+    </comps>
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
@@ -36,8 +43,9 @@
     <label>Imperial Cult Icon</label>
     <description>An icon of the Adeptus Munitorum, the Imperial Cult. May fit nicely into a place of worship.</description>
     <graphicData>
-      <texPath>Things/Worship/EcclesiarchIcon</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Worship/Effigies/EcclesiarchIcon</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <soundInteract>Metal_Drop</soundInteract>
     <soundDrop>Standard_Drop</soundDrop>
@@ -56,6 +64,13 @@
       <li>Woody</li>
       <li>Stony</li>
     </stuffCategories>
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Redemption</Category>
+        <GainRate>5.0</GainRate>
+      </li>
+    </comps>
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
@@ -63,7 +78,7 @@
     <label>Curious effigy</label>
     <description>A small item of worship in the shape of a eight-pointed star.</description>
     <graphicData>
-      <texPath>Things/Worship/Effigy_Emperor</texPath>
+      <texPath>Things/Worship/Effigies/Effigy_Undivided</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <soundInteract>Metal_Drop</soundInteract>
@@ -83,6 +98,13 @@
       <li>Woody</li>
       <li>Stony</li>
     </stuffCategories>
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Corruption</Category>
+        <GainRate>10.0</GainRate>
+      </li>
+    </comps>
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
@@ -90,8 +112,8 @@
     <label>Curious effigy</label>
     <description>A small item of worship in the shape of a horned giant.</description>
     <graphicData>
-      <texPath>Things/Worship/Effigy_Khorne</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Worship/Effigies/Effigy_Khorne</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
     </graphicData>
     <soundInteract>Metal_Drop</soundInteract>
     <soundDrop>Standard_Drop</soundDrop>
@@ -115,7 +137,12 @@
         <glowRadius>2</glowRadius>
         <glowColor>(200,0,0,0)</glowColor>
       </li>    
-	</comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Corruption</Category>
+        <GainRate>10.0</GainRate>
+      </li>
+    </comps>
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
@@ -123,8 +150,8 @@
     <label>Curious effigy</label>
     <description>A small item of worship in the shape of a giant, bloated creature.</description>
     <graphicData>
-      <texPath>Things/Worship/Effigy_Nurgle</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Worship/Effigies/Effigy_Nurgle</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
     </graphicData>
     <soundInteract>Metal_Drop</soundInteract>
     <soundDrop>Standard_Drop</soundDrop>
@@ -147,16 +174,21 @@
       <li Class="CompProperties_Glower">
         <glowRadius>2</glowRadius>
         <glowColor>(0,200,0,0)</glowColor>
-      </li>    
-	</comps>
+      </li>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Corruption</Category>
+        <GainRate>10.0</GainRate>
+      </li>
+    </comps>
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
     <defName>Effigy_Tzeentch</defName>
     <label>Curious effigy</label>
-    <description>A small item of worship. Looks like a hybrid of man and animal.</description>
+    <description>A small item of worship. Looks like some sort of arcane symbol.</description>
     <graphicData>
-      <texPath>Things/Worship/Effigy_Tzeentch</texPath>
+      <texPath>Things/Worship/Effigies/Effigy_Tzeentch</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <soundInteract>Metal_Drop</soundInteract>
@@ -180,8 +212,13 @@
       <li Class="CompProperties_Glower">
         <glowRadius>2</glowRadius>
         <glowColor>(0,200,200,0)</glowColor>
-      </li>    
-	</comps>
+      </li>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Corruption</Category>
+        <GainRate>10.0</GainRate>
+      </li>
+    </comps>
   </ThingDef>
   
   <ThingDef ParentName="ResourceBase">
@@ -189,8 +226,8 @@
     <label>Curious effigy</label>
     <description>A small item of worship. Looks like a hermaphrodite.</description>
     <graphicData>
-      <texPath>Things/Worship/Effigy_Slaanesh</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Worship/Effigies/Effigy_Slaanesh</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
     </graphicData>
     <soundInteract>Metal_Drop</soundInteract>
     <soundDrop>Standard_Drop</soundDrop>
@@ -213,8 +250,13 @@
       <li Class="CompProperties_Glower">
         <glowRadius>2</glowRadius>
         <glowColor>(200,0,0,200)</glowColor>
-      </li>    
-	</comps>
+      </li>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Corruption</Category>
+        <GainRate>10.0</GainRate>
+      </li>
+    </comps>
   </ThingDef>
 
   <!--=============== Component ====================-->

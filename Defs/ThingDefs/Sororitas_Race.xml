@@ -66,11 +66,6 @@
             <relationChanceModifierSpouse>1</relationChanceModifierSpouse>
         </relationSettings>
 		<raceRestriction>
-		  
-		  <apparelList>
-                 <li>Sororitas_PowerArmor</li>
-</apparelList>
-          <onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
         </raceRestriction>
 
 	</alienRace>

@@ -110,7 +110,15 @@ namespace Corruption
         {
             base.Initialize(props);
             this.itemCategory = SProps.Category;
-            //Log.Message("Init with: " + this.itemCategory.ToString());
+            //Log.Message("CompTickRare");
+            if (!this.randomCategoryResolved)
+            {
+                if (SProps.Category == SoulItemCategories.Random)
+                {
+                    this.itemCategory = (SoulItemCategories)Rand.RangeInclusive(0, 2);
+                }
+                this.randomCategoryResolved = true;
+            }
         }
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -218,7 +226,6 @@ namespace Corruption
 
         public override void PostDrawExtraSelectionOverlays()
         {
-            //if (Overlay == null) Log.Message("NoOverlay");
             if (OverlayGraphic != null)
             {
                 Vector3 drawPos = this.parent.DrawPos;
@@ -232,15 +239,6 @@ namespace Corruption
 
         public override void CompTickRare()
         {
-            //Log.Message("CompTickRare");
-            if (!this.randomCategoryResolved)
-            {
-                if (SProps.Category == SoulItemCategories.Random)
-                {
-                    this.itemCategory = (SoulItemCategories)Rand.RangeInclusive(0, 2);
-                }
-                this.randomCategoryResolved = true;
-            }
             this.CheckForOwner();     
         }
 

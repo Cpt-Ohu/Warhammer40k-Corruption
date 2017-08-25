@@ -167,4 +167,27 @@
     </thingCategories>
   </ThingDef>
 
+  <ThingDef ParentName="ResourceBase">
+    <defName>IoM_ServitorFuel</defName>
+    <label>Servitor Fuel</label>
+    <description>A mix of low quality energy cells and basic nutrients used to keep a servitor running. Not ingestible by regular humans.</description>
+    <graphicData>
+      <texPath>Things/IG/Structures/SynthBinder</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Wood_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>200</stackLimit>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <MarketValue>0.1</MarketValue>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <intricate>false</intricate>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+  </ThingDef>
+
 </Defs>

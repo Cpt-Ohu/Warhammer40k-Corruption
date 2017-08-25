@@ -10,7 +10,7 @@ namespace Corruption
 {
     public class JobDriver_CastPsykerPowerVerb : JobDriver
     {
-        private CompPsyker compPsyker
+        public CompPsyker compPsyker
         {
             get
             {
@@ -23,14 +23,13 @@ namespace Corruption
         }
 
         protected override IEnumerable<Toil> MakeNewToils()
-        {
-            
+        {            
             yield return Toils_Misc.ThrowColonistAttackingMote(TargetIndex.A);
             Toil getInRangeToil = Toils_Combat.GotoCastPosition(TargetIndex.A, false);
             yield return getInRangeToil;
             Verb_CastWarpPower verb = pawn.CurJob.verbToUse as Verb_CastWarpPower;
 
-            Find.Targeter.targetingVerb = verb;
+            //Find.Targeter.targetingVerb = verb;
             yield return Toils_Combat.CastVerb(TargetIndex.A, false);
             compPsyker.IsActive = true;
             this.AddFinishAction(() =>

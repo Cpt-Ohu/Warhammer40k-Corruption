@@ -86,7 +86,7 @@ namespace Corruption
                 return false;
             }
         }
-
+        
         public override void Tick()
         {
             if (CorruptionModSettings.AllowFactions)
@@ -152,39 +152,41 @@ namespace Corruption
 
         private void GenerateAndSetFactions()
         {
-            this.GenerateGenericAlliances();
-
+            if (CorruptionModSettings.AllowDomination)
+            {
+                this.GenerateGenericAlliances();
+            }
+            
             this.IoM = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.IoM_NPCFaction);
             Find.World.factionManager.Add(this.IoM);
-
+            
             this.ChaosCult = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.ChaosCult);
             Find.World.factionManager.Add(this.ChaosCult);
-
+            
             this.DarkEldarKabal = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.DarkEldarKabal);
             Find.World.factionManager.Add(this.DarkEldarKabal);
-
+            
             this.EldarWarhost = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.EldarWarhost);
             Find.World.factionManager.Add(this.EldarWarhost);
-
+            
             this.ImperialGuard = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.ImperialGuard);
             Find.World.factionManager.Add(this.ImperialGuard);
-
+            
             this.AdeptusAstartes = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.Astartes);
             Find.World.factionManager.Add(this.AdeptusAstartes);
-
+            
             this.Orks = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.Orks);
             Find.World.factionManager.Add(this.Orks);
-
+            
             this.AdeptusSororitas = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.AdeptusSororitas);
             Find.World.factionManager.Add(this.AdeptusSororitas);
-
+            
             this.Mechanicus = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.Mechanicus);
             Find.World.factionManager.Add(this.Mechanicus);
-
+            
             this.Tau = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.TauVanguard);
             Find.World.factionManager.Add(this.Tau);
-
-
+            
 
             if (!this.ImperialFactions.Contains(this.ImperialGuard))
             {
@@ -194,32 +196,52 @@ namespace Corruption
             {
                 this.ImperialFactions.Add(this.Mechanicus);
             }
+            
             if (!this.ImperialFactions.Contains(this.AdeptusSororitas))
             {
                 this.ImperialFactions.Add(this.AdeptusSororitas);
             }
+            
             if (!this.ImperialFactions.Contains(this.AdeptusAstartes))
             {
                 this.ImperialFactions.Add(this.AdeptusAstartes);
             }
-
-            this.DominationTracker.CreateImperiumOfManAlliance();
+            
 
             if (!this.XenoFactions.Contains(this.EldarWarhost))
             {
                 this.XenoFactions.Add(this.EldarWarhost);
-                this.DominationTracker.AddNewAlliance(EldarWarhost.Name, EldarWarhost);
             }
             
             if (!this.XenoFactions.Contains(this.Tau))
             {
                 this.XenoFactions.Add(this.Tau);
-                this.DominationTracker.AddNewAlliance(Tau.Name, this.Tau);
             }
+            
             if (!this.XenoFactions.Contains(this.ChaosCult))
             {
                 this.XenoFactions.Add(this.ChaosCult);
+            }
+            
+            foreach (Faction fac in this.ImperialFactions)
+            {
+                fac.SetHostileTo(this.ChaosCult, true);
+                this.ChaosCult.SetHostileTo(fac, true);
+            }
+            
+            foreach (Faction fac in this.XenoFactions.FindAll(x => x.def != C_FactionDefOf.ChaosCult))
+            {
+                fac.SetHostileTo(this.ChaosCult, true);
+                this.ChaosCult.SetHostileTo(fac, true);
+            }
+            
+            if (CorruptionModSettings.AllowDomination)
+            {
+                this.DominationTracker.CreateImperiumOfManAlliance();
+                this.DominationTracker.AddNewAlliance(EldarWarhost.Name, EldarWarhost);
+                this.DominationTracker.AddNewAlliance(Tau.Name, this.Tau);
                 this.DominationTracker.AddNewAlliance(ChaosCult.Name, ChaosCult);
+
             }
 
 
@@ -232,14 +254,14 @@ namespace Corruption
                 if (current.leader == null)
                 {
                     //                  Log.Message("NoLeader");
-                    //                       Log.Message("NoLeader for "+ current.GetCallLabel());
+                                           //Log.Message("NoLeader for "+ current.GetCallLabel());
                     PawnKindDef kinddef = DefDatabase<PawnKindDef>.AllDefsListForReading.FirstOrDefault(x => x.defaultFactionType == current.def && x.factionLeader);
                     if (kinddef != null)
                     {
-                        //                                  Log.Message("GeneratedRequest");
+                                                          //Log.Message("GeneratedRequest");
                         Pawn pawn = PawnGenerator.GeneratePawn(kinddef, current);
 
-                        //                                  Log.Message("Generated Leader");
+                                                          //Log.Message("Generated Leader");
                         current.leader = pawn;
                         if (current.leader.RaceProps.IsFlesh)
                         {
@@ -276,15 +298,20 @@ namespace Corruption
 
         public override void PostAdd()
         {
-            if (CorruptionModSettings.AllowFactions)
+            base.PostAdd();
+            if (CorruptionModSettings.AllowDomination)
             {
                 this.DominationTracker = new Domination.DominationTracker();
+            }
+
+            if (CorruptionModSettings.AllowFactions)
+            {
+                Log.Message("Creating Factions");
                 this.GenerateAndSetFactions();
                 CreateSubSector();
             }
 
            
-            base.PostAdd();
         }
 
         public void CreateSubSector()
@@ -555,7 +582,10 @@ namespace Corruption
             Scribe_Values.Look<float>(ref this.ColonyCorruptionAvg, "ColonyCorruptionAvg", 0.8f, false);
             Scribe_Values.Look<string>(ref this.SubsectorName, "SubsectorName", "Aurelia", false);
             Scribe_Collections.Look<Tithes.TitheEntryGlobal>(ref this.currentTithes, "currentTithes", LookMode.Deep, new object[0]);
-            Scribe_Deep.Look<Domination.DominationTracker>(ref this.DominationTracker, "DominationTracker", new object[0]);
+            if (CorruptionModSettings.AllowDomination)
+            {
+                Scribe_Deep.Look<Domination.DominationTracker>(ref this.DominationTracker, "DominationTracker", new object[0]);
+            }
             base.ExposeData();
         }
     }

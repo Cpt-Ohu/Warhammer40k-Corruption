@@ -9,6 +9,7 @@ namespace Corruption.IoM
     {
         SimpleChat,
         InquisitorInvestigation,
+        VisitingHealer,
         ConvertEmperor,
         ConvertChaos,
         ConvertTau

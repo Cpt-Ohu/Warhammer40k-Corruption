@@ -44,7 +44,7 @@
       <leatherInsulation>0.780</leatherInsulation>
       <leatherMarketValueFactor>3</leatherMarketValueFactor>
       <nameCategory>HumanStandard</nameCategory>
-      <body>Astartes</body>
+      <body>Human</body>
       <baseBodySize>1.5</baseBodySize>
       <baseHealthScale>2</baseHealthScale>
       <foodType>OmnivoreHuman</foodType>

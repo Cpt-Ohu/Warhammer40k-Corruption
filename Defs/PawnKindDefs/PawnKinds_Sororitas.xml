@@ -115,12 +115,6 @@
       <min>9000</min>
       <max>10000</max>
     </apparelMoney>
-    <apparelTags>
-      <li>Sororitas_Apparel</li>
-    </apparelTags>
-    <apparelRequired>
-	 <li>Apparel_Rosarius</li>
-    </apparelRequired>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
     <apparelAllowHeadwearChance>0.7</apparelAllowHeadwearChance>
     <weaponMoney>

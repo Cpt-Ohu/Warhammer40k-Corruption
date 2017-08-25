@@ -1,4 +1,5 @@
 ﻿using Corruption.DefOfs;
+using Corruption.IoM;
 using Harmony;
 using RimWorld;
 using RimWorld.Planet;
@@ -26,19 +27,29 @@ namespace Corruption
             harmony.Patch(AccessTools.Method(typeof(Verse.PawnGenerator), "GenerateInitialHediffs"), null, new HarmonyMethod(typeof(HarmonyPatches), "GenerateInitialHediffsPostFix", null));
             harmony.Patch(AccessTools.Method(typeof(RimWorld.RecordsUtility), "Notify_PawnKilled"), null, new HarmonyMethod(typeof(HarmonyPatches), "Notify_PawnKilledPostFix", null));
 
+            harmony.Patch(AccessTools.Method(typeof(Verse.AI.JobDriver_Wait), "CheckForAutoAttack"), new HarmonyMethod(typeof(HarmonyPatches), "CheckForAutoAttackPrefix", null), null);
+            harmony.Patch(AccessTools.Method(typeof(Faction), "Notify_MemberDied"), null, new HarmonyMethod(typeof(HarmonyPatches), "Notify_MemberDiedPostfix", null), null);
+
+            harmony.Patch(AccessTools.Method(typeof(PawnDiedOrDownedThoughtsUtility), "AppendThoughts_ForHumanlike"), new HarmonyMethod(typeof(HarmonyPatches), "AppendThoughts_ForHumanlikePrefix", null), null);
+
+            harmony.Patch(AccessTools.Property(typeof(JobDriver_Open), "Openable").GetGetMethod(true), new HarmonyMethod(typeof(HarmonyPatches), "OpenablePostfix", null), null);
+
+          // harmony.Patch(AccessTools.Method(typeof(Pawn_NeedsTracker), "ShouldHaveNeed"), new HarmonyMethod(typeof(HarmonyPatches), "ShouldHaveNeedPrefix", null), null);
+            
         }
 
         public static void GenerateFactionsIntoWorldPostFix()
         {
             Log.Message("Generating Corruption Story Tracker");
             CorruptionStoryTracker corrTracker = (CorruptionStoryTracker)WorldObjectMaker.MakeWorldObject(DefOfs.C_WorldObjectDefOf.CorruptionStoryTracker);
+            Log.Message("GeneratedSuccesfully");
             int tile = 0;
             while (!(Find.WorldObjects.AnyWorldObjectAt(tile) || Find.WorldGrid[tile].biome == BiomeDefOf.Ocean))
             {
                 tile = Rand.Range(0, Find.WorldGrid.TilesCount);
             }
             corrTracker.Tile = tile;
-            Find.WorldObjects.Add(corrTracker);            
+            Find.WorldObjects.Add(corrTracker);
         }
 
         private static Texture2D patronIcon
@@ -104,7 +115,7 @@ namespace Corruption
         public static bool IsAutomaton(Pawn pawn)
         {
             return pawn.AllComps.Any(i => i.GetType() == typeof(CompThoughtlessAutomaton));
-        }        
+        }
 
         private static bool HasSoulTraitNullyfyingTraits(ThoughtDef def, Pawn p, out Need_Soul soul)
         {
@@ -125,9 +136,9 @@ namespace Corruption
                     }
                 }
             }
-                return false;            
+            return false;
         }
-        
+
         public static void CanGetThoughtPostfix(ref bool __result, ThoughtDef def, Pawn pawn)
         {
             if (__result)
@@ -202,7 +213,7 @@ namespace Corruption
                         }
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Log.Message(ex.Message);
                 }
@@ -261,5 +272,121 @@ namespace Corruption
                 }
             }
         }
+
+        public static bool CheckForAutoAttackPrefix(ref JobDriver_Wait __instance)
+        {
+            if (__instance.pawn.Downed)
+            {
+                return false;
+            }
+            if (__instance.pawn.stances.FullBodyBusy)
+            {
+                return false;
+            }
+
+            Need_Soul soul = CorruptionStoryTrackerUtilities.GetPawnSoul(__instance.pawn);
+            if (soul != null)
+            {
+                if (CorruptionStoryTrackerUtilities.IsPsyker(__instance.pawn))
+                {
+                    Thing target = null;
+                    AIPsykerPowerCategory cat;
+                    PsykerPowerDef def = null;
+                    if (CorruptionStoryTrackerUtilities.GetRandOffensivePsykerPower(__instance.pawn, out def, out cat))
+                    {
+                        CorruptionStoryTrackerUtilities.AIGetPsykerTarget(__instance.pawn, cat, def.MainVerb.range, out target);
+                        if (target != null)
+                        {
+                            Job castJob = CorruptionStoryTrackerUtilities.AI_CastPsykerPowerJob(__instance.pawn, def, target);
+                            if (castJob != null)
+                            {
+                                __instance.pawn.jobs.TryTakeOrderedJob(castJob);
+                                return false;
+                            }
+                        }
+                    }
+                    return true;
+                }
+            }
+            return true;
+        }
+
+        public static void Notify_MemberDiedPostfix(Faction __instance, Pawn member, DamageInfo dinfo, bool wasWorldPawn)
+        {
+            if (CorruptionModSettings.AllowDomination)
+            {
+                CorruptionStoryTrackerUtilities.currentStoryTracker.DominationTracker.CheckPawnDiedInWar(member, dinfo);
+            }
+        }
+
+
+        public static bool AppendThoughts_ForHumanlikePrefix(Pawn victim, DamageInfo? dinfo, PawnDiedOrDownedThoughtsKind thoughtsKind, List<IndividualThoughtToAdd> outIndividualThoughts, List<ThoughtDef> outAllColonistsThoughts)
+        {
+            ChaosFollowerPawnKindDef cdef = victim.kindDef as ChaosFollowerPawnKindDef;
+            if (cdef != null)
+            {
+                if (cdef.IsServitor)
+                {
+                    if (thoughtsKind == PawnDiedOrDownedThoughtsKind.Died)
+                    {
+                        foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravelingTransportPods.Where(x => x.Faction == victim.Faction))
+                        {
+                            outIndividualThoughts.Add(new IndividualThoughtToAdd(DefOfs.C_ThoughtDefOf.ServitorDied, pawn, null, 1f, 1f));
+                        }
+                    }
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public static bool OpenablePostfix(ref JobDriver __instance, ref IOpenable __result)
+        {
+            ThingWithComps thing = __instance.pawn.CurJob.targetA.Thing as ThingWithComps;
+            IOpenable testOpenable = thing as IOpenable;
+            if (testOpenable == null)
+            {
+
+                if (thing != null)
+                {
+                    for (int i = 0; i < thing.AllComps.Count; i++)
+                    {
+                        ThingComp comp = thing.AllComps[i];
+                        if (comp is IOpenable)
+                        {
+                            __result = thing.AllComps[i] as IOpenable;
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+
+        public static bool ShouldHaveNeedPrefix(ref Pawn_NeedsTracker __instance, NeedDef nd, bool __result)
+        {
+            Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
+            
+            if (pawn != null)
+            {
+                ChaosFollowerPawnKindDef pdef = pawn.kindDef as ChaosFollowerPawnKindDef;
+                if (pdef != null)
+                {
+                    if (pdef.IsServitor)
+                    {
+                        Log.Message("Servitor");
+                        __result = false;
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
     }
+
+
+
+    
 }

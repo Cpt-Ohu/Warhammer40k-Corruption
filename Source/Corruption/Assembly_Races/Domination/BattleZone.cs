@@ -28,6 +28,8 @@ namespace Corruption.Domination
 
         private bool battleResolved = false;
 
+        private int timeToBattle = 120000;
+
         public PoliticalAlliance winningFaction;                
 
         public int[] battlePointRange = new int[2] { 0, 0 };
@@ -67,6 +69,15 @@ namespace Corruption.Domination
             return stringBuilder.ToString();
         }
 
+
+        /// <summary>
+        /// Setup a new battle.
+        /// </summary>
+        /// <param name="battleSize"></param>
+        /// <param name="battleType"></param>
+        /// <param name="participatingAlliance"></param>
+        /// <param name="battleNameRulePack"></param>
+        /// <param name="defendingFaction"></param>
         public void InitializeBattle(BattleSize battleSize, BattleType battleType, List<PoliticalAlliance> participatingAlliance, string battleNameRulePack, PoliticalAlliance defendingFaction = null)
         {
 
@@ -159,6 +170,10 @@ namespace Corruption.Domination
             return false;
         }
 
+
+        /// <summary>
+        /// Check if all enemies have fled or are incapacitated.
+        /// </summary>
         private bool EnemiesRouted
         {
             get
@@ -200,12 +215,21 @@ namespace Corruption.Domination
         public override void Tick()
         {
             base.Tick();
+            this.timeToBattle--;
+            if (this.timeToBattle <= 0 )
+            {
+                this.AutoResolve();
+            }
             if (!this.battleResolved && this.HasMap)
             {
                 this.CheckBattle();
             }
         }
 
+
+        /// <summary>
+        /// Check every 3 seconds if the battle is finished.
+        /// </summary>
         private void CheckBattle()
         {
             if (Find.TickManager.TicksGame % 205 == 0)
@@ -214,6 +238,10 @@ namespace Corruption.Domination
             }
         }
 
+        /// <summary>
+        /// Resolve the battle and calculate the result.
+        /// </summary>
+        /// <returns></returns>
         public bool StartResolving()
         {
             for (int i = 0; i < this.WarringAlliances.Count; i++)
@@ -266,6 +294,10 @@ namespace Corruption.Domination
             //}, "SpawningColonists", true, new Action<Exception>(GameAndMapInitExceptionHandlers.ErrorWhileGeneratingMap));
         }
 
+
+        /// <summary>
+        /// Resolve whether the player is actively taking part in the battle and reset faction relations based on that decision.
+        /// </summary>
         private void ResolvePlayerDecision()
         {
             foreach (PoliticalAlliance current in this.WarringAlliances)
@@ -276,5 +308,70 @@ namespace Corruption.Domination
                 }
             }
         }
+
+        /// <summary>
+        /// Automatically resolve this battle without the player looking at it.
+        /// </summary>
+        private void AutoResolve()
+        {
+            Dictionary<PoliticalAlliance, int[]> ArmyStrength = new Dictionary<PoliticalAlliance, int[]>();
+            Dictionary<PoliticalAlliance, float> ArmyTechPower = new Dictionary<PoliticalAlliance, float>();
+
+            //Create Armies
+            foreach (PoliticalAlliance current in this.WarringAlliances)
+            {
+                float advantage = Rand.Range(1, 10);
+                float powerFactor = 1f;
+                int techLevel = 2;
+                int fighters = 0;
+                foreach (Faction fac in current.GetFactions())
+                {
+                    int curTechLevel = (int)fac.def.techLevel;
+                    if (curTechLevel > techLevel)
+                    {
+                        techLevel = curTechLevel;
+                    }
+                    fighters += Rand.Range(this.battlePointRange[0], this.battlePointRange[1]) / 75;
+                }
+                powerFactor = techLevel * advantage;
+                ArmyStrength.Add(current, new int[] { fighters, fighters });
+                ArmyTechPower.Add(current, powerFactor);
+            }
+
+            //Calculate the battle result
+
+            bool Ended = false;
+            while (!Ended)
+            {
+                foreach(PoliticalAlliance alliance in this.WarringAlliances)
+                {
+                    float enemyFightingPower = this.WarringAlliances.FindAll(x => x != alliance).Sum(x => ArmyStrength[x][1] * ArmyTechPower[x]);
+
+                    int num = ArmyStrength[alliance][1];
+                    num -= (int)(enemyFightingPower * Rand.Range(0.01f, 1f) / ArmyTechPower[alliance] / 20f);                        
+                }
+
+                if (ArmyStrength.Any(x => x.Value[1] <= 0))
+                {
+                    Ended = true;
+                    this.battleResolved = true;
+                }
+            }
+
+            //Calculate the weariness for different alliances
+            foreach (PoliticalAlliance alliance in this.WarringAlliances)
+            {
+                foreach (PoliticalAlliance other in this.WarringAlliances.FindAll(x => x != alliance))
+                {
+                    DominationConflict conflict;
+                    if (CorruptionStoryTrackerUtilities.currentStoryTracker.DominationTracker.GetAllianceWar(alliance, other, out conflict))
+                    {
+                        float wearinessFactor = (ArmyStrength[alliance][0] - ArmyStrength[alliance][1]) * ArmyTechPower[alliance] * 20;
+                        conflict.AdjustWarWearinessFor(alliance, wearinessFactor);
+                    }
+                }
+            }
+            
+        }    
     }
 }

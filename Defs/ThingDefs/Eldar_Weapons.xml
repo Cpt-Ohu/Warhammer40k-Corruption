@@ -50,7 +50,7 @@
    <label>spinner cloud</label>
    <graphicData>
 		<texPath>Things/Projectile/Bullet_Shotgun</texPath>
-		<graphicClass>Graphic_Single</graphicClass>
+		<graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
 	</graphicData>
    <projectile>
 		<flyOverhead>false</flyOverhead>
@@ -79,7 +79,7 @@
     </thingCategories>
     <graphicData>
       <texPath>Things/Eldar/Weapons/eldar_pistol</texPath>
-      <graphicClass>Graphic_Single</graphicClass>      		 <shaderType>CutoutComplex</shaderType>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>      		 <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <soundInteract>InteractPistol</soundInteract>
     <statBases>
@@ -124,7 +124,7 @@
     </thingCategories>
     <graphicData>
       <texPath>Things/Eldar/Weapons/eldar_gun</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <soundInteract>InteractRifle</soundInteract>
@@ -167,7 +167,7 @@
    <label>Eldar Longrifle Shuriken</label>
    <graphicData>
 		<texPath>Things/Eldar/Projectiles/bullet_shuriken</texPath>
-		<graphicClass>Graphic_Single</graphicClass>
+		<graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
 	</graphicData>
    <projectile>
 		<flyOverhead>true</flyOverhead>
@@ -199,7 +199,7 @@
     </thingCategories>
     <graphicData>
       <texPath>Things/Eldar/Weapons/eldar_longrifle</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <soundInteract>InteractRifle</soundInteract>
@@ -234,7 +234,7 @@
   <ThingDef ParentName="BaseEldarGun" Class="FactionColors.FactionItemDef">
     <thingClass>FactionColors.FactionItem</thingClass>
     <defName>EL_Deathspinner</defName>
-    <label>shuriken catapult</label>
+    <label>deathspinner</label>
     <description>Xenotech rifle with a lot of power. Fires a monofilamentous web that slices through targets.</description>
     <weaponTags>
       <li>E_Warpspider</li>
@@ -244,7 +244,7 @@
     </thingCategories>
     <graphicData>
       <texPath>Things/Eldar/Weapons/eldar_deathspinner</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <soundInteract>InteractRifle</soundInteract>
@@ -290,7 +290,7 @@
     </thingCategories>
     <graphicData>
       <texPath>Things/Eldar/Weapons/eldar_flamer</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <soundInteract>InteractRifle</soundInteract>
@@ -342,8 +342,9 @@
     <techLevel>Spacer</techLevel>
     <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
     <graphicData>
+      <drawSize>(1.2,1.2)</drawSize>
       <texPath>Things/Eldar/Weapons/eldar_sword</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <soundInteract>InteractPistol</soundInteract>
@@ -383,8 +384,9 @@
     <techLevel>Spacer</techLevel>
     <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
     <graphicData>
+      <drawSize>(1.1,1.1)</drawSize>
       <texPath>Things/Eldar/Weapons/eldar_spear</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <soundInteract>InteractPistol</soundInteract>
@@ -436,7 +438,7 @@
     </thingCategories>
     <graphicData>
       <texPath>Things/Eldar/DireAvengers/DHCatapult</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>Cutout</shaderType>
     </graphicData>
     <soundInteract>InteractRifle</soundInteract>

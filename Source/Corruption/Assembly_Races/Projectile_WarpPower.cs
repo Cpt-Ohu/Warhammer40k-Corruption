@@ -121,10 +121,12 @@ namespace Corruption
                     {
                         List<Hediff> list = victim.health.hediffSet.hediffs.Where(x => x.def != HediffDefOf.PsychicShock && x.def != C_HediffDefOf.DemonicPossession).ToList<Hediff>();
                         if (Rand.Range(0f, 1f) > this.mpdef.HealFailChance && victim.health.hediffSet.hediffs.Count > 0)
-                        for (int i=0; i < mpdef.HealCapacity+1; i++)
                         {
-                            Hediff hediff = list.RandomElement();
-                            hediff.Heal(this.def.projectile.damageAmountBase);
+                            for (int i = 0; i < mpdef.HealCapacity + 1; i++)
+                            {
+                                Hediff hediff = list.RandomElement();
+                                hediff.Heal(this.def.projectile.damageAmountBase);
+                            }
                         }
                     }
                     else
@@ -138,7 +140,7 @@ namespace Corruption
             }
             else
             {
-                SoundDefOf.PowerOffSmall.PlayOneShotOnCamera();
+                //SoundDefOf..PlayOneShotOnCamera();
             }            
         }
 

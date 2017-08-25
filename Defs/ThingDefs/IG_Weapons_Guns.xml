@@ -345,8 +345,8 @@
   </ThingDef>
   <!-- ============================================== -->
 
-  <ThingDef ParentName="BaseHumanMakeableGun_IG">
-    <thingClass>ThingWithComps</thingClass>
+  <ThingDef ParentName="BaseHumanMakeableGun_IG" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
     <defName>Gun_StandardLasgun</defName>
     <label>Standard Issue Lasgun</label>
     <description>The Lasgun is an energy based weapon, and is the most common and widely used type of laser weapon in the Imperium. It is standard issue for all Imperial Guard infantry and most lower-ranked officers. Las rounds cauterize the wound, but can still cause massive amounts of damage to surrounding bone and tissue. </description>

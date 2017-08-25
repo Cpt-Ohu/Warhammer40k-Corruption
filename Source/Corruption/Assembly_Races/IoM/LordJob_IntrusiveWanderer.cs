@@ -35,6 +35,13 @@ namespace Corruption.IoM
 
         public Faction factionInt;
 
+        public LordToil MainToil;
+        
+        protected virtual void InitializeMainToil()
+        {
+            this.MainToil = IoM_StoryUtilities.GetWandererChatToil(this.chatType);
+        }
+
         public LordJob_IntrusiveWanderer()
         {
         }
@@ -44,14 +51,20 @@ namespace Corruption.IoM
             this.chillSpot = chillSpot;
             this.centralPawn = centralPawn;
             this.chatType = chatType;
+            this.MainToil = IoM_StoryUtilities.GetWandererChatToil(this.chatType);
         }
 
         public override StateGraph CreateGraph()
         {
+            if (this.MainToil == null)
+            {
+                Log.Error("Tried to start LordJob with null main toil");
+                return null;
+            }
             StateGraph stateGraph = new StateGraph();
             LordToil startingToil = stateGraph.AttachSubgraph(new LordJob_Travel(this.chillSpot).CreateGraph()).StartingToil;
             stateGraph.StartingToil = startingToil;
-            var lordToil_WanderAndChat = IoM_StoryUtilities.GetWandererChatToil(this.chatType);
+            var lordToil_WanderAndChat = this.MainToil;
             stateGraph.AddToil(lordToil_WanderAndChat);
             LordToil_TakeWoundedGuest lordToil_TakeWoundedGuest = new LordToil_TakeWoundedGuest();
             stateGraph.AddToil(lordToil_TakeWoundedGuest);
@@ -135,6 +148,7 @@ namespace Corruption.IoM
             Scribe_Values.Look<bool>(ref this.InquisitorFoundHeretic, "InquisitorFoundHeretic", false, false);
             Scribe_Values.Look<bool>(ref this.isOfficialMission, "isOfficialMission", false, false);
             Scribe_References.Look<Faction>(ref this.factionInt, "factionInt", false);
+            Scribe_Deep.Look<LordToil>(ref this.MainToil, "MainToil", false);
         }
 
         private void SwitchToHostileFaction()

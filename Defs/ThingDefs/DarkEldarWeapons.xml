@@ -16,7 +16,7 @@
     <label>splinter</label>
     <graphicData>
       <texPath>Things/Eldar/Projectiles/bullet_shuriken</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <projectile>
@@ -33,7 +33,7 @@
     <label>darklight beam</label>
     <graphicData>
       <texPath>Things/DarkEldar/Weapons/Bullet_Darklight</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
     </graphicData>
     <projectile>
       <flyOverhead>false</flyOverhead>
@@ -56,7 +56,7 @@
     <label>spinner cloud</label>
     <graphicData>
       <texPath>Things/Projectile/Bullet_Shotgun</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
     </graphicData>
     <projectile>
@@ -82,7 +82,7 @@
     <ItemMeshSize>(1.3, 1.3, 1.3)</ItemMeshSize>
     <graphicData>
       <texPath>Things/DarkEldar/Weapons/SplinterRifle</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <soundInteract>InteractRifle</soundInteract>
@@ -136,7 +136,7 @@
     <ItemMeshSize>(1.3, 1.3, 1.3)</ItemMeshSize>
     <graphicData>
       <texPath>Things/DarkEldar/Weapons/DarklightBlaster</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <soundInteract>InteractRifle</soundInteract>
@@ -181,7 +181,7 @@
     <ItemMeshSize>(1.3, 1.3, 1.3)</ItemMeshSize>
     <graphicData>
       <texPath>Things/DarkEldar/Weapons/ShredderCannon</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <soundInteract>InteractRifle</soundInteract>
@@ -229,7 +229,7 @@
     <ItemMeshSize>(0.8, 0.8, 0.8)</ItemMeshSize>
     <graphicData>
       <texPath>Things/DarkEldar/Weapons/SplinterPistol</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <soundInteract>InteractRifle</soundInteract>
@@ -278,7 +278,7 @@
     <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
     <graphicData>
       <texPath>Things/DarkEldar/Weapons/Sabre</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <soundInteract>InteractPistol</soundInteract>
@@ -318,7 +318,7 @@
     <ItemMeshSize>(1.3, 1.3, 1.3)</ItemMeshSize>
     <graphicData>
       <texPath>Things/DarkEldar/Weapons/Impaler</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <soundInteract>InteractPistol</soundInteract>
@@ -358,7 +358,7 @@
     <ItemMeshSize>(1.4, 1.4, 1.4)</ItemMeshSize>
     <graphicData>
       <texPath>Things/DarkEldar/Weapons/Glaive</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <soundInteract>InteractPistol</soundInteract>

@@ -116,6 +116,7 @@ Class="FactionColors.FactionItemDef">
     <description>Long range weapon based on transuranium shells.</description>
     <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
     <graphicData>
+      <drawSize>(1.2,1.2)</drawSize>
       <texPath>Things/Mechanicus/Skitarius/SkitariiTransRifle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
@@ -177,6 +178,7 @@ Class="FactionColors.FactionItemDef">
     <description>Long range weapon based on concentrated discharge of electric energy.</description>
     <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
     <graphicData>
+      <drawSize>(1.1,1.1)</drawSize>
       <texPath>Things/Mechanicus/Skitarius/SkitariiArcRifle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
@@ -341,6 +343,7 @@ Class="FactionColors.FactionItemDef">
     <description>Power weapon in the shape of an axe. It's a holy icon bestowed upon high rankig members of the Mechanicum.</description>
     <ItemMeshSize>(1.4, 1.4, 1.4)</ItemMeshSize>
     <graphicData>
+      <drawSize>(1.4,1.4)</drawSize>
       <texPath>Things/Mechanicus/Axe/MechanicumAxe</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>

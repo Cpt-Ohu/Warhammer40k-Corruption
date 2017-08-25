@@ -93,14 +93,7 @@
             <relationChanceModifierSibling>1</relationChanceModifierSibling>
             <relationChanceModifierSpouse>1</relationChanceModifierSpouse>
         </relationSettings>
-		<raceRestriction>
-		  
-		  <apparelList>
-                 <li>DE_KabaliteArmor</li>
-                 <li>DE_KabaliteHelmet</li>
-</apparelList>
-          <onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
-        </raceRestriction>
+
 
 
 	</alienRace>

@@ -9,7 +9,7 @@ using AlienRace;
 namespace Corruption
 {
     public class HediffComp_TurnServitor : HediffComp_Disappears
-    {
+    {        
         public override bool CompShouldRemove
         {
             get
@@ -23,6 +23,8 @@ namespace Corruption
                         if (medTable.patient == this.Pawn)
                         {
                             Pawn pawn = PawnGenerator.GeneratePawn(C_PawnKindDefOf.ServitorColonist);
+                            pawn.story.hairColor = this.Pawn.story.hairColor;
+                            pawn.story.hairDef = this.Pawn.story.hairDef;
                             pawn.story.childhood = this.Pawn.story.childhood;
                             pawn.story.adulthood = this.Pawn.story.adulthood;
                             medTable.patient.Destroy(DestroyMode.Vanish);

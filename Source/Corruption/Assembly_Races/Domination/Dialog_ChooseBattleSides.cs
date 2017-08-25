@@ -106,7 +106,6 @@ namespace Corruption.Domination
             if (Widgets.ButtonText(rectA, "JoinBattle".Translate(), true, false, true))
             {
                 this.battleZone.GenerateMap();
-                if (this.battleZone.HasMap) Log.Message("FOundMap");
                 this.Close();
             }
 

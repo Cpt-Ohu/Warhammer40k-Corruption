@@ -18,4 +18,22 @@
     </comps>
   </HediffDef>
 
+
+  <HediffDef>
+    <defName>ServitorOutOfFuel</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.73, 0.08, 0.03)</defaultLabelColor>
+    <label>Servitor powered down</label>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.99</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
 </Defs>

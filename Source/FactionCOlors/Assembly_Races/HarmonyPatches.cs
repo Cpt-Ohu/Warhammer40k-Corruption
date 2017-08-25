@@ -22,7 +22,7 @@ namespace FactionColors
             harmony.Patch(AccessTools.Method(typeof(Verse.PawnGraphicSet), "ResolveApparelGraphics", null), new HarmonyMethod(typeof(HarmonyPatches), "ResolveApparelGraphicsOriginal"), null);
             harmony.Patch(AccessTools.Method(typeof(Verse.PawnRenderer), "DrawEquipmentAiming"), new HarmonyMethod(typeof(HarmonyPatches), "DrawEquipmentAimingModded"), null);
             harmony.Patch(AccessTools.Method(typeof(RimWorld.FactionGenerator), "GenerateFactionsIntoWorld"), null, new HarmonyMethod(typeof(HarmonyPatches), "GenerateFactionsIntoWorldPostFix"));
-            harmony.Patch(AccessTools.Method(typeof(Verse.Root_Entry), "Update"), new HarmonyMethod(typeof(HarmonyPatches), "UpdatePrefix"), null);
+            //harmony.Patch(AccessTools.Method(typeof(Verse.Root_Entry), "Update"), new HarmonyMethod(typeof(HarmonyPatches), "UpdatePrefix"), null);
         }
 
         public static bool UpdatePrefix()

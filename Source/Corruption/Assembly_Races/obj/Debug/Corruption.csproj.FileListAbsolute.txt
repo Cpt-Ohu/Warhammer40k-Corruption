@@ -61,3 +61,4 @@ C:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-A17\Assem
 C:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-A17\Source\Corruption\Assembly_Races\obj\Debug\Corruption.csprojResolveAssemblyReference.cache
 C:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-A17\Source\Corruption\Assembly_Races\obj\Debug\Corruption.dll
 C:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-A17\Source\Corruption\Assembly_Races\obj\Debug\Corruption.pdb
+D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-A17\Source\Corruption\Assembly_Races\obj\Debug\Corruption.csprojResolveAssemblyReference.cache

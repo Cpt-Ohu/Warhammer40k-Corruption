@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="Affliction.cs" />
     <Compile Include="AfflictionDrawerUtility.cs" />
+    <Compile Include="AIPsykerPowerCategory.cs" />
     <Compile Include="Astartes\RecipeDef_AstartesImplant.cs" />
     <Compile Include="Bill_MedicalTable.cs" />
     <Compile Include="BookStuff\Bookshelf.cs" />
@@ -86,15 +87,24 @@
     <Compile Include="BookStuff\ReadableEffects.cs" />
     <Compile Include="BookStuff\ReadableEffektEntry.cs" />
     <Compile Include="BookStuff\ThingDef_Readables.cs" />
+    <Compile Include="CompAutoTargeter.cs" />
+    <Compile Include="CompBuffGiverEQ.cs" />
+    <Compile Include="CompProperties_AutoTargeter.cs" />
+    <Compile Include="CompProperties_BuffGiver.cs" />
+    <Compile Include="CompServitor.cs" />
+    <Compile Include="CompTeleporter.cs" />
     <Compile Include="CorruptionModController.cs" />
     <Compile Include="CorruptionModSettings.cs" />
+    <Compile Include="DefOfs\C_DesignationCategoryDefOf.cs" />
     <Compile Include="DefOfs\C_MapGeneratorDefOf.cs" />
     <Compile Include="DefOfs\C_TraderKindDefs.cs" />
+    <Compile Include="Domination\AllianceWarEffort.cs" />
     <Compile Include="Domination\BattleResult.cs" />
     <Compile Include="Domination\BattleSize.cs" />
     <Compile Include="Domination\BattleType.cs" />
     <Compile Include="Domination\BattleZone.cs" />
     <Compile Include="Domination\Dialog_ChooseBattleSides.cs" />
+    <Compile Include="Domination\DominationConflict.cs" />
     <Compile Include="Domination\DominationDefOfs.cs" />
     <Compile Include="Domination\DominationTracker.cs" />
     <Compile Include="Domination\DominationUtilities.cs" />
@@ -105,11 +115,15 @@
     <Compile Include="Domination\LordToil_DoBattle.cs" />
     <Compile Include="Domination\LordToil_GoIntoBattle.cs" />
     <Compile Include="Domination\PoliticalAlliance.cs" />
+    <Compile Include="EquipmentAbility.cs" />
     <Compile Include="HediffComp_TurnAstartes.cs" />
     <Compile Include="IoM\IoMChatType.cs" />
     <Compile Include="IoM\IoM_StoryUtilities.cs" />
+    <Compile Include="IoM\JobDriver_MiracleHeal.cs" />
     <Compile Include="IoM\JobDriver_WanderAndChat.cs" />
+    <Compile Include="JobGiver_AICastPsykerPower.cs" />
     <Compile Include="IoM\JobGiver_FollowAndChat.cs" />
+    <Compile Include="IoM\JobGiver_MiracleHeal.cs" />
     <Compile Include="IoM\LordJob_IntrusiveWanderer.cs" />
     <Compile Include="IoM\Toils_InterpersonalToilsIoM.cs" />
     <Compile Include="HediffCompProperties_MechWeapons.cs" />
@@ -164,7 +178,7 @@
     <Compile Include="DemonDefOfs.cs" />
     <Compile Include="DemonUtilities.cs" />
     <Compile Include="Dialog_NegotiationIoM.cs" />
-    <Compile Include="FactionDialogMaker_IoM.cs" />
+    <Compile Include="IoM\FactionDialogMaker_IoM.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="HediffCompProperties_DrawImplant.cs" />
     <Compile Include="HediffCompProperties_PostBuff.cs" />
@@ -208,6 +222,8 @@
     <Compile Include="HediffComp_NurglesRot.cs" />
     <Compile Include="HediffComp_TemporaryRecruit.cs" />
     <Compile Include="IncidentWorker_CorruptiveDrone.cs" />
+    <Compile Include="Worship\CompProperties_Shrine.cs" />
+    <Compile Include="Worship\CompShrine.cs" />
     <Compile Include="Worship\ITab_Altar.cs" />
     <Compile Include="ITab_IGCommsConsole.cs" />
     <Compile Include="ITab_Pawn_Alignment.cs" />

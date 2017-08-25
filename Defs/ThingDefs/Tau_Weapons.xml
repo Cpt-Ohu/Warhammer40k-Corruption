@@ -56,7 +56,7 @@
     </weaponTags>
     <graphicData>
       <texPath>Things/Tau/Weapons/PulsePistol</texPath>
-      <graphicClass>Graphic_Single</graphicClass>      		 <shaderType>CutoutComplex</shaderType>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>      		 <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <soundInteract>InteractPistol</soundInteract>
     <statBases>
@@ -96,7 +96,7 @@
     </weaponTags>
     <graphicData>
       <texPath>Things/Tau/Weapons/PulseRifle</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <soundInteract>InteractRifle</soundInteract>
@@ -139,7 +139,7 @@
     </weaponTags>
     <graphicData>
       <texPath>Things/Tau/Weapons/RailRifle</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <soundInteract>InteractRifle</soundInteract>

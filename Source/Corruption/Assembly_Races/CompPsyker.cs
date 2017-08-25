@@ -145,8 +145,7 @@ namespace Corruption
                     this.patronName = soul.patronInfo.PatronName;
                     PortraitsCache.SetDirty(this.psyker);
                 }
-            }
-                        
+            }                        
             this.TicksToCast--;
             if (this.TicksToCast <0)
             {
@@ -154,8 +153,6 @@ namespace Corruption
                 this.ShotFired = true;
                 this.TicksToCast = 0;
             }
-
-
             this.TicksToCastPercentage = (1 - (this.TicksToCast / this.TicksToCastMax));
         }
         
@@ -291,38 +288,30 @@ namespace Corruption
         }
 
         public IEnumerable<Command_CastPower> GetPsykerVerbsNewV3()
-        {
-
-         //   Log.Message("INIT");
+        {            
             foreach (PsykerPowerEntry current in this.allpsykerPowers)
             {
-          //      Log.Message("A");
                 if (PsykerHasEquipment(current))
                 {
                     Verb_CastWarpPower newverb = (Verb_CastWarpPower)Activator.CreateInstance(current.psykerPowerDef.MainVerb.verbClass);
                     newverb.caster = this.psyker;
                     newverb.verbProps = current.psykerPowerDef.MainVerb;
-              //      Log.Message("B");
 
                     Command_CastPower command_CastPower = new Command_CastPower(this);
                     command_CastPower.verb = newverb;
                     command_CastPower.defaultLabel = current.psykerPowerDef.LabelCap;
                     command_CastPower.defaultDesc = current.psykerPowerDef.description;
-           //         Log.Message("C");
                     command_CastPower.targetingParams = TargetingParameters.ForAttackAny();
                     if (newverb.warpverbprops.PsykerPowerCategory == PsykerPowerTargetCategory.TargetSelf || newverb.warpverbprops.PsykerPowerCategory == PsykerPowerTargetCategory.TargetAoE)
                     {
                         command_CastPower.targetingParams = TargetingParameters.ForSelf(this.psyker);
                     }
-                   // Log.Message("C2");
                     command_CastPower.icon = current.psykerPowerDef.uiIcon;
-           //         Log.Message("D1");
                     string str;
                     if (FloatMenuUtility.GetAttackAction(this.psyker, LocalTargetInfo.Invalid, out str) == null)
                     {
                         command_CastPower.Disable(str.CapitalizeFirst() + ".");
                     }
-           //         Log.Message("D");
                     command_CastPower.action = delegate (Thing target)
                     {
                         CompPsyker.TryCastPowerAction(psyker, target, this, newverb, current.psykerPowerDef as PsykerPowerDef)?.Invoke();

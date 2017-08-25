@@ -142,6 +142,7 @@
       <IsImmune>true</IsImmune>
       <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
     </AfflictionProperty>
+    <IsServitor>true</IsServitor>
   </PawnKindDef>
 
   <PawnKindDef Parent="MechanicumBase">
@@ -254,10 +255,7 @@
       <li>TechPriest</li>
       <li>Mechanicum</li>
     </apparelTags>
-    <apparelRequired>
-	 <li>Mechanicum_PriestRobe</li>
-      <li>MecCowlPriest</li>
-    </apparelRequired>
+
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
     <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
     <weaponMoney>
@@ -326,6 +324,7 @@
       <IsImmune>true</IsImmune>
       <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
     </AfflictionProperty>
+    <IsServitor>true</IsServitor>
   </PawnKindDef>
 
 

@@ -59,6 +59,7 @@
     <description>Xenotech bolt-action rifle. Unstable, but powerful.</description>
     <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
     <graphicData>
+      <drawSize>(1.1,1.1)</drawSize>
       <texPath>Things/Orks/Weapons/OrkShoota</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
@@ -101,6 +102,7 @@
     <ItemMeshSize>(1.5, 1.5, 1.5)</ItemMeshSize>
     <description>A heavy-duty ork machine gun.</description>
     <graphicData>
+      <drawSize>(1.5,1.5)</drawSize>
       <texPath>Things/Orks/Weapons/OrkDeffgun</texPath>
       <graphicClass>Graphic_Single</graphicClass>
 	 <drawSize>1.3</drawSize>
@@ -160,6 +162,7 @@
     <description>An ork rocket launcher. Very inaccurate, but dangerous nonetheless.</description>
     <ItemMeshSize>(1.5, 1.5, 1.5)</ItemMeshSize>
     <graphicData>
+      <drawSize>(1.5,1.5)</drawSize>
       <texPath>Things/Orks/Weapons/OrkRocketeer</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
@@ -232,6 +235,7 @@
     <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
     <description>Crude explosives used by orks.</description>
     <graphicData>
+      <drawSize>(1.1,1.1)</drawSize>
       <texPath>Things/Orks/Weapons/OrkStikkBombEQ</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
@@ -276,6 +280,7 @@
     <description>Xenotech flamethrower. Unstable, but powerful.</description>
     <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
     <graphicData>
+      <drawSize>(1.1,1.1)</drawSize>
       <texPath>Things/Orks/Weapons/OrkFlamer</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
@@ -318,6 +323,7 @@
     <description>Xenotech melee weapon. Unwieldy and crude.</description>
     <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
     <graphicData>
+      <drawSize>(1.1,1.1)</drawSize>
       <texPath>Things/Orks/Weapons/OrkChoppa</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
@@ -352,6 +358,7 @@
     <description>Xenotech melee weapon. Unwieldy and crude.</description>
     <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
     <graphicData>
+      <drawSize>(1.2,1.2)</drawSize>
       <texPath>Things/Orks/Weapons/OrkBigChoppa</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
@@ -387,6 +394,7 @@
     <description>Xenotech melee weapon. Unwieldy and crude.</description>
     <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
     <graphicData>
+      <drawSize>(1.2,1.2)</drawSize>
       <texPath>Things/Orks/Weapons/ChoppaSaw</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>CutoutComplex</shaderType>

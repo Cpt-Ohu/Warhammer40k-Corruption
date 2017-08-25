@@ -39,13 +39,7 @@
             <relationChanceModifierSpouse>1</relationChanceModifierSpouse>
         </relationSettings>
 		<raceRestriction>
-		  
-		  <apparelList>
-                 <li>Astartes_PowerArmor</li>
-                 <li>Astartes_PowerArmorHelmet</li>
-</apparelList>
-          <onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
-        </raceRestriction>
+		          </raceRestriction>
 	</alienRace>
 
     <statBases>
