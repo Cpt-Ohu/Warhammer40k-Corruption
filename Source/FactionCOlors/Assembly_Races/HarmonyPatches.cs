@@ -58,12 +58,13 @@ namespace FactionColors
                 {                    
                     if ((ApparelGraphicGetterFC.TryGetGraphicApparelModded(current, __instance.pawn.story.bodyType, out item)))
                     {
-                        if (current.GetComp<ApparelDetailDrawer>() != null && !current.Spawned)
+                        __instance.apparelGraphics.Add(item);
+                        ApparelDetailDrawer detailDrawer = current.GetComp<ApparelDetailDrawer>();
+                        if (detailDrawer !=null && !current.Spawned)
                         {
-                            OriginalItems.Add(current);
+                            __instance.apparelGraphics.Add(new ApparelGraphicRecord(detailDrawer.DetailGraphic, current));
                         }
 
-                        __instance.apparelGraphics.Add(item);
                     }
                 }
                 else if (ApparelGraphicRecordGetter.TryGetGraphicApparel(current, __instance.pawn.story.bodyType, out item))

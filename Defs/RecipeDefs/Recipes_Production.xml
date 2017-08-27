@@ -216,8 +216,8 @@
 
  <RecipeDef>
     <defName>MakeServitorFuel</defName>
-    <label>make servitor fuel</label>
-    <description>Cook up some disgusting grey ooze that fuels a servitor.</description>
+    <label>make servitor power pack</label>
+    <description>Craft a power pack used to keep servitors running.</description>
     <jobString>Making servitor fuel.</jobString>
     <workSpeedStat>CookSpeed</workSpeedStat>
     <requiredGiverWorkType>Cooking</requiredGiverWorkType>
@@ -240,7 +240,7 @@
             <li>FoodRaw</li>
           </categories>
         </filter>
-        <count>5</count>
+        <count>75</count>
       </li>
       <li>
         <filter>
@@ -248,13 +248,13 @@
             <li>Component</li>
           </thingDefs>
         </filter>
-        <count>1</count>
+        <count>5</count>
       </li>
     </ingredients>
 		<products>
 			<IoM_ServitorFuel>50</IoM_ServitorFuel>
 		</products>
-		<workSkill>Cooking</workSkill>
+		<workSkill>Crafting</workSkill>
     <recipeUsers>
 	<li>TableMachining</li>
     </recipeUsers>

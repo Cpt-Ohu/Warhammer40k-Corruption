@@ -135,7 +135,6 @@ namespace Corruption
 
                 List<RecipeDef> advancedRecipes = DefDatabase<RecipeDef>.AllDefsListForReading.FindAll(x => x.defName.Contains("_MSU") || x.defName == "Euthanize");
                 //advancedRecipes.AddRange(DefDatabase<RecipeDef>.AllDefsListForReading.FindAll(x => x is Astartes.RecipeDef_AstartesImplant));
-                Log.Message(advancedRecipes.Count.ToString() + " recipes");
                 foreach (RecipeDef current in advancedRecipes)
                 {
                     if (current.AvailableNow && CheckAstartesRecipeDef(current, patient))
@@ -143,10 +142,8 @@ namespace Corruption
                         IEnumerable<ThingDef> enumerable = current.PotentiallyMissingIngredients(null, medTable.Map);
                         if (enumerable != null && !enumerable.Any((ThingDef x) => x.isBodyPartOrImplant))
                         {
-
                             if (!enumerable.Any((ThingDef x) => x.IsDrug))
                             {
-
                                 if (current.targetsBodyPart)
                                 {
                                     foreach (BodyPartRecord current2 in current.Worker.GetPartsToApplyOn(patient, current))

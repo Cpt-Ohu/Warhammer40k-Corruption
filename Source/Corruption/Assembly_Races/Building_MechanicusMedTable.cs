@@ -157,8 +157,6 @@ namespace Corruption
                     }), medTable, MessageSound.Negative);
                 }
                 MethodInfo info = typeof(HealthCardUtility).GetMethod("GetMinRequiredMedicine", BindingFlags.Static | BindingFlags.NonPublic);
-                if (info == null) Log.Message("NoInfo");
-                Log.Message("tryingToInvoke");
                 ThingDef minRequiredMedicine = (ThingDef)info.Invoke(null, new object[] {recipe });
                 if (minRequiredMedicine != null && medTable.patient.playerSettings != null && !medTable.patient.playerSettings.medCare.AllowsMedicine(minRequiredMedicine))
                 {
@@ -199,6 +197,36 @@ namespace Corruption
             {
      //           this.DrawBody(this.corpse.InnerPawn.Drawer.renderer);
             }
+        }
+
+        public override void TickRare()
+        {
+            base.TickRare();
+            if (this.patient != null)
+            {
+                if (!this.patient.Drawer.renderer.graphics.AllResolved)
+                {
+                    this.patient.Drawer.renderer.graphics.ResolveAllGraphics();
+                }
+                if (this.patient.health.hediffSet.HasHediff(DefOfs.C_HediffDefOf.ServitorImplants))
+                {
+                    this.ReplacePawn(C_PawnKindDefOf.ServitorColonist);
+                }
+            }
+        }
+
+        private void ReplacePawn(PawnKindDef kindDef)
+        {
+            Pawn pawn = PawnGenerator.GeneratePawn(kindDef, this.patient.Faction);
+            pawn.gender = this.patient.gender;
+            pawn.story.hairColor = this.patient.story.hairColor;
+            pawn.story.hairDef = this.patient.story.hairDef;
+            pawn.story.childhood = this.patient.story.childhood;
+            pawn.story.adulthood = this.patient.story.adulthood;
+            pawn.Name = this.patient.Name;            
+            this.patient.apparel.GetDirectlyHeldThings().TryTransferAllToContainer(pawn.apparel.GetDirectlyHeldThings());
+            this.patient.Destroy(DestroyMode.Vanish);
+            this.TryAcceptThing(pawn);
         }
 
         private void DrawBody(PawnRenderer renderer)

@@ -169,15 +169,15 @@
 
   <ThingDef ParentName="ResourceBase">
     <defName>IoM_ServitorFuel</defName>
-    <label>Servitor Fuel</label>
-    <description>A mix of low quality energy cells and basic nutrients used to keep a servitor running. Not ingestible by regular humans.</description>
+    <label>Servitor Refueling Unit</label>
+    <description>A set of power crystals and concentrated nutrient tubes used to keep servitors running.</description>
     <graphicData>
-      <texPath>Things/IG/Structures/SynthBinder</texPath>
+      <texPath>Things/Mechanicus/Templates/MecTemplate_ServitorFuel</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <soundInteract>Wood_Drop</soundInteract>
     <soundDrop>Standard_Drop</soundDrop>
-    <stackLimit>200</stackLimit>
+    <stackLimit>10</stackLimit>
     <tradeability>Sellable</tradeability>
     <statBases>
       <MaxHitPoints>50</MaxHitPoints>

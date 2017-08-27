@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <!-- ============================================================ -->
+
+  <ThingDef ParentName="AnimalThingBase">
+    <defName>Grox</defName>
+    <label>grox</label>
+    <description>The Grox is a large, fast and aggressive reptilian animal originating from the Solomon system. When the system was absorbed into the Imperium, it was discovered the animal possessed many useful traits, such as the ability to survive in almost any environment and to thrive on even the most indigestible food. Grox meat itself is also extremely palatable and nutritious. Because of their value as livestock they have since been introduced to other worlds throughout the entire galaxy, so that the Grox is now the most common type of livestock animal throughout the Imperium.</description>
+    <statBases>
+      <MoveSpeed>2.15</MoveSpeed>
+      <ComfyTemperatureMin>-20</ComfyTemperatureMin>
+      <ComfyTemperatureMax>60</ComfyTemperatureMax>
+      <MarketValue>800</MarketValue>
+      <MeatAmount>150</MeatAmount>
+      <LeatherAmount>100</LeatherAmount>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <defaultCooldownTime>1.5</defaultCooldownTime>
+        <meleeDamageBaseAmount>10</meleeDamageBaseAmount>
+        <meleeDamageDef>Scratch</meleeDamageDef>
+        <linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>20</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <defaultCooldownTime>1.5</defaultCooldownTime>
+        <meleeDamageBaseAmount>10</meleeDamageBaseAmount>
+        <meleeDamageDef>Scratch</meleeDamageDef>
+        <linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>20</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <defaultCooldownTime>2.0</defaultCooldownTime>
+        <meleeDamageBaseAmount>12</meleeDamageBaseAmount>
+        <meleeDamageDef>Bite</meleeDamageDef>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>20</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <defaultCooldownTime>1.65</defaultCooldownTime>
+        <meleeDamageBaseAmount>3</meleeDamageBaseAmount>
+        <meleeDamageDef>Blunt</meleeDamageDef>
+        <commonality>0.01</commonality>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="CompProperties_EggLayer">
+        <eggFertilizedDef>EggCobraFertilized</eggFertilizedDef>
+        <eggFertilizationCountMax>1</eggFertilizationCountMax>
+        <eggLayIntervalDays>14.0</eggLayIntervalDays>
+        <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+        <eggCountRange>
+          <min>1</min>
+          <max>3</max>
+        </eggCountRange>
+      </li>
+    </comps>
+    <race>
+      <body>QuadrupedAnimalWithPawsAndTail</body>
+      <baseBodySize>4.0</baseBodySize>
+      <baseHungerRate>0.75</baseHungerRate>
+      <baseHealthScale>3.5</baseHealthScale>
+      <foodType>VegetarianRoughAnimal</foodType>
+      <leatherColor>(153,200,119)</leatherColor>
+      <leatherLabel>groxleather</leatherLabel>
+      <leatherInsulation>1.8</leatherInsulation>
+      <gestationPeriodDays>10</gestationPeriodDays>
+      <leatherStatFactors>
+        <MarketValue>1.2</MarketValue>
+        <ArmorRating_Heat>3.9</ArmorRating_Heat>
+      </leatherStatFactors>
+      <wildness>0.8</wildness>
+      <manhunterOnDamageChance>1</manhunterOnDamageChance>
+      <manhunterOnTameFailChance>0.05</manhunterOnTameFailChance>
+      <nuzzleMtbHours>120</nuzzleMtbHours>
+      <trainableIntelligence>Intermediate</trainableIntelligence>
+      <meatLabel>groxmeat</meatLabel>
+      <litterSizeCurve>
+        <points>
+          <li>(0.5, 0)</li>
+          <li>(1, 1)</li>
+          <li>(3, 1)</li>
+          <li>(3.5, 0)</li>
+        </points>
+      </litterSizeCurve>
+      <lifeExpectancy>22</lifeExpectancy>
+      <lifeStageAges>
+        <li>
+          <def>AnimalBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>AnimalJuvenile</def>
+          <minAge>0.2</minAge>
+        </li>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.45</minAge>
+          <soundWounded>Pawn_Muffalo_Wounded</soundWounded>
+          <soundDeath>Pawn_Muffalo_Death</soundDeath>
+          <soundCall>Pawn_Muffalo_Call</soundCall>
+          <soundAngry>Pawn_Muffalo_Angry</soundAngry>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+    <tradeTags>
+      <li>StandardAnimal</li>
+    </tradeTags>
+    <recipes>
+      <li>ImplantLobotomyController</li>
+    </recipes>
+
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>Grox</defName>
+    <label>grox</label>
+    <race>Grox</race>
+    <combatPower>55</combatPower>
+    <wildSpawn_EcoSystemWeight>0.5</wildSpawn_EcoSystemWeight>
+    <wildSpawn_spawnWild>false</wildSpawn_spawnWild>
+    <labelMale>bull</labelMale>
+    <labelFemale>cow</labelFemale>
+    <lifeStages>
+      <li>
+        <label>calf</label>
+        <labelPlural>calves</labelPlural>
+        <bodyGraphicData>
+  	    <shaderType>CutoutComplex</shaderType>
+          <texPath>Things/IoM/Grox/Grox</texPath>
+          <drawSize>2.5</drawSize>
+          <color>(153,200,119)</color>
+          <shadowData>
+            <volume>(0.4, 0.3, 0.3)</volume>
+            <offset>(0,0,-0.2)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <femaleGraphicData>
+  	    <shaderType>CutoutComplex</shaderType>
+          <texPath>Things/IoM/Grox/Grox</texPath>
+          <drawSize>2.5</drawSize>
+          <color>(153,200,119)</color>
+          <shadowData>
+            <volume>(0.4, 0.3, 0.3)</volume>
+            <offset>(0,0,-0.2)</offset>
+          </shadowData>
+        </femaleGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Dessicated/CritterDessicatedMedium</texPath>
+          <drawSize>1.3</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+  	    <shaderType>CutoutComplex</shaderType>
+          <texPath>Things/IoM/Grox/Grox</texPath>
+          <drawSize>4.0</drawSize>
+          <color>(153,200,119)</color>
+          <shadowData>
+            <volume>(0.6, 0.45, 0.45)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <femaleGraphicData>
+  	    <shaderType>CutoutComplex</shaderType>
+          <texPath>Things/IoM/Grox/Grox</texPath>
+          <drawSize>4.0</drawSize>
+          <color>(153,200,119)</color>
+          <shadowData>
+            <volume>(0.6, 0.45, 0.45)</volume>
+            <offset>(0,0,-0.25)</offset>
+          </shadowData>
+        </femaleGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Dessicated/CritterDessicatedMedium</texPath>
+          <drawSize>2.15</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+  	    <shaderType>CutoutComplex</shaderType>
+          <texPath>Things/IoM/Grox/Grox</texPath>
+          <drawSize>4.8</drawSize>
+          <color>(153,200,119)</color>
+          <shadowData>
+            <volume>(0.8, 0.6, 0.6)</volume>
+            <offset>(0,0,-0.3)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <femaleGraphicData>
+  	    <shaderType>CutoutComplex</shaderType>
+          <texPath>Things/IoM/Grox/Grox</texPath>
+          <drawSize>4.8</drawSize>
+          <color>(153,200,119)</color>
+          <shadowData>
+            <volume>(0.8, 0.6, 0.6)</volume>
+            <offset>(0,0,-0.3)</offset>
+          </shadowData>
+        </femaleGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Dessicated/CritterDessicatedMedium</texPath>
+          <drawSize>2.7</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+
+</ThingDefs>

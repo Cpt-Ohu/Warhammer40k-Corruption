@@ -280,5 +280,29 @@
     </comps>
   </ThingDef>
 
+  <ThingDef ParentName="ResourceBase">
+    <defName>Mec_Lobotomiser</defName>
+    <label>mechanicus lobotomy chip</label>
+    <description>A neurocontroller that downregulates aggressive behaviour in animals. Most often implanted in Grox to make them docile.</description>
+    <graphicData>
+      <texPath>Things/Mechanicus/Templates/MecTemplate_General</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>10</stackLimit>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>800</MarketValue>
+      <Mass>1.5</Mass>
+      <Flammability>1.0</Flammability>
+			<DeteriorationRate>1.0</DeteriorationRate>
+		</statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>IG_MecTemplates</li>
+    </thingCategories>
+  </ThingDef>
+
 
 </ThingDefs>

@@ -73,6 +73,7 @@
     <defName>MecSurgicalUnit</defName>
     <label>Mechanicus Surgical Unit</label>
     <Description>An advanced treatment unit enabling swift and precise surgical procedures guided by several manipulators and advanced diagnostics.</Description>
+    <TickerType>Rare</TickerType>
     <ThingClass>Corruption.Building_MechanicusMedTable</ThingClass>
     <inspectorTabs>
       <li>Corruption.ITab_MSUOperation</li>
@@ -98,6 +99,8 @@
       <Comfort>0.80</Comfort>
       <ImmunityGainSpeedFactor>1.144</ImmunityGainSpeedFactor>
       <MedicalTendQualityOffset>0.40</MedicalTendQualityOffset>
+      <MedicalSurgerySuccessChance>5.0</MedicalSurgerySuccessChance>
+
     </statBases>
     <Size>(3,3)</Size>
     <stuffCategories>

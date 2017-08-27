@@ -52,4 +52,18 @@
     <prioritizeSustains>true</prioritizeSustains>
   </WorkGiverDef>
 
+  <WorkGiverDef>
+    <defName>RefuelServitor</defName>
+    <label>refuel servitor</label>
+    <giverClass>Corruption.Workgiver_RefuelServitor</giverClass>
+    <workType>Hauling</workType>
+    <verb>refuel</verb>
+    <gerund>refueling</gerund>
+    <priorityInType>150</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+
 </WorkGivers>

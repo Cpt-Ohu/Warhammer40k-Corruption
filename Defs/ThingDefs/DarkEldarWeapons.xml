@@ -16,7 +16,7 @@
     <label>splinter</label>
     <graphicData>
       <texPath>Things/Eldar/Projectiles/bullet_shuriken</texPath>
-      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
+      <graphicClass>Graphic_Single</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <projectile>
@@ -33,7 +33,7 @@
     <label>darklight beam</label>
     <graphicData>
       <texPath>Things/DarkEldar/Weapons/Bullet_Darklight</texPath>
-      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
+      <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <projectile>
       <flyOverhead>false</flyOverhead>
@@ -56,7 +56,7 @@
     <label>spinner cloud</label>
     <graphicData>
       <texPath>Things/Projectile/Bullet_Shotgun</texPath>
-      <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
+      <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
     </graphicData>
     <projectile>

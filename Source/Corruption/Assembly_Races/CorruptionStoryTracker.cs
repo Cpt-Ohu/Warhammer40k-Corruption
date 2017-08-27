@@ -24,8 +24,21 @@ namespace Corruption
             }
         }
 
+        public bool FactionsEnabled = true;
+        public bool DominationEnabled = true;
+        public bool PsykersEnabled = true;
+        public bool DropshipsEnabled = true;
+
         public override void Draw()
         {
+        }
+
+        public CorruptionStoryTracker()
+        {
+            this.FactionsEnabled = CorruptionModSettings.AllowFactions;
+            this.DominationEnabled = CorruptionModSettings.AllowDomination;
+            this.PsykersEnabled = CorruptionModSettings.AllowPsykers;
+            this.DropshipsEnabled = CorruptionModSettings.AllowDropships;
         }
 
         public static List<PawnKindDef> DemonPawnKinds = new List<PawnKindDef>();
@@ -89,7 +102,7 @@ namespace Corruption
         
         public override void Tick()
         {
-            if (CorruptionModSettings.AllowFactions)
+            if (this.FactionsEnabled)
             {
                 for (int i = 0; i < Find.Maps.Count; i++)
 
@@ -152,7 +165,7 @@ namespace Corruption
 
         private void GenerateAndSetFactions()
         {
-            if (CorruptionModSettings.AllowDomination)
+            if (this.DominationEnabled)
             {
                 this.GenerateGenericAlliances();
             }
@@ -258,7 +271,7 @@ namespace Corruption
                 this.ChaosCult.SetHostileTo(fac, true);
             }
             
-            if (CorruptionModSettings.AllowDomination)
+            if (this.DominationEnabled)
             {
                 this.DominationTracker.CreateImperiumOfManAlliance();
                 this.DominationTracker.AddNewAlliance(EldarWarhost.Name, EldarWarhost);
@@ -322,12 +335,12 @@ namespace Corruption
         public override void PostAdd()
         {
             base.PostAdd();
-            if (CorruptionModSettings.AllowDomination)
+            if (this.DominationEnabled)
             {
                 this.DominationTracker = new Domination.DominationTracker();
             }
 
-            if (CorruptionModSettings.AllowFactions)
+            if (this.FactionsEnabled)
             {
                 Log.Message("Creating Factions");
                 this.GenerateAndSetFactions();
@@ -472,7 +485,7 @@ namespace Corruption
 
         public void CorruptionTicksDaily()
         {
-            if (CorruptionModSettings.AllowFactions)
+            if (this.FactionsEnabled)
             {
                 if (ColonyCorruptionAvg < 0.4)
                 {
@@ -609,6 +622,10 @@ namespace Corruption
             {
                 Scribe_Deep.Look<Domination.DominationTracker>(ref this.DominationTracker, "DominationTracker", new object[0]);
             }
+            Scribe_Values.Look<bool>(ref this.DropshipsEnabled, "DropshipsEnabled", true);
+            Scribe_Values.Look<bool>(ref this.DominationEnabled, "DominationEnabled", true);
+            Scribe_Values.Look<bool>(ref this.PsykersEnabled, "PsykersEnabled", true);
+            Scribe_Values.Look<bool>(ref this.DropshipsEnabled, "DropshipsEnabled", true);
             base.ExposeData();
         }
     }

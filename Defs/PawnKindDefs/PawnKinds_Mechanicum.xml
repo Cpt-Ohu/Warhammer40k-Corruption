@@ -104,7 +104,7 @@
   <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
     <defName>MEC_CombatServitor</defName>
     <label>Combat Servitor</label>
-    <race>Alien_Mechanicus_Member</race>
+    <race>Mechanicum_Servitor</race>
     <combatPower>50</combatPower>
     <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
     <backstoryCategory>Servitor</backstoryCategory>
@@ -292,7 +292,7 @@
   <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
     <defName>ServitorColonist</defName>
     <label>Servitor</label>
-    <race>Alien_Mechanicus_Member</race>
+    <race>Mechanicum_Servitor</race>
     <combatPower>50</combatPower>
     <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
     <backstoryCategory>Civil</backstoryCategory>
@@ -302,11 +302,11 @@
     <maxGenerationAge>58</maxGenerationAge>
     <itemQuality>Normal</itemQuality>
     <apparelMoney>
-      <min>500</min>
-      <max>600</max>
+      <min>5</min>
+      <max>6</max>
     </apparelMoney>
     <apparelTags>
-      <li>Mechanicum</li>
+      <li>Spacer</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
     <apparelAllowHeadwearChance>0.5</apparelAllowHeadwearChance>

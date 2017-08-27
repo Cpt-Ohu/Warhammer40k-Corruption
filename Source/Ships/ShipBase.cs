@@ -598,7 +598,7 @@ namespace OHUShips
                 Pawn pawn = thing as Pawn;
                 if (pawn.def.race.Humanlike)
                 {
-                    if ((this.innerContainer.ToList<Thing>().Count(x => x is Pawn && x.def.race.Humanlike) >= this.compShip.sProps.maxPassengers))
+                    if (!DropShipUtility.HasPassengerSeats(this))
                     {
                         Messages.Message("MessagePassengersFull".Translate(new object[] { pawn.NameStringShort, this.ShipNick }), this, MessageSound.RejectInput);
                         return false;

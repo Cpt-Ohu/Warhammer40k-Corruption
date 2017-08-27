@@ -234,7 +234,7 @@
   <ThingDef ParentName="BaseEldarGun" Class="FactionColors.FactionItemDef">
     <thingClass>FactionColors.FactionItem</thingClass>
     <defName>EL_Deathspinner</defName>
-    <label>deathspinner</label>
+    <label>shuriken catapult</label>
     <description>Xenotech rifle with a lot of power. Fires a monofilamentous web that slices through targets.</description>
     <weaponTags>
       <li>E_Warpspider</li>

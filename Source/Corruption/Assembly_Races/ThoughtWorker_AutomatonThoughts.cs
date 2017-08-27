@@ -11,7 +11,7 @@ namespace Corruption
     {
         protected override ThoughtState CurrentStateInternal(Pawn p)
         {
-            if (p.AllComps.Any(i => i.GetType() == typeof(CompThoughtlessAutomaton)))
+            if (p.AllComps.Any(i => i.GetType() == typeof(CompServitor)))
             {
                 return true;
             }

@@ -32,15 +32,18 @@ namespace Corruption
             RemoveAutomatonNeed(C_NeedDefOf.Beauty);
             RemoveAutomatonNeed(C_NeedDefOf.Comfort);
             RemoveAutomatonNeed(C_NeedDefOf.Space);
-            if (this.pawn.needs.joy != null)
-            {
-                this.pawn.needs.joy.CurLevel = 0.9f;
-            }
+            RemoveAutomatonNeed(NeedDefOf.Joy);
+           // RemoveAutomatonNeed(NeedDefOf.Food);
+            //if (this.pawn.needs.joy != null)
+            //{
+            //    this.pawn.needs.joy.CurLevel = 0.9f;
+            //}
         }
 
         private void RemoveAutomatonNeed(NeedDef nd)
         {
             Need item = pawn.needs.TryGetNeed(nd);
+            if (item != null)
             this.pawn.needs.AllNeeds.Remove(item);
         }
     }

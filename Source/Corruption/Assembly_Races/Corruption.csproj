@@ -135,6 +135,7 @@
     <Compile Include="PawnKillTracker.cs" />
     <Compile Include="Projectile_Smoking.cs" />
     <Compile Include="ThoughtWorker_Khornate.cs" />
+    <Compile Include="WorkGiver_RefuelServitor.cs" />
     <Compile Include="Worship\BuildingAltar.cs" />
     <Compile Include="Worship\BuildingAltarDef.cs" />
     <Compile Include="BuildingWorshipDef.cs" />
@@ -186,7 +187,6 @@
     <Compile Include="HediffComp_DrawImplant.cs" />
     <Compile Include="HediffComp_NeuroController.cs" />
     <Compile Include="HediffComp_PostBuff.cs" />
-    <Compile Include="HediffComp_TurnServitor.cs" />
     <Compile Include="ImplantDrawerType.cs" />
     <Compile Include="IncidentWorker_CorruptedEffigy.cs" />
     <Compile Include="IoM\JobDriver_ArrestOnMap.cs" />

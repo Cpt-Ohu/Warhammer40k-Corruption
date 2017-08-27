@@ -16,5 +16,7 @@ namespace Corruption.DefOfs
         public static NeedDef Comfort;
 
         public static NeedDef Space;
+
+        public static NeedDef Rest;
     }
 }

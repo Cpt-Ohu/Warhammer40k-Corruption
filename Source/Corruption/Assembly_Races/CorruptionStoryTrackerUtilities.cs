@@ -519,7 +519,9 @@ namespace Corruption
             compServitor.parent = pawn;
             CompProperties_Refuelable cprops = new CompProperties_Refuelable();
             cprops.compClass = typeof(CompServitor);
+            cprops.fuelConsumptionRate = 0.1f;
             compServitor.Initialize(cprops);
+            compServitor.Refuel(1);
             FieldInfo info = typeof(ThingWithComps).GetField("comps", BindingFlags.NonPublic | BindingFlags.Instance);
             if (info != null)
             {

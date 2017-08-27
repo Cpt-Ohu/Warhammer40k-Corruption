@@ -15,9 +15,11 @@
 		<description>Turns this pawn into a semi-organic robot for performing simple tasks.</description>
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Creating Servitor.</jobString>
-		<workAmount>4500</workAmount>
-    <surgerySuccessChanceFactor>0.7</surgerySuccessChanceFactor>
-    <deathOnFailedSurgeryChance>0.25</deathOnFailedSurgeryChance>
+		<workAmount>450</workAmount>
+		<targetsBodyPart>false</targetsBodyPart>
+		<surgerySuccessChanceFactor>0.99</surgerySuccessChanceFactor>
+
+    <deathOnFailedSurgeryChance>0.50</deathOnFailedSurgeryChance>
 		<ingredients>
 			<li>
 				<filter>
@@ -236,5 +238,31 @@
 	</RecipeDef>
 
 
+  <RecipeDef ParentName="SurgeryFlesh">
+		<defName>ImplantLobotomyController</defName>
+		<label>implant lobotomizer</label>
+		<description>Implanting lobotomizer.</description>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Implanting lobotomizer.</jobString>
+		<workAmount>200</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Mec_Lobotomiser</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+	</RecipeDef>
 
 </RecipeDefs>

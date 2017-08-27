@@ -34,7 +34,10 @@ namespace Corruption
 
             harmony.Patch(AccessTools.Property(typeof(JobDriver_Open), "Openable").GetGetMethod(true), new HarmonyMethod(typeof(HarmonyPatches), "OpenablePostfix", null), null);
 
-          // harmony.Patch(AccessTools.Method(typeof(Pawn_NeedsTracker), "ShouldHaveNeed"), new HarmonyMethod(typeof(HarmonyPatches), "ShouldHaveNeedPrefix", null), null);
+          // harmony.Patch(AccessTools.Method(typeof(Pawn_NeedsTracker), "ShouldHaveNeed"), null, new HarmonyMethod(typeof(HarmonyPatches), "ShouldHaveNeedPostfix", null), null);
+           // harmony.Patch(AccessTools.Method(typeof(Pawn_NeedsTracker), "AddNeed"), null, new HarmonyMethod(typeof(HarmonyPatches), "AddNeedPostfix", null), null);
+
+
             
         }
 
@@ -114,7 +117,7 @@ namespace Corruption
         }
         public static bool IsAutomaton(Pawn pawn)
         {
-            return pawn.AllComps.Any(i => i.GetType() == typeof(CompThoughtlessAutomaton));
+            return pawn.AllComps.Any(i => i.GetType() == typeof(CompServitor) || i.GetType() == typeof(CompThoughtlessAutomaton));
         }
 
         private static bool HasSoulTraitNullyfyingTraits(ThoughtDef def, Pawn p, out Need_Soul soul)
@@ -159,6 +162,7 @@ namespace Corruption
                         {
                             if (Tdef.IsAutomatonThought)
                             {
+                                __result = true;
                                 return;
                             }
                             else
@@ -210,6 +214,14 @@ namespace Corruption
                             //    //    Log.Message("Accepted Thought");
                             //    //}
                             //}
+                        }
+                    }
+                    else
+                    {
+                        if (IsAutomaton(pawn))
+                        {
+                            __result = false;
+                            return;
                         }
                     }
                 }
@@ -363,26 +375,37 @@ namespace Corruption
             return true;
         }
 
-        public static bool ShouldHaveNeedPrefix(ref Pawn_NeedsTracker __instance, NeedDef nd, bool __result)
-        {
-            Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
-            
-            if (pawn != null)
-            {
-                ChaosFollowerPawnKindDef pdef = pawn.kindDef as ChaosFollowerPawnKindDef;
-                if (pdef != null)
-                {
-                    if (pdef.IsServitor)
-                    {
-                        Log.Message("Servitor");
-                        __result = false;
-                        return false;
-                    }
-                }
-            }
+        //public static void AddNeedPostfix(Pawn_NeedsTracker __instance, NeedDef nd)
+        //{
+        //    Traverse traverse = Traverse.Create(__instance).Field("pawn");
+        //    Pawn pawn = traverse.GetValue<Pawn>();
+        //    CompServitor compServitor = pawn.TryGetComp<CompServitor>();
+        //    if (compServitor != null)
+        //    {
+        //        compServitor.RemoveAutomatonNeeds();
+        //    }
+        //}
 
-            return true;
-        }
+        //public static void ShouldHaveNeedPostfix(ref Pawn_NeedsTracker __instance, NeedDef nd, bool __result)
+        //{
+        //    Traverse traverse = Traverse.Create(__instance).Field("pawn");
+        //    Pawn pawn = traverse.GetValue<Pawn>();
+            
+        //    if (pawn != null)
+        //    {
+        //        ChaosFollowerPawnKindDef pdef = pawn.kindDef as ChaosFollowerPawnKindDef;
+        //        if (pdef != null)
+        //        {
+        //            if (pdef.IsServitor)
+        //            {
+        //                if (__result == true)
+        //                {
+        //                    __result = false;
+        //                }
+        //            }
+        //        }
+        //    }            
+        //}        
 
     }
 

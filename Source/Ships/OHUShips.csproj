@@ -98,12 +98,14 @@
     <Compile Include="TravelingShipArrivalAction.cs" />
     <Compile Include="TravelingShips.cs" />
     <Compile Include="TravelingShipsUtility.cs" />
+    <Compile Include="Trigger_PawnsExhausted.cs" />
     <Compile Include="WeaponSystem.cs" />
     <Compile Include="WeaponSystemShipBomb.cs" />
     <Compile Include="WeaponSystemShipLC.cs" />
     <Compile Include="WeaponSystemType.cs" />
     <Compile Include="WITab_LandedShip_Cargo.cs" />
     <Compile Include="WorkGiver_InstallShipWeapon.cs" />
+    <Compile Include="WorkGiver_RescuePawnToShip.cs" />
     <Compile Include="WorkGiver_UninstallShipWeapon.cs" />
   </ItemGroup>
   <ItemGroup>
