@@ -11,5 +11,13 @@ namespace FactionColors
     public class FactionItemDef : ThingDef
     {
         public Vector3 ItemMeshSize = new Vector3(1f, 1f, 1f);
+
+        public override Color IconDrawColor
+        {
+            get
+            {
+                return Color.white;
+            }
+        }
     }
 }

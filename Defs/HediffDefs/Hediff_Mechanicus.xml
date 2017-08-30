@@ -122,4 +122,21 @@
     <spawnThingOnRemoved>Mec_Lobotomiser</spawnThingOnRemoved>
   </HediffDef>
 
+
+  <HediffDef ParentName="MechanicusImplant">
+    <defName>MechanicusLobotomiser</defName>
+    <label>Lobotomiser</label>
+    <stages>
+      <li>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>0.1</offset>
+            </li>
+          </capMods>
+      </li>
+    </stages>
+    <spawnThingOnRemoved>Mec_Lobotomiser</spawnThingOnRemoved>
+  </HediffDef>
+
 </Defs>

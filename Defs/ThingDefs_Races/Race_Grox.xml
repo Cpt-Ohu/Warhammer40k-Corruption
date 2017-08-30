@@ -137,7 +137,9 @@
       <li>StandardAnimal</li>
     </tradeTags>
     <recipes>
-      <li>ImplantLobotomyController</li>
+      <li>InstallPowerClaw</li>
+      <li>InstallLobotomiser</li>
+      <li>Anesthetize</li>
     </recipes>
 
   </ThingDef>
@@ -233,6 +235,7 @@
         </dessicatedBodyGraphicData>
       </li>
     </lifeStages>
+
   </PawnKindDef>
 
 

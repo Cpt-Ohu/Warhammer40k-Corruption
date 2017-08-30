@@ -10,8 +10,11 @@ namespace FactionColors
     public class FactionItem : ThingWithComps
     {
         public bool FirstSpawned = true;
+        private bool firstResolved;
+        private bool secResolved;
 
-        public Color Col1 = Color.red;
+
+        public Color Col1 = Color.magenta;
         public Color Col2 = Color.grey;
         public Graphic Detail;
 
@@ -49,7 +52,7 @@ namespace FactionColors
                 return this.GetComp<CompFactionColor>();
             }
         }
-
+        
         public override Graphic Graphic
         {
             get
@@ -62,14 +65,21 @@ namespace FactionColors
         {
             get
             {
-                if (FirstSpawned)
+                if (!firstResolved)
                 {
                     if (this.Wearer != null)
                     {
                         FactionColorEntry myEntry;
-                        if (FactionColorUtilities.currentPlayerStoryTracker.GetColorEntry(Wearer.Faction, out myEntry))
+                        if (this.compF != null)
                         {
-                            Col1 = myEntry.FactionColor1;
+                            if (FactionColorUtilities.currentPlayerStoryTracker.GetColorEntry(Wearer.Faction, out myEntry))
+                            {
+                                Col1 = myEntry.FactionColor1;
+                            }
+                        }
+                        else
+                        {
+                            Col1 = this.def.graphicData.color;
                         }
                     }
                     else
@@ -80,6 +90,10 @@ namespace FactionColors
                             {
                                 Col1 = comp.Color;
                             }
+                            else
+                            {
+                                Col1 = this.def.graphicData.color;
+                            }
                         }
 
                     }
@@ -87,6 +101,7 @@ namespace FactionColors
                     {
                         Col1 = CamouflageColorsUtility.CamouflageColors[0];
                     }
+                    this.firstResolved = true;
                 }
                 return Col1;
             }
@@ -96,18 +111,30 @@ namespace FactionColors
             }
         }
 
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad);
+        }
+        
         public override Color DrawColorTwo
         {
             get
             {
-                if (FirstSpawned)
+                if (!secResolved)
                 {
                     if (this.Wearer != null)
                     {
-                        FactionColorEntry myEntry;
-                        if (FactionColorUtilities.currentPlayerStoryTracker.GetColorEntry(Wearer.Faction, out myEntry))
+                        if (this.compF != null)
                         {
-                            Col2 = myEntry.FactionColor2;
+                            FactionColorEntry myEntry;
+                            if (FactionColorUtilities.currentPlayerStoryTracker.GetColorEntry(Wearer.Faction, out myEntry))
+                            {
+                                Col2 = myEntry.FactionColor2;
+                            }
+                        }
+                        else
+                        {
+                            Col2 = this.def.graphicData.colorTwo;
                         }
                     }
                     else
@@ -117,7 +144,13 @@ namespace FactionColors
                         {
                             Col2 = comp.Color;
                         }
+                        else
+                        {
+                            Col2 = this.def.graphicData.colorTwo;
+                        }
                     }
+
+                    this.secResolved = true;
                 }
                 return Col2;
             }
@@ -126,7 +159,8 @@ namespace FactionColors
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look<bool>(ref FirstSpawned, "FirstSpawned", false, false);
+            Scribe_Values.Look<bool>(ref secResolved, "secResolved", false, false);
+            Scribe_Values.Look<bool>(ref firstResolved, "firstResolved", false, false);
             Scribe_Values.Look<Color>(ref Col1, "col1", Color.white, false);
             Scribe_Values.Look<Color>(ref Col2, "col2", Color.white, false);
         }

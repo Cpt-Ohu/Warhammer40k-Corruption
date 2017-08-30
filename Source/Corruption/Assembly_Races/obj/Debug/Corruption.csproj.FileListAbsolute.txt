@@ -61,3 +61,4 @@ D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-A17\Assem
 D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-A17\Assemblies\Corruption.pdb
 D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-A17\Assemblies\Corruption.dll.CodeAnalysisLog.xml
 D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-A17\Assemblies\Corruption.dll.lastcodeanalysissucceeded
+D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-A17\Source\Corruption\Assembly_Races\obj\Debug\Corruption.csprojResolveAssemblyReference.cache

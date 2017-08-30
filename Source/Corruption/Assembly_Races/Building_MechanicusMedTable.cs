@@ -229,7 +229,7 @@ namespace Corruption
             this.TryAcceptThing(pawn);
         }
 
-        private void DrawBody(PawnRenderer renderer)
+        private void DrawBody(PawnRenderer renderer) 
         {
             float angle = this.Rotation.AsAngle;
             Material bodymat = renderer.graphics.nakedGraphic.MatFront;

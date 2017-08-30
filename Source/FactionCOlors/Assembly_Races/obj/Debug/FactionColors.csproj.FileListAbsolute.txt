@@ -58,3 +58,4 @@ D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\YaWH40Km-Public_A17\Source\Factio
 D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-A17\Assemblies\FactionColors.dll.config
 D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-A17\Assemblies\FactionColors.dll
 D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-A17\Source\FactionCOlors\Assembly_Races\obj\Debug\FactionColors.dll
+D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-A17\Source\FactionCOlors\Assembly_Races\obj\Debug\FactionColors.csprojResolveAssemblyReference.cache

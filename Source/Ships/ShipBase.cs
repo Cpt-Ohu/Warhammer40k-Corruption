@@ -504,6 +504,8 @@ namespace OHUShips
             {
                 current.Destroy(mode);
             }
+
+            DropShipUtility.currentShipTracker.RemoveShip(this);
             base.Destroy(mode);
         }
 
@@ -643,7 +645,8 @@ namespace OHUShips
             this.timeToLiftoff = ticksToLiftoff;
             this.NoneLeftBehind = noOneLeftBehind;
         }
-        
+               
+
         public void WaitForLordPassengers(List<Pawn> potentialPassengers, bool noneLeftBehind = false)
         {
             int passengersPresent = 0;
@@ -742,6 +745,7 @@ namespace OHUShips
                 yield return new FloatMenuOption("ShipPassengersFull".Translate(), null, MenuOptionPriority.Default, null, null, 0f, null, null);
             }
         }
+
 
         public bool TryInstallTurret(CompShipWeapon comp)
         {   

@@ -265,4 +265,45 @@
 		</ingredients>
 	</RecipeDef>
 
+
+  <RecipeDef ParentName="SurgeryFlesh">
+		<defName>InstallLobotomiser</defName>
+		<label>install lobotomiser</label>
+		<description>Installs lobotomiser.</description>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing lobotomiser.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Mec_Lobotomiser</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>Mec_Lobotomiser</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<appliedOnFixedBodyParts>
+			<li>Brain</li>
+		</appliedOnFixedBodyParts>
+		<addsHediff>MechanicusLobotomiser</addsHediff>
+	</RecipeDef>
+
+
 </RecipeDefs>

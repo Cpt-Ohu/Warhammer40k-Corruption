@@ -137,5 +137,14 @@ namespace Corruption.Worship
                 Graphics.DrawMesh(drawMesh, matrix, this.InstalledEffigy.Graphic.MatAt(this.parent.Rotation, null), 0);
             }
         }
+
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
+            Scribe_Deep.Look<ThingOwner>(ref this.innerContainer, "innerContainer", new object[]
+            {
+             this
+            });
+        }
     }
 }
