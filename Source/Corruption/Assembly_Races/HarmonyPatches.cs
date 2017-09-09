@@ -34,18 +34,21 @@ namespace Corruption
 
             harmony.Patch(AccessTools.Property(typeof(JobDriver_Open), "Openable").GetGetMethod(true), new HarmonyMethod(typeof(HarmonyPatches), "OpenablePostfix", null), null);
 
-          // harmony.Patch(AccessTools.Method(typeof(Pawn_NeedsTracker), "ShouldHaveNeed"), null, new HarmonyMethod(typeof(HarmonyPatches), "ShouldHaveNeedPostfix", null), null);
-           // harmony.Patch(AccessTools.Method(typeof(Pawn_NeedsTracker), "AddNeed"), null, new HarmonyMethod(typeof(HarmonyPatches), "AddNeedPostfix", null), null);
-
+            //harmony.Patch(AccessTools.Method(typeof(ColonistBar), "CheckRecacheEntries"), null, new HarmonyMethod(typeof(HarmonyPatches), "CheckRecacheEntriesPostfix", null), null);
+            //harmony.Patch(AccessTools.Method(typeof(ColonistBar), "FreeColonists"), null, new HarmonyMethod(typeof(HarmonyPatches), "FreeColonistsPostfix", null), null);
 
             
+          // harmony.Patch(AccessTools.Method(typeof(Pawn_NeedsTracker), "ShouldHaveNeed"), null, new HarmonyMethod(typeof(HarmonyPatches), "ShouldHaveNeedPostfix", null), null);
+          // harmony.Patch(AccessTools.Method(typeof(Pawn_NeedsTracker), "AddNeed"), null, new HarmonyMethod(typeof(HarmonyPatches), "AddNeedPostfix", null), null);
+
+
+
         }
 
         public static void GenerateFactionsIntoWorldPostFix()
         {
             Log.Message("Generating Corruption Story Tracker");
             CorruptionStoryTracker corrTracker = (CorruptionStoryTracker)WorldObjectMaker.MakeWorldObject(DefOfs.C_WorldObjectDefOf.CorruptionStoryTracker);
-            Log.Message("GeneratedSuccesfully");
             int tile = 0;
             while (!(Find.WorldObjects.AnyWorldObjectAt(tile) || Find.WorldGrid[tile].biome == BiomeDefOf.Ocean))
             {
@@ -202,18 +205,7 @@ namespace Corruption
                             List<SoulTraitDef> soulTraitDefs = soul.SoulTraits.Select(x => x.SDef).ToList();
                             __result = soulTraitDefs.Intersect(Tdef.requiredSoulTraits).Any();
 
-
-                            //for (int i = 0; i < soul.SoulTraits.Count; i++)
-                            //{
-                            //    if (Tdef.requiredSoulTraits.Any(x => soul.SoulTraits[i].SDef.defName == x.defName))
-                            //    {
-                            //        __result = false;
-                            //    }
-                            //    //else
-                            //    //{
-                            //    //    Log.Message("Accepted Thought");
-                            //    //}
-                            //}
+                            
                         }
                     }
                     else
@@ -375,37 +367,46 @@ namespace Corruption
             return true;
         }
 
-        //public static void AddNeedPostfix(Pawn_NeedsTracker __instance, NeedDef nd)
-        //{
-        //    Traverse traverse = Traverse.Create(__instance).Field("pawn");
-        //    Pawn pawn = traverse.GetValue<Pawn>();
-        //    CompServitor compServitor = pawn.TryGetComp<CompServitor>();
-        //    if (compServitor != null)
-        //    {
-        //        compServitor.RemoveAutomatonNeeds();
-        //    }
-        //}
-
-        //public static void ShouldHaveNeedPostfix(ref Pawn_NeedsTracker __instance, NeedDef nd, bool __result)
-        //{
-        //    Traverse traverse = Traverse.Create(__instance).Field("pawn");
-        //    Pawn pawn = traverse.GetValue<Pawn>();
+        public static void CheckRecacheEntriesPostfix(ref ColonistBar __instance)
+        {
+            List<ColonistBar.Entry> cachedEntries = Traverse.Create(__instance).Field("").GetValue<List<ColonistBar.Entry>>();
             
-        //    if (pawn != null)
-        //    {
-        //        ChaosFollowerPawnKindDef pdef = pawn.kindDef as ChaosFollowerPawnKindDef;
-        //        if (pdef != null)
-        //        {
-        //            if (pdef.IsServitor)
-        //            {
-        //                if (__result == true)
-        //                {
-        //                    __result = false;
-        //                }
-        //            }
-        //        }
-        //    }            
-        //}        
+            if (!cachedEntries.NullOrEmpty())
+            {
+                Predicate<Pawn> validator = delegate (Pawn t)
+                {
+                    ChaosFollowerPawnKindDef pdef = t.kindDef as ChaosFollowerPawnKindDef;
+                    if (pdef != null)
+                    {
+                        if (pdef.IsServitor)
+                        {
+                            return true;
+                        }
+                    }
+                    return false;
+                };
+                cachedEntries.RemoveAll(x => validator(x.pawn));                    
+            }
+        }
+
+        public static void FreeColonistsPostfix(IEnumerable<Pawn> result)
+        {
+            List<Pawn> listWOservitors = result.ToList<Pawn>();
+            Predicate<Pawn> validator = delegate (Pawn t)
+            {
+                ChaosFollowerPawnKindDef pdef = t.kindDef as ChaosFollowerPawnKindDef;
+                if (pdef != null)
+                {
+                    if (pdef.IsServitor)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            };
+            listWOservitors.RemoveAll(x => validator(x));
+            result = listWOservitors;
+        }
 
     }
 

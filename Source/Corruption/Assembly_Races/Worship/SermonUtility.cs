@@ -198,6 +198,10 @@ namespace Corruption
         {
             if (!p.HostileTo(Faction.OfPlayer) && p != preacher)
             {
+                if (p.GetLord() != null)
+                {
+                    return false;
+                }
                 if (!p.Drafted)
                 {
                     int num = 0;

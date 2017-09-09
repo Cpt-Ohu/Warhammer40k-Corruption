@@ -87,7 +87,7 @@
 
   <ThingDef ParentName="BaseBullet">
     <defName>Bullet_StormBolt</defName>
-    <label>.75 cal Bolt</label>
+    <label>.85 cal Bolt</label>
 	<graphicData>
 		<texPath>Things/Projectile/Bullet_Big</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
@@ -95,7 +95,7 @@
     <projectile>
 		<flyOverhead>false</flyOverhead>
 		<damageDef>BulletBolter</damageDef>
-		<damageAmountBase>20</damageAmountBase>
+		<damageAmountBase>30</damageAmountBase>
 	 	<explosionRadius>1.0</explosionRadius>
 		<speed>80</speed>
     </projectile>
@@ -111,7 +111,7 @@
     <projectile>
 		<flyOverhead>false</flyOverhead>
 		<damageDef>Bullet</damageDef>
-		<damageAmountBase>26</damageAmountBase>
+		<damageAmountBase>9</damageAmountBase>
 		<speed>55</speed>
     </projectile>
   </ThingDef>
@@ -127,7 +127,7 @@
    <projectile>
 		<flyOverhead>false</flyOverhead>
 		<damageDef>Laser</damageDef>
-		<damageAmountBase>20</damageAmountBase>
+		<damageAmountBase>25</damageAmountBase>
 		<speed>125</speed>
    </projectile>
     <preFiringInitialIntensity>0</preFiringInitialIntensity>
@@ -188,7 +188,7 @@
    <projectile>
 		<flyOverhead>false</flyOverhead>
 		<damageDef>Laser</damageDef>
-		<damageAmountBase>40</damageAmountBase>
+		<damageAmountBase>60</damageAmountBase>
 		<speed>70</speed>
    </projectile>
     <preFiringInitialIntensity>0</preFiringInitialIntensity>
@@ -210,7 +210,7 @@
    <projectile>
 	 <flyOverhead>false</flyOverhead>
      <damageDef>Bullet</damageDef>
-     <damageAmountBase>42</damageAmountBase>
+     <damageAmountBase>50</damageAmountBase>
      <speed>100</speed>
    </projectile>
  </ThingDef>
@@ -225,7 +225,7 @@
    <projectile>
 	 <flyOverhead>false</flyOverhead>
      <damageDef>Bullet</damageDef>
-     <damageAmountBase>24</damageAmountBase>
+     <damageAmountBase>27</damageAmountBase>
      <speed>90</speed>
    </projectile>
  </ThingDef>
@@ -309,10 +309,10 @@
     <soundInteract>InteractRifle</soundInteract>
     <statBases>
       <MarketValue>1500</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
+      <AccuracyTouch>0.78</AccuracyTouch>
       <AccuracyShort>0.71</AccuracyShort>
-      <AccuracyMedium>0.50</AccuracyMedium>
-      <AccuracyLong>0.32</AccuracyLong>
+      <AccuracyMedium>0.45</AccuracyMedium>
+      <AccuracyLong>0.3</AccuracyLong>
       <RangedWeapon_Cooldown>0.50</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
@@ -326,7 +326,7 @@
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <projectileDef>Bullet_StandardBolt</projectileDef>
-        <warmupTime>0.7</warmupTime>
+        <warmupTime>0.8</warmupTime>
         <range>18</range>
         <soundCast>Bolter</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
@@ -357,8 +357,8 @@
     <soundInteract>InteractRifle</soundInteract>
     <statBases>
       <MarketValue>500</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
-      <AccuracyShort>0.87</AccuracyShort>
+      <AccuracyTouch>0.5</AccuracyTouch>
+      <AccuracyShort>0.57</AccuracyShort>
       <AccuracyMedium>0.77</AccuracyMedium>
       <AccuracyLong>0.69</AccuracyLong>
       <RangedWeapon_Cooldown>0.63</RangedWeapon_Cooldown>
@@ -405,8 +405,8 @@
     <statBases>
       <WorkToMake>12000</WorkToMake>
       <MarketValue>900</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
-      <AccuracyShort>0.71</AccuracyShort>
+      <AccuracyTouch>0.81</AccuracyTouch>
+      <AccuracyShort>0.50</AccuracyShort>
       <AccuracyMedium>0.50</AccuracyMedium>
       <AccuracyLong>0.32</AccuracyLong>
       <RangedWeapon_Cooldown>0.50</RangedWeapon_Cooldown>
@@ -453,10 +453,10 @@
     <statBases>
       <WorkToMake>18000</WorkToMake>
       <MarketValue>1500</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
+      <AccuracyTouch>0.78</AccuracyTouch>
       <AccuracyShort>0.71</AccuracyShort>
-      <AccuracyMedium>0.50</AccuracyMedium>
-      <AccuracyLong>0.32</AccuracyLong>
+      <AccuracyMedium>0.47</AccuracyMedium>
+      <AccuracyLong>0.28</AccuracyLong>
       <RangedWeapon_Cooldown>1.8</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
@@ -472,7 +472,7 @@
         <projectileDef>Plasma_Ball</projectileDef>
         <warmupTime>1.4</warmupTime>
         <range>18</range>
-		<burstShotCount>3</burstShotCount>
+		<burstShotCount>1</burstShotCount>
         <ticksBetweenBurstShots>33</ticksBetweenBurstShots>
         <soundCast>ShotChargeRifle</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
@@ -506,10 +506,10 @@ Class="FactionColors.FactionItemDef">
     <statBases>
       <WorkToMake>20000</WorkToMake>
       <MarketValue>2500</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
-      <AccuracyShort>0.65</AccuracyShort>
-      <AccuracyMedium>0.40</AccuracyMedium>
-      <AccuracyLong>0.28</AccuracyLong>
+      <AccuracyTouch>0.75</AccuracyTouch>
+      <AccuracyShort>0.69</AccuracyShort>
+      <AccuracyMedium>0.65</AccuracyMedium>
+      <AccuracyLong>0.45</AccuracyLong>
       <RangedWeapon_Cooldown>0.90</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
@@ -525,7 +525,7 @@ Class="FactionColors.FactionItemDef">
         <hasStandardCommand>true</hasStandardCommand>
         <projectileDef>Bullet_StormBolt</projectileDef>
         <warmupTime>2.0</warmupTime>
-        <range>20</range>
+        <range>28</range>
         <burstShotCount>6</burstShotCount>
         <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
         <soundCast>Bolter</soundCast>
@@ -555,7 +555,7 @@ Class="FactionColors.FactionItemDef">
     <soundInteract>InteractRifle</soundInteract>
     <statBases>
       <MarketValue>900</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
+      <AccuracyTouch>0.9</AccuracyTouch>
       <AccuracyShort>0.81</AccuracyShort>
       <AccuracyMedium>0.60</AccuracyMedium>
       <AccuracyLong>0.42</AccuracyLong>
@@ -601,10 +601,10 @@ Class="FactionColors.FactionItemDef">
     <soundInteract>InteractRifle</soundInteract>
     <statBases>
       <MarketValue>2200</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
-      <AccuracyShort>0.95</AccuracyShort>
+      <AccuracyTouch>0.4</AccuracyTouch>
+      <AccuracyShort>0.45</AccuracyShort>
       <AccuracyMedium>0.93</AccuracyMedium>
-      <AccuracyLong>0.90</AccuracyLong>
+      <AccuracyLong>0.70</AccuracyLong>
       <RangedWeapon_Cooldown>2.3</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
@@ -616,14 +616,14 @@ Class="FactionColors.FactionItemDef">
         <hasStandardCommand>true</hasStandardCommand>
         <projectileDef>Bullet_ExitusRifleRound</projectileDef>
         <warmupTime>5</warmupTime>
-        <range>50</range>
+        <range>120</range>
         <soundCast>ShotSniperRifle</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
 		<muzzleFlashScale>9</muzzleFlashScale>
       </li>
     </verbs>
     <costList>
-      <MecComponent_Weapon>1</MecComponent_Weapon>
+      <MecComponent_Weapon>3</MecComponent_Weapon>
       <Component>10</Component>
       <Steel>100</Steel>
     </costList>
@@ -644,7 +644,7 @@ Class="FactionColors.FactionItemDef">
     <soundInteract>InteractRifle</soundInteract>
     <statBases>
       <MarketValue>2000</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
+      <AccuracyTouch>0.9</AccuracyTouch>
       <AccuracyShort>0.87</AccuracyShort>
       <AccuracyMedium>0.77</AccuracyMedium>
       <AccuracyLong>0.64</AccuracyLong>
@@ -662,7 +662,7 @@ Class="FactionColors.FactionItemDef">
         <hasStandardCommand>true</hasStandardCommand>
         <projectileDef>Melta_Beam</projectileDef>
         <warmupTime>3</warmupTime>
-        <range>10</range>
+        <range>15</range>
         <soundCast>ShotChargeRifle</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
 		<muzzleFlashScale>9</muzzleFlashScale>
@@ -693,10 +693,10 @@ Class="FactionColors.FactionItemDef">
     <soundInteract>InteractRifle</soundInteract>
     <statBases>
       <MarketValue>2000</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
-      <AccuracyShort>0.87</AccuracyShort>
-      <AccuracyMedium>0.77</AccuracyMedium>
-      <AccuracyLong>0.64</AccuracyLong>
+      <AccuracyTouch>0.6</AccuracyTouch>
+      <AccuracyShort>0.65</AccuracyShort>
+      <AccuracyMedium>0.75</AccuracyMedium>
+      <AccuracyLong>0.65</AccuracyLong>
       <RangedWeapon_Cooldown>2.8</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
@@ -735,11 +735,11 @@ Class="FactionColors.FactionItemDef">
     <soundInteract>InteractRifle</soundInteract>
     <statBases>
       <MarketValue>1200</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
-      <AccuracyShort>0.87</AccuracyShort>
+      <AccuracyTouch>0.70</AccuracyTouch>
+      <AccuracyShort>0.77</AccuracyShort>
       <AccuracyMedium>0.77</AccuracyMedium>
-      <AccuracyLong>0.64</AccuracyLong>
-      <RangedWeapon_Cooldown>0.30</RangedWeapon_Cooldown>
+      <AccuracyLong>0.44</AccuracyLong>
+      <RangedWeapon_Cooldown>0.70</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
       <li>IG_Ranged_Vet</li>
@@ -752,8 +752,9 @@ Class="FactionColors.FactionItemDef">
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <projectileDef>Bullet_Autogun</projectileDef>
-        <warmupTime>0.7</warmupTime>
+        <warmupTime>1.5</warmupTime>
         <range>32</range>
+        <burstShotCount>5</burstShotCount>
         <soundCast>ShotHeavySMG</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
 		<muzzleFlashScale>9</muzzleFlashScale>
@@ -780,7 +781,7 @@ Class="FactionColors.FactionItemDef">
       <AccuracyShort>0.87</AccuracyShort>
       <AccuracyMedium>0.77</AccuracyMedium>
       <AccuracyLong>0.64</AccuracyLong>
-      <RangedWeapon_Cooldown>0.40</RangedWeapon_Cooldown>
+      <RangedWeapon_Cooldown>0.60</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
       <li>IG_Ranged_Ass</li>
@@ -791,8 +792,8 @@ Class="FactionColors.FactionItemDef">
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <projectileDef>Bullet_PumpShotgun</projectileDef>
-        <warmupTime>1</warmupTime>
-        <range>16</range>
+        <warmupTime>1.1</warmupTime>
+        <range>15</range>
         <soundCast>ShotShotgun</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
 		<muzzleFlashScale>9</muzzleFlashScale>

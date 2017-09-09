@@ -335,6 +335,9 @@ namespace Corruption
         public override void PostAdd()
         {
             base.PostAdd();
+
+
+
             if (this.DominationEnabled)
             {
                 this.DominationTracker = new Domination.DominationTracker();
@@ -342,7 +345,6 @@ namespace Corruption
 
             if (this.FactionsEnabled)
             {
-                Log.Message("Creating Factions");
                 this.GenerateAndSetFactions();
                 CreateSubSector();
             }

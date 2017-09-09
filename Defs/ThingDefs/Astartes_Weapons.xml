@@ -24,6 +24,39 @@
     <tradeability>Sellable</tradeability>
   </ThingDef>
   
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_AstartesBolt</defName>
+    <label>.95 cal Bolt</label>
+	<graphicData>
+		<texPath>Things/Projectile/Bullet_Big</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+    <projectile>
+		<flyOverhead>false</flyOverhead>
+		<damageDef>BulletBolter</damageDef>
+		<damageAmountBase>32</damageAmountBase>
+	 	<explosionRadius>1.0</explosionRadius>
+		<speed>80</speed>
+    </projectile>
+  </ThingDef>
+
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_HeavyBolt</defName>
+    <label>.95 cal Bolt</label>
+	<graphicData>
+		<texPath>Things/Projectile/Bullet_Big</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+    <projectile>
+		<flyOverhead>false</flyOverhead>
+		<damageDef>BulletBolter</damageDef>
+		<damageAmountBase>35</damageAmountBase>
+	 	<explosionRadius>1.0</explosionRadius>
+		<speed>80</speed>
+    </projectile>
+  </ThingDef>
+
   <!-- ============================================================== -->
   
   <ThingDef ParentName="BaseWeapon_Astartes" Class="FactionColors.FactionItemDef">
@@ -44,7 +77,7 @@
       <MarketValue>600</MarketValue>
       <WorkToMake>20000</WorkToMake>
       <MeleeWeapon_DamageAmount>30</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.95</MeleeWeapon_Cooldown>
+      <MeleeWeapon_Cooldown>2.37</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-45</equippedAngleOffset>
     <stuffCategories>
@@ -94,8 +127,8 @@
     <statBases>
       <MarketValue>2000</MarketValue>
       <WorkToMake>18000</WorkToMake>
-      <MeleeWeapon_DamageAmount>35</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.75</MeleeWeapon_Cooldown>
+      <MeleeWeapon_DamageAmount>40</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>3.2</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-45</equippedAngleOffset>
     <stuffCategories>
@@ -143,8 +176,8 @@
     <statBases>
       <MarketValue>2000</MarketValue>
       <WorkToMake>18000</WorkToMake>
-      <MeleeWeapon_DamageAmount>37</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.25</MeleeWeapon_Cooldown>
+      <MeleeWeapon_DamageAmount>34</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2.45</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-45</equippedAngleOffset>
     <stuffCategories>
@@ -194,8 +227,8 @@
     <statBases>
       <WorkToMake>20000</WorkToMake>
       <MarketValue>3000</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
-      <AccuracyShort>0.87</AccuracyShort>
+      <AccuracyTouch>0.68</AccuracyTouch>
+      <AccuracyShort>0.64</AccuracyShort>
       <AccuracyMedium>0.67</AccuracyMedium>
       <AccuracyLong>0.43</AccuracyLong>
       <RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
@@ -210,10 +243,10 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_StandardBolt</projectileDef>
+        <projectileDef>Bullet_HeavyBolt</projectileDef>
         <warmupTime>4.0</warmupTime>
-        <range>32</range>
-        <burstShotCount>10</burstShotCount>
+        <range>40</range>
+        <burstShotCount>6</burstShotCount>
         <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
         <soundCast>Bolter</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
@@ -244,8 +277,8 @@
     <statBases>
       <WorkToMake>20000</WorkToMake>
       <MarketValue>2000</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
-      <AccuracyShort>0.87</AccuracyShort>
+      <AccuracyTouch>0.6</AccuracyTouch>
+      <AccuracyShort>0.67</AccuracyShort>
       <AccuracyMedium>0.77</AccuracyMedium>
       <AccuracyLong>0.53</AccuracyLong>
       <RangedWeapon_Cooldown>0.76</RangedWeapon_Cooldown>
@@ -260,10 +293,10 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_StandardBolt</projectileDef>
+        <projectileDef>Bullet_AstartesBolt</projectileDef>
         <warmupTime>1.7</warmupTime>
-        <range>38</range>
-        <burstShotCount>4</burstShotCount>
+        <range>32</range>
+        <burstShotCount>3</burstShotCount>
         <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
         <soundCast>Bolter</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
@@ -293,7 +326,7 @@
     <soundInteract>InteractRifle</soundInteract>
     <statBases>
       <MarketValue>1700</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
+      <AccuracyTouch>0.85</AccuracyTouch>
       <AccuracyShort>0.75</AccuracyShort>
       <AccuracyMedium>0.55</AccuracyMedium>
       <AccuracyLong>0.38</AccuracyLong>
@@ -309,8 +342,8 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_StandardBolt</projectileDef>
-        <warmupTime>1.3</warmupTime>
+        <projectileDef>Bullet_AstartesBolt</projectileDef>
+        <warmupTime>0.9</warmupTime>
         <range>18</range>
         <soundCast>Bolter</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>

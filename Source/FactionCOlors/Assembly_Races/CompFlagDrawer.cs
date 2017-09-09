@@ -16,7 +16,7 @@ namespace FactionColors
                 return this.props as CompProperties_FlagDrawer;
             }
         }
-
+        
         public PlayerFactionStoryTracker storyTracker
         {
             get

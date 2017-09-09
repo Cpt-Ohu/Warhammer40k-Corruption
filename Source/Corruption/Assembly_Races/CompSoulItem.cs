@@ -139,22 +139,27 @@ namespace Corruption
             Apparel tempthing;
             if (this.parent != null && !this.parent.Spawned)
             {
-                        //Log.Message("Begin Check");
+                //Log.Message("Begin Check");
                 if (this.parent is Apparel)
                 {
                     //             Log.Message("Soul item is Apparel");
                     tempthing = this.parent as Apparel;
                     this.Owner = tempthing.Wearer;
                 }
-                else if ((tempcomp = this.parent.TryGetComp<CompEquippable>()) != null && tempcomp.PrimaryVerb.CasterPawn != null)
+                else if ((tempcomp = this.parent.TryGetComp<CompEquippable>()) != null)
                 {
-                     //Log.Message("IsGun");
-                    this.Owner = tempcomp.PrimaryVerb.CasterPawn;
+                    if (tempcomp.PrimaryVerb.CasterPawn != null)
+                    {
+                        this.Owner = tempcomp.PrimaryVerb.CasterPawn;
+                    }
                 }
                 else if (this.parent.holdingOwner != null && this.parent.holdingOwner.Owner is Pawn_CarryTracker)
                 {
                     Pawn_CarryTracker tracker = this.parent.holdingOwner.Owner as Pawn_CarryTracker;
-                    this.Owner = tracker.pawn;
+                    if (tracker.pawn != null)
+                    {
+                        this.Owner = tracker.pawn;
+                    }
                 }
                 if ((this.Owner != null))
                 {
@@ -220,7 +225,7 @@ namespace Corruption
                         break;
                     }
             }
-            num = sign * cprops.GainRate * 0.2f / 14000;
+            num = sign * cprops.GainRate * 0.2f / 7200;
             nsoul.GainNeed(num);
         }       
 

@@ -13,7 +13,14 @@ namespace Corruption.BookStuff
         public ThingDef_Readables Tdef;
         private List<string> BookText = new List<string>();
         public bool TexChange = false;
-        private Graphic OpenBook;
+        private string currentTexPath = "Items/Books/Cover_BookGeneric";
+        private Graphic OpenBook
+        {
+            get
+            {
+                return GraphicDatabase.Get<Graphic_Single>(currentTexPath, ShaderDatabase.CutoutComplex, Vector2.one, DrawColor, DrawColorTwo);
+            }
+        }
         private List<string> DefaultText = new List<string>
         {
             "It was a dark and stormy night.",
@@ -101,7 +108,7 @@ namespace Corruption.BookStuff
             ReadFormXML();
             if (OpenBook == null)
             {
-                OpenBook = GraphicDatabase.Get<Graphic_Single>("Items/Books/Cover_BookGeneric");
+                currentTexPath ="Items/Books/Cover_BookGeneric";
             }
         }
         public override void ExposeData()
@@ -136,7 +143,7 @@ namespace Corruption.BookStuff
             }
             if (!Readables_Def.CloseTexture.NullOrEmpty())
             {
-                OpenBook = GraphicDatabase.Get<Graphic_Single>(Readables_Def.CloseTexture, ShaderDatabase.CutoutComplex, Vector2.one, DrawColor, DrawColorTwo);
+                this.currentTexPath = Readables_Def.CloseTexture;
             }
             this.Tdef = (ThingDef_Readables)this.def;
         }

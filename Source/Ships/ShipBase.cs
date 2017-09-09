@@ -316,6 +316,7 @@ namespace OHUShips
             {
                 if (current.slotType == WeaponSystemType.LightCaliber)
                 {
+
                     this.installedTurrets.Add(current, null);
                 }
                 if (current.slotType == WeaponSystemType.Bombing)
@@ -1137,6 +1138,9 @@ namespace OHUShips
             Scribe_Values.Look<int>(ref this.drawTickOffset, "drawTickOffset", 0, false);
             Scribe_Values.Look<int>(ref this.timeWaited, "timeWaited", 200, false);
 
+            
+            Scribe_Values.Look<Color>(ref this.Col1, "Col1", Color.magenta, false);
+            Scribe_Values.Look<Color>(ref this.Col2, "Col2", Color.black, false);
 
             Scribe_References.Look(ref this.ParkingMap, "ParkingMap");
             Scribe_Values.Look<IntVec3>(ref this.ParkingPosition, "ParkingPosition", IntVec3.Zero , false);

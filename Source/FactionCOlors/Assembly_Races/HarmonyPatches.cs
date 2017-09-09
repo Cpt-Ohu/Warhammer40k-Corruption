@@ -80,7 +80,7 @@ namespace FactionColors
             return false;
         }
 
-        private static ThingDef_AlienRace AlienDefFor(Thing eq, out Pawn pawn)
+        public static ThingDef_AlienRace AlienDefFor(Thing eq, out Pawn pawn)
         {
             ThingWithComps actualThing = eq as ThingWithComps;
             if (actualThing != null)
@@ -164,13 +164,7 @@ namespace FactionColors
                 Material Mat = eq.Graphic.MatAt(eq.Rotation);
                 Matrix4x4 matrix = default(Matrix4x4);
                 matrix.SetTRS(drawLoc, Quaternion.AngleAxis(num, Vector3.up), scale * 1.2f);
-                Graphics.DrawMesh(mesh, matrix, matSingle, 0);
-
-                //                Matrix4x4 matrix = default(Matrix4x4);
-                //                matrix.SetTRS(drawLoc, Quaternion.AngleAxis(num, Vector3.up), facdef.ItemMeshSize);
-                //                Graphics.DrawMesh(mesh, matrix, matSingle, 0);
-                //               Graphics.DrawMesh()
-                
+                Graphics.DrawMesh(mesh, matrix, matSingle, 0);                
             }
 
             else

@@ -10,7 +10,6 @@
     <tradeability>Sellable</tradeability>
   </ThingDef>
 
-
   <ThingDef ParentName="BaseBullet">
     <defName>Bullet_Shuriken</defName>
     <label>shuriken</label>
@@ -22,7 +21,7 @@
     <projectile>
       <flyOverhead>false</flyOverhead>
       <damageDef>Bullet</damageDef>
-      <DamageAmountBase>2</DamageAmountBase>
+      <DamageAmountBase>3</DamageAmountBase>
       <Speed>65</Speed>
     </projectile>
   </ThingDef>
@@ -38,7 +37,7 @@
     <projectile>
       <flyOverhead>false</flyOverhead>
       <damageDef>Bullet</damageDef>
-      <DamageAmountBase>3</DamageAmountBase>
+      <DamageAmountBase>4</DamageAmountBase>
       <Speed>65</Speed>
     </projectile>
   </ThingDef>
@@ -55,7 +54,7 @@
    <projectile>
 		<flyOverhead>false</flyOverhead>
 		<damageDef>Laser</damageDef>
-		<damageAmountBase>20</damageAmountBase>
+		<damageAmountBase>2</damageAmountBase>
 		<speed>125</speed>
    </projectile>
     <preFiringInitialIntensity>0</preFiringInitialIntensity>
@@ -86,9 +85,9 @@
       <WorkToMake>132000</WorkToMake>
       <MarketValue>2200</MarketValue>
       <AccuracyTouch>0.98</AccuracyTouch>
-      <AccuracyShort>0.71</AccuracyShort>
-      <AccuracyMedium>0.50</AccuracyMedium>
-      <AccuracyLong>0.35</AccuracyLong>
+      <AccuracyShort>0.85</AccuracyShort>
+      <AccuracyMedium>0.65</AccuracyMedium>
+      <AccuracyLong>0.45</AccuracyLong>
       <RangedWeapon_Cooldown>0.9</RangedWeapon_Cooldown>
     </statBases>
     <costList>
@@ -101,9 +100,9 @@
         <hasStandardCommand>true</hasStandardCommand>
         <projectileDef>Bullet_Shuriken</projectileDef>
         <warmupTime>1</warmupTime>
-        <burstShotCount>3</burstShotCount>
+        <burstShotCount>6</burstShotCount>
         <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
-        <range>24</range>
+        <range>15</range>
         <soundCast>Shuriken_Small</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
@@ -132,9 +131,9 @@
       <WorkToMake>920000</WorkToMake>
       <MarketValue>3650</MarketValue>
       <AccuracyTouch>0.70</AccuracyTouch>
-      <AccuracyShort>0.87</AccuracyShort>
-      <AccuracyMedium>0.77</AccuracyMedium>
-      <AccuracyLong>0.64</AccuracyLong>
+      <AccuracyShort>0.60</AccuracyShort>
+      <AccuracyMedium>0.75</AccuracyMedium>
+      <AccuracyLong>0.55</AccuracyLong>
       <RangedWeapon_Cooldown>0.9</RangedWeapon_Cooldown>
     </statBases>
     <costList>
@@ -147,8 +146,8 @@
         <hasStandardCommand>true</hasStandardCommand>
         <projectileDef>Bullet_Shuriken</projectileDef>
         <warmupTime>1.5</warmupTime>
-        <range>35</range>
-        <burstShotCount>8</burstShotCount>
+        <range>20</range>
+        <burstShotCount>12</burstShotCount>
         <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
         <soundCast>Shuriken_Small</soundCast>
         <soundCastTail>GunTail_Medium</soundCastTail>
@@ -206,11 +205,11 @@
     <statBases>
       <WorkToMake>120000</WorkToMake>
       <MarketValue>850</MarketValue>
-      <AccuracyTouch>0.50</AccuracyTouch>
-      <AccuracyShort>0.86</AccuracyShort>
-      <AccuracyMedium>0.86</AccuracyMedium>
-      <AccuracyLong>0.88</AccuracyLong>
-      <RangedWeapon_Cooldown>2.33</RangedWeapon_Cooldown>
+      <AccuracyTouch>0.25</AccuracyTouch>
+      <AccuracyShort>0.35</AccuracyShort>
+      <AccuracyMedium>0.90</AccuracyMedium>
+      <AccuracyLong>0.90</AccuracyLong>
+      <RangedWeapon_Cooldown>2.25</RangedWeapon_Cooldown>
     </statBases>
     <costList>
       <Steel>100</Steel>
@@ -221,7 +220,7 @@
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <projectileDef>Projectile_EldarLongrifle</projectileDef>
-        <warmupTime>6</warmupTime>
+        <warmupTime>4.5</warmupTime>
         <range>45</range>
         <soundCast>Shuriken_Longrifle</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
@@ -252,10 +251,10 @@
       <WorkToMake>920000</WorkToMake>
       <MarketValue>3650</MarketValue>
       <AccuracyTouch>0.9</AccuracyTouch>
-      <AccuracyShort>0.87</AccuracyShort>
-      <AccuracyMedium>0.77</AccuracyMedium>
-      <AccuracyLong>0.20</AccuracyLong>
-      <RangedWeapon_Cooldown>0.9</RangedWeapon_Cooldown>
+      <AccuracyShort>0.99</AccuracyShort>
+      <AccuracyMedium>0.85</AccuracyMedium>
+      <AccuracyLong>0.47</AccuracyLong>
+      <RangedWeapon_Cooldown>3.0</RangedWeapon_Cooldown>
     </statBases>
     <costList>
       <Wraithbone>100</Wraithbone>
@@ -268,7 +267,7 @@
         <projectileDef>Bullet_Spinner</projectileDef>
         <warmupTime>3</warmupTime>
         <range>10</range>
-        <burstShotCount>2</burstShotCount>
+        <burstShotCount>30</burstShotCount>
         <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
         <soundCast>Shuriken_Small</soundCast>
         <soundCastTail>GunTail_Medium</soundCastTail>
@@ -297,9 +296,9 @@
     <statBases>
       <WorkToMake>920000</WorkToMake>
       <MarketValue>3650</MarketValue>
-      <AccuracyTouch>0.70</AccuracyTouch>
-      <AccuracyShort>0.87</AccuracyShort>
-      <AccuracyMedium>0.77</AccuracyMedium>
+      <AccuracyTouch>0.99</AccuracyTouch>
+      <AccuracyShort>0.90</AccuracyShort>
+      <AccuracyMedium>0.85</AccuracyMedium>
       <AccuracyLong>0.64</AccuracyLong>
       <RangedWeapon_Cooldown>0.9</RangedWeapon_Cooldown>
     </statBases>
@@ -331,7 +330,7 @@
   <ThingDef ParentName="BaseMeleeWeaponNoTag" Class="FactionColors.FactionItemDef">
     <defName>Eldar_Sword</defName>
     <thingClass>FactionColors.FactionItem</thingClass>
-    <label>eldar sword</label>
+    <label>witch blase</label>
     <description>Xenotech blade.</description>
     <weaponTags>
       <li>E_Melee</li>
@@ -352,8 +351,8 @@
     <statBases>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>3650</MarketValue>
-      <MeleeWeapon_DamageAmount>20</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.0</MeleeWeapon_Cooldown>
+      <MeleeWeapon_DamageAmount>29</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2.25</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-65</equippedAngleOffset>
     <verbs>
@@ -373,7 +372,7 @@
   <ThingDef ParentName="BaseMeleeWeaponNoTag" Class="FactionColors.FactionItemDef">
     <thingClass>FactionColors.FactionItem</thingClass>
     <defName>Eldar_Spear</defName>
-    <label>eldar spear</label>
+    <label>singing spear</label>
     <description>Xenotech pole weapon.</description>
     <weaponTags>
       <li>E_Melee</li>
@@ -394,8 +393,8 @@
     <statBases>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>3650</MarketValue>
-      <MeleeWeapon_DamageAmount>15</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.0</MeleeWeapon_Cooldown>
+      <MeleeWeapon_DamageAmount>32</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2.75</MeleeWeapon_Cooldown>
     </statBases>
     <costList>
       <Wraithbone>30</Wraithbone>
@@ -445,10 +444,10 @@
     <statBases>
       <WorkToMake>920000</WorkToMake>
       <MarketValue>3650</MarketValue>
-      <AccuracyTouch>0.70</AccuracyTouch>
-      <AccuracyShort>0.89</AccuracyShort>
-      <AccuracyMedium>0.80</AccuracyMedium>
-      <AccuracyLong>0.70</AccuracyLong>
+      <AccuracyTouch>0.6</AccuracyTouch>
+      <AccuracyShort>0.6</AccuracyShort>
+      <AccuracyMedium>0.89</AccuracyMedium>
+      <AccuracyLong>0.80</AccuracyLong>
       <RangedWeapon_Cooldown>0.9</RangedWeapon_Cooldown>
     </statBases>
     <costList>
@@ -461,8 +460,8 @@
         <hasStandardCommand>true</hasStandardCommand>
         <projectileDef>Bullet_ShurikenAW</projectileDef>
         <warmupTime>1.5</warmupTime>
-        <range>35</range>
-        <burstShotCount>7</burstShotCount>
+        <range>30</range>
+        <burstShotCount>12</burstShotCount>
         <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
         <soundCast>Shuriken_Small</soundCast>
         <soundCastTail>GunTail_Medium</soundCastTail>

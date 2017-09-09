@@ -21,25 +21,33 @@ namespace OHUShips
 
         public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            ShipBase ship = (ShipBase)t;
-            KeyValuePair<ShipWeaponSlot, Thing> weaponSpecs = ship.weaponsToUninstall.RandomElement();
+            Building_ShipTurret turret = t as Building_ShipTurret;
 
-            weaponSpecs.Value.TryGetComp<CompShipWeapon>().slotToInstall = weaponSpecs.Key;
-
-            return new Job(ShipNamespaceDefOfs.UninstallShipWeapon, weaponSpecs.Value, ship)
+            if (turret != null && turret.ParentShip != null)
             {
-                count = 1,
-                ignoreForbidden = false
-            };
+                //KeyValuePair<ShipWeaponSlot, Thing> weaponSpecs = turret.ParentShip.weaponsToUninstall.FirstOrDefault(x => x.Value == turret);
 
+                if (turret.ParentShip.weaponsToUninstall.ContainsValue(turret) && pawn.Map.reservationManager.CanReserve(pawn, turret, 1))
+                {
+                    return new Job(ShipNamespaceDefOfs.UninstallShipWeapon, turret, turret.ParentShip)
+                    {
+                        count = 1,
+                        ignoreForbidden = false,
+                    };
+                }
+            }
+            return null;
         }
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            if (t is ShipBase)
+            if (t is Building_ShipTurret)
             {
-                ShipBase ship = (ShipBase)t;
-                return ship.weaponsToUninstall.Count > 0;
+                Building_ShipTurret turret = t as Building_ShipTurret;
+                if (turret.ParentShip != null)
+                {
+                    return pawn.Map.reservationManager.CanReserve(pawn, turret, 1) && turret.ParentShip.weaponsToUninstall.Count > 0 && !turret.ParentShip.weaponsToUninstall.Any(x => x.Value == null);
+                }
             }
             return false;
         }

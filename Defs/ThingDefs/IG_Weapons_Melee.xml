@@ -58,8 +58,8 @@
     <costStuffCount>150</costStuffCount>
     <statBases>
       <WorkToMake>20000</WorkToMake>
-      <MeleeWeapon_DamageAmount>26</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.95</MeleeWeapon_Cooldown>
+      <MeleeWeapon_DamageAmount>29</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2.35</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-15</equippedAngleOffset>
     <stuffCategories>
@@ -101,8 +101,8 @@
     <costStuffCount>150</costStuffCount>
     <statBases>
       <WorkToMake>18000</WorkToMake>
-      <MeleeWeapon_DamageAmount>26</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.95</MeleeWeapon_Cooldown>
+      <MeleeWeapon_DamageAmount>31</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2.25</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-15</equippedAngleOffset>
     <stuffCategories>
@@ -147,8 +147,8 @@
     </costList>
     <statBases>
       <WorkToMake>18000</WorkToMake>
-      <MeleeWeapon_DamageAmount>15</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.95</MeleeWeapon_Cooldown>
+      <MeleeWeapon_DamageAmount>31</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2.25</MeleeWeapon_Cooldown>
     </statBases>
     <TickerType>Rare</TickerType>
     <equippedAngleOffset>-85</equippedAngleOffset>

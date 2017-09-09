@@ -115,7 +115,7 @@ Offensive Capabilities: 1x Payload Slot
 	    <li>
           <SlotName>Payload</SlotName>
           <slotType>Bombing</slotType>
-          <turretPosOffset>(0,0,0)</turretPosOffset>
+          <turretPosOffset>(4,0,0)</turretPosOffset>
 	    </li>
 	   </weaponSlots>
 

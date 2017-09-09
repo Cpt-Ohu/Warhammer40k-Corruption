@@ -156,6 +156,15 @@ namespace FactionColors
             }
         }
 
+        public override void Draw()
+        {
+            base.Draw();
+            Vector3 s = new Vector3(this.def.graphicData.drawSize.x, 1f, this.def.graphicData.drawSize.y);
+            Matrix4x4 matrix = default(Matrix4x4);
+            matrix.SetTRS(this.DrawPos, Quaternion.AngleAxis(0, Vector3.up), s);
+            Graphics.DrawMesh(MeshPool.plane10, matrix, this.Graphic.MatSingle, 0);
+        }
+
         public override void ExposeData()
         {
             base.ExposeData();

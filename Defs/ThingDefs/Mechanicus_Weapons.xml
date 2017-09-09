@@ -124,7 +124,7 @@ Class="FactionColors.FactionItemDef">
     <statBases>
       <WorkToMake>120000</WorkToMake>
       <MarketValue>1500</MarketValue>
-      <AccuracyTouch>0.80</AccuracyTouch>
+      <AccuracyTouch>0.9</AccuracyTouch>
       <AccuracyShort>0.83</AccuracyShort>
       <AccuracyMedium>0.68</AccuracyMedium>
       <AccuracyLong>0.53</AccuracyLong>
@@ -166,7 +166,7 @@ Class="FactionColors.FactionItemDef">
     </graphicData>
     <projectile>
       <damageDef>ElectricBurn</damageDef>
-      <damageAmountBase>18</damageAmountBase>
+      <damageAmountBase>22</damageAmountBase>
       <speed>80</speed>
     </projectile>
   </ThingDef>
@@ -188,8 +188,8 @@ Class="FactionColors.FactionItemDef">
       <MarketValue>1500</MarketValue>
       <AccuracyTouch>0.80</AccuracyTouch>
       <AccuracyShort>0.83</AccuracyShort>
-      <AccuracyMedium>0.68</AccuracyMedium>
-      <AccuracyLong>0.53</AccuracyLong>
+      <AccuracyMedium>0.8</AccuracyMedium>
+      <AccuracyLong>0.68</AccuracyLong>
       <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
     </statBases>
     <recipeMaker>
@@ -235,9 +235,9 @@ Class="FactionColors.FactionItemDef">
       <WorkToMake>120000</WorkToMake>
       <MarketValue>3500</MarketValue>
       <AccuracyTouch>0.80</AccuracyTouch>
-      <AccuracyShort>0.83</AccuracyShort>
-      <AccuracyMedium>0.68</AccuracyMedium>
-      <AccuracyLong>0.53</AccuracyLong>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.80</AccuracyMedium>
+      <AccuracyLong>0.68</AccuracyLong>
       <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
     </statBases>
     <recipeMaker>
@@ -282,8 +282,8 @@ Class="FactionColors.FactionItemDef">
     <statBases>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>100</MarketValue>
-      <MeleeWeapon_DamageAmount>10</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.0</MeleeWeapon_Cooldown>
+      <MeleeWeapon_DamageAmount>27</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2.5</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-65</equippedAngleOffset>
     <verbs>
@@ -316,8 +316,8 @@ Class="FactionColors.FactionItemDef">
     <statBases>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>100</MarketValue>
-      <MeleeWeapon_DamageAmount>10</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.0</MeleeWeapon_Cooldown>
+      <MeleeWeapon_DamageAmount>25</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>1.5</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-65</equippedAngleOffset>
     <verbs>

@@ -24,7 +24,7 @@
     <projectile>
       <flyOverhead>false</flyOverhead>
       <damageDef>Bullet</damageDef>
-      <DamageAmountBase>8</DamageAmountBase>
+      <DamageAmountBase>25</DamageAmountBase>
       <Speed>65</Speed>
     </projectile>
   </ThingDef>
@@ -40,7 +40,7 @@
     <projectile>
       <flyOverhead>false</flyOverhead>
       <damageDef>Bullet</damageDef>
-      <DamageAmountBase>15</DamageAmountBase>
+      <DamageAmountBase>35</DamageAmountBase>
       <Speed>65</Speed>
     </projectile>
   </ThingDef>
@@ -62,7 +62,7 @@
     <statBases>
       <WorkToMake>132000</WorkToMake>
       <MarketValue>1200</MarketValue>
-      <AccuracyTouch>0.98</AccuracyTouch>
+      <AccuracyTouch>0.78</AccuracyTouch>
       <AccuracyShort>0.71</AccuracyShort>
       <AccuracyMedium>0.50</AccuracyMedium>
       <AccuracyLong>0.35</AccuracyLong>
@@ -78,7 +78,7 @@
         <hasStandardCommand>true</hasStandardCommand>
         <projectileDef>Bullet_PulsePistol</projectileDef>
         <warmupTime>1</warmupTime>
-        <range>24</range>
+        <range>25</range>
         <soundCast>ShotChargeRifle</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
@@ -103,7 +103,7 @@
     <statBases>
       <WorkToMake>920000</WorkToMake>
       <MarketValue>2400</MarketValue>
-      <AccuracyTouch>0.70</AccuracyTouch>
+      <AccuracyTouch>0.9</AccuracyTouch>
       <AccuracyShort>0.87</AccuracyShort>
       <AccuracyMedium>0.77</AccuracyMedium>
       <AccuracyLong>0.64</AccuracyLong>
@@ -146,7 +146,7 @@
     <statBases>
       <WorkToMake>120000</WorkToMake>
       <MarketValue>2800</MarketValue>
-      <AccuracyTouch>0.50</AccuracyTouch>
+      <AccuracyTouch>0.55</AccuracyTouch>
       <AccuracyShort>0.86</AccuracyShort>
       <AccuracyMedium>0.86</AccuracyMedium>
       <AccuracyLong>0.88</AccuracyLong>
@@ -160,9 +160,9 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_SniperRifle</projectileDef>
-        <warmupTime>8</warmupTime>
-        <range>55</range>
+        <projectileDef>Bullet_ExitusRifleRound</projectileDef>
+        <warmupTime>5</warmupTime>
+        <range>80</range>
         <soundCast>Shuriken_Longrifle</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
