@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<GameData>
+<Defs>
 
 
   <ThingDef Name="BookBase" Abstract="True">
@@ -32,8 +32,8 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_BloodyCanals</defName>
 		<label>Inspector Horse: Bloody Spires</label>
-<Description>A crime-fiction series about a grizzled detective and her case files. In this episode she gets involved in Hive politics.
-</Description>
+<description>A crime-fiction series about a grizzled detective and her case files. In this episode she gets involved in Hive politics.
+</description>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -74,8 +74,8 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_Revenga</defName>
 		<label>Revenga</label>
-<Description>The story of a man who lost everything.
-</Description>
+<description>The story of a man who lost everything.
+</description>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -110,8 +110,8 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_FafnarFairytales</defName>
 		<label>Fafnar's Fairytales</label>
-<Description>A collection of amusing stories originating from primitive worlds. Deemed harmless by the Inquisition.
-</Description>
+<description>A collection of amusing stories originating from primitive worlds. Deemed harmless by the Inquisition.
+</description>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -151,8 +151,8 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_Sergius</defName>
 		<label>Sergius' Guide to the Fringe</label>
-<Description>A humorous handbook for frequent travellers between planets.
-</Description>
+<description>A humorous handbook for frequent travellers between planets.
+</description>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -191,7 +191,7 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_AtlasFringe</defName>
 		<label>Atlas of the Fringe</label>
-<Description>A collection of pictographs of some of the most beautiful places in nearby systems.</Description>
+<description>A collection of pictographs of some of the most beautiful places in nearby systems.</description>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -228,7 +228,7 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_Fashion</defName>
 		<label>Bernard's History of Fashion</label>
-<Description>A work depicting the evolution of different clothing styles among several inhabited planets in the same sector.</Description>
+<description>A work depicting the evolution of different clothing styles among several inhabited planets in the same sector.</description>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -264,7 +264,7 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_Eve</defName>
 		<label>Healthcare on the Rim</label>
-<Description>A work by famous wandering healer Eve who travelled rimworlds of the Imperium for over 80 years.</Description>
+<description>A work by famous wandering healer Eve who travelled rimworlds of the Imperium for over 80 years.</description>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -310,7 +310,7 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_Eko</defName>
 		<label>Eko's Scientific Studies</label>
-<Description>A work by an intellectual called Eko about the spirit of exploration and how to properly document it.</Description>
+<description>A work by an intellectual called Eko about the spirit of exploration and how to properly document it.</description>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -354,7 +354,7 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_Nefton</defName>
 		<label>Nefton: Basics of Science</label>
-<Description>Written by a tech-adept for the Scola Progenium as an introduction to basic physics, chemistry and biology.</Description>
+<description>Written by a tech-adept for the Scola Progenium as an introduction to basic physics, chemistry and biology.</description>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -397,7 +397,7 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_Cicero</defName>
 		<label>Speeches of Kikero</label>
-<Description>A really old book detailling the rhetoric skill of a renowned lawyer from the ancient times of human civilization.</Description>
+<description>A really old book detailling the rhetoric skill of a renowned lawyer from the ancient times of human civilization.</description>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -442,7 +442,7 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_Olivie</defName>
 		<label>Olivie's 1000 dishes</label>
-<Description>A book by a traveling chef that has been personal cook to both imperial governors of hive worlds and tribal chieftains on primitive planets. His personal motto is: If it contains carbon, I can make a meal out of it.</Description>
+<description>A book by a traveling chef that has been personal cook to both imperial governors of hive worlds and tribal chieftains on primitive planets. His personal motto is: If it contains carbon, I can make a meal out of it.</description>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -487,7 +487,7 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_GregoriavI</defName>
 		<label>Gregoriav's Basic Medicine Vol I</label>
-<Description>A standard piece of literature for anyone attending a medical school in this sector.</Description>
+<description>A standard piece of literature for anyone attending a medical school in this sector.</description>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -531,7 +531,7 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_GregoriavII</defName>
 		<label>Gregoriav's Basic Medicine Vol II</label>
-<Description>A standard piece of literature for anyone attending a medical school in this sector.</Description>
+<description>A standard piece of literature for anyone attending a medical school in this sector.</description>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -575,7 +575,7 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_AlienBeasts</defName>
 		<label>Alien beasts and how to treat them</label>
-<Description>A book detailing how to find animal-like lifeforms on different planets and what general patterns of behaviour you may expect from them.</Description>
+<description>A book detailing how to find animal-like lifeforms on different planets and what general patterns of behaviour you may expect from them.</description>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -619,7 +619,7 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_StormLove</defName>
 		<label>Storm of Love</label>
-<Description>The gripping story of a young nobleman who finds his true love in an unexpected place.</Description>
+<description>The gripping story of a young nobleman who finds his true love in an unexpected place.</description>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -658,7 +658,7 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_LightningTome</defName>
 		<label>Tome of Lightning</label>
-<Description>A strange book detailing the way energy is created from apparent nothingness.</Description>
+<description>A strange book detailing the way energy is created from apparent nothingness.</description>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -722,7 +722,7 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_Hellfifre</defName>
 		<label>Tome of Hellfifre</label>
-<Description>A strange book probably written by a Pyromaniac.</Description>
+<description>A strange book probably written by a Pyromaniac.</description>
 		<graphicData>
 		 <texPath>Things/Items/Books/BookGeneric</texPath>
 		<graphicClass>Graphic_Multi</graphicClass>
@@ -777,7 +777,7 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_MindControl</defName>
 		<label>The Veil</label>
-<Description>A prosaic book full of ill-sounding, yet intriguing verses.</Description>
+<description>A prosaic book full of ill-sounding, yet intriguing verses.</description>
     <statBases>
       <MarketValue>2000</MarketValue>
     </statBases>
@@ -856,7 +856,7 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_TomeOfIsha</defName>
 		<label>Tome of Isha</label>
-<Description>A piece of literature that seems to be centered around a being called Isha. It seems to radiate warmth and an aura of peace.</Description>
+<description>A piece of literature that seems to be centered around a being called Isha. It seems to radiate warmth and an aura of peace.</description>
     <statBases>
       <MarketValue>1000</MarketValue>
     </statBases>
@@ -921,7 +921,7 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_Druj</defName>
 		<label>Calling of Druj</label>
-<Description>A piece of literature that seems to be written in strange hyroglyphs, with some gibberish in High Gothic interspersed. It seems to radiate an aura of unease.</Description>
+<description>A piece of literature that seems to be written in strange hyroglyphs, with some gibberish in High Gothic interspersed. It seems to radiate an aura of unease.</description>
     <statBases>
       <MarketValue>1000</MarketValue>
     </statBases>
@@ -978,7 +978,7 @@
   <ThingDef ParentName="BookBase" Class="Corruption.BookStuff.ThingDef_Readables">
  <defName>Readables_Asumod</defName>
 		<label>Litany of Asumod</label>
-<Description>A piece of literature that seems to be written in strange hyroglyphs, with some gibberish in High Gothic interspersed. It seems to radiate an aura of anger.</Description>
+<description>A piece of literature that seems to be written in strange hyroglyphs, with some gibberish in High Gothic interspersed. It seems to radiate an aura of anger.</description>
     <statBases>
       <MarketValue>1000</MarketValue>
     </statBases>
@@ -1048,4 +1048,4 @@
 
 
 
-</GameData>
+</Defs>

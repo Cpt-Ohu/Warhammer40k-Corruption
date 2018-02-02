@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<NameMakerDefs>
+
+  <RulePackDef>
+    <defName>NamerTauPorUi</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->[TauPorUi]</li>
+        <li>name->[TauPorUi] [TauShasSuff]</li>
+        <li>name->[TauPorUi] [TauShasSuff] [TauShasSuff]</li>
+      </rulesStrings>
+      <rulesRaw>
+        <li Class="Rule_File">
+          <keyword>TauPorUi</keyword>
+          <path>NameBanks/TauPorUi</path>
+        </li>
+        <li Class="Rule_File">
+          <keyword>TauShasSuff</keyword>
+          <path>NameBanks/TauShasSuff</path>
+        </li>
+      </rulesRaw>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>NamerTauShasUi</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->[TauShasUi]</li>
+        <li>name->[TauShasUi] [TauShasSuff]</li>
+        <li>name->[TauShasUi] [TauShasSuff] [TauShasSuff]</li>
+      </rulesStrings>
+      <rulesRaw>
+        <li Class="Rule_File">
+          <keyword>TauShasUi</keyword>
+          <path>NameBanks/TauShasUi</path>
+        </li>
+        <li Class="Rule_File">
+          <keyword>TauShasSuff</keyword>
+          <path>NameBanks/TauShasSuff</path>
+        </li>
+      </rulesRaw>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>NamerTauShasLa</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->[TauShasLa]</li>
+        <li>name->[TauShasLa] [TauShasSuff]</li>
+        <li>name->[TauShasLa] [TauShasSuff] [TauShasSuff]</li>
+      </rulesStrings>
+      <rulesRaw>
+        <li Class="Rule_File">
+          <keyword>TauShasLa</keyword>
+          <path>NameBanks/TauShasLa</path>
+        </li>
+        <li Class="Rule_File">
+          <keyword>TauShasSuff</keyword>
+          <path>NameBanks/TauShasSuff</path>
+        </li>
+      </rulesRaw>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>NamerTauAun</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->[TauAunEl]</li>
+        <li>name->[TauAunEl] [TauShasSuff]</li>
+        <li>name->[TauAunEl] [TauShasSuff] [TauShasSuff]</li>
+      </rulesStrings>
+      <rulesRaw>
+        <li Class="Rule_File">
+          <keyword>TauAunEl</keyword>
+          <path>NameBanks/TauAunEl</path>
+        </li>
+        <li Class="Rule_File">
+          <keyword>TauShasSuff</keyword>
+          <path>NameBanks/TauShasSuff</path>
+        </li>
+      </rulesRaw>
+    </rulePack>
+  </RulePackDef>
+
+
+</NameMakerDefs>

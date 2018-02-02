@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <BodyPartDef>
+    <defName>ServoChassis</defName>
+    <label>chassis</label>
+    <hitPoints>20</hitPoints>
+    <oldInjuryBaseChance>0</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+    <isSolid>true</isSolid>
+    <isAlive>false</isAlive>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>NeckConnector</defName>
+    <label>neck</label>
+    <hitPoints>10</hitPoints>
+    <oldInjuryBaseChance>0</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+    <isSolid>true</isSolid>
+    <isAlive>false</isAlive>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>SSkullBase</defName>
+    <label>human skull</label>
+    <hitPoints>30</hitPoints>
+    <oldInjuryBaseChance>0</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+    <isSolid>true</isSolid>
+    <isAlive>false</isAlive>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>ManipulatorSpine</defName>
+    <label>left shoulder</label>
+    <hitPoints>25</hitPoints>
+    <oldInjuryBaseChance>0</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+    <isSolid>true</isSolid>
+    <isAlive>false</isAlive>
+    <tags>
+      <li>ManipulationLimbCore</li>
+    </tags>
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>ManipulatorBlade</defName>
+    <label>Manipulator Blade</label>
+    <hitPoints>20</hitPoints>
+    <frostbiteVulnerability>0</frostbiteVulnerability>
+    <oldInjuryBaseChance>0</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+    <isSolid>true</isSolid>
+    <isAlive>false</isAlive>
+    <tags>
+      <li>ManipulationLimbSegment</li>
+    </tags>
+
+  </BodyPartDef>
+
+  <BodyPartDef>
+    <defName>ComputingUnit</defName>
+    <label>computing unit</label>
+    <hitPoints>30</hitPoints>
+    <oldInjuryBaseChance>0</oldInjuryBaseChance>
+    <skinCovered>false</skinCovered>
+    <isSolid>true</isSolid>
+    <isAlive>false</isAlive>
+    <tags>
+      <li>ConsciousnessSource</li>
+    </tags>
+  </BodyPartDef>
+  
+</Defs>

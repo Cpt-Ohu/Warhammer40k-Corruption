@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<ThingDefs>    
+<Defs>    
   <!-- ============================================================== -->
   
   <ThingDef ParentName="BaseMeleeWeaponNoTag" Class="FactionColors.FactionItemDef">
@@ -14,14 +14,12 @@
 		<graphicClass>Graphic_Single</graphicClass>
 		<shaderType>CutoutComplex</shaderType>
 	</graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>InteractRifle</soundInteract>
     <costStuffCount>150</costStuffCount>
     <tradeability>Sellable</tradeability>
     <statBases>
       <MarketValue>10000</MarketValue>
       <WorkToMake>18000</WorkToMake>
-      <MeleeWeapon_DamageAmount>30</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.95</MeleeWeapon_Cooldown>
     </statBases>
     <thingCategories>
       <li>IoM_HolyItems</li>
@@ -30,14 +28,24 @@
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
-    <verbs>
+	<tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
-        <soundCast>SlashMetal</soundCast>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>38</power>
+        <cooldownTime>2.45</cooldownTime>
       </li>
-    </verbs>
+	        <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>30</power>
+        <cooldownTime>2.45</cooldownTime>
+      </li>
+    </tools>
     <costList>
       <Component>2</Component>
       <MecComponent_Weapon>5</MecComponent_Weapon>
@@ -71,13 +79,11 @@
 			<texPath>Things/Chaos/Weapons/OrnateKnife</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
-		<soundInteract>InteractPistol</soundInteract>
+		<soundInteract>InteractRifle</soundInteract>
 		<costStuffCount>40</costStuffCount>
 		<statBases>
 			<WorkToMake>4000</WorkToMake>
 			<Mass>0.5</Mass>
-			<MeleeWeapon_DamageAmount>10</MeleeWeapon_DamageAmount>
-			<MeleeWeapon_Cooldown>1.66</MeleeWeapon_Cooldown>
 		</statBases>
 		<equippedAngleOffset>-65</equippedAngleOffset>
 		<stuffCategories>
@@ -86,14 +92,24 @@
     <thingCategories>
       <li>IoM_CorruptedItems</li>
     </thingCategories>
-
-		<verbs>
-			<li>
-				<verbClass>Verb_MeleeAttack</verbClass>
-				<hasStandardCommand>true</hasStandardCommand>
-				<meleeDamageDef>Cut</meleeDamageDef>
-			</li>
-		</verbs>
+	<tools>
+      <li>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>38</power>
+        <cooldownTime>2.45</cooldownTime>
+      </li>
+	        <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>30</power>
+        <cooldownTime>2.45</cooldownTime>
+      </li>
+    </tools>
     <comps>
       <li Class="Corruption.CompProperties_SoulItem">
         <compClass>Corruption.CompSoulItem</compClass>
@@ -112,26 +128,35 @@
 			<texPath>Things/Chaos/Weapons/OrnateBlade</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>InteractRifle</soundInteract>
     <costStuffCount>50</costStuffCount>
     <statBases>
       <WorkToMake>10000</WorkToMake>
       <Mass>0.85</Mass>
-      <MeleeWeapon_DamageAmount>14</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.95</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-65</equippedAngleOffset>
     <stuffCategories>
       <li>Metallic</li>
       <li>Woody</li>
     </stuffCategories>
-    <verbs>
+	<tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>14</power>
+        <cooldownTime>1.95</cooldownTime>
       </li>
-    </verbs>
+	   <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>1.95</cooldownTime>
+      </li>
+    </tools>
     <comps>
       <li Class="Corruption.CompProperties_SoulItem">
         <compClass>Corruption.CompSoulItem</compClass>
@@ -152,26 +177,37 @@
 			<texPath>Things/Chaos/Weapons/OrnateLongsword</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>InteractRifle</soundInteract>
     <costStuffCount>120</costStuffCount>
     <statBases>
       <WorkToMake>22000</WorkToMake>
       <Mass>1.6</Mass>
-      <MeleeWeapon_DamageAmount>19</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.5</MeleeWeapon_Cooldown>
+      <MeleeWeapon_DamageMultiplier>19</MeleeWeapon_DamageMultiplier>
+      <MeleeWeapon_CooldownMultiplier>2.5</MeleeWeapon_CooldownMultiplier>
     </statBases>
     <equippedAngleOffset>-65</equippedAngleOffset>
     <stuffCategories>
       <li>Metallic</li>
       <li>Woody</li>
     </stuffCategories>
-    <verbs>
+	<tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>14</power>
+        <cooldownTime>1.95</cooldownTime>
       </li>
-    </verbs>
+	   <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>1.95</cooldownTime>
+      </li>
+    </tools>
     <comps>
       <li Class="Corruption.CompProperties_SoulItem">
         <compClass>Corruption.CompSoulItem</compClass>
@@ -192,26 +228,37 @@
 			<texPath>Things/Chaos/Weapons/OrnateLongsword</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>InteractRifle</soundInteract>
     <costStuffCount>120</costStuffCount>
     <statBases>
       <WorkToMake>22000</WorkToMake>
       <Mass>1.6</Mass>
-      <MeleeWeapon_DamageAmount>16</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.5</MeleeWeapon_Cooldown>
+      <MeleeWeapon_DamageMultiplier>16</MeleeWeapon_DamageMultiplier>
+      <MeleeWeapon_CooldownMultiplier>2.5</MeleeWeapon_CooldownMultiplier>
     </statBases>
     <equippedAngleOffset>-65</equippedAngleOffset>
     <stuffCategories>
       <li>Metallic</li>
       <li>Woody</li>
     </stuffCategories>
-    <verbs>
+	<tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>14</power>
+        <cooldownTime>1.95</cooldownTime>
       </li>
-    </verbs>
+	   <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>1.95</cooldownTime>
+      </li>
+    </tools>
     <comps>
       <li Class="Corruption.CompProperties_SoulItem">
         <compClass>Corruption.CompSoulItem</compClass>
@@ -228,4 +275,4 @@
 
 
     
- </ThingDefs>
+ </Defs>

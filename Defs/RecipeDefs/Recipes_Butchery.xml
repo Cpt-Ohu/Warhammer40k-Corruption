@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<RecipeDefs>
+<Defs>
 
 	<RecipeDef>
 		<defName>ButcherCorpseBones</defName>
@@ -48,4 +48,4 @@
 	
 	</RecipeDef>
    
-</RecipeDefs>
+</Defs>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<PawnKindDefs>
+<Defs>
 
   <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
     <defName>IoM_Arbites</defName>
@@ -160,4 +160,4 @@
 
 
 
-</PawnKindDefs>
+</Defs>

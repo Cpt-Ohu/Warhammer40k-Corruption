@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<ThingDefs>
+<Defs>
 
   <!-- ========================BaseDef================================== -->
 
@@ -84,7 +84,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYBerserkerBullet</projectileDef>
+        <defaultProjectile>PSYBerserkerBullet</defaultProjectile>
         <warmupTime>5</warmupTime>
         <TicksToRecharge>1200</TicksToRecharge>
         <range>15</range>
@@ -126,7 +126,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYFearBullet</projectileDef>
+        <defaultProjectile>PSYFearBullet</defaultProjectile>
         <warmupTime>5</warmupTime>
         <TicksToRecharge>3000</TicksToRecharge>
         <range>24</range>
@@ -169,7 +169,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYConfusingBullet</projectileDef>
+        <defaultProjectile>PSYConfusingBullet</defaultProjectile>
         <warmupTime>3.5</warmupTime>
         <TicksToRecharge>2000</TicksToRecharge>
         <range>24</range>
@@ -212,7 +212,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYDrugBullet</projectileDef>
+        <defaultProjectile>PSYDrugBullet</defaultProjectile>
         <warmupTime>3.4</warmupTime>
         <TicksToRecharge>2000</TicksToRecharge>
         <range>24</range>
@@ -238,7 +238,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYWarpBolt</projectileDef>
+        <defaultProjectile>PSYWarpBolt</defaultProjectile>
         <warmupTime>1</warmupTime>
         <TicksToRecharge>600</TicksToRecharge>
         <range>24</range>
@@ -289,7 +289,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYWarpBolt</projectileDef>
+        <defaultProjectile>PSYWarpBolt</defaultProjectile>
         <warmupTime>1</warmupTime>
         <TicksToRecharge>1200</TicksToRecharge>
         <range>24</range>
@@ -342,7 +342,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYDoomBolt</projectileDef>
+        <defaultProjectile>PSYDoomBolt</defaultProjectile>
         <warmupTime>1</warmupTime>
         <TicksToRecharge>1200</TicksToRecharge>
         <range>24</range>
@@ -393,7 +393,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYWarpfireJet</projectileDef>
+        <defaultProjectile>PSYWarpfireJet</defaultProjectile>
         <warmupTime>1</warmupTime>
         <TicksToRecharge>30</TicksToRecharge>
         <range>24</range>
@@ -421,7 +421,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Scourging</projectileDef>
+        <defaultProjectile>Bullet_Scourging</defaultProjectile>
         <warmupTime>2.5</warmupTime>
         <TicksToRecharge>900</TicksToRecharge>
         <range>24</range>
@@ -468,7 +468,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYMindcontrol</projectileDef>
+        <defaultProjectile>PSYMindcontrol</defaultProjectile>
         <warmupTime>5</warmupTime>
         <TicksToRecharge>1200</TicksToRecharge>
         <range>15</range>
@@ -511,7 +511,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYBuffVigor</projectileDef>
+        <defaultProjectile>PSYBuffVigor</defaultProjectile>
         <warmupTime>5</warmupTime>
         <TicksToRecharge>2000</TicksToRecharge>
         <range>15</range>
@@ -553,7 +553,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYBuffVigor</projectileDef>
+        <defaultProjectile>PSYBuffVigor</defaultProjectile>
         <warmupTime>5</warmupTime>
         <TicksToRecharge>2000</TicksToRecharge>
         <range>15</range>
@@ -595,7 +595,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYBuffVigor</projectileDef>
+        <defaultProjectile>PSYBuffVigor</defaultProjectile>
         <warmupTime>5</warmupTime>
         <TicksToRecharge>2000</TicksToRecharge>
         <range>15</range>
@@ -638,7 +638,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYHealSimple</projectileDef>
+        <defaultProjectile>PSYHealSimple</defaultProjectile>
         <warmupTime>600</warmupTime>
         <TicksToRecharge>1250</TicksToRecharge>
         <range>10</range>
@@ -664,7 +664,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYHealSimple</projectileDef>
+        <defaultProjectile>PSYHealSimple</defaultProjectile>
         <warmupTime>1</warmupTime>
         <TicksToRecharge>120</TicksToRecharge>
         <range>2</range>
@@ -694,7 +694,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYHealSimple</projectileDef>
+        <defaultProjectile>PSYHealSimple</defaultProjectile>
         <warmupTime>1</warmupTime>
         <TicksToRecharge>120</TicksToRecharge>
         <range>15</range>
@@ -728,7 +728,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYWarpBolt</projectileDef>
+        <defaultProjectile>PSYWarpBolt</defaultProjectile>
         <warmupTime>1</warmupTime>
         <TicksToRecharge>300</TicksToRecharge>
         <range>35</range>
@@ -757,7 +757,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYWarpBolt</projectileDef>
+        <defaultProjectile>PSYWarpBolt</defaultProjectile>
         <warmupTime>1</warmupTime>
         <TicksToRecharge>120</TicksToRecharge>
         <burstShotCount>5</burstShotCount>
@@ -791,7 +791,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Scourging</projectileDef>
+        <defaultProjectile>Bullet_Scourging</defaultProjectile>
         <warmupTime>1</warmupTime>
         <TicksToRecharge>3000</TicksToRecharge>
         <burstShotCount>1</burstShotCount>
@@ -833,7 +833,7 @@
       <damageAmountBase>15</damageAmountBase>
       <speed>45</speed>
       <explosionRadius>0.2</explosionRadius >
-      <explosionSpawnChance>0.0</explosionSpawnChance>
+      <postExplosionSpawnChance>0.0</postExplosionSpawnChance>
     </projectile>
   </ThingDef>
 
@@ -847,7 +847,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYWarpFire</projectileDef>
+        <defaultProjectile>PSYWarpFire</defaultProjectile>
         <warmupTime>1</warmupTime>
         <TicksToRecharge>120</TicksToRecharge>
         <burstShotCount>3</burstShotCount>
@@ -901,7 +901,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYWarpGrowBolt</projectileDef>
+        <defaultProjectile>PSYWarpGrowBolt</defaultProjectile>
         <warmupTime>1</warmupTime>
         <TicksToRecharge>10000</TicksToRecharge>
         <range>5</range>
@@ -955,7 +955,7 @@
     <MainVerb Class="Corruption.VerbProperties_WarpPower">
         <verbClass>Corruption.Verb_CastWarpPower</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>PSYBlindingBullet</projectileDef>
+        <defaultProjectile>PSYBlindingBullet</defaultProjectile>
         <warmupTime>5</warmupTime>
         <TicksToRecharge>900</TicksToRecharge>
         <range>12</range>
@@ -978,4 +978,4 @@
     <AICategory>BuffGiverHostile</AICategory>
   </ThingDef>
 
-</ThingDefs>
+</Defs>

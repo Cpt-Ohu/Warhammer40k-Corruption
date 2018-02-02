@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <ThingDef ParentName="ApparelBase">
     <defName>Overlay_Headgear</defName>
@@ -26,7 +26,7 @@
       <bodyPartGroups>
         <li>Eyes</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Pawn/Humanlike/Apparel/Tuque/Tuque</worngraphicPath>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/Tuque/Tuque</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -64,7 +64,7 @@
       <bodyPartGroups>
         <li>Torso</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Pawn/Humanlike/Apparel/ShirtBasic/ShirtBasic</worngraphicPath>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/ShirtBasic/ShirtBasic</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
@@ -76,4 +76,4 @@
       <tradeability>Never</tradeability>
   </ThingDef>
 
-</ThingDefs>
+</Defs>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <!-- ==========================Standard=============================== -->
 
@@ -49,7 +49,7 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/Armor/eldar_armor</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/Armor/eldar_armor</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
@@ -116,7 +116,7 @@
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/Armor/eldar_helmet</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/Armor/eldar_helmet</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -187,7 +187,7 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/Armor/eldar_robe</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/Armor/eldar_robe</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
@@ -254,7 +254,7 @@
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/Armor/Warlock_Helmet</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/Armor/Warlock_Helmet</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -337,7 +337,7 @@
       <bodyPartGroups>
         <li>Torso</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/Ranger/eldar_rangerarmor</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/Ranger/eldar_rangerarmor</wornGraphicPath>
       <layers>
         <li>Middle</li>
       </layers>
@@ -393,7 +393,7 @@
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/Ranger/Eldar_Helmet_Neutral</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/Ranger/Eldar_Helmet_Neutral</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -453,7 +453,7 @@
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/Ranger/RangerCowl</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/Ranger/RangerCowl</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -523,7 +523,7 @@
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/Ranger/RangerHelmet</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/Ranger/RangerHelmet</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -594,7 +594,7 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/Ranger/RangerRobe</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/Ranger/RangerRobe</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
@@ -718,7 +718,7 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/DireAvengers/DHArmor</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/DireAvengers/DHArmor</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
@@ -785,7 +785,7 @@
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/DireAvengers/DHHelmet</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/DireAvengers/DHHelmet</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -813,4 +813,4 @@
 
 
 
-</ThingDefs>
+</Defs>

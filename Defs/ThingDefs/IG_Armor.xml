@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <ThingDef Name="IGArmorMakeable" ParentName="ArmorMakeableBase" Abstract="True">
     <recipeMaker>
@@ -70,7 +70,7 @@
         <li>Torso</li>
         <li>Shoulders</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/IG/IG_Armor/IG_Armor</worngraphicPath>
+      <wornGraphicPath>Things/IG/IG_Armor/IG_Armor</wornGraphicPath>
       <layers>
         <li>Middle</li>
       </layers>
@@ -124,7 +124,7 @@
         <li>Shoulders</li>
         <li>Arms</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/IG/ComJacket/ComJacket</worngraphicPath>
+      <wornGraphicPath>Things/IG/ComJacket/ComJacket</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
@@ -172,7 +172,7 @@
       <bodyPartGroups>
         <li>UpperHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/IG/Valhallan/Valhallan_Ushanka</worngraphicPath>
+      <wornGraphicPath>Things/IG/Valhallan/Valhallan_Ushanka</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -229,7 +229,7 @@
       <bodyPartGroups>
         <li>UpperHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/IG/Valhallan/Valhallan_Pilotka</worngraphicPath>
+      <wornGraphicPath>Things/IG/Valhallan/Valhallan_Pilotka</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -292,7 +292,7 @@
 				<li>Shoulders</li>
 				<li>Arms</li>
 			</bodyPartGroups>
-			<worngraphicPath>Things/Pawn/Humanlike/Apparel/Duster/Duster</worngraphicPath>
+			<wornGraphicPath>Things/Pawn/Humanlike/Apparel/Duster/Duster</wornGraphicPath>
 			<layers>
 				<li>Shell</li>
 			</layers>
@@ -351,7 +351,7 @@
         <li>Torso</li>
         <li>Shoulders</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/IG/IG_Tunic/IG_Tunic</worngraphicPath>
+      <wornGraphicPath>Things/IG/IG_Tunic/IG_Tunic</wornGraphicPath>
       <layers>
         <li>OnSkin</li>
       </layers>
@@ -380,4 +380,4 @@
 
 
 
-</ThingDefs>
+</Defs>

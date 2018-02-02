@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Corruption.SoulTraitDefs>
+
+  <Corruption.SoulTraitDef>
+    <defName>Khorne_Fervor</defName>
+    <SDegreeDatas>
+      <li>
+        <label>Khornate</label>
+        <description>NAME will regularly start slaughtering bystanders if not allowed to kill anything.</description>
+        <socialFightChanceFactor>2</socialFightChanceFactor>
+        <randomMentalState>Berserk</randomMentalState>
+        <randomMentalStateMtbDaysMoodCurve>
+          <points>
+            <li>(0, 15)</li>
+            <li>(50, 50)</li>
+            <li>(100, 100)</li>
+          </points>
+        </randomMentalStateMtbDaysMoodCurve>
+      </li>
+    </SDegreeDatas>
+    <NullifiesThoughts>
+      <li>KnowPrisonerSold</li>
+      <li>KnowGuestOrganHarvested</li>
+      <li>Nuzzled</li>
+      <li>KnowBuriedInSarcophagus</li>
+      <li>ButcheredHumanlikeCorpse</li>
+      <li>KnowButcheredHumanlikeCorpse</li>
+      <li>ObservedLayingCorpse</li>
+      <li>ObservedLayingRottingCorpse</li>
+      <li>WitnessedDeathNonAlly</li>
+      <li>KnowGuestExecuted</li>
+      <li>KnowColonistExecuted</li>
+      <li>KnowPrisonerDiedInnocent</li>
+    </NullifiesThoughts>
+  </Corruption.SoulTraitDef>
+
+  <Corruption.SoulTraitDef>
+    <defName>Nurgle_Fervor</defName>
+    <SDegreeDatas>
+      <li>
+        <label>Nurglite</label>
+        <description>NAME is always in a good mood, for Papa Nurgle is looking after HIM.</description>
+      </li>
+    </SDegreeDatas>
+    <NullifiesThoughts>
+      <li>Pain</li>
+      <li>KnowPrisonerSold</li>
+      <li>KnowGuestOrganHarvested</li>
+      <li>KnowBuriedInSarcophagus</li>
+      <li>ButcheredHumanlikeCorpse</li>
+      <li>KnowButcheredHumanlikeCorpse</li>
+      <li>ObservedLayingCorpse</li>
+      <li>ObservedLayingRottingCorpse</li>
+      <li>WitnessedDeathNonAlly</li>
+      <li>KnowGuestExecuted</li>
+      <li>KnowColonistExecuted</li>
+      <li>KnowPrisonerDiedInnocent</li>
+    </NullifiesThoughts>  </Corruption.SoulTraitDef>
+
+  <Corruption.SoulTraitDef>
+    <defName>Slaanesh_Fervor</defName>
+    <SDegreeDatas>
+      <li>
+        <label>Slaaneshi</label>
+        <description>NAME is always seeking new thrills.</description>
+      </li>
+    </SDegreeDatas>
+    <NullifiesThoughts>
+      <li>KnowPrisonerSold</li>
+      <li>KnowGuestOrganHarvested</li>
+      <li>KnowBuriedInSarcophagus</li>
+      <li>ButcheredHumanlikeCorpse</li>
+      <li>KnowButcheredHumanlikeCorpse</li>
+      <li>ObservedLayingCorpse</li>
+      <li>ObservedLayingRottingCorpse</li>
+      <li>WitnessedDeathNonAlly</li>
+      <li>KnowGuestExecuted</li>
+      <li>KnowColonistExecuted</li>
+      <li>KnowPrisonerDiedInnocent</li>
+      <li>AteHumanlikeMeatDirect</li>
+      <li>AteHumanlikeMeatAsIngredient</li>
+    </NullifiesThoughts>  </Corruption.SoulTraitDef>
+
+  <Corruption.SoulTraitDef>
+    <defName>Tzeentch_Fervor</defName>
+    <SDegreeDatas>
+      <li>
+        <label>Tzeentchian</label>
+        <description>NAME will experience mood swings, depending on how the schemes of Tzeentch unfold.</description>
+      </li>
+    </SDegreeDatas>
+    <NullifiesThoughts>
+      <li>KnowPrisonerSold</li>
+      <li>KnowGuestOrganHarvested</li>
+      <li>KnowBuriedInSarcophagus</li>
+      <li>ButcheredHumanlikeCorpse</li>
+      <li>KnowButcheredHumanlikeCorpse</li>
+      <li>ObservedLayingCorpse</li>
+      <li>ObservedLayingRottingCorpse</li>
+      <li>WitnessedDeathNonAlly</li>
+      <li>KnowGuestExecuted</li>
+      <li>KnowColonistExecuted</li>
+      <li>KnowPrisonerDiedInnocent</li>
+    </NullifiesThoughts>
+  </Corruption.SoulTraitDef>    
+
+  <Corruption.SoulTraitDef>
+    <defName>Undivided_Fervor</defName>
+    <SDegreeDatas>
+      <li>
+        <label>Chaos follower</label>
+        <description>NAME will teach and convert in the name of chaos itself.</description>
+      </li>
+    </SDegreeDatas>
+    <NullifiesThoughts>
+      <li>KnowPrisonerSold</li>
+      <li>KnowGuestOrganHarvested</li>
+      <li>KnowBuriedInSarcophagus</li>
+      <li>ButcheredHumanlikeCorpse</li>
+      <li>KnowButcheredHumanlikeCorpse</li>
+      <li>ObservedLayingCorpse</li>
+      <li>ObservedLayingRottingCorpse</li>
+      <li>WitnessedDeathNonAlly</li>
+      <li>KnowGuestExecuted</li>
+      <li>KnowColonistExecuted</li>
+      <li>KnowPrisonerDiedInnocent</li>
+    </NullifiesThoughts>
+  </Corruption.SoulTraitDef>
+
+  <Corruption.SoulTraitDef>
+    <defName>DE_Depravity</defName>
+    <SDegreeDatas>
+      <li>
+        <label>Dark Eldar Depravity</label>
+        <description>NAME feeds on the pain on sentient beings. HE will go through unspeakable acts of depravity to still this hunger.</description>
+      </li>
+    </SDegreeDatas>
+    <NullifiesThoughts>
+      <li>KnowPrisonerSold</li>
+      <li>KnowGuestOrganHarvested</li>
+      <li>KnowBuriedInSarcophagus</li>
+      <li>ButcheredHumanlikeCorpse</li>
+      <li>KnowButcheredHumanlikeCorpse</li>
+      <li>ObservedLayingCorpse</li>
+      <li>ObservedLayingRottingCorpse</li>
+      <li>WitnessedDeathNonAlly</li>
+      <li>KnowGuestExecuted</li>
+      <li>KnowColonistExecuted</li>
+      <li>KnowPrisonerDiedInnocent</li>
+    </NullifiesThoughts>
+  </Corruption.SoulTraitDef>
+
+
+  <Corruption.SoulTraitDef>
+    <defName>ORK_Brutality</defName>
+    <SDegreeDatas>
+      <li>
+        <label>Ork mindedness</label>
+        <description>NAME is an Orkoid, meaning HIS life evolves around seemingly mindless bloodshed.</description>
+      </li>
+    </SDegreeDatas>
+    <NullifiesThoughts>
+      <li>KnowPrisonerSold</li>
+      <li>KnowGuestOrganHarvested</li>
+      <li>KnowBuriedInSarcophagus</li>
+      <li>ButcheredHumanlikeCorpse</li>
+      <li>KnowButcheredHumanlikeCorpse</li>
+      <li>ObservedLayingCorpse</li>
+      <li>ObservedLayingRottingCorpse</li>
+      <li>WitnessedDeathNonAlly</li>
+      <li>KnowGuestExecuted</li>
+      <li>KnowColonistExecuted</li>
+      <li>KnowPrisonerDiedInnocent</li>
+    </NullifiesThoughts>  </Corruption.SoulTraitDef>
+
+
+</Corruption.SoulTraitDefs>

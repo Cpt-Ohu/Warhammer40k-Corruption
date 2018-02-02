@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Buildings>
+<Defs>
 
   <ThingDef ParentName="BuildingBase">
     <defName>IGCommsConsole</defName>
@@ -62,7 +62,7 @@
       <li Class="CompProperties_Breakdownable"/>
     </comps>
     <staticSunShadowHeight>0.5</staticSunShadowHeight>
-    <designationHotkey>Misc3</designationHotkey>
+    <designationHotKey>Misc3</designationHotKey>
     <researchPrerequisites>
       <li>MicroelectronicsBasics</li>
     </researchPrerequisites>
@@ -72,9 +72,9 @@
   <ThingDef ParentName="BuildingBase">
     <defName>MecSurgicalUnit</defName>
     <label>Mechanicus Surgical Unit</label>
-    <Description>An advanced treatment unit enabling swift and precise surgical procedures guided by several manipulators and advanced diagnostics.</Description>
-    <TickerType>Rare</TickerType>
-    <ThingClass>Corruption.Building_MechanicusMedTable</ThingClass>
+    <description>An advanced treatment unit enabling swift and precise surgical procedures guided by several manipulators and advanced diagnostics.</description>
+    <tickerType>Rare</tickerType>
+    <thingClass>Corruption.Building_MechanicusMedTable</thingClass>
     <inspectorTabs>
       <li>Corruption.ITab_MSUOperation</li>
     </inspectorTabs>
@@ -89,7 +89,7 @@
         <cornerBR>Damage/Corner</cornerBR>
       </damageData>
     </graphicData>
-    <AltitudeLayer>Building</AltitudeLayer>
+    <altitudeLayer>Building</altitudeLayer>
     <statBases>
       <MaxHitPoints>150</MaxHitPoints>
       <WorkToBuild>2850</WorkToBuild>
@@ -102,7 +102,7 @@
       <MedicalSurgerySuccessChance>5.0</MedicalSurgerySuccessChance>
 
     </statBases>
-    <Size>(3,3)</Size>
+    <size>(3,3)</size>
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
@@ -131,12 +131,12 @@
       </li>
     </comps>
     <fillPercent>0.8</fillPercent>
-    <PathCost>90</PathCost>
-    <LeaveResourcesWhenKilled>True</LeaveResourcesWhenKilled>
-    <StaticSunShadowHeight>0.17</StaticSunShadowHeight>
-    <CastEdgeShadows>True</CastEdgeShadows>
-    <Passability>PassThroughOnly</Passability>
-    <DrawGUIOverlay>True</DrawGUIOverlay>
+    <pathCost>90</pathCost>
+    <leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
+    <staticSunShadowHeight>0.17</staticSunShadowHeight>
+    <castEdgeShadows>True</castEdgeShadows>
+    <passability>PassThroughOnly</passability>
+    <drawGUIOverlay>True</drawGUIOverlay>
     <researchPrerequisites>
       <li>MecTec_MSU</li>
     </researchPrerequisites>
@@ -262,4 +262,4 @@
 
 
 
-</Buildings>
+</Defs>

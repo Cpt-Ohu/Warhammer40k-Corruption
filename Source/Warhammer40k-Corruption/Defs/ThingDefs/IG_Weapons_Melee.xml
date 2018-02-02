@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ThingDefs>
+
+  <ThingDef Name="BaseMeleeWeapon_IG" ParentName="BaseMeleeWeaponNoTag" Abstract="True">
+    <thingClass>ThingWithComps</thingClass>
+    <recipeMaker>
+    <defaultIngredientFilter>
+      <categories>
+        <li>Root</li>
+      </categories>
+      <exceptedThingDefs>
+        <li>Silver</li>
+        <li>Gold</li>
+        <li>WoodLog</li>
+      </exceptedThingDefs>
+    </defaultIngredientFilter>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+    </recipeMaker>
+  </ThingDef>
+
+
+  <ThingDef Name="BaseMeleeWeapon_IG_Sharp" ParentName="BaseMeleeWeapon_IG" Abstract="True">
+    <thingClass>ThingWithComps</thingClass>
+    <weaponTags>
+      <li>IG_Melee</li>
+    </weaponTags>
+
+  </ThingDef>
+
+  <ThingDef Name="BaseMeleeWeapon_IG_Blunt" ParentName="BaseMeleeWeapon_IG" Abstract="True">
+    <thingClass>ThingWithComps</thingClass>
+    <weaponTags>
+      <li>IG_Melee</li>
+    </weaponTags>
+
+  </ThingDef>
+  
+  
+  
+  
+  <!-- ============================================================== -->
+  
+  <ThingDef ParentName="BaseMeleeWeapon_IG_Sharp">
+    <defName>MeleeWeapon_Chainsword</defName>
+    <label>Chainsword</label>
+    <description>The Chainsword is the preferred close combat melee weapon of many of the military forces of the Imperium of Man. The Chainsword is essentially a sword with powered teeth that run along a single-edged blade like that of a chainsaw.</description>
+	<graphicData>
+		<texPath>Things/IG/Weapons/Chainsword</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<shaderType>CutoutComplex</shaderType>
+	</graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <costStuffCount>150</costStuffCount>
+    <statBases>
+      <WorkToMake>20000</WorkToMake>
+      <MeleeWeapon_DamageAmount>29</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2.35</MeleeWeapon_Cooldown>
+    </statBases>
+    <equippedAngleOffset>-15</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <researchPrerequisite>MecTec_ManufacturingLicenceI</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <Component>2</Component>
+      <MecComponent_Weapon>1</MecComponent_Weapon>
+    </costList>
+
+  </ThingDef>
+  
+  <!-- ============================================================== -->
+  
+  <ThingDef ParentName="BaseMeleeWeapon_IG_Sharp">
+    <defName>MeleeWeapon_ImpPowerSword</defName>
+    <thingClass>ThingWithComps</thingClass>
+    <label>Imperial Guard Power Sword</label>
+    <description>A Power Sword is a Power Weapon that has been shaped into a sword of varying lengths and designs crafted from one of any number of different materials, though usually Adamantium. When its power cell is activated, often by touching a control located on the hilt, the blade is sheathed in a lethal corona of disruptive energy. This energy field allows the blade to carve through flesh, bone and most forms of armour plate alike, making a Power Sword a highly effective Imperial close combat weapon. Power Swords are used by all members of the Imperial armed forces, including the troops of the Imperial Guard and the Space Marines of the Adeptus Astartes. Xenos races such as the Eldar, their evil kin, the Dark Eldar and the Necrons are also known to make use of such weapons.</description>
+	<graphicData>
+		<texPath>Things/IG/Weapons/ImperialGuardPowerSword</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<shaderType>CutoutComplex</shaderType>
+	</graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <costStuffCount>150</costStuffCount>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <MeleeWeapon_DamageAmount>31</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2.25</MeleeWeapon_Cooldown>
+    </statBases>
+    <equippedAngleOffset>-15</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+        <soundCast>SlashMetal</soundCast>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <recipeUsers>
+        <li>MechanicumAssemblyBench</li>
+      </recipeUsers>
+      <researchPrerequisite>MecTec_ManufacturingLicenceII</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <Component>2</Component>
+      <MecComponent_Weapon>1</MecComponent_Weapon>
+    </costList>
+  </ThingDef>
+
+  <!-- ============================================================== -->
+  
+  <ThingDef ParentName="BaseMeleeWeapon_IG" Abstract="true" Name="ImpPowerStaffBase" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>MeleeWeapon_ImpPowerStaffBase</defName>
+    <label>Imperial Staff</label>
+    <description>A simple staff of office.</description>
+	<graphicData>
+      <drawSize>(1.2,1.2)</drawSize>
+		<texPath>Things/IG/Weapons/ForceStaff</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <costList>
+      <Steel>100</Steel>
+      <Component>6</Component>
+    </costList>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <MeleeWeapon_DamageAmount>31</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2.25</MeleeWeapon_Cooldown>
+    </statBases>
+    <TickerType>Rare</TickerType>
+    <equippedAngleOffset>-85</equippedAngleOffset>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Blunt</meleeDamageDef>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="ImpPowerStaffBase" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
+    <defName>MeleeWeapon_ImpPowerStaffLightning</defName>
+    <label>Imperial Force Staff</label>
+    <description>A Force Weapon shaped into a staff. In the hands of a mere mortal, this is a simple blunt weapon, however a competent psyker may turn this into a weapon of terrifying strength.
+
+Unlockable Power: Lightning Arc</description>
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Redemption</Category>
+        <GainRate>0.1</GainRate>
+	    <UnlockedPsykerPowers>
+	      <li>PsykerPower_WarpBolt</li>
+	    </UnlockedPsykerPowers>
+      </li>
+    </comps>
+    <weaponTags>
+      <li>IG_Melee</li>
+    </weaponTags>
+
+  </ThingDef>
+
+  <ThingDef ParentName="ImpPowerStaffBase" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
+    <defName>MeleeWeapon_ImpPowerStaffFire</defName>
+    <label>Imperial Force Staff</label>
+    <description>A Force Weapon shaped into a staff. In the hands of a mere mortal, this is a simple blunt weapon, however a competent psyker may turn this into a weapon of terrifying strength.
+
+Unlockable Power: Warp Flame</description>
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Redemption</Category>
+        <GainRate>0.1</GainRate>
+	    <UnlockedPsykerPowers>
+	      <li>PsykerPower_FireLance</li>
+	    </UnlockedPsykerPowers>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ImpPowerStaffBase" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
+    <defName>MeleeWeapon_ImpPowerStaffBlinding</defName>
+    <label>Imperial Force Staff</label>
+    <description>A Force Weapon shaped into a staff. In the hands of a mere mortal, this is a simple blunt weapon, however a competent psyker may turn this into a weapon of terrifying strength.
+
+Unlockable Power: Blinding Blast</description>
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Redemption</Category>
+        <GainRate>0.1</GainRate>
+	    <UnlockedPsykerPowers>
+	      <li>PsykerPower_BlindingBlast</li>
+	    </UnlockedPsykerPowers>
+      </li>
+    </comps>
+  </ThingDef>
+
+    
+ </ThingDefs>

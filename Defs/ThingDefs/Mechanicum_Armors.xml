@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <!-- ==========================Standard=============================== -->
 
@@ -48,7 +48,7 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Mechanicus/Robes/MagosRobe</worngraphicPath>
+      <wornGraphicPath>Things/Mechanicus/Robes/MagosRobe</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
@@ -110,7 +110,7 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Mechanicus/Skitarius/SkitariusArmor</worngraphicPath>
+      <wornGraphicPath>Things/Mechanicus/Skitarius/SkitariusArmor</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
@@ -161,7 +161,7 @@
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Mechanicus/Robes/AcolyteCowl</worngraphicPath>
+      <wornGraphicPath>Things/Mechanicus/Robes/AcolyteCowl</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -211,7 +211,7 @@
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Mechanicus/Robes/MagosCowl</worngraphicPath>
+      <wornGraphicPath>Things/Mechanicus/Robes/MagosCowl</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -267,7 +267,7 @@
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Mechanicus/Skitarius/SkitariusHelmet</worngraphicPath>
+      <wornGraphicPath>Things/Mechanicus/Skitarius/SkitariusHelmet</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -280,4 +280,4 @@
     </apparel>
   </ThingDef>
 
-</ThingDefs>
+</Defs>

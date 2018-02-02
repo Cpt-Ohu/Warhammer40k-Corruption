@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <!-- ==========================Standard=============================== -->
+
+  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+    <defName>DE_KabaliteArmor</defName>
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <label>dark eldar armor</label>
+    <description>Xenotech armor. May not be used by humans.</description>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>Xenotech_Eldar</researchPrerequisite>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/DarkEldar/Armor/KabaliteArmor</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <WorkToMake>3250000</WorkToMake>
+      <MaxHitPoints>500</MaxHitPoints>
+      <MarketValue>1200</MarketValue>
+      <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.65</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.30</ArmorRating_Heat>
+      <Insulation_Cold>-45</Insulation_Cold>
+    </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.05</MoveSpeed>
+    </equippedStatOffsets>
+    <costList>
+      <Component>18</Component>
+      <Wraithbone>135</Wraithbone>
+    </costList>
+	<generateCommonality>2</generateCommonality>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/DarkEldar/Armor/KabaliteArmor</worngraphicPath>
+      <layers>
+        <li>Shell</li>
+      </layers>
+      <tags>
+        <li>KabaliteWarrior</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>KabaliteWarrior</li>
+      </defaultOutfitTags>
+    </apparel>
+    <thingCategories>
+      <li>DE_Armor</li>
+    </thingCategories>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+      <li Class="FactionColors.CompProperties_PauldronDrawer">
+        <compClass>FactionColors.CompPauldronDrawer</compClass>
+        <PauldronEntries>
+		<li>
+        	 <shoulderPadType>Both</shoulderPadType>
+  		 <shaderType>Cutout</shaderType>
+    		 <padTexPath>Things/DarkEldar/DEPauldrons/DEPauldron</padTexPath>
+  		 <commonality>10</commonality>
+		</li>
+        </PauldronEntries>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ArmorHelmetMakeableBase">
+    <defName>DE_KabaliteHelmet</defName>
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <label>dark eldar helmet</label>
+    <description>A xenotech helmet. Use with care </description>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>Xenotech_Eldar</researchPrerequisite>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/DarkEldar/Armor/DarkEldarHelmet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <WorkToMake>60000</WorkToMake>
+      <MaxHitPoints>160</MaxHitPoints>
+      <MarketValue>500</MarketValue>
+      <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.6</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.5</ArmorRating_Heat>
+      <ArmorRating_Electric>0</ArmorRating_Electric>
+      <Insulation_Cold>-3</Insulation_Cold>
+      <Insulation_Heat>3</Insulation_Heat>
+    </statBases>
+    <equippedStatOffsets>	
+      <ShootingAccuracy>0.1</ShootingAccuracy>
+      <MoveSpeed>-0.04</MoveSpeed>
+    </equippedStatOffsets>
+    <costList>
+      <Component>7</Component>
+      <Wraithbone>60</Wraithbone>
+    </costList>
+	<generateCommonality>2</generateCommonality>
+    <apparel>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/DarkEldar/Armor/DarkEldarHelmet</worngraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <tags>
+        <li>KabaliteWarrior</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>KabaliteWarrior</li>
+      </defaultOutfitTags>
+    </apparel>
+    <thingCategories>
+      <li>DE_Armor</li>
+    </thingCategories>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+      <li Class="FactionColors.ApparelDetailProps">
+        <compClass>FactionColors.ApparelDetailDrawer</compClass>
+        <DetailChance>0.9</DetailChance>
+	   <IsHeadDetail>true</IsHeadDetail>
+	   <ApparelDetails>
+		<li>
+			<DetailGraphicPath>Things/DarkEldar/Details/DEHelmet_DetA</DetailGraphicPath>					<Commonality>10</Commonality>
+			<FactionTag>DarkEldarKabal</FactionTag>
+		</li>
+		<li>
+			<DetailGraphicPath>Things/DarkEldar/Details/DEHelmet_DetB</DetailGraphicPath>					<Commonality>10</Commonality>
+			<FactionTag>DarkEldarKabal</FactionTag>		
+		</li>
+		<li>
+			<DetailGraphicPath>Things/DarkEldar/Details/DEHelmet_DetC</DetailGraphicPath>					<Commonality>10</Commonality>
+			<FactionTag>DarkEldarKabal</FactionTag>
+		</li>
+		<li>
+			<DetailGraphicPath>Things/DarkEldar/Details/DEHelmet_DetD</DetailGraphicPath>					<Commonality>10</Commonality>
+			<FactionTag>DarkEldarKabal</FactionTag>
+		</li>
+	   </ApparelDetails>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <!-- ======================Warlock================================ -->
+
+
+
+</ThingDefs>

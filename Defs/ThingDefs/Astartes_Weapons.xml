@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<ThingDefs>
+<Defs>
 
   <ThingDef Name="BaseWeapon_Astartes" ParentName="BaseMeleeWeaponNoTag" Abstract="True">
     <thingClass>ThingWithComps</thingClass>
@@ -71,13 +71,11 @@
 		<shaderType>CutoutComplex</shaderType>
       <drawSize>(1.1,1.1)</drawSize>
 	</graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>InteractRifle</soundInteract>
     <costStuffCount>150</costStuffCount>
     <statBases>
       <MarketValue>600</MarketValue>
       <WorkToMake>20000</WorkToMake>
-      <MeleeWeapon_DamageAmount>30</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.37</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-45</equippedAngleOffset>
     <stuffCategories>
@@ -89,19 +87,39 @@
     <thingCategories>
       <li>Astartes_Melee</li>
     </thingCategories>
-    <verbs>
-      <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
-      </li>
-    </verbs>
     <recipeMaker>
       <recipeUsers>
         <li>TableMachining</li>
       </recipeUsers>
       <researchPrerequisite>MecTec_ManufacturingLicenceIII</researchPrerequisite>
     </recipeMaker>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>6</power>
+        <cooldownTime>1.6</cooldownTime>
+      </li>
+      <li>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>30</power>
+        <cooldownTime>2.37</cooldownTime>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>2.0</cooldownTime>
+      </li>
+    </tools>
+
     <costList>
       <Component>2</Component>
       <MecComponent_Weapon>2</MecComponent_Weapon>
@@ -122,13 +140,11 @@
 		<graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
 		<shaderType>CutoutComplex</shaderType>
 	</graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>InteractRifle</soundInteract>
     <costStuffCount>150</costStuffCount>
     <statBases>
       <MarketValue>2000</MarketValue>
       <WorkToMake>18000</WorkToMake>
-      <MeleeWeapon_DamageAmount>40</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>3.2</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-45</equippedAngleOffset>
     <stuffCategories>
@@ -140,14 +156,32 @@
     <thingCategories>
       <li>Astartes_Melee</li>
     </thingCategories>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
-        <soundCast>SlashMetal</soundCast>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>6</power>
+        <cooldownTime>1.6</cooldownTime>
       </li>
-    </verbs>
+      <li>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>30</power>
+        <cooldownTime>2.37</cooldownTime>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>2.0</cooldownTime>
+      </li>
+    </tools>
     <recipeMaker>
       <recipeUsers>
         <li>MechanicumAssemblyBench</li>
@@ -171,13 +205,11 @@
 		<graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
 		<shaderType>CutoutComplex</shaderType>
 	</graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>InteractRifle</soundInteract>
     <costStuffCount>150</costStuffCount>
     <statBases>
       <MarketValue>2000</MarketValue>
       <WorkToMake>18000</WorkToMake>
-      <MeleeWeapon_DamageAmount>34</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.45</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-45</equippedAngleOffset>
     <stuffCategories>
@@ -189,14 +221,32 @@
     <thingCategories>
       <li>Astartes_Melee</li>
     </thingCategories>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
-        <soundCast>SlashMetal</soundCast>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>6</power>
+        <cooldownTime>1.6</cooldownTime>
       </li>
-    </verbs>
+      <li>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>30</power>
+        <cooldownTime>2.37</cooldownTime>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>2.0</cooldownTime>
+      </li>
+    </tools>
     <recipeMaker>
       <recipeUsers>
         <li>MechanicumAssemblyBench</li>
@@ -243,7 +293,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_HeavyBolt</projectileDef>
+        <defaultProjectile>Bullet_HeavyBolt</defaultProjectile>
         <warmupTime>4.0</warmupTime>
         <range>40</range>
         <burstShotCount>6</burstShotCount>
@@ -253,6 +303,16 @@
 		<muzzleFlashScale>15</muzzleFlashScale>
       </li>
     </verbs>
+	<tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>3.0</cooldownTime>
+      </li>
+    </tools>
     <costList>
       <MecComponent_Weapon>1</MecComponent_Weapon>
       <Component>10</Component>
@@ -289,11 +349,21 @@
     <thingCategories>
       <li>Astartes_Ranged</li>
     </thingCategories>
+	<tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2.5</cooldownTime>
+      </li>
+    </tools>
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_AstartesBolt</projectileDef>
+        <defaultProjectile>Bullet_AstartesBolt</defaultProjectile>
         <warmupTime>1.7</warmupTime>
         <range>32</range>
         <burstShotCount>3</burstShotCount>
@@ -342,7 +412,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_AstartesBolt</projectileDef>
+        <defaultProjectile>Bullet_AstartesBolt</defaultProjectile>
         <warmupTime>0.9</warmupTime>
         <range>18</range>
         <soundCast>Bolter</soundCast>
@@ -350,6 +420,16 @@
 		<muzzleFlashScale>9</muzzleFlashScale>
       </li>
     </verbs>
+	<tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>1.5</cooldownTime>
+      </li>
+    </tools>
     <costList>
       <MecComponent_Weapon>1</MecComponent_Weapon>
       <Component>7</Component>
@@ -362,4 +442,4 @@
   </ThingDef>
 
     
- </ThingDefs>
+ </Defs>

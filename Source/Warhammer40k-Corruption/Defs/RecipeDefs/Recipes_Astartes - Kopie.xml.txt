@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RecipeDefs>
+
+  	  <RecipeDef ParentName="SurgeryFlesh">
+		<defName>InstallSecondHeart_MSU</defName>
+		<label>install secondary heart</label>
+		<description>Installs secondary heart.</description>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing secondary heart.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SecondHeart</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>SecondHeart</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>SecondHeart</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>SecondHeart</li>
+		</appliedOnFixedBodyParts>
+	</RecipeDef>
+
+  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh" >
+		<defName>InstallOssmodula_MSU</defName>
+		<label>install Ossmodula</label>
+		<description>Installs Ossmodula.</description>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Ossmodula.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Ossmodula</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>Ossmodula</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>ossmodula</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>Ossmodula</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.Astartes.RecipeDef_AstartesImplant>
+
+  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+		<defName>InstallBiscorpea_MSU</defName>
+		<label>install Biscorpea</label>
+		<description>Installs Biscorpea.</description>
+		<RequiresHediff>ossmodula</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Biscorpea.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Biscorpea</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>Ossmodula</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>biscorpea</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>Biscorpea</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.Astartes.RecipeDef_AstartesImplant>
+
+
+  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+		<defName>InstallHaemastamen_MSU</defName>
+		<label>install Haemastamen</label>
+		<description>Installs Haemastamen.</description>
+		<RequiresHediff>biscorpea</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Haemastamen.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Haemastamen</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>Haemastamen</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>haemastamen</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>Haemastamen</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.Astartes.RecipeDef_AstartesImplant>
+
+  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+		<defName>InstalLarramansOrgan_MSU</defName>
+		<label>install Larramans Organ</label>
+		<description>Installs Larramans Organ.</description>
+		<RequiresHediff>haemastamen</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Larramans Organ.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>LarramansOrgan</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>LarramansOrgan</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>LarramansOrgan</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>LarramansOrgan</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.Astartes.RecipeDef_AstartesImplant>
+
+  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+		<defName>InstallCatalepseanNode_MSU</defName>
+		<label>install Catalepsean Node</label>
+		<description>Installs Catalepsean Node.</description>
+		<RequiresHediff>LarramansOrgan</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Catalepsean Node.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CatalepseanNode</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>CatalepseanNode</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>CatalepseanNode</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>Brain</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.Astartes.RecipeDef_AstartesImplant >
+
+  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+		<defName>InstallPreomnor_MSU</defName>
+		<label>install Preomnor</label>
+		<description>Installs Preomnor.</description>
+		<RequiresHediff>CatalepseanNode</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Preomnor.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Preomnor</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>Preomnor</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>preomnor</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>Preomnor</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.Astartes.RecipeDef_AstartesImplant>
+
+
+  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+		<defName>InstallOmophagea_MSU</defName>
+		<label>install Omophagea</label>
+		<description>Installs Omophagea.</description>
+		<RequiresHediff>preomnor</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Omophagea.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Omophagea</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>Omophagea</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>omophagea</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>Omophagea</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.Astartes.RecipeDef_AstartesImplant >
+
+  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+		<defName>InstallMultiLung_MSU</defName>
+		<label>install MultiLung</label>
+		<description>Installs MultiLung.</description>
+		<RequiresHediff>omophagea</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing MultiLung.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MultiLung</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>MultiLung</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>MultiLung</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>MultiLung</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.Astartes.RecipeDef_AstartesImplant>
+
+  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+		<defName>InstallOcculobe_MSU</defName>
+		<label>install Occulobe</label>
+		<description>Installs Occulobe.</description>
+		<RequiresHediff>MultiLung</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Occulobe.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Occulobe</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>Occulobe</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>occulobe</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>LeftEye</li>
+			<li>RightEye</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.Astartes.RecipeDef_AstartesImplant>
+
+  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+		<defName>InstallLymansEar_MSU</defName>
+		<label>install LymansEar</label>
+		<description>Installs LymansEar.</description>
+		<RequiresHediff>occulobe</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing LymansEar.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>LymansEar</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>LymansEar</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>LymansEar</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>LeftEar</li>
+			<li>RightEar</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.Astartes.RecipeDef_AstartesImplant>
+
+  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+		<defName>InstallSusanMembrane_MSU</defName>
+		<label>install Susan Membrane</label>
+		<description>Installs Susan Membrane.</description>
+		<RequiresHediff>LymansEar</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Susan Membrane.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SusanMembrane</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>SusanMembrane</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>SusanMembrane</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>SusanMembrane</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.Astartes.RecipeDef_AstartesImplant>
+
+  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+		<defName>InstallMelanchromicOrgan_MSU</defName>
+		<label>install Melanchromic Organ</label>
+		<description>Installs Melanchromic Organ.</description>
+		<RequiresHediff>SusanMembrane</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Melanchromic Organ.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MelanchromicOrgan</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>MelanchromicOrgan</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>MelanchromicOrgan</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>MelanchromicOrgan</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.Astartes.RecipeDef_AstartesImplant>
+
+  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+		<defName>InstallOoliticKidney_MSU</defName>
+		<label>install Oolitic Kidney</label>
+		<description>Installs Oolitic Kidney.</description>
+		<RequiresHediff>MelanchromicOrgan</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Oolitic Kidney.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>OoliticKidney</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>OoliticKidney</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>OoliticKidney</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>LeftKidney</li>
+			<li>RightKidney</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.Astartes.RecipeDef_AstartesImplant>
+
+  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+		<defName>InstallNeuroglottis_MSU</defName>
+		<label>install Neuroglottis</label>
+		<description>Installs Susan Membrane.</description>
+		<RequiresHediff>OoliticKidney</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Neuroglottis.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Neuroglottis</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>Neuroglottis</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>neuroglottis</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>Neuroglottis</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.Astartes.RecipeDef_AstartesImplant>
+
+  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+		<defName>InstallMucranoid_MSU</defName>
+		<label>install Mucranoid</label>
+		<description>Installs Mucranoid.</description>
+		<RequiresHediff>neuroglottis</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Mucranoid.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Mucranoid</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>Mucranoid</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>mucranoid</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>Mucranoid</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.Astartes.RecipeDef_AstartesImplant>
+
+  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+		<defName>InstallBetchersGlands_MSU</defName>
+		<label>install Betchers Glands</label>
+		<description>Installs Betchers Glands.</description>
+		<RequiresHediff>mucranoid</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Betchers Glands.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BetchersGlands</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>BetchersGlands</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>BetchersGlands</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>BetchersGlands</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.Astartes.RecipeDef_AstartesImplant>
+
+  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+		<defName>InstallProgenoid_MSU</defName>
+		<label>install Progenoid</label>
+		<description>Installs Progenoid.</description>
+		<RequiresHediff>BetchersGlands</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Progenoid.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Progenoid</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>Progenoid</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>progenoid</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>Progenoid</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.Astartes.RecipeDef_AstartesImplant>
+
+  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+		<defName>InstallBlackCarpace_MSU</defName>
+		<label>install Black Carpace</label>
+		<description>Installs Black Carpace.</description>
+		<RequiresHediff>progenoid</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Black Carpace.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <categories>
+						<li>Medicine</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>BlackCarpace</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <thingDefs>
+				<li>BlackCarpace</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<addsHediff>BlackCarpace</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>BlackCarpace</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.Astartes.RecipeDef_AstartesImplant>
+
+
+</RecipeDefs>

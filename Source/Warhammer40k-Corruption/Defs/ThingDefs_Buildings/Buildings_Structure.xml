@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Buildings>
+
+
+  <!--========================= Doors =============================-->
+
+  <ThingDef ParentName="BuildingBase" Name="DoorBase" Abstract="True">
+    <thingClass>Building_Door</thingClass>
+    <blueprintClass>Blueprint_Door</blueprintClass>
+    <category>Building</category>
+    <blueprintGraphicData>
+      <texPath>Things/Building/Door/Door_Blueprint</texPath>
+    </blueprintGraphicData>
+    <altitudeLayer>DoorMoveable</altitudeLayer>
+    <fillPercent>1</fillPercent>
+    <useHitPoints>true</useHitPoints>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <selectable>true</selectable>
+    <tickerType>Normal</tickerType>
+    <rotatable>false</rotatable>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>Structure</designationCategory>
+    <holdsRoof>true</holdsRoof>
+    <staticSunShadowHeight>1.0</staticSunShadowHeight>
+    <blockLight>true</blockLight>
+    <drawerType>RealtimeOnly</drawerType>
+    <building>
+      <soundDoorOpenPowered>DoorOpenPowered</soundDoorOpenPowered>
+      <soundDoorClosePowered>DoorClosePowered</soundDoorClosePowered>
+      <soundDoorOpenManual>DoorOpenManual</soundDoorOpenManual>
+      <soundDoorCloseManual>DoorCloseManual</soundDoorCloseManual>
+      <ignoreNeedsPower>true</ignoreNeedsPower>
+      <canPlaceOverWall>true</canPlaceOverWall>
+    </building>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="DoorBase">
+    <defName>IGAutodoor</defName>
+    <label>imperial blast door</label>
+    <description>Divides rooms. Powered operation allows people to move through the door without slowing down. Heavily reinforced.</description>
+    <statBases>
+      <WorkToBuild>1400</WorkToBuild>
+      <MaxHitPoints>450</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <graphicData>
+      <texPath>Things/IG/Structures/IG_Door_mover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+      <!--  no damage marks because they don't move with the door
+        <rect>(0,0.12,1,0.76)</rect>-->
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <uiIconPath>Things/IG/Structures/IG_Door_UIcon</uiIconPath>
+    <costList>
+      <Component>5</Component>
+    </costList>
+    <costStuffCount>50</costStuffCount>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>50</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+    <designationHotKey>Misc2</designationHotKey>
+    <researchPrerequisites>
+      <li>Autodoors</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+
+
+
+
+  <!--========================= Walls =============================-->
+
+
+
+  <ThingDef ParentName="BuildingBase" Name="IGWallBase" Abstract="true">
+    <defName>IGWallBase</defName>
+    <label>IG Wall Base</label>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <description>An impassable wall made from rockcrete. Capable of holding up a roof. Very durable</description>
+    <graphicData>
+      <texPath>Things/Building/Linked/Wall</texPath>
+      <graphicClass>Graphic_Appearances</graphicClass>
+      <linkType>CornerFiller</linkType>
+      <linkFlags>
+        <li>Wall</li>
+        <li>Rock</li>
+      </linkFlags>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+        <edgeTop>Damage/Edge</edgeTop>
+        <edgeBot>Damage/Edge</edgeBot>
+        <edgeLeft>Damage/Edge</edgeLeft>
+        <edgeRight>Damage/Edge</edgeRight>
+      </damageData>
+    </graphicData>
+    <blueprintGraphicData>
+      <texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
+    </blueprintGraphicData>
+    <uiIconPath>Things/Building/Linked/WallSmooth_MenuIcon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>800</MaxHitPoints>
+      <WorkToBuild>300</WorkToBuild>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <costStuffCount>10</costStuffCount>
+    <costList>
+      <IG_SynthAgent>1</IG_SynthAgent>
+    </costList>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1</fillPercent>
+    <coversFloor>true</coversFloor>
+    <placingDraggableDimensions>1</placingDraggableDimensions>
+    <tickerType>Never</tickerType>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <holdsRoof>true</holdsRoof>
+    <designationCategory>Structure</designationCategory>
+    <staticSunShadowHeight>1.0</staticSunShadowHeight>
+    <blockLight>true</blockLight>
+    <building>
+      <isInert>true</isInert>
+      <ignoreNeedsPower>true</ignoreNeedsPower>
+    </building>
+    <damageMultipliers>
+      <li>
+        <damageDef>Bomb</damageDef>
+        <multiplier>1.5</multiplier>
+      </li>
+    </damageMultipliers>
+    <designationHotKey>Misc3</designationHotKey>
+  </ThingDef>
+
+  <ThingDef ParentName="IGWallBase">
+    <defName>IGRockcreteWall</defName>
+    <label>rockcrete wall</label>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <description>An impassable wall made from rockcrete. Capable of holding up a roof. Very durable</description>
+    <statBases>
+      <MaxHitPoints>800</MaxHitPoints>
+      <WorkToBuild>300</WorkToBuild>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <costStuffCount>10</costStuffCount>
+    <costList>
+      <IG_SynthAgent>1</IG_SynthAgent>
+    </costList>
+    <stuffCategories>
+      <li>Stony</li>
+    </stuffCategories>
+  </ThingDef>
+
+  <ThingDef ParentName="IGWallBase">
+    <defName>IGPlascreteWall</defName>
+    <label>plascrete wall</label>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <description>An impassable wall made from plascrete. Capable of holding up a roof. This is among the most durable building materials the Imperium has to offer.</description>    <graphicData>
+      <color>(160,178,181)</color>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>1400</MaxHitPoints>
+      <WorkToBuild>500</WorkToBuild>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <costList>
+      <IG_SynthAgent>1</IG_SynthAgent>
+      <Plasteel>10</Plasteel>
+    </costList>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <thingClass>Building</thingClass>
+    <defName>IGAquilaOnWall</defName>
+    <label>Aquila (ornament)</label>
+    <description>A plaquette of the aquila mounted on a wall.</description>
+    <graphicData>
+      <texPath>Things/IG/Structures/IG_WallAquila</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+      <drawSize>(1,1)</drawSize>
+      <color>(160,178,181)</color>
+      <damageData>
+        <rect>(0.35,0.35,0.3,0.3)</rect>
+      </damageData>
+    </graphicData>
+    <minifiedDef>MinifiedFurniture</minifiedDef>
+    <castEdgeShadows>true</castEdgeShadows>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <socialPropernessMatters>false</socialPropernessMatters>
+    <fillPercent>0.05</fillPercent>
+    <building>
+	 <isInert>true</isInert>
+      <isEdifice>false</isEdifice>
+    </building>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToMake>100</WorkToMake>
+      <Flammability>1.0</Flammability>
+      <Beauty>2</Beauty>
+      <EntertainmentStrengthFactor>-1</EntertainmentStrengthFactor>
+    </statBases>
+    <size>(1,1)</size>
+    <comps>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+    </comps>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <costStuffCount>10</costStuffCount>
+    <pathCost>50</pathCost>
+    <passability>Standable</passability>
+    <designationCategory>Worship</designationCategory>
+    <uiIconPath>Things/IG/Structures/IG_WallAquilaUI</uiIconPath>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <thingClass>Building</thingClass>
+    <defName>FlagPole</defName>
+    <label>flag pole</label>
+    <description>A simple flagpole.</description>
+    <graphicData>
+      <texPath>Things/IG/Structures/FlagPole</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+      <drawSize>(1,2)</drawSize>
+      <damageData>
+        <rect>(0.35,0.35,0.3,0.3)</rect>
+      </damageData>
+    </graphicData>
+    <minifiedDef>MinifiedFurniture</minifiedDef>
+    <castEdgeShadows>true</castEdgeShadows>
+    <altitudeLayer>Building</altitudeLayer>
+    <socialPropernessMatters>false</socialPropernessMatters>
+    <fillPercent>0.05</fillPercent>
+    <statBases>
+      <MaxHitPoints>350</MaxHitPoints>
+      <WorkToMake>100</WorkToMake>
+      <Flammability>1.0</Flammability>
+      <Beauty>10</Beauty>
+      <EntertainmentStrengthFactor>-1</EntertainmentStrengthFactor>
+    </statBases>
+    <size>(1,1)</size>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+    </stuffCategories>
+    <comps>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="FactionColors.CompProperties_FlagDrawer">
+        <compClass>FactionColors.CompFlagDrawer</compClass>
+        <DrawOffset>(0,0,1.0)</DrawOffset>
+      </li>
+    </comps>
+    <costStuffCount>20</costStuffCount>
+    <costList>
+      <Cloth>10</Cloth>
+    </costList>
+    <pathCost>50</pathCost>
+    <passability>PassThroughOnly</passability>
+    <designationCategory>Worship</designationCategory>
+  </ThingDef>
+
+</Buildings>

@@ -19,9 +19,9 @@
 			</li>
 			<li>
 				<filter>
-					<thingDefs>
+					<Defs>
 						<li>SecondHeart</li>
-					</thingDefs>
+					</Defs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -30,9 +30,9 @@
       <categories>
         <li>Medicine</li>
       </categories>
-      <thingDefs>
+      <Defs>
 				<li>SecondHeart</li>
-			</thingDefs>
+			</Defs>
 		</fixedIngredientFilter>
 		<addsHediff>SecondHeart</addsHediff>
 		<appliedOnFixedBodyParts>
@@ -58,9 +58,9 @@
 			</li>
 			<li>
 				<filter>
-					<thingDefs>
+					<Defs>
 						<li>Ossmodula</li>
-					</thingDefs>
+					</Defs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -69,9 +69,9 @@
       <categories>
         <li>Medicine</li>
       </categories>
-      <thingDefs>
+      <Defs>
 				<li>Ossmodula</li>
-			</thingDefs>
+			</Defs>
 		</fixedIngredientFilter>
 		<addsHediff>ossmodula</addsHediff>
 		<appliedOnFixedBodyParts>
@@ -99,9 +99,9 @@
 			</li>
 			<li>
 				<filter>
-					<thingDefs>
+					<Defs>
 						<li>Biscorpea</li>
-					</thingDefs>
+					</Defs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -110,9 +110,9 @@
       <categories>
         <li>Medicine</li>
       </categories>
-      <thingDefs>
+      <Defs>
 				<li>Ossmodula</li>
-			</thingDefs>
+			</Defs>
 		</fixedIngredientFilter>
 		<addsHediff>biscorpea</addsHediff>
 		<appliedOnFixedBodyParts>
@@ -141,9 +141,9 @@
 			</li>
 			<li>
 				<filter>
-					<thingDefs>
+					<Defs>
 						<li>Haemastamen</li>
-					</thingDefs>
+					</Defs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -152,9 +152,9 @@
       <categories>
         <li>Medicine</li>
       </categories>
-      <thingDefs>
+      <Defs>
 				<li>Haemastamen</li>
-			</thingDefs>
+			</Defs>
 		</fixedIngredientFilter>
 		<addsHediff>haemastamen</addsHediff>
 		<appliedOnFixedBodyParts>
@@ -182,9 +182,9 @@
 			</li>
 			<li>
 				<filter>
-					<thingDefs>
+					<Defs>
 						<li>LarramansOrgan</li>
-					</thingDefs>
+					</Defs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -193,9 +193,9 @@
       <categories>
         <li>Medicine</li>
       </categories>
-      <thingDefs>
+      <Defs>
 				<li>LarramansOrgan</li>
-			</thingDefs>
+			</Defs>
 		</fixedIngredientFilter>
 		<addsHediff>LarramansOrgan</addsHediff>
 		<appliedOnFixedBodyParts>
@@ -223,9 +223,9 @@
 			</li>
 			<li>
 				<filter>
-					<thingDefs>
+					<Defs>
 						<li>CatalepseanNode</li>
-					</thingDefs>
+					</Defs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -234,9 +234,9 @@
       <categories>
         <li>Medicine</li>
       </categories>
-      <thingDefs>
+      <Defs>
 				<li>CatalepseanNode</li>
-			</thingDefs>
+			</Defs>
 		</fixedIngredientFilter>
 		<addsHediff>CatalepseanNode</addsHediff>
 		<appliedOnFixedBodyParts>
@@ -264,9 +264,9 @@
 			</li>
 			<li>
 				<filter>
-					<thingDefs>
+					<Defs>
 						<li>Preomnor</li>
-					</thingDefs>
+					</Defs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -275,9 +275,9 @@
       <categories>
         <li>Medicine</li>
       </categories>
-      <thingDefs>
+      <Defs>
 				<li>Preomnor</li>
-			</thingDefs>
+			</Defs>
 		</fixedIngredientFilter>
 		<addsHediff>preomnor</addsHediff>
 		<appliedOnFixedBodyParts>
@@ -306,9 +306,9 @@
 			</li>
 			<li>
 				<filter>
-					<thingDefs>
+					<Defs>
 						<li>Omophagea</li>
-					</thingDefs>
+					</Defs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -317,9 +317,9 @@
       <categories>
         <li>Medicine</li>
       </categories>
-      <thingDefs>
+      <Defs>
 				<li>Omophagea</li>
-			</thingDefs>
+			</Defs>
 		</fixedIngredientFilter>
 		<addsHediff>omophagea</addsHediff>
 		<appliedOnFixedBodyParts>
@@ -347,9 +347,9 @@
 			</li>
 			<li>
 				<filter>
-					<thingDefs>
+					<Defs>
 						<li>MultiLung</li>
-					</thingDefs>
+					</Defs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -358,9 +358,9 @@
       <categories>
         <li>Medicine</li>
       </categories>
-      <thingDefs>
+      <Defs>
 				<li>MultiLung</li>
-			</thingDefs>
+			</Defs>
 		</fixedIngredientFilter>
 		<addsHediff>MultiLung</addsHediff>
 		<appliedOnFixedBodyParts>
@@ -388,9 +388,9 @@
 			</li>
 			<li>
 				<filter>
-					<thingDefs>
+					<Defs>
 						<li>Occulobe</li>
-					</thingDefs>
+					</Defs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -399,9 +399,9 @@
       <categories>
         <li>Medicine</li>
       </categories>
-      <thingDefs>
+      <Defs>
 				<li>Occulobe</li>
-			</thingDefs>
+			</Defs>
 		</fixedIngredientFilter>
 		<addsHediff>occulobe</addsHediff>
 		<appliedOnFixedBodyParts>
@@ -430,9 +430,9 @@
 			</li>
 			<li>
 				<filter>
-					<thingDefs>
+					<Defs>
 						<li>LymansEar</li>
-					</thingDefs>
+					</Defs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -441,9 +441,9 @@
       <categories>
         <li>Medicine</li>
       </categories>
-      <thingDefs>
+      <Defs>
 				<li>LymansEar</li>
-			</thingDefs>
+			</Defs>
 		</fixedIngredientFilter>
 		<addsHediff>LymansEar</addsHediff>
 		<appliedOnFixedBodyParts>
@@ -472,9 +472,9 @@
 			</li>
 			<li>
 				<filter>
-					<thingDefs>
+					<Defs>
 						<li>SusanMembrane</li>
-					</thingDefs>
+					</Defs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -483,9 +483,9 @@
       <categories>
         <li>Medicine</li>
       </categories>
-      <thingDefs>
+      <Defs>
 				<li>SusanMembrane</li>
-			</thingDefs>
+			</Defs>
 		</fixedIngredientFilter>
 		<addsHediff>SusanMembrane</addsHediff>
 		<appliedOnFixedBodyParts>
@@ -513,9 +513,9 @@
 			</li>
 			<li>
 				<filter>
-					<thingDefs>
+					<Defs>
 						<li>MelanchromicOrgan</li>
-					</thingDefs>
+					</Defs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -524,9 +524,9 @@
       <categories>
         <li>Medicine</li>
       </categories>
-      <thingDefs>
+      <Defs>
 				<li>MelanchromicOrgan</li>
-			</thingDefs>
+			</Defs>
 		</fixedIngredientFilter>
 		<addsHediff>MelanchromicOrgan</addsHediff>
 		<appliedOnFixedBodyParts>
@@ -554,9 +554,9 @@
 			</li>
 			<li>
 				<filter>
-					<thingDefs>
+					<Defs>
 						<li>OoliticKidney</li>
-					</thingDefs>
+					</Defs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -565,9 +565,9 @@
       <categories>
         <li>Medicine</li>
       </categories>
-      <thingDefs>
+      <Defs>
 				<li>OoliticKidney</li>
-			</thingDefs>
+			</Defs>
 		</fixedIngredientFilter>
 		<addsHediff>OoliticKidney</addsHediff>
 		<appliedOnFixedBodyParts>
@@ -596,9 +596,9 @@
 			</li>
 			<li>
 				<filter>
-					<thingDefs>
+					<Defs>
 						<li>Neuroglottis</li>
-					</thingDefs>
+					</Defs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -607,9 +607,9 @@
       <categories>
         <li>Medicine</li>
       </categories>
-      <thingDefs>
+      <Defs>
 				<li>Neuroglottis</li>
-			</thingDefs>
+			</Defs>
 		</fixedIngredientFilter>
 		<addsHediff>neuroglottis</addsHediff>
 		<appliedOnFixedBodyParts>
@@ -637,9 +637,9 @@
 			</li>
 			<li>
 				<filter>
-					<thingDefs>
+					<Defs>
 						<li>Mucranoid</li>
-					</thingDefs>
+					</Defs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -648,9 +648,9 @@
       <categories>
         <li>Medicine</li>
       </categories>
-      <thingDefs>
+      <Defs>
 				<li>Mucranoid</li>
-			</thingDefs>
+			</Defs>
 		</fixedIngredientFilter>
 		<addsHediff>mucranoid</addsHediff>
 		<appliedOnFixedBodyParts>
@@ -678,9 +678,9 @@
 			</li>
 			<li>
 				<filter>
-					<thingDefs>
+					<Defs>
 						<li>BetchersGlands</li>
-					</thingDefs>
+					</Defs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -689,9 +689,9 @@
       <categories>
         <li>Medicine</li>
       </categories>
-      <thingDefs>
+      <Defs>
 				<li>BetchersGlands</li>
-			</thingDefs>
+			</Defs>
 		</fixedIngredientFilter>
 		<addsHediff>BetchersGlands</addsHediff>
 		<appliedOnFixedBodyParts>
@@ -719,9 +719,9 @@
 			</li>
 			<li>
 				<filter>
-					<thingDefs>
+					<Defs>
 						<li>Progenoid</li>
-					</thingDefs>
+					</Defs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -730,9 +730,9 @@
       <categories>
         <li>Medicine</li>
       </categories>
-      <thingDefs>
+      <Defs>
 				<li>Progenoid</li>
-			</thingDefs>
+			</Defs>
 		</fixedIngredientFilter>
 		<addsHediff>progenoid</addsHediff>
 		<appliedOnFixedBodyParts>
@@ -760,9 +760,9 @@
 			</li>
 			<li>
 				<filter>
-					<thingDefs>
+					<Defs>
 						<li>BlackCarpace</li>
-					</thingDefs>
+					</Defs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -771,9 +771,9 @@
       <categories>
         <li>Medicine</li>
       </categories>
-      <thingDefs>
+      <Defs>
 				<li>BlackCarpace</li>
-			</thingDefs>
+			</Defs>
 		</fixedIngredientFilter>
 		<addsHediff>BlackCarpace</addsHediff>
 		<appliedOnFixedBodyParts>

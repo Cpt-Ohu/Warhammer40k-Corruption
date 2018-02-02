@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
  
   <ThingDef ParentName="BuildingBase" Abstract="True" Name="BaseShip">
     <thingClass>OHUShips.ShipBase</thingClass>
@@ -168,7 +168,7 @@ Offensive Capabilities: 1x Payload Slot
       <shaderType>CutoutFlying</shaderType>
       <drawSize>1.9</drawSize>
     </graphicData>
-    <altitudeLayer>FlyingItem</altitudeLayer>
+    <altitudeLayer>Skyfaller</altitudeLayer>
     <useHitPoints>false</useHitPoints>
     <drawOffscreen>true</drawOffscreen>
     <selectable>false</selectable>
@@ -275,7 +275,7 @@ Maximum Cargo Capacity: 185 kg
       <shaderType>CutoutFlying</shaderType>
       <drawSize>1.9</drawSize>
     </graphicData>
-    <altitudeLayer>FlyingItem</altitudeLayer>
+    <altitudeLayer>Skyfaller</altitudeLayer>
     <useHitPoints>false</useHitPoints>
     <drawOffscreen>true</drawOffscreen>
     <selectable>false</selectable>
@@ -383,7 +383,7 @@ Maximum Cargo Capacity: 80 kg
       <shaderType>CutoutFlying</shaderType>
       <drawSize>1.9</drawSize>
     </graphicData>
-    <altitudeLayer>FlyingItem</altitudeLayer>
+    <altitudeLayer>Skyfaller</altitudeLayer>
     <useHitPoints>false</useHitPoints>
     <drawOffscreen>true</drawOffscreen>
     <selectable>false</selectable>
@@ -482,7 +482,7 @@ Maximum Cargo Capacity: 80 kg
       <shaderType>CutoutFlying</shaderType>
       <drawSize>1.9</drawSize>
     </graphicData>
-    <altitudeLayer>FlyingItem</altitudeLayer>
+    <altitudeLayer>Skyfaller</altitudeLayer>
     <useHitPoints>false</useHitPoints>
     <drawOffscreen>true</drawOffscreen>
     <selectable>false</selectable>
@@ -543,7 +543,7 @@ Maximum Cargo Capacity: 80 kg
           <posOffset>(2.0,-0.5,1.5)</posOffset>
           <turretPosOffset>(1,0,3)</turretPosOffset>
           <turretMinSize>(1,1)</turretMinSize>
-          <altitudeLayer>FlyingItem</altitudeLayer>
+          <altitudeLayer>Skyfaller</altitudeLayer>
 	    </li>
 	    <li>
           <SlotName>Right Wing Gun</SlotName>
@@ -551,7 +551,7 @@ Maximum Cargo Capacity: 80 kg
           <posOffset>(2.0,-0.5,1.5)</posOffset>
           <turretPosOffset>(1,0,-3)</turretPosOffset>
           <turretMinSize>(1,1)</turretMinSize>
-          <altitudeLayer>FlyingItem</altitudeLayer>
+          <altitudeLayer>Skyfaller</altitudeLayer>
 	    </li>
 	   </weaponSlots>
 	 </li>
@@ -595,11 +595,11 @@ Maximum Cargo Capacity: 80 kg
       <shaderType>CutoutFlying</shaderType>
       <drawSize>1.9</drawSize>
     </graphicData>
-    <altitudeLayer>FlyingItem</altitudeLayer>
+    <altitudeLayer>Skyfaller</altitudeLayer>
     <useHitPoints>false</useHitPoints>
     <drawOffscreen>true</drawOffscreen>
     <selectable>false</selectable>
   </ThingDef>
 
   
-</ThingDefs>
+</Defs>

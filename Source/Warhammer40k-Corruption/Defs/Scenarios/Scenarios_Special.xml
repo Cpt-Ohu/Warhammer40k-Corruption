@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ScenarioDef>
+    <defName>40k_FrontierWorld</defName>
+    <label>40K - Frontier World</label>
+		<description>Your group was part of a Rogue Trader expedition that is exploring the frontiers of the Imperium. You have decided to settle on an inhabited frontier world and take it for the Imperium of Man. Or maybe you'd rather take it for yourself.
+
+You'll start in a dropship.</description>
+    <scenario>
+		<summary>An Imperial expedition of 5 citizens to an Imperial Frontier World.</summary>
+		<playerFaction>
+			<def>PlayerFaction</def>
+			<factionDef>IoM_PlayerFaction</factionDef>
+		</playerFaction>
+		<parts>
+			<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+				<def>ConfigPage_ConfigureStartingPawns</def>
+				<pawnCount>5</pawnCount>
+			</li>
+			<li Class="ScenPart_PlayerPawnsArriveMethod">
+				<def>PlayerPawnsArriveMethod</def>
+				<method>DropPods</method>
+			</li>
+			<li Class="ScenPart_StartingThing_Defined">
+				<def>StartingThing_Defined</def>
+				<thingDef>Silver</thingDef>
+				<count>500</count>
+			</li>
+			<li Class="ScenPart_StartingThing_Defined">
+				<def>StartingThing_Defined</def>
+				<thingDef>MealSurvivalPack</thingDef>
+				<count>75</count>
+			</li>
+			<li Class="ScenPart_StartingThing_Defined">
+				<def>StartingThing_Defined</def>
+				<thingDef>Readables_Cicero</thingDef>
+				<count>1</count>
+			</li>
+			<li Class="ScenPart_StartingThing_Defined">
+				<def>StartingThing_Defined</def>
+				<thingDef>Steel</thingDef>
+				<count>700</count>
+			</li>
+			<li Class="ScenPart_StartingThing_Defined">
+				<def>StartingThing_Defined</def>
+				<thingDef>Medicine</thingDef>
+				<count>24</count>
+			</li>
+			<li Class="ScenPart_StartingThing_Defined">
+				<def>StartingThing_Defined</def>
+				<thingDef>Component</thingDef>
+				<count>30</count>
+			</li>
+			<li Class="ScenPart_StartingThing_Defined">
+				<def>StartingThing_Defined</def>
+				<thingDef>Effigy_Emperor</thingDef>
+				<stuff>WoodLog</stuff>
+			</li>
+			<li Class="ScenPart_StartingThing_Defined">
+				<def>StartingThing_Defined</def>
+				<thingDef>EcclesiarchyIcon</thingDef>
+				<stuff>WoodLog</stuff>
+			</li>
+			<li Class="ScenPart_StartingThing_Defined">
+				<def>StartingThing_Defined</def>
+				<thingDef>Gun_StandardLasgun</thingDef>
+				<count>2</count>
+			</li>
+			<li Class="ScenPart_StartingAnimal">
+				<def>StartingAnimal</def>
+				<count>1</count>
+				<bondToRandomPlayerPawnChance>1</bondToRandomPlayerPawnChance>
+			</li>
+			<li Class="ScenPart_GameStartDialog">
+				<def>GameStartDialog</def>
+				<text>
+Detaching from your mothership your dropship breaks through the atmosphere and the five of you can finally take a personal look at the frontiert world you've been assigned to explore and potentially bring under Imperial Law.
+
+
+This is a game with 40k Corruption enabled.
+
+Your pawns have a new need (Purity of Soul). Acts of worship and certain events may impact a pawns purity and lead tthem to fall to chaos.
+
+To get information about a pawns soul, click on the alignment icon in the Pawn inspection tab.
+
+The Imperium won't intervene in planetary matters as long as the wider stability isn't under threat. To contact Imperial authorities you need an advanced communications console. Only then may you gain access to advanced technology and Imperial support.
+
+Beware of Xeno activities in the Sector. If unprepared an Invasion by non-human aggressors may well be the end of a planet.</text>
+				<textKey>GameStartDialog</textKey>
+				<closeSound>GameStartSting</closeSound>
+			</li>
+			<li Class="ScenPart_StartingThing_Defined">
+				<def>StartingThing_Defined</def>
+				<thingDef>IG_SynthAgent</thingDef>
+				<count>50</count>
+			</li>
+			<li Class="ScenPart_StartingThing_Defined">
+				<def>StartingThing_Defined</def>
+				<thingDef>WoodLog</thingDef>
+				<count>100</count>
+			</li>
+			<li Class="OHUShips.ScenPart_StartWithShip">
+				<def>DropShip</def>
+				<ShipDef>OHUDropShip</ShipDef>
+			</li>
+		</parts>
+    </scenario>
+
+	</ScenarioDef>  
+     
+
+  
+</Defs>

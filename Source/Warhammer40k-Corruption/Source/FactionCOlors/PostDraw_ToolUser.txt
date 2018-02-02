@@ -1,0 +1,41 @@
+public override void PostDraw()
+        {
+            Vector3 drawLoc = this.wearer.DrawPos;
+            if (this.wearer.GetPosture() == PawnPosture.Standing)
+            {
+                Rot4 bodyFacing = this.wearer.Rotation;
+                Quaternion quat = Quaternion.identity;
+                DrawApparelOnTooluser(this.renderer, drawLoc, bodyFacing, quat);
+            }
+            else
+            {
+                Quaternion quat;
+                Rot4 rot = ApparelGraphicSet.LayingFacingDet(this.wearer);
+                if (!this.wearer.Dead && this.wearer.CarriedBy == null)
+                {
+                    drawLoc.y = Altitudes.AltitudeFor(AltitudeLayer.LayingPawn) + 0.005f;
+                }
+                if (this.wearer.Downed || this.wearer.Dead)
+                {
+                    quat = Quaternion.AngleAxis(this.renderer.wiggler.downedAngle, Vector3.up);
+                }
+                else
+                {
+                    Rot4 rot2 = Rot4.West;
+                    int num = this.wearer.thingIDNumber % 2;
+                    if (num != 0)
+                    {
+                        if (num == 1)
+                        {
+                            rot2 = Rot4.East;
+                        }
+                    }
+                    else
+                    {
+                        rot2 = Rot4.West;
+                    }
+                    quat = rot2.AsQuat;
+                }
+                DrawApparelOnTooluser(this.renderer, drawLoc, rot, quat);
+            }
+        }

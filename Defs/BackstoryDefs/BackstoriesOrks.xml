@@ -4,8 +4,8 @@
     <defName>ork_base</defName>
     <title>Orkoid</title>
     <baseDescription>NAME is Orkoid. As such, war is his only passion, with most basic menial tasks being performed only to fuel the warmachine.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
-    <bodytypeGlobal>Male</bodytypeGlobal>
+    <bodyTypeMale>Male</bodyTypeMale>
+    <bodyTypeGlobal>Male</bodyTypeGlobal>
     <bodyTypeFemale>Male</bodyTypeFemale>
     <slot>Childhood</slot>
     <workDisables>
@@ -29,8 +29,8 @@
     <title>Ork sharpshooter</title>
     <titleShort>Shooter</titleShort>
     <baseDescription>NAME has a knack for using guns. HECAP is motto is: Less talk, moar DAKKA!</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
-    <bodytypeGlobal>Male</bodytypeGlobal>
+    <bodyTypeMale>Male</bodyTypeMale>
+    <bodyTypeGlobal>Male</bodyTypeGlobal>
     <bodyTypeFemale>Male</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -55,8 +55,8 @@
     <title>Slugger</title>
     <titleShort>Shooter</titleShort>
     <baseDescription>NAME is earning his place in Ork society by being a terrific close-range fighter.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
-    <bodytypeGlobal>Male</bodytypeGlobal>
+    <bodyTypeMale>Male</bodyTypeMale>
+    <bodyTypeGlobal>Male</bodyTypeGlobal>
     <bodyTypeFemale>Male</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -81,8 +81,8 @@
     <title>Brewer</title>
     <titleShort>Brewer</titleShort>
     <baseDescription>NAME has developed a rare talent among orks in that he's smart enough to brew stuff. Being an Ork, the result still tastes horrible and may be lethal to non-Orks. </baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
-    <bodytypeGlobal>Male</bodytypeGlobal>
+    <bodyTypeMale>Male</bodyTypeMale>
+    <bodyTypeGlobal>Male</bodyTypeGlobal>
     <bodyTypeFemale>Male</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -103,8 +103,8 @@
     <title>Shouter</title>
     <titleShort>Shouter</titleShort>
     <baseDescription>NAME is infamous for his booming voice, being able to call out enemies over half a mile away.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
-    <bodytypeGlobal>Male</bodytypeGlobal>
+    <bodyTypeMale>Male</bodyTypeMale>
+    <bodyTypeGlobal>Male</bodyTypeGlobal>
     <bodyTypeFemale>Male</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -132,8 +132,8 @@
     <title>Herda</title>
     <titleShort>Herda</titleShort>
     <baseDescription>NAME is known for his skill in handling squigs and other animals. Skill in this case often means beating the poor thing until it submits.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
-    <bodytypeGlobal>Male</bodytypeGlobal>
+    <bodyTypeMale>Male</bodyTypeMale>
+    <bodyTypeGlobal>Male</bodyTypeGlobal>
     <bodyTypeFemale>Male</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -154,8 +154,8 @@
     <title>Madboy</title>
     <titleShort>Madboy</titleShort>
     <baseDescription>NAME is a madboy. With an intellect as thick as HECAP skull, only the most basic tasks are suitable for this specimen.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
-    <bodytypeGlobal>Male</bodytypeGlobal>
+    <bodyTypeMale>Male</bodyTypeMale>
+    <bodyTypeGlobal>Male</bodyTypeGlobal>
     <bodyTypeFemale>Male</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -186,8 +186,8 @@
     <title>Crusher</title>
     <titleShort>Crusher</titleShort>
     <baseDescription>NAME has proven his worth and achieved the rank of Nob by viciously pummeling his opponents into the dirt.</baseDescription>
-    <bodytypeMale>Hulk</bodytypeMale>
-    <bodytypeGlobal>Hulk</bodytypeGlobal>
+    <bodyTypeMale>Hulk</bodyTypeMale>
+    <bodyTypeGlobal>Hulk</bodyTypeGlobal>
     <bodyTypeFemale>Hulk</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -218,8 +218,8 @@
     <title>Devastator</title>
     <titleShort>Devastator</titleShort>
     <baseDescription>NAME has achieved the rank of nob by being the best shot out all his competition.</baseDescription>
-    <bodytypeMale>Hulk</bodytypeMale>
-    <bodytypeGlobal>Hulk</bodytypeGlobal>
+    <bodyTypeMale>Hulk</bodyTypeMale>
+    <bodyTypeGlobal>Hulk</bodyTypeGlobal>
     <bodyTypeFemale>Hulk</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -250,8 +250,8 @@
     <title>Snotling</title>
     <titleShort>Snotling</titleShort>
     <baseDescription>NAME is a Snotling, an infantile Gretchin, barely suitable for menial tasks.</baseDescription>
-    <bodytypeMale>Thin</bodytypeMale>
-    <bodytypeGlobal>Thin</bodytypeGlobal>
+    <bodyTypeMale>Thin</bodyTypeMale>
+    <bodyTypeGlobal>Thin</bodyTypeGlobal>
     <bodyTypeFemale>Thin</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -277,7 +277,7 @@
     <title>Grot</title>
     <titleShort>Grot</titleShort>
     <baseDescription>NAME is a Grot, the backbone of Ork society. Most menial tasks are performed by HECAP kind.</baseDescription>
-    <bodytypeMale>Thin</bodytypeMale>
+    <bodyTypeMale>Thin</bodyTypeMale>
     <bodyTypeFemale>Thin</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>

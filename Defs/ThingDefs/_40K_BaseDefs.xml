@@ -184,7 +184,7 @@
       <damageAmountBase>2</damageAmountBase>
       <speed>20</speed>
       <postExplosionSpawnThingDef>FilthFuel</postExplosionSpawnThingDef>
-      <explosionSpawnChance>0.7</explosionSpawnChance>
+      <postExplosionSpawnChance>0.7</postExplosionSpawnChance>
     </projectile>
     <preFiringInitialIntensity>0</preFiringInitialIntensity>
     <preFiringFinalIntensity>2</preFiringFinalIntensity>

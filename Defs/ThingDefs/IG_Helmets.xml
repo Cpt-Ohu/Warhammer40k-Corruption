@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <ThingDef ParentName="HatBase">
     <defName>IG_ComCap</defName>
@@ -23,7 +23,7 @@
       <bodyPartGroups>
         <li>UpperHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/IG/ComCap/ComCap</worngraphicPath>
+      <wornGraphicPath>Things/IG/ComCap/ComCap</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -57,7 +57,7 @@
       <bodyPartGroups>
         <li>UpperHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/IG/OfficerCap/OfficerCap</worngraphicPath>
+      <wornGraphicPath>Things/IG/OfficerCap/OfficerCap</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -91,7 +91,7 @@
       <bodyPartGroups>
         <li>UpperHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/IG/Fieldcap/IG_FieldCap</worngraphicPath>
+      <wornGraphicPath>Things/IG/Fieldcap/IG_FieldCap</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -127,7 +127,7 @@
       <bodyPartGroups>
         <li>UpperHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/IG/IG_Helm</worngraphicPath>
+      <wornGraphicPath>Things/IG/IG_Helm</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -170,4 +170,4 @@
   </ThingDef>
 
 
-</ThingDefs>
+</Defs>

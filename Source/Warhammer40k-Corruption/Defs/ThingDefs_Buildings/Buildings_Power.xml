@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Buildings>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>IoM_PlasmaGenerator</defName>
+    <label>plasma generator</label>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>Things/IoM/Structures/PlasmaGenerator</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>150</pathCost>
+    <blockWind>true</blockWind>
+    <fillPercent>1.0</fillPercent>
+    <castEdgeShadows>false</castEdgeShadows>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MaxHitPoints>600</MaxHitPoints>
+      <WorkToBuild>4000</WorkToBuild>
+      <Flammability>0.3</Flammability>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <description>Produces power by a plasma fusion rection. Once built has enough fuel to last for centuries.</description>
+    <size>(2,2)</size>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <costStuffCount>200</costStuffCount>
+    <building>
+      <ignoreNeedsPower>true</ignoreNeedsPower>
+    </building>
+    <costList>
+      <Component>2</Component>
+      <MecComponent_Energy>1</MecComponent_Energy>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerPlant</compClass>
+        <basePowerConsumption>-1500</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Glower">
+        <glowRadius>3</glowRadius>
+        <glowColor>(155,255,255,0)</glowColor>
+      </li>
+      <li Class="CompProperties_HeatPusher">
+        <compClass>CompHeatPusherPowered</compClass>
+        <heatPerSecond>2</heatPerSecond>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <staticSunShadowHeight>0.5</staticSunShadowHeight>
+    <designationCategory>Mechanicum</designationCategory>
+    <designationHotkey>Misc4</designationHotkey>
+    <researchPrerequisites>
+      <li>MecTec_PowerGenerator</li>
+    </researchPrerequisites>
+    <minifiedDef>MinifiedMecTemplate</minifiedDef>
+  </ThingDef>
+
+
+  
+</Buildings>

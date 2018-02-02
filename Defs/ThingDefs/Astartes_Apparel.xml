@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
     <thingClass>FactionColors.ApparelUniform</thingClass>
@@ -51,7 +51,7 @@ The entire suit weighs upwards of several hundred kilos and requires a neuro-con
         <li>Hands</li>
         <li>Feet</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Astartes/PowerArmor/AstartesPowerArmor</worngraphicPath>
+      <wornGraphicPath>Things/Astartes/PowerArmor/AstartesPowerArmor</wornGraphicPath>
       <layers>
         <li>OnSkin</li>
         <li>Middle</li>
@@ -129,7 +129,7 @@ The entire suit weighs upwards of several hundred kilos and requires a neuro-con
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Astartes/PowerArmorHelmet/AstartesHelmet</worngraphicPath>
+      <wornGraphicPath>Things/Astartes/PowerArmorHelmet/AstartesHelmet</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -159,4 +159,4 @@ The entire suit weighs upwards of several hundred kilos and requires a neuro-con
   </ThingDef>
 
 
-</ThingDefs>
+</Defs>

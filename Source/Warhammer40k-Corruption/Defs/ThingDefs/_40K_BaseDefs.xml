@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+  <ThingDef Name="BasePawn" Abstract="True">
+    <thingClass>Pawn</thingClass>
+    <category>Pawn</category>
+    <selectable>true</selectable>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Pawn</altitudeLayer>
+    <useHitPoints>false</useHitPoints>
+    <hasTooltip>true</hasTooltip>
+    <soundImpactDefault>BulletImpactFlesh</soundImpactDefault>
+    <statBases>
+      <Mass>70</Mass>
+    </statBases>
+    <inspectorTabs>
+      <li>ITab_Pawn_Health</li>
+      <li>ITab_Pawn_Needs</li>
+      <li>ITab_Pawn_Character</li>
+      <li>ITab_Pawn_Training</li>
+      <li>ITab_Pawn_Gear</li>
+      <li>ITab_Pawn_Guest</li>
+      <li>ITab_Pawn_Prisoner</li>
+      <li>ITab_Pawn_Social</li>
+    </inspectorTabs>
+    <comps>
+      <li>
+        <compClass>CompAttachBase</compClass>
+      </li>
+    </comps>
+    <drawGUIOverlay>true</drawGUIOverlay>
+  </ThingDef>
+
+
+  <!-- ===================WeaponDefs=========================================== -->
+
+
+  <ThingDef Name="BaseMeleeWeaponNoTag" Abstract="True">
+    <category>Item</category>
+    <thingClass>ThingWithComps</thingClass>
+    <equipmentType>Primary</equipmentType>
+    <pathCost>10</pathCost>
+    <useHitPoints>True</useHitPoints>
+    <selectable>True</selectable>
+    <graphicData>
+      <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+    </graphicData>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>1</DeteriorationRate>
+      <SellPriceFactor>0.5</SellPriceFactor>
+    </statBases>
+    <altitudeLayer>Item</altitudeLayer>
+    <alwaysHaulable>True</alwaysHaulable>
+    <tickerType>Never</tickerType>
+    <techLevel>Industrial</techLevel>
+    <thingCategories>
+      <li>WeaponsMelee</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li>
+        <compClass>CompEquippable</compClass>
+      </li>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>ArtName_WeaponMelee</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+    </recipeMaker>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+  </ThingDef>
+
+  <ThingDef Name="BaseGun" Abstract="True">
+    <category>Item</category>
+    <thingClass>ThingWithComps</thingClass>
+    <equipmentType>Primary</equipmentType>
+    <pathCost>10</pathCost>
+    <useHitPoints>True</useHitPoints>
+    <selectable>True</selectable>
+    <graphicData>
+      <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+    </graphicData>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>2</DeteriorationRate>
+      <SellPriceFactor>0.5</SellPriceFactor>
+    </statBases>
+    <altitudeLayer>Item</altitudeLayer>
+    <alwaysHaulable>True</alwaysHaulable>
+    <tickerType>Never</tickerType>
+    <techLevel>Industrial</techLevel>
+    <thingCategories>
+      <li>WeaponsRanged</li>
+    </thingCategories>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li>
+        <compClass>CompEquippable</compClass>
+      </li>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>ArtName_WeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef Name="BaseMakeableGun" ParentName="BaseGun" Abstract="True">
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+    </recipeMaker>
+  </ThingDef>
+
+
+  <!-- ===================ProjectileDefs=========================================== -->
+
+  <ThingDef Name="BaseArtilleryWeapon" Abstract="True">
+    <category>Item</category>
+    <thingClass>ThingWithComps</thingClass>
+    <label>artillery error</label>
+    <equipmentType>Primary</equipmentType>
+    <tickerType>Never</tickerType>
+    <techLevel>Industrial</techLevel>
+    <comps>
+      <li>
+        <compClass>CompEquippable</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef Name="BaseBullet" Abstract="True">
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <thingClass>Bullet</thingClass>
+    <label>bullet</label>
+    <useHitPoints>False</useHitPoints>
+    <neverMultiSelect>True</neverMultiSelect>
+    <graphicData>
+      <shaderType>Transparent</shaderType>
+    </graphicData>
+  </ThingDef>
+
+
+  <ThingDef ParentName="BaseBullet" Class="Corruption.ThingDef_LaserProjectile">
+   <thingClass>Corruption.Projectile_Laser</thingClass>
+    <defName>Bullet_FlameThrower</defName>
+    <label>FlameThrower Jet</label>
+    <graphicData>
+      <texPath>Things/IG/Weapons/Projectiles/FlamerProjectile</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Flame</damageDef>
+      <damageAmountBase>2</damageAmountBase>
+      <speed>20</speed>
+      <postExplosionSpawnThingDef>FilthFuel</postExplosionSpawnThingDef>
+      <explosionSpawnChance>0.7</explosionSpawnChance>
+    </projectile>
+    <preFiringInitialIntensity>0</preFiringInitialIntensity>
+    <preFiringFinalIntensity>2</preFiringFinalIntensity>
+    <postFiringInitialIntensity>2</postFiringInitialIntensity>
+    <postFiringFinalIntensity>0.5</postFiringFinalIntensity>
+    <preFiringDuration>30</preFiringDuration>
+    <postFiringDuration>40</postFiringDuration>
+    <CanStartFire>true</CanStartFire>
+    <StartFireChance>1</StartFireChance>
+  </ThingDef>
+
+
+  <!-- ===================ApparelDefs=========================================== -->
+
+
+  <ThingDef Name="HatBase" ParentName="ApparelBase" Abstract="True">
+    <thingCategories>
+      <li>Headgear</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef Name="ApparelBase" Abstract="True">
+    <thingClass>Apparel</thingClass>
+    <category>Item</category>
+    <selectable>True</selectable>
+    <pathCost>10</pathCost>
+    <useHitPoints>True</useHitPoints>
+    <graphicData>
+      <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+    </graphicData>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>2</DeteriorationRate>
+      <SellPriceFactor>0.5</SellPriceFactor>
+    </statBases>
+    <altitudeLayer>Item</altitudeLayer>
+    <alwaysHaulable>True</alwaysHaulable>
+    <tickerType>Never</tickerType>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li>
+        <compClass>CompColorable</compClass>
+      </li>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef Name="ApparelMakeableBase" ParentName="ApparelBase" Abstract="True">
+    <recipeMaker>
+      <workSpeedStat>TailoringSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Tailor</effectWorking>
+      <soundWorking>Recipe_Tailor</soundWorking>
+      <unfinishedThingDef>UnfinishedApparel</unfinishedThingDef>
+    </recipeMaker>
+  </ThingDef>
+  
+  <ThingDef Name="ArmorMakeableBase" ParentName="ApparelBase" Abstract="True">
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <unfinishedThingDef>UnfinishedApparel</unfinishedThingDef>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef Name="BaseEquipment" Abstract="True">
+    <equipmentType>Secondary</equipmentType>
+    <label>equipment lacks label</label>
+    <thingClass>ThingWithComps</thingClass>
+    <category>Item</category>
+    <useHitPoints>true</useHitPoints>
+    <selectable>true</selectable>
+    <graphicData>
+      <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+    </graphicData>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>2</DeteriorationRate>
+      <SellPriceFactor>0.5</SellPriceFactor>
+    </statBases>
+    <altitudeLayer>Item</altitudeLayer>
+    <description>Equipment lacks desc.</description>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li>
+        <compClass>CompEquippable</compClass>
+      </li>
+    </comps>
+    <alwaysHaulable>true</alwaysHaulable>
+    <tickerType>Never</tickerType>
+  </ThingDef>
+
+
+  <ThingDef Name="BaseGrenadeProjectile" Abstract="True">
+    <category>Projectile</category>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <thingClass>Projectile_Explosive</thingClass>
+    <label>projectile</label>
+    <tickerType>Normal</tickerType>
+    <useHitPoints>False</useHitPoints>
+    <neverMultiSelect>True</neverMultiSelect>
+    <graphicData>
+      <shaderType>Transparent</shaderType>
+    </graphicData>
+    <projectile>
+      <speed>12</speed>
+      <flyOverhead>false</flyOverhead>
+    </projectile>
+  </ThingDef>
+
+
+  <!-- ===================DamageDefs=========================================== -->
+
+  <DamageDef Name="LocalInjuryBase" Abstract="True">
+    <workerClass>DamageWorker_AddInjury</workerClass>
+  </DamageDef>
+
+  
+  <!-- ======================= Minified things ========================= -->
+
+  <ThingDef Name="MinifiedBase" Abstract="True">
+    <thingClass>MinifiedThing</thingClass>
+    <category>Item</category>
+    <useHitPoints>true</useHitPoints>
+    <selectable>true</selectable>
+    <altitudeLayer>Item</altitudeLayer>
+    <scatterableOnMapGen>false</scatterableOnMapGen>
+    <!-- for CompForbiddable -->
+    <drawerType>RealtimeOnly</drawerType>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+    </comps>
+    <alwaysHaulable>true</alwaysHaulable>
+    <rotatable>false</rotatable>
+    <pathCost>15</pathCost>
+  </ThingDef>
+
+  <ThingDef ParentName="MinifiedBase">
+    <defName>MinifiedMecTemplate</defName>
+    <label>Mechanicum Template</label>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef Name="BuildingBase" Abstract="True">
+    <category>Building</category>
+    <thingClass>Building</thingClass>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <repairEffect>Repair</repairEffect>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <filthLeaving>BuildingRubble</filthLeaving>
+  </ThingDef>
+
+
+
+  <ThingDef Name="BenchBase" ParentName="BuildingBase" Abstract="True">
+    <castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>0.20</staticSunShadowHeight>
+		<building>
+			<workSpeedPenaltyOutdoors>true</workSpeedPenaltyOutdoors>
+			<workSpeedPenaltyTemperature>true</workSpeedPenaltyTemperature>
+		</building>
+		<comps>
+			<li>
+				<compClass>CompReportWorkSpeed</compClass>
+			</li>
+		</comps>
+		<placeWorkers>
+			<li>PlaceWorker_ReportWorkSpeedPenalties</li>
+		</placeWorkers>
+  </ThingDef>
+
+
+  
+ </Defs>

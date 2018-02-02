@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <ThingDef ParentName="BasePawn" Name="BaseDemon" Abstract="True">
     <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
@@ -351,4 +351,4 @@
     </race>
   </ThingDef>
 
-</ThingDefs>
+</Defs>

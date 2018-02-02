@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <ThingDef ParentName="BasePawn" Name="BaseServitor" Abstract="True">
     <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
@@ -29,11 +29,11 @@
     <uiIconPath>Things/Pawn/Humanlike/UI/IconHuman</uiIconPath>
 	<alienRace>
         <generalSettings>
-            <MaleGenderProbability>0.5</MaleGenderProbability>
-            <PawnsSpecificBackstories>true</PawnsSpecificBackstories>
-            <ImmuneToAge>true</ImmuneToAge>
-			<ForcedRaceTraitEntries>
-            </ForcedRaceTraitEntries>
+            <maleGenderProbability>0.5</maleGenderProbability>
+            <pawnsSpecificBackstories>true</pawnsSpecificBackstories>
+            <immuneToAge>true</immuneToAge>
+			<forcedRaceTraitEntries>
+            </forcedRaceTraitEntries>
 			<alienPartGenerator>
                 <aliencrowntypes>
 	  <li>MechHeadA</li>
@@ -68,8 +68,8 @@
             </li>
         </graphicPaths>
 		<hairSettings>
-            <HasHair>false</HasHair>
-            <GetsGreyAt>5000</GetsGreyAt>
+            <hasHair>false</hasHair>
+            <getsGreyAt>5000</getsGreyAt>
         </hairSettings>
 
 		<relationSettings>
@@ -157,10 +157,10 @@
       <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
-      <specialshadowData>
+      <specialShadowData>
         <volume>(0.3, 0.8, 0.4)</volume>
         <offset>(0,0,-0.3)</offset>
-      </specialshadowData>
+      </specialShadowData>
       <ageGenerationCurve>
         <points>
           <li>(14,0)</li>
@@ -205,11 +205,11 @@
     <description>A standard servitor. Maybe it was a vatgrown blank, maybe a convicted criminal. Whatever it was, not it's only capable of rudimentary tasks and closer to a machine than a human.</description>
 	<alienRace>
         <generalSettings>
-            <MaleGenderProbability>0.5</MaleGenderProbability>
-            <PawnsSpecificBackstories>true</PawnsSpecificBackstories>
-            <ImmuneToAge>true</ImmuneToAge>
-			<ForcedRaceTraitEntries>
-            </ForcedRaceTraitEntries>
+            <maleGenderProbability>0.5</maleGenderProbability>
+            <pawnsSpecificBackstories>true</pawnsSpecificBackstories>
+            <immuneToAge>true</immuneToAge>
+			<forcedRaceTraitEntries>
+            </forcedRaceTraitEntries>
 			<alienPartGenerator>
                 <aliencrowntypes>
 	  <li>MechHeadA</li>
@@ -244,8 +244,8 @@
             </li>
         </graphicPaths>
 		<hairSettings>
-            <HasHair>false</HasHair>
-            <GetsGreyAt>5000</GetsGreyAt>
+            <hasHair>false</hasHair>
+            <getsGreyAt>5000</getsGreyAt>
         </hairSettings>
 
 		<relationSettings>
@@ -308,6 +308,7 @@
       <soundMeleeHitPawn>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_MechanoidSlash_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
+    <fleshType>Mechanoid</fleshType>
     </race>
     <recipes>
       <li>RemoveMechanoidBodyPart</li>
@@ -327,4 +328,4 @@
     </comps>
   </ThingDef>
 
-</ThingDefs>
+</Defs>

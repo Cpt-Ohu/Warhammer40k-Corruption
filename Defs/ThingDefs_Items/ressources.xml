@@ -57,7 +57,7 @@
         <MaxHitPoints>1</MaxHitPoints>
         <Beauty>3</Beauty>
         <Flammability>0.2</Flammability>
-        <MeleeWeapon_Cooldown>0.7</MeleeWeapon_Cooldown>
+        <MeleeWeapon_CooldownMultiplier>0.7</MeleeWeapon_CooldownMultiplier>
       </statFactors>
       <smeltable>false</smeltable>
     </stuffProps>
@@ -136,7 +136,7 @@
         <MaxHitPoints>1</MaxHitPoints>
         <Beauty>3</Beauty>
         <Flammability>0.2</Flammability>
-        <MeleeWeapon_Cooldown>0.7</MeleeWeapon_Cooldown>
+        <MeleeWeapon_CooldownMultiplier>0.7</MeleeWeapon_CooldownMultiplier>
       </statFactors>
       <smeltable>false</smeltable>
     </stuffProps>

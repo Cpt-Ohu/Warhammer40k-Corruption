@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<PawnKindDefs>
+<Defs>
 
   <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef" Name="IGTrooperBase">
     <defName>IG_Trooper</defName>
@@ -303,4 +303,4 @@
 
 
 
-</PawnKindDefs>
+</Defs>

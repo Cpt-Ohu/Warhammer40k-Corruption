@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <ThingDef Name="40kResearchBlocker">
     <defName>40kResearchBlocker</defName>
+    <thingClass>Building</thingClass>
     <label>Unknown research facility</label>
     <category>Building</category>
     <selectable>false</selectable>
@@ -11,4 +12,4 @@
 		<scatterableOnMapGen>false</scatterableOnMapGen>
 	</ThingDef>
 
-</ThingDefs>
+</Defs>

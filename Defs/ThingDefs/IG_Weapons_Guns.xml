@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
   <ThingDef Name="BaseGun_IG" Abstract="True">
     <category>Item</category>
     <thingClass>ThingWithComps</thingClass>
@@ -276,7 +276,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_StandardBolt</projectileDef>
+        <defaultProjectile>Bullet_StandardBolt</defaultProjectile>
         <warmupTime>1.7</warmupTime>
         <range>32</range>
         <burstShotCount>3</burstShotCount>
@@ -325,7 +325,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_StandardBolt</projectileDef>
+        <defaultProjectile>Bullet_StandardBolt</defaultProjectile>
         <warmupTime>0.8</warmupTime>
         <range>18</range>
         <soundCast>Bolter</soundCast>
@@ -373,7 +373,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Lasround</projectileDef>
+        <defaultProjectile>Bullet_Lasround</defaultProjectile>
         <warmupTime>1.0</warmupTime>
         <range>32</range>
         <soundCast>ShotChargeRifle</soundCast>
@@ -421,7 +421,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Lasround</projectileDef>
+        <defaultProjectile>Bullet_Lasround</defaultProjectile>
         <warmupTime>0.7</warmupTime>
         <range>18</range>
         <soundCast>ShotChargeRifle</soundCast>
@@ -469,7 +469,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Plasma_Ball</projectileDef>
+        <defaultProjectile>Plasma_Ball</defaultProjectile>
         <warmupTime>1.4</warmupTime>
         <range>18</range>
 		<burstShotCount>1</burstShotCount>
@@ -523,7 +523,7 @@ Class="FactionColors.FactionItemDef">
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_StormBolt</projectileDef>
+        <defaultProjectile>Bullet_StormBolt</defaultProjectile>
         <warmupTime>2.0</warmupTime>
         <range>28</range>
         <burstShotCount>6</burstShotCount>
@@ -568,10 +568,10 @@ Class="FactionColors.FactionItemDef">
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_ExitusPistolRound</projectileDef>
+        <defaultProjectile>Bullet_ExitusPistolRound</defaultProjectile>
         <warmupTime>0.7</warmupTime>
         <range>24</range>
-        <soundCast>ShotPistol</soundCast>
+        <soundCast>ShotRevolver</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
 		<muzzleFlashScale>9</muzzleFlashScale>
       </li>
@@ -614,7 +614,7 @@ Class="FactionColors.FactionItemDef">
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_ExitusRifleRound</projectileDef>
+        <defaultProjectile>Bullet_ExitusRifleRound</defaultProjectile>
         <warmupTime>5</warmupTime>
         <range>120</range>
         <soundCast>ShotSniperRifle</soundCast>
@@ -660,7 +660,7 @@ Class="FactionColors.FactionItemDef">
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Melta_Beam</projectileDef>
+        <defaultProjectile>Melta_Beam</defaultProjectile>
         <warmupTime>3</warmupTime>
         <range>15</range>
         <soundCast>ShotChargeRifle</soundCast>
@@ -709,7 +709,7 @@ Class="FactionColors.FactionItemDef">
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_LascannonRound</projectileDef>
+        <defaultProjectile>Bullet_LascannonRound</defaultProjectile>
         <warmupTime>5</warmupTime>
         <range>32</range>
         <soundCast>ShotChargeBlaster</soundCast>
@@ -751,7 +751,7 @@ Class="FactionColors.FactionItemDef">
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Autogun</projectileDef>
+        <defaultProjectile>Bullet_Autogun</defaultProjectile>
         <warmupTime>1.5</warmupTime>
         <range>32</range>
         <burstShotCount>5</burstShotCount>
@@ -791,7 +791,7 @@ Class="FactionColors.FactionItemDef">
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_PumpShotgun</projectileDef>
+        <defaultProjectile>Bullet_PumpShotgun</defaultProjectile>
         <warmupTime>1.1</warmupTime>
         <range>15</range>
         <soundCast>ShotShotgun</soundCast>
@@ -804,4 +804,4 @@ Class="FactionColors.FactionItemDef">
 	  </recipeMaker>
 
   </ThingDef>
-</ThingDefs>
+</Defs>

@@ -154,7 +154,8 @@ namespace OHUShips
                 this.TryRemoveLord(this.parent.Map);
                 this.leftToLoad.Clear();
                 this.leftToLoad = new List<TransferableOneWay>();
-                Messages.Message("MessageFinishedLoadingShipCargo".Translate(new object[] { this.ship.ShipNick }), this.parent, MessageSound.Benefit);
+              
+                Messages.Message("MessageFinishedLoadingShipCargo".Translate(new object[] { this.ship.ShipNick }), this.parent, MessageTypeDefOf.TaskCompletion);
             }
         }
 

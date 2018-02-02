@@ -4,7 +4,7 @@
   <IncidentDef>
     <defName>Visitor_IoMWanderer</defName>
     <label>wanderer</label>
-    <targetType>MapPlayerHome</targetType>
+    <targetTypes><li>MapPlayerHome</li></targetTypes>
     <workerClass>Corruption.IoM.IncidentWorker_WanderingTrader</workerClass>
     <category>AllyArrival</category>
     <baseChance>4</baseChance>
@@ -14,7 +14,7 @@
   <IncidentDef>
     <defName>Visitor_Healer</defName>
     <label>healer arrives</label>
-    <targetType>MapPlayerHome</targetType>
+    <targetTypes><li>MapPlayerHome</li></targetTypes>
     <workerClass>Corruption.IoM.IncidentWorker_VisitingHealer</workerClass>
     <category>AllyArrival</category>
     <baseChance>1</baseChance>

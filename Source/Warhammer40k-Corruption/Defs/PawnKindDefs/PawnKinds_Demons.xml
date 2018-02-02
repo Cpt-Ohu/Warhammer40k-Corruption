@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<PawnKindDefs>
+
+  <PawnKindDef Name="DemonBase" Abstract="True">
+    <bodyGraphicData>
+      <shaderType>CutoutComplex</shaderType>
+    </bodyGraphicData>
+    <dessicatedBodyGraphicData>
+      <shaderType>CutoutComplex</shaderType>
+    </dessicatedBodyGraphicData>
+  </PawnKindDef>
+
+  <PawnKindDef Parent="DemonBase">
+    <defName>Demon_Bloodletter</defName>
+    <label>Bloodletter</label>
+    <race>Demon_Bloodletter</race>
+    <combatPower>160</combatPower>
+    <defaultFactionType>ChaosCult</defaultFactionType>
+    <aiAvoidCover>true</aiAvoidCover>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Chaos/Demons/Bloodletter</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>2.0</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponMoney>
+      <min>5000</min>
+      <max>5000</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>WeaponsKhorne</li>
+    </weaponTags>
+  </PawnKindDef>
+
+  <PawnKindDef Parent="DemonBase">
+    <defName>Demon_Plaguebearer</defName>
+    <label>Plaguebearer</label>
+    <race>Demon_Plaguebearer</race>
+    <combatPower>160</combatPower>
+    <defaultFactionType>ChaosCult</defaultFactionType>
+    <aiAvoidCover>true</aiAvoidCover>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Chaos/Demons/Plaguebearer</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>2.0</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponMoney>
+      <min>5000</min>
+      <max>5000</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>WeaponsNurgle</li>
+    </weaponTags>
+  </PawnKindDef>
+
+  <PawnKindDef Parent="DemonBase">
+    <defName>Demon_Daemonette</defName>
+    <label>Daemonette</label>
+    <race>Demon_Daemonette</race>
+    <combatPower>160</combatPower>
+    <defaultFactionType>ChaosCult</defaultFactionType>
+    <aiAvoidCover>true</aiAvoidCover>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Chaos/Demons/Daemonette</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>2.0</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Chaos/Demons/Daemonette2</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>2.0</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponMoney>
+      <min>5000</min>
+      <max>5000</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>WeaponsSlaanesh</li>
+    </weaponTags>
+  </PawnKindDef>
+
+  <PawnKindDef Parent="DemonBase">
+    <defName>Demon_Horror</defName>
+    <label>Horror</label>
+    <race>Demon_Horror</race>
+    <combatPower>160</combatPower>
+    <defaultFactionType>ChaosCult</defaultFactionType>
+    <aiAvoidCover>true</aiAvoidCover>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Chaos/Demons/TzeentchHorror</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>2.0</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Chaos/Demons/TzeentchHorror2</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>2.0</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+
+    </lifeStages>
+    <weaponMoney>
+      <min>5000</min>
+      <max>5000</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>WeaponsTzeentch</li>
+    </weaponTags>
+  </PawnKindDef>
+
+  <PawnKindDef Parent="DemonBase">
+    <defName>Demon_Undivided</defName>
+    <label>Demon</label>
+    <race>Demon_Undivided</race>
+    <combatPower>160</combatPower>
+    <defaultFactionType>ChaosCult</defaultFactionType>
+    <aiAvoidCover>true</aiAvoidCover>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Chaos/Demons/DemonUndivided</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>CutoutComplex</shaderType>
+          <color>(123,168,122)</color>
+          <colorTwo>(223,219,108)</colorTwo>
+          <drawSize>4.0</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Chaos/Demons/DemonUndivided</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>CutoutComplex</shaderType>
+          <color>(181,228,229)</color>
+          <colorTwo>(223,219,108)</colorTwo>
+          <drawSize>4.0</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Chaos/Demons/DemonUndivided</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>CutoutComplex</shaderType>
+          <color>(189,47,47)</color>
+          <colorTwo>(223,219,108)</colorTwo>
+          <drawSize>4.0</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Chaos/Demons/DemonUndivided</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>CutoutComplex</shaderType>
+          <color>(87,87,87)</color>
+          <colorTwo>(223,219,108)</colorTwo>
+          <drawSize>4.0</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Chaos/Demons/DemonUndivided</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>CutoutComplex</shaderType>
+          <color>(222,222,222)</color>
+          <colorTwo>(223,219,108)</colorTwo>
+          <drawSize>4.0</drawSize>
+          <shadowData>
+            <volume>(0.4, 0.8, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponMoney>
+      <min>0</min>
+      <max>0</max>
+    </weaponMoney>
+  </PawnKindDef>
+
+
+</PawnKindDefs>

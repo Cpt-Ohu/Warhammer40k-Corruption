@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Buildings>
+<Defs>
 
   <ThingDef ParentName="BuildingBase">
     <defName>IoM_PlasmaGenerator</defName>
@@ -31,7 +31,7 @@
     </stuffCategories>
     <costStuffCount>200</costStuffCount>
     <building>
-      <ignoreNeedsPower>true</ignoreNeedsPower>
+      
     </building>
     <costList>
       <Component>2</Component>
@@ -57,7 +57,7 @@
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <staticSunShadowHeight>0.5</staticSunShadowHeight>
     <designationCategory>Mechanicum</designationCategory>
-    <designationHotkey>Misc4</designationHotkey>
+    <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
       <li>MecTec_PowerGenerator</li>
     </researchPrerequisites>
@@ -66,4 +66,4 @@
 
 
   
-</Buildings>
+</Defs>

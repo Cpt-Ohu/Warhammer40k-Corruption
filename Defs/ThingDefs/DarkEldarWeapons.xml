@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
 
   <ThingDef Name="BaseDEGun" ParentName="BaseMakeableGun" Abstract="True">
@@ -22,8 +22,8 @@
     <projectile>
       <flyOverhead>false</flyOverhead>
       <damageDef>Bullet</damageDef>
-      <DamageAmountBase>2</DamageAmountBase>
-      <Speed>65</Speed>
+      <damageAmountBase>2</damageAmountBase>
+      <speed>65</speed>
     </projectile>
   </ThingDef>
 
@@ -40,8 +40,8 @@
     <projectile>
       <flyOverhead>false</flyOverhead>
       <damageDef>Bomb</damageDef>
-      <DamageAmountBase>50</DamageAmountBase>
-      <Speed>65</Speed>
+      <damageAmountBase>50</damageAmountBase>
+      <speed>65</speed>
     </projectile>
     <preFiringInitialIntensity>0</preFiringInitialIntensity>
     <preFiringFinalIntensity>1</preFiringFinalIntensity>
@@ -64,8 +64,8 @@
     <projectile>
       <flyOverhead>false</flyOverhead>
       <damageDef>Cut</damageDef>
-      <DamageAmountBase>2</DamageAmountBase>
-      <Speed>65</Speed>
+      <damageAmountBase>2</damageAmountBase>
+      <speed>65</speed>
     </projectile>
   </ThingDef>
 
@@ -96,18 +96,27 @@
       <AccuracyMedium>0.77</AccuracyMedium>
       <AccuracyLong>0.65</AccuracyLong>
       <RangedWeapon_Cooldown>0.9</RangedWeapon_Cooldown>
-      <MeleeWeapon_DamageAmount>14</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.0</MeleeWeapon_Cooldown>
+      <MeleeWeapon_CooldownMultiplier>1.0</MeleeWeapon_CooldownMultiplier>
     </statBases>
     <costList>
       <Wraithbone>100</Wraithbone>
       <Component>4</Component>
     </costList>
+    <tools>
+      <li>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>14</power>
+        <cooldownTime>1.37</cooldownTime>
+      </li>
+    </tools>
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Splinter</projectileDef>
+        <defaultProjectile>Bullet_Splinter</defaultProjectile>
         <warmupTime>1.5</warmupTime>
         <range>25</range>
         <burstShotCount>10</burstShotCount>
@@ -115,11 +124,6 @@
         <soundCast>Shuriken_Small</soundCast>
         <soundCastTail>GunTail_Medium</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
-      </li>
-      <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>CutDarkEldar</meleeDamageDef>
       </li>
     </verbs>
   </ThingDef>
@@ -155,11 +159,21 @@
       <Wraithbone>100</Wraithbone>
       <Component>4</Component>
     </costList>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2.37</cooldownTime>
+      </li>
+    </tools>
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Darklight</projectileDef>
+        <defaultProjectile>Bullet_Darklight</defaultProjectile>
         <warmupTime>5</warmupTime>
         <range>30</range>
         <soundCast>Shuriken_Longrifle</soundCast>
@@ -200,11 +214,21 @@
       <Wraithbone>100</Wraithbone>
       <Component>4</Component>
     </costList>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2.37</cooldownTime>
+      </li>
+    </tools>
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Shredder</projectileDef>
+        <defaultProjectile>Bullet_Shredder</defaultProjectile>
         <warmupTime>1.5</warmupTime>
         <range>10</range>
         <burstShotCount>25</burstShotCount>
@@ -243,18 +267,26 @@
       <AccuracyMedium>0.77</AccuracyMedium>
       <AccuracyLong>0.64</AccuracyLong>
       <RangedWeapon_Cooldown>1.3</RangedWeapon_Cooldown>
-      <MeleeWeapon_DamageAmount>13</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.3</MeleeWeapon_Cooldown>
     </statBases>
     <costList>
       <Wraithbone>100</Wraithbone>
       <Component>4</Component>
     </costList>
+    <tools>
+      <li>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>1.37</cooldownTime>
+      </li>
+    </tools>
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Splinter</projectileDef>
+        <defaultProjectile>Bullet_Splinter</defaultProjectile>
         <warmupTime>1</warmupTime>
         <burstShotCount>5</burstShotCount>
         <range>20</range>
@@ -284,22 +316,30 @@
       <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>InteractRifle</soundInteract>
     <statBases>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>3650</MarketValue>
-      <MeleeWeapon_DamageAmount>31</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.25</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-65</equippedAngleOffset>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>CutDarkEldar</meleeDamageDef>
-        <soundCast>SlashMetal</soundCast>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>31</power>
+        <cooldownTime>2.25</cooldownTime>
       </li>
-    </verbs>
+	  <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>20</power>
+        <cooldownTime>2.65</cooldownTime>
+      </li>
+    </tools>
     <costList>
       <Wraithbone>30</Wraithbone>
       <Component>2</Component>
@@ -324,22 +364,30 @@
       <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>InteractRifle</soundInteract>
     <statBases>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>3650</MarketValue>
-      <MeleeWeapon_DamageAmount>25</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.1</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-5</equippedAngleOffset>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>CutDarkEldar</meleeDamageDef>
-        <soundCast>SlashMetal</soundCast>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>2.7</cooldownTime>
       </li>
-    </verbs>
+	  <li>
+        <label>bladepoint</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>2.15</cooldownTime>
+      </li>
+    </tools>
     <costList>
       <Wraithbone>30</Wraithbone>
       <Component>2</Component>
@@ -364,22 +412,30 @@
       <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>InteractRifle</soundInteract>
     <statBases>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>3650</MarketValue>
-      <MeleeWeapon_DamageAmount>20</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.75</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-65</equippedAngleOffset>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>CutDarkEldar</meleeDamageDef>
-        <soundCast>SlashMetal</soundCast>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>2.75</cooldownTime>
       </li>
-    </verbs>
+	  <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>20</power>
+        <cooldownTime>2.55</cooldownTime>
+      </li>
+    </tools>
     <costList>
       <Wraithbone>30</Wraithbone>
       <Component>2</Component>
@@ -389,4 +445,4 @@
 
 
 
-</ThingDefs>
+</Defs>

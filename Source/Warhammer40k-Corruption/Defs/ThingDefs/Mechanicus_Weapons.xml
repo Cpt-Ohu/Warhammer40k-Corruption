@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <ThingDef Name="BaseMeleeWeapon_Mechanicus" Abstract="True">
+    <category>Item</category>
+    <thingClass>ThingWithComps</thingClass>
+    <equipmentType>Primary</equipmentType>
+    <pathCost>10</pathCost>
+    <useHitPoints>True</useHitPoints>
+    <selectable>True</selectable>
+    <graphicData>
+      <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+    </graphicData>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>0.7</Flammability>
+      <DeteriorationRate>1</DeteriorationRate>
+      <SellPriceFactor>1.0</SellPriceFactor>
+    </statBases>
+    <altitudeLayer>Item</altitudeLayer>
+    <alwaysHaulable>True</alwaysHaulable>
+    <tickerType>Never</tickerType>
+    <techLevel>Spacer</techLevel>
+    <thingCategories>
+      <li>IG_MecMelee</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li>
+        <compClass>CompEquippable</compClass>
+      </li>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>ArtName_WeaponMelee</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+    </recipeMaker>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+  </ThingDef>
+
+  <ThingDef Name="BaseMechanicusGun" ParentName="BaseMakeableGun" Abstract="True" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <tradeability>Sellable</tradeability>
+	<thingCategories>
+      <li>IG_MecRanged</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseMechanicusGun"
+Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>Pistol_StubMounted</defName>
+    <label>mounted stubgun</label>
+    <description>Ancient pattern stub gun suitable for mounting on a ServoSkull.</description>
+    <graphicData>
+      <texPath>Things/Mechanicus/ServoSkulls/ServoSkullStubgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <destroyOnDrop>True</destroyOnDrop>
+    <menuHidden>true</menuHidden>
+    <soundInteract>InteractPistol</soundInteract>
+    <statBases>
+      <WorkToMake>32000</WorkToMake>
+      <MarketValue>200</MarketValue>
+      <AccuracyTouch>0.91</AccuracyTouch>
+      <AccuracyShort>0.71</AccuracyShort>
+      <AccuracyMedium>0.50</AccuracyMedium>
+      <AccuracyLong>0.32</AccuracyLong>
+      <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>120</Steel>
+      <Plasteel>30</Plasteel>
+      <Component>6</Component>
+    </costList>
+    <techLevel>Spacer</techLevel>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_Pistol</projectileDef>
+        <warmupTime>1</warmupTime>
+        <range>24</range>
+        <soundCast>ShotPistol</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <weaponTags>
+      <li>IG_MecSupport</li>
+    </weaponTags>
+
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>Mech_Arquebus</defName>
+    <label>Transuranic Arquebuse</label>
+    <description>Long range weapon based on transuranium shells.</description>
+    <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
+    <graphicData>
+      <drawSize>(1.2,1.2)</drawSize>
+      <texPath>Things/Mechanicus/Skitarius/SkitariiTransRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>InteractChargeRifle</soundInteract>
+    <statBases>
+      <WorkToMake>120000</WorkToMake>
+      <MarketValue>1500</MarketValue>
+      <AccuracyTouch>0.9</AccuracyTouch>
+      <AccuracyShort>0.83</AccuracyShort>
+      <AccuracyMedium>0.68</AccuracyMedium>
+      <AccuracyLong>0.53</AccuracyLong>
+      <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <Steel>120</Steel>
+      <Plasteel>30</Plasteel>
+      <Component>6</Component>
+    </costList>
+    <techLevel>Spacer</techLevel>
+    <weaponTags>
+      <li>IG_MecRanged</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_SniperRifle</projectileDef>
+        <warmupTime>3</warmupTime>
+        <range>50</range>
+        <soundCast>ShotSniperRifle</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_Arc</defName>
+    <label>Arc Bullet</label>
+    <graphicData>
+      <texPath>Things/Mechanicus/Skitarius/Bullet_Arc</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <projectile>
+      <damageDef>ElectricBurn</damageDef>
+      <damageAmountBase>22</damageAmountBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>Mech_ArcRifle</defName>
+    <label>Arc Rifle</label>
+    <description>Long range weapon based on concentrated discharge of electric energy.</description>
+    <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
+    <graphicData>
+      <drawSize>(1.1,1.1)</drawSize>
+      <texPath>Things/Mechanicus/Skitarius/SkitariiArcRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>InteractChargeRifle</soundInteract>
+    <statBases>
+      <WorkToMake>120000</WorkToMake>
+      <MarketValue>1500</MarketValue>
+      <AccuracyTouch>0.80</AccuracyTouch>
+      <AccuracyShort>0.83</AccuracyShort>
+      <AccuracyMedium>0.8</AccuracyMedium>
+      <AccuracyLong>0.68</AccuracyLong>
+      <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <Steel>120</Steel>
+      <Plasteel>30</Plasteel>
+      <Component>6</Component>
+    </costList>
+    <techLevel>Spacer</techLevel>
+    <weaponTags>
+      <li>IG_MecRanged</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_Arc</projectileDef>
+        <warmupTime>1.5</warmupTime>
+        <range>24</range>
+        <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>Arc_Fire</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHumanMakeableGun" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>Mech_ArcPistol</defName>
+    <label>Arc Pistol</label>
+    <description>Handheld weapon based on concentrated discharge of electric energy.</description>
+    <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
+    <graphicData>
+      <texPath>Things/Mechanicus/Skitarius/SkitariiArcPistol</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>InteractChargeRifle</soundInteract>
+    <statBases>
+      <WorkToMake>120000</WorkToMake>
+      <MarketValue>3500</MarketValue>
+      <AccuracyTouch>0.80</AccuracyTouch>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.80</AccuracyMedium>
+      <AccuracyLong>0.68</AccuracyLong>
+      <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
+    </statBases>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <Steel>80</Steel>
+      <Plasteel>25</Plasteel>
+      <Component>3</Component>
+    </costList>
+    <techLevel>Spacer</techLevel>
+    <weaponTags>
+      <li>IG_MecRanged</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_Arc</projectileDef>
+        <warmupTime>1.5</warmupTime>
+        <range>24</range>
+        <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>Arc_Fire</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseMeleeWeapon_Mechanicus" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>SkitariusMaul</defName>
+    <label>Arc Maul</label>
+    <description>Electricity based melee weapon of the Mechanicus forces.</description>
+    <ItemMeshSize>(1.0, 1.0, 1.0)</ItemMeshSize>
+    <graphicData>
+      <texPath>Things/Mechanicus/Skitarius/SkitariiBasher</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <statBases>
+      <WorkToMake>1140000</WorkToMake>
+      <MarketValue>100</MarketValue>
+      <MeleeWeapon_DamageAmount>27</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2.5</MeleeWeapon_Cooldown>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+      </li>
+    </verbs>
+    <costList>
+      <Steel>30</Steel>
+      <Component>2</Component>
+    </costList>
+    <weaponTags>
+      <li>IG_MecMelee</li>
+    </weaponTags>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseMeleeWeapon_Mechanicus" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>SkitariusBlade</defName>
+    <label>Transonic Blade</label>
+    <description>Sonification based melee weapon of the Mechanicus forces.</description>
+    <ItemMeshSize>(1.0, 1.0, 1.0)</ItemMeshSize>
+    <graphicData>
+      <texPath>Things/Mechanicus/Skitarius/Skitarii_TransonicBlade</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <statBases>
+      <WorkToMake>1140000</WorkToMake>
+      <MarketValue>100</MarketValue>
+      <MeleeWeapon_DamageAmount>25</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>1.5</MeleeWeapon_Cooldown>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+      </li>
+    </verbs>
+    <costList>
+      <Steel>30</Steel>
+      <Component>2</Component>
+    </costList>
+    <weaponTags>
+      <li>IG_MecMelee</li>
+    </weaponTags>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseMeleeWeapon_Mechanicus" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <defName>OmnisianAxe</defName>
+    <label>Omnisian Axe</label>
+    <description>Power weapon in the shape of an axe. It's a holy icon bestowed upon high rankig members of the Mechanicum.</description>
+    <ItemMeshSize>(1.4, 1.4, 1.4)</ItemMeshSize>
+    <graphicData>
+      <drawSize>(1.4,1.4)</drawSize>
+      <texPath>Things/Mechanicus/Axe/MechanicumAxe</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <statBases>
+      <WorkToMake>1140000</WorkToMake>
+      <MarketValue>500</MarketValue>
+      <MeleeWeapon_DamageAmount>20</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>1.5</MeleeWeapon_Cooldown>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_LascannonRound</projectileDef>
+        <warmupTime>2.5</warmupTime>
+        <range>20</range>
+        <soundCast>ShotChargeRifle</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+	   <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+        <soundCast>SlashMetal</soundCast>
+      </li>
+    </verbs>
+    <costList>
+      <Steel>30</Steel>
+      <Component>2</Component>
+    </costList>
+    <weaponTags>
+      <li>IG_MecPriest</li>
+    </weaponTags>
+  </ThingDef>
+
+
+</ThingDefs>

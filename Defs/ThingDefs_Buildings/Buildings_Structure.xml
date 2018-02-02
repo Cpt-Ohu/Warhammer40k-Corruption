@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Buildings>
+<Defs>
 
 
   <!--========================= Doors =============================-->
@@ -37,7 +37,7 @@
       <soundDoorClosePowered>DoorClosePowered</soundDoorClosePowered>
       <soundDoorOpenManual>DoorOpenManual</soundDoorOpenManual>
       <soundDoorCloseManual>DoorCloseManual</soundDoorCloseManual>
-      <ignoreNeedsPower>true</ignoreNeedsPower>
+      
       <canPlaceOverWall>true</canPlaceOverWall>
     </building>
     <comps>
@@ -146,7 +146,7 @@
     <blockLight>true</blockLight>
     <building>
       <isInert>true</isInert>
-      <ignoreNeedsPower>true</ignoreNeedsPower>
+      
     </building>
     <damageMultipliers>
       <li>
@@ -292,4 +292,4 @@
     <designationCategory>Worship</designationCategory>
   </ThingDef>
 
-</Buildings>
+</Defs>

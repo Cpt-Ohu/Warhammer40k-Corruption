@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<WorkGivers>
+
+  <!-- ============= MSUOperator ============= -->
+  
+
+  <WorkGiverDef>
+    <defName>InstallShipWeapon</defName>
+    <label>installing ship weapon</label>
+    <giverClass>OHUShips.WorkGiver_InstallShipWeapon</giverClass>
+    <workType>Construction</workType>
+    <priorityInType>75</priorityInType>
+    <verb>install</verb>
+    <gerund>installing weapon</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>UninstallShipWeapon</defName>
+    <label>uninstalling ship weapon</label>
+    <giverClass>OHUShips.WorkGiver_UninstallShipWeapon</giverClass>
+    <workType>Construction</workType>
+    <priorityInType>75</priorityInType>
+    <verb>uninstall</verb>
+    <gerund>uninstalling weapon</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>DoctorRescueToShip</defName>
+    <label>rescue downed allies to TargetB</label>
+    <giverClass>OHUShips.WorkGiver_RescuePawnToShip</giverClass>
+    <workType>Doctor</workType>
+    <verb>rescue</verb>
+    <gerund>rescuing</gerund>
+    <priorityInType>90</priorityInType>
+    <directOrderable>false</directOrderable>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+
+
+</WorkGivers>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <ThingDef Name="ImplantBase" Abstract="True">
     <label>implant</label>
@@ -178,4 +178,4 @@ Explorator Mechadendrite - Used for sample analysis.
   </ThingDef>
 
     
-</ThingDefs>
+</Defs>

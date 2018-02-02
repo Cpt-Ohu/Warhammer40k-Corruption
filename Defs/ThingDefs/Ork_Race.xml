@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
 
 
@@ -11,19 +11,19 @@
     <uiIconPath>Things/Pawn/Humanlike/UI/IconHuman</uiIconPath>
 	<alienRace>
         <generalSettings>
-            <MaleGenderProbability>1.0</MaleGenderProbability>
-            <PawnsSpecificBackstories>true</PawnsSpecificBackstories>
-            <ImmuneToAge>false</ImmuneToAge>
-			<ForcedRaceTraitEntries>
+            <maleGenderProbability>1.0</maleGenderProbability>
+            <pawnsSpecificBackstories>true</pawnsSpecificBackstories>
+            <immuneToAge>false</immuneToAge>
+			<forcedRaceTraitEntries>
                 <li>
-                    <defname>Bloodlust</defname>
+                    <defName>Bloodlust</defName>
                     <degree>0</degree>
                     <chance>100</chance>
                 </li>
-            </ForcedRaceTraitEntries>
+            </forcedRaceTraitEntries>
 			<alienPartGenerator>
-	  <CustomDrawSize>(1.3,1.3)</CustomDrawSize>
-		<CustomPortraitDrawSize>(1.3, 1.3)</CustomPortraitDrawSize>
+	  <customDrawSize>(1.3,1.3)</customDrawSize>
+		<customPortraitDrawSize>(1.3, 1.3)</customPortraitDrawSize>
 
 <aliencrowntypes>
                     <li>Average_Normal</li>
@@ -50,8 +50,8 @@
             </li>
         </graphicPaths>
 		<hairSettings>
-            <HasHair>false</HasHair>
-            <GetsGreyAt>5000</GetsGreyAt>
+            <hasHair>false</hasHair>
+            <getsGreyAt>5000</getsGreyAt>
         </hairSettings>
 		<thoughtSettings>
 		<cannotReceiveThoughts>
@@ -181,10 +181,10 @@
       <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
-      <specialshadowData>
+      <specialShadowData>
         <volume>(0.3, 0.8, 0.4)</volume>
         <offset>(0,0,-0.3)</offset>
-      </specialshadowData>
+      </specialShadowData>
       <ageGenerationCurve>
         <points>
           <li>(20,0)</li>
@@ -232,11 +232,11 @@
 
 	<alienRace>
         <generalSettings>
-            <MaleGenderProbability>1.0</MaleGenderProbability>
-            <PawnsSpecificBackstories>true</PawnsSpecificBackstories>
-            <ImmuneToAge>false</ImmuneToAge>
-			<ForcedRaceTraitEntries>
-            </ForcedRaceTraitEntries>
+            <maleGenderProbability>1.0</maleGenderProbability>
+            <pawnsSpecificBackstories>true</pawnsSpecificBackstories>
+            <immuneToAge>false</immuneToAge>
+			<forcedRaceTraitEntries>
+            </forcedRaceTraitEntries>
 			<alienPartGenerator>
                 <aliencrowntypes>
                     <li>Gretchin</li>
@@ -262,8 +262,8 @@
             </li>
         </graphicPaths>
 		<hairSettings>
-            <HasHair>false</HasHair>
-            <GetsGreyAt>5000</GetsGreyAt>
+            <hasHair>false</hasHair>
+            <getsGreyAt>5000</getsGreyAt>
         </hairSettings>
 
 		<thoughtSettings>
@@ -381,10 +381,10 @@
       <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
-      <specialshadowData>
+      <specialShadowData>
         <volume>(0.3, 0.8, 0.4)</volume>
         <offset>(0,0,-0.3)</offset>
-      </specialshadowData>
+      </specialShadowData>
       <ageGenerationCurve>
         <points>
           <li>(14,0)</li>
@@ -552,4 +552,4 @@
 
 
 
-</ThingDefs>
+</Defs>

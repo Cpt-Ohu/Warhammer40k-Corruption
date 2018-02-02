@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
 
   <!-- ============================================================== -->
@@ -20,7 +20,7 @@
       <speed>45</speed>
       <explosionRadius>2.4</explosionRadius >
       <preExplosionSpawnThingDef>FilthFuel</preExplosionSpawnThingDef>
-      <explosionSpawnChance>0.27</explosionSpawnChance>
+      <postExplosionSpawnChance>0.27</postExplosionSpawnChance>
     </projectile>
   </ThingDef>
 
@@ -39,8 +39,6 @@
     <statBases>
       <MarketValue>800</MarketValue>
       <WorkToMake>18000</WorkToMake>
-      <MeleeWeapon_DamageAmount>15</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.95</MeleeWeapon_Cooldown>
     </statBases>
     <techLevel>Neolithic</techLevel>
     <destroyOnDrop>false</destroyOnDrop>
@@ -48,15 +46,24 @@
     <weaponTags>
       <li>SorcererWeapons</li>
     </weaponTags>
+    <tools>
+	  <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2.85</cooldownTime>
+      </li>
+    </tools>	
     <verbs>
       <li>
         <verbClass>Verb_MeleeAttack</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
         <meleeDamageDef>Blunt</meleeDamageDef>
       </li>
-
     </verbs>
-    <TickerType>Rare</TickerType>
+    <tickerType>Rare</tickerType>
     <comps>
       <li Class="Corruption.CompProperties_SoulItem">
         <compClass>Corruption.CompSoulItem</compClass>
@@ -85,8 +92,6 @@
     <statBases>
       <MarketValue>300</MarketValue>
       <WorkToMake>18000</WorkToMake>
-      <MeleeWeapon_DamageAmount>15</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.95</MeleeWeapon_Cooldown>
     </statBases>
     <techLevel>Neolithic</techLevel>
     <destroyOnDrop>false</destroyOnDrop>
@@ -94,14 +99,7 @@
     <weaponTags>
       <li>SorcererWeapons</li>
     </weaponTags>
-    <verbs>
-      <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Blunt</meleeDamageDef>
-      </li>
-    </verbs>
-    <TickerType>Rare</TickerType>
+    <tickerType>Rare</tickerType>
     <comps>
       <li Class="Corruption.CompProperties_SoulItem">
         <compClass>Corruption.CompSoulItem</compClass>
@@ -114,4 +112,4 @@
     </comps>
   </ThingDef>
 
-</ThingDefs>
+</Defs>

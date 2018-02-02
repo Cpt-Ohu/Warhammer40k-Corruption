@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<PawnKindDefs>
+<Defs>
 
   <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
     <defName>OrkBoy</defName>
@@ -109,23 +109,26 @@
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>100</maxGenerationAge>
     <itemQuality>Poor</itemQuality>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelAllowHeadwearChance>0.1</apparelAllowHeadwearChance>
+    <gearHealthRange>
+      <min>0.5</min>
+      <max>1.8</max>
+    </gearHealthRange>
     <apparelMoney>
-      <min>0</min>
-      <max>1</max>
+      <min>180</min>
+      <max>350</max>
     </apparelMoney>
     <apparelTags>
       <li>Tribal</li>
     </apparelTags>
-    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.1</apparelAllowHeadwearChance>
-    <weaponMoney>
-      <min>100</min>
-      <max>200</max>
-    </weaponMoney>
-    <weaponTags>
-      <li>Gun</li>
-      <li>Melee</li>
-    </weaponTags>
+		<weaponMoney>
+			<min>60</min>
+			<max>400</max>
+		</weaponMoney>
+		<weaponTags>
+			<li>NeolithicMeleeBasic</li>
+		</weaponTags>
     <techHediffsMoney>
       <min>0</min>
       <max>0</max>
@@ -146,4 +149,5 @@
       <FixedGender>Male</FixedGender>
   </PawnKindDef>
 
-</PawnKindDefs>
+
+</Defs>

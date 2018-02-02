@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Buildings>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>MecComponent_Energy</defName>
+    <label>mechanicus energy template</label>
+    <description>A compact assembly of gears, cogitators and energy packs designed for installing advanced power generators.</description>
+    <graphicData>
+      <texPath>Things/Mechanicus/Templates/MecTemplate_Energy</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>10</stackLimit>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>500</MarketValue>
+      <Mass>1.5</Mass>
+      <Flammability>1.0</Flammability>
+			<DeteriorationRate>1.0</DeteriorationRate>
+		</statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>IG_MecTemplates</li>
+    </thingCategories>
+  </ThingDef>
+
+
+  
+</Buildings>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <!-- ==========================Standard=============================== -->
+
+  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+    <defName>Mechanicum_PriestRobe</defName>
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <label>Tech priest robe</label>
+    <description>A set of gears, cogitators and tools coverd by a robe. Worn by full members of the Adeptus Mechanicum. May not be used by unaugmented humans.</description>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>PoweredArmor</researchPrerequisite>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/Mechanicus/Robes/MagosRobe</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <WorkToMake>3250000</WorkToMake>
+      <MaxHitPoints>500</MaxHitPoints>
+      <MarketValue>1200</MarketValue>
+      <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.65</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.30</ArmorRating_Heat>
+      <Insulation_Cold>-45</Insulation_Cold>
+    </statBases>
+    <equippedStatOffsets>
+      <WorkSpeedGlobal>0.2</WorkSpeedGlobal>
+      <ResearchSpeed>0.2</ResearchSpeed>
+      <SocialImpact>-0.2</SocialImpact>
+    </equippedStatOffsets>
+    <thingCategories>
+      <li>IG_MecApp</li>
+    </thingCategories>
+    <costList>
+      <Component>18</Component>
+      <Plasteel>135</Plasteel>
+    </costList>
+	<generateCommonality>1</generateCommonality>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Mechanicus/Robes/MagosRobe</worngraphicPath>
+      <layers>
+        <li>Shell</li>
+      </layers>
+      <tags>
+        <li>TechPriest</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>TechPriest</li>
+      </defaultOutfitTags>
+    </apparel>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ArmorMakeableBase">
+    <defName>Mechanicum_SkitariusArmor</defName>
+    <label>Skitarius Armor</label>
+    <description>A full-body armor with lots of gadgets and manipulators to support a skitarius. May not be used by unaugmented humans.</description>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>PoweredArmor</researchPrerequisite>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/Mechanicus/Skitarius/SkitariusArmor</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <WorkToMake>3250000</WorkToMake>
+      <MaxHitPoints>500</MaxHitPoints>
+      <MarketValue>1200</MarketValue>
+      <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.65</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.30</ArmorRating_Heat>
+      <Insulation_Cold>-45</Insulation_Cold>
+    </statBases>
+    <equippedStatOffsets>
+      <WorkSpeedGlobal>0.2</WorkSpeedGlobal>
+      <ResearchSpeed>0.2</ResearchSpeed>
+      <SocialImpact>-0.2</SocialImpact>
+    </equippedStatOffsets>
+    <thingCategories>
+      <li>IG_MecApp</li>
+    </thingCategories>
+    <costList>
+      <Component>18</Component>
+      <Plasteel>135</Plasteel>
+    </costList>
+	<generateCommonality>1</generateCommonality>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Mechanicus/Skitarius/SkitariusArmor</worngraphicPath>
+      <layers>
+        <li>Shell</li>
+      </layers>
+      <tags>
+        <li>Skitarius</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Skitarius</li>
+      </defaultOutfitTags>
+    </apparel>
+    <comps>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ArmorHelmetMakeableBase">
+    <defName>MecCowlAcolyte</defName>
+    <label>Acolyte Cowl</label>
+    <description>A heavy cowl usually worn by members of the mechanicum.</description>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>PoweredArmor</researchPrerequisite>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/Mechanicus/Robes/AcolyteCowl</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+	    <thingCategories>
+      <li>IG_MecApp</li>
+    </thingCategories>
+    <statBases>
+      <WorkToMake>32000</WorkToMake>
+      <MaxHitPoints>120</MaxHitPoints>
+      <MarketValue>50</MarketValue>
+      <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.05</ArmorRating_Heat>
+      <ArmorRating_Electric>0</ArmorRating_Electric>
+      <Insulation_Cold>-4</Insulation_Cold>
+      <Insulation_Heat>4</Insulation_Heat>
+    </statBases>
+    <costList>
+      <Cloth>60</Cloth>
+    </costList>
+	<generateCommonality>1</generateCommonality>
+    <apparel>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Mechanicus/Robes/AcolyteCowl</worngraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <tags>
+        <li>Mechanicum</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Mechanicum</li>
+      </defaultOutfitTags>
+    </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="ArmorHelmetMakeableBase">
+    <defName>MecCowlPriest</defName>
+    <label>Techpriest Cowl</label>
+    <description>A heavy cowl usually worn by members of the mechanicum. This one comes with a set of interwoven implants and armored parts.</description>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>PoweredArmor</researchPrerequisite>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/Mechanicus/Robes/MagosCowl</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+	    <thingCategories>
+      <li>IG_MecApp</li>
+    </thingCategories>
+    <statBases>
+      <WorkToMake>50000</WorkToMake>
+      <MaxHitPoints>160</MaxHitPoints>
+      <MarketValue>300</MarketValue>
+      <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.1</ArmorRating_Heat>
+      <ArmorRating_Electric>1</ArmorRating_Electric>
+      <Insulation_Cold>-4</Insulation_Cold>
+      <Insulation_Heat>4</Insulation_Heat>
+    </statBases>
+    <costList>
+      <Cloth>60</Cloth>
+      <Component>1</Component>
+    </costList>
+	<generateCommonality>1</generateCommonality>
+    <apparel>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Mechanicus/Robes/MagosCowl</worngraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <tags>
+        <li>TechPriest</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>TechPriest</li>
+      </defaultOutfitTags>
+    </apparel>
+  </ThingDef>
+
+
+  <ThingDef ParentName="ArmorHelmetMakeableBase">
+    <defName>SkitariusRangerHelmet</defName>
+    <label>Skitarius Helmet</label>
+    <description>A facemask and implants used by skitarii. May not be used by unaugmented humans.</description>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>PoweredArmor</researchPrerequisite>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/Mechanicus/Skitarius/SkitariusHelmet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+	    <thingCategories>
+      <li>IG_MecApp</li>
+    </thingCategories>
+    <statBases>
+      <WorkToMake>60000</WorkToMake>
+      <MaxHitPoints>160</MaxHitPoints>
+      <MarketValue>500</MarketValue>
+      <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.6</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.5</ArmorRating_Heat>
+      <ArmorRating_Electric>0</ArmorRating_Electric>
+      <Insulation_Cold>-3</Insulation_Cold>
+      <Insulation_Heat>3</Insulation_Heat>
+    </statBases>
+    <equippedStatOffsets>
+      <ShootingAccuracy>0.2</ShootingAccuracy>
+      <ResearchSpeed>0.2</ResearchSpeed>
+      <SocialImpact>-0.2</SocialImpact>
+    </equippedStatOffsets>
+    <costList>
+      <Component>7</Component>
+      <Wraithbone>60</Wraithbone>
+    </costList>
+	<generateCommonality>1</generateCommonality>
+    <apparel>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Mechanicus/Skitarius/SkitariusHelmet</worngraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <tags>
+        <li>Skitarii</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>TechPriest</li>
+      </defaultOutfitTags>
+    </apparel>
+  </ThingDef>
+
+</ThingDefs>

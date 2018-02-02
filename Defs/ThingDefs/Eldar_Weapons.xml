@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
 
   <ThingDef Name="BaseEldarGun" ParentName="BaseMakeableGun" Abstract="True">
@@ -10,38 +10,50 @@
     <tradeability>Sellable</tradeability>
   </ThingDef>
 
-  <ThingDef ParentName="BaseBullet">
-    <defName>Bullet_Shuriken</defName>
-    <label>shuriken</label>
-    <graphicData>
-      <texPath>Things/Eldar/Projectiles/bullet_shuriken</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <shaderType>Cutout</shaderType>
-    </graphicData>
-    <projectile>
-      <flyOverhead>false</flyOverhead>
+ <ThingDef ParentName="BaseBullet" Class="Corruption.ThingDef_LaserProjectile">
+   <thingClass>Corruption.Projectile_Smoking</thingClass>
+   <defName>Bullet_Shuriken</defName>
+   <label>Rocket</label>
+   <graphicData>
+		<texPath>Things/Eldar/Projectiles/bullet_shuriken</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+   <projectile>
       <damageDef>Bullet</damageDef>
-      <DamageAmountBase>3</DamageAmountBase>
-      <Speed>65</Speed>
-    </projectile>
-  </ThingDef>
-
-  <ThingDef ParentName="BaseBullet">
-    <defName>Bullet_ShurikenAW</defName>
-    <label>shuriken</label>
-    <graphicData>
-      <texPath>Things/Eldar/Projectiles/bullet_shuriken</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <shaderType>Cutout</shaderType>
-    </graphicData>
-    <projectile>
-      <flyOverhead>false</flyOverhead>
+      <damageAmountBase>3</damageAmountBase>
+      <speed>65</speed>
+   </projectile>
+    <preFiringInitialIntensity>0</preFiringInitialIntensity>
+    <preFiringFinalIntensity>2</preFiringFinalIntensity>
+    <postFiringInitialIntensity>2</postFiringInitialIntensity>
+    <postFiringFinalIntensity>0</postFiringFinalIntensity>
+    <preFiringDuration>1</preFiringDuration>
+    <postFiringDuration>10</postFiringDuration>
+    <StartFireChance>0.000</StartFireChance>
+    <smokeGraphicPath>Things/Eldar/Projectiles/shuriken_tail</smokeGraphicPath>
+ </ThingDef>
+ <ThingDef ParentName="BaseBullet" Class="Corruption.ThingDef_LaserProjectile">
+   <thingClass>Corruption.Projectile_Smoking</thingClass>
+   <defName>Bullet_ShurikenAW</defName>
+   <label>Rocket</label>
+   <graphicData>
+		<texPath>Things/Eldar/Projectiles/bullet_shuriken</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+   <projectile>
       <damageDef>Bullet</damageDef>
-      <DamageAmountBase>4</DamageAmountBase>
-      <Speed>65</Speed>
-    </projectile>
-  </ThingDef>
-
+      <damageAmountBase>3</damageAmountBase>
+      <speed>65</speed>
+   </projectile>
+    <preFiringInitialIntensity>0</preFiringInitialIntensity>
+    <preFiringFinalIntensity>2</preFiringFinalIntensity>
+    <postFiringInitialIntensity>2</postFiringInitialIntensity>
+    <postFiringFinalIntensity>0</postFiringFinalIntensity>
+    <preFiringDuration>1</preFiringDuration>
+    <postFiringDuration>10</postFiringDuration>
+    <StartFireChance>0.000</StartFireChance>
+    <smokeGraphicPath>Things/Eldar/Projectiles/shuriken_tail</smokeGraphicPath>
+ </ThingDef>
 
   <ThingDef ParentName="BaseBullet" Class="Corruption.ThingDef_LaserProjectile">
    <thingClass>Corruption.Projectile_Laser</thingClass>
@@ -80,7 +92,7 @@
       <texPath>Things/Eldar/Weapons/eldar_pistol</texPath>
       <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>      		 <shaderType>CutoutComplex</shaderType>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>InteractRifle</soundInteract>
     <statBases>
       <WorkToMake>132000</WorkToMake>
       <MarketValue>2200</MarketValue>
@@ -98,7 +110,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Shuriken</projectileDef>
+        <defaultProjectile>Bullet_Shuriken</defaultProjectile>
         <warmupTime>1</warmupTime>
         <burstShotCount>6</burstShotCount>
         <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
@@ -144,7 +156,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Shuriken</projectileDef>
+        <defaultProjectile>Bullet_Shuriken</defaultProjectile>
         <warmupTime>1.5</warmupTime>
         <range>20</range>
         <burstShotCount>12</burstShotCount>
@@ -219,7 +231,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Projectile_EldarLongrifle</projectileDef>
+        <defaultProjectile>Projectile_EldarLongrifle</defaultProjectile>
         <warmupTime>4.5</warmupTime>
         <range>45</range>
         <soundCast>Shuriken_Longrifle</soundCast>
@@ -264,7 +276,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Spinner</projectileDef>
+        <defaultProjectile>Bullet_Spinner</defaultProjectile>
         <warmupTime>3</warmupTime>
         <range>10</range>
         <burstShotCount>30</burstShotCount>
@@ -310,7 +322,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_FlameThrower</projectileDef>
+        <defaultProjectile>Bullet_FlameThrower</defaultProjectile>
         <warmupTime>1.5</warmupTime>
         <range>8</range>
         <burstShotCount>20</burstShotCount>
@@ -346,23 +358,31 @@
       <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>InteractRifle</soundInteract>
     <tradeability>Sellable</tradeability>
     <statBases>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>3650</MarketValue>
-      <MeleeWeapon_DamageAmount>29</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.25</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-65</equippedAngleOffset>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
-        <soundCast>SlashMetal</soundCast>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>29</power>
+        <cooldownTime>2.25</cooldownTime>
       </li>
-    </verbs>
+	  <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>20</power>
+        <cooldownTime>2.65</cooldownTime>
+      </li>
+    </tools>
     <costList>
       <Wraithbone>30</Wraithbone>
       <Component>2</Component>
@@ -388,13 +408,11 @@
       <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>InteractRifle</soundInteract>
     <tradeability>Sellable</tradeability>
     <statBases>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>3650</MarketValue>
-      <MeleeWeapon_DamageAmount>32</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.75</MeleeWeapon_Cooldown>
     </statBases>
     <costList>
       <Wraithbone>30</Wraithbone>
@@ -404,14 +422,16 @@
       <researchPrerequisite>ChargedShot</researchPrerequisite>
     </recipeMaker>
     <equippedAngleOffset>-65</equippedAngleOffset>
-    <verbs>
-      <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
-        <soundCast>SlashMetal</soundCast>
+    <tools>
+	  <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>32</power>
+        <cooldownTime>2.75</cooldownTime>
       </li>
-    </verbs>
+    </tools>
     <comps>
       <li Class="Corruption.CompProperties_SoulItem">
         <compClass>Corruption.CompSoulItem</compClass>
@@ -458,7 +478,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_ShurikenAW</projectileDef>
+        <defaultProjectile>Bullet_ShurikenAW</defaultProjectile>
         <warmupTime>1.5</warmupTime>
         <range>30</range>
         <burstShotCount>12</burstShotCount>
@@ -472,4 +492,4 @@
 
 
 
-</ThingDefs>
+</Defs>

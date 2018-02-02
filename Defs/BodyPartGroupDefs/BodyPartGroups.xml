@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<BodyPartGroupDefs>
+<Defs>
 
   <BodyPartGroupDef>
     <defName>NeckConnector</defName>
@@ -19,4 +19,4 @@
     <listOrder>200</listOrder>
   </BodyPartGroupDef>
 
-</BodyPartGroupDefs>
+</Defs>

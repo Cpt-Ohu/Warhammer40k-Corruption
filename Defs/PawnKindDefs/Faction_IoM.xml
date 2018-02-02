@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <FactionDef Abstract="True" Name="PlayerFactionBase">
+    <homeIconPath>World/WorldObjects/DefaultFactionBase</homeIconPath>
+    <colorSpectrum>
+      <li>(0, 0.737, 0.847)</li>
+    </colorSpectrum>
+  </FactionDef>
+  
+  <FactionDef ParentName="PlayerFactionBase">
+    <defName>IoM_PlayerFaction</defName>
+    <label>Imperial Outpost</label>
+    <description>Your own community.</description>
+    <isPlayer>true</isPlayer>
+    <basicMemberKind>IoM_Colonist</basicMemberKind>
+    <pawnsPlural>colonists</pawnsPlural>
+		<baseNameMaker>NamerFactionBasePlayerColony</baseNameMaker>
+		<baseNameMakerPlayer>NamerFactionPlayerColonyRandomized</baseNameMakerPlayer>
+		<factionNameMakerPlayer>NamerFactionBasePlayerColonyRandomized</factionNameMakerPlayer>
+    <techLevel>Industrial</techLevel>
+    <backstoryCategory>Civil</backstoryCategory>
+    <expandingIconTexture>World/WorldObjects/Expanding/Town</expandingIconTexture>
+    <startingResearchTags>
+      <li>ClassicStart</li>
+    </startingResearchTags>
+    <hairTags>
+      <li>Urban</li>
+    </hairTags>
+  </FactionDef>
+
+  <FactionDef ParentName="PlayerFactionBase">
+    <defName>IoM_NPCFaction</defName>
+    <label>Imperium of Man</label>
+    <description>The realm of humans.</description>
+    <fixedName>Imperium</fixedName>
+    <isPlayer>false</isPlayer>
+    <basicMemberKind>IoM_Colonist</basicMemberKind>
+    <pawnsPlural>colonists</pawnsPlural>
+    <requiredCountAtGameStart>0</requiredCountAtGameStart>
+    <baseNameMaker>NamerFactionBasePlayerColony</baseNameMaker>
+    <expandingIconTexture>World/WorldObjects/Expanding/Town</expandingIconTexture>
+    <startingResearchTags>
+      <li>ClassicStart</li>
+    </startingResearchTags>
+    <hairTags>
+      <li>Urban</li>
+    </hairTags>
+    <hidden>true</hidden>
+    <startingGoodwill>
+      <min>0</min>
+      <max>10</max>
+    </startingGoodwill>
+    <naturalColonyGoodwill>
+      <min>-100</min>
+      <max>100</max>
+    </naturalColonyGoodwill>
+    <canSiege>true</canSiege>
+    <canStageAttacks>false</canStageAttacks>
+		<raidCommonalityFromPointsCurve>
+			<points>
+				<li>(1000, 0.4)</li>
+				<li>(2500, 1)</li>
+			</points>
+		</raidCommonalityFromPointsCurve>
+    <techLevel>Ultra</techLevel>
+    <backstoryCategory>Civil</backstoryCategory>
+    <leaderTitle>Emperor</leaderTitle>
+  </FactionDef>
+
+
+</Defs>

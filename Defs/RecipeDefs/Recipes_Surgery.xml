@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<RecipeDefs>
+<Defs>
 
   <RecipeDef Abstract="True" Name="SurgeryFlesh">
     <effectWorking>Surgery</effectWorking>
@@ -55,10 +55,7 @@
       </exceptedThingDefs>
 		</fixedIngredientFilter>
 		<skillRequirements>
-			<li>
-				<skill>Medicine</skill>
-				<minLevel>14</minLevel>
-			</li>
+			<Medicine>5</Medicine>
 		</skillRequirements>
 		<addsHediff>ServitorImplants</addsHediff>
   </RecipeDef>
@@ -306,4 +303,4 @@
 	</RecipeDef>
 
 
-</RecipeDefs>
+</Defs>

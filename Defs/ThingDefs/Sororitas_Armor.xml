@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <!-- ==========================Standard=============================== -->
 
@@ -46,7 +46,7 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Sororitas/Armor/SororitasArmor</worngraphicPath>
+      <wornGraphicPath>Things/Sororitas/Armor/SororitasArmor</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
@@ -114,7 +114,7 @@
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Sororitas/Armor/SororitasHelmet</worngraphicPath>
+      <wornGraphicPath>Things/Sororitas/Armor/SororitasHelmet</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -181,7 +181,7 @@
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Sororitas/Armor/SororitasCowl</worngraphicPath>
+      <wornGraphicPath>Things/Sororitas/Armor/SororitasCowl</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -257,4 +257,4 @@
 
 
 
-</ThingDefs>
+</Defs>

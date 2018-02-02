@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<PawnKindDefs>
+<Defs>
 
   <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
     <defName>CultistBasic</defName>
@@ -30,7 +30,7 @@
     </weaponMoney>
     <weaponTags>
       <li>Gun</li>
-      <li>Melee</li>
+      <li>NonNeolithicOnlyMelee</li>
     </weaponTags>
     <techHediffsMoney>
       <min>10</min>
@@ -232,7 +232,7 @@
       <max>3600</max>
     </weaponMoney>
     <weaponTags>
-      <li>Melee</li>
+      <li>NonNeolithicOnlyMelee</li>
     </weaponTags>
     <techHediffsMoney>
       <min>10</min>
@@ -252,4 +252,4 @@
 
 
 
-</PawnKindDefs>
+</Defs>

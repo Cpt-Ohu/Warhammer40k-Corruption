@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <ThingDef Name="ImplantBase" Abstract="True">
+    <label>implant</label>
+    <thingClass>ThingWithComps</thingClass>
+    <category>Item</category>
+    <useHitPoints>true</useHitPoints>
+    <selectable>true</selectable>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+			<DeteriorationRate>2.0</DeteriorationRate>
+			<Beauty>-6</Beauty>
+		</statBases>
+    <altitudeLayer>Item</altitudeLayer>
+    <tickerType>Never</tickerType>
+    <alwaysHaulable>true</alwaysHaulable>
+    <isBodyPartOrImplant>true</isBodyPartOrImplant>
+    <tradeTags>
+      <li>BodyPartOrImplant</li>
+    </tradeTags>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+    </comps>
+    <thingCategories>
+      <li>BodyPartsArtificial</li>
+    </thingCategories>
+    <pathCost>10</pathCost>
+  </ThingDef>
+
+  <ThingDef ParentName="ImplantBase">
+    <defName>NeuroController</defName>
+    <label>NeuroController</label>
+    <description>A set of cogitators and connectors implanted directly into the brain and spine to enhance mental capabilities and enable the use of high-tech manipulators.</description>
+    <graphicData>
+      <texPath>Things/Item/Implant/Implant</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>2500</MarketValue>
+      <Mass>0.2</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>TechPriest</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <ThingDef ParentName="ImplantBase">
+    <defName>ServitorImplants</defName>
+    <label>Servitor Implants</label>
+    <description>A set of cogitators and connectors implanted directly into the brain to allow its reprogramming. This component is required for the creation of a servitor.</description>
+    <graphicData>
+      <texPath>Things/Item/Implant/Implant</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>2000</MarketValue>
+      <Mass>0.2</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>TechPriest</li>
+    </techHediffsTags>
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>MechanicumAssemblyBench</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+      <researchPrerequisite>MecTec_Servitor</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <MecComponent_General>3</MecComponent_General>
+      <MecComponent_Energy>1</MecComponent_Energy>
+    </costList>
+  </ThingDef>
+
+
+  <ThingDef ParentName="ImplantBase" Name="MechadendriteBase" Abstract="True">
+    <label>mechadendrite</label>
+    <thingClass>ThingWithComps</thingClass>
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>MechanicumAssemblyBench</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+      <researchPrerequisite>MecTec_Mechadendrites</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="MechadendriteBase">
+    <defName>MechaDendrites_Labour</defName>
+    <label>Mechadendrites(labour)</label>
+    <description>A set of tendril-like bionic tools. Contains the following parts:
+
+Manipulator Mechadendrite - Used for handling heavy gear.
+Utilitys Mechadendrite - Used for general menial tasks.
+</description>
+    <graphicData>
+      <texPath>Things/Mechanicus/MechaDendrites/MechaDendrites</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>2000</MarketValue>
+      <Mass>5.0</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>TechPriest</li>
+    </techHediffsTags>
+    <costList>
+      <MecComponent_General>1</MecComponent_General>
+      <MecComponent_Energy>1</MecComponent_Energy>
+      <Steel>35</Steel>
+    </costList>
+  </ThingDef>
+
+  <ThingDef ParentName="MechadendriteBase">
+    <defName>MechaDendrites_Combat</defName>
+    <label>Mechadendrites(combat)</label>
+    <description>A set of tendril-like bionic tools. Contains the following parts:
+
+Ballistic Mechadendrite - Used for self-defense.
+Manipulator Mechadendrite - Used for handling heavy gear.
+</description>
+    <graphicData>
+      <texPath>Things/Mechanicus/Dendrites_Med/DendMed</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>2000</MarketValue>
+      <Mass>5.0</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>TechPriest</li>
+    </techHediffsTags>
+    <costList>
+      <MecComponent_Weapon>1</MecComponent_Weapon>
+      <MecComponent_Energy>1</MecComponent_Energy>
+      <Steel>35</Steel>
+    </costList>
+
+  </ThingDef>
+
+  <ThingDef ParentName="MechadendriteBase">
+    <defName>MechaDendrites_Medical</defName>
+    <label>Mechadendrites(medical)</label>
+    <description>A set of tendril-like bionic tools. Contains the following parts:
+
+Medicae Mechadendrite - Provides Medical assistance.
+Optical Mechadendrite - Used for advanced visualization.
+Explorator Mechadendrite - Used for sample analysis.
+</description>
+    <graphicData>
+      <texPath>Things/Mechanicus/Dendrites_Med/DendMed</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>2000</MarketValue>
+      <Mass>5.0</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>TechPriest</li>
+    </techHediffsTags>
+    <costList>
+      <MecComponent_General>1</MecComponent_General>
+      <MecComponent_Energy>1</MecComponent_Energy>
+      <Medicine>10</Medicine>
+      <Steel>35</Steel>
+    </costList>
+
+  </ThingDef>
+
+    
+</ThingDefs>

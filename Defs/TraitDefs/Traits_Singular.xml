@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Corruption.SoulTraitDefs>
+<Defs>
 
   <Corruption.SoulTraitDef>
     <defName>Khorne_Fervor</defName>
@@ -174,4 +174,4 @@
     </NullifiesThoughts>  </Corruption.SoulTraitDef>
 
 
-</Corruption.SoulTraitDefs>
+</Defs>

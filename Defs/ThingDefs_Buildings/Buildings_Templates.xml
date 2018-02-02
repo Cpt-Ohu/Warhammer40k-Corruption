@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Buildings>
+<Defs>
 
   <ThingDef ParentName="ResourceBase">
     <defName>MecComponent_Energy</defName>
@@ -27,4 +27,4 @@
 
 
   
-</Buildings>
+</Defs>

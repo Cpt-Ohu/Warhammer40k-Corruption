@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<RecipeDefs>
+<Defs>
 
 	<RecipeDef>
     <defName>MakeMecTemplateEnergy</defName>
@@ -30,10 +30,7 @@
       <MecComponent_General>1</MecComponent_General>
     </products>
 		<skillRequirements>
-			<li>
-				<skill>Crafting</skill>
-				<minLevel>5</minLevel>
-			</li>
+				<Crafting>5</Crafting>
 		</skillRequirements>
     <workSkill>Crafting</workSkill>
     <recipeUsers>
@@ -70,10 +67,7 @@
       <MecComponent_Weapon>1</MecComponent_Weapon>
     </products>
 		<skillRequirements>
-			<li>
-				<skill>Crafting</skill>
-				<minLevel>5</minLevel>
-			</li>
+				<Crafting>5</Crafting>
 		</skillRequirements>
     <workSkill>Crafting</workSkill>
     <recipeUsers>
@@ -110,10 +104,7 @@
       <MecComponent_General>1</MecComponent_General>
     </products>
 		<skillRequirements>
-			<li>
-				<skill>Crafting</skill>
-				<minLevel>5</minLevel>
-			</li>
+				<Crafting>5</Crafting>
 		</skillRequirements>
     <workSkill>Crafting</workSkill>
     <recipeUsers>
@@ -150,10 +141,7 @@
       <Armaplas>1</Armaplas>
     </products>
 		<skillRequirements>
-			<li>
-				<skill>Crafting</skill>
-				<minLevel>5</minLevel>
-			</li>
+				<Crafting>5</Crafting>
 		</skillRequirements>
     <workSkill>Crafting</workSkill>
     <recipeUsers>
@@ -202,10 +190,7 @@
       <Ceramite>1</Ceramite>
     </products>
 		<skillRequirements>
-			<li>
-				<skill>Crafting</skill>
-				<minLevel>5</minLevel>
-			</li>
+				<Crafting>5</Crafting>
 		</skillRequirements>
     <workSkill>Crafting</workSkill>
     <recipeUsers>
@@ -260,4 +245,4 @@
     </recipeUsers>
 	</RecipeDef>
 
-</RecipeDefs>
+</Defs>

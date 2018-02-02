@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<GameConditionDefs>
+<Defs>
 
   <GameConditionDef>
     <defName>CorruptiveDrone</defName>
@@ -26,4 +26,4 @@
     <endMessage>The tithe collectors are preparing to leave.</endMessage>
   </GameConditionDef>
   
-</GameConditionDefs>
+</Defs>

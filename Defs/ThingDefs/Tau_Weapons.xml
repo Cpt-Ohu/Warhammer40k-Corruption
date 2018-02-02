@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
 
   <ThingDef Name="BaseTauGun" ParentName="BaseMakeableGun" Abstract="True">
@@ -24,8 +24,8 @@
     <projectile>
       <flyOverhead>false</flyOverhead>
       <damageDef>Bullet</damageDef>
-      <DamageAmountBase>25</DamageAmountBase>
-      <Speed>65</Speed>
+      <damageAmountBase>25</damageAmountBase>
+      <speed>65</speed>
     </projectile>
   </ThingDef>
 
@@ -40,8 +40,8 @@
     <projectile>
       <flyOverhead>false</flyOverhead>
       <damageDef>Bullet</damageDef>
-      <DamageAmountBase>35</DamageAmountBase>
-      <Speed>65</Speed>
+      <damageAmountBase>35</damageAmountBase>
+      <speed>65</speed>
     </projectile>
   </ThingDef>
 
@@ -58,7 +58,7 @@
       <texPath>Things/Tau/Weapons/PulsePistol</texPath>
       <graphicClass>FactionColors.Graphic_SingleFC</graphicClass>      		 <shaderType>CutoutComplex</shaderType>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>InteractRifle</soundInteract>
     <statBases>
       <WorkToMake>132000</WorkToMake>
       <MarketValue>1200</MarketValue>
@@ -76,7 +76,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_PulsePistol</projectileDef>
+        <defaultProjectile>Bullet_PulsePistol</defaultProjectile>
         <warmupTime>1</warmupTime>
         <range>25</range>
         <soundCast>ShotChargeRifle</soundCast>
@@ -117,7 +117,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_PulseRifle</projectileDef>
+        <defaultProjectile>Bullet_PulseRifle</defaultProjectile>
         <warmupTime>1.5</warmupTime>
         <range>35</range>
         <burstShotCount>1</burstShotCount>
@@ -160,7 +160,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_ExitusRifleRound</projectileDef>
+        <defaultProjectile>Bullet_ExitusRifleRound</defaultProjectile>
         <warmupTime>5</warmupTime>
         <range>80</range>
         <soundCast>Shuriken_Longrifle</soundCast>
@@ -170,4 +170,4 @@
     </verbs>
   </ThingDef>
 
-</ThingDefs>
+</Defs>

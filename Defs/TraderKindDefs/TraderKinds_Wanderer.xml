@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<DefPackage-TraderKindDef>
+<Defs>
 
   <TraderKindDef>
     <defName>Visitor_IoM_Wanderer</defName>
@@ -94,4 +94,4 @@
   </TraderKindDef>
 
 
-</DefPackage-TraderKindDef>
+</Defs>

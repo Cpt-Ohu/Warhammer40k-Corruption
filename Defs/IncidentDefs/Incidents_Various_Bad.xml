@@ -6,10 +6,10 @@
     <label>corruptive drone</label>
     <workerClass>Corruption.IncidentWorker_CorruptiveDrone</workerClass>
 		<category>Misc</category>
-    <targetType>MapPlayerHome</targetType>
+    <targetTypes><li>MapPlayerHome</li></targetTypes>
     <letterLabel>Corruptive drone</letterLabel>
     <letterText>There are whispers in the air that resonate in your peoples heads.</letterText>
-    <letterDef>BadUrgent</letterDef>
+    <letterDef>ThreatSmall</letterDef>
     <gameCondition>CorruptiveDrone</gameCondition>
     <baseChance>0.7</baseChance>
     <minRefireDays>15</minRefireDays>
@@ -26,8 +26,8 @@
     <workerClass>Corruption.IncidentWorker_CorruptedEffigy</workerClass>
     <letterLabel>Effigy</letterLabel>
     <letterText>A colonist has produced a small effigy. Whether it was lying around or personally made remains a mystery.</letterText>
-    <letterDef>BadNonUrgent</letterDef>
-    <targetType>MapPlayerHome</targetType>
+    <letterDef>NegativeEvent</letterDef>
+    <targetTypes><li>MapPlayerHome</li></targetTypes>
     <baseChance>4.0</baseChance>
     <minRefireDays>15</minRefireDays>
   </IncidentDef>

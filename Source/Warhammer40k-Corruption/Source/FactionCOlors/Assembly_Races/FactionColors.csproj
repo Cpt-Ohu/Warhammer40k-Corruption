@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{74DCE0E4-19F5-415B-AF5E-BA651ECF87B1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FactionColors</RootNamespace>
+    <AssemblyName>FactionColors</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Assemblies\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony, Version=1.0.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Assemblies\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="AlienRace">
+      <HintPath>..\..\..\..\..\..\..\Spiele\Steam\SteamApps\workshop\content\294100\839005762\Source\AlienRace\AlienRace\obj\Release\AlienRace.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\..\..\Spiele\Steam\SteamApps\common\RimWorld\RimWorldWin_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Corruption, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Warhammer_TEST\Assemblies\Corruption.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\..\..\Spiele\Steam\SteamApps\common\RimWorld\RimWorldWin_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApparelComposite.cs" />
+    <Compile Include="ApparelGraphicGetterFC.cs" />
+    <Compile Include="ApparelUniform.cs" />
+    <Compile Include="ApparelUniformDef.cs" />
+    <Compile Include="Apparel_HardShield.cs" />
+    <Compile Include="Backpack_Accessory.cs" />
+    <Compile Include="BannerType.cs" />
+    <Compile Include="Building_FactionColorChooser.cs" />
+    <Compile Include="CamouflageColors.cs" />
+    <Compile Include="CompFactionColors.cs" />
+    <Compile Include="CompFlagDrawer.cs" />
+    <Compile Include="CompHardShield.cs" />
+    <Compile Include="CompPauldronDrawer.cs" />
+    <Compile Include="CompProperties_DrawShoulderpad.cs" />
+    <Compile Include="CompProperties_FactionColors.cs" />
+    <Compile Include="CompProperties_FlagDrawer.cs" />
+    <Compile Include="CompProperties_HardShield.cs" />
+    <Compile Include="CompProperties_ToolUserApparel.cs" />
+    <Compile Include="CompRenderToolUserApparel.cs" />
+    <Compile Include="Deepstrike_Thingdef.cs" />
+    <Compile Include="Dialog_ChooseColor.cs" />
+    <Compile Include="FactionColorEntry.cs" />
+    <Compile Include="FactionColorsDefOf.cs" />
+    <Compile Include="FactionColorUtilities.cs" />
+    <Compile Include="FactionDefUniform.cs" />
+    <Compile Include="FactionItem.cs" />
+    <Compile Include="FactionItemDef.cs" />
+    <Compile Include="ApparelDetail.cs" />
+    <Compile Include="ApparelDetailDrawer.cs" />
+    <Compile Include="ApparelDetailProps.cs" />
+    <Compile Include="FactionUniform.cs" />
+    <Compile Include="FC_GraphicGetter.cs" />
+    <Compile Include="GraphicData_FC.cs" />
+    <Compile Include="Graphic_ApparelRandom.cs" />
+    <Compile Include="Graphic_RandomApparel.cs" />
+    <Compile Include="Graphic_RandomApparelMulti.cs" />
+    <Compile Include="Graphic_SingleFC.cs" />
+    <Compile Include="HarmonyPatches.cs" />
+    <Compile Include="ITab_FactionColor.cs" />
+    <Compile Include="PlayerFactionStoryTracker.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Subfaction.cs" />
+    <Compile Include="TestClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="xml\Initializer.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\TestPawn.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\..\Assemblies\0Harmony.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

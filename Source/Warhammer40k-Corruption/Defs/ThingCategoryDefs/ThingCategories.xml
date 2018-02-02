@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingCategoryDefs>
+  
+<ThingCategoryDef>
+ <defName>Books</defName>
+ <label>Books</label>
+ <parent>Root</parent>
+</ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>StandardLiterature</defName>
+	    <label>Standard Literature</label>
+	    <parent>Books</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>ProfessionalLiterature</defName>
+	    <label>Professional Literature</label>
+	    <parent>Books</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>WeirdLiterature</defName>
+	    <label>Weird Literature</label>
+	    <parent>Books</parent>
+	  </ThingCategoryDef>
+
+
+<ThingCategoryDef>
+ <defName>IoMGear</defName>
+ <label>Imperium of Man</label>
+ <parent>Root</parent>
+</ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>Astartes_Base</defName>
+	    <label>astartes</label>
+	    <parent>IoMGear</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>Astartes_Weapons</defName>
+	    <label>astartes weapons</label>
+	    <parent>Astartes_Base</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>Astartes_Ranged</defName>
+	    <label>ranged</label>
+	    <parent>Astartes_Weapons</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>Astartes_Heavy</defName>
+	    <label>heavy</label>
+	    <parent>Astartes_Weapons</parent>
+	  </ThingCategoryDef>
+
+
+	  <ThingCategoryDef>
+	    <defName>Astartes_Melee</defName>
+	    <label>melee</label>
+	    <parent>Astartes_Weapons</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>Astartes_Armor</defName>
+	    <label>astartes armor</label>
+	    <parent>Astartes_Base</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>BodyParts_GeneSeed</defName>
+	    <label>astartes implants</label>
+	    <parent>Astartes_Base</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IoM_Inquisition</defName>
+	    <label>Inquisition</label>
+	    <parent>IoMGear</parent>
+	  </ThingCategoryDef>
+
+
+	  <ThingCategoryDef>
+	    <defName>IoM_Apparel</defName>
+	    <label>IoM_Apparel</label>
+	    <parent>IoMGear</parent>
+	  </ThingCategoryDef>
+
+
+	  <ThingCategoryDef>
+	    <defName>IG_STApp</defName>
+	    <label>IG_StApp</label>
+	    <parent>IoMGear</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IG_VetApp</defName>
+	    <label>IG_VetApp</label>
+	    <parent>IoMGear</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IG_Melee</defName>
+	    <label>IG Melee</label>
+	    <parent>IoMGear</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IoM_Psyker</defName>
+	    <label>Psyker</label>
+	    <parent>IoMGear</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IoM_PsykerWeapon</defName>
+	    <label>Psyker Weapons</label>
+	    <parent>IoM_Psyker</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IoM_PsykerApparel</defName>
+	    <label>Psyker Apparel</label>
+	    <parent>IoM_Psyker</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IG_Ranged</defName>
+	    <label>IG Ranged</label>
+	    <parent>IoMGear</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IG_Ranged_Std</defName>
+	    <label>Standard Issue</label>
+	    <parent>IG_Ranged</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IG_Ranged_Ass</defName>
+	    <label>Assault Issue</label>
+	    <parent>IG_Ranged</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IG_Ranged_Vet</defName>
+	    <label>Veteran Issue</label>
+	    <parent>IG_Ranged</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IG_Ranged_Spec</defName>
+	    <label>Special Issue</label>
+	    <parent>IG_Ranged</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IoM_Mechanicum</defName>
+	    <label>Mechanicum</label>
+	    <parent>IoMGear</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>Techpriest</defName>
+	    <label>Techpriest</label>
+	    <parent>IoM_Mechanicum</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IG_MecApp</defName>
+	    <label>Mechanicum Apparel</label>
+	    <parent>IoM_Mechanicum</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IG_MecRanged</defName>
+	    <label>Mechanicum Ranged</label>
+	    <parent>IoM_Mechanicum</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IG_MecMelee</defName>
+	    <label>Mechanicum Melee</label>
+	    <parent>IoM_Mechanicum</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IG_MecSupport</defName>
+	    <label>Mechanicum Support</label>
+	    <parent>IoM_Mechanicum</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IG_MecTemplates</defName>
+	    <label>Mechanicum Templates</label>
+	    <parent>IoM_Mechanicum</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IoM_Sororitas</defName>
+	    <label>Sororitas</label>
+	    <parent>IoM_Mechanicum</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>Sororitas_Apparel</defName>
+	    <label>Sororitas Apparel</label>
+	    <parent>IoM_Sororitas</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>Sororitas_Melee</defName>
+	    <label>Sororitas Melee</label>
+	    <parent>IoM_Sororitas</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>Sororitas_Support</defName>
+	    <label>Sororitas Support</label>
+	    <parent>IoM_Sororitas</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>Sororitas_Ranged</defName>
+	    <label>Sororitas Ranged</label>
+	    <parent>IoM_Sororitas</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IoM_HolyItems</defName>
+	    <label>Holy Items</label>
+	    <parent>IoMGear</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>IoM_CorruptedItems</defName>
+	    <label>Strange Items</label>
+	    <parent>IoMGear</parent>
+	  </ThingCategoryDef>
+
+
+	  <ThingCategoryDef>
+	    <defName>IoM_Armor</defName>
+	    <label>Imperial Armors</label>
+	    <parent>IoMGear</parent>
+	  </ThingCategoryDef>
+
+
+<ThingCategoryDef>
+ <defName>CorruptedGear</defName>
+ <label>Corrupted Gear</label>
+ <parent>Root</parent>
+</ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>CorruptedApparel</defName>
+	    <label>Corrupted Apparel</label>
+	    <parent>CorruptedGear</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>CorruptedWeapons</defName>
+	    <label>Corrupted Weapons</label>
+	    <parent>CorruptedGear</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>DemonicWeapons</defName>
+	    <label>Demonic Weapons</label>
+	    <parent>CorruptedWeapons</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>WeaponsKhorne</defName>
+	    <label>Khorne</label>
+	    <parent>DemonicWeapons</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>WeaponsNurgle</defName>
+	    <label>Nurgle</label>
+	    <parent>DemonicWeapons</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>WeaponsSlaanesh</defName>
+	    <label>Slaanesh</label>
+	    <parent>DemonicWeapons</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>WeaponsTzeentch</defName>
+	    <label>Tzeentch</label>
+	    <parent>DemonicWeapons</parent>
+	  </ThingCategoryDef>
+
+
+<ThingCategoryDef>
+ <defName>OrkGear</defName>
+ <label>Orkish gear</label>
+ <parent>Root</parent>
+</ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>Ork_Armor</defName>
+	    <label>Ork Armor</label>
+	    <parent>OrkGear</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>Ork_Kommandos</defName>
+	    <label>Ork Kommandos</label>
+	    <parent>OrkGear</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>Ork_NobGear</defName>
+	    <label>Ork Nob Gear</label>
+	    <parent>OrkGear</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>Ork_Melee</defName>
+	    <label>Ork_Melee</label>
+	    <parent>OrkGear</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>Ork_Ranged</defName>
+	    <label>Ork Ranged</label>
+	    <parent>OrkGear</parent>
+	  </ThingCategoryDef>
+
+<ThingCategoryDef>
+ <defName>EldarGear</defName>
+ <label>Eldar gear</label>
+ <parent>Root</parent>
+</ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>E_Armor</defName>
+	    <label>Eldar Armor</label>
+	    <parent>EldarGear</parent>
+	  </ThingCategoryDef>
+
+
+	  <ThingCategoryDef>
+	    <defName>E_Artifacts</defName>
+	    <label>Eldar Artifacts</label>
+	    <parent>EldarGear</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>E_Melee</defName>
+	    <label>Eldar Melee</label>
+	    <parent>EldarGear</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>E_Ranged</defName>
+	    <label>Eldar Ranged</label>
+	    <parent>EldarGear</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>E_DireAvengers</defName>
+	    <label>Dire Avengers</label>
+	    <parent>EldarGear</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>E_Warpspider</defName>
+	    <label>Eldar WarpSpider</label>
+	    <parent>EldarGear</parent>
+	  </ThingCategoryDef>
+
+
+<ThingCategoryDef>
+ <defName>DarkEldar</defName>
+ <label>Dark Eldar</label>
+ <parent>Root</parent>
+</ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>DE_Armor</defName>
+	    <label>DE Armor</label>
+	    <parent>DarkEldar</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>DE_Ranged_Std</defName>
+	    <label>DE_Ranged_Std</label>
+	    <parent>DarkEldar</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>DE_Melee_Std</defName>
+	    <label>DE_Melee_Std</label>
+	    <parent>DarkEldar</parent>
+	  </ThingCategoryDef>
+
+<ThingCategoryDef>
+ <defName>Tau</defName>
+ <label>Tau</label>
+ <parent>Root</parent>
+</ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>Tau_RangedCommon</defName>
+	    <label>Tau Ranged Weapons(common)</label>
+	    <parent>Tau</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>Tau_RangedUncommon</defName>
+	    <label>Tau Ranged Weapons(uncommon)</label>
+	    <parent>Tau</parent>
+	  </ThingCategoryDef>
+
+
+	  <ThingCategoryDef>
+	    <defName>Tau_Basic</defName>
+	    <label>Tau Basic Armor</label>
+	    <parent>Tau</parent>
+	  </ThingCategoryDef>
+
+	  <ThingCategoryDef>
+	    <defName>Tau_Aux</defName>
+	    <label>Tau Auxilliary Equipment</label>
+	    <parent>Tau</parent>
+	  </ThingCategoryDef>
+
+
+	  <ThingCategoryDef>
+	    <defName>Tau_Apparel</defName>
+	    <label>Tau Apparel</label>
+	    <parent>Tau</parent>
+	  </ThingCategoryDef>
+
+  </ThingCategoryDefs>

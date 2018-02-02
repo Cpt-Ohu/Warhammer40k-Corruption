@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--================= player pawn filters =================-->
+
+  <ScenPartDef>
+    <defName>DropShip</defName>
+    <label>start with ship</label>
+    <category>StartingImportant</category>
+    <scenPartClass>OHUShips.ScenPart_StartWithShip</scenPartClass>
+    <maxUses>1</maxUses>
+    <selectionWeight>0.0001</selectionWeight>
+    <summaryPriority>100</summaryPriority>
+  </ScenPartDef>
+
+</Defs>

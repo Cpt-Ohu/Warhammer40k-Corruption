@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <IncidentDef>
+    <defName>Visitor_IoMWanderer</defName>
+    <label>wanderer</label>
+    <targetType>MapPlayerHome</targetType>
+    <workerClass>Corruption.IoM.IncidentWorker_WanderingTrader</workerClass>
+    <category>AllyArrival</category>
+    <baseChance>4</baseChance>
+    <pointsScaleable>false</pointsScaleable>
+  </IncidentDef>
+
+  <IncidentDef>
+    <defName>Visitor_Healer</defName>
+    <label>healer arrives</label>
+    <targetType>MapPlayerHome</targetType>
+    <workerClass>Corruption.IoM.IncidentWorker_VisitingHealer</workerClass>
+    <category>AllyArrival</category>
+    <baseChance>1</baseChance>
+    <pointsScaleable>false</pointsScaleable>
+  </IncidentDef>
+
+</Defs>

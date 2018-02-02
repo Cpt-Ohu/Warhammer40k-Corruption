@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ThingDefs>    
+  <!-- ============================================================== -->
+  
+  <ThingDef ParentName="BaseMeleeWeaponNoTag" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
+    <defName>MeleeWeapon_RelicBlade</defName>
+    <label>Relic Power Sword</label>
+    <description>A relic power weapon that's been rediscovered on some backwater planet on the rim of the Imperium. Showing signs of being manufactured in the Dark Age of Technology, this weapon is one of a kind and almost priceless. It may have belonged to a saint who died on his quest to spread the faith.</description>
+	<graphicData>
+		<texPath>Things/IoM/Weapons/RelicBlade</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<shaderType>CutoutComplex</shaderType>
+	</graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <costStuffCount>150</costStuffCount>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <MarketValue>10000</MarketValue>
+      <WorkToMake>18000</WorkToMake>
+      <MeleeWeapon_DamageAmount>30</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>1.95</MeleeWeapon_Cooldown>
+    </statBases>
+    <thingCategories>
+      <li>IoM_HolyItems</li>
+    </thingCategories>
+    <equippedAngleOffset>0</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+        <soundCast>SlashMetal</soundCast>
+      </li>
+    </verbs>
+    <costList>
+      <Component>2</Component>
+      <MecComponent_Weapon>5</MecComponent_Weapon>
+    </costList>
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Redemption</Category>
+        <GainRate>0.1</GainRate>
+	    <UnlockedPsykerPowers>
+	      <li>PsykerPower_BlindingBlast</li>
+	    </UnlockedPsykerPowers>
+        <IsHolyItem>true</IsHolyItem>
+      </li>
+    </comps>
+    <weaponTags>
+      <li>IoM_HolyItems</li>
+    </weaponTags>
+  </ThingDef>
+
+
+  <!-- =========== Corrupted Weapons =================== -->
+
+
+
+	<ThingDef ParentName="BaseMeleeWeaponNoTag">
+		<defName>MeleeWeapon_CorruptedKnife</defName>
+		<label>ornate knife</label>
+		<description>One of humankind's oldest tools, the knife is both an everyday tool and a deadly weapon.</description>
+		<graphicData>
+			<texPath>Things/Chaos/Weapons/OrnateKnife</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>InteractPistol</soundInteract>
+		<costStuffCount>40</costStuffCount>
+		<statBases>
+			<WorkToMake>4000</WorkToMake>
+			<Mass>0.5</Mass>
+			<MeleeWeapon_DamageAmount>10</MeleeWeapon_DamageAmount>
+			<MeleeWeapon_Cooldown>1.66</MeleeWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+    <thingCategories>
+      <li>IoM_CorruptedItems</li>
+    </thingCategories>
+
+		<verbs>
+			<li>
+				<verbClass>Verb_MeleeAttack</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<meleeDamageDef>Cut</meleeDamageDef>
+			</li>
+		</verbs>
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Random</Category>
+        <GainRate>1.0</GainRate>
+      </li>
+    </comps>
+
+	</ThingDef>
+
+	<ThingDef ParentName="BaseMeleeWeaponNoTag">
+    <defName>MeleeWeapon_CorruptedGladius</defName>
+    <label>ornate shortsword</label>
+    <description>A short sword of ancient design. Good for stabbing or slashing.</description>
+    <graphicData>
+			<texPath>Things/Chaos/Weapons/OrnateBlade</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <costStuffCount>50</costStuffCount>
+    <statBases>
+      <WorkToMake>10000</WorkToMake>
+      <Mass>0.85</Mass>
+      <MeleeWeapon_DamageAmount>14</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>1.95</MeleeWeapon_Cooldown>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Random</Category>
+        <GainRate>1.0</GainRate>
+      </li>
+    </comps>
+    <thingCategories>
+      <li>IoM_CorruptedItems</li>
+    </thingCategories>
+  </ThingDef>
+
+	<ThingDef ParentName="BaseMeleeWeaponNoTag">
+    <defName>MeleeWeapon_CorruptedLongsword</defName>
+    <label>ornate longsword</label>
+    <description>The ancient weapon of kings, the longsword can be used for slashing or stabbing and is deadly in the right hands.</description>
+    <graphicData>
+			<texPath>Things/Chaos/Weapons/OrnateLongsword</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <costStuffCount>120</costStuffCount>
+    <statBases>
+      <WorkToMake>22000</WorkToMake>
+      <Mass>1.6</Mass>
+      <MeleeWeapon_DamageAmount>19</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2.5</MeleeWeapon_Cooldown>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Random</Category>
+        <GainRate>1.5</GainRate>
+      </li>
+    </comps>
+    <thingCategories>
+      <li>IoM_CorruptedItems</li>
+    </thingCategories>
+  </ThingDef>
+
+	<ThingDef ParentName="BaseMeleeWeaponNoTag">
+    <defName>MeleeWeapon_HolyLongsword</defName>
+    <label>ornate longsword</label>
+    <description>The ancient weapon of kings, the longsword can be used for slashing or stabbing and is deadly in the right hands.</description>
+    <graphicData>
+			<texPath>Things/Chaos/Weapons/OrnateLongsword</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>InteractPistol</soundInteract>
+    <costStuffCount>120</costStuffCount>
+    <statBases>
+      <WorkToMake>22000</WorkToMake>
+      <Mass>1.6</Mass>
+      <MeleeWeapon_DamageAmount>16</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2.5</MeleeWeapon_Cooldown>
+    </statBases>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Random</Category>
+        <GainRate>1.0</GainRate>
+        <IsHolyItem>false</IsHolyItem>
+      </li>
+    </comps>
+    <thingCategories>
+      <li>IoM_CorruptedItems</li>
+    </thingCategories>
+
+  </ThingDef>
+
+
+    
+ </ThingDefs>

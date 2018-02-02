@@ -49,7 +49,6 @@ namespace OHUShips
             }
         }
 
-
         #region FactionColorStuff
 
 
@@ -603,14 +602,25 @@ namespace OHUShips
                 {
                     if (!DropShipUtility.HasPassengerSeats(this))
                     {
-                        Messages.Message("MessagePassengersFull".Translate(new object[] { pawn.NameStringShort, this.ShipNick }), this, MessageSound.RejectInput);
+                        Messages.Message("MessagePassengersFull".Translate(new object[] { pawn.NameStringShort, this.ShipNick }), this, MessageTypeDefOf.RejectInput);
                         return false;
                     }
+					if (pawn.Spawned)
+					{
+						pawn.DeSpawn();
+					}
+                    if(!this.innerContainer.Contains(pawn)){
+                        //pawn.InContainerEnclosed
+						this.innerContainer.TryAdd(pawn, 1, false);
+                    }
+
                 }
                 else
                 {
-                    if (this.innerContainer.TryAdd(thing, true))
+
+                    if (this.innerContainer.TryAdd(thing.SplitOff(thing.stackCount), true))
                     {
+                        
                         return true;
                     }
                     else
@@ -622,20 +632,17 @@ namespace OHUShips
             bool flag;
             if (thing.holdingOwner != null)
             {
-                flag = thing.holdingOwner.TryTransferToContainer(thing, this.innerContainer, thing.stackCount);
+                
+                flag = thing.holdingOwner.TryTransferToContainer(thing, this.innerContainer);
                 
             }
             else
             {
-                flag = this.innerContainer.TryAdd(thing, true);
+                flag = this.innerContainer.TryAdd(thing.SplitOff(thing.stackCount), true);
             }
             if (flag)
             {                
                 return true;
-            }
-            else
-            {
-
             }
             return false;
         }
@@ -961,7 +968,7 @@ namespace OHUShips
             bool canBomb = true;
             if (!target.IsValid)
             {
-                Messages.Message("MessageTransportPodsDestinationIsInvalid".Translate(), MessageSound.RejectInput);
+                Messages.Message("MessageTransportPodsDestinationIsInvalid".Translate(), MessageTypeDefOf.RejectInput);
                 return false;
             }
             if (this.LaunchAsFleet)
@@ -972,13 +979,13 @@ namespace OHUShips
                     ShipBase ship = DropShipUtility.currentShipTracker.ShipsInFleet(this.fleetID)[i];
                     if (ship.compShip.cargoLoadingActive)
                     {
-                        Messages.Message("MessageFleetLaunchImpossible".Translate(), MessageSound.RejectInput);
+                        Messages.Message("MessageFleetLaunchImpossible".Translate(), MessageTypeDefOf.RejectInput);
                         return false;
                     }
                     int num = (Find.WorldGrid.TraversalDistanceBetween(tile, target.Tile));
                     if (num > ship.MaxLaunchDistanceEverPossible(true))
                     {
-                        Messages.Message("MessageFleetLaunchImpossible".Translate(), MessageSound.RejectInput);
+                        Messages.Message("MessageFleetLaunchImpossible".Translate(), MessageTypeDefOf.RejectInput);
                         return false;
                     }
                     if (!(2*num > ship.MaxLaunchDistanceEverPossible(true)))
@@ -996,7 +1003,7 @@ namespace OHUShips
                     Messages.Message("MessageTransportPodsDestinationIsTooFar".Translate(new object[]
                     {
                     CompLaunchable.FuelNeededToLaunchAtDist((float)num).ToString("0.#")
-                    }), MessageSound.RejectInput);
+                    }), MessageTypeDefOf.RejectInput);
                     return false;
                 }
                 if (!(2 * num > this.MaxLaunchDistanceEverPossible(true)))
@@ -1100,7 +1107,7 @@ namespace OHUShips
             }
             if (Find.World.Impassable(target.Tile))
             {
-                Messages.Message("MessageTransportPodsDestinationIsInvalid".Translate(), MessageSound.RejectInput);
+                Messages.Message("MessageTransportPodsDestinationIsInvalid".Translate(), MessageTypeDefOf.RejectInput);
                 return false;
             }
             
@@ -1139,9 +1146,6 @@ namespace OHUShips
             Scribe_Values.Look<int>(ref this.timeWaited, "timeWaited", 200, false);
 
             
-            Scribe_Values.Look<Color>(ref this.Col1, "Col1", Color.magenta, false);
-            Scribe_Values.Look<Color>(ref this.Col2, "Col2", Color.black, false);
-
             Scribe_References.Look(ref this.ParkingMap, "ParkingMap");
             Scribe_Values.Look<IntVec3>(ref this.ParkingPosition, "ParkingPosition", IntVec3.Zero , false);
 

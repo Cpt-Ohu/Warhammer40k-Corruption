@@ -1,0 +1,13 @@
+<Patch>
+
+	<Operation Class="PatchOperationReplace">
+	  <xpath>*/JoyGiverDef[defName="Pray"]/giverClass</xpath>
+	  <value><giverClass>Corruption.Worship.JoyGiver_Pray</giverClass></value>
+	</Operation> 
+
+	<Operation Class="PatchOperationReplace">
+	  <xpath>*/JoyGiverDef[defName="Pray"]/jobDef</xpath>
+	  <value><jobDef>PrayCorruption</jobDef></value>
+	</Operation> 
+
+</Patch>

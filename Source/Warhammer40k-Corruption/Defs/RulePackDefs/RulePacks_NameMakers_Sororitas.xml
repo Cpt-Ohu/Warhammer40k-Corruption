@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<NameMakerDefs>
+
+  <RulePackDef>
+    <defName>NamerSororitas</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>name->[SororitasFix] [SororitasName]</li>
+      </rulesStrings>
+      <rulesRaw>
+        <li Class="Rule_File">
+          <keyword>SororitasName</keyword>
+          <path>NameBanks/SororitasName</path>
+        </li>
+        <li Class="Rule_File">
+          <keyword>SororitasFix</keyword>
+          <path>NameBanks/SororitasFix</path>
+        </li>
+      </rulesRaw>
+    </rulePack>
+  </RulePackDef>
+
+</NameMakerDefs>

@@ -4,7 +4,7 @@
     <defName>ExoditeOrigin</defName>
     <title>Exodite child</title>
     <baseDescription>NAME was born on an Eldar maiden world. Isolationism and Mistrust were prominent.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Childhood</slot>
     <workDisables>
@@ -37,7 +37,7 @@
     <defName>CraftworldOrigin</defName>
     <title>Craftworld child</title>
     <baseDescription>NAME was born on an Eldar craftworld. The path of the Eldar shaped HIS life.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Childhood</slot>
     <workDisables>
@@ -66,7 +66,7 @@
     <title>Path of the artisan</title>
     <titleShort>Artisan</titleShort>
     <baseDescription>NAME has walked the path of the artisan, gaining reputation among his fellow eldar.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -87,7 +87,7 @@
     <title>Path of the seer</title>
     <titleShort>Seer</titleShort>
     <baseDescription>NAME has walked the path of the seer.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -112,7 +112,7 @@
     <title>Path of the shaper</title>
     <titleShort>Shaper</titleShort>
     <baseDescription>NAME has walked the path of the seer.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -138,7 +138,7 @@
     <title>Path of the mariner</title>
     <titleShort>Mariner</titleShort>
     <baseDescription>NAME has walked the path of the mariner.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -163,7 +163,7 @@
     <title>Path of the dreamer</title>
     <titleShort>Dreamer</titleShort>
     <baseDescription>NAME has walked the path of the dreamer.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -192,7 +192,7 @@
     <title>Path of command</title>
     <titleShort>Commander</titleShort>
     <baseDescription>NAME has walked the path of command.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>

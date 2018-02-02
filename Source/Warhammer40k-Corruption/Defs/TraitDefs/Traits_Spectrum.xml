@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Corruption.SoulTraitDefs>
+
+  <Corruption.SoulTraitDef>
+    <defName>Devotion</defName>
+    <SDegreeDatas>
+      <li>
+        <label>Ork Mind</label>
+        <description>This is an Ork. The warp may impact this being, but it's more likely that the Ork won't even take notice.</description>
+        <degree>-5</degree>
+        <CorruptionResistanceFactor>1.5</CorruptionResistanceFactor>
+        <PrayerJoyGainFactor>0.0</PrayerJoyGainFactor>
+      </li>
+      <li>
+        <label>Automaton Mind</label>
+        <description>This is an automaton. While the warp may have effects on everything, this entity is not concerned with religions.</description>
+        <degree>-4</degree>
+        <CorruptionResistanceFactor>2.0</CorruptionResistanceFactor>
+        <PrayerJoyGainFactor>0.0</PrayerJoyGainFactor>
+      </li>
+
+      <li>
+        <label>cultural memory</label>
+        <description>The gods of NAME have been destroyed long ago. They are still remembered and revered, but no longer worshipped, for they won't answer.</description>
+        <degree>-3</degree>
+        <CorruptionResistanceFactor>1.0</CorruptionResistanceFactor>
+        <PrayerJoyGainFactor>0.5</PrayerJoyGainFactor>
+      </li>
+      <li>
+        <label>atheist</label>
+        <description>NAME does not believe in divinity. There are no gods among the stars, only cruel and powerful forces.</description>
+        <degree>-2</degree>
+        <CorruptionResistanceFactor>1.5</CorruptionResistanceFactor>
+        <PrayerJoyGainFactor>0.2</PrayerJoyGainFactor>
+      </li>
+      <li>
+        <label>agnostic</label>
+        <description>NAME holds that one cannot encompass the divine, therefore worshipping gods is a fallacy.</description>
+        <degree>-1</degree>
+        <CorruptionResistanceFactor>1.2</CorruptionResistanceFactor>
+        <PrayerJoyGainFactor>0.5</PrayerJoyGainFactor>
+      </li>
+      <li>
+        <label>religious</label>
+        <description>NAME believes in gods, worshipping them with moderate devotion.</description>
+        <degree>0</degree>
+        <CorruptionResistanceFactor>1.0</CorruptionResistanceFactor>
+        <PrayerJoyGainFactor>1.0</PrayerJoyGainFactor>
+      </li>
+      <li>
+        <label>fervent believer</label>
+        <description>NAME strongly believes in the divine.</description>
+        <degree>1</degree>
+        <CorruptionResistanceFactor>0.8</CorruptionResistanceFactor>
+        <PrayerJoyGainFactor>1.5</PrayerJoyGainFactor>
+      </li>
+      <li>
+        <label>fanatic</label>
+        <description>NAME dedicates HIS life to the divine and will go to war for HIS believes.</description>
+        <degree>2</degree>
+        <CorruptionResistanceFactor>0.5</CorruptionResistanceFactor>
+        <PrayerJoyGainFactor>2.0</PrayerJoyGainFactor>
+
+      </li>
+    </SDegreeDatas>
+  </Corruption.SoulTraitDef>
+
+</Corruption.SoulTraitDefs>

@@ -6,7 +6,7 @@
     <title>Thorian</title>
     <titleShort>Thorian</titleShort>
     <baseDescription>NAME follows a resurrectionist ideology within the Inquisition They are studying the connection of warp, mind and energy.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -39,7 +39,7 @@
     <title>Amalathian</title>
     <titleShort>Amalathian</titleShort>
     <baseDescription>NAME follows an ideology concerned with preservation. Intrigue in politics only serves to destabilize the Imperiumm therefore it must be contained. They may appear more sensible than other branches because they will ask before taking something by force.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -68,7 +68,7 @@
     <title>Casophilians</title>
     <titleShort>Casophilians</titleShort>
     <baseDescription>NAME follows a radical philosophy based on Thorian thinking. They are concerned with resurrections by studying the warp and Daemonology.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -101,7 +101,7 @@
     <title>Recongregationist</title>
     <titleShort>Recongregationist</titleShort>
     <baseDescription>NAME follows a radical philosophy based on the premise that the Imperium has become corrupt beyond salvation, and has to be rebuilt entirely. They support anti-Imperial cults if they find use in them.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -130,7 +130,7 @@
     <title>Xanthism</title>
     <titleShort>Xanthism</titleShort>
     <baseDescription>NAME follows the most overtly radical ideology within the Inquisition. The fight against the enemies of man should be fought by any means necessary.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>

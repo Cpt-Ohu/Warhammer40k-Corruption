@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RecipeDefs>
+
+	<RecipeDef>
+		<defName>ButcherCorpseBones</defName>
+		<label>Carve Bones</label>
+		<description>Extract the bones from a human being. The process is crude and the resulting flesh is unfit for further processing.</description>
+		<jobString>Butchering.</jobString>
+		<workAmount>450</workAmount>
+		<workSpeedStat>ButcheryFleshSpeed</workSpeedStat>
+    <workSkill>Cooking</workSkill>
+		<efficiencyStat>ButcheryFleshEfficiency</efficiencyStat>
+    <effectWorking>ButcherFlesh</effectWorking>
+    <soundWorking>Recipe_ButcherCorpseFlesh</soundWorking>
+    <ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>CorpsesHumanlike</li>
+					</categories>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>CorpsesHumanlike</li>
+			</categories>
+      <specialFiltersToDisallow>
+        <li>AllowRotten</li>
+      </specialFiltersToDisallow>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<categories>
+				<li>CorpsesHumanlike</li>
+			</categories>
+		</defaultIngredientFilter>
+    <products>
+      <HumanSkull>1</HumanSkull>
+      <HumanBones>10</HumanBones>
+    </products>
+		<specialProducts>
+			<li>Butchery</li>
+		</specialProducts>
+    <recipeUsers>
+      <li>TableButcher</li>
+    </recipeUsers>
+	
+	</RecipeDef>
+   
+</RecipeDefs>

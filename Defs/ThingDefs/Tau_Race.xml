@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
 
 
@@ -13,11 +13,11 @@
 
 	<alienRace>
         <generalSettings>
-	<PawnsSpecificBackstories>true</PawnsSpecificBackstories>
-            <MaleGenderProbability>0.5</MaleGenderProbability>
-            <ImmuneToAge>false</ImmuneToAge>
-			<ForcedRaceTraitEntries>
-            </ForcedRaceTraitEntries>
+	<pawnsSpecificBackstories>true</pawnsSpecificBackstories>
+            <maleGenderProbability>0.5</maleGenderProbability>
+            <immuneToAge>false</immuneToAge>
+			<forcedRaceTraitEntries>
+            </forcedRaceTraitEntries>
 			<alienPartGenerator>
                 <aliencrowntypes>
 	  <li>Narrow_Normal</li>
@@ -47,8 +47,8 @@
             </li>
         </graphicPaths>
 		<hairSettings>
-            <HasHair>false</HasHair>
-            <GetsGreyAt>5000</GetsGreyAt>
+            <hasHair>false</hasHair>
+            <getsGreyAt>5000</getsGreyAt>
         </hairSettings>
 		<relationSettings>
             <relationChanceModifierChild>1</relationChanceModifierChild>
@@ -151,10 +151,10 @@
       <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
-      <specialshadowData>
+      <specialShadowData>
         <volume>(0.3, 0.8, 0.4)</volume>
         <offset>(0,0,-0.3)</offset>
-      </specialshadowData>
+      </specialShadowData>
       <ageGenerationCurve>
         <points>
           <li>(14,0)</li>
@@ -201,11 +201,11 @@
 
 	<alienRace>
         <generalSettings>
-	<PawnsSpecificBackstories>true</PawnsSpecificBackstories>
-            <MaleGenderProbability>0.5</MaleGenderProbability>
-            <ImmuneToAge>false</ImmuneToAge>
-			<ForcedRaceTraitEntries>
-            </ForcedRaceTraitEntries>
+	<pawnsSpecificBackstories>true</pawnsSpecificBackstories>
+            <maleGenderProbability>0.5</maleGenderProbability>
+            <immuneToAge>false</immuneToAge>
+			<forcedRaceTraitEntries>
+            </forcedRaceTraitEntries>
 			<alienPartGenerator>
                 <aliencrowntypes>
 	  <li>Narrow_Normal</li>
@@ -235,8 +235,8 @@
             </li>
         </graphicPaths>
 		<hairSettings>
-            <HasHair>false</HasHair>
-            <GetsGreyAt>5000</GetsGreyAt>
+            <hasHair>false</hasHair>
+            <getsGreyAt>5000</getsGreyAt>
         </hairSettings>
 
 		<thoughtSettings>
@@ -340,10 +340,10 @@
       <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
-      <specialshadowData>
+      <specialShadowData>
         <volume>(0.3, 0.8, 0.4)</volume>
         <offset>(0,0,-0.3)</offset>
-      </specialshadowData>
+      </specialShadowData>
       <ageGenerationCurve>
         <points>
           <li>(14,0)</li>
@@ -392,11 +392,11 @@
 
 	<alienRace>
         <generalSettings>
-	<PawnsSpecificBackstories>true</PawnsSpecificBackstories>
-            <MaleGenderProbability>0.5</MaleGenderProbability>
-            <ImmuneToAge>false</ImmuneToAge>
-			<ForcedRaceTraitEntries>
-            </ForcedRaceTraitEntries>
+	<pawnsSpecificBackstories>true</pawnsSpecificBackstories>
+            <maleGenderProbability>0.5</maleGenderProbability>
+            <immuneToAge>false</immuneToAge>
+			<forcedRaceTraitEntries>
+            </forcedRaceTraitEntries>
 			<alienPartGenerator>
                 <aliencrowntypes>
 	  <li>Narrow_Normal</li>
@@ -426,8 +426,8 @@
             </li>
         </graphicPaths>
 		<hairSettings>
-            <HasHair>false</HasHair>
-            <GetsGreyAt>5000</GetsGreyAt>
+            <hasHair>false</hasHair>
+            <getsGreyAt>5000</getsGreyAt>
         </hairSettings>
 
 		<thoughtSettings>
@@ -531,10 +531,10 @@
       <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
-      <specialshadowData>
+      <specialShadowData>
         <volume>(0.3, 0.8, 0.4)</volume>
         <offset>(0,0,-0.3)</offset>
-      </specialshadowData>
+      </specialShadowData>
       <ageGenerationCurve>
         <points>
           <li>(14,0)</li>
@@ -574,4 +574,4 @@
   </AlienRace.ThingDef_AlienRace>
 
 
-</ThingDefs>
+</Defs>

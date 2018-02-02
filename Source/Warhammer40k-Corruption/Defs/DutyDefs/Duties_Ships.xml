@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+  <DutyDef>
+    <defName>LoadShipCargoDuty</defName>
+    <alwaysShowWeapon>false</alwaysShowWeapon>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="OHUShips.JobGiver_LoadShipCargo"/>
+        <li Class="OHUShips.JobGiver_EnterShipDuringLoad"/>
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+
+  <DutyDef>
+    <defName>LeaveInShipDuty</defName>
+    <alwaysShowWeapon>true</alwaysShowWeapon>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="OHUShips.JobGiver_LeaveInShip" />
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+
+  <DutyDef>
+    <defName>StealForShipDuty</defName>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="JobGiver_Steal" />
+        <li Class="OHUShips.JobGiver_LeaveInShip" />
+        <li Class="OHUShips.JobGiver_FleeIfShipDestroyed">
+          <defaultLocomotion>Jog</defaultLocomotion>
+          <jobMaxDuration>200</jobMaxDuration>
+          <forceCanDig>true</forceCanDig>
+	   </li>
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+
+
+</Defs>

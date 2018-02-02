@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <defName>Tau_Undershirt</defName>
+    <label>Tau Bodysuit</label>
+    <description>A simple undergarment manufactured by the Tau.</description>
+    <graphicData>
+      <texPath>Things/Tau/TauUndershirt/TauShirt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costStuffCount>50</costStuffCount>
+    <stuffCategories>
+      <li>Fabric</li>
+      <li>Leathery</li>
+    </stuffCategories>
+    <thingCategories>
+      <li>Tau_Basic</li>
+    </thingCategories>
+    <tradeTags>
+      <li>Xeno_TauAux</li>
+    </tradeTags>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <WorkToMake>5000</WorkToMake>
+      <MarketValue>100</MarketValue>
+      <Mass>0.25</Mass>
+      <ArmorRating_Blunt>0.03</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.03</ArmorRating_Sharp>
+      <Insulation_Cold>-3</Insulation_Cold>
+    </statBases>
+	<generateCommonality>1</generateCommonality>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Tau/TauUndershirt/TauShirt</worngraphicPath>
+      <layers>
+        <li>OnSkin</li>
+      </layers>
+      <tags>
+        <li>Tau_Aux</li>
+        <li>Tau_Basic</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Tau_Aux</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+
+  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <defName>Tau_CombatArmor</defName>
+    <label>Combat Armor</label>
+    <description>Tau Standard Issue Combat Armor.</description>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/Tau/CombatArmor/CombatArmor</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <WorkToMake>40000</WorkToMake>
+      <MaxHitPoints>350</MaxHitPoints>
+      <MarketValue>3500</MarketValue>
+      <ArmorRating_Blunt>0.45</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.55</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.35</ArmorRating_Heat>
+      <Insulation_Cold>-10</Insulation_Cold>
+    </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.10</MoveSpeed>
+    </equippedStatOffsets>
+    <thingCategories>
+      <li>Tau_Basic</li>
+    </thingCategories>
+    <costList>
+      <Plasteel>135</Plasteel>
+    </costList>
+	<generateCommonality>1</generateCommonality>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Tau/CombatArmor/CombatArmor</worngraphicPath>
+      <layers>
+        <li>Middle</li>
+      </layers>
+      <tags>
+        <li>Tau_Basic</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Tau_Basic</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="HatBase" Class="FactionColors.ApparelUniformDef">
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <defName>Tau_CombatHelmet</defName>
+    <label>tau combat helmet</label>
+    <description>An advanced combat helmet worn by Tau.</description>
+    <graphicData>
+      <texPath>Things/Tau/CombatArmor/CombatHelmet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <MarketValue>800</MarketValue>
+      <ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+    </statBases>
+    <equippedStatOffsets>
+	<ShootingAccuracy>0.1</ShootingAccuracy>
+    </equippedStatOffsets>
+    <thingCategories>
+      <li>Tau_Basic</li>
+    </thingCategories>
+    <tradeTags>
+      <li>Xeno_TauAux</li>
+    </tradeTags>
+	<generateCommonality>1</generateCommonality>
+    <apparel>
+      <bodyPartGroups>
+        <li>UpperHead</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Tau/CombatArmor/CombatHelmet</worngraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <tags>
+        <li>Tau_Basic</li>
+      <li>Tau_Aux</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Tau_Basic</li>
+      </defaultOutfitTags> 
+   </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <defName>Tau_GueVesaArmor</defName>
+    <label>Tau Combat Vest</label>
+    <description>Tau chest piece usually worn by Gue'Vesa Auxillaries.</description>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/Tau/GueVesaArmor/GVArmor</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <WorkToMake>30000</WorkToMake>
+      <MaxHitPoints>350</MaxHitPoints>
+      <MarketValue>1500</MarketValue>
+      <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.15</ArmorRating_Heat>
+      <Insulation_Cold>-5</Insulation_Cold>
+    </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>-0.05</MoveSpeed>
+    </equippedStatOffsets>
+    <thingCategories>
+      <li>Tau_Aux</li>
+    </thingCategories>
+    <tradeTags>
+      <li>Xeno_TauAux</li>
+    </tradeTags>
+    <costList>
+      <Plasteel>135</Plasteel>
+    </costList>
+	<generateCommonality>1</generateCommonality>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+      </bodyPartGroups>
+      <worngraphicPath>Things/Tau/GueVesaArmor/GVArmor</worngraphicPath>
+      <layers>
+        <li>Shell</li>
+      </layers>
+      <tags>
+        <li>Tau_Aux</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Tau_Aux</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+
+</ThingDefs>

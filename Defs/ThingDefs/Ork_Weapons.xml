@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <ThingDef Name="OrkMeleeWeapon" ParentName="BaseMeleeWeaponNoTag" Abstract="True">
     <recipeMaker>
@@ -81,7 +81,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Ork</projectileDef>
+        <defaultProjectile>Bullet_Ork</defaultProjectile>
         <warmupTime>2.4</warmupTime>
         <range>20</range>
         <burstShotCount>4</burstShotCount>
@@ -125,7 +125,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Ork</projectileDef>
+        <defaultProjectile>Bullet_Ork</defaultProjectile>
         <warmupTime>2.5</warmupTime>
         <range>30</range>
         <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
@@ -193,7 +193,7 @@
       <li>
         <verbClass>Verb_ShootOneUse</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_OrkRocket</projectileDef>
+        <defaultProjectile>Bullet_OrkRocket</defaultProjectile>
         <forcedMissRadius>3.0</forcedMissRadius>
         <warmupTime>3</warmupTime>
         <range>40</range>
@@ -265,7 +265,7 @@
         <targetParams>
           <canTargetLocations>true</canTargetLocations>
         </targetParams>
-        <projectileDef>Proj_Stikkbomb</projectileDef>
+        <defaultProjectile>Proj_Stikkbomb</defaultProjectile>
       </li>
     </verbs>
     <smeltProducts>
@@ -302,7 +302,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_FlameThrower</projectileDef>
+        <defaultProjectile>Bullet_FlameThrower</defaultProjectile>
         <warmupTime>2.3</warmupTime>
         <range>10</range>
         <burstShotCount>20</burstShotCount>
@@ -327,21 +327,30 @@
       <texPath>Things/Orks/Weapons/OrkChoppa</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>InteractRifle</soundInteract>
     <statBases>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>100</MarketValue>
-      <MeleeWeapon_DamageAmount>14</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.0</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-65</equippedAngleOffset>
-    <verbs>
+	<tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>14</power>
+        <cooldownTime>1.25</cooldownTime>
       </li>
-    </verbs>
+	   <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>1.95</cooldownTime>
+      </li>
+    </tools>
     <costList>
       <Steel>30</Steel>
       <Component>2</Component>
@@ -362,22 +371,30 @@
       <texPath>Things/Orks/Weapons/OrkBigChoppa</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>InteractRifle</soundInteract>
     <statBases>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>100</MarketValue>
-      <MeleeWeapon_DamageAmount>33</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>3.2</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-65</equippedAngleOffset>
-    <verbs>
+	<tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
-        <soundCast>SlashMetal</soundCast>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>33</power>
+        <cooldownTime>3.55</cooldownTime>
       </li>
-    </verbs>
+	   <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>1.95</cooldownTime>
+      </li>
+    </tools>
     <costList>
       <Steel>70</Steel>
       <Component>1</Component>
@@ -387,42 +404,8 @@
     </weaponTags>
   </ThingDef>
 
-  <ThingDef ParentName="OrkMeleeWeapon" Class="FactionColors.FactionItemDef">
-    <thingClass>FactionColors.FactionItem</thingClass>
-    <defName>Ork Chain_Chainaxe</defName>
-    <label>Ork Choppa</label>
-    <description>Xenotech melee weapon. Unwieldy and crude.</description>
-    <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
-    <graphicData>
-      <drawSize>(1.2,1.2)</drawSize>
-      <texPath>Things/Orks/Weapons/ChoppaSaw</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <shaderType>CutoutComplex</shaderType>
-    </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
-    <statBases>
-      <WorkToMake>1140000</WorkToMake>
-      <MarketValue>100</MarketValue>
-      <MeleeWeapon_DamageAmount>29</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.1</MeleeWeapon_Cooldown>
-    </statBases>
-    <equippedAngleOffset>-65</equippedAngleOffset>
-    <verbs>
-      <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
-      </li>
-    </verbs>
-    <costList>
-      <Steel>75</Steel>
-      <Component>2</Component>
-    </costList>
-    <weaponTags>
-      <li>Ork_Melee</li>
-    </weaponTags>
-  </ThingDef>
 
 
 
-</ThingDefs>
+
+</Defs>

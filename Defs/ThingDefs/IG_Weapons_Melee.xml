@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<ThingDefs>
+<Defs>
 
   <ThingDef Name="BaseMeleeWeapon_IG" ParentName="BaseMeleeWeaponNoTag" Abstract="True">
     <thingClass>ThingWithComps</thingClass>
@@ -54,24 +54,33 @@
 		<graphicClass>Graphic_Single</graphicClass>
 		<shaderType>CutoutComplex</shaderType>
 	</graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>InteractRifle</soundInteract>
     <costStuffCount>150</costStuffCount>
     <statBases>
       <WorkToMake>20000</WorkToMake>
-      <MeleeWeapon_DamageAmount>29</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.35</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-15</equippedAngleOffset>
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>29</power>
+        <cooldownTime>2.45</cooldownTime>
       </li>
-    </verbs>
+	  <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>2.65</cooldownTime>
+      </li>
+    </tools>
     <recipeMaker>
       <recipeUsers>
         <li>TableMachining</li>
@@ -97,17 +106,33 @@
 		<graphicClass>Graphic_Single</graphicClass>
 		<shaderType>CutoutComplex</shaderType>
 	</graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>InteractRifle</soundInteract>
     <costStuffCount>150</costStuffCount>
     <statBases>
       <WorkToMake>18000</WorkToMake>
-      <MeleeWeapon_DamageAmount>31</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.25</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-15</equippedAngleOffset>
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
+    <tools>
+      <li>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>32</power>
+        <cooldownTime>2.45</cooldownTime>
+      </li>
+	  <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>2.65</cooldownTime>
+      </li>
+    </tools>
     <verbs>
       <li>
         <verbClass>Verb_MeleeAttack</verbClass>
@@ -140,25 +165,26 @@
 		<texPath>Things/IG/Weapons/ForceStaff</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>InteractRifle</soundInteract>
     <costList>
       <Steel>100</Steel>
       <Component>6</Component>
     </costList>
     <statBases>
       <WorkToMake>18000</WorkToMake>
-      <MeleeWeapon_DamageAmount>31</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.25</MeleeWeapon_Cooldown>
     </statBases>
-    <TickerType>Rare</TickerType>
+    <tickerType>Rare</tickerType>
     <equippedAngleOffset>-85</equippedAngleOffset>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Blunt</meleeDamageDef>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>28</power>
+        <cooldownTime>2.45</cooldownTime>
       </li>
-    </verbs>
+    </tools>
   </ThingDef>
 
   <ThingDef ParentName="ImpPowerStaffBase" Class="FactionColors.FactionItemDef">
@@ -226,4 +252,4 @@ Unlockable Power: Blinding Blast</description>
   </ThingDef>
 
     
- </ThingDefs>
+ </Defs>
