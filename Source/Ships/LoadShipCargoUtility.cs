@@ -15,7 +15,7 @@ namespace OHUShips
     {
         private static HashSet<Thing> neededThings = new HashSet<Thing>();
 
-        public static Job JobLoadShipCargo(Pawn p, ShipBase ship)
+        public static Job JobLoadShipCargo(Pawn p, IntVec3 loadingPosition, ShipBase ship)
         {
             if (p.jobs.jobQueue.Any(x => x.job.def == ShipNamespaceDefOfs.LoadContainerMultiplePawns))
             {
@@ -31,12 +31,11 @@ namespace OHUShips
                     {
                         thingCount = 1;
                     }
-                    return new Job(ShipNamespaceDefOfs.LoadContainerMultiplePawns, thing, ship)
+                    return new Job(ShipNamespaceDefOfs.LoadContainerMultiplePawns, thing, loadingPosition, ship)
                     {
                         count = thingCount,
                         ignoreForbidden = true,
                         playerForced = true
-
                     };
                 }
             
@@ -92,7 +91,7 @@ namespace OHUShips
 
         public static bool HasJobOnShip(Pawn pawn, ShipBase ship)
         {
-            return ship.compShip.AnythingLeftToLoad && pawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation) && pawn.CanReserveAndReach(ship, PathEndMode.Touch, pawn.NormalMaxDanger(), 10, 1, ReservationLayerDefOf.Floor, true) && LoadShipCargoUtility.FindThingToLoad(pawn, ship) != null;
+            return ship.compShip.AnythingLeftToLoad && pawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation) && pawn.CanReach(ship, PathEndMode.Touch, pawn.NormalMaxDanger(), false, TraverseMode.ByPawn) && LoadShipCargoUtility.FindThingToLoad(pawn, ship) != null;
         }
 
         public static Lord FindLoadLord(ShipBase ship, Map map)

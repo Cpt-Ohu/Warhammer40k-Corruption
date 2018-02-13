@@ -16,7 +16,8 @@ namespace OHUShips
 
             if (LoadShipCargoUtility.HasJobOnShip(pawn, ship))
             {
-                Job job = LoadShipCargoUtility.JobLoadShipCargo(pawn, ship);
+                IntVec3 position = ship.RandomAdjacentCell8Way();
+                Job job = LoadShipCargoUtility.JobLoadShipCargo(pawn, position, ship);
                 if (job != null)
                 {
                     //Log.Message("Giving job to " + pawn.Name);

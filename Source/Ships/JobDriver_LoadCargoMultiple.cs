@@ -32,10 +32,8 @@ namespace OHUShips
         protected override IEnumerable<Toil> MakeNewToils()
         {
             this.FailOnDestroyedOrNull(TargetIndex.A);
-            this.FailOnDespawnedOrNull(TargetIndex.B);
             Toil toil = Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnSomeonePhysicallyInteracting(TargetIndex.A);
-            toil.AddFinishAction(delegate { Log.Message("Finished"); });
-            //toil.AddFailCondition(() => ShipFull(ship));
+            toil.AddFinishAction(delegate { Log.Message("Finished A"); });
             toil.tickAction += delegate
             {
                 if (this.ShipFull(ship))
@@ -47,10 +45,12 @@ namespace OHUShips
             yield return toil;
             yield return Toils_Construct.UninstallIfMinifiable(TargetIndex.A).FailOnSomeonePhysicallyInteracting(TargetIndex.A);
             Toil toilPickup = Toils_Haul.StartCarryThing(TargetIndex.A, false, true);//.FailOn(() => this.ShipFull(ship));
+            toilPickup.AddFinishAction(delegate { Log.Message("Finished B"); });
             yield return toilPickup;
-            yield return Toils_Haul.JumpIfAlsoCollectingNextTargetInQueue(toil, TargetIndex.A);
+            //yield return Toils_Haul.JumpIfAlsoCollectingNextTargetInQueue(toil, TargetIndex.A);
             Toil toil2 = Toils_Haul.CarryHauledThingToContainer();
-
+            toil2.AddFinishAction(delegate { Log.Message("Finished C"); });
+            //Toil toil2 = Toils_Goto.GotoCell(TargetB.Cell, PathEndMode.ClosestTouch);
             toil2.tickAction += delegate
             {
                 if (this.ShipFull(ship, false))
@@ -59,23 +59,16 @@ namespace OHUShips
                 }
             };
             yield return toil2;
-            yield return Toils_Goto.MoveOffTargetBlueprint(TargetIndex.B);
-            yield return Toils_Construct.MakeSolidThingFromBlueprintIfNecessary(TargetIndex.B);
-            Toil toil3 = Toils_Haul.DepositHauledThingInContainer(TargetIndex.B, TargetIndex.C);
-            //toil3.AddFailCondition(() => this.ShipFull(ship));
+            Toil toil3 = Toils_Haul.DepositHauledThingInContainer(TargetIndex.C, TargetIndex.None);
             yield return toil3;
-            yield return Toils_Haul.JumpToCarryToNextContainerIfPossible(toil2, TargetIndex.C);
             yield break;
         }
         
         public override bool TryMakePreToilReservations()
         {
-            //Log.Message("Reserving 1");
-            this.pawn.ReserveAsManyAsPossible(this.job.GetTargetQueue(TargetIndex.A), this.job, 1, -1, null);
-            //Log.Message("Reserving 2");
-            this.pawn.ReserveAsManyAsPossible(this.job.GetTargetQueue(TargetIndex.B), this.job, 10, 1, null);
-            //Log.Message("Reserving 3");
-            return this.pawn.Reserve(this.job.GetTarget(TargetIndex.A), this.job, 1, -1, null) && this.pawn.Reserve(this.job.GetTarget(TargetIndex.B), this.job, 20, 1, null);
+            //this.pawn.ReserveAsManyAsPossible(this.job.GetTargetQueue(TargetIndex.A), this.job, 1, -1, null);
+            //this.pawn.ReserveAsManyAsPossible(this.job.GetTargetQueue(TargetIndex.B), this.job, 10, 1, null);
+            return this.pawn.Reserve(this.job.GetTarget(TargetIndex.A), this.job, 1, -1, null);// && this.pawn.Reserve(this.job.GetTarget(TargetIndex.B), this.job, 20, 1, null);
         }
 
 

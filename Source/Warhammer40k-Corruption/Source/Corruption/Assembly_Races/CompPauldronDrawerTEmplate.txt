@@ -1,8 +1,0 @@
-    <comps>
-      <li Class="FactionColors.CompProperties_PauldronDrawer">
-        <compClass>FactionColors.CompPauldronDrawer</compClass>
-        <shoulderPadType>Both</shoulderPadType>
-        <shaderType>Cutout</shaderType>
-        <PadTexPath>135</PadTexPath>
-      </li>
-    </comps>
