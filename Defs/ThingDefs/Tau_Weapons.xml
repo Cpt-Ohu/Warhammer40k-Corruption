@@ -11,6 +11,11 @@
 	    <thingCategories>
       <li>Tau_RangedCommon</li>
     </thingCategories>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+     </comps>
   </ThingDef>
 
   <ThingDef ParentName="BaseBullet">

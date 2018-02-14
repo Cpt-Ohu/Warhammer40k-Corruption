@@ -160,24 +160,19 @@
         <li>
           <def>HumanlikeBaby</def>
           <minAge>0</minAge>
-        </li>
-        <li>
-          <def>HumanlikeToddler</def>
-          <minAge>1.2</minAge>
-        </li>
-        <li>
-          <def>HumanlikeChild</def>
-          <minAge>4</minAge>
-        </li>
-        <li>
-          <def>HumanlikeTeenager</def>
-          <minAge>8</minAge>
+          <soundCall>Pawn_Ork_Scream</soundCall>
+
         </li>
         <li>
           <def>HumanlikeAdult</def>
           <minAge>10</minAge>
+          <soundCall>Pawn_Ork_Scream</soundCall>
         </li>
       </lifeStageAges>
+      <soundCallIntervalRange>
+        <min>2000</min>
+        <max>5000</max>
+      </soundCallIntervalRange>
       <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>

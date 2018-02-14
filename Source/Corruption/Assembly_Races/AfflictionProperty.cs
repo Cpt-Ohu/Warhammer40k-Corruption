@@ -15,6 +15,7 @@ namespace Corruption
         public bool IsImmune = false;
         public int ImmuneDevotionDegree;
         public float ResolveFactor = 1f;
+        public bool canUseCalls = false;
         public ChaosGods Patron = ChaosGods.Undivided;
         public bool UseOtherFaith = false;
         public OtherFaiths IsofFaith = OtherFaiths.Emperor;

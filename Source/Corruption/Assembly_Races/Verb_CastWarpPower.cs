@@ -66,7 +66,7 @@ namespace Corruption
                 if (warpProjectileDef != null && warpProjectileDef.IsHealer)
                 {
                     this.TargetsAoE.Add(new LocalTargetInfo(this.currentTarget.Cell));
-                    targets = this.caster.Map.listerThings.AllThings.Where(x => (x.Position.InHorDistOf(caster.Position, this.warpverbprops.range)) && (x.GetType() == this.warpverbprops.AoETargetClass) && !x.Faction.HostileTo(Faction.OfPlayer)).ToList<Thing>();
+                    targets = this.caster.Map.listerThings.AllThings.Where(x => (x.Position.InHorDistOf(caster.Position, this.warpverbprops.range)) && (x.GetType() == this.warpverbprops.AoETargetClass) && !x.HostileTo(CasterPawn)).ToList<Thing>();
                 }
                 else if ((this.warpverbprops.AoETargetClass == typeof(Plant)) || (this.warpverbprops.AoETargetClass == typeof(Building)))
                 {
@@ -82,7 +82,7 @@ namespace Corruption
                 else
                 {
                     targets.Clear();
-                    targets = this.caster.Map.listerThings.AllThings.Where(x => (x.Position.InHorDistOf(caster.Position, this.warpverbprops.range)) && (x.GetType() == this.warpverbprops.AoETargetClass) && x.Faction.HostileTo(Faction.OfPlayer)).ToList<Thing>();
+                    targets = this.caster.Map.listerThings.AllThings.Where(x => (x.Position.InHorDistOf(caster.Position, this.warpverbprops.range)) && (x.GetType() == this.warpverbprops.AoETargetClass) && x.HostileTo(CasterPawn)).ToList<Thing>();
                 }
                 
                 foreach (Thing targ in targets)

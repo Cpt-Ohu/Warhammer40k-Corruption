@@ -225,7 +225,7 @@
             <li>FoodRaw</li>
           </categories>
         </filter>
-        <count>75</count>
+        <count>10</count>
       </li>
       <li>
         <filter>
@@ -233,7 +233,7 @@
             <li>Component</li>
           </thingDefs>
         </filter>
-        <count>5</count>
+        <count>1</count>
       </li>
     </ingredients>
 		<products>

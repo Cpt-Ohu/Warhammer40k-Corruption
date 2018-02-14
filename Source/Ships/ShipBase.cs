@@ -20,7 +20,6 @@ namespace OHUShips
         public List<Building_ShipTurret> assignedTurrets = new List<Building_ShipTurret>();
         public Dictionary<WeaponSystem, bool> assignedSystemsToModify = new Dictionary<WeaponSystem, bool>();
         public List<WeaponSystemShipBomb> loadedBombs = new List<WeaponSystemShipBomb>();
-        public List<CargoLoadingSpot> currentCargoSlots = new List<CargoLoadingSpot>();
 
         public Dictionary<ShipWeaponSlot, Building_ShipTurret> installedTurrets = new Dictionary<ShipWeaponSlot, Building_ShipTurret>();
         public Dictionary<ShipWeaponSlot, WeaponSystemShipBomb> Payload = new Dictionary<ShipWeaponSlot, WeaponSystemShipBomb>();
@@ -1179,11 +1178,5 @@ namespace OHUShips
                 this.InitiateInstalledTurrets();
             }
         }
-
-        //private void SpawnCargoLoadingSpots()
-        //{
-        //    CellRect.CellRectIterator iterator = GenAdj.OccupiedRect(center, rot, def.Size).ExpandedBy(1).GetIterator();
-        //}
-
     }
 }

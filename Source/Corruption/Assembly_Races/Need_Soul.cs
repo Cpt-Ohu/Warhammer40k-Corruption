@@ -264,7 +264,10 @@ namespace Corruption
                 {
                     this.CommonSoulTrait = new SoulTrait(PawnAfflictionProps.CommonSoulTrait, 0);
                 }
-
+                if (PawnAfflictionProps.canUseCalls == true)
+                {
+                    pawn.caller = new Pawn_CallTracker(pawn);
+                }
                 if (this.curLevelInt < 0.3f && NoPatron == true)
                 {
                     GainPatron(ChaosGods.Undivided, false);

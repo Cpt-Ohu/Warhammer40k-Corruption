@@ -498,7 +498,7 @@ namespace Corruption
                     if (offensivePowers.Count > 0)
                     {
                         PsykerPowerDef newDef = offensivePowers.RandomElement().powerdef;
-                        if (newDef != null)
+                        if (newDef != null && compPsyker.IsActive == true && compPsyker.TicksToCast == 0)
                         {
                             aiCategory = newDef.AICategory;
                             powerDef = newDef;

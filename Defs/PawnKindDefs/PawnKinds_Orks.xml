@@ -44,6 +44,7 @@
       <IsofFaith>Orks</IsofFaith>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+	 <canUseCalls>true</canUseCalls>
     </AfflictionProperty>
       <UseFixedGender>true</UseFixedGender>
       <FixedGender>Male</FixedGender>
@@ -93,6 +94,8 @@
       <IsofFaith>Orks</IsofFaith>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+	 <canUseCalls>true</canUseCalls>
+
     </AfflictionProperty>
       <UseFixedGender>true</UseFixedGender>
       <FixedGender>Male</FixedGender>

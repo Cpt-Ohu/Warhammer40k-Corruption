@@ -8,6 +8,11 @@
       <researchPrerequisite>ChargedShot</researchPrerequisite>
     </recipeMaker>
     <tradeability>Sellable</tradeability>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+     </comps>
   </ThingDef>
 
   <ThingDef ParentName="BaseBullet">
