@@ -267,11 +267,11 @@ namespace Corruption
             Widgets.Label(new Rect(rect7), "ReligiousTraits".Translate());
             Text.Font = GameFont.Small;
             float num = rect7.y + 30f;
-            Rect rect13 = new Rect(rect7.x, num, rect7.width, 23f); ;
+            Rect rect13 = new Rect(rect7.x, num, rect7.width - 50, 23f);
             for (int i = 0; i < STraits.Count(); i++)
             {
                 SoulTrait trait = STraits[i];
-                Rect rect12 = new Rect(rect7.x, num, rect7.width, 23f);
+                Rect rect12 = new Rect(rect7.x, num, rect7.width - 50, 23f);
                 if (Mouse.IsOver(rect12))
                 {
                     Widgets.DrawHighlight(rect12);
