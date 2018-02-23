@@ -30,7 +30,7 @@ namespace Corruption
 
         private string culturalToleranceToolTip(CulturalToleranceCategory cat)
         {
-            switch(cat)
+            switch (cat)
             {
                 case (CulturalToleranceCategory.Neutral):
                     {
@@ -217,7 +217,7 @@ namespace Corruption
                 this.culturalTolerance = soul.CulturalTolerance;
             }
         }
-        
+
         public override void DoWindowContents(Rect inRect)
         {
             if (this.SelThing == null)
@@ -232,29 +232,29 @@ namespace Corruption
             Rect rect2 = inRect.ContractedBy(10f);
             rect2.height = 30f;
             rect2.width = 300;
-            rect2.x = inRect.x + (inRect.width / 2)-150;
+            rect2.x = inRect.x + (inRect.width / 2) - 150;
             rect2.y += 10f;
-      //      GUI.BeginGroup(rect2);
+            //      GUI.BeginGroup(rect2);
             Text.Anchor = TextAnchor.MiddleCenter;
             Text.Font = GameFont.Medium;
             var tmp1 = rect2.y;
             Widgets.Label(rect2, "Patron :");
-  //          GUI.EndGroup();
+            //          GUI.EndGroup();
             Rect rect3 = rect2;
             rect3.y += 30f;
-   //         GUI.BeginGroup(rect3);
+            //         GUI.BeginGroup(rect3);
             Rect rect4 = rect3;
             rect4.height = 300f;
             String texpath = "UI/" + SelPawnPatron + "_bg";
             Texture2D tex = ContentFinder<Texture2D>.Get(texpath, true);
             GUI.DrawTexture(rect4, tex as Texture);
-//            GUI.EndGroup();
+            //            GUI.EndGroup();
             Rect rect5 = rect3;
             rect5.y += 320f;
             rect5.height = 30f;
             //        GUI.BeginGroup(rect5);
             GUI.color = PatronColor;
-            var tmp2 = rect5.y+5;
+            var tmp2 = rect5.y + 5;
             Widgets.Label(rect5, SelPawnPatron.Translate());
             Widgets.ListSeparator(ref tmp2, inRect.width, "");
             GUI.color = Color.white;
@@ -267,11 +267,11 @@ namespace Corruption
             Widgets.Label(new Rect(rect7), "ReligiousTraits".Translate());
             Text.Font = GameFont.Small;
             float num = rect7.y + 30f;
-            Rect rect13 = new Rect(rect7.x, num, rect7.width, 23f); ;
+            Rect rect13 = new Rect(rect7.x, num, rect7.width - 50, 23f);
             for (int i = 0; i < STraits.Count(); i++)
             {
                 SoulTrait trait = STraits[i];
-                Rect rect12 = new Rect(rect7.x, num, rect7.width, 23f);
+                Rect rect12 = new Rect(rect7.x, num, rect7.width - 50, 23f);
                 if (Mouse.IsOver(rect12))
                 {
                     Widgets.DrawHighlight(rect12);
@@ -280,10 +280,10 @@ namespace Corruption
                 num += rect12.height + 15f;
                 SoulTrait trLocal = trait;
                 TipSignal tip2 = new TipSignal(() => trLocal.TipString(SelPawn), (int)num * 37);
-                
+
                 TooltipHandler.TipRegion(rect12, tip2);
                 rect13 = rect12;
-            }            
+            }
 
             rect13.y += 53;
             if (Mouse.IsOver(rect13))
@@ -316,7 +316,7 @@ namespace Corruption
             rect9a.y += 30f;
             Text.Font = GameFont.Small;
             Widgets.Label(new Rect(rect9a), SelPawnSoulState.Translate());
-            TipSignal tip3 = new TipSignal(() => this.AfflictionCategoryToolTip(soul.CurCategory), (int)num * 37);            
+            TipSignal tip3 = new TipSignal(() => this.AfflictionCategoryToolTip(soul.CurCategory), (int)num * 37);
             TooltipHandler.TipRegion(rect9a, tip3);
             Rect rect9b = rect9a;
             rect9b.y += rect9a.height + 15f;
