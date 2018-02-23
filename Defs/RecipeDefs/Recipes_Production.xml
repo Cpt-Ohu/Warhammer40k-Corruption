@@ -27,7 +27,7 @@
       </thingDefs>
     </fixedIngredientFilter>
     <products>
-      <MecComponent_General>1</MecComponent_General>
+      <MecComponent_Energy>1</MecComponent_Energy>
     </products>
 		<skillRequirements>
 				<Crafting>5</Crafting>
@@ -237,7 +237,7 @@
       </li>
     </ingredients>
 		<products>
-			<IoM_ServitorFuel>50</IoM_ServitorFuel>
+			<IoM_ServitorFuel>3</IoM_ServitorFuel>
 		</products>
 		<workSkill>Crafting</workSkill>
     <recipeUsers>

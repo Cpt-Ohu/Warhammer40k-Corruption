@@ -39,6 +39,18 @@
             <relationChanceModifierSpouse>1</relationChanceModifierSpouse>
         </relationSettings>
 		<raceRestriction>
+			    <apparelList>
+					<li>Apparel_Parka</li>
+				</apparelList>
+			    <weaponList>
+					<li>Astartes_Chainsword</li>
+					<li>Astartes_PowerSword</li>
+					<li>Astartes_PowerAxe</li>								<li>Gun_AstartesBolter</li>
+					<li>Gun_HeavyBolter</li>	
+					<li>CSM_HeavyBolter</li>		
+					<li>CSM_Bolter</li>			
+					<li>CSM_BoltPistolAstartes</li>	
+				</weaponList>
 		          </raceRestriction>
 	</alienRace>
 

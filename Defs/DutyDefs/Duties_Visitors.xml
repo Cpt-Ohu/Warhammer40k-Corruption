@@ -21,8 +21,8 @@
             <li Class="ThinkNode_ConditionalRandom">
               <chance>0.5</chance>
               <subNodes>
-                <li Class="JobGiver_GetJoyInPartyArea" />
-            	<li Class="JobGiver_WanderInPartyArea">
+                
+            	<li Class="JobGiver_WanderColony">
               		<ticksBetweenWandersRange>
                 		<min>50</min>
                 		<max>250</max>
@@ -50,12 +50,12 @@
             <li Class="ThinkNode_ConditionalRandom">
               <chance>0.1</chance>
               <subNodes>
-                <li Class="JobGiver_GetJoyInPartyArea" />
+                
               </subNodes>
             </li>
             
             <!-- Wander -->
-            <li Class="JobGiver_WanderInPartyArea">
+            <li Class="JobGiver_WanderColony">
               <ticksBetweenWandersRange>
                 <min>50</min>
                 <max>250</max>
@@ -80,12 +80,12 @@
             <li Class="ThinkNode_ConditionalRandom">
               <chance>0.1</chance>
               <subNodes>
-                <li Class="JobGiver_GetJoyInPartyArea" />
+                <li Class="JobGiver_GetJoy"/>
               </subNodes>
             </li>
             
             <!-- Wander -->
-            <li Class="JobGiver_WanderInPartyArea">
+            <li Class="JobGiver_WanderColony">
               <ticksBetweenWandersRange>
                 <min>50</min>
                 <max>250</max>

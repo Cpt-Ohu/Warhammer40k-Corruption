@@ -171,10 +171,12 @@ namespace Corruption
             }
             if (this.IoM == null)
             {
+                Log.Message("Create NPC IoM Faction");
                 this.IoM = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.IoM_NPCFaction);
             }
-            if (Find.World.factionManager.FirstFactionOfDef(C_FactionDefOf.IoM_NPCFaction) != null)
-            { 
+            if (Find.World.factionManager.FirstFactionOfDef(C_FactionDefOf.IoM_NPCFaction) == null)
+            {
+                Log.Message("Add NPC IoM Faction");
                 Find.World.factionManager.Add(this.IoM);
             }
             if (this.ChaosCult == null)

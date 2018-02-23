@@ -32,6 +32,7 @@ namespace Corruption
                     Building_MechanicusMedTable pod = (Building_MechanicusMedTable)actor.CurJob.targetA.Thing;
                     Action action = delegate
                     {
+                        actor.DeSpawn();
                         pod.TryAcceptThing(actor, true);
                     };
                     if (!pod.def.building.isPlayerEjectable)

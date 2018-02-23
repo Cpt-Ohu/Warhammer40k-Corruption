@@ -153,12 +153,24 @@ namespace Corruption
                         this.Owner = tempcomp.PrimaryVerb.CasterPawn;
                     }
                 }
-                else if (this.parent.holdingOwner != null && this.parent.holdingOwner.Owner is Pawn_CarryTracker)
+                else if (this.parent.holdingOwner != null)
                 {
-                    Pawn_CarryTracker tracker = this.parent.holdingOwner.Owner as Pawn_CarryTracker;
-                    if (tracker.pawn != null)
+                    if (this.parent.holdingOwner.Owner is Pawn_InventoryTracker)
                     {
-                        this.Owner = tracker.pawn;
+                        Pawn_InventoryTracker tracker = this.parent.holdingOwner.Owner as Pawn_InventoryTracker;
+                        if (tracker.pawn != null)
+                        {
+                            Log.Message("FoundInventory");
+                            this.Owner = tracker.pawn;
+                        }
+                    }
+                    if (this.parent.holdingOwner.Owner is Pawn_CarryTracker)
+                    {
+                        Pawn_CarryTracker tracker = this.parent.holdingOwner.Owner as Pawn_CarryTracker;
+                        if (tracker.pawn != null)
+                        {
+                            this.Owner = tracker.pawn;
+                        }
                     }
                 }
                 if ((this.Owner != null))
@@ -166,25 +178,26 @@ namespace Corruption
                     if ((soul = this.Owner.needs.TryGetNeed<Need_Soul>()) != null)
                     {
                         this.CalculateSoulChanges(soul, SProps);
-                    }
-                    if (CorruptionModSettings.AllowPsykers)
-                    {
-                        if (!PsykerPowerAdded)
+
+                        if (CorruptionModSettings.AllowPsykers)
                         {
-                            CompPsyker compPsyker;
-                            if ((compPsyker = Owner.TryGetComp<CompPsyker>()) != null)
+                            if (!PsykerPowerAdded)
                             {
-                                for (int i = 0; i < SProps.UnlockedPsykerPowers.Count; i++)
+                                CompPsyker compPsyker;
+                                if ((compPsyker = Owner.TryGetComp<CompPsyker>()) != null)
                                 {
-                                    if (soul.PsykerPowerLevel >= SProps.UnlockedPsykerPowers[i].PowerLevel)
+                                    for (int i = 0; i < SProps.UnlockedPsykerPowers.Count; i++)
                                     {
-                                        //    Log.Message("Adding Power to: " + compPsyker.psyker + " : " + SProps.UnlockedPsykerPowers[i].defName);
-                                        compPsyker.allpsykerPowers.Add(new PsykerPowerEntry(SProps.UnlockedPsykerPowers[i], true, this.parent.def));
+                                        if (soul.PsykerPowerLevel >= SProps.UnlockedPsykerPowers[i].PowerLevel)
+                                        {
+                                            //    Log.Message("Adding Power to: " + compPsyker.psyker + " : " + SProps.UnlockedPsykerPowers[i].defName);
+                                            compPsyker.allpsykerPowers.Add(new PsykerPowerEntry(SProps.UnlockedPsykerPowers[i], true, this.parent.def));
+                                        }
                                     }
+                                    compPsyker.UpdatePowers();
                                 }
-                                compPsyker.UpdatePowers();
+                                PsykerPowerAdded = true;
                             }
-                            PsykerPowerAdded = true;
                         }
                     }
 

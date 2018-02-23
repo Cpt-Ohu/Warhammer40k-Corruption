@@ -13,9 +13,12 @@ namespace Corruption.IoM
         protected override Job TryGiveJob(Pawn pawn)
         {
             Pawn colonist = pawn.Map.mapPawns.FreeColonistsSpawned.Where((Pawn p) => p.Awake()).RandomElement();
-            if(!IoM_StoryUtilities.PawnInPrivateQuarters(colonist) && Find.TickManager.TicksGame % 2500 < 180)
+            if (colonist != null)
             {
-                 return this.FollowJob(colonist);                
+                if (!IoM_StoryUtilities.PawnInPrivateQuarters(colonist) && Find.TickManager.TicksGame % 2500 < 180)
+                {
+                    return this.FollowJob(colonist);
+                }
             }
             return null;
         }

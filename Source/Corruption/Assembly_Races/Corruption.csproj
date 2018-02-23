@@ -121,6 +121,7 @@
     <Compile Include="IoM\IoM_StoryUtilities.cs" />
     <Compile Include="IoM\JobDriver_MiracleHeal.cs" />
     <Compile Include="IoM\JobDriver_WanderAndChat.cs" />
+    <Compile Include="JobDriver_ServitorIdle.cs" />
     <Compile Include="JobGiver_AICastPsykerPower.cs" />
     <Compile Include="IoM\JobGiver_FollowAndChat.cs" />
     <Compile Include="IoM\JobGiver_MiracleHeal.cs" />
@@ -273,6 +274,7 @@
     <Compile Include="RoomRoleWorker_Church.cs" />
     <Compile Include="Worship\JobDriver_Prayer.cs" />
     <Compile Include="Worship\JoyGiver_Pray.cs" />
+    <Compile Include="Worship\MainTabWindow_Worship.cs" />
     <Compile Include="Worship\SermonSpot.cs" />
     <Compile Include="Worship\SermonThoughtDefOf.cs" />
     <Compile Include="Worship\SermonUtility.cs" />

@@ -34,7 +34,6 @@ namespace OHUShips
             this.FailOnDestroyedOrNull(TargetIndex.A);
             this.FailOnDespawnedOrNull(TargetIndex.B);
             Toil toil = Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnSomeonePhysicallyInteracting(TargetIndex.A);
-            toil.AddFinishAction(delegate { Log.Message("Finished A"); });
             //toil.AddFailCondition(() => ShipFull(ship));
             toil.tickAction += delegate
             {

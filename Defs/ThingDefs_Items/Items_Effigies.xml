@@ -5,6 +5,7 @@
   <!--=============== Emperor ====================-->
   
   <ThingDef ParentName="ResourceBase">
+    <thingClass>Corruption.ItemEffigy</thingClass>
     <defName>Effigy_Emperor</defName>
     <label>Effigy of the Emperor</label>
     <description>A small item of worship in the shape of the emperor of mankind. May sooth the mind.</description>
@@ -39,6 +40,7 @@
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
+    <thingClass>Corruption.ItemEffigy</thingClass>
     <defName>EcclesiarchyIcon</defName>
     <label>Imperial Cult Icon</label>
     <description>An icon of the Adeptus Munitorum, the Imperial Cult. May fit nicely into a place of worship.</description>
@@ -74,6 +76,7 @@
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
+    <thingClass>Corruption.ItemEffigy</thingClass>
     <defName>Effigy_Chaos</defName>
     <label>Curious effigy</label>
     <description>A small item of worship in the shape of a eight-pointed star.</description>
@@ -108,6 +111,7 @@
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
+    <thingClass>Corruption.ItemEffigy</thingClass>
     <defName>Effigy_Khorne</defName>
     <label>Curious effigy</label>
     <description>A small item of worship in the shape of a horned giant.</description>
@@ -146,6 +150,7 @@
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
+    <thingClass>Corruption.ItemEffigy</thingClass>
     <defName>Effigy_Nurgle</defName>
     <label>Curious effigy</label>
     <description>A small item of worship in the shape of a giant, bloated creature.</description>
@@ -184,6 +189,7 @@
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
+    <thingClass>Corruption.ItemEffigy</thingClass>
     <defName>Effigy_Tzeentch</defName>
     <label>Curious effigy</label>
     <description>A small item of worship. Looks like some sort of arcane symbol.</description>
@@ -222,6 +228,7 @@
   </ThingDef>
   
   <ThingDef ParentName="ResourceBase">
+    <thingClass>Corruption.ItemEffigy</thingClass>
     <defName>Effigy_Slaanesh</defName>
     <label>Curious effigy</label>
     <description>A small item of worship. Looks like a hermaphrodite.</description>
@@ -254,7 +261,7 @@
       <li Class="Corruption.CompProperties_SoulItem">
         <compClass>Corruption.CompSoulItem</compClass>
         <Category>Corruption</Category>
-        <GainRate>10.0</GainRate>
+        <GainRate>100.0</GainRate>
       </li>
     </comps>
   </ThingDef>
