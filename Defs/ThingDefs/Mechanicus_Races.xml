@@ -314,7 +314,7 @@
         </capacities>
         <power>3</power>
         <cooldownTime>1.6</cooldownTime>
-        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <linkedBodyPartsGroup>ManipulatorBlade</linkedBodyPartsGroup>
         <surpriseAttack>
           <extraMeleeDamages>
             <li>

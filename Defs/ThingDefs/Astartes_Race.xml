@@ -97,16 +97,6 @@
           </extraMeleeDamages>
         </surpriseAttack>
       </li>
-      <li>
-        <label>head</label>
-        <capacities>
-          <li>Blunt</li>
-        </capacities>
-        <power>8</power>
-        <cooldownTime>1.8</cooldownTime>
-        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
-        <commonality>0.2</commonality>
-      </li>
     </tools>
 
     <race>

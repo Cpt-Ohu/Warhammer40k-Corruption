@@ -50,7 +50,7 @@
         </capacities>
         <power>20</power>
         <cooldownTime>1.6</cooldownTime>
-        <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <linkedBodyPartsGroup>FrontLeftClaws</linkedBodyPartsGroup>
         <surpriseAttack>
           <extraMeleeDamages>
             <li>
@@ -67,7 +67,7 @@
         </capacities>
         <power>20</power>
         <cooldownTime>1.6</cooldownTime>
-        <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+        <linkedBodyPartsGroup>FrontRightClaws</linkedBodyPartsGroup>
         <surpriseAttack>
           <extraMeleeDamages>
             <li>
