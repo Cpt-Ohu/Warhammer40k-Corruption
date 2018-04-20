@@ -26,7 +26,7 @@
     </graphicData>
     <projectile>
       <flyOverhead>false</flyOverhead>
-      <damageDef>Bullet</damageDef>
+      <damageDef>CutDarkEldar</damageDef>
       <damageAmountBase>2</damageAmountBase>
       <speed>65</speed>
     </projectile>

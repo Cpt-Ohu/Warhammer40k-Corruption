@@ -1145,13 +1145,16 @@ namespace OHUShips
             Scribe_Values.Look<int>(ref this.drawTickOffset, "drawTickOffset", 0, false);
             Scribe_Values.Look<int>(ref this.timeWaited, "timeWaited", 200, false);
 
-            
+            Scribe_Values.Look<Color>(ref this.Col1, "Col1", Color.red, false);
+            Scribe_Values.Look<Color>(ref this.Col2, "Col2", Color.gray, false);
+
             Scribe_References.Look(ref this.ParkingMap, "ParkingMap");
             Scribe_Values.Look<IntVec3>(ref this.ParkingPosition, "ParkingPosition", IntVec3.Zero , false);
 
 
 
             Scribe_Values.Look<bool>(ref this.DeepsaveTurrets, "DeepsaveTurrets", false, false);
+            this.assignedTurrets.RemoveAll(x => x == null);
             if (this.DeepsaveTurrets)
             {
                 Scribe_Collections.Look<Building_ShipTurret>(ref this.assignedTurrets, "assignedTurrets", LookMode.Deep, new object[0]);

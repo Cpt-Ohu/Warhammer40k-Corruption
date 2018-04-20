@@ -43,17 +43,10 @@
         <li Class="Corruption.IoM.JobGiver_FollowAndCorrupt"/>
                 <li Class="JobGiver_StandAndBeSociallyActive">
                   <ticksRange>
-                    <min>350</min>
-                    <max>750</max>
+                    <min>150</min>
+                    <max>200</max>
                   </ticksRange>
-                </li>
-            <li Class="ThinkNode_ConditionalRandom">
-              <chance>0.1</chance>
-              <subNodes>
-                
-              </subNodes>
-            </li>
-            
+                </li>            
             <!-- Wander -->
             <li Class="JobGiver_WanderColony">
               <ticksBetweenWandersRange>

@@ -11,6 +11,8 @@ namespace Corruption
     {
         public SoulItemCategories Category = SoulItemCategories.Neutral;
 
+        public PatronDef DedicatedGod;
+
         public List<PsykerPowerDef> UnlockedPsykerPowers = new List<PsykerPowerDef>();
 
         public List<VerbProperties_WarpPower> UnlockedPsykerVerbs;
@@ -22,7 +24,15 @@ namespace Corruption
             this.compClass = typeof(ThingComp_SoulItem);
         }
 
-        public bool IsHolyItem = false;
+        public override void ResolveReferences(ThingDef parentDef)
+        {
+            if (this.DedicatedGod == null)
+            {
+                this.DedicatedGod = PatronDefOf.Emperor;
+            }
+            base.ResolveReferences(parentDef);
+        }
 
+        public bool IsHolyItem = false;
     }
 }

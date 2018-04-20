@@ -57,14 +57,6 @@ namespace Corruption
   //          if (this.pawn.jobs.curJob == null) Log.Message("NoJob");
             this.AddFinishAction(() =>
             {
-                if (this.TargetA.HasThing)
-                {
-                    this.Map.reservationManager.Release(this.job.targetA.Thing, pawn, this.job);
-                }
-                else
-                {
-                    this.Map.reservationManager.Release(this.job.targetA.Cell, this.pawn, this.job);
-                }
                 BuildingAltar altar = this.TargetA.Thing as BuildingAltar;
                 altar.CalledInFlock = false;
                 SermonUtility.HoldSermonTickCheckEnd(this.pawn, altar);

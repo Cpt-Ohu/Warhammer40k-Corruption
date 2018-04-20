@@ -21,7 +21,8 @@ namespace FactionColors
 
             harmony.Patch(AccessTools.Method(typeof(Verse.PawnGraphicSet), "ResolveApparelGraphics", null), new HarmonyMethod(typeof(HarmonyPatches), "ResolveApparelGraphicsOriginal"), null);
             harmony.Patch(AccessTools.Method(typeof(Verse.PawnRenderer), "DrawEquipmentAiming"), new HarmonyMethod(typeof(HarmonyPatches), "DrawEquipmentAimingModded"), null);
-            harmony.Patch(AccessTools.Method(typeof(RimWorld.FactionGenerator), "GenerateFactionsIntoWorld"), null, new HarmonyMethod(typeof(HarmonyPatches), "GenerateFactionsIntoWorldPostFix"));
+
+            harmony.Patch(AccessTools.Method(typeof(RimWorld.ScenPart_PlayerFaction), "PostWorldGenerate"), null, new HarmonyMethod(typeof(HarmonyPatches), "PostWorldGeneratePlayerPostfix"), null);
             harmony.Patch(AccessTools.Method(typeof(RimWorld.Faction), "ExposeData"), null, new HarmonyMethod(typeof(HarmonyPatches), "ExposeFactionDataPostfix"));
             //harmony.Patch(AccessTools.Method(typeof(Verse.Root_Entry), "Update"), new HarmonyMethod(typeof(HarmonyPatches), "UpdatePrefix"), null);
         }
@@ -33,7 +34,7 @@ namespace FactionColors
             return true;
         }
 
-        public static void GenerateFactionsIntoWorldPostFix()
+        public static void PostWorldGeneratePlayerPostfix()
         {
             Log.Message("Generating PlayerFaction Story Tracker");
             PlayerFactionStoryTracker corrTracker = (PlayerFactionStoryTracker)WorldObjectMaker.MakeWorldObject(FactionColorsDefOf.PlayerFactionStoryTracker);

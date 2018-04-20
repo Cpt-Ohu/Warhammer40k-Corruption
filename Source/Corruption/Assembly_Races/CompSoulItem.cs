@@ -15,6 +15,8 @@ namespace Corruption
 
         public Pawn Owner = new Pawn();
 
+        public PatronDef DedicatedGod = PatronDefOf.Emperor;
+
         private Need_Soul soul;
 
         private bool PsykerPowerAdded = false;
@@ -77,7 +79,7 @@ namespace Corruption
             {
                 if (list[i].PowerLevel <= soul.PsykerPowerLevel)
                 {
-                    this.parent.TryGetComp<CompPsyker>().psykerPowerManager.AddPsykerPower(list[i]);
+                    this.parent.TryGetComp<CompPsyker>().PsykerPowerManager.AddPsykerPower(list[i]);
                 }
             }            
         }
@@ -119,6 +121,14 @@ namespace Corruption
                 }
                 this.randomCategoryResolved = true;
             }
+            if (this.SProps?.DedicatedGod != null)
+            {
+                this.DedicatedGod = this.SProps.DedicatedGod;
+            }
+            else
+            {
+                this.DedicatedGod = (this.itemCategory == SoulItemCategories.Corruption ? PatronDefOf.ChaosUndivided : PatronDefOf.Emperor);
+            }
         }
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -140,40 +150,48 @@ namespace Corruption
             if (this.parent != null && !this.parent.Spawned)
             {
                 //Log.Message("Begin Check");
-                if (this.parent is Apparel)
+
+
+                if (this.parent.holdingOwner != null)
                 {
-                    //             Log.Message("Soul item is Apparel");
-                    tempthing = this.parent as Apparel;
-                    this.Owner = tempthing.Wearer;
-                }
-                else if ((tempcomp = this.parent.TryGetComp<CompEquippable>()) != null)
-                {
-                    if (tempcomp.PrimaryVerb.CasterPawn != null)
+                    if (this.parent.holdingOwner != null)
                     {
-                        this.Owner = tempcomp.PrimaryVerb.CasterPawn;
-                    }
-                }
-                else if (this.parent.holdingOwner != null)
-                {
-                    if (this.parent.holdingOwner.Owner is Pawn_InventoryTracker)
-                    {
-                        Pawn_InventoryTracker tracker = this.parent.holdingOwner.Owner as Pawn_InventoryTracker;
-                        if (tracker.pawn != null)
+                        if (this.parent.holdingOwner.Owner is Pawn_EquipmentTracker)
                         {
-                            Log.Message("FoundInventory");
-                            this.Owner = tracker.pawn;
+                            Pawn_EquipmentTracker tracker = this.parent.holdingOwner.Owner as Pawn_EquipmentTracker;
+                            if (tracker.ParentHolder != null)
+                            {
+                                this.Owner = tracker.ParentHolder as Pawn;
+                            }
+                        }
+                        else if (this.parent.holdingOwner.Owner is Pawn_ApparelTracker)
+                        {
+                            Pawn_ApparelTracker tracker = this.parent.holdingOwner.Owner as Pawn_ApparelTracker;
+                            if (tracker.pawn != null)
+                            {
+                                this.Owner = tracker.pawn;
+                            }
+                        }
+                        if (this.parent.holdingOwner.Owner is Pawn_InventoryTracker)
+                        {
+                            Pawn_InventoryTracker tracker = this.parent.holdingOwner.Owner as Pawn_InventoryTracker;
+                            if (tracker.pawn != null)
+                            {
+                                this.Owner = tracker.pawn;
+                            }
+                        }
+                        else if (this.parent.holdingOwner.Owner is Pawn_CarryTracker)
+                        {
+                            Pawn_CarryTracker tracker = this.parent.holdingOwner.Owner as Pawn_CarryTracker;
+                            if (tracker.pawn != null)
+                            {
+                                this.Owner = tracker.pawn;
+                            }
                         }
                     }
-                    if (this.parent.holdingOwner.Owner is Pawn_CarryTracker)
-                    {
-                        Pawn_CarryTracker tracker = this.parent.holdingOwner.Owner as Pawn_CarryTracker;
-                        if (tracker.pawn != null)
-                        {
-                            this.Owner = tracker.pawn;
-                        }
-                    }
                 }
-                if ((this.Owner != null))
+
+                if (this.Owner != null)
                 {
                     if ((soul = this.Owner.needs.TryGetNeed<Need_Soul>()) != null)
                     {
@@ -191,7 +209,7 @@ namespace Corruption
                                         if (soul.PsykerPowerLevel >= SProps.UnlockedPsykerPowers[i].PowerLevel)
                                         {
                                             //    Log.Message("Adding Power to: " + compPsyker.psyker + " : " + SProps.UnlockedPsykerPowers[i].defName);
-                                            compPsyker.allpsykerPowers.Add(new PsykerPowerEntry(SProps.UnlockedPsykerPowers[i], true, this.parent.def));
+                                            compPsyker.PsykerPowerManager.AddPsykerPower(SProps.UnlockedPsykerPowers[i], true, this.parent.def);
                                         }
                                     }
                                     compPsyker.UpdatePowers();
@@ -266,6 +284,7 @@ namespace Corruption
             Scribe_Values.Look<bool>(ref this.PsykerPowerAdded, "PsykerPowerAdded", false, false);
             Scribe_Values.Look<bool>(ref this.randomCategoryResolved, "randomCategoryResolved", false, false);
             Scribe_Values.Look<string>(ref this.OverlayPath, "OverlayPath", "", false);
+            Scribe_Defs.Look<PatronDef>(ref this.DedicatedGod, "DedicatedGod");
             Scribe_Values.Look<SoulItemCategories>(ref this.itemCategory, "itemCategory", SoulItemCategories.Neutral, false);
 
         }

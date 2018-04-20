@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <Corruption.Worship.Wonders.WonderDef>
+    <defName>Pilgrimage</defName>
+    <label>Pilgrimage</label>
+    <description>Send Pawns on a quest in your patron's name. They may find relics, allies, or death.</description>
+    <workerClass>Corruption.Worship.Wonders.WonderWorker_Pilgrimage</workerClass>
+    <WonderIconPath>UI/Wonders/WonderGiftMaterials</WonderIconPath>
+    <worshipCost>0</worshipCost>
+  </Corruption.Worship.Wonders.WonderDef>
+
+</Defs>

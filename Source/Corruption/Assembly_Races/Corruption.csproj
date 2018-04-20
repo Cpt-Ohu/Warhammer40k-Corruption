@@ -98,6 +98,7 @@
     <Compile Include="DefOfs\C_DesignationCategoryDefOf.cs" />
     <Compile Include="DefOfs\C_MapGeneratorDefOf.cs" />
     <Compile Include="DefOfs\C_TraderKindDefs.cs" />
+    <Compile Include="Dialog_LearnPsykerPower.cs" />
     <Compile Include="Domination\AllianceWarEffort.cs" />
     <Compile Include="Domination\BattleResult.cs" />
     <Compile Include="Domination\BattleSize.cs" />
@@ -116,11 +117,18 @@
     <Compile Include="Domination\LordToil_GoIntoBattle.cs" />
     <Compile Include="Domination\PoliticalAlliance.cs" />
     <Compile Include="EquipmentAbility.cs" />
+    <Compile Include="PatronDef.cs" />
+    <Compile Include="PatronDefOf.cs" />
+    <Compile Include="IoM\MechanicumTrader.cs" />
+    <Compile Include="Servitors\HediffCompProperties_ReprogramServitor.cs" />
     <Compile Include="HediffComp_TurnAstartes.cs" />
+    <Compile Include="IoM\IncidentWorker_VisitingCultist.cs" />
+    <Compile Include="IoM\IncidentWorker_VisitingTauEnvoy.cs" />
     <Compile Include="IoM\IoMChatType.cs" />
     <Compile Include="IoM\IoM_StoryUtilities.cs" />
     <Compile Include="IoM\JobDriver_MiracleHeal.cs" />
     <Compile Include="IoM\JobDriver_WanderAndChat.cs" />
+    <Compile Include="IoM\StockGenerator_CorruptedItems.cs" />
     <Compile Include="JobDriver_ServitorIdle.cs" />
     <Compile Include="JobGiver_AICastPsykerPower.cs" />
     <Compile Include="IoM\JobGiver_FollowAndChat.cs" />
@@ -134,6 +142,7 @@
     <Compile Include="IoM\StockGenerator_Effigy.cs" />
     <Compile Include="PawnKillTracker.cs" />
     <Compile Include="Projectile_Smoking.cs" />
+    <Compile Include="Servitors\HediffComp_ReprogramServitors.cs" />
     <Compile Include="ThoughtWorker_Khornate.cs" />
     <Compile Include="WorkGiver_RefuelServitor.cs" />
     <Compile Include="Worship\BuildingAltar.cs" />
@@ -213,7 +222,6 @@
     <Compile Include="Window_CCMBase.cs" />
     <Compile Include="Dialog_RenameTemple.cs" />
     <Compile Include="ChaosFollowerPawnKindDef.cs" />
-    <Compile Include="ChaosGods.cs" />
     <Compile Include="AfflictionProperty.cs" />
     <Compile Include="CompProperties_SoulItem.cs" />
     <Compile Include="GodThoughtDefOf.cs" />
@@ -222,8 +230,21 @@
     <Compile Include="HediffComp_NurglesRot.cs" />
     <Compile Include="HediffComp_TemporaryRecruit.cs" />
     <Compile Include="IncidentWorker_CorruptiveDrone.cs" />
+    <Compile Include="Worship\CompProperties_Pilgrimage.cs" />
     <Compile Include="Worship\CompProperties_Shrine.cs" />
     <Compile Include="Worship\CompShrine.cs" />
+    <Compile Include="Worship\Dialog_FormAndSendPilgrims.cs" />
+    <Compile Include="Worship\Wonders\IncidentWorker_GrowingFlock.cs" />
+    <Compile Include="Worship\PilgrimageComp.cs" />
+    <Compile Include="Worship\Wonders\GameCondition_EmperorPositive.cs" />
+    <Compile Include="Worship\Wonders\IncidentWorker_KhorneFrenzy.cs" />
+    <Compile Include="Worship\Wonders\IncidentWorker_NurgleBreath.cs" />
+    <Compile Include="Worship\Wonders\IncidentWorker_SlaaneshOrgy.cs" />
+    <Compile Include="Worship\Wonders\WonderWorker_AddHediff.cs" />
+    <Compile Include="Worship\Wonders\WonderWorker_AddSpecialTrait.cs" />
+    <Compile Include="Worship\Wonders\WonderWorker_Pilgrimage.cs" />
+    <Compile Include="Worship\Wonders\WonderWorker_StartMentalState.cs" />
+    <Compile Include="Worship\Wonders\WonderWorker_Targetable.cs" />
     <Compile Include="Worship\ITab_Altar.cs" />
     <Compile Include="ITab_IGCommsConsole.cs" />
     <Compile Include="ITab_Pawn_Alignment.cs" />
@@ -246,7 +267,6 @@
     <Compile Include="MentalState_KhorneKillWeak.cs" />
     <Compile Include="Need_Soul.cs" />
     <Compile Include="OtherGods.cs" />
-    <Compile Include="PatronInfo.cs" />
     <Compile Include="ProjectileDef_WarpPower.cs" />
     <Compile Include="Projectile_AoE.cs" />
     <Compile Include="Projectile_Elemental.cs" />
@@ -310,6 +330,12 @@
     <Compile Include="Worship\JobGiver_HoldSermon.cs" />
     <Compile Include="Worship\LordJob_Sermon.cs" />
     <Compile Include="Worship\LordToil_StartSermom.cs" />
+    <Compile Include="Worship\Wonders\WonderDef.cs" />
+    <Compile Include="Worship\Wonders\WonderWorker_HealAllPawns.cs" />
+    <Compile Include="Worship\Wonders\WonderWorker_SpawnThing.cs" />
+    <Compile Include="Worship\Wonders\WonderWorker.cs" />
+    <Compile Include="Worship\Wonders\WonderWorker_FireIncident.cs" />
+    <Compile Include="Worship\WorshipActType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="xml\Initializer.xml">
@@ -324,6 +350,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="IoM\Favours\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

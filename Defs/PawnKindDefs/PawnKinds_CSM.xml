@@ -8,7 +8,7 @@
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
     <backstoryCategory>Astartes</backstoryCategory>
-    <defaultFactionType>ChaosCult</defaultFactionType>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
     <itemQuality>Good</itemQuality>
@@ -72,7 +72,7 @@
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
     <backstoryCategory>Astartes</backstoryCategory>
-    <defaultFactionType>ChaosCult</defaultFactionType>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
     <itemQuality>Good</itemQuality>
@@ -136,7 +136,7 @@
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
     <backstoryCategory>Astartes</backstoryCategory>
-    <defaultFactionType>ChaosCult</defaultFactionType>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
     <itemQuality>Good</itemQuality>
@@ -199,7 +199,7 @@
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
     <backstoryCategory>Astartes</backstoryCategory>
-    <defaultFactionType>ChaosCult</defaultFactionType>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
     <itemQuality>Legendary</itemQuality>

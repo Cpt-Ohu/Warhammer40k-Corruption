@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <Corruption.Worship.Wonders.WonderDef>
+    <defName>KhornePredators</defName>
+    <label>Predators</label>
+    <description>Khorne sends in a pack of savage beasts</description>
+    <workerClass>Corruption.Worship.Wonders.WonderWorker_FireIncident</workerClass>
+    <WonderIconPath>UI/Wonders/WonderGiftMaterials</WonderIconPath>
+    <worshipCost>300</worshipCost>
+    <Incident>ManhunterPack</Incident>
+    <IncidentPoints>3000</IncidentPoints>
+  </Corruption.Worship.Wonders.WonderDef>
+  
+    <Corruption.Worship.Wonders.WonderDef>
+    <defName>KhorneBerserker</defName>
+    <label>Challenge</label>
+    <description>Khorne challenges the selected individual. It will become a raging berserker, almost immune to pain and deadly in melee.</description>
+    <workerClass>Corruption.Worship.Wonders.WonderWorker_AddHediff</workerClass>
+    <WonderIconPath>UI/Wonders/WonderKhorneFrenzy</WonderIconPath>
+    <worshipCost>1000</worshipCost>
+	    <HediffsToAdd>
+		<li>KhorneBerserkerTrance</li>
+	</HediffsToAdd>
+  </Corruption.Worship.Wonders.WonderDef>
+  
+  <Corruption.Worship.Wonders.WonderDef>
+    <defName>KhorneFrenzy</defName>
+    <label>Frenzy</label>
+    <description>Khorne turns all living creatures against one another to determine the strongest.</description>
+    <workerClass>Corruption.Worship.Wonders.WonderWorker_FireIncident</workerClass>
+    <WonderIconPath>UI/Wonders/WonderKhorneFrenzy</WonderIconPath>
+    <worshipCost>5000</worshipCost>
+    <Incident>KhorneFrenzy</Incident>
+    <IncidentPoints>3000</IncidentPoints>
+  </Corruption.Worship.Wonders.WonderDef>
+  
+  <Corruption.Worship.Wonders.WonderDef>
+    <defName>KhorneTurnChampion</defName>
+    <label>Champion of Khorne</label>
+    <description>The selected pawn was chosen by Khorne to be a great warrior.</description>
+    <workerClass>Corruption.Worship.Wonders.WonderWorker_AddSpecialTrait</workerClass>
+    <WonderIconPath>UI/Wonders/WonderSaint</WonderIconPath>
+    <worshipCost>10000</worshipCost>
+    <SpecialSoulTrait>KhorneChampion</SpecialSoulTrait>
+  </Corruption.Worship.Wonders.WonderDef>
+
+
+</Defs>

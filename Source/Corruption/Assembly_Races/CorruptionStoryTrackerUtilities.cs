@@ -38,13 +38,35 @@ namespace Corruption
         public static string BuffNegGraphicPath = "UI/Psyker/BuffNegative";
         public static string BuffPosGraphicPath = "UI/Psyker/BuffPositive";
 
+
+
+        public static readonly Texture2D BackgroundTile = ContentFinder<Texture2D>.Get("UI/Background/SoulmeterTile", true);
+        public static readonly Texture2D SoulmeterProgressTex = SolidColorMaterials.NewSolidColorTexture(new Color(0.7f, 0.0f, 0.0f));
+        public static readonly Texture2D TransparentBackground = SolidColorMaterials.NewSolidColorTexture(new Color(0f, 0f, 0f, 0f));
+        public static readonly Texture2D SoulNode = ContentFinder<Texture2D>.Get("UI/Background/SoulmeterNode", true);
+        public static readonly Texture2D SoulNodeBG = ContentFinder<Texture2D>.Get("UI/Background/SoulmeterNodeBG", true);
+        public static readonly Texture2D SoulNodePure = ContentFinder<Texture2D>.Get("UI/Background/SoulmeterNodePure", true);
+        public static readonly Texture2D SoulNodeIntrigued = ContentFinder<Texture2D>.Get("UI/Background/SoulmeterNodeIntrigued", true);
+        public static readonly Texture2D SoulNodeWarptouched = ContentFinder<Texture2D>.Get("UI/Background/SoulmeterNodeWarptouched", true);
+        public static readonly Texture2D SoulNodeTainted = ContentFinder<Texture2D>.Get("UI/Background/SoulmeterNodeTainted", true);
+        public static readonly Texture2D SoulNodeCorrupted = ContentFinder<Texture2D>.Get("UI/Background/SoulmeterNodeCorrupted", true);
+        public static readonly Texture2D SoulNodeLost = ContentFinder<Texture2D>.Get("UI/Background/SoulmeterNodeLost", true);
+        public static readonly Texture2D BorderWorship = ContentFinder<Texture2D>.Get("UI/Background/BorderWorship", true);
+        public static readonly Texture2D BorderPsyker = ContentFinder<Texture2D>.Get("UI/Background/BorderPsyker", true);
+
+
+        public static float DiscoverAlignmentByChatModifier = -0.3f;
+        public static float DiscoverAlignmentByPsykerModifier = 0.5f;
+        public static float DiscoverAlignmentByConfessionModifier = -0.2f;
+
+
         public static bool ImperialInstitutionsSelected = true;
 
         public static CorruptionStoryTracker currentStoryTracker
         {
             get
             {
-                return Find.WorldObjects.AllWorldObjects.FirstOrDefault(x => x.def == C_WorldObjectDefOf.CorruptionStoryTracker) as CorruptionStoryTracker;
+                return Find.World.GetComponent<CorruptionStoryTracker>();
             }
         }
 
@@ -530,6 +552,78 @@ namespace Corruption
                 typeof(ThingWithComps).GetField("comps", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(pawn, list);
             }
         }
+
+        public static void ConsumeFavour(int amount, PatronDef god)
+        {
+            currentStoryTracker.PlayerWorshipProgressLookup[god] -= amount;
+            if (currentStoryTracker.PlayerWorshipProgressLookup[god] <= 0)
+            {
+                currentStoryTracker.PlayerWorshipProgressLookup[god] = 1;
+            }
+
+        }
+
+        public static bool PlayerIsIoM
+        {
+            get
+            {
+                return Faction.OfPlayer.def == C_FactionDefOf.IoM_PlayerFaction;
+            }
+        }
+
+        public static bool PlayerIsChaos
+        {
+            get
+            {
+                return Faction.OfPlayer.def == C_FactionDefOf.ChaosCult_Player;
+            }
+        }
+
+        public static int SocialSkillDifference(Pawn first, Pawn second)
+        {
+            int firstSkill = first.skills.GetSkill(SkillDefOf.Social).levelInt;
+            int secondSkill = second.skills.GetSkill(SkillDefOf.Social).levelInt;
+
+            return firstSkill - secondSkill;
+        }
+
+        public static int PsykerPowerDifference(Pawn first, Pawn second)
+        {
+            Need_Soul soulFirst = GetPawnSoul(first);
+            Need_Soul soulSecond = GetPawnSoul(second);
+            return (int)(soulFirst?.PsykerPowerLevel - soulSecond?.PsykerPowerLevel);
+        }
+        
+        public static string AlignmentDiscoveryPsykerSuccessChance(Pawn psyker, Pawn target)
+        {
+            return "";
+        }
+
+        public static bool IsPreacher(Pawn pawn, out BuildingAltar altar)
+        {
+            List<Map> maps = Find.Maps;
+            for (int i = 0; i < maps.Count; i++)
+            {
+                if (maps[i].IsPlayerHome)
+                {
+                    foreach (Building b in maps[i].listerBuildings.allBuildingsColonist)
+                    {
+                        BuildingAltar potentialAltar = b as BuildingAltar;
+                        if (potentialAltar != null)
+                        {
+                            if (potentialAltar.preacher == pawn)
+                            {
+                                altar = potentialAltar;
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+            altar = null;
+            return false;
+        }
+        
     }
 
 }

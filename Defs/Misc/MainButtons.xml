@@ -4,7 +4,7 @@
   <MainButtonDef>
     <defName>Worship</defName>
     <label>worship</label>
-    <tabWindowClass>MainTabWindow_Inspect</tabWindowClass>
+    <tabWindowClass>Corruption.Worship.MainTabWindow_Worship</tabWindowClass>
 
   </MainButtonDef>
   

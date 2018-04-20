@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+  <Corruption.PatronDef>
+    <defName>Emperor</defName>
+    <label>Emperor</label>
+    <description>The Emperor of Mankind is the sovereign of the Imperium of Man, and Father, Guardian, and God of the human race. He has sat immobile within the Golden Throne of Terra for ten thousand years.</description>
+    <TexturePath>UI/Emperor_bg</TexturePath>
+    <SmallTexturePath>UI/Emperor_bg</SmallTexturePath>
+    <MainColor>(0.93, 0.78, 0.19)</MainColor>
+    <PatronTraits>
+	<li>EMPEROR_Hope</li>
+    </PatronTraits>
+    <PsykerPowers>
+	<li>PsykerPower_DivinePronouncement</li>
+	<li>PsykerPower_Purgatus</li>
+	<li>PsykerPower_WarpBolt</li>
+	<li>PsykerPower_Scourging</li>
+    </PsykerPowers>
+    <Wonders>
+	<li>EmperorPilgrimage</li>	
+	<li>EmperorGiftRessources</li>
+	<li>EmperorWandererJoin</li>
+	<li>EmperorGiftFood</li>
+	<li>EmperorHealAll</li>
+	<li>EmperorTurnSaint</li>
+    </Wonders>
+  </Corruption.PatronDef>
+
+  <Corruption.PatronDef>
+    <defName>ChaosUndivided</defName>
+    <label>Chaos Undivided</label>
+    <IsChaosGod>True</IsChaosGod>
+    <TexturePath>UI/Undivided_bg</TexturePath>
+    <SmallTexturePath>UI/Undivided_bg</SmallTexturePath>
+    <WorshipBarPath>UI/Background/WorshipBarUndivided</WorshipBarPath>
+    <MainColor>(1.0, 1.0, 1.0)</MainColor>
+    <PatronTraits>
+	<li>Undivided_Fervor</li>
+    </PatronTraits>
+    <PsykerPowers>
+	<li>PsykerPower_DoomBolt</li>
+    </PsykerPowers>
+  </Corruption.PatronDef>
+
+  <Corruption.PatronDef>
+    <defName>Khorne</defName>
+    <label>Khorne</label>
+    <IsChaosGod>True</IsChaosGod>
+    <TexturePath>UI/Khorne_bg</TexturePath>
+    <SmallTexturePath>UI/Khorne_bg</SmallTexturePath>
+    <WorshipBarPath>UI/Background/WorshipBarKhorne</WorshipBarPath>
+    <MainColor>(0.7, 0.0, 0.0)</MainColor>
+    <PatronTraits>
+	<li>Khorne_Fervor</li>
+    </PatronTraits>
+	
+    <Wonders>
+	<li>KhornePredators</li>
+	<li>KhorneBerserker</li>		
+	<li>KhorneFrenzy</li>
+	<li>KhorneTurnChampion</li>
+    </Wonders>
+  </Corruption.PatronDef>
+
+  <Corruption.PatronDef>
+    <defName>Nurgle</defName>
+    <label>Nurgle</label>
+    <IsChaosGod>True</IsChaosGod>
+    <TexturePath>UI/Nurgle_bg</TexturePath>
+    <SmallTexturePath>UI/Nurgle_bg</SmallTexturePath>
+    <WorshipBarPath>UI/Background/WorshipBarNurgle</WorshipBarPath>
+    <MainColor>(0.43, 0.78, 0.43)</MainColor>
+    <PatronTraits>
+	<li>Nurgle_Fervor</li>
+    </PatronTraits>
+	
+    <Wonders>
+	<li>NurgleBreath</li>
+	<li>NurgleRot</li>
+	<li>NurgleTurnChampion</li>
+    </Wonders>
+  </Corruption.PatronDef>
+
+  <Corruption.PatronDef>
+    <defName>Tzeentch</defName>
+    <label>Tzeentch</label>
+    <IsChaosGod>True</IsChaosGod>
+    <TexturePath>UI/Tzeentch_bg</TexturePath>
+    <SmallTexturePath>UI/Tzeentch_bg</SmallTexturePath>
+    <WorshipBarPath>UI/Background/WorshipBarTzeentch</WorshipBarPath>
+    <MainColor>(0.42, 0.7, 1.0)</MainColor>
+    <PatronTraits>
+	<li>Tzeentch_Fervor</li>
+    </PatronTraits>
+    <PsykerPowers>
+	<li>PsykerPower_DoomBolt</li>
+    </PsykerPowers>
+
+  </Corruption.PatronDef>
+
+  <Corruption.PatronDef>
+    <defName>Slaanesh</defName>
+    <label>Slaanesh</label>
+    <TexturePath>UI/Slaanesh_bg</TexturePath>
+    <SmallTexturePath>UI/Slaanesh_bg</SmallTexturePath>
+    <WorshipBarPath>UI/Background/WorshipBarSlaanesh</WorshipBarPath>
+    <MainColor>(1.0, 0.5, 1.0)</MainColor>
+    <PatronTraits>
+	<li>Slaanesh_Fervor</li>
+    </PatronTraits>
+    <Wonders>
+	<li>SlaaneshOrgy</li>
+    </Wonders>	
+	
+  </Corruption.PatronDef>
+
+  <Corruption.PatronDef>
+    <defName>GorkMork</defName>
+    <label>Gork and Mork</label>
+    <TexturePath>UI/Orks_bg</TexturePath>
+    <SmallTexturePath>UI/Orks_bg</SmallTexturePath>
+    <MainColor>(0.0, 0.9, 0.0)</MainColor>
+    <PatronTraits>
+	<li>ORK_Brutality</li>
+    </PatronTraits>
+  </Corruption.PatronDef>
+
+  <Corruption.PatronDef>
+    <defName>Ynnead</defName>
+    <label>Ynnead</label>
+    <TexturePath>UI/Eldar_bg</TexturePath>
+    <SmallTexturePath>UI/Eldar_bg</SmallTexturePath>
+    <WorshipBarPath>UI/Background/WorshipBarYnnead</WorshipBarPath>
+    <MainColor>(0.42, 0.08, 0.42)</MainColor>
+    <PatronTraits>
+	<li>ELDAR_mastery</li>
+    </PatronTraits>
+    <PsykerPowers>
+	<li>PsykerPower_EldritchBolt</li>
+	<li>PsykerPower_EldrithChainLightning</li>
+	<li>PsykerPower_EldritchThunderstorm</li>
+    </PsykerPowers>
+
+  </Corruption.PatronDef>
+
+  <Corruption.PatronDef>
+    <defName>DrukhariAtheism</defName>
+    <label>Drukhari Atheism</label>
+    <TexturePath>UI/DarkEldar_bg</TexturePath>
+    <SmallTexturePath>UI/DarkEldar_bg</SmallTexturePath>
+    <MainColor>(0.32, 0.08, 0.32)</MainColor>
+    <PatronTraits>
+	<li>DE_Depravity</li>
+    </PatronTraits>
+  </Corruption.PatronDef>
+
+
+  <Corruption.PatronDef>
+    <defName>GreaterGood</defName>
+    <label>Greater Good</label>
+    <TexturePath>UI/Tau_bg</TexturePath>
+    <SmallTexturePath>UI/Tau_bg</SmallTexturePath>
+    <MainColor>(1.0, 0.61, 0.0)</MainColor>
+    <PatronTraits>
+	<li>TAU_Philosophy</li>
+    </PatronTraits>
+  </Corruption.PatronDef>
+
+  <Corruption.PatronDef>
+    <defName>Ctan</defName>
+    <label>Ctan</label>
+    <TexturePath>UI/Tau_bg</TexturePath>
+    <SmallTexturePath>UI/Tau_bg</SmallTexturePath>
+    <MainColor>(1.0, 0.61, 0.0)</MainColor>
+    <PatronTraits>
+	<li>EMPEROR_Hope</li>
+    </PatronTraits>
+  </Corruption.PatronDef>
+
+</Defs>

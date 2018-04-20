@@ -37,17 +37,13 @@ namespace Corruption.IoM
         protected override IEnumerable<Toil> MakeNewToils()
         {
             this.FailOnDespawnedOrNull(TargetIndex.A);
-            this.FailOnMentalState(TargetIndex.A);
             this.FailOnNotAwake(TargetIndex.A);
             this.FailOn(() => IoM_StoryUtilities.PawnInPrivateQuarters(Talkee));
-            yield return Toils_Reserve.Reserve(TargetIndex.A, 1);
-            yield return Toils_InterpersonalToilsIoM.GotoPawn(this.pawn, this.Talkee, this.Talkee.guest.interactionMode);
-            yield return Toils_Interpersonal.WaitToBeAbleToInteract(this.pawn);
-            yield return Toils_InterpersonalToilsIoM.ChatToPawn(this.pawn, this.Talkee, ChatType);
 
             for (int i = 0; i < Rand.Range(2, 5); i++)
             {
                 yield return Toils_InterpersonalToilsIoM.GotoPawn(this.pawn, this.Talkee, PrisonerInteractionModeDefOf.Chat);
+                yield return Toils_Interpersonal.WaitToBeAbleToInteract(this.pawn);
                 yield return Toils_InterpersonalToilsIoM.ChatToPawn(this.pawn, this.Talkee, ChatType);
             }
 
@@ -56,6 +52,7 @@ namespace Corruption.IoM
             {
                 yield return Toils_Interpersonal.TryRecruit(TargetIndex.A);
             }
+            this.AddFinishAction(delegate { Toils_InterpersonalToilsIoM.PerformPostChatActions(pawn, Talkee, ChatType); });
         }
 
         public override void ExposeData()
@@ -66,7 +63,8 @@ namespace Corruption.IoM
 
         public override bool TryMakePreToilReservations()
         {
-            return this.pawn.Reserve(this.job.targetA, this.job, 1, -1, null);
+            return true;
+            //return this.pawn.Reserve(this.job.targetA, this.job, 1, -1, null);
         }
     }
 

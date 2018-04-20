@@ -66,7 +66,7 @@ namespace Corruption
                     if (!HeldSermon)
                     {
                 //        Log.Message("starting morning sermon");
-                        SermonUtility.ForceSermon(this);
+                        SermonUtility.ForceSermon(this, Worship.WorshipActType.MorningPrayer);
                         this.HeldSermon = true;
                     }
                 }
@@ -78,7 +78,7 @@ namespace Corruption
                 {
                     if (!HeldSermon)
                     {
-                        SermonUtility.ForceSermon(this);
+                        SermonUtility.ForceSermon(this, Worship.WorshipActType.EveningPrayer);
                         this.HeldSermon = true;
                     }
                 }

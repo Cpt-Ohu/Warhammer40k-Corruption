@@ -68,3 +68,13 @@ D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-A18\Sourc
 D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-A18\Source\FactionCOlors\Assembly_Races\obj\Debug\FactionColors.dll
 D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-A18\Assemblies\FactionColors.dll.config
 D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-A18\Assemblies\FactionColors.dll
+D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Source\FactionCOlors\Assembly_Races\obj\Debug\FactionColors.csproj.CoreCompileInputs.cache
+D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Source\FactionCOlors\Assembly_Races\obj\Debug\FactionColors.dll
+D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Assemblies\FactionColors.dll.config
+D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Assemblies\FactionColors.dll
+D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Source\FactionCOlors\Assembly_Races\obj\Debug\FactionColors.csprojResolveAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Assemblies\FactionColors.dll.config
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Assemblies\FactionColors.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Source\FactionCOlors\Assembly_Races\obj\Debug\FactionColors.csprojResolveAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Source\FactionCOlors\Assembly_Races\obj\Debug\FactionColors.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Source\FactionCOlors\Assembly_Races\obj\Debug\FactionColors.dll

@@ -40,7 +40,7 @@ namespace Corruption.Worship
                 if (soul != null)
                 {
                     float num = 0.005f;
-                    if (soul.NoPatron)
+                    if (soul.NotCorrupted)
                     {
                         num *= -1f * Rand.Range(0.5f, 1);
                     }

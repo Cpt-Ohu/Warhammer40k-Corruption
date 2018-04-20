@@ -38,9 +38,9 @@
     <techHediffsChance>0.9</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>Ynnead</Patron>
       <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Eldar</IsofFaith>
       <LowerAfflictionLimit>0.5</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.8</UpperAfflictionLimit>
       <CommonSoulTrait>DE_Depravity</CommonSoulTrait>
@@ -84,9 +84,9 @@
     <techHediffsChance>0.9</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>Ynnead</Patron>
       <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Eldar</IsofFaith>
       <LowerAfflictionLimit>0.5</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.8</UpperAfflictionLimit>
       <CommonSoulTrait>DE_Depravity</CommonSoulTrait>

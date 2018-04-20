@@ -224,7 +224,8 @@
       <researchPrerequisite>Xenotech_Eldar</researchPrerequisite>
     </recipeMaker>
     <graphicData>
-      <texPath>Things/Eldar/Armor/Warlock_Helmet_Icon</texPath>
+      <texPath>Things/Eldar/Warlock/Warlock_Helmet/Warlock_HelmetA</texPath>
+  		 <shaderType>CutoutComplex</shaderType>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <tradeability>Sellable</tradeability>
@@ -254,7 +255,7 @@
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <wornGraphicPath>Things/Eldar/Armor/Warlock_Helmet</wornGraphicPath>
+      <wornGraphicPath>Things/Eldar/Warlock/Warlock_Helmet</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
@@ -276,26 +277,20 @@
     <comps>
       <li Class="FactionColors.CompProperties_FactionColor">
         <compClass>FactionColors.CompFactionColor</compClass>
+        <IsRandomMultiGraphic>true</IsRandomMultiGraphic>
+      	<RandomGraphicPaths>
+        		<li>
+ 	       		<first>Warlock_HelmetA</first> 	       					<second>10</second>
+			</li>
+        		<li>
+ 	       		<first>Warlock_HelmetB</first> 	       				<second>10</second>
+			</li>
+        		<li>
+ 	       		<first>Warlock_HelmetC</first> 	       				<second>10</second>
+			</li>
+      	</RandomGraphicPaths>
       </li>
-      <li Class="FactionColors.ApparelDetailProps">
-        <compClass>FactionColors.ApparelDetailDrawer</compClass>
-        <DetailChance>0.9</DetailChance>
-	   <IsHeadDetail>true</IsHeadDetail>
-	   <ApparelDetails>
-		<li>
-			<DetailGraphicPath>Things/Eldar/Details/HornVarOne</DetailGraphicPath>					<Commonality>10</Commonality>
-			<FactionTag>EldarWarhost</FactionTag>
-		</li>
-		<li>
-			<DetailGraphicPath>Things/Eldar/Details/WingVarOne</DetailGraphicPath>					<Commonality>10</Commonality>
-			<FactionTag>EldarWarhost</FactionTag>			
-		</li>
-		<li>
-			<DetailGraphicPath>Things/Eldar/Details/HornBackOne</DetailGraphicPath>					<Commonality>10</Commonality>
-			<FactionTag>EldarWarhost</FactionTag>
-		</li>
-	   </ApparelDetails>
-      </li>
+
     </comps>
   </ThingDef>
 

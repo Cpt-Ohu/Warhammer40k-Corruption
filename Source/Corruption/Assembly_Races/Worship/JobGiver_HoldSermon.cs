@@ -36,9 +36,13 @@ namespace Corruption.Worship
                     }
                     if (chair != null)
                     {
-                        return new Job(C_JobDefOf.AttendSermon, lordJob.Preacher, lordJob.altar, chair);
+                        Job attendJobChair = new Job(C_JobDefOf.AttendSermon, lordJob.Preacher, lordJob.altar, chair);
+                        attendJobChair.locomotionUrgency = LocomotionUrgency.Jog;
+                        return attendJobChair;
                     }
-                    return new Job(C_JobDefOf.AttendSermon, lordJob.Preacher, lordJob.altar, result);
+                    Job attendJob = new Job(C_JobDefOf.AttendSermon, lordJob.Preacher, lordJob.altar);
+                    attendJob.locomotionUrgency = LocomotionUrgency.Jog;
+                    return attendJob;
                 }
             }
             return null;

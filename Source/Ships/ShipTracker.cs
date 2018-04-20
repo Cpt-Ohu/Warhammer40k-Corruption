@@ -69,6 +69,7 @@ namespace OHUShips
         public void RemoveShip(ShipBase ship)
         {
             this.AllWorldShips.Remove(ship);
+            this.AllWorldShips.RemoveAll(x => x == null);
         }
 
         public List<ShipBase> PlayerShips

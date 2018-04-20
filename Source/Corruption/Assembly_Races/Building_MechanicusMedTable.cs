@@ -228,6 +228,14 @@ namespace Corruption
             pawn.Name = this.patient.Name;            
             this.patient.apparel.GetDirectlyHeldThings().TryTransferAllToContainer(pawn.apparel.GetDirectlyHeldThings());
             this.patient.Destroy(DestroyMode.Vanish);
+            foreach (SkillDef current in DefDatabase<SkillDef>.AllDefs)
+            {
+                SkillRecord skill = pawn.skills.GetSkill(current);
+                skill.Level = 0;
+                skill.passion = Passion.None;
+            }
+
+
             this.TryAcceptThing(pawn);
         }
 

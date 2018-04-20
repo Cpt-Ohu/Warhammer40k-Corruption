@@ -1,0 +1,12 @@
+<Patch>
+
+	<Operation Class="PatchOperationInsert">
+	  <xpath>*/WorldObjectDef[defName="Caravan"]/defName</xpath>
+	  <value>
+	      <comps>
+      <li Class="Corruption.Worship.WorldObjectCompProperties_Pilgrimage" />
+    </comps>
+	  </value>
+	</Operation> 
+
+</Patch>

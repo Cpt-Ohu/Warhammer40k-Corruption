@@ -12,6 +12,9 @@
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>8000</maxGenerationAge>
     <itemQuality>Excellent</itemQuality>
+	    <apparelRequired>
+	 <li>Eldar_PowerArmor</li>
+    </apparelRequired>
     <apparelMoney>
       <min>900000</min>
       <max>1000000</max>
@@ -38,9 +41,9 @@
     <techHediffsChance>0.3</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>Ynnead</Patron>
       <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Eldar</IsofFaith>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
       <LowerPsykerPowerLimit>Iota</LowerPsykerPowerLimit>
@@ -87,11 +90,11 @@
     <techHediffsChance>0.3</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
       <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Eldar</IsofFaith>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+      <Patron>Ynnead</Patron>
       <LowerPsykerPowerLimit>Iota</LowerPsykerPowerLimit>
       <UpperPsykerPowerLimit>Delta</UpperPsykerPowerLimit>
     </AfflictionProperty>
@@ -134,9 +137,9 @@
     <techHediffsChance>0.3</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
       <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Eldar</IsofFaith>
+      <Patron>Ynnead</Patron>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
       <LowerPsykerPowerLimit>Epsilon</LowerPsykerPowerLimit>
@@ -193,9 +196,9 @@
     <techHediffsChance>0.3</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>Ynnead</Patron>
       <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Eldar</IsofFaith>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
       <LowerPsykerPowerLimit>Iota</LowerPsykerPowerLimit>
@@ -264,9 +267,9 @@
     <techHediffsChance>0.5</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>Ynnead</Patron>
       <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Eldar</IsofFaith>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
       <LowerPsykerPowerLimit>Iota</LowerPsykerPowerLimit>

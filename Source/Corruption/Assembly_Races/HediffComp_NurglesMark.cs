@@ -10,7 +10,6 @@ namespace Corruption
 {
     public class HediffComp_NurglesMark : HediffComp
     {
-        private int lastTick;
 
         public override void Notify_PawnDied()
         {
@@ -24,10 +23,9 @@ namespace Corruption
         public override void CompPostTick(ref float severityAdjustment)
         {
             base.CompPostTick(ref severityAdjustment);
-            if (lastTick < Find.TickManager.TicksGame + 6000)
+            if (Find.TickManager.TicksGame % 60000 == 0)
             {
                 FilthMaker.MakeFilth(this.Pawn.DrawPos.ToIntVec3(), this.Pawn.Map, ThingDefOf.FilthVomit, 1);
-                lastTick = Find.TickManager.TicksGame;
             }
         }
     }

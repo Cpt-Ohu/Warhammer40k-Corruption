@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <Corruption.Worship.Wonders.WonderDef>
+    <defName>NurgleBreath</defName>
+    <label>Breath of Decay</label>
+    <description>Cause a random disease in your colonists to please the grandfather.</description>
+    <workerClass>Corruption.Worship.Wonders.WonderWorker_FireIncident</workerClass>
+    <WonderIconPath>UI/Wonders/WondersNurgleBreath</WonderIconPath>
+    <worshipCost>0</worshipCost>
+    <Incident>NurgleBreath</Incident>
+    <IncidentPoints>3000</IncidentPoints>
+  </Corruption.Worship.Wonders.WonderDef>
+  
+  
+  <Corruption.Worship.Wonders.WonderDef>
+    <defName>NurgleRot</defName>
+    <label>Nurgle`s Rot</label>
+    <description>Make the selected pawn combust in an explosion of contageous matter that infects all around with Nurgle`s rot.</description>
+    <workerClass>Corruption.Worship.Wonders.WonderWorker_AddHediff</workerClass>
+    <WonderIconPath>UI/Wonders/WondersNurgleRot</WonderIconPath>
+    <worshipCost>4500</worshipCost>
+    <HediffsToAdd>
+		<li>NurgleRotInstantDeath</li>
+	</HediffsToAdd>
+  </Corruption.Worship.Wonders.WonderDef>
+  
+  
+  <Corruption.Worship.Wonders.WonderDef>
+    <defName>NurgleTurnChampion</defName>
+    <label>Champion of Nurgle</label>
+    <description>The selected pawn was chosen by Nurgle to be a herald of plague.</description>
+    <workerClass>Corruption.Worship.Wonders.WonderWorker_AddSpecialTrait</workerClass>
+    <WonderIconPath>UI/Wonders/WonderChampionNurgle</WonderIconPath>
+    <worshipCost>10000</worshipCost>
+    <SpecialSoulTrait>NurgleChampion</SpecialSoulTrait>
+  </Corruption.Worship.Wonders.WonderDef>
+
+
+</Defs>

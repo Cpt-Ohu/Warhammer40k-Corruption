@@ -29,7 +29,6 @@ namespace Corruption.Domination
             IntVec3 actualTravelDest = CellFinder.RandomClosewalkCellNear(cell, pawn.Map, 20, null);
             if (!pawn.CanReach(cell, PathEndMode.ClosestTouch, PawnUtility.ResolveMaxDanger(pawn, this.maxDanger), false, TraverseMode.ByPawn))
             {
-                Log.Message("Cannot reach");
                 return null;
             }
             if (pawn.Position == cell)

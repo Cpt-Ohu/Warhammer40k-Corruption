@@ -8,7 +8,7 @@
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
     <backstoryCategory>Civil</backstoryCategory>
-    <defaultFactionType>ChaosCult</defaultFactionType>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
     <itemQuality>Normal</itemQuality>
@@ -53,7 +53,7 @@
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
     <backstoryCategory>Civil</backstoryCategory>
-    <defaultFactionType>ChaosCult</defaultFactionType>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
     <itemQuality>Normal</itemQuality>
@@ -98,7 +98,7 @@
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
     <backstoryCategory>Civil</backstoryCategory>
-    <defaultFactionType>ChaosCult</defaultFactionType>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
     <itemQuality>Normal</itemQuality>
@@ -153,7 +153,7 @@
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
     <backstoryCategory>Civil</backstoryCategory>
-    <defaultFactionType>ChaosCult</defaultFactionType>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
     <itemQuality>Excellent</itemQuality>
@@ -211,7 +211,7 @@
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
     <backstoryCategory>Civil</backstoryCategory>
-    <defaultFactionType>ChaosCult</defaultFactionType>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
     <itemQuality>Normal</itemQuality>
@@ -245,11 +245,56 @@
     <AfflictionProperty>
       <LowerAfflictionLimit>0</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.25</UpperAfflictionLimit>
+    <UseForcedPatron>true</UseForcedPatron>
       <Patron>Khorne</Patron>
     </AfflictionProperty>
-    <UseForcedPatron>true</UseForcedPatron>
   </PawnKindDef>
 
+  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
+    <defName>CultistVisitor</defName>
+    <race>Human</race>
+    <label>wanderer</label>
+    <combatPower>20</combatPower>
+    <baseRecruitDifficulty>0.80</baseRecruitDifficulty>
+    <isFighter>false</isFighter>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <forceNormalGearQuality>true</forceNormalGearQuality>
+    <backstoryCategory>Civil</backstoryCategory>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
+    <chemicalAddictionChance>0.06</chemicalAddictionChance>
+    <apparelTags>
+      <li>IoM_Apparel</li>
+    </apparelTags>
+    <apparelRequired>
+	 <li>Apparel_BasicShirt</li>
+    </apparelRequired>
+    <apparelMoney>
+      <min>1000</min>
+      <max>1500</max>
+    </apparelMoney>
+    <weaponMoney>
+      <min>3500</min>
+      <max>3500</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>SorcererWeapons</li>
+    </weaponTags>
+    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+    <trader>true</trader>
+    <AfflictionProperty>
+      <LowerAfflictionLimit>0</LowerAfflictionLimit>
+      <UpperAfflictionLimit>0.25</UpperAfflictionLimit>
+      <LowerPsykerPowerLimit>Iota</LowerPsykerPowerLimit>
+      <UpperPsykerPowerLimit>Delta</UpperPsykerPowerLimit>
+       <CommmonPsykerPowers>
+        <li>PsykerPower_DoomBolt</li>
+        <li>PsykerPower_FireLance</li>
+        <li>PsykerPower_Scourging</li>
+        <li>PsykerPower_EmpyrealInferno</li>
+        <li>PsykerPower_BuffRage</li>
+       </CommmonPsykerPowers>
+    </AfflictionProperty>
 
+  </PawnKindDef>
 
 </Defs>

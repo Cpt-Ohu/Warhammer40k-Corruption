@@ -7,11 +7,11 @@ namespace Corruption
 {
     public enum SoulAffliction
     {
-        Lost,
-        Corrupted,
-        Tainted,
-        Warptouched,
+        Pure,
         Intrigued,
-        Pure
+        Warptouched,
+        Tainted,
+        Corrupted,
+        Lost
     }
 }

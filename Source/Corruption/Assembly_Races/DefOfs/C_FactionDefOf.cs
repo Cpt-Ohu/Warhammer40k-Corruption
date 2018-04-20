@@ -10,7 +10,12 @@ namespace Corruption.DefOfs
     public class C_FactionDefOf
     {
         public static FactionDef IoM_NPCFaction;
-        public static FactionDef ChaosCult;
+        public static FactionDef IoM_PlayerFaction;        
+        public static FactionDef IoM_Inquisition;
+        public static FactionDef IoM_Ecclesiarchy;
+        public static FactionDef IoM_Administratum;
+        public static FactionDef ChaosCult_NPC;
+        public static FactionDef ChaosCult_Player;
         public static FactionDef DarkEldarKabal;
         public static FactionDef EldarWarhost;
         public static FactionDef ImperialGuard;

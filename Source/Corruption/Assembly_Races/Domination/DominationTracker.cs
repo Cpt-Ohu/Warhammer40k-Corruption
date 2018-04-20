@@ -15,9 +15,17 @@ namespace Corruption.Domination
 
         public List<DominationConflict> AllConflicts = new List<DominationConflict>();
 
-        public void AddNewConflict(PoliticalAlliance first, PoliticalAlliance second)
+        public DominationConflict MainStoryConflict
         {
-            this.AllConflicts.Add(new DominationConflict(first, second));
+            get
+            {
+                return this.AllConflicts.FirstOrDefault(x => x.IsMainConflict);
+            }
+        }
+
+        public void AddNewConflict(PoliticalAlliance first, PoliticalAlliance second, string conflictTitle, bool isMainConflict)
+        {
+            this.AllConflicts.Add(new DominationConflict(first, second, conflictTitle , isMainConflict));
         }
 
         public bool CheckPawnDiedInWar(Pawn pawn, DamageInfo dinfo)
@@ -31,7 +39,7 @@ namespace Corruption.Domination
                     if (this.FactionsAtWar(pawn.Faction, attacker.Faction, out conflict))
                     {
                         PoliticalAlliance victimAlliance = this.GetAllianceOfFaction(pawn.Faction);
-                        PoliticalAlliance instigatorAlliance = this.GetAllianceOfFaction(pawn.Faction);
+                        PoliticalAlliance instigatorAlliance = this.GetAllianceOfFaction(attacker.Faction);
                         conflict.AdjustWarWearinessFor(victimAlliance, 0.002f * pawn.kindDef.combatPower);
                         float triumphFactor = victimAlliance.IsPlayerAlliance ? 0.05f : 0.001f;
                         conflict.AdjustWarWearinessFor(instigatorAlliance, -triumphFactor * pawn.kindDef.combatPower);
@@ -42,7 +50,29 @@ namespace Corruption.Domination
             return false;
         }
 
-        public PoliticalAlliance ImperiumOfMan;
+        public DominationTracker()
+        {
+            this.CreateImperiumOfManAlliance();
+            this.CreateChaosAlliance();
+        }
+
+        public PoliticalAlliance ImperiumOfMan
+        {
+            get
+            {
+                return this.politicalAlliancesInt.FirstOrDefault(x => x.AllianceName == "IoMAlliance".Translate());
+            }
+        }
+
+        public PoliticalAlliance ChaosAlliance
+
+        {
+            get
+            {
+                return this.politicalAlliancesInt.FirstOrDefault(x => x.AllianceName == "ChaosAlliance".Translate());
+            }
+        }
+
 
         private int NextAllianceLoadID = 0;
         private int NextWarLoadID = 0;
@@ -111,12 +141,30 @@ namespace Corruption.Domination
 
         public void CreateImperiumOfManAlliance()
         {
-            PoliticalAlliance ioM = new PoliticalAlliance("IoM".Translate(), GetNextAllianceID(), Find.FactionManager.FirstFactionOfDef(DefOfs.C_FactionDefOf.IoM_NPCFaction));
+            PoliticalAlliance ioM = new PoliticalAlliance("IoMAlliance".Translate(), GetNextAllianceID(), Find.FactionManager.FirstFactionOfDef(DefOfs.C_FactionDefOf.IoM_NPCFaction));
             foreach (Faction fac in CorruptionStoryTrackerUtilities.currentStoryTracker.ImperialFactions)
             {
                 ioM.AddToAlliance(fac);
             }
             this.politicalAlliancesInt.Add(ioM);
+        }
+
+        public void CreateChaosAlliance()
+        {
+            this.politicalAlliancesInt.Add(new PoliticalAlliance("ChaosAlliance".Translate(), GetNextAllianceID(), Find.FactionManager.FirstFactionOfDef(DefOfs.C_FactionDefOf.ChaosCult_NPC)));
+        }
+
+        public void CreateMainConflict()
+        {
+            this.AddNewConflict(this.ImperiumOfMan, this.ChaosAlliance, "MainStoryConflict".Translate(), true);
+            if (Find.Scenario.name == "Imperial Domination")
+            {
+                this.ImperiumOfMan.LeadingFaction = Faction.OfPlayer;
+            }
+            else
+            {
+                this.ChaosAlliance.LeadingFaction = Faction.OfPlayer;
+            }
         }
 
         public int GetNextAllianceID()
@@ -134,8 +182,8 @@ namespace Corruption.Domination
         public void ExposeData()
         {
             Scribe_Collections.Look<PoliticalAlliance>(ref this.politicalAlliancesInt, "politicalAlliancesInt", LookMode.Deep);
-            Scribe_Deep.Look<PoliticalAlliance>(ref this.ImperiumOfMan, "ImperiumOfMan", new object[0]);
             Scribe_Collections.Look<IBattleZone>(ref this.battleZones, "battleZones", LookMode.Reference);
+            Scribe_Collections.Look<DominationConflict>(ref this.AllConflicts, "AllConflicts", LookMode.Deep);
             Scribe_Values.Look<int>(ref this.NextAllianceLoadID, "NextAllianceLoadID");            
         }
     }

@@ -98,7 +98,7 @@
 		<SubfactionColor1>(0.20,0.20,0.20,1)</SubfactionColor1>
 		<SubfactionColor2>RGBA(0.99,0.78,0.09,1)</SubfactionColor2>
 		<weight>20</weight>
-    <SubfactionPreferredChaosGod>Undivided</SubfactionPreferredChaosGod>
+    <SubfactionPreferredChaosGod>ChaosUndivided</SubfactionPreferredChaosGod>
     <SubfactionPawnGroupMakers>
       <li>
         <kindDef>Normal</kindDef>
@@ -174,7 +174,7 @@
 		<SubfactionColor1>(0.82,0.36,0.82,1)</SubfactionColor1>
 		<SubfactionColor2>RGBA(0.2,0.2,0.2,1)</SubfactionColor2>
 		<weight>5</weight>
-    <SubfactionPreferredChaosGod>Slaanesh </SubfactionPreferredChaosGod>
+    <SubfactionPreferredChaosGod>Slaanesh</SubfactionPreferredChaosGod>
     <SubfactionPawnGroupMakers>
       <li>
         <kindDef>Normal</kindDef>

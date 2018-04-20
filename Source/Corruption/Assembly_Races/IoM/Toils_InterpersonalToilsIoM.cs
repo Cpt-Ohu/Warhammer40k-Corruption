@@ -28,14 +28,7 @@ namespace Corruption.IoM
                 },
                 socialMode = RandomSocialMode.Off,
                 defaultCompleteMode = ToilCompleteMode.Delay,
-                defaultDuration = 240,
-                finishActions = new List<Action>()
-                    {
-                        delegate
-                        {
-                            PerformPostChatActions(pawn, talkee, chatType);
-                        },
-                }                
+                defaultDuration = 240,                 
             };
         }
 
@@ -50,30 +43,30 @@ namespace Corruption.IoM
                 {
                     if (chatType != IoMChatType.InquisitorInvestigation)
                     {
-                        if (talkerSoul.NoPatron && talkeeSoul.NoPatron)
+                        if (talkerSoul.NotCorrupted && talkeeSoul.NotCorrupted)
                         {
                             if (Rand.Range(4, 6) + GetChatIntrigueFactor(talker, talkee) > 0)
                             {
-                                talkeeSoul.GainNeed(-0.0005f);
+                                talkeeSoul.GainNeed(0.005f);
                             }
                             else
                             {
                                 talkee.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.SleepDisturbed, talker);
                             }
                         }
-                        else if (talkerSoul.NoPatron && !talkeeSoul.NoPatron)
+                        else if (talkerSoul.NotCorrupted && !talkeeSoul.NotCorrupted)
                         {
                             StartReligiousSocialFight(talker, talkee);
                         }
-                        else if (!talkerSoul.NoPatron && !talkeeSoul.NoPatron)
+                        else if (!talkerSoul.NotCorrupted && !talkeeSoul.NotCorrupted)
                         {
-                            talkeeSoul.GainNeed(0.005f);
+                            talkeeSoul.GainNeed(-0.0005f);
                         }
-                        else if (!talkerSoul.NoPatron && talkeeSoul.NoPatron)
+                        else if (!talkerSoul.NotCorrupted && talkeeSoul.NotCorrupted)
                         {
-                            if (Rand.Range(-2, 0) + GetChatIntrigueFactor(talker, talkee) > 0)
+                            if (Rand.Range(-4, -1) + GetChatIntrigueFactor(talker, talkee) > 0)
                             {
-                                talkeeSoul.GainNeed(-0.0005f);
+                                talkeeSoul.GainNeed(-0.005f);
                             }
                             else
                             {
@@ -83,27 +76,16 @@ namespace Corruption.IoM
                     }
                     else
                     {
-                        //switch (talkeeSoul.CurCategory)
-                        //{
-                        //    case SoulAffliction.Lost:
-                        //        {
-
-                        //            return;
-                        //        }
-                        //    case SoulAffliction.Corrupted:
-                        //        {
-
-                        //            return;
-                        //        }
-                        //    case SoulAffliction.Tainted:
-                        //        {
-
-                        //            return;
-                        //        }
-                        //}
-                        Lord lord = talker.GetLord();
-                        LordJob_IntrusiveWanderer lordJob = lord.LordJob as LordJob_IntrusiveWanderer;
-                        lordJob.InquisitorFoundHeretic = true;
+                        if (talker.IsColonistPlayerControlled)
+                        {
+                            Need_Soul.TryDiscoverAlignment(talker, talkee, 1f);
+                        }
+                        else if (CorruptionStoryTrackerUtilities.GetPawnSoul(talker).Patron == PatronDefOf.Inquisition)
+                        {
+                            Lord lord = talker.GetLord();
+                            LordJob_IntrusiveWanderer lordJob = lord.LordJob as LordJob_IntrusiveWanderer;
+                            lordJob.InquisitorFoundHeretic = true;
+                        }
                     }
                 }
             }
@@ -116,15 +98,13 @@ namespace Corruption.IoM
         {
             Messages.Message("MessageReligiousSocialFight".Translate(new object[]
             {
-                talker.LabelShort,
-                talkee.LabelShort,
+                talker.NameStringShort,
+                talkee.NameStringShort,
             }), talker, MessageTypeDefOf.NegativeEvent);
-
-
+            
             talker.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.SocialFighting, null, false, false, talkee);
             MentalStateHandler handlerTalkee = talkee.mindState.mentalStateHandler;
-            Pawn otherPawn2 = talker;
-            handlerTalkee.TryStartMentalState(MentalStateDefOf.SocialFighting, null, false, false, otherPawn2);
+            handlerTalkee.TryStartMentalState(MentalStateDefOf.SocialFighting, null, false, false, talker);
         }
 
         private static int GetChatIntrigueFactor(Pawn pawn, Pawn talkee)

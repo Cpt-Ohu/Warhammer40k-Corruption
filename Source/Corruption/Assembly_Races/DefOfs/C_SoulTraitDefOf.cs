@@ -20,5 +20,7 @@ namespace Corruption.DefOfs
         public static SoulTraitDef Slaanesh_Fervor;
 
         public static SoulTraitDef Tzeentch_Fervor;
+
+        public static SoulTraitDef HumanSaint;
     }
 }

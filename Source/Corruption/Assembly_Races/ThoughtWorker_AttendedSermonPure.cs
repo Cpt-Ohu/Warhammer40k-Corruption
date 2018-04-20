@@ -28,7 +28,7 @@ namespace Corruption
             Need_Soul s1 = p.needs.TryGetNeed<Need_Soul>();
             Need_Soul s2 = otherPawn.needs.TryGetNeed<Need_Soul>();
 
-            if (s2.NoPatron == false) flag = false;
+            if (s2.NotCorrupted == false) flag = false;
 
             if (flag)
             {

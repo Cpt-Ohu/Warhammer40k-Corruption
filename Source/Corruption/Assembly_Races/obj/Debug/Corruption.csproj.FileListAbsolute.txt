@@ -86,4 +86,12 @@ D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Asse
 D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Source\Corruption\Assembly_Races\obj\Debug\Corruption.csproj.CoreCompileInputs.cache
 D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Source\Corruption\Assembly_Races\obj\Debug\Corruption.dll
 D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Source\Corruption\Assembly_Races\obj\Debug\Corruption.pdb
-D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Source\Corruption\Assembly_Races\obj\Debug\Corruption.csprojResolveAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Assemblies\Corruption.dll.config
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Assemblies\Corruption.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Assemblies\Corruption.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Assemblies\Corruption.dll.CodeAnalysisLog.xml
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Assemblies\Corruption.dll.lastcodeanalysissucceeded
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Source\Corruption\Assembly_Races\obj\Debug\Corruption.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Source\Corruption\Assembly_Races\obj\Debug\Corruption.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Source\Corruption\Assembly_Races\obj\Debug\Corruption.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Source\Corruption\Assembly_Races\obj\Debug\Corruption.csprojResolveAssemblyReference.cache

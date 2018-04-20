@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 using Verse;
 
 namespace Corruption
@@ -24,10 +25,21 @@ namespace Corruption
 
         public float CorruptionFactor;
 
-        public string IconGraphicPath;
+        public string IconGraphicPath = "UI/Psyker/PowerOff";
 
+        public Texture2D iconTex;
+        
         public VerbProperties_WarpPower MainVerb;
         
         public AIPsykerPowerCategory AICategory = AIPsykerPowerCategory.DamageDealer;
+
+        public override void ResolveReferences()
+        {
+            base.ResolveReferences();
+            LongEventHandler.ExecuteWhenFinished(delegate
+            {
+                this.iconTex = ContentFinder<Texture2D>.Get(this.IconGraphicPath, true);
+            });
+        }
     }
 }
