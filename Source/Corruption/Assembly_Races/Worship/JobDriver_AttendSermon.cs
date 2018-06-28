@@ -60,8 +60,8 @@ namespace Corruption
                     this.Map.reservationManager.Release(this.job.targetC.Thing, pawn, this.job);
                 }
                 else
-                {                    
-                    this.Map.reservationManager.Release(this.job.targetC.Cell, this.pawn, this.job);
+                {
+					this.Map.reservationManager.Release(this.job.targetC.Cell, this.pawn, this.job);
                 }
                 
                 

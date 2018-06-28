@@ -91,7 +91,7 @@ namespace Corruption.Worship
 
         private bool ShouldBeCalledOff()
         {
-            return !PartyUtility.AcceptableGameConditionsToContinueParty(base.Map) || (!this.altar.Position.Roofed(base.Map) && !JoyUtility.EnjoyableOutsideNow(base.Map, null));
+            return !PartyUtility.AcceptableGameConditionsToContinueParty(base.Map) || (!this.altar.Position.Roofed(base.Map) && !JoyUtility.EnjoyableOutsideNow(base.Map, null)) || this.altar.DestroyedOrNull();
         }
 
         public override void ExposeData()

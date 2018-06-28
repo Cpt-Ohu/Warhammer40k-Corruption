@@ -23,20 +23,17 @@ namespace Corruption
 
         public override bool TryMakePreToilReservations()
         {
-            return this.pawn.Reserve(this.job.targetA, this.job, 1, -1, null) && this.pawn.Reserve(this.job.targetB, this.job, 1, -1, null);
+			return this.pawn.Reserve(this.job.targetA, this.job, 1, -1, null) && this.pawn.Reserve(this.job.targetB, this.job, 1, -1, null);
         }
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            this.EndOnDespawnedOrNull(AltarIndex, JobCondition.Incompletable);
-            yield return Toils_Reserve.Reserve(AltarIndex, 1);
-            yield return Toils_Reserve.Reserve(AltarInteractionCell, 1);
+			this.EndOnDespawnedOrNull(AltarIndex, JobCondition.Incompletable);
             Toil gotoAltarToil;
                 gotoAltarToil = Toils_Goto.GotoThing(AltarInteractionCell, PathEndMode.OnCell);
 
             yield return gotoAltarToil;
 
-            //     Log.Message("A");
             //       if (this.CurJob == null) Log.Message("NOJob?");
             
             var altarToil = new Toil();
@@ -52,19 +49,16 @@ namespace Corruption
             });
             yield return altarToil;
 
-  //          Log.Message("B");
-     //       if (this.pawn.jobs.curDriver == null) Log.Message("NoDriver");
-  //          if (this.pawn.jobs.curJob == null) Log.Message("NoJob");
-            this.AddFinishAction(() =>
+
+			//       if (this.pawn.jobs.curDriver == null) Log.Message("NoDriver");
+			//          if (this.pawn.jobs.curJob == null) Log.Message("NoJob");
+			this.AddFinishAction(() =>
             {
-                if (this.TargetA.HasThing)
-                {
-                    this.Map.reservationManager.Release(this.job.targetA.Thing, pawn, this.job);
-                }
-                else
-                {
-                    this.Map.reservationManager.Release(this.job.targetA.Cell, this.pawn, this.job);
-                }
+
+				//Somehow the altar and the cell is already released just before the finish action is done. Since it is reserved
+				// up until that point, releasing it here only causes an exception to occur
+                //this.Map.reservationManager.Release(this.job.targetA.Thing, pawn, this.job);
+
                 BuildingAltar altar = this.TargetA.Thing as BuildingAltar;
                 altar.CalledInFlock = false;
                 SermonUtility.HoldSermonTickCheckEnd(this.pawn, altar);
