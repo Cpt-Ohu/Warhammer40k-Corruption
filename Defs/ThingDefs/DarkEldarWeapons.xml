@@ -8,6 +8,11 @@
       <researchPrerequisite>ChargedShot</researchPrerequisite>
     </recipeMaker>
     <tradeability>Sellable</tradeability>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+     </comps>
   </ThingDef>
 
   <ThingDef ParentName="BaseBullet">
@@ -21,7 +26,7 @@
     </graphicData>
     <projectile>
       <flyOverhead>false</flyOverhead>
-      <damageDef>Bullet</damageDef>
+      <damageDef>CutDarkEldar</damageDef>
       <damageAmountBase>2</damageAmountBase>
       <speed>65</speed>
     </projectile>

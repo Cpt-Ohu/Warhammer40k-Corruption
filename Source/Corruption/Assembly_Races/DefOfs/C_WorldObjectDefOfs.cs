@@ -11,5 +11,6 @@ namespace Corruption.DefOfs
     {
         public static WorldObjectDef CorruptionStoryTracker;
         public static WorldObjectDef BattleZone;
+        public static WorldObjectDef DominationBase;
     }
 }

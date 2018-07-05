@@ -10,9 +10,7 @@ namespace Corruption
     public class ChaosFollowerPawnKindDef : PawnKindDef
     {
         public AfflictionProperty AfflictionProperty;
-
-        public bool UseForcedPatron = false;
-
+        
         public bool RenamePawns = false;
 
         public bool UseFixedGender = false;

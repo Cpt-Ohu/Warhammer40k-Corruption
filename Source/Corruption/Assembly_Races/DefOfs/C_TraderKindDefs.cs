@@ -10,5 +10,7 @@ namespace Corruption.DefOfs
     public class C_TraderKindDefs
     {
         public static TraderKindDef Visitor_IoM_Wanderer;
+        public static TraderKindDef CultistVisitor;
+        public static TraderKindDef Visitor_TauEnvoy;
     }
 }

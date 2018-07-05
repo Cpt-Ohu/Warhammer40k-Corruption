@@ -155,6 +155,11 @@
       <li>
         <compClass>CompQuality</compClass>
       </li>
+	  <li Class="Corruption.Worship.CompProperties_Shrine">
+        <compClass>Corruption.Worship.CompShrine</compClass>
+        <requiresEffigy>true</requiresEffigy>
+        <WorshipRatePerTick>1</WorshipRatePerTick>
+      </li>
     </comps>
     <costStuffCount>80</costStuffCount>
     <pathCost>70</pathCost>
@@ -218,6 +223,11 @@
     <comps>
       <li>
         <compClass>CompQuality</compClass>
+      </li>
+	 <li Class="Corruption.Worship.CompProperties_Shrine">
+        <compClass>Corruption.Worship.CompShrine</compClass>
+        <requiresEffigy>true</requiresEffigy>
+        <WorshipRatePerTick>1</WorshipRatePerTick>
       </li>
     </comps>
     <costStuffCount>80</costStuffCount>
@@ -417,6 +427,7 @@
     <building>
 	 <isInert>true</isInert>
       <isEdifice>false</isEdifice>
+	<canPlaceOverWall>true</canPlaceOverWall>
     </building>
     <statBases>
       <MaxHitPoints>100</MaxHitPoints>
@@ -437,6 +448,7 @@
     <pathCost>50</pathCost>
     <passability>Standable</passability>
     <designationCategory>Worship</designationCategory>
+    <clearBuildingArea>false</clearBuildingArea>
     <uiIconPath>Things/Worship/HumanSkull</uiIconPath>
   </ThingDef>
 
@@ -481,8 +493,10 @@
       <li>
         <compClass>CompQuality</compClass>
       </li>
-      <li Class="Corruption.Worship.CompProperties_Shrine">
+	  <li Class="Corruption.Worship.CompProperties_Shrine">
         <compClass>Corruption.Worship.CompShrine</compClass>
+        <requiresEffigy>true</requiresEffigy>
+        <WorshipRatePerTick>1</WorshipRatePerTick>
       </li>
     </comps>
     <costStuffCount>50</costStuffCount>

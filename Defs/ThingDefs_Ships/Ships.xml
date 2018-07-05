@@ -523,7 +523,7 @@ Maximum Cargo Capacity: 80 kg
         <maxPassengers>8</maxPassengers>
         <availableToFactions>
 		<li>ImperialGuard</li>
-		<li>ChaosCult</li>
+		<li>ChaosCult_NPC</li>
 	   </availableToFactions>
         <LeavingShipDef>ValkyrieLeaving</LeavingShipDef>
         <IncomingAngle>65</IncomingAngle>

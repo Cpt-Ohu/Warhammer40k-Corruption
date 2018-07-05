@@ -34,7 +34,7 @@ namespace Corruption
             {
                 if (compPsyker.IsActive)
                 {
-                    PsykerUtility.PsykerShockEvents(compPsyker, compPsyker.curPower.PowerLevel);
+                    PsykerUtility.PsykerShockEvents(compPsyker);
                 }
                 compPsyker.IsActive = false;
                 compPsyker.ShotFired = true;

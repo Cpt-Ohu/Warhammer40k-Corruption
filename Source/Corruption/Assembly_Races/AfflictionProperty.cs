@@ -15,9 +15,9 @@ namespace Corruption
         public bool IsImmune = false;
         public int ImmuneDevotionDegree;
         public float ResolveFactor = 1f;
-        public ChaosGods Patron = ChaosGods.Undivided;
-        public bool UseOtherFaith = false;
-        public OtherFaiths IsofFaith = OtherFaiths.Emperor;
+        public bool canUseCalls = false;
+        public bool UseForcedPatron = false;
+        public PatronDef Patron = PatronDefOf.Emperor;
         public SoulTraitDef CommonSoulTrait;
         public CulturalToleranceCategory PrimaryToleranceCategory = CulturalToleranceCategory.Neutral;
         public PsykerPowerLevel UpperPsykerPowerLimit = PsykerPowerLevel.Epsilon;

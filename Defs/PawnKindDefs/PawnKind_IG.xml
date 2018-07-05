@@ -26,8 +26,8 @@
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
     <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
     <weaponMoney>
-      <min>500</min>
-      <max>600</max>
+      <min>600</min>
+      <max>1000</max>
     </weaponMoney>
     <weaponTags>
       <li>IG_Ranged_Std</li>
@@ -166,7 +166,7 @@
     <apparelAllowHeadwearChance>0.5</apparelAllowHeadwearChance>
     <weaponMoney>
       <min>600</min>
-      <max>900</max>
+      <max>1200</max>
     </weaponMoney>
     <weaponTags>
       <li>IG_Melee</li>

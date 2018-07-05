@@ -110,10 +110,18 @@ namespace Corruption
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            return base.CompGetGizmosExtra();
+            IEnumerator<Gizmo> enumerator = base.CompGetGizmosExtra().GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                Gizmo current = enumerator.Current;
+                yield return current;
+            }
         }
-        
 
+        public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
+        {
+            return base.CompFloatMenuOptions(selPawn);
+        }
 
         public void RemoveAutomatonNeed(NeedDef nd)
         {

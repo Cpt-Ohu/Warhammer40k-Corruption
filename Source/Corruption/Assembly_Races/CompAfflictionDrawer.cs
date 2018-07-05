@@ -62,7 +62,7 @@ namespace Corruption
         {
             get
             {
-                return cpawn.needs.TryGetNeed<Need_Soul>().patronInfo.PatronName;
+                return cpawn.needs.TryGetNeed<Need_Soul>().Patron.label;
             }
         }
 
@@ -73,11 +73,11 @@ namespace Corruption
                 //Log.Message("NoNeed");
                 HarmonyPatches.CreateNewSoul(cpawn);
             }
-            if (cpawn.needs.TryGetNeed<Need_Soul>().NoPatron)
+            if (cpawn.needs.TryGetNeed<Need_Soul>().NotCorrupted)
             {
                 return;
             }
-            if (cpawn.needs.TryGetNeed<Need_Soul>().patronInfo.PatronName != "Slaanesh" || cpawn.needs.TryGetNeed<Need_Soul>().patronInfo.PatronName != "Undivided")
+            if (cpawn.needs.TryGetNeed<Need_Soul>().Patron != PatronDefOf.Slaanesh || cpawn.needs.TryGetNeed<Need_Soul>().Patron != PatronDefOf.ChaosUndivided)
             {
                 this.DrawOverlays(PatronName, cpawn);
             }

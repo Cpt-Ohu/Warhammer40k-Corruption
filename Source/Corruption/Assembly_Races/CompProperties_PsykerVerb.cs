@@ -6,8 +6,11 @@ using Verse;
 
 namespace Corruption
 {
-    public class CompProperties_PsykerVerb : CompProperties
+    public class CompProperties_Psyker : CompProperties
     {
-        public VerbProperties_WarpPower MainVerb;
+        public CompProperties_Psyker()
+        {
+            this.compClass = typeof(CompPsyker);
+        }
     }
 }

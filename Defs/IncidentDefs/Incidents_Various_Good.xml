@@ -21,4 +21,15 @@
     <pointsScaleable>false</pointsScaleable>
   </IncidentDef>
 
+  
+  <IncidentDef>
+    <defName>GrowingFlock</defName>
+    <label>Growing Flock</label>
+    <targetTypes><li>MapPlayerHome</li></targetTypes>
+    <workerClass>Corruption.Worship.Wonders.IncidentWorker_GrowingFlock</workerClass>
+    <category>AllyArrival</category>
+    <baseChance>0.000000001</baseChance>
+    <pointsScaleable>true</pointsScaleable>
+  </IncidentDef>
+  
 </Defs>

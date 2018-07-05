@@ -78,7 +78,7 @@ namespace Corruption
                 }
             }
 
-            PawnGenerationRequest request = new PawnGenerationRequest(pdef, Find.FactionManager.FirstFactionOfDef(C_FactionDefOf.ChaosCult));
+            PawnGenerationRequest request = new PawnGenerationRequest(pdef, Find.FactionManager.FirstFactionOfDef(C_FactionDefOf.ChaosCult_NPC));
             Pawn pawn = null;
             try
             {

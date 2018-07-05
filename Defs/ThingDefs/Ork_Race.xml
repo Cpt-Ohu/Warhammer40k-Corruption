@@ -110,30 +110,53 @@
       <ComfyTemperatureMax>32</ComfyTemperatureMax>
       <LeatherAmount>40</LeatherAmount>
     </statBases>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.85</defaultCooldownTime>
-        <meleeDamageBaseAmount>8</meleeDamageBaseAmount>
-        <meleeDamageDef>Blunt</meleeDamageDef>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>11</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.85</defaultCooldownTime>
-        <meleeDamageBaseAmount>8</meleeDamageBaseAmount>
-        <meleeDamageDef>Blunt</meleeDamageDef>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>11</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
-      </li>    
-  <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.85</defaultCooldownTime>
-        <meleeDamageBaseAmount>8</meleeDamageBaseAmount>
-        <meleeDamageDef>Cut</meleeDamageDef>
-        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
-    </verbs>
-    <race>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>11</power>
+        <cooldownTime>1.8</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <commonality>0.2</commonality>
+      </li>
+    </tools>    
+<race>
       <thinkTreeMain>Humanlike</thinkTreeMain>
       <thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
       <intelligence>Humanlike</intelligence>
@@ -160,24 +183,19 @@
         <li>
           <def>HumanlikeBaby</def>
           <minAge>0</minAge>
-        </li>
-        <li>
-          <def>HumanlikeToddler</def>
-          <minAge>1.2</minAge>
-        </li>
-        <li>
-          <def>HumanlikeChild</def>
-          <minAge>4</minAge>
-        </li>
-        <li>
-          <def>HumanlikeTeenager</def>
-          <minAge>8</minAge>
+          <soundCall>Pawn_Ork_Scream</soundCall>
+
         </li>
         <li>
           <def>HumanlikeAdult</def>
           <minAge>10</minAge>
+          <soundCall>Pawn_Ork_Scream</soundCall>
         </li>
       </lifeStageAges>
+      <soundCallIntervalRange>
+        <min>2000</min>
+        <max>5000</max>
+      </soundCallIntervalRange>
       <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>

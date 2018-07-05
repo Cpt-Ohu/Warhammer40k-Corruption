@@ -33,18 +33,19 @@ namespace Corruption
             Toil getInRangeToil = Toils_Combat.GotoCastPosition(TargetIndex.A, false);
             yield return getInRangeToil;
             Verb_CastWarpPower verb = pawn.CurJob.verbToUse as Verb_CastWarpPower;
-
-            //Find.Targeter.targetingVerb = verb;
-            yield return Toils_Combat.CastVerb(TargetIndex.A, false);
+            Toil castToil = Toils_Combat.CastVerb(TargetIndex.A, false);
+             
+            yield return castToil;
             compPsyker.IsActive = true;
             this.AddFinishAction(() =>
             {
              //   Log.Message("FinishACtion");
                 if (compPsyker.IsActive)
                 {
-                    PsykerUtility.PsykerShockEvents(compPsyker, compPsyker.curPower.PowerLevel);
+                    PsykerUtility.PsykerShockEvents(compPsyker);
                 }
                 compPsyker.ShotFired = true;
+                compPsyker.IsActive = false;
             });
         }
     }

@@ -32,5 +32,44 @@
     <minRefireDays>15</minRefireDays>
   </IncidentDef>
 
+  <IncidentDef>
+    <defName>Visitor_Cultist</defName>
+    <label>wanderer</label>
+    <targetTypes><li>MapPlayerHome</li></targetTypes>
+    <workerClass>Corruption.IoM.IncidentWorker_VisitingCultist</workerClass>
+    <category>AllyArrival</category>
+    <baseChance>4</baseChance>
+    <pointsScaleable>false</pointsScaleable>
+  </IncidentDef>
 
+  <IncidentDef>  
+	<defName>NurgleBreath</defName>
+    <label>Breath of Nurgle</label>
+    <workerClass>IncidentWorker_Disease</workerClass>
+    <category>Disease</category>
+    <targetTypes>
+      <li>MapPlayerHome</li>
+      <li>MapTempIncident</li>
+      <li>MapMisc</li>
+      <li>MapRaidBeacon</li>
+      <li>Caravan</li>
+    </targetTypes>
+	  <diseaseIncident>Flu</diseaseIncident>
+    <diseaseVictimFractionRange>
+      <min>0.2</min>
+      <max>0.5</max>
+    </diseaseVictimFractionRange>
+    <baseChance>0.0000001</baseChance>
+  </IncidentDef>
+
+    <IncidentDef>
+    <defName>SlaaneshOrgy</defName>
+    <label>Orgy</label>
+    <targetTypes><li>MapPlayerHome</li></targetTypes>
+    <workerClass>Corruption.Worship.Wonders.IncidentWorker_SlaaneshOrgy</workerClass>
+    <category>ThreatSmall</category>
+    <baseChance>0.0000001</baseChance>
+    <pointsScaleable>false</pointsScaleable>
+  </IncidentDef>
+  
 </Defs>

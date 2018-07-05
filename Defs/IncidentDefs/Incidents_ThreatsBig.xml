@@ -12,5 +12,20 @@
     <pointsScaleable>true</pointsScaleable>
   </IncidentDef>
 
+  
+  <IncidentDef>
+    <defName>KhorneFrenzy</defName>
+    <label>Frenzy of the Blood God</label>
+    <targetTypes>
+      <li>MapMisc</li>
+    </targetTypes>
+    <workerClass>Corruption.Worship.Wonders.IncidentWorker_KhorneFrenzy</workerClass>
+    <baseChance>0.00001</baseChance>
+    <minRefireDays>99999</minRefireDays>
+    <category>Undefined</category>
+    <pointsScaleable>true</pointsScaleable>
+  </IncidentDef>
+  
+  
 
 </Defs>

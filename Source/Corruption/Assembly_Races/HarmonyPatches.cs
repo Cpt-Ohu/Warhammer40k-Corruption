@@ -23,9 +23,12 @@ namespace Corruption
 
             harmony.Patch(AccessTools.Method(typeof(RimWorld.ThoughtUtility), "CanGetThought"), null, new HarmonyMethod(typeof(HarmonyPatches), "CanGetThoughtPostfix"), null);
             harmony.Patch(AccessTools.Method(typeof(RimWorld.MainTabWindow_Inspect), "DoInspectPaneButtons"), null, new HarmonyMethod(typeof(HarmonyPatches), "DoInspectPaneButtons", null));
-            harmony.Patch(AccessTools.Method(typeof(RimWorld.FactionGenerator), "GenerateFactionsIntoWorld"), null, new HarmonyMethod(typeof(HarmonyPatches), "GenerateFactionsIntoWorldPostFix"), null);
+            harmony.Patch(AccessTools.Method(typeof(RimWorld.Page_SelectLandingSite), "PostOpen"), null, new HarmonyMethod(typeof(HarmonyPatches), "WorldGeneratePostfix"), null);
             harmony.Patch(AccessTools.Method(typeof(Verse.PawnGenerator), "GenerateInitialHediffs"), null, new HarmonyMethod(typeof(HarmonyPatches), "GenerateInitialHediffsPostFix", null));
             harmony.Patch(AccessTools.Method(typeof(RimWorld.RecordsUtility), "Notify_PawnKilled"), null, new HarmonyMethod(typeof(HarmonyPatches), "Notify_PawnKilledPostFix", null));
+            harmony.Patch(AccessTools.Method(typeof(RimWorld.InteractionWorker_DeepTalk), "Interacted"), null, new HarmonyMethod(typeof(HarmonyPatches), "InteractedDeepTalkPostfix", null));
+
+            
 
             harmony.Patch(AccessTools.Method(typeof(Verse.AI.JobDriver_Wait), "CheckForAutoAttack"), new HarmonyMethod(typeof(HarmonyPatches), "CheckForAutoAttackPrefix", null), null);
             harmony.Patch(AccessTools.Method(typeof(Faction), "Notify_MemberDied"), null, new HarmonyMethod(typeof(HarmonyPatches), "Notify_MemberDiedPostfix", null), null);
@@ -40,26 +43,59 @@ namespace Corruption
             harmony.Patch(AccessTools.Property(typeof(ColonistBar), "Entries").GetGetMethod(), null, new HarmonyMethod(typeof(HarmonyPatches), "EntriesPostfix", null), null);
 
 
-            
-
-          // harmony.Patch(AccessTools.Method(typeof(Pawn_NeedsTracker), "ShouldHaveNeed"), null, new HarmonyMethod(typeof(HarmonyPatches), "ShouldHaveNeedPostfix", null), null);
-          // harmony.Patch(AccessTools.Method(typeof(Pawn_NeedsTracker), "AddNeed"), null, new HarmonyMethod(typeof(HarmonyPatches), "AddNeedPostfix", null), null);
 
 
+            // harmony.Patch(AccessTools.Method(typeof(Pawn_NeedsTracker), "ShouldHaveNeed"), null, new HarmonyMethod(typeof(HarmonyPatches), "ShouldHaveNeedPostfix", null), null);
+            // harmony.Patch(AccessTools.Method(typeof(Pawn_NeedsTracker), "AddNeed"), null, new HarmonyMethod(typeof(HarmonyPatches), "AddNeedPostfix", null), null);
+
+            foreach (ThingDef def in DefDatabase<ThingDef>.AllDefsListForReading.FindAll(x => x.race?.Humanlike == true))
+            {
+                def.comps.Add(new CompProperties_Psyker());
+            }
 
         }
 
-        public static void GenerateFactionsIntoWorldPostFix()
+        public static void WorldGeneratePostfix()
         {
-            Log.Message("Generating Corruption Story Tracker");
-            CorruptionStoryTracker corrTracker = (CorruptionStoryTracker)WorldObjectMaker.MakeWorldObject(DefOfs.C_WorldObjectDefOf.CorruptionStoryTracker);
-            int tile = 0;
-            while (!(Find.WorldObjects.AnyWorldObjectAt(tile) || Find.WorldGrid[tile].biome == BiomeDefOf.Ocean))
+            CorruptionStoryTracker storyTracker = CorruptionStoryTrackerUtilities.currentStoryTracker;
+            if (CorruptionModSettings.AllowDomination)
             {
-                tile = Rand.Range(0, Find.WorldGrid.TilesCount);
+                    WorldObject dominationMainEnemyBase = WorldObjectMaker.MakeWorldObject(DefOfs.C_WorldObjectDefOf.DominationBase);
+                dominationMainEnemyBase.SetFaction(Find.FactionManager.FirstFactionOfDef(FactionDefOf.Outlander));
+                    int tile = 0;
+                    
+                        tile = TileFinder.RandomFactionBaseTileFor(dominationMainEnemyBase.Faction, false, null); //Rand.Range(0, Find.WorldGrid.TilesCount);
+                
+                    dominationMainEnemyBase.Tile = tile;
+
+                if (Faction.OfPlayer.def == DefOfs.C_FactionDefOf.IoM_PlayerFaction)
+                {
+                    Log.Message("Player is IoM");
+                    dominationMainEnemyBase.SetFaction(storyTracker.ChaosCult_NPC);
+                    if (dominationMainEnemyBase.Faction == null) Log.Message("No Chaos");
+                }
+                else if (Faction.OfPlayer.def == DefOfs.C_FactionDefOf.ChaosCult_Player)
+                {
+                    dominationMainEnemyBase.SetFaction(CorruptionStoryTrackerUtilities.currentStoryTracker.IoM_NPC);
+                }
+                else
+                {
+                    dominationMainEnemyBase = null;
+                    return;
+                }
+                Log.Message("Spawning for " + dominationMainEnemyBase.Faction.Name + " " + dominationMainEnemyBase.Tile.ToString());
+                    Find.WorldObjects.Add(dominationMainEnemyBase);
+
+                storyTracker.DominationTracker.CreateMainConflict();
+
             }
-            corrTracker.Tile = tile;
-            Find.WorldObjects.Add(corrTracker);
+
+
+            if (storyTracker.FactionsEnabled)
+            {
+                storyTracker.GenerateAndSetFactions();
+                storyTracker.CreateSubSector();
+            }
         }
 
         private static Texture2D patronIcon
@@ -73,7 +109,7 @@ namespace Corruption
                     Need_Soul soul = selPawn.needs.TryGetNeed<Need_Soul>();
                     if (soul != null)
                     {
-                        return ChaosGodsUtilities.GetPatronIcon(soul.patronInfo.PatronName);
+                        return ChaosGodsUtilities.GetPatronIcon(soul.Patron);
                     }
                     return new Texture2D(20, 20);
                 }
@@ -250,7 +286,7 @@ namespace Corruption
             Need_Soul soul = CorruptionStoryTrackerUtilities.GetPawnSoul(killer);
             if (soul != null)
             {
-                if (soul.patronInfo.PatronName == "Khorne" || soul.patronInfo.PatronName == "Slaanesh")
+                if (soul.Patron == PatronDefOf.Khorne|| soul.Patron == PatronDefOf.Slaanesh)
                 {
                     soul.PawnKillTracker.lastKillTick = soul.PawnKillTracker.lastKillTick < 1 ? 1000 : soul.PawnKillTracker.lastKillTick + 1000;
                     if (killed.def.race.Humanlike)
@@ -412,6 +448,12 @@ namespace Corruption
             newList.AddRange(__result);
             newList.RemoveAll(x => validator(x));
             __result = newList;
+        }
+
+
+        public static void InteractedDeepTalkPostfix(Pawn initiator, Pawn recipient, List<RulePackDef> extraSentencePacks)
+        {
+            Need_Soul.TryDiscoverAlignment(initiator, recipient);
         }
 
     }

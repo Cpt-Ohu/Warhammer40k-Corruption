@@ -84,10 +84,10 @@ namespace Corruption
                 {
                     if (mpdef.IsMentalStateGiver)
                     {
-                       string str = "MentalStateByPsyker".Translate(new object[]
-                        {
+                        string str = "MentalStateByPsyker".Translate(new object[]
+                         {
                             victim.NameStringShort,
-                        });
+                         });
                         if (mpdef.InducesMentalState == MentalStateDefOf.Berserk && victim.RaceProps.intelligence < Intelligence.Humanlike)
                         {
                             if (CanOverpowerMind(this.Caster, victim))
@@ -103,13 +103,24 @@ namespace Corruption
                             }
                         }
                     }
-                    else if (mpdef.IsBuffGiver && victim.needs.TryGetNeed<Need_Soul>().PsykerPowerLevel != PsykerPowerLevel.Omega)
+                    else if (mpdef.IsBuffGiver)
                     {
-                        if (mpdef.BuffDef.isBad)
+                        Need_Soul soul = victim.needs.TryGetNeed<Need_Soul>();
+                        if (soul != null)
                         {
-                            if (CanOverpowerMind(this.Caster, victim))
+                            if (victim.needs.TryGetNeed<Need_Soul>().PsykerPowerLevel != PsykerPowerLevel.Omega)
                             {
-                                victim.health.AddHediff(mpdef.BuffDef);
+                                if (mpdef.BuffDef.isBad)
+                                {
+                                    if (CanOverpowerMind(this.Caster, victim))
+                                    {
+                                        victim.health.AddHediff(mpdef.BuffDef);
+                                    }
+                                }
+                                else
+                                {
+                                    victim.health.AddHediff(mpdef.BuffDef);
+                                }
                             }
                         }
                         else

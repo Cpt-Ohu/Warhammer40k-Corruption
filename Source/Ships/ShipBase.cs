@@ -20,7 +20,6 @@ namespace OHUShips
         public List<Building_ShipTurret> assignedTurrets = new List<Building_ShipTurret>();
         public Dictionary<WeaponSystem, bool> assignedSystemsToModify = new Dictionary<WeaponSystem, bool>();
         public List<WeaponSystemShipBomb> loadedBombs = new List<WeaponSystemShipBomb>();
-        public List<CargoLoadingSpot> currentCargoSlots = new List<CargoLoadingSpot>();
 
         public Dictionary<ShipWeaponSlot, Building_ShipTurret> installedTurrets = new Dictionary<ShipWeaponSlot, Building_ShipTurret>();
         public Dictionary<ShipWeaponSlot, WeaponSystemShipBomb> Payload = new Dictionary<ShipWeaponSlot, WeaponSystemShipBomb>();
@@ -1146,13 +1145,16 @@ namespace OHUShips
             Scribe_Values.Look<int>(ref this.drawTickOffset, "drawTickOffset", 0, false);
             Scribe_Values.Look<int>(ref this.timeWaited, "timeWaited", 200, false);
 
-            
+            Scribe_Values.Look<Color>(ref this.Col1, "Col1", Color.red, false);
+            Scribe_Values.Look<Color>(ref this.Col2, "Col2", Color.gray, false);
+
             Scribe_References.Look(ref this.ParkingMap, "ParkingMap");
             Scribe_Values.Look<IntVec3>(ref this.ParkingPosition, "ParkingPosition", IntVec3.Zero , false);
 
 
 
             Scribe_Values.Look<bool>(ref this.DeepsaveTurrets, "DeepsaveTurrets", false, false);
+            this.assignedTurrets.RemoveAll(x => x == null);
             if (this.DeepsaveTurrets)
             {
                 Scribe_Collections.Look<Building_ShipTurret>(ref this.assignedTurrets, "assignedTurrets", LookMode.Deep, new object[0]);
@@ -1179,11 +1181,5 @@ namespace OHUShips
                 this.InitiateInstalledTurrets();
             }
         }
-
-        //private void SpawnCargoLoadingSpots()
-        //{
-        //    CellRect.CellRectIterator iterator = GenAdj.OccupiedRect(center, rot, def.Size).ExpandedBy(1).GetIterator();
-        //}
-
     }
 }

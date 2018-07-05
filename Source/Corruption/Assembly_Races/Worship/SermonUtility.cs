@@ -65,8 +65,8 @@ namespace Corruption
             Need_Soul s1 = preacher.needs.TryGetNeed<Need_Soul>();
             Need_Soul s2 = listener.needs.TryGetNeed<Need_Soul>();
 
-            bool flag1 = s1.NoPatron;
-            bool flag2 = s2.NoPatron;
+            bool flag1 = s1.NotCorrupted;
+            bool flag2 = s2.NotCorrupted;
 
             if (flag1)
             {
@@ -147,7 +147,7 @@ namespace Corruption
             return false;
         }
 
-        public static void AttendSermonTickCheckEnd(Pawn pawn, Pawn preacher)
+        public static void AttendSermonTickCheckEnd(Pawn pawn, Pawn preacher, WorshipActType worshipActType)
         {
             var soul = pawn.needs.TryGetNeed<Need_Soul>();
             if (soul == null)
@@ -166,8 +166,15 @@ namespace Corruption
             }
 
             soul.GainNeed(num);
-          
-            pawn.needs.mood.thoughts.memories.TryGainMemory(SermonUtility.GetSermonThoughts(preacher, pawn));
+            CorruptionStoryTrackerUtilities.currentStoryTracker.AddWorshipProgress(num * 10000, soul.Patron);
+            if (worshipActType == WorshipActType.Confession)
+            {
+                Need_Soul.TryDiscoverAlignment(preacher, pawn, -0.2f);
+            }
+            else
+            {
+                pawn.needs.mood.thoughts.memories.TryGainMemory(SermonUtility.GetSermonThoughts(preacher, pawn));
+            }
         }
 
         public static void HoldSermonTickCheckEnd(Pawn preacher, BuildingAltar altar)
@@ -191,6 +198,7 @@ namespace Corruption
             }
 
             soul.GainNeed(num);
+            CorruptionStoryTrackerUtilities.currentStoryTracker.AddWorshipProgress(num * 20000, soul.Patron);
             altar.activeSermon = false;
         }
 
@@ -293,9 +301,8 @@ namespace Corruption
             }
         }
 
-        public static void ForceSermon(BuildingAltar altar, bool isMorningPrayer = true)
+        public static void ForceSermon(BuildingAltar altar, WorshipActType worshipActType)
         {
-            IntVec3 b = altar.def.interactionCellOffset.RotatedBy(altar.Rotation) + altar.Position;
             altar.activeSermon = true;            
             List<Pawn> list = new List<Pawn>();
             if (!list.Contains(altar.preacher))
@@ -304,7 +311,7 @@ namespace Corruption
             }
             list.AddRange(SermonUtility.GetSermonFlock(altar));
 
-            Lord lord = LordMaker.MakeNewLord(altar.Faction, new LordJob_Sermon(altar, isMorningPrayer), altar.Map, list);                
+            Lord lord = LordMaker.MakeNewLord(altar.Faction, new LordJob_Sermon(altar, worshipActType), altar.Map, list);                
         }
 
         public static void ForceSermonV2(BuildingAltar altar)

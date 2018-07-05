@@ -39,11 +39,12 @@
     <techHediffsChance>0.3</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>GorkMork</Patron>
       <ImmuneDevotionDegree>-5</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Orks</IsofFaith>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+	 <canUseCalls>true</canUseCalls>
     </AfflictionProperty>
       <UseFixedGender>true</UseFixedGender>
       <FixedGender>Male</FixedGender>
@@ -88,11 +89,13 @@
     <techHediffsChance>0.7</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>GorkMork</Patron>
       <ImmuneDevotionDegree>-5</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Orks</IsofFaith>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+	 <canUseCalls>true</canUseCalls>
+
     </AfflictionProperty>
       <UseFixedGender>true</UseFixedGender>
       <FixedGender>Male</FixedGender>
@@ -139,9 +142,9 @@
     <techHediffsChance>0.1</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>GorkMork</Patron>
       <ImmuneDevotionDegree>-5</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Orks</IsofFaith>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
     </AfflictionProperty>

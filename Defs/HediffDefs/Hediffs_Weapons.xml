@@ -52,7 +52,7 @@
   </HediffDef>
 
 
-  <HediffDef ParentName="HediffWeapon">
+  <HediffDef ParentName="HediffWeapon" Name="NurgleRot">
     <defName>NurglesRot</defName>
     <label>nurgle's rot</label>
     <makesSickThought>true</makesSickThought>
@@ -115,5 +115,13 @@
     </comps>
   </HediffDef>
 
+  
+
+  <HediffDef ParentName="NurgleRot" >  
+    <defName>NurgleRotInstantDeath</defName>
+    <initialSeverity>1</initialSeverity>
+    <lethalSeverity>0</lethalSeverity>
+  </HediffDef>
+  
 
 </Defs>

@@ -10,17 +10,43 @@ namespace Corruption.IoM
 {    
     public class IncidentWorker_WanderingTrader : IncidentWorker_NeutralGroup
     {
-        protected IoMChatType ChatType;
+        protected virtual IoMChatType ChatType
+        {
+            get
+            {
+                return IoMChatType.SimpleChat;
+            }
+        }
         
         protected override bool TryResolveParmsGeneral(IncidentParms parms)
         {
-            parms.faction = CorruptionStoryTrackerUtilities.currentStoryTracker.IoM;            
+            parms.faction = CorruptionStoryTrackerUtilities.currentStoryTracker.IoM_NPC;
+            if (parms.faction == null) Log.Message("NUll wanderer faction");
             return true;
         }
 
-        public IncidentWorker_WanderingTrader()
+        protected virtual TraderKindDef TraderKind
         {
-            this.ChatType = IoMChatType.SimpleChat;
+            get
+            {
+                return DefOfs.C_TraderKindDefs.Visitor_IoM_Wanderer;
+            }
+        }
+
+        protected virtual PawnKindDef PawnKind
+        {
+            get
+            {
+                return DefOfs.C_PawnKindDefOf.IoM_WanderingTrader;
+            }
+        }
+
+        protected virtual float SocialSkillBoost
+        {
+            get
+            {
+                return 10000f;
+            }
         }
 
         protected override bool TryExecuteWorker(IncidentParms parms)
@@ -32,17 +58,12 @@ namespace Corruption.IoM
             }
             Pawn centerPawn = null;
 
-            if (IoM_StoryUtilities.GenerateIntrusiveWanderer(map, DefOfs.C_PawnKindDefOf.IoM_WanderingTrader, parms.faction, this.ChatType, "IoM_WandererArrives", out centerPawn))
+            if (IoM_StoryUtilities.GenerateIntrusiveWanderer(map, PawnKind, parms.faction, this.ChatType, "IoM_WandererArrives", out centerPawn))
             {
+                centerPawn.skills.Learn(SkillDefOf.Social, SocialSkillBoost, true);
                 this.TryConvertOnePawnToSmallTrader(centerPawn, parms.faction, map);
                 return true;
-            }
-
-            Pawn pawn = PawnGenerator.GeneratePawn(DefOfs.C_PawnKindDefOf.IoM_WanderingTrader, parms.faction);
-            if (pawn == null)
-            {
-                return false;
-            }
+            }            
 
             return false;
         }
@@ -52,7 +73,7 @@ namespace Corruption.IoM
             Lord lord = pawn.GetLord();
             pawn.mindState.wantsToTradeWithColony = true;
             PawnComponentsUtility.AddAndRemoveDynamicComponents(pawn, true);
-            TraderKindDef traderKindDef = DefOfs.C_TraderKindDefs.Visitor_IoM_Wanderer;
+            TraderKindDef traderKindDef = TraderKind;
             pawn.trader.traderKind = traderKindDef;
             pawn.inventory.DestroyAll(DestroyMode.Vanish);
 

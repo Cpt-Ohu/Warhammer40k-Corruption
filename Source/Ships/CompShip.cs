@@ -114,13 +114,10 @@ namespace OHUShips
             Lord lord = LoadShipCargoUtility.FindLoadLord(ship, map);
             if (lord != null)
             {
-                pawns.AddRange(lord.ownedPawns);
-                map.lordManager.RemoveLord(lord);
-            }
-
-            foreach (Pawn p in pawns)
-            {
-                Lord lord1 = p.GetLord();
+                foreach (Pawn p in pawns)
+                {
+                    lord.Notify_PawnLost(p, PawnLostCondition.LeftVoluntarily);
+                }
             }
         }
 
@@ -145,9 +142,9 @@ namespace OHUShips
             transferableOneWay.AdjustBy(-count);
             if (transferableOneWay.CountToTransfer <= 0)
             {
-                //Log.Message("Removing Transferable: " + transferableOneWay.AnyThing.ToString());
                 this.leftToLoad.Remove(transferableOneWay);
             }
+
             if (!this.AnythingLeftToLoad)
             {
                 this.cargoLoadingActive = false;
@@ -161,7 +158,6 @@ namespace OHUShips
 
         public void NotifyItemAdded(Thing t, int count = 0)
         {
-            //Log.Message("Notifying: " + count.ToString());
             this.SubtractFromToLoadList(t, count);
         }
 

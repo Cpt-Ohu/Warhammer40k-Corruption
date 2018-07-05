@@ -76,6 +76,18 @@
       <li>Stony</li>
     </stuffCategories>
     <costStuffCount>135</costStuffCount>
+	<comps>
+      <li Class="Corruption.Worship.CompProperties_Shrine">
+        <compClass>Corruption.Worship.CompShrine</compClass>
+        <requiresEffigy>false</requiresEffigy>
+        <WorshipRatePerTick>1</WorshipRatePerTick>
+      </li>
+	  <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Redemption</Category>
+        <GainRate>0.1</GainRate>
+      </li>
+     </comps>
   </ThingDef>
 
   <ThingDef ParentName="SculptureBase">
@@ -103,6 +115,18 @@
       <li>Stony</li>
     </stuffCategories>
     <costStuffCount>135</costStuffCount>
+		    <comps>
+      <li Class="Corruption.Worship.CompProperties_Shrine">
+        <compClass>Corruption.Worship.CompShrine</compClass>
+        <requiresEffigy>false</requiresEffigy>
+        <WorshipRatePerTick>0.7</WorshipRatePerTick>
+      </li>
+	  <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Redemption</Category>
+        <GainRate>0.1</GainRate>
+      </li>
+     </comps>
   </ThingDef>
 
 </Defs>

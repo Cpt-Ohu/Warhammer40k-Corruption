@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <SoundDef>
+    <defName>Pawn_Ork_Scream</defName>  
+    <context>MapOnly</context>
+    <eventNames />  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Orks/OrkScream1</clipFolderPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>20</min>        
+          <max>40</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>0.9311765</min>        
+          <max>1.045882</max>
+        </pitchRange>      
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+
+</Defs>

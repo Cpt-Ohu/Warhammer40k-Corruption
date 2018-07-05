@@ -219,6 +219,7 @@
     <building>
 	 <isInert>true</isInert>
       <isEdifice>false</isEdifice>
+	<canPlaceOverWall>true</canPlaceOverWall>
     </building>
     <statBases>
       <MaxHitPoints>100</MaxHitPoints>
@@ -240,6 +241,7 @@
     <pathCost>50</pathCost>
     <passability>Standable</passability>
     <designationCategory>Worship</designationCategory>
+    <clearBuildingArea>false</clearBuildingArea>
     <uiIconPath>Things/IG/Structures/IG_WallAquilaUI</uiIconPath>
   </ThingDef>
 

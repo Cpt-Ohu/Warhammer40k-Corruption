@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+    <Corruption.Worship.Wonders.WonderDef>
+    <defName>EmperorPilgrimage</defName>
+    <label>Pilgrimage</label>
+    <description>Send out a caravan to look for signs of the Emperor and new believers.</description>
+    <workerClass>Corruption.Worship.Wonders.WonderWorker_Pilgrimage</workerClass>
+    <WonderIconPath>UI/Wonders/WonderPilgrimage</WonderIconPath>
+    <worshipCost>0</worshipCost>
+  </Corruption.Worship.Wonders.WonderDef>
+
+  
+  <Corruption.Worship.Wonders.WonderDef>
+    <defName>EmperorGiftRessources</defName>
+    <label>Divine Gift</label>
+    <description>The Emperor grants your colonies an unlikely gift of goods, so you may prosper in his name.</description>
+    <workerClass>Corruption.Worship.Wonders.WonderWorker_FireIncident</workerClass>
+    <WonderIconPath>UI/Wonders/WonderGiftMaterials</WonderIconPath>
+    <worshipCost>1000</worshipCost>
+    <Incident>ResourcePodCrash</Incident>
+    <IncidentPoints>3000</IncidentPoints>
+  </Corruption.Worship.Wonders.WonderDef>
+
+  <Corruption.Worship.Wonders.WonderDef>
+    <defName>EmperorWandererJoin</defName>
+    <workerClass>Corruption.Worship.Wonders.WonderWorker_FireIncident</workerClass>
+    <label>Growing flock</label>
+    <description>The Emperor calls in a loyal soul to offer a hand in building your colony.</description>
+    <WonderIconPath>UI/Wonders/WonderGrowingFlock</WonderIconPath>
+    <worshipCost>2000</worshipCost>
+    <Incident>GrowingFlock</Incident>
+	<PointsScalable>True</PointsScalable>	
+	<PointsCurve>
+        <points>
+          <li>(1000,0)</li>
+          <li>(2000,50)</li>
+          <li>(3000,75)</li>
+          <li>(4000,100)</li>
+          <li>(5000,120)</li>
+          <li>(20000,110)</li>
+        </points>
+	</PointsCurve>	
+  </Corruption.Worship.Wonders.WonderDef>
+
+  <Corruption.Worship.Wonders.WonderDef>
+    <defName>EmperorGiftFood</defName>
+    <label>Creatures of the Emperor</label>
+    <description>The emperor sends lifestock to his servants.</description>
+    <workerClass>Corruption.Worship.Wonders.WonderWorker_FireIncident</workerClass>
+    <WonderIconPath>UI/Wonders/WonderGiftAnimals</WonderIconPath>
+    <worshipCost>5000</worshipCost>
+    <Incident>FarmAnimalsWanderIn</Incident>
+  </Corruption.Worship.Wonders.WonderDef>
+
+  <Corruption.Worship.Wonders.WonderDef>
+    <defName>EmperorHealAll</defName>
+    <label>Miraculous Healing</label>
+    <description>The Emperor heals the ailments of your colonists.</description>
+    <workerClass>Corruption.Worship.Wonders.WonderWorker_HealAllPawns</workerClass>
+    <WonderIconPath>UI/Wonders/WonderHealEmperor</WonderIconPath>
+    <worshipCost>6500</worshipCost>
+	<ThingsToSpawn>
+	 <li>
+	 <thingDef>MealSimple</thingDef>
+	 <count>10</count>
+	 </li>	
+	</ThingsToSpawn>
+  </Corruption.Worship.Wonders.WonderDef>
+
+  <Corruption.Worship.Wonders.WonderDef>
+    <defName>EmperorTurnSaint</defName>
+    <label>Emperor`s chosen</label>
+    <description>The selected pawn is turned into a saint.</description>
+    <workerClass>Corruption.Worship.Wonders.WonderWorker_AddSpecialTrait</workerClass>
+    <WonderIconPath>UI/Wonders/WonderSaint</WonderIconPath>
+    <worshipCost>10000</worshipCost>
+    <SpecialSoulTrait>HumanSaint</SpecialSoulTrait>
+  </Corruption.Worship.Wonders.WonderDef>
+
+
+</Defs>

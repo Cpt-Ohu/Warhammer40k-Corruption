@@ -7,7 +7,13 @@ namespace Corruption.Tithes
 {
     public class TitheContainer : Building_Casket
     {
-        private CorruptionStoryTracker storyTracker;
+        private CorruptionStoryTracker storyTracker
+        {
+            get
+            {
+                return CorruptionStoryTrackerUtilities.currentStoryTracker;
+            }
+        }
 
         public CompTitheContainer compTithe;
 
@@ -27,7 +33,6 @@ namespace Corruption.Tithes
 
         public override void PostMake()
         {
-            this.storyTracker = CorruptionStoryTrackerUtilities.currentStoryTracker;
             base.contentsKnown = true;
             base.PostMake();
         }
@@ -99,7 +104,6 @@ namespace Corruption.Tithes
 
         public override void ExposeData()
         {
-            Scribe_References.Look<CorruptionStoryTracker>(ref this.storyTracker, "storyTracker", false);
             Scribe_Collections.Look<TitheEntryForContainer>(ref this.currentTitheEntries, "currentTitheEntries", LookMode.Deep);
             base.ExposeData();
         }

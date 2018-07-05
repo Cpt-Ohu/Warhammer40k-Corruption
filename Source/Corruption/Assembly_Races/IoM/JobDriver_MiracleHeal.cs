@@ -19,7 +19,7 @@ namespace Corruption.IoM
             {
                 if (compPsyker.IsActive)
                 {
-                    PsykerUtility.PsykerShockEvents(compPsyker, compPsyker.curPower.PowerLevel);
+                    PsykerUtility.PsykerShockEvents(compPsyker);
                 }
                 compPsyker.ShotFired = true;
             });

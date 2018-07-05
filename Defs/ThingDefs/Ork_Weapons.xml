@@ -21,6 +21,11 @@
       <li>Ork_Melee</li>
     </thingCategories>
     <tradeability>Sellable</tradeability>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+     </comps>
   </ThingDef>
 
   <ThingDef Name="BaseOrkGun" ParentName="BaseMakeableGun" Abstract="True">

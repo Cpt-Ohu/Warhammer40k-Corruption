@@ -36,6 +36,19 @@ namespace Corruption.Worship
             this.innerContainer = new ThingOwner<Thing>(this, false, LookMode.Deep);
         }
 
+        public override void CompTickRare()
+        {
+            base.CompTickRare();
+            if (this.parent.Faction == Faction.OfPlayer)
+            {
+                if (this.cProps.requiresEffigy && !this.HasEffigy)
+                {
+                    return;
+                }
+                CorruptionStoryTrackerUtilities.currentStoryTracker.AddWorshipProgress(this.cProps.WorshipRatePerTick, this.soulComp.SProps.DedicatedGod);              
+            }
+        }
+
         public CompSoulItem soulComp
         {
             get
@@ -44,8 +57,20 @@ namespace Corruption.Worship
                 {
                     return this.InstalledEffigy.TryGetComp<CompSoulItem>();
                 }
-                return null;
+                else
+                {
+                    return this.parent.TryGetComp<CompSoulItem>();
+                }
             }
+        }
+
+        private PatronDef assignedGod
+        {
+            get
+            {
+                return this.soulComp != null ? this.soulComp.DedicatedGod : PatronDefOf.Emperor;
+            }
+
         }
         
         public void GetChildHolders(List<IThingHolder> outChildren)
@@ -62,7 +87,7 @@ namespace Corruption.Worship
         {
             get
             {
-                return this.InstalledEffigy != null;
+                return this.InstalledEffigy != null && this.cProps.requiresEffigy == true;
             }
         }
 
@@ -70,36 +95,49 @@ namespace Corruption.Worship
         {
             get
             {
-                return this.InstalledEffigy != null;
+                return this.InstalledEffigy != null && this.cProps.requiresEffigy == true;
             }
         }
 
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
         {
-            if (!this.HasEffigy)
+            if (this.cProps.requiresEffigy)
             {
-                foreach (Thing potentialEffigy in selPawn.Map.listerThings.AllThings.FindAll(x => x.TryGetComp<CompSoulItem>() != null))
+                if (!this.HasEffigy)
                 {
-                    FloatMenuOption option2 = new FloatMenuOption("InstallEffigy".Translate( new object[] { potentialEffigy.Label }), delegate
+                    foreach (Thing potentialEffigy in selPawn.Map.listerThings.AllThings.FindAll(x => x.TryGetComp<CompSoulItem>() != null))
                     {
-                        Job job = new Job(JobDefOf.HaulToContainer, potentialEffigy, this.parent);
-                        job.count = 1;
-                        selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+                        FloatMenuOption option2 = new FloatMenuOption("InstallEffigy".Translate(new object[] { potentialEffigy.Label }), delegate
+                       {
+                           Job job = new Job(JobDefOf.HaulToContainer, potentialEffigy, this.parent);
+                           job.count = 1;
+                           selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+
+                       });
+                        yield return option2;
+                    }
+                }
+                else
+                {
+                    FloatMenuOption option = new FloatMenuOption("UninstallEffigy".Translate(new object[] { this.InstalledEffigy.Label }), delegate
+                    {
+                        Job openJob = new Job(JobDefOf.Open, this.parent);
+                        selPawn.jobs.TryTakeOrderedJob(openJob, JobTag.Misc);
 
                     });
-                    yield return option2;
+                    yield return option;
                 }
             }
-            else
-            {
-                FloatMenuOption option = new FloatMenuOption("UninstallEffigy".Translate(new object[] { this.InstalledEffigy.Label }), delegate
-                {
-                    Job openJob = new Job(JobDefOf.Open, this.parent);
-                    selPawn.jobs.TryTakeOrderedJob(openJob, JobTag.Misc);
+        }
 
-                });
-                yield return option;
+        public override string CompInspectStringExtra()
+        {
+            if (this.cProps.requiresEffigy && !this.HasEffigy)
+            {
+                return "";
             }
+            return "ShrineDedicatedTo".Translate(new object[] { this.soulComp?.DedicatedGod.label });                          
+
         }
 
         public void Open()

@@ -42,23 +42,43 @@
       <ArmorRating_Heat>0.40</ArmorRating_Heat>
       <MeatAmount>0</MeatAmount>
     </statBases>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.85</defaultCooldownTime>
-        <meleeDamageBaseAmount>24</meleeDamageBaseAmount>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>left claw</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>20</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>FrontLeftClaws</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.85</defaultCooldownTime>
-        <meleeDamageBaseAmount>24</meleeDamageBaseAmount>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>right claw</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>20</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>FrontRightClaws</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
-    </verbs>
-    <race>
+    </tools>    
+<race>
       <intelligence>ToolUser</intelligence>
       <thinkTreeMain>Mechanoid</thinkTreeMain>
       <body>QuadrupedAnimalWithClawsTailAndJowl</body>
@@ -125,23 +145,43 @@
       <ArmorRating_Heat>0.30</ArmorRating_Heat>
       <MeatAmount>0</MeatAmount>
     </statBases>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.85</defaultCooldownTime>
-        <meleeDamageBaseAmount>24</meleeDamageBaseAmount>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>15</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.85</defaultCooldownTime>
-        <meleeDamageBaseAmount>24</meleeDamageBaseAmount>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>15</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
-    </verbs>
-    <race>
+    </tools>    
+<race>
       <intelligence>ToolUser</intelligence>
       <thinkTreeMain>Mechanoid</thinkTreeMain>
       <body>Human</body>
@@ -179,23 +219,43 @@
       <ArmorRating_Heat>0.10</ArmorRating_Heat>
       <MeatAmount>0</MeatAmount>
     </statBases>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.85</defaultCooldownTime>
-        <meleeDamageBaseAmount>24</meleeDamageBaseAmount>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>15</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.85</defaultCooldownTime>
-        <meleeDamageBaseAmount>24</meleeDamageBaseAmount>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>15</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
-    </verbs>
-    <race>
+    </tools>    
+<race>
       <intelligence>ToolUser</intelligence>
       <thinkTreeMain>Mechanoid</thinkTreeMain>
       <body>Human</body>
@@ -240,23 +300,52 @@
       <ArmorRating_Heat>0.10</ArmorRating_Heat>
       <MeatAmount>0</MeatAmount>
     </statBases>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.85</defaultCooldownTime>
-        <meleeDamageBaseAmount>24</meleeDamageBaseAmount>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>left fist</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.85</defaultCooldownTime>
-        <meleeDamageBaseAmount>24</meleeDamageBaseAmount>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>right fist</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
-    </verbs>
-    <race>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>1.8</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <commonality>0.2</commonality>
+      </li>
+    </tools>    <race>
       <intelligence>ToolUser</intelligence>
       <thinkTreeMain>Mechanoid</thinkTreeMain>
       <lifeExpectancy>2000</lifeExpectancy>
@@ -302,22 +391,52 @@
       <ArmorRating_Heat>0.10</ArmorRating_Heat>
       <MeatAmount>0</MeatAmount>
     </statBases>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.85</defaultCooldownTime>
-        <meleeDamageBaseAmount>24</meleeDamageBaseAmount>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.85</defaultCooldownTime>
-        <meleeDamageBaseAmount>24</meleeDamageBaseAmount>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
-    </verbs>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>1.8</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <commonality>0.2</commonality>
+      </li>
+    </tools>
     <race>
       <intelligence>ToolUser</intelligence>
       <thinkTreeMain>Mechanoid</thinkTreeMain>

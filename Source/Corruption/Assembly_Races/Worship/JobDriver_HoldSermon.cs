@@ -54,11 +54,6 @@ namespace Corruption
 			//          if (this.pawn.jobs.curJob == null) Log.Message("NoJob");
 			this.AddFinishAction(() =>
             {
-
-				//Somehow the altar and the cell is already released just before the finish action is done. Since it is reserved
-				// up until that point, releasing it here only causes an exception to occur
-                //this.Map.reservationManager.Release(this.job.targetA.Thing, pawn, this.job);
-
                 BuildingAltar altar = this.TargetA.Thing as BuildingAltar;
                 altar.CalledInFlock = false;
                 SermonUtility.HoldSermonTickCheckEnd(this.pawn, altar);

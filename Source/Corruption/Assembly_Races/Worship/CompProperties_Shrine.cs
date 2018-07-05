@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Verse;
+﻿using Verse;
 using UnityEngine;
 
 namespace Corruption.Worship
@@ -11,7 +7,9 @@ namespace Corruption.Worship
     {
         public Vector3 EffigyDrawOffset;
 
-        public bool hasEffigy = true;
+        public float WorshipRatePerTick;
+
+        public bool requiresEffigy = true;
 
         public CompProperties_Shrine()
         {

@@ -11,6 +11,73 @@
 
 
   <HediffDef>
+    <defName>ServitorReprogramBattle</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.73, 0.08, 0.03)</defaultLabelColor>
+    <label>Programme: Battle Servitor</label>
+    <comps>
+      <li Class="Corruption.Servitors.HediffCompProperties_ReprogramServitor">
+        <compClass>Corruption.Servitors.HediffComp_ReprogramServitors</compClass>
+        <skillsToGain>
+      	<li>Shooting</li>
+      	<li>Melee</li>
+		</skillsToGain>
+		<SkillLevel>8</SkillLevel>
+      </li>
+    </comps>
+  </HediffDef>
+  
+    <HediffDef>
+    <defName>ServitorReprogramCrafter</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.08, 0.08, 0.78)</defaultLabelColor>
+    <label>Programme: Crafter Servitor</label>
+    <comps>
+      <li Class="Corruption.Servitors.HediffCompProperties_ReprogramServitor">
+        <compClass>Corruption.Servitors.HediffComp_ReprogramServitors</compClass>
+        <skillsToGain>
+      	<li>Crafting</li>
+		</skillsToGain>
+		<SkillLevel>10</SkillLevel>
+      </li>
+    </comps>
+  </HediffDef>
+  
+   <HediffDef>
+    <defName>ServitorReprogramConstructor</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.08, 0.08, 0.78)</defaultLabelColor>
+    <label>Programme: Construction Servitor</label>
+    <comps>
+      <li Class="Corruption.Servitors.HediffCompProperties_ReprogramServitor">
+        <compClass>Corruption.Servitors.HediffComp_ReprogramServitors</compClass>
+        <skillsToGain>
+      	<li>Construction</li>
+      	<li>Mining</li>
+		</skillsToGain>
+		<SkillLevel>8</SkillLevel>
+      </li>
+    </comps>
+  </HediffDef>
+
+   <HediffDef>
+    <defName>ServitorReprogramGrower</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.08, 0.08, 0.78)</defaultLabelColor>
+    <label>Programme: Agri-Servitor</label>
+    <comps>
+      <li Class="Corruption.Servitors.HediffCompProperties_ReprogramServitor">
+        <compClass>Corruption.Servitors.HediffComp_ReprogramServitors</compClass>
+        <skillsToGain>
+      	<li>Growing</li>
+		</skillsToGain>
+		<SkillLevel>8</SkillLevel>
+      </li>
+    </comps>
+  </HediffDef>
+  
+  
+  <HediffDef>
     <defName>ServitorOutOfFuel</defName>
     <hediffClass>HediffWithComps</hediffClass>
     <defaultLabelColor>(0.73, 0.08, 0.03)</defaultLabelColor>

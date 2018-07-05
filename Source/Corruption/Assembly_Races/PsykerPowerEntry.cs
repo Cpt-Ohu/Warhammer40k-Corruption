@@ -9,6 +9,12 @@ namespace Corruption
 {
     public class PsykerPowerEntry : IExposable
     {
+            
+        public PsykerPowerEntry()
+        {
+            this.psykerPowerDef = null;
+        }
+
         public PsykerPowerEntry(PsykerPowerDef power, bool equipmentDependent = false, ThingDef depdef = null)
         {
             this.psykerPowerDef = power;

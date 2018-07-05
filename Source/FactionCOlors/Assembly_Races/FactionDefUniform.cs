@@ -13,7 +13,7 @@ namespace FactionColors
     {
         public Color FactionColor1 = Color.white;
         public Color FactionColor2 = Color.black;
-        public ChaosGods PreferredChaosGod = ChaosGods.Undivided;
+        public PatronDef PreferredChaosGod = PatronDefOf.ChaosUndivided;
 
 
         public List<Subfaction> Subfactions;

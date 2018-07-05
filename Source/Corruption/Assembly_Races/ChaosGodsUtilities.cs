@@ -31,7 +31,7 @@ namespace Corruption
             Need_Soul soul;
             if ((soul = pawn.needs.TryGetNeed<Need_Soul>()) != null)
             {
-                return ChaosGodsUtilities.GetPatronIcon(soul.patronInfo.PatronName);
+                return ChaosGodsUtilities.GetPatronIcon(soul.Patron);
             }
             return new Texture2D(10,10);
         }
@@ -41,7 +41,7 @@ namespace Corruption
             Need_Soul soul;
             if ((soul = pawn.needs.TryGetNeed<Need_Soul>()) != null)
             {
-                if (soul.NoPatron)
+                if (soul.NotCorrupted)
                 {
                     return ChaosGodsUtilities.MoteSermonHoly;
                 }
@@ -53,47 +53,46 @@ namespace Corruption
             return new Texture2D(10, 10);
         }
 
-        public static Texture2D GetPatronIcon(string patron)
+        public static Texture2D GetPatronIcon(PatronDef patron)
         {
-            switch(patron)
+            if (patron == PatronDefOf.Emperor)
             {
-                case "Undivided":
-                    {
-                        return ChaosGodsUtilities.ButtonUndivided;
-                    }
-                case "Khorne":
-                    {
-                        return ChaosGodsUtilities.ButtonKhorne;
-                    }
-                case "Nurgle":
-                    {
-                        return ChaosGodsUtilities.ButtonNurgle;
-                    }
-                case "Tzeentch":
-                    {
-                        return ChaosGodsUtilities.ButtonTzeentch;
-                    }
-                case "Slaanesh":
-                    {
-                        return ChaosGodsUtilities.ButtonSlaanesh;
-                    }
-                case "Orks":
-                    {
-                        return ChaosGodsUtilities.OrkButton;
-                    }
-                case "Eldar":
-                    {
-                        return ChaosGodsUtilities.EldarButton;
-                    }
-                case "Tau":
-                    {
-                        return ChaosGodsUtilities.TauButton;
-                    }
-                default:
-                    {
-                        return ChaosGodsUtilities.ButtonEmperor;
-                    }
+                return ChaosGodsUtilities.ButtonEmperor;
             }
+            else if (patron == PatronDefOf.ChaosUndivided)
+            {
+                return ChaosGodsUtilities.ButtonUndivided;
+            }
+            else if (patron == PatronDefOf.Khorne)
+            {
+                return ChaosGodsUtilities.ButtonKhorne;
+            }
+            else if (patron == PatronDefOf.Nurgle)
+            {
+                return ChaosGodsUtilities.ButtonNurgle;
+            }
+            else if (patron == PatronDefOf.Tzeentch)
+            {
+                return ChaosGodsUtilities.ButtonTzeentch;
+            }
+            else if (patron == PatronDefOf.Slaanesh)
+            {
+                return ChaosGodsUtilities.ButtonSlaanesh;
+            }
+            else if (patron == PatronDefOf.GorkMork)
+            {
+                return ChaosGodsUtilities.OrkButton;
+            }
+            else if (patron == PatronDefOf.Ynnead)
+            {
+                return ChaosGodsUtilities.EldarButton;
+            }
+            else if (patron == PatronDefOf.GreaterGood)
+            {
+                return ChaosGodsUtilities.ButtonUndivided;
+            }
+
+            return ChaosGodsUtilities.ButtonEmperor;
         } 
 
 

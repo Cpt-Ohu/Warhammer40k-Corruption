@@ -178,7 +178,7 @@ namespace Corruption.BookStuff
                             CompPsyker compPsyker;
                             if ((compPsyker = this.currentReader.GetComp<CompPsyker>()) != null)
                             {
-                                compPsyker.psykerPowerManager.AddPsykerPower(entry.PsykerPowerUnlocked);
+                                compPsyker.PsykerPowerManager.AddPsykerPower(entry.PsykerPowerUnlocked);
                                 return;
                             }
                         }

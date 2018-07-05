@@ -23,7 +23,7 @@ namespace Corruption
 
         public override bool TryMakePreToilReservations()
         {
-            return this.pawn.Reserve(this.TargetC, this.job, this.job.def.joyMaxParticipants, -1, null);
+            return true; //this.pawn.Reserve(this.TargetC, this.job, this.job.def.joyMaxParticipants, -1, null);
         }
 
         protected override IEnumerable<Toil> MakeNewToils()
@@ -54,16 +54,15 @@ namespace Corruption
 
             this.AddFinishAction(() =>
             {
-                SermonUtility.AttendSermonTickCheckEnd(this.pawn, this.TargetA.Thing as Pawn);
-                if (this.TargetC.HasThing)
-                {
-                    this.Map.reservationManager.Release(this.job.targetC.Thing, pawn, this.job);
-                }
-                else
-                {
-					this.Map.reservationManager.Release(this.job.targetC.Cell, this.pawn, this.job);
-                }
-                
+                SermonUtility.AttendSermonTickCheckEnd(this.pawn, this.TargetA.Thing as Pawn, Worship.WorshipActType.None);
+                //if (this.TargetC.HasThing)
+                //{
+                //    this.Map.reservationManager.Release(this.job.targetC.Thing, pawn, this.job);
+                //}
+                //else
+                //{                    
+                //    this.Map.reservationManager.Release(this.job.targetC.Cell, this.pawn, this.job);
+                //}        
                 
             });
         }

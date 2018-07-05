@@ -9,15 +9,18 @@ namespace Corruption.Domination
 {
     public class DominationConflict : ILoadReferenceable, IExposable
     {
-        public DominationConflict(PoliticalAlliance first, PoliticalAlliance second, string name = "")
+        public DominationConflict(PoliticalAlliance first, PoliticalAlliance second, string name = "", bool isMainConflict = false)
         {
             this.First = first;
             this.WarEfforts.Add(new AllianceWarEffort());
             this.Second = second;
             this.nameInt = name;
+            this.IsMainConflict = isMainConflict;
         }
 
         public bool Finished;
+
+        public bool IsMainConflict;
 
         private string nameInt;
         
@@ -70,6 +73,7 @@ namespace Corruption.Domination
             Scribe_Values.Look<string>(ref this.nameInt, "nameInt");
             Scribe_References.Look<PoliticalAlliance>(ref this.First, "First");
             Scribe_References.Look<PoliticalAlliance>(ref this.Second, "Second");
+            Scribe_Values.Look<bool>(ref this.IsMainConflict, "IsMainConflict");
         }
 
         private int warId = -1;

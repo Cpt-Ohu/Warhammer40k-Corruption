@@ -11,7 +11,13 @@ namespace Corruption
 {
     public class Building_CommsConsoleIG : Building
     {
-        public CorruptionStoryTracker corruptionStoryTracker;
+        public CorruptionStoryTracker corruptionStoryTracker
+        {
+            get
+            {
+                return CorruptionStoryTrackerUtilities.currentStoryTracker;
+            }
+        }
 
         private CompPowerTrader powerComp;
 
@@ -27,7 +33,6 @@ namespace Corruption
         {
             base.SpawnSetup(map, respawningAfterLoad);
             this.powerComp = base.GetComp<CompPowerTrader>();
-            this.corruptionStoryTracker = Find.World.worldObjects.AllWorldObjects.Find(x => x.def == C_WorldObjectDefOf.CorruptionStoryTracker) as CorruptionStoryTracker;
             LessonAutoActivator.TeachOpportunity(ConceptDefOf.BuildOrbitalTradeBeacon, OpportunityType.GoodToKnow);
             LessonAutoActivator.TeachOpportunity(ConceptDefOf.OpeningComms, OpportunityType.GoodToKnow);
         }
@@ -117,7 +122,6 @@ namespace Corruption
 
         public override void ExposeData()
         {
-            Scribe_References.Look<CorruptionStoryTracker>(ref this.corruptionStoryTracker, "corruptionStoryTracker");
             base.ExposeData();
         }
 

@@ -19,7 +19,7 @@ namespace Corruption.DefOfs
         public static HediffDef DemonicPossession;
 
         public static HediffDef ServitorImplants;
-
+        
         public static HediffDef ServitorOutOfFuel;
         
 

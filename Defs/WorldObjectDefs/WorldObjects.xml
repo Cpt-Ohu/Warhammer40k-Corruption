@@ -13,6 +13,24 @@
     <expandingIcon>false</expandingIcon>
     <texture>World/WorldObjects/Caravan</texture>
   </WorldObjectDef>
+  
+  <WorldObjectDef>
+    <defName>DominationBase</defName>
+    <label>base of operations</label>
+    <description>A base of a major alliance.</description>
+    <worldObjectClass>FactionBase</worldObjectClass>	
+    <texture>World/WorldObjects/Caravan</texture>
+    <useDynamicDrawer>true</useDynamicDrawer>
+    <expandingIcon>true</expandingIcon>
+    <expandingIconTexture>World/WorldObjects/Expanding/Caravan</expandingIconTexture>
+    <expandingIconPriority>10</expandingIconPriority>
+    <comps>
+      <li Class="WorldObjectCompProperties_Abandon" />
+      <li Class="WorldObjectCompProperties_CaravanRequest" />
+      <li Class="WorldObjectCompProperties_FormCaravan" />
+      <li Class="WorldObjectCompProperties_TimedForcedExit" />
+    </comps>
+  </WorldObjectDef>
 
   <WorldObjectDef>
     <defName>PlayerFactionStoryTracker</defName>    
@@ -37,6 +55,5 @@
     <expandingIconPriority>80</expandingIconPriority>
     <isTempIncidentMapOwner>true</isTempIncidentMapOwner>
   </WorldObjectDef>
-
   
 </Defs>

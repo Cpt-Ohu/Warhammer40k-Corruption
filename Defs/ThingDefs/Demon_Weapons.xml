@@ -160,6 +160,14 @@
         </capacities>
         <power>14</power>
         <cooldownTime>2.5</cooldownTime>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>CutNurgle</def>
+              <amount>2</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
 	  <li>
         <label>handle</label>

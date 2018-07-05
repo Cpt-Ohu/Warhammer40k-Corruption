@@ -14,31 +14,25 @@ using OHUShips;
 
 namespace Corruption
 {
-    public class CorruptionStoryTracker : WorldObject
+    public class CorruptionStoryTracker : WorldComponent
     {
-        public override bool SelectableNow
-        {
-            get
-            {
-                return false;
-            }
-        }
-
         public bool FactionsEnabled = true;
         public bool DominationEnabled = true;
         public bool PsykersEnabled = true;
         public bool DropshipsEnabled = true;
 
-        public override void Draw()
-        {
-        }
 
-        public CorruptionStoryTracker()
-        {
+        public CorruptionStoryTracker(World world) : base(world)
+        {           
             this.FactionsEnabled = CorruptionModSettings.AllowFactions;
             this.DominationEnabled = CorruptionModSettings.AllowDomination;
             this.PsykersEnabled = CorruptionModSettings.AllowPsykers;
             this.DropshipsEnabled = CorruptionModSettings.AllowDropships;
+            foreach (PatronDef def in DefDatabase<PatronDef>.AllDefsListForReading)
+            {
+                this.PlayerWorshipProgressLookup.Add(def, 0);
+            }
+            Log.Message("Created Storytracker");
         }
 
         public static List<PawnKindDef> DemonPawnKinds = new List<PawnKindDef>();
@@ -49,19 +43,110 @@ namespace Corruption
 
         public bool activeRaid;
 
+        //Worship
+        public PatronDef PlayerGod = PatronDefOf.Emperor;
+        public Dictionary<PatronDef, int> PlayerWorshipProgressLookup = new Dictionary<PatronDef, int>();
+        public List<PatronDef> AvailableGods
+        {
+            get
+            {
+                return PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Colonists.Select(x => x.needs.TryGetNeed<Need_Soul>()?.Patron).Distinct().ToList();
+            }
+        }
 
         public Pawn Astropath;
 
-        public Faction IoM;
-        public Faction ChaosCult;
-        public Faction DarkEldarKabal;
-        public Faction EldarWarhost;
-        public Faction ImperialGuard;
-        public Faction AdeptusAstartes;
-        public Faction Orks;
-        public Faction Mechanicus;
-        public Faction Tau;
-        public Faction AdeptusSororitas;
+        public Faction IoM_NPC
+        {
+            get
+            {
+                return Find.World.factionManager.FirstFactionOfDef(DefOfs.C_FactionDefOf.IoM_NPCFaction);
+            }
+        }
+        public Faction IoM_Administratum
+        {
+            get
+            {
+                return Find.World.factionManager.FirstFactionOfDef(DefOfs.C_FactionDefOf.IoM_Administratum);
+            }
+        }
+        public Faction IoM_Ecclesiarchy
+        {
+            get
+            {
+                return Find.World.factionManager.FirstFactionOfDef(DefOfs.C_FactionDefOf.IoM_Ecclesiarchy);
+            }
+        }
+        public Faction IoM_Inquisition
+        {
+            get
+            {
+                return Find.World.factionManager.FirstFactionOfDef(DefOfs.C_FactionDefOf.IoM_Inquisition);
+            }
+        }
+        public Faction ChaosCult_NPC
+        {
+            get
+            {
+                return Find.World.factionManager.FirstFactionOfDef(DefOfs.C_FactionDefOf.ChaosCult_NPC);
+            }
+        }
+        public Faction DarkEldarKabal
+        {
+            get
+            {
+                return Find.World.factionManager.FirstFactionOfDef(DefOfs.C_FactionDefOf.DarkEldarKabal);
+            }
+        }
+        public Faction EldarWarhost
+        {
+            get
+            {
+                return Find.World.factionManager.FirstFactionOfDef(DefOfs.C_FactionDefOf.EldarWarhost);
+            }
+        }
+        public Faction ImperialGuard
+        {
+            get
+            {
+                return Find.World.factionManager.FirstFactionOfDef(DefOfs.C_FactionDefOf.ImperialGuard);
+            }
+        }
+        public Faction AdeptusAstartes
+        {
+            get
+            {
+                return Find.World.factionManager.FirstFactionOfDef(DefOfs.C_FactionDefOf.Astartes);
+            }
+        }
+        public Faction Orks
+        {
+            get
+            {
+                return Find.World.factionManager.FirstFactionOfDef(DefOfs.C_FactionDefOf.Orks);
+            }
+        }
+        public Faction Mechanicus
+        {
+            get
+            {
+                return Find.World.factionManager.FirstFactionOfDef(DefOfs.C_FactionDefOf.Mechanicus);
+            }
+        }
+        public Faction Tau
+        {
+            get
+            {
+                return Find.World.factionManager.FirstFactionOfDef(DefOfs.C_FactionDefOf.TauVanguard);
+            }
+        }
+        public Faction AdeptusSororitas
+        {
+            get
+            {
+                return Find.World.factionManager.FirstFactionOfDef(DefOfs.C_FactionDefOf.AdeptusSororitas);
+            }
+        }
 
         public List<Faction> ImperialFactions = new List<Faction>();
         public List<Faction> XenoFactions = new List<Faction>();
@@ -100,53 +185,64 @@ namespace Corruption
             }
         }
         
-        public override void Tick()
+        public float PlayerPatronWorshipProgress
+        {
+            get
+            {
+                return this.PlayerWorshipProgressLookup[this.PlayerGod];
+            }
+
+        }
+
+
+        public override void WorldComponentTick()
         {
             if (this.FactionsEnabled)
             {
                 for (int i = 0; i < Find.Maps.Count; i++)
 
-            {
-                if (Find.Maps[i].lordManager.lords.Any(x => x.LordJob.GetType() == typeof(LordJob_AssaultColony)))
                 {
-                    if (activeRaid == false)
+                    if (Find.Maps[i].lordManager.lords.Any(x => x.LordJob.GetType() == typeof(LordJob_AssaultColony)))
                     {
-                        activeRaid = true;
-                        if (!PlayerIsEnemyOfMankind && this.PatronFaction != null)
+                        if (activeRaid == false)
                         {
-                            this.PatronFactionAssaultTick(this.PatronFaction);
+                            activeRaid = true;
+                            if (!PlayerIsEnemyOfMankind && this.PatronFaction != null)
+                            {
+                                this.PatronFactionAssaultTick(this.PatronFaction);
+                            }
                         }
                     }
                 }
-            }
-            if (this.PlanetaryGovernor != null && this.PlanetaryGovernor.Dead)
-            {
-                this.PlanetaryGovernor = Find.WorldPawns.AllPawnsAlive.Where(x => x.Faction == Faction.OfPlayer).RandomElement();
-                string deadDesc = "GovernorDiedDesc".Translate(new object[]
+                if (this.PlanetaryGovernor != null && this.PlanetaryGovernor.Dead)
                 {
+                    this.PlanetaryGovernor = Find.WorldPawns.AllPawnsAlive.Where(x => x.Faction == Faction.OfPlayer).RandomElement();
+                    string deadDesc = "GovernorDiedDesc".Translate(new object[]
+                    {
                     PlanetaryGovernor.LabelCap,
                     PlanetaryGovernor.filth
-                });
-                Find.LetterStack.ReceiveLetter("LetterLabelGovernorDied".Translate(), deadDesc, LetterDefOf.NegativeEvent, null);
-            }
+                    });
+                    Find.LetterStack.ReceiveLetter("LetterLabelGovernorDied".Translate(), deadDesc, LetterDefOf.NegativeEvent, null);
+                }
 
-            if (GenLocalDate.HourOfDay(Find.VisibleMap) == 4)
-            {
-                if (this.DaysToTitheCollection > 0)
+                if (GenLocalDate.HourOfDay(Find.VisibleMap) == 4)
                 {
-                    this.DaysToTitheCollection--;
-                }
-                if (!this.currentTithes.NullOrEmpty() && this.DaysToTitheCollection == 0 && !TitheCollectionActive && this.AcknowledgedByImperium && this.PlanetaryGovernor != null)
-                {
-                    InitializeTitheCollection();
-                }
-                CalculateColonyCorruption();
+                    if (this.DaysToTitheCollection > 0)
+                    {
+                        this.DaysToTitheCollection--;
+                    }
+                    if (!this.currentTithes.NullOrEmpty() && this.DaysToTitheCollection == 0 && !TitheCollectionActive && this.AcknowledgedByImperium && this.PlanetaryGovernor != null)
+                    {
+                        InitializeTitheCollection();
+                    }
+                    CalculateColonyCorruption();
 
                     EldarTicksDaily();
                 }
                 CorruptionTicksDaily();
             }
-        }        
+        }       
+        
         private void InitializeTitheCollection()
         {
             Tithes.GameCondition_TitheCollectors condition = (Tithes.GameCondition_TitheCollectors)GameConditionMaker.MakeCondition(C_GameConditionDefOf.TitheCollectorArrived, 420000, 0);
@@ -163,67 +259,76 @@ namespace Corruption
             }
         }
 
-        private void GenerateAndSetFactions()
+        public void GenerateAndSetFactions()
         {
             if (this.DominationEnabled)
             {
                 this.GenerateGenericAlliances();
             }
-            if (this.IoM == null)
+            if (this.IoM_NPC == null)
             {
-                this.IoM = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.IoM_NPCFaction);
+                Faction IoM_NPC = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.IoM_NPCFaction);
+                Find.World.factionManager.Add(IoM_NPC);
             }
-            if (Find.World.factionManager.FirstFactionOfDef(C_FactionDefOf.IoM_NPCFaction) != null)
-            { 
-                Find.World.factionManager.Add(this.IoM);
-            }
-            if (this.ChaosCult == null)
+            if (this.ChaosCult_NPC == null)
             {
-                this.ChaosCult = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.ChaosCult);
-                Find.World.factionManager.Add(this.ChaosCult);
+                Faction ChaosCult = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.ChaosCult_NPC);
+                Find.World.factionManager.Add(ChaosCult);
             }
             if (this.DarkEldarKabal == null)
             {
-                this.DarkEldarKabal = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.DarkEldarKabal);
-                Find.World.factionManager.Add(this.DarkEldarKabal);
+                Faction DarkEldarKabal = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.DarkEldarKabal);
+                Find.World.factionManager.Add(DarkEldarKabal);
             }
             if (this.EldarWarhost == null)
             {
-                this.EldarWarhost = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.EldarWarhost);
-                Find.World.factionManager.Add(this.EldarWarhost);
+                Faction EldarWarhost = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.EldarWarhost);
+                Find.World.factionManager.Add(EldarWarhost);
             }
             if (this.ImperialGuard == null)
             {
-                this.ImperialGuard = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.ImperialGuard);
-                Find.World.factionManager.Add(this.ImperialGuard);
+                Faction ImperialGuard = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.ImperialGuard);
+                Find.World.factionManager.Add(ImperialGuard);
             }
             if (this.AdeptusAstartes == null)
             {
-                this.AdeptusAstartes = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.Astartes);
-                Find.World.factionManager.Add(this.AdeptusAstartes);
+                Faction AdeptusAstartes = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.Astartes);
+                Find.World.factionManager.Add(AdeptusAstartes);
             }
             if (this.Orks == null)
             {
-                this.Orks = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.Orks);
-                Find.World.factionManager.Add(this.Orks);
+                Faction Orks = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.Orks);
+                Find.World.factionManager.Add(Orks);
             }
 
             if (this.AdeptusSororitas == null)
             {
-                this.AdeptusSororitas = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.AdeptusSororitas);
-                Find.World.factionManager.Add(this.AdeptusSororitas);
+                Faction AdeptusSororitas = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.AdeptusSororitas);
+                Find.World.factionManager.Add(AdeptusSororitas);
             }
             if (this.Mechanicus == null)
             {
-                this.Mechanicus = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.Mechanicus);
-                Find.World.factionManager.Add(this.Mechanicus);
+                Faction Mechanicus = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.Mechanicus);
+                Find.World.factionManager.Add(Mechanicus);
             }
             if (this.Tau == null)
             {
-                this.Tau = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.TauVanguard);
-                Find.World.factionManager.Add(this.Tau);
+                Faction Tau = FactionGenerator.NewGeneratedFaction(C_FactionDefOf.TauVanguard);
+                Find.World.factionManager.Add(Tau);
             }
 
+            //if (!this.ImperialFactions.Contains(this.IoM_Administratum))
+            //{
+            //    this.ImperialFactions.Add(this.IoM_Administratum);
+            //}
+            //if (!this.ImperialFactions.Contains(this.IoM_Ecclesiarchy))
+            //{
+            //    this.ImperialFactions.Add(this.IoM_Ecclesiarchy);
+            //}
+            //if (!this.ImperialFactions.Contains(this.IoM_Inquisition))
+            //{
+            //    this.ImperialFactions.Add(this.IoM_Inquisition);
+            //}
             if (!this.ImperialFactions.Contains(this.ImperialGuard))
             {
                 this.ImperialFactions.Add(this.ImperialGuard);
@@ -254,30 +359,28 @@ namespace Corruption
                 this.XenoFactions.Add(this.Tau);
             }
             
-            if (!this.XenoFactions.Contains(this.ChaosCult))
+            if (!this.XenoFactions.Contains(this.ChaosCult_NPC))
             {
-                this.XenoFactions.Add(this.ChaosCult);
+                this.XenoFactions.Add(this.ChaosCult_NPC);
             }
             
             foreach (Faction fac in this.ImperialFactions)
             {
-                fac.SetHostileTo(this.ChaosCult, true);
-                this.ChaosCult.SetHostileTo(fac, true);
+                fac.SetHostileTo(this.ChaosCult_NPC, true);
+                this.ChaosCult_NPC.SetHostileTo(fac, true);
             }
             
-            foreach (Faction fac in this.XenoFactions.FindAll(x => x.def != C_FactionDefOf.ChaosCult))
+            foreach (Faction fac in this.XenoFactions.FindAll(x => x.def != C_FactionDefOf.ChaosCult_NPC))
             {
-                fac.SetHostileTo(this.ChaosCult, true);
-                this.ChaosCult.SetHostileTo(fac, true);
+                fac.SetHostileTo(this.ChaosCult_NPC, true);
+                this.ChaosCult_NPC.SetHostileTo(fac, true);
             }
             
             if (this.DominationEnabled)
             {
-                this.DominationTracker.CreateImperiumOfManAlliance();
                 this.DominationTracker.AddNewAlliance(EldarWarhost.Name, EldarWarhost);
                 this.DominationTracker.AddNewAlliance(Tau.Name, this.Tau);
-                this.DominationTracker.AddNewAlliance(ChaosCult.Name, ChaosCult);
-
+                this.DominationTracker.AddNewAlliance(ChaosCult_NPC.Name, ChaosCult_NPC);
             }
 
 
@@ -332,22 +435,15 @@ namespace Corruption
             }            
         }
 
-        public override void PostAdd()
+        public override void FinalizeInit()
         {
-            base.PostAdd();
-
-
+            base.FinalizeInit();
 
             if (this.DominationEnabled)
             {
                 this.DominationTracker = new Domination.DominationTracker();
             }
 
-            if (this.FactionsEnabled)
-            {
-                this.GenerateAndSetFactions();
-                CreateSubSector();
-            }
 
            
         }
@@ -381,6 +477,19 @@ namespace Corruption
                 angle += 40;
                 this.SubSectorObjects.Add(newEntry);
             }
+        }
+
+        public void AddWorshipProgress(float amount, PatronDef god)
+        {
+            int accumulatedProgress = this.PlayerWorshipProgressLookup[god];
+            this.PlayerWorshipProgressLookup[god] += AdjustWorshipGain(amount, accumulatedProgress);
+        }
+
+        private int AdjustWorshipGain(float amount, float currentProgress)
+        {
+            double dampeningFactor = (0.8f) / (1 + Math.Exp(-0.001f * (currentProgress - 6000)));
+
+            return (int)(amount * (1 - dampeningFactor));
         }
 
         public void CalculateColonyCorruption()
@@ -597,17 +706,14 @@ namespace Corruption
             return result;
         }
 
+        private void InitializeAvailableGods()
+        {
+            List<PatronDef> GodsFromEnum = DefDatabase<PatronDef>.AllDefsListForReading;
+        }
+
         public override void ExposeData()
         {
-            Scribe_References.Look<Faction>(ref this.IoM, "IoM");
             Scribe_References.Look<Faction>(ref this.PatronFaction, "PatronFaction");
-            Scribe_References.Look<Faction>(ref this.ImperialGuard, "ImperialGuard");
-            Scribe_References.Look<Faction>(ref this.AdeptusSororitas, "AdeptusSororitas");
-            Scribe_References.Look<Faction>(ref this.Mechanicus, "Mechanicus");
-            Scribe_References.Look<Faction>(ref this.EldarWarhost, "EldarWarhost");
-            Scribe_References.Look<Faction>(ref this.DarkEldarKabal, "DarkEldarKabal");
-            Scribe_References.Look<Faction>(ref this.ChaosCult, "ChaosCult");
-            Scribe_References.Look<Faction>(ref this.Tau, "Tau");
             Scribe_Collections.Look<Faction>(ref this.ImperialFactions, "ImperialFactions", LookMode.Reference, new object[0]);
             Scribe_Collections.Look<Faction>(ref this.XenoFactions, "XenoFactions", LookMode.Reference, new object[0]);
             Scribe_Collections.Look<StarMapObject>(ref this.SubSectorObjects, "SubSectorObjects", LookMode.Deep, new object[0]);
@@ -620,6 +726,7 @@ namespace Corruption
             Scribe_Values.Look<float>(ref this.ColonyCorruptionAvg, "ColonyCorruptionAvg", 0.8f, false);
             Scribe_Values.Look<string>(ref this.SubsectorName, "SubsectorName", "Aurelia", false);
             Scribe_Collections.Look<Tithes.TitheEntryGlobal>(ref this.currentTithes, "currentTithes", LookMode.Deep, new object[0]);
+            Scribe_Collections.Look <PatronDef, int>(ref this.PlayerWorshipProgressLookup, "Progress", LookMode.Def, LookMode.Value);
             if (CorruptionModSettings.AllowDomination)
             {
                 Scribe_Deep.Look<Domination.DominationTracker>(ref this.DominationTracker, "DominationTracker", new object[0]);

@@ -47,7 +47,7 @@ namespace Corruption
             {
                 if (Widgets.ButtonText(rectDebug1, "ForceSermonDebug".Translate(), true, false, true))
                 {
-                    SermonUtility.ForceSermon(altar);
+                    SermonUtility.ForceSermon(altar, Worship.WorshipActType.MorningPrayer);
                 }
                 Rect rectDebug2 = rectDebug1;
                 rectDebug2.y += 25f;

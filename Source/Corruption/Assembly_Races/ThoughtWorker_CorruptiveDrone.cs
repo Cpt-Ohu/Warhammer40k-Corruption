@@ -50,7 +50,7 @@ namespace Corruption
             }
 
 
-            if (soul.NoPatron)
+            if (soul.NotCorrupted)
             {
                 return ThoughtState.ActiveAtStage(0);
             }
