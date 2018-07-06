@@ -62,8 +62,7 @@ namespace Corruption
                 //else
                 //{                    
                 //    this.Map.reservationManager.Release(this.job.targetC.Cell, this.pawn, this.job);
-                //}
-                
+                //}        
                 
             });
         }

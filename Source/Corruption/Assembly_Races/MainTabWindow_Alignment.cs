@@ -352,6 +352,7 @@ namespace Corruption
             {
                 SoulTrait trait = STraits[i];
                 Rect rect12 = new Rect(TraitRect.x, curTraitRectHeight, TraitRect.width, 23f);
+
                 if (Mouse.IsOver(rect12))
                 {
                     Widgets.DrawHighlight(rect12);
