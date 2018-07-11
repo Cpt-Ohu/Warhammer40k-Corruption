@@ -3,7 +3,7 @@
 
   <!-- ==========================Standard=============================== -->
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="ArmorMakeableBase" >
     <defName>Sororitas_PowerArmor</defName>
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <label>sororitas power armor</label>
@@ -72,7 +72,7 @@
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="ArmorHelmetMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="ArmorHelmetMakeableBase" >
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <defName>Sororitas_PowerArmorHelmet</defName>
     <label>sororitas power armor helmet</label>

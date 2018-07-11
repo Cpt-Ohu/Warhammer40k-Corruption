@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+
+
+  <CulturalToleranceNeutralDesc>{0} doesn't really care about anyones origin.</CulturalToleranceNeutralDesc>
+
+  <CulturalToleranceXenophilelDesc>{0} appreciates intelligent Xenos and loves having them around. </CulturalToleranceXenophilelDesc>
+
+  <CulturalToleranceXenophobeDesc>{0} doesn't like Xenos and will be unhappy if forced to live with them.</CulturalToleranceXenophobeDesc>
+
+  <CulturalToleranceStat>Cultural Tolerance</CulturalToleranceStat>
+
+  <PurityOfSoulStat>Purity of Soul</PurityOfSoulStat>
+
+  <Soul>Soul</Soul>
+
+  <PawnAlignmentButtonDescription>Click to open the pawn alignment window</PawnAlignmentButtonDescription>
+
+  <PsykerLevelDescOmega>{0} is a psychic blank, unaffected by the touch of the warp, yet shunned by normal beings for their unnatural aura.</PsykerLevelDescOmega>
+
+  <PsykerLevelDescOmicron>{0} shows latent psychic talents, barely noticable by others.</PsykerLevelDescOmicron>
+
+  <PsykerLevelDescSigma>{0} shows psy-inertia, being less affected by the warp than the average being.</PsykerLevelDescSigma>
+
+  <PsykerLevelDescRho>{0} showes neither detectable affinity nor aversion to the warp.</PsykerLevelDescRho>
+  <PsykerLevelDescOmikron>This pawn shows psychic talents on a very low level and might not even be aware of it.</PsykerLevelDescOmikron>
+
+  <PsykerLevelDescIota>{0} is at the threshold of being classified as Psyker, being both aware of and able to control psychic powers.</PsykerLevelDescIota>
+
+  <PsykerLevelDescZeta>{0} is a moderately powerful Psyker.</PsykerLevelDescZeta>
+
+  <PsykerLevelDescEpsilon>{0} is a powerful Psyker, able to perform most impressive feats.</PsykerLevelDescEpsilon>
+
+  <PsykerLevelDescDelta>{0} is an exceptionally powerful Psyker, terrifying and dangerous.</PsykerLevelDescDelta>
+
+  <SoulAfflictionDescPure>{0} is pure of mind and soul, untouched by the corruptive power of the warp.</SoulAfflictionDescPure>
+  <SoulAfflictionDescIntrigued>{0} has come in touch with the warp and it left a mark, however small it may be.</SoulAfflictionDescIntrigued>
+  <SoulAfflictionDescWarptouched>{0} has been touched by the warp and embraced it.</SoulAfflictionDescWarptouched>
+  <SoulAfflictionDescTainted>{0} was tainted by exposure to the warp and is on a dangerous path that may lead to dark places.</SoulAfflictionDescTainted>
+  <SoulAfflictionDescCorrupted>{0} has been irreversibely corrupted by the Warp and turned to Chaos.</SoulAfflictionDescCorrupted>
+  <SoulAfflictionDescLost>{0} has become an arch heretic who's  completely consumed by Chaos.</SoulAfflictionDescLost>
+
+</LanguageData>

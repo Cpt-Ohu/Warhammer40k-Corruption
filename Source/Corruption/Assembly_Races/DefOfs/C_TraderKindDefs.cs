@@ -12,5 +12,6 @@ namespace Corruption.DefOfs
         public static TraderKindDef Visitor_IoM_Wanderer;
         public static TraderKindDef CultistVisitor;
         public static TraderKindDef Visitor_TauEnvoy;
+        public static TraderKindDef Orbital_BulkGoods;
     }
 }

@@ -5,7 +5,7 @@
 
   <!-- ============================ Human ========================== -->
 
-  <AlienRace.ThingDef_AlienRace ParentName="BasePawn">
+  <AlienRace.ThingDef_AlienRace ParentName="40kBasePawn">
     <defName>Alien_Sororitas</defName>
     <label>human</label>
     <description>A baseline human, mostly unmodified by gene engineering and mostly unchanged by evolutionary pressures on non-Earth planets.</description>

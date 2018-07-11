@@ -14,7 +14,7 @@ namespace Corruption.Worship
         private Pawn preacher;
 
         private BuildingAltar altar;
-
+        
         public LordToil_StartSermom(Pawn preacher, BuildingAltar altar)
         {
             this.preacher = preacher;

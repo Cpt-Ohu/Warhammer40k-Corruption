@@ -213,9 +213,7 @@ namespace OHUShips
             this.BurnFuel();
             if (this.ships.Count < 1)
             {
-                this.RemoveAllPawnsFromWorldPawns();
-                this.RemoveAllPods();
-                Find.WorldObjects.Remove(this);
+                this.Destroy();
             }
             this.traveledPct += this.TraveledPctStepPerTick;
             if (this.traveledPct >= 1f)
@@ -223,6 +221,13 @@ namespace OHUShips
                 this.traveledPct = 1f;
                 this.Arrived();
             }
+        }
+
+        private void Destroy()
+        {
+            this.RemoveAllPawnsFromWorldPawns();
+            this.RemoveAllShip();
+            Find.WorldObjects.Remove(this);
         }
 
         private void BurnFuel()
@@ -294,6 +299,10 @@ namespace OHUShips
                 //Find.WorldObjects.Add(travelingShips);
                 //Find.WorldObjects.Remove(this);
             }
+            else if (arrivalAction == TravelingShipArrivalAction.Despawn)
+            {
+                this.Destroy();
+            }
             else
             {
                 Map map = Current.Game.FindMap(this.destinationTile);
@@ -307,7 +316,7 @@ namespace OHUShips
                     {
                         this.ships[i].GetDirectlyHeldThings().ClearAndDestroyContentsOrPassToWorld(DestroyMode.Vanish);
                     }
-                    this.RemoveAllPods();
+                    this.RemoveAllShip();
                     Find.WorldObjects.Remove(this);
                     Messages.Message("MessageTransportPodsArrivedAndLost".Translate(), new GlobalTargetInfo(this.destinationTile), MessageTypeDefOf.NegativeEvent);
                 }
@@ -368,7 +377,7 @@ namespace OHUShips
             }
             
             LandedShip landedShip = TravelingShipsUtility.MakeLandedShip(this, this.Faction, startingTile, true);
-            this.RemoveAllPods();
+            this.RemoveAllShip();
             Find.WorldObjects.Remove(this);
             
             Messages.Message("MessageShipsArrived".Translate(), landedShip, MessageTypeDefOf.NeutralEvent);
@@ -411,7 +420,7 @@ namespace OHUShips
             }
             DropShipUtility.DropShipGroups(intVec, map, this.ships, this.arrivalAction, this.isSingularShip);
             Messages.Message(text, new TargetInfo(intVec, map, false), MessageTypeDefOf.NeutralEvent);
-            this.RemoveAllPods();
+            this.RemoveAllShip();
             Find.WorldObjects.Remove(this);
         }
 
@@ -454,8 +463,9 @@ namespace OHUShips
             }
         }
 
-        private void RemoveAllPods()
+        private void RemoveAllShip()
         {
+            this.ships.ForEach(x => x?.Destroy());
             this.ships.Clear();
         }
 

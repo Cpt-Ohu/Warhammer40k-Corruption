@@ -17,7 +17,7 @@ namespace Corruption
 
         public PatronDef DedicatedGod = PatronDefOf.Emperor;
 
-        private Need_Soul soul;
+        private CompSoul soul;
 
         private bool PsykerPowerAdded = false;
 
@@ -72,7 +72,7 @@ namespace Corruption
                 }
         }
 
-        public void UpdatePsykerUnlocks(Need_Soul soul)
+        public void UpdatePsykerUnlocks(CompSoul soul)
         {
             List<PsykerPowerDef> list = SProps.UnlockedPsykerPowers;
             for (int i = 0; i < list.Count; i++)
@@ -193,7 +193,7 @@ namespace Corruption
 
                 if (this.Owner != null)
                 {
-                    if ((soul = this.Owner.needs.TryGetNeed<Need_Soul>()) != null)
+                    if ((soul = CompSoul.GetPawnSoul(Owner)) != null)
                     {
                         this.CalculateSoulChanges(soul, SProps);
 
@@ -212,7 +212,6 @@ namespace Corruption
                                             compPsyker.PsykerPowerManager.AddPsykerPower(SProps.UnlockedPsykerPowers[i], true, this.parent.def);
                                         }
                                     }
-                                    compPsyker.UpdatePowers();
                                 }
                                 PsykerPowerAdded = true;
                             }
@@ -227,7 +226,7 @@ namespace Corruption
             }
         }
 
-        public void CalculateSoulChanges(Need_Soul nsoul, CompProperties_SoulItem cprops)
+        public void CalculateSoulChanges(CompSoul soul, CompProperties_SoulItem cprops)
         {
             float num;
             switch (itemCategory)
@@ -257,7 +256,7 @@ namespace Corruption
                     }
             }
             num = sign * cprops.GainRate * 0.2f / 7200;
-            nsoul.GainNeed(num);
+            soul.AffectSoul(num);
         }       
 
         public override void PostDrawExtraSelectionOverlays()

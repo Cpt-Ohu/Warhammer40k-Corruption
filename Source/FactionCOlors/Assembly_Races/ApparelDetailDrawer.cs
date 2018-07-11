@@ -136,15 +136,15 @@ namespace FactionColors
 
         }
 
-        public override void PostDraw()
-        {
-            base.PostDraw();
-            Mesh mesh = this.DetailGraphic.MeshAt(this.parent.Rotation);
-            Material material2 = this.DetailGraphic.MatAt(this.parent.Rotation, null);
-            Vector3 vector = this.parent.DrawPos;
-            vector.y += 0.1f;
-            GenDraw.DrawMeshNowOrLater(mesh, vector, Quaternion.identity, material2, false);
-        }
+        //public override void PostDraw()
+        //{
+        //    base.PostDraw();
+        //    Mesh mesh = this.DetailGraphic.MeshAt(this.parent.Rotation);
+        //    Material material2 = this.DetailGraphic.MatAt(this.parent.Rotation, null);
+        //    Vector3 vector = this.parent.DrawPos;
+        //    vector.y += 0.1f;
+        //    GenDraw.DrawMeshNowOrLater(mesh, vector, Quaternion.identity, material2, false);
+        //}
 
 
         public override void PostExposeData()

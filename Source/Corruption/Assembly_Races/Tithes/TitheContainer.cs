@@ -11,7 +11,7 @@ namespace Corruption.Tithes
         {
             get
             {
-                return CorruptionStoryTrackerUtilities.currentStoryTracker;
+                return CorruptionStoryTrackerUtilities.CurrentStoryTracker;
             }
         }
 

@@ -17,11 +17,11 @@ namespace FactionColors
             }
         }
         
-        public PlayerFactionStoryTracker storyTracker
+        public FactionColorsTracker factioColorTracker
         {
             get
             {
-                return FactionColorUtilities.currentPlayerStoryTracker;
+                return FactionColorUtilities.currentFactionColorTracker;
             }
         }
 
@@ -29,7 +29,7 @@ namespace FactionColors
         {
             get
             {
-                return GraphicDatabase.Get<Graphic_Single>(storyTracker.BannerGraphicPath, ShaderDatabase.CutoutComplex, Vector2.one, storyTracker.PlayerColorOne, storyTracker.PlayerColorTwo);
+                return GraphicDatabase.Get<Graphic_Single>(factioColorTracker.BannerGraphicPath, ShaderDatabase.CutoutComplex, Vector2.one, factioColorTracker.PlayerColorOne, factioColorTracker.PlayerColorTwo);
             }
         }
 

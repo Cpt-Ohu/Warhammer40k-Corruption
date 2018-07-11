@@ -18,7 +18,6 @@ namespace Corruption
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look<TargetIndex>(ref this.Spot, "Spot", TargetIndex.C);
         }
 
         public override bool TryMakePreToilReservations()

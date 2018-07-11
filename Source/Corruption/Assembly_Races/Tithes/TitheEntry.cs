@@ -5,6 +5,7 @@ using System.Text;
 using RimWorld;
 using Verse;
 using UnityEngine;
+using Corruption.IoM;
 
 namespace Corruption.Tithes
 {
@@ -24,7 +25,7 @@ namespace Corruption.Tithes
             this.titheDef = titheDef;
             this.requestedTitheAmount = (int)requestedAmount;
             GetTitheItemdefs();
-            this.ID = CorruptionStoryTrackerUtilities.currentStoryTracker.GetTitheID();
+            this.ID = CorruptionStoryTrackerUtilities.CurrentStoryTracker.GetTitheID();
         }        
 
         public TitheDef titheDef;
@@ -64,10 +65,19 @@ namespace Corruption.Tithes
             for (int j = 0; j < list.Count; j++)
             {
                 TitheContainer current = (TitheContainer)list[j];
+                ThingOwner currentThings = current.GetDirectlyHeldThings();
                 for (int k = 0; k < this.thingDefs.Count; k++)
                 {
-                    int items = current.GetDirectlyHeldThings().TotalStackCountOfDef(thingDefs[k]);
+                    int items = currentThings.TotalStackCountOfDef(thingDefs[k]);
                     num += items * thingDefs[k].BaseMarketValue;
+                }
+                for (int l = 0; l < currentThings.Count; l++)
+                {
+                    ResourcePack resPack = currentThings[l] as ResourcePack;
+                    if (resPack != null)
+                    {
+                        num += resPack.TotalValue;
+                    }
                 }
             }
 

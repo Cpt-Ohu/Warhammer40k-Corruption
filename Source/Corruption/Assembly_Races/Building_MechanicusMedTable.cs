@@ -217,7 +217,7 @@ namespace Corruption
 
         private void ReplacePawn(PawnKindDef kindDef)
         {
-            Pawn pawn = PawnGenerator.GeneratePawn(kindDef, this.patient.Faction);
+            Pawn pawn = PawnGenerator.GeneratePawn(kindDef, Faction.OfPlayer);
             pawn.gender = this.patient.gender;
             pawn.story.hairColor = this.patient.story.hairColor;
             pawn.story.hairDef = this.patient.story.hairDef;

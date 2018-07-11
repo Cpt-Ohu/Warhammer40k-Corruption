@@ -28,9 +28,7 @@ namespace Corruption
         public bool ShotFired = true;        
 
         public int ticksToImpact = 500;
-
-        private bool initialized = false;
-
+        
         public Pawn psyker
         {
             get
@@ -39,11 +37,11 @@ namespace Corruption
             }
         }
 
-        public Need_Soul soul
+        public CompSoul soul
         {
             get
             {
-                Need_Soul s = psyker.needs.TryGetNeed<Need_Soul>();
+                CompSoul s = CompSoul.GetPawnSoul(psyker);
                 if (s != null)
                 {
                     return s;
@@ -52,7 +50,13 @@ namespace Corruption
             }
         }
         
-        public PatronDef Patron;
+        public PatronDef Patron
+        {
+            get
+            {
+                return this.soul.Patron;
+            }
+        }
 
         public LocalTargetInfo CurTarget;
 
@@ -73,13 +77,11 @@ namespace Corruption
         public override void Initialize(CompProperties props)
         {
             base.Initialize(props);
+            this.psykerPowerManager = new PsykerPowerManager(this);
         }
 
-        private void Initialize()
+        public void SetInitialLevel()
         {
-            if (this.psykerPowerManager == null)
-            {
-                this.psykerPowerManager = new PsykerPowerManager(this);
                 if (CorruptionModSettings.AllowPsykers)
                 {
                     if (this.soul.PawnAfflictionProps.CommmonPsykerPowers != null)
@@ -97,24 +99,20 @@ namespace Corruption
                     }
                 }
 
-            }
-
-            ChaosFollowerPawnKindDef pdef = this.psyker.kindDef as ChaosFollowerPawnKindDef;
-            if (pdef != null && pdef.RenamePawns)
-            {
-                string rawName = NameGenerator.GenerateName(pdef.OverridingNameRulePack, delegate (string x)
+                ChaosFollowerPawnKindDef pdef = this.psyker.kindDef as ChaosFollowerPawnKindDef;
+                if (pdef != null && pdef.RenamePawns)
                 {
-                    NameTriple nameTriple4 = NameTriple.FromString(x);
-                    nameTriple4.ResolveMissingPieces(null);
-                    return !nameTriple4.UsedThisGame;
-                }, false);
-                NameTriple nameTriple = NameTriple.FromString(rawName);
-                nameTriple.CapitalizeNick();
-                nameTriple.ResolveMissingPieces(null);
-                psyker.Name = nameTriple;
-            }
-
-            this.initialized = true;
+                    string rawName = NameGenerator.GenerateName(pdef.OverridingNameRulePack, delegate (string x)
+                    {
+                        NameTriple nameTriple4 = NameTriple.FromString(x);
+                        nameTriple4.ResolveMissingPieces(null);
+                        return !nameTriple4.UsedThisGame;
+                    }, false);
+                    NameTriple nameTriple = NameTriple.FromString(rawName);
+                    nameTriple.CapitalizeNick();
+                    nameTriple.ResolveMissingPieces(null);
+                    psyker.Name = nameTriple;
+                }
         }
         
         public void AddXP(float amountGained)
@@ -124,41 +122,34 @@ namespace Corruption
 
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
         {
-            if (!this.soul.KnownToPlayer)
+            foreach (FloatMenuOption o in base.CompFloatMenuOptions(selPawn))
             {
-                int successFactorSocial = (int)(Math.Max(0, (CorruptionStoryTrackerUtilities.DiscoverAlignmentByConfessionModifier + CorruptionStoryTrackerUtilities.SocialSkillDifference(selPawn, this.psyker) / 20) * 100));
-                int successFactorPsyker = (int)(Math.Max(0, (CorruptionStoryTrackerUtilities.DiscoverAlignmentByPsykerModifier + CorruptionStoryTrackerUtilities.PsykerPowerDifference(selPawn, this.psyker) / 7 )* 100));
-
-                BuildingAltar altar = null;
-                if (this.soul.PsykerPowerLevel >= PsykerPowerLevel.Iota)
-                {
-                    yield return new FloatMenuOption("PsychicProbe".Translate(new object[] { successFactorPsyker.ToString() }), delegate
-                    {
-                        List<Pawn> list = new List<Pawn>() { selPawn, this.psyker };
-                        Lord lord = LordMaker.MakeNewLord(altar.Faction, new LordJob_Sermon(altar, WorshipActType.Confession), altar.Map, list);
-
-                    });
-                }
-
-                if (CorruptionStoryTrackerUtilities.IsPreacher(selPawn, out altar))
-                {
-                    yield return new FloatMenuOption("StartConfession".Translate(new object[] { successFactorSocial.ToString() }), delegate
-                    {
-                        List<Pawn> list = new List<Pawn>() {  selPawn, this.psyker};
-                        Lord lord = LordMaker.MakeNewLord(altar.Faction, new LordJob_Sermon(altar, WorshipActType.Confession), altar.Map, list);
-
-                    });
-                }
-
-                yield return new FloatMenuOption("InvestigateAlignment".Translate(new object[] { successFactorSocial.ToString() }), delegate
-                {
-                    Job job = new Job(C_JobDefOf.FollowAndInvestigate, this.psyker);
-                    selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-
-                });
+                yield return o;
             }
 
-            yield return null;
+            if (!this.soul.KnownToPlayer)
+            {
+                int successFactorPsyker = (int)(Math.Max(0, (CorruptionStoryTrackerUtilities.DiscoverAlignmentByPsykerModifier + CorruptionStoryTrackerUtilities.PsykerPowerDifference(selPawn, this.psyker) / 7) * 100));
+
+                CompSoul selSoul = CompSoul.GetPawnSoul(selPawn);
+
+                if (selSoul != null && selSoul.PsykerPowerLevel >= PsykerPowerLevel.Iota)
+                {
+                    yield return new FloatMenuOption("PsychicProbe".Translate(new object[] { successFactorPsyker.ToString() }), delegate
+                    {                        
+                        CompPsyker psykerComp = CompPsyker.GetCompPsyker(selPawn);
+                        if (psykerComp != null)
+                        {
+                            PsykerPowerDef powerDef = DefOfs.C_PsykerPowerDefOf.PsykerPower_ProbeMind;
+                            Verb_CastWarpPower newverb = (Verb_CastWarpPower)Activator.CreateInstance(powerDef.MainVerb.verbClass);
+                            newverb.caster = selPawn;
+                            newverb.verbProps = powerDef.MainVerb;
+                            CompPsyker.TryCastPowerAction(selPawn, this.psyker, psykerComp, newverb, powerDef)?.Invoke();
+                        }
+
+                    });
+                }
+            }
         }
 
         public List<PsykerPower> Powers = new List<PsykerPower>();
@@ -166,9 +157,7 @@ namespace Corruption
         public List<PsykerPower> temporaryWeaponPowers = new List<PsykerPower>();
 
         public List<PsykerPower> temporaryApparelPowers = new List<PsykerPower>();
-
-        public List<PsykerPower> allPowers = new List<PsykerPower>();
-                
+                        
         public List<PsykerPowerEntry> AllPsykerPowers
         {
             get
@@ -186,55 +175,14 @@ namespace Corruption
         public Dictionary<PsykerPower, Verb_CastWarpPower> psykerPowers = new Dictionary<PsykerPower, Verb_CastWarpPower>();
 
         public List<Verb_CastWarpPower> PowerVerbs = new List<Verb_CastWarpPower>();
-
-        public void UpdatePowers()
-        {
-
-            PowerVerbs.Clear();
-            List<PsykerPower> psylist = new List<PsykerPower>();
-            
-            psylist.AddRange(this.temporaryWeaponPowers);
-            psylist.AddRange(this.temporaryApparelPowers);
-
-            this.allPowers = psylist;
-
-            for (int i = 0; i < allPowers.Count; i++)
-            {
-                Verb_CastWarpPower newverb = (Verb_CastWarpPower)Activator.CreateInstance(psylist[i].powerdef.MainVerb.verbClass);
-                if (!PowerVerbs.Any(item => item.verbProps == newverb.verbProps))
-                {
-                    newverb.caster = this.psyker;
-                    newverb.verbProps = psylist[i].powerdef.MainVerb;
-                    PowerVerbs.Add(newverb);
-                }
-            }
-
-            this.psykerPowers.Clear();
-
-            foreach (PsykerPower pow in psylist)
-            {
-                Verb_CastWarpPower newverb = (Verb_CastWarpPower)Activator.CreateInstance(pow.powerdef.MainVerb.verbClass);
-                if (!PowerVerbs.Any(item => item.verbProps == newverb.verbProps))
-                {
-                    newverb.caster = this.psyker;
-                    newverb.verbProps = pow.powerdef.MainVerb;
-                    this.psykerPowers.Add(pow, newverb);
-                }
-            }
-        }
-
+        
         public override void CompTick()
         {
             base.CompTick();
-            if (!this.initialized && this.psyker != null)
-            {
-                Initialize();
-            }
             if (this.soul != null)
             {
                 if (this.Patron != soul.Patron)
                 {
-                    this.Patron = soul.Patron;
                     PortraitsCache.SetDirty(this.psyker);
                 }
             }                        
@@ -250,19 +198,13 @@ namespace Corruption
         
         public static Action TryCastPowerAction(Pawn pawn, LocalTargetInfo target, CompPsyker compPsyker, Verb_CastWarpPower verb, PsykerPowerDef psydef)
         {
-
                 Action act = new Action(delegate
                 {
-                    //            compPsyker.TicksToCast = verb.warpverbprops.TicksToRecharge;
-                    //            compPsyker.TicksToCastMax = verb.warpverbprops.TicksToRecharge;
                     compPsyker.CurTarget = null;
                     compPsyker.CurTarget = target;
                     compPsyker.curVerb = verb;
 
                     compPsyker.curPower = psydef;
-
-               //     Log.Message("Casting Stuff");
-               //     Log.Message(compPsyker.curPower.defName);
                     compPsyker.curRotation = target.Thing.Rotation;
                     Job job = CompPsyker.PsykerJob(verb.warpverbprops.PsykerPowerCategory, target);
                     job.playerForced = true;
@@ -314,7 +256,7 @@ namespace Corruption
         }
 
         public IEnumerable<Command_CastPower> GetPsykerVerbsNewV3()
-        {            
+        {
             foreach (PsykerPowerEntry current in this.AllPsykerPowers)
             {
                 if (PsykerHasEquipment(current))
@@ -402,15 +344,12 @@ namespace Corruption
                         this.CastingDrawMat = GraphicDatabase.Get<Graphic_Single>(curPower.uiIconPath, ShaderDatabase.MoteGlow, Vector2.one, Color.white).MatSingle;
                     }
 
-                    //    curRotation.Rotate(RotationDirection.Clockwise);  
                     float scale = 2f;
                     if (this.curVerb.warpverbprops.PsykerPowerCategory == PsykerPowerTargetCategory.TargetAoE)
                     {
                         scale = this.curVerb.verbProps.range * 2;
                     }
-                    //     Log.Message(this.CurTarget.Thing.Label);
                     Vector3 s = new Vector3(scale, 1f, scale);
-                    //      Log.Message(curPower.label);
                     Matrix4x4 matrix = default(Matrix4x4);
                     Vector3 drawPos = new Vector3();
 
@@ -436,18 +375,21 @@ namespace Corruption
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Defs.Look<PatronDef>(ref this.Patron, "Patron");
             Scribe_Defs.Look<PsykerPowerDef>(ref this.curPower, "curPower");
             Scribe_Values.Look<int>(ref this.TicksToCast, "TicksToCast", 0, false);
             Scribe_Values.Look<int>(ref this.TicksToCastMax, "TicksToCastMax", 1, false);
             Scribe_Values.Look<float>(ref this.TicksToCastPercentage, "TicksToCastPercentage", 1, false);
             Scribe_Values.Look<bool>(ref this.IsActive, "IsActive", false, false);
             Scribe_Values.Look<bool>(ref this.ShotFired, "ShotFired", true, false);
-            Scribe_Values.Look<bool>(ref this.initialized, "initialized", true, false);
             Scribe_Deep.Look<PsykerPowerManager>(ref this.psykerPowerManager, "psykerPowerManager", new object[]
                 {                    
                   this
                 });
+        }
+
+        public static CompPsyker GetCompPsyker(Pawn pawn)
+        {
+            return pawn.TryGetComp<CompPsyker>();
         }
     }
 }

@@ -4,7 +4,7 @@
 
   <!-- ============================ Astrartes ========================== -->
 
-  <ThingDef ParentName="BasePawn">
+  <ThingDef ParentName="40kBasePawn">
     <defName>Astartes</defName>
     <label>astartes</label>
     <description>What was once mearly an exceptional human was turned into a demi-god of war thansk to the Emperors blessed gene-seed.</description>

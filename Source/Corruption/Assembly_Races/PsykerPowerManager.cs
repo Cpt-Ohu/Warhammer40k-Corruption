@@ -89,7 +89,6 @@ namespace Corruption
             {
                 Log.Error("Tried to add Psyker power with invalid power level. Power will be discarded.");
             }
-            this.CompPsyker.UpdatePowers();
         }
 
         public static readonly Dictionary<PsykerPowerLevel, int> PowerLevelSlots = new Dictionary<PsykerPowerLevel, int>{
@@ -140,8 +139,8 @@ namespace Corruption
 
         public void AddXP(float amount)
         {
-            int adjustedXP = (int)(amount * 100);
-            this.PsykerXP += Math.Abs(adjustedXP);
+                int adjustedXP = (int)(amount * 100f);
+                this.PsykerXP += Math.Abs(adjustedXP);            
         }
 
         public void ExposeData()

@@ -159,7 +159,7 @@ Offensive Capabilities: 1x Payload Slot
   <ThingDef>
     <defName>OHUDropShipLeaving</defName>
     <label>Dropship(leaving)</label>
-    <category>Skyfaller</category>
+    <category>Attachment</category>
 		<thingClass>OHUShips.ShipBase_Traveling</thingClass>
 		<tickerType>Normal</tickerType>
     <graphicData>
@@ -266,7 +266,7 @@ Maximum Cargo Capacity: 185 kg
   <ThingDef>
     <defName>OHUKestrelLeaving</defName>
     <label>Kestrel(leaving)</label>
-    <category>Skyfaller</category>
+    <category>Attachment</category>
 		<thingClass>OHUShips.ShipBase_Traveling</thingClass>
 		<tickerType>Normal</tickerType>
     <graphicData>
@@ -374,7 +374,7 @@ Maximum Cargo Capacity: 80 kg
   <ThingDef>
     <defName>OHUAlbatrosLeaving</defName>
     <label>Albatros(leaving)</label>
-    <category>Skyfaller</category>
+    <category>Attachment</category>
 		<thingClass>OHUShips.ShipBase_Traveling</thingClass>
 		<tickerType>Normal</tickerType>
     <graphicData>
@@ -473,7 +473,7 @@ Maximum Cargo Capacity: 80 kg
   <ThingDef>
     <defName>AquilaLanderLeaving</defName>
     <label>Aquila Lander(leaving)</label>
-    <category>Skyfaller</category>
+    <category>Attachment</category>
 		<thingClass>OHUShips.ShipBase_Traveling</thingClass>
 		<tickerType>Normal</tickerType>
     <graphicData>
@@ -586,7 +586,7 @@ Maximum Cargo Capacity: 80 kg
   <ThingDef>
     <defName>ValkyrieLeaving</defName>
     <label>Valkyrie(leaving)</label>
-    <category>Skyfaller</category>
+    <category>Attachment</category>
 		<thingClass>OHUShips.ShipBase_Traveling</thingClass>
 		<tickerType>Normal</tickerType>
     <graphicData>
@@ -599,6 +599,109 @@ Maximum Cargo Capacity: 80 kg
     <useHitPoints>false</useHitPoints>
     <drawOffscreen>true</drawOffscreen>
     <selectable>false</selectable>
+  </ThingDef>
+  
+  
+   <!--=============== Freighter ===============-->
+
+  <ThingDef ParentName="BaseShip" Name="ImperialFreighter">
+    <thingClass>OHUShips.ShipBase</thingClass>
+    <defName>ImperialFreighter</defName>
+    <label>freighter</label>
+    <description>A basic orbital freight ship commonly used within the Imperium.</description>
+    <graphicData>
+      <texPath>Things/IoM/Ships/ArvusLighter</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(6,6)</drawSize>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <size>(4,4)</size>
+    <rotatable>true</rotatable>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <passability>Impassable</passability>
+    <castEdgeShadows>false</castEdgeShadows>
+    <fillPercent>1.0</fillPercent>
+    <designationCategory>Ship</designationCategory>
+    <iconDrawScale>1</iconDrawScale>
+    <statBases>
+      <MaxHitPoints>2000</MaxHitPoints>
+      <WorkToBuild>3000</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <comps>
+      <li Class="OHUShips.CompProperties_Ship">
+        <TicksToImpact>200</TicksToImpact>
+        <TicksToDespawn>200</TicksToDespawn>
+        <WorldMapTravelSpeedFactor>0.5</WorldMapTravelSpeedFactor>
+        <maxCargo>1000</maxCargo>
+        <maxPassengers>6</maxPassengers>
+        <availableToFactions>
+		<li>ImperialGuard</li>
+		<li>ChaosCult_NPC</li>
+	   </availableToFactions>
+        <LeavingShipDef>FreigherLeaving</LeavingShipDef>
+        <IncomingAngle>65</IncomingAngle>
+        <ShadowGraphicPath>Things/IoM/Ships/ArvusLighterShadow</ShadowGraphicPath>
+
+	 </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>1.0</fuelConsumptionRate>
+        <fuelCapacity>3000.0</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <showFuelGizmo>true</showFuelGizmo>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <initialConfigurableTargetFuelLevel>200</initialConfigurableTargetFuelLevel>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+        <autoRefuelPercent>0.75</autoRefuelPercent>
+      </li>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+    <costList>
+      <Steel>1000</Steel>
+      <Component>50</Component>
+    </costList>
+		<researchPrerequisites>
+			<li>ShipBasics</li>
+		</researchPrerequisites>
+  </ThingDef>
+
+  
+  <ThingDef ParentName="ImperialFreighter">
+    <thingClass>Corruption.IoM.TributeShip</thingClass>
+    <defName>ImperialFreighterTribute</defName>	
+    <designationCategory></designationCategory>
+  </ThingDef>
+  
+  <ThingDef ParentName="ImperialFreighter">
+    <thingClass>Corruption.IoM.SupplyDropShip</thingClass>
+    <defName>ImperialFreighterSupply</defName>	
+    <designationCategory></designationCategory>
+  </ThingDef>
+  
+  <ThingDef>
+    <defName>FreigherLeaving</defName>
+    <label>Freigher(leaving)</label>
+    <category>Attachment</category>
+		<thingClass>OHUShips.ShipBase_Traveling</thingClass>
+		<tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Special/DropPod</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutFlying</shaderType>
+      <drawSize>1.9</drawSize>
+    </graphicData>	
+    <size>(4,4)</size>
+    <altitudeLayer>Skyfaller</altitudeLayer>
+    <useHitPoints>false</useHitPoints>
+    <drawOffscreen>true</drawOffscreen>
+    <selectable>false</selectable>	
   </ThingDef>
 
   

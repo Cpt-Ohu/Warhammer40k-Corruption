@@ -127,8 +127,7 @@ namespace Corruption
             {
                 if (!SermonUtility.IsPreacher(current))
                 {
-                    Need_Soul nsoul = current.needs.TryGetNeed<Need_Soul>();
-                    if (nsoul == null) nsoul = new Need_Soul(current);
+                    CompSoul nsoul = CompSoul.GetPawnSoul(current);
                     SoulTrait strait = nsoul.DevotionTrait;
                     string text1 = current.NameStringShort + " (" + strait.SoulCurrentData.label + ")";
 

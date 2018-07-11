@@ -52,8 +52,14 @@ namespace Corruption.Domination
 
         public DominationTracker()
         {
+
+        }
+
+        public void InitializeTracker()
+        {
             this.CreateImperiumOfManAlliance();
             this.CreateChaosAlliance();
+            this.CreateMainConflict();
         }
 
         public PoliticalAlliance ImperiumOfMan
@@ -142,7 +148,7 @@ namespace Corruption.Domination
         public void CreateImperiumOfManAlliance()
         {
             PoliticalAlliance ioM = new PoliticalAlliance("IoMAlliance".Translate(), GetNextAllianceID(), Find.FactionManager.FirstFactionOfDef(DefOfs.C_FactionDefOf.IoM_NPCFaction));
-            foreach (Faction fac in CorruptionStoryTrackerUtilities.currentStoryTracker.ImperialFactions)
+            foreach (Faction fac in CorruptionStoryTrackerUtilities.CurrentStoryTracker.ImperialFactions)
             {
                 ioM.AddToAlliance(fac);
             }

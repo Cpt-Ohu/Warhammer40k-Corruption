@@ -28,15 +28,15 @@ namespace Corruption
             return;
         }
 
-        protected override ThoughtState CurrentStateInternal(Pawn p)
+        protected override ThoughtState CurrentStateInternal(Pawn pawn)
         {
-            Need_Soul soul = p.needs.TryGetNeed<Need_Soul>();
+            CompSoul soul = CompSoul.GetPawnSoul(pawn);
 
             if (soul != null && soul.CulturalTolerance != CulturalToleranceCategory.Neutral)
             {
                 int peeps;
                 int foreigners;
-                this.AliensPresent(p, out peeps, out foreigners);
+                this.AliensPresent(pawn, out peeps, out foreigners);
 
                 if (soul.CulturalTolerance == CulturalToleranceCategory.Xenophobe)
                 {

@@ -28,8 +28,8 @@ namespace Corruption
 
         public static Texture2D TryGetPatronIcon(Pawn pawn)
         {
-            Need_Soul soul;
-            if ((soul = pawn.needs.TryGetNeed<Need_Soul>()) != null)
+            CompSoul soul;
+            if ((soul = CompSoul.GetPawnSoul(pawn)) != null)
             {
                 return ChaosGodsUtilities.GetPatronIcon(soul.Patron);
             }
@@ -38,16 +38,16 @@ namespace Corruption
 
         public static Texture2D TryGetPreacherIcon(Pawn pawn)
         {
-            Need_Soul soul;
-            if ((soul = pawn.needs.TryGetNeed<Need_Soul>()) != null)
+            CompSoul soul;
+            if ((soul = CompSoul.GetPawnSoul(pawn)) != null)
             {
-                if (soul.NotCorrupted)
+                if (soul.Corrupted)
                 {
-                    return ChaosGodsUtilities.MoteSermonHoly;
+                    return ChaosGodsUtilities.MoteSermonDark;
                 }
                 else
                 {
-                    return ChaosGodsUtilities.MoteSermonDark;
+                    return ChaosGodsUtilities.MoteSermonHoly;
                 }
             }
             return new Texture2D(10, 10);
@@ -105,7 +105,7 @@ namespace Corruption
             target.mindState.mentalStateHandler.TryStartMentalState(mdef, null, false);
         }
 
-        public static MentalStateDef SlaaneshEffects(Pawn pawn, Need_Soul soul)
+        public static MentalStateDef SlaaneshEffects(Pawn pawn)
         {
             int num = Rand.RangeInclusive(1, 9);
 
@@ -124,7 +124,7 @@ namespace Corruption
             return C_MentalStateDefOf.BingingFood;
         }
 
-        public static MentalStateDef KhorneEffects(Pawn pawn, Need_Soul soul)
+        public static MentalStateDef KhorneEffects(Pawn pawn)
         {
             int num = Rand.RangeInclusive(1, 9);
 

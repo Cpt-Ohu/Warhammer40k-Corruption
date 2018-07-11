@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="BasePawn" Name="BaseDemon" Abstract="True">
+  <ThingDef ParentName="40kBasePawn" Name="BaseDemon" Abstract="True">
     <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
     <statBases>
       <PsychicSensitivity>0</PsychicSensitivity>

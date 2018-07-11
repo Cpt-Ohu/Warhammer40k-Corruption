@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="ArmorMakeableBase" >
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <defName>Tau_Undershirt</defName>
     <label>Tau Bodysuit</label>
@@ -64,7 +64,7 @@
   </ThingDef>
 
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="ArmorMakeableBase" >
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <defName>Tau_CombatArmor</defName>
     <label>Combat Armor</label>
@@ -129,7 +129,7 @@
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="HatBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="HatBase" >
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <defName>Tau_CombatHelmet</defName>
     <label>tau combat helmet</label>
@@ -187,7 +187,7 @@
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="ArmorMakeableBase" >
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <defName>Tau_GueVesaArmor</defName>
     <label>Tau Combat Vest</label>

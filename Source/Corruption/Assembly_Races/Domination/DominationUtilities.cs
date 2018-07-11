@@ -32,7 +32,7 @@ namespace Corruption.Domination
             int num = Rand.RangeInclusive(2, 3);
             while (alliances.Count < 2)
             {
-                PoliticalAlliance alliance = CorruptionStoryTrackerUtilities.currentStoryTracker.DominationTracker.GetRandomAlliance();
+                PoliticalAlliance alliance = CorruptionStoryTrackerUtilities.CurrentStoryTracker.DominationTracker.GetRandomAlliance();
                 if (!alliances.Contains(alliance) && alliances.FindAll(x => !alliance.HostileTo(x)).Count == 0 && !alliance.LeadingFaction.def.pawnGroupMakers.NullOrEmpty())
                 {
                     alliances.Add(alliance);

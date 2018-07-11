@@ -45,13 +45,13 @@ namespace Corruption.Worship
 
         private void CheckPilgrimageActive()
         {
-            IEnumerable<Pawn> colonists = (caravan.pawns.InnerListForReading.Where(x => x.needs.TryGetNeed<Need_Soul>() != null));
+            IEnumerable<Pawn> colonists = (caravan.pawns.InnerListForReading.Where(x => CompSoul.GetPawnSoul(x) != null));
             foreach (Pawn p in colonists)
             {
-                if( p.needs.TryGetNeed<Need_Soul>().IsOnPilgrimage)
+                if(CompSoul.GetPawnSoul(p).IsOnPilgrimage)
                 {
                     this.pilgrimageActive = true;
-                    this.caravan.SetFaction(CorruptionStoryTrackerUtilities.currentStoryTracker.IoM_NPC);
+                    this.caravan.SetFaction(CorruptionStoryTrackerUtilities.CurrentStoryTracker.IoM_NPC);
                     break;
                 }
             }
@@ -117,10 +117,10 @@ namespace Corruption.Worship
                 {
                     Faction RandomFaction = Find.World.factionManager.AllFactions.Where(x => !x.HostileTo(Faction.OfPlayer) && x.def.basicMemberKind?.race == Faction.OfPlayer.def.basicMemberKind.race).RandomElement();
                     Pawn newFollower = PawnGenerator.GeneratePawn(RandomFaction.RandomPawnKind());
-                    Need_Soul newSoul = newFollower.needs.TryGetNeed<Need_Soul>();
+                    CompSoul newSoul = CompSoul.GetPawnSoul(newFollower);
                     if (newFollower.skills.GetSkill(SkillDefOf.Social).Level < this.caravan?.pawns.InnerListForReading.Max(x => x.skills.GetSkill(SkillDefOf.Social).Level) + Rand.Range(-2, 2))
                     {
-                        newSoul.GainPatron(this.pilgrimGod, true);
+                        newSoul.GainChaosGod(this.pilgrimGod);
                     }
 
                     this.caravan?.AddPawn(newFollower, true);
@@ -149,7 +149,7 @@ namespace Corruption.Worship
             List<Pawn> Pawns = this.caravan?.PawnsListForReading.FindAll(x => x.RaceProps.Humanlike);
             for (int i = 0; i < Pawns.Count; i++)
             {
-                Need_Soul soul = CorruptionStoryTrackerUtilities.GetPawnSoul(Pawns[i]);
+                CompSoul soul = CompSoul.GetPawnSoul(Pawns[i]);
                 if (soul != null)
                 {
                     soul.IsOnPilgrimage = false;

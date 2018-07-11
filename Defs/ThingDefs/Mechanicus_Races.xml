@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="BasePawn" Name="BaseServitor" Abstract="True">
+  <ThingDef ParentName="40kBasePawn" Name="BaseServitor" Abstract="True">
     <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
     <statBases>
       <PsychicSensitivity>0</PsychicSensitivity>
@@ -291,7 +291,8 @@
     <race>
       <needsRest>false</needsRest>
       <foodType>None</foodType>
-      <thinkTreeMain>Servitor</thinkTreeMain>
+      <thinkTreeMain>Humanlike</thinkTreeMain>
+      <thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
     </race>
   </AlienRace.ThingDef_AlienRace>
 
@@ -328,6 +329,7 @@
     <race>
       <intelligence>ToolUser</intelligence>
       <thinkTreeMain>Servitor</thinkTreeMain>
+      <thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
       <body>ServoSkull</body>
       <baseBodySize>1.0</baseBodySize>
       <baseHealthScale>1.2</baseHealthScale>

@@ -44,11 +44,11 @@ namespace Corruption
             base.CompTick();
             if (this.parent.GetComp<CompEquippable>().PrimaryVerb.CasterPawn == null && LastGainTick > Find.TickManager.TicksGame)
             {
-                Pawn p = this.parent.GetComp<CompEquippable>().PrimaryVerb.CasterPawn;
-                ChaosFollowerPawnKindDef pdef = p.kindDef as ChaosFollowerPawnKindDef;
-                Need_Soul n_soul = p.needs.TryGetNeed<Need_Soul>();
+                Pawn pawn = this.parent.GetComp<CompEquippable>().PrimaryVerb.CasterPawn;
+                ChaosFollowerPawnKindDef pdef = pawn.kindDef as ChaosFollowerPawnKindDef;
+                CompSoul n_soul = CompSoul.GetPawnSoul(pawn);
                 var resistence = pdef.AfflictionProperty.ResolveFactor;
-                n_soul.GainNeed(amount(cprops.Category, resistence));
+                n_soul.AffectSoul(amount(cprops.Category, resistence));
                 LastGainTick = Find.TickManager.TicksGame + 120;  
             }
         }

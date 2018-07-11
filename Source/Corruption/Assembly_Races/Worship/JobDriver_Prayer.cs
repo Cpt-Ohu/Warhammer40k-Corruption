@@ -36,57 +36,17 @@ namespace Corruption.Worship
 
             lastToil.AddFinishAction(new Action(delegate
             {
-                Need_Soul soul = CorruptionStoryTrackerUtilities.GetPawnSoul(this.GetActor());
+                CompSoul soul = CompSoul.GetPawnSoul(this.GetActor());
                 if (soul != null)
                 {
                     float num = 0.005f;
-                    if (soul.NotCorrupted)
+                    if (soul.Corrupted)
                     {
                         num *= -1f * Rand.Range(0.5f, 1);
                     }
-                    soul.GainNeed(num);
+                    soul.AffectSoul(num);
                 }
             }));
-            //Toil LastToil = new Toil();
-            //IEnumerator<Toil> enumerator = base.MakeNewToils().GetEnumerator();
-            //while (enumerator.MoveNext())
-            //{
-            //    Toil current = enumerator.Current;
-            //    LastToil = current;
-
-            //    yield return current;
-            //}
-
-            //LastToil.preTickActions.Add(new Action(delegate
-            //{
-            //    this.ThrowMote(this.pawn);
-            //}));
-
-            ////LastToil.tickAction += delegate
-            ////{
-            ////    if (this.soul != null)
-            ////    {
-            ////        float num = 0.0005f / 60;
-            ////        if (soul.NoPatron)
-            ////        {
-            ////            num *= -1f * Rand.Range(0.01f, 0.1f);
-            ////        }
-            ////        soul.GainNeed(num);
-            ////    }
-            ////};
-            //this.AddFinishAction(new Action(delegate
-            //{
-            //    Need_Soul soul = CorruptionStoryTrackerUtilities.GetPawnSoul(this.GetActor());
-            //    if (soul != null)
-            //    {
-            //        float num = 0.0005f / 60;
-            //        if (soul.NoPatron)
-            //        {
-            //            num *= -1f * Rand.Range(0.01f, 0.1f);
-            //        }
-            //        soul.GainNeed(num);
-            //    }
-            //}));
 
             yield break;
         }
@@ -97,7 +57,6 @@ namespace Corruption.Worship
 
         protected void ThrowMote(Pawn pawn)
         {
-            //   Log.Message("M1");
             MoteBubble moteBubble2 = (MoteBubble)ThingMaker.MakeThing(ThingDefOf.Mote_Speech, null);
             moteBubble2.SetupMoteBubble(ChaosGodsUtilities.TryGetPreacherIcon(pawn), pawn);
             moteBubble2.Attach(pawn);

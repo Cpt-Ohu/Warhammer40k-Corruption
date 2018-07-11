@@ -20,7 +20,7 @@ namespace Corruption.Worship
             foreach (Pawn p in TransferableUtility.GetPawnsFromTransferables(this.transferables))
             {
                 Log.Message("Setting Pilgrimage" + p.NameStringShort);
-                Need_Soul soul = p.needs.TryGetNeed<Need_Soul>();
+                CompSoul soul = CompSoul.GetPawnSoul(p);
 
                 if (soul != null)
                 {

@@ -116,7 +116,7 @@ namespace Corruption.Tithes
 
         public static void PerformRefusedTitheEvaluation()
         {
-            CorruptionStoryTracker tracker = CorruptionStoryTrackerUtilities.currentStoryTracker;
+            CorruptionStoryTracker tracker = CorruptionStoryTrackerUtilities.CurrentStoryTracker;
             tracker.ResetIoMAcknowledgement();
             int num = tracker.PlanetaryGovernor.skills.GetSkill(SkillDefOf.Social).levelInt + Rand.Range(10, 15);
             if (num > 27)

@@ -304,7 +304,7 @@ namespace Corruption.Domination
             {
                 if (this.PlayerChosen != current && this.PlayerChosen == null)
                 {
-                    current.SetHostileTo(CorruptionStoryTrackerUtilities.currentStoryTracker.DominationTracker.PlayerAlliance);
+                    current.SetHostileTo(CorruptionStoryTrackerUtilities.CurrentStoryTracker.DominationTracker.PlayerAlliance);
                 }
             }
         }
@@ -364,7 +364,7 @@ namespace Corruption.Domination
                 foreach (PoliticalAlliance other in this.WarringAlliances.FindAll(x => x != alliance))
                 {
                     DominationConflict conflict;
-                    if (CorruptionStoryTrackerUtilities.currentStoryTracker.DominationTracker.GetAllianceWar(alliance, other, out conflict))
+                    if (CorruptionStoryTrackerUtilities.CurrentStoryTracker.DominationTracker.GetAllianceWar(alliance, other, out conflict))
                     {
                         float wearinessFactor = (ArmyStrength[alliance][0] - ArmyStrength[alliance][1]) * ArmyTechPower[alliance] * 20;
                         conflict.AdjustWarWearinessFor(alliance, wearinessFactor);

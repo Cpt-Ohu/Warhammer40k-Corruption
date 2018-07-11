@@ -9,10 +9,19 @@ namespace Corruption.Domination
 {
     public class DominationConflict : ILoadReferenceable, IExposable
     {
+        public DominationConflict()
+        {
+            this.First = null;
+            this.Second = null;
+            this.nameInt = "Minor War";
+            this.IsMainConflict = false;
+        }
+
         public DominationConflict(PoliticalAlliance first, PoliticalAlliance second, string name = "", bool isMainConflict = false)
         {
             this.First = first;
-            this.WarEfforts.Add(new AllianceWarEffort());
+            this.WarEfforts.Add(new AllianceWarEffort(first));
+            this.WarEfforts.Add(new AllianceWarEffort(second));
             this.Second = second;
             this.nameInt = name;
             this.IsMainConflict = isMainConflict;
@@ -24,7 +33,7 @@ namespace Corruption.Domination
 
         private string nameInt;
         
-        public string BattleName
+        public string ConflictName
         {
             get
             {
@@ -84,7 +93,7 @@ namespace Corruption.Domination
             {
                 if (this.warId == -1)
                 {
-                    this.warId = CorruptionStoryTrackerUtilities.currentStoryTracker.DominationTracker.GetNextWarID();
+                    this.warId = CorruptionStoryTrackerUtilities.CurrentStoryTracker.DominationTracker.GetNextWarID();
                 }
                 return this.warId;
             }

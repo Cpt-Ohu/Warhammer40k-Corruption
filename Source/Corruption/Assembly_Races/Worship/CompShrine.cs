@@ -45,7 +45,7 @@ namespace Corruption.Worship
                 {
                     return;
                 }
-                CorruptionStoryTrackerUtilities.currentStoryTracker.AddWorshipProgress(this.cProps.WorshipRatePerTick, this.soulComp.SProps.DedicatedGod);              
+                CorruptionStoryTrackerUtilities.CurrentStoryTracker.AddWorshipProgress(this.cProps.WorshipRatePerTick, this.soulComp.SProps.DedicatedGod);              
             }
         }
 

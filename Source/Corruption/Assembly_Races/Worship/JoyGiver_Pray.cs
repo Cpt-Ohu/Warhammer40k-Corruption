@@ -16,12 +16,25 @@ namespace Corruption.Worship
             {
                 return null;
             }
+            Job prayAlone = this.PrayInOwnRoom(pawn);            
+            if (prayAlone != null)
+            {
+                return prayAlone;
+            }
+            else
+            {
+                return this.PrayInTemple(pawn);
+            }
+        }
+
+        private Job PrayInOwnRoom(Pawn pawn)
+        {
             Room ownedRoom = pawn.ownership.OwnedRoom;
             if (ownedRoom == null)
             {
                 return null;
             }
-            Need_Soul soul = CorruptionStoryTrackerUtilities.GetPawnSoul(pawn);
+            CompSoul soul = CompSoul.GetPawnSoul(pawn);
             if (soul != null)
             {
                 float chance;
@@ -58,18 +71,18 @@ namespace Corruption.Worship
                             break;
                         }
                 }
-                
+
                 if (chance > Rand.Range(0f, 1f))
                 {
                     IntVec3 c2;
                     //Look for Items of Worship
-                    List<Thing> worshipBuildings = ownedRoom.ContainedAndAdjacentThings.FindAll(x => x.def.designationCategory == DefOfs.C_DesignationCategoryDefOf.Worship);
+                    List<Thing> worshipBuildings = ownedRoom.ContainedAndAdjacentThings.FindAll(x => x.TryGetComp<CompShrine>() != null);
                     if (!worshipBuildings.NullOrEmpty())
                     {
                         Thing chosen = null;
                         if ((from b in worshipBuildings
-                              where b is Building && !b.IsForbidden(pawn) && pawn.CanReserveAndReach(b, PathEndMode.OnCell, Danger.None, 1)
-                              select b).TryRandomElement(out chosen))
+                             where b is Building && !b.IsForbidden(pawn) && pawn.CanReserveAndReach(b, PathEndMode.OnCell, Danger.None, 1)
+                             select b).TryRandomElement(out chosen))
                         {
                             if (chosen.def.hasInteractionCell)
                             {
@@ -95,6 +108,24 @@ namespace Corruption.Worship
                         return null;
                     }
                     return new Job(this.def.jobDef, c2);
+                }
+            }
+            return null;
+        }
+
+        private Job PrayInTemple(Pawn pawn)
+        {
+            List<Thing> altars = pawn.Map.listerThings.AllThings.FindAll(x => x is BuildingAltar);
+
+            if (!altars.NullOrEmpty())
+            {
+                BuildingAltar altar = altars.RandomElementByWeight(x => x.Position.DistanceTo(pawn.Position)) as BuildingAltar;
+                IntVec3 cell;
+                Building chair;
+                if (SermonUtility.TryGetSermonWatchPosition(altar, pawn, out cell, out chair))
+                {
+                    IntVec3 jobTargetCell = chair == null ? cell : chair.Position;
+                    return new Job(this.def.jobDef, jobTargetCell);
                 }
             }
             return null;

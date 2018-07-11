@@ -12,15 +12,67 @@
     </thinkNode>
   </DutyDef>
 
+    <DutyDef>
+    <defName>LoadResourcePacks</defName>
+    <alwaysShowWeapon>false</alwaysShowWeapon>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+	    <li Class="JobGiver_AIDefendPoint">
+          <targetAcquireRadius>65</targetAcquireRadius>
+          <targetKeepRadius>72</targetKeepRadius>
+        </li>
+        <li Class="Corruption.IoM.JobGiver_LoadResourcePack"/>
+		<li Class="ThinkNode_ForbidOutsideFlagRadius">
+          <maxDistToSquadFlag>16</maxDistToSquadFlag>
+          <subNodes>
+            <li Class="ThinkNode_Subtree">
+              <treeDef>SatisfyBasicNeedsAndWork</treeDef>
+            </li>
+          </subNodes>
+        </li>
+        <li Class="JobGiver_WanderNearDutyLocation">
+          <wanderRadius>8</wanderRadius>
+        </li>
+      </subNodes>
+    </thinkNode>
+	
+  </DutyDef>
+  
   <DutyDef>
     <defName>JoinSermon</defName>
     <alwaysShowWeapon>false	</alwaysShowWeapon>
     <thinkNode Class="ThinkNode_Priority">
       <subNodes>
         <li Class="Corruption.Worship.JobGiver_HoldSermon"/>
-        <li Class="Corruption.Worship.JobGiver_HoldSermon"/>
+		
+		        <!-- Reach the party area -->
+        <li Class="JobGiver_WanderInPartyArea">
+          <ticksBetweenWandersRange>
+            <min>50</min>
+            <max>250</max>
+          </ticksBetweenWandersRange>
+          <locomotionUrgency>Jog</locomotionUrgency>
+        </li>
       </subNodes>
     </thinkNode>
   </DutyDef>
-
+  
+  <DutyDef>
+    <defName>TravelUrgent</defName>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <!-- Goto travel destination if reachable -->
+        <li Class="JobGiver_GotoTravelDestination">		
+          <locomotionUrgency>Jog</locomotionUrgency>
+		</li>
+        <!-- Basic needs -->
+        <li Class="ThinkNode_Subtree">
+          <treeDef>SatisfyVeryUrgentNeeds</treeDef>
+        </li>
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+  
+  
+  
 </Defs>

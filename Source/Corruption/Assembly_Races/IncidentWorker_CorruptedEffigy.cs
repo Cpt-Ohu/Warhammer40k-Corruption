@@ -17,7 +17,7 @@ namespace Corruption
                 {
                     return false;
                 }
-                Need_Soul soul = p.needs.TryGetNeed<Need_Soul>();
+                CompSoul soul = CompSoul.GetPawnSoul(p);
                 if (soul != null)
                 {
                     if (soul.CurLevel < 0.9f)

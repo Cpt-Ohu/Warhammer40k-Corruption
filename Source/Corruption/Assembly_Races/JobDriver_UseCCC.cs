@@ -32,7 +32,7 @@ namespace Corruption
                     Building_CommsConsoleIG building_CommsConsole = (Building_CommsConsoleIG)actor.jobs.curJob.GetTarget(TargetIndex.A).Thing;
                     if (building_CommsConsole.CanUseCommsNow)
                     {
-                        Window_CCMBase window_subsector = new Window_CCMBase(CorruptionStoryTrackerUtilities.currentStoryTracker, actor);
+                        Window_CCMBase window_subsector = new Window_CCMBase(CorruptionStoryTrackerUtilities.CurrentStoryTracker, actor);
                         window_subsector.soundAmbient = SoundDefOf.RadioComms_Ambience;
                         Find.WindowStack.Add(window_subsector);
                     }

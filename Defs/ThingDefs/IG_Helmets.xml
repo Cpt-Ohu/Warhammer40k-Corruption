@@ -103,7 +103,7 @@
       </defaultOutfitTags> </apparel>
   </ThingDef>
 
-  <ThingDef ParentName="HatBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="HatBase" >
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <defName>IG_Helm</defName>
     <label>imperial guard helmet</label>

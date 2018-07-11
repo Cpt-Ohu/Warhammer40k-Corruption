@@ -9,6 +9,7 @@
       <li>ResourcesRaw</li>
     </categoryDefs>
     <fixedTitheThings>
+      <li>ResPackRawMaterials</li>
     </fixedTitheThings>
     <excludedTitheThings>
     </excludedTitheThings>
@@ -27,6 +28,7 @@
     </categoryDefs>
     <fixedTitheThings>
       <li>MealNutrientPaste</li>
+      <li>ResPackRawAgri</li>
     </fixedTitheThings>
     <optionalTithe>false</optionalTithe>
   </Def>

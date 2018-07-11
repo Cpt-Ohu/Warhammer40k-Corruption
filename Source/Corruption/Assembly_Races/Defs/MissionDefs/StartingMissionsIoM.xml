@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <MissionDef>
+    <defName>BuildCCC</defName>
+    <missionClass>Mission</missionClass>
+    <label>Build Central Command Cogitator</label>
+    <description>In order to actually communicate with Imperial authorities, you need something more powerful than a simple comms console. Build the Central Command Cogitator.</description>
+    <GiverFaction>IoM_Administratum</GiverFaction>
+    <StartingMission>true</StartingMission>
+    <PerequisiteMissions>      
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>SilverReward</li>
+    </RewardedSupplies>
+  </MissionDef>
+  
+   <MissionDef>
+    <defName>BuildLandingZone</defName>
+    <missionClass>ShippableRewardMission</missionClass>
+    <label>Build Landing Zone</label>
+    <description>Construct a designated landing zone for Imperial aircraft to touch down on.</description>
+    <GiverFaction>IoM_Administratum</GiverFaction>
+    <StartingMission>true</StartingMission>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>SilverReward</li>
+    </RewardedSupplies>
+  </MissionDef>
+
+  <MissionDef>
+    <defName>EstablishContactIoM</defName>
+    <missionClass>ShippableRewardMission</missionClass>
+    <label>Establish Contact to Imperials</label>
+    <description>Use the Central Command Cogitator to call any Imperial authority.</description>
+    <GiverFaction>IoM_Administratum</GiverFaction>
+    <StartingMission>true</StartingMission>
+    <PerequisiteMissions>
+      <li>BuildLandingZone</li>
+      <li>BuildCCC</li>
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>SilverReward</li>
+    </RewardedSupplies>
+  </MissionDef>
+    
+  <MissionDef>
+    <defName>SendFirstTribute</defName>
+    <missionClass>ShippableRewardMission</missionClass>
+    <label>First Tribute</label>
+    <description>Craft a resource pack and as a sign of goodwill offer it as tribute to any Imperial authority.</description>
+    <GiverFaction>IoM_Administratum</GiverFaction>
+    <StartingMission>true</StartingMission>    
+    <PerequisiteMissions>
+      <li>BuildLandingZone</li>
+      <li>BuildCCC</li>
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>SilverReward</li>
+    </RewardedSupplies>
+  </MissionDef>
+
+  <MissionDef>
+    <defName>DeclareWar</defName>
+    <missionClass>ShippableRewardMission</missionClass>
+    <label>Subjugate Locals</label>
+    <description>Bring at least one local faction into Imperial compliance by force or diplomacy.</description>
+    <GiverFaction>IoM_Administratum</GiverFaction>
+    <StartingMission>true</StartingMission>    
+    <PerequisiteMissions>
+      <li>BuildLandingZone</li>
+      <li>BuildCCC</li>
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>SilverReward</li>
+    </RewardedSupplies>
+  </MissionDef>
+
+  <MissionDef>
+    <defName>SubjugateLocals</defName>
+    <missionClass>ShippableRewardMission</missionClass>
+    <label>Subjugate Locals</label>
+    <description>Bring at least one local faction into Imperial compliance by force or diplomacy.</description>
+    <GiverFaction>IoM_Administratum</GiverFaction>
+    <StartingMission>true</StartingMission>    
+    <PerequisiteMissions>
+      <li>BuildLandingZone</li>
+      <li>BuildCCC</li>
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>GoldReward</li>
+      <li>GoldReward</li>
+      <li>GoldReward</li>
+      <li>GoldReward</li>
+    </RewardedSupplies>
+  </MissionDef>
+
+</Defs>

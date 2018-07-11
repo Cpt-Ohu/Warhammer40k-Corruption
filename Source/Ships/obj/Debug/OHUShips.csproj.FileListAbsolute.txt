@@ -32,3 +32,15 @@ D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Sour
 D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Source\Ships\obj\Debug\0OHUShips.dll
 D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Source\Ships\obj\Debug\0OHUShips.pdb
 D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b\Source\Ships\obj\Debug\OHUShips.csprojResolveAssemblyReference.cache
+D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b - Redo\Assemblies\0OHUShips.dll
+D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b - Redo\Assemblies\0OHUShips.pdb
+D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b - Redo\Source\Ships\obj\Debug\OHUShips.csproj.CoreCompileInputs.cache
+D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b - Redo\Source\Ships\obj\Debug\0OHUShips.dll
+D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b - Redo\Source\Ships\obj\Debug\0OHUShips.pdb
+D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b - Redo\Source\Ships\obj\Debug\OHUShips.csprojResolveAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b - Redo\Assemblies\0OHUShips.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b - Redo\Assemblies\0OHUShips.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b - Redo\Source\Ships\obj\Debug\OHUShips.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b - Redo\Source\Ships\obj\Debug\0OHUShips.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b - Redo\Source\Ships\obj\Debug\0OHUShips.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B18b - Redo\Source\Ships\obj\Debug\OHUShips.csprojResolveAssemblyReference.cache

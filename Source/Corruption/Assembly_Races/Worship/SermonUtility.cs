@@ -17,29 +17,7 @@ namespace Corruption
         private const float SermonAreaIfNotInside = 15f;
 
         private const int MaxRoomCellsCountToUseWholeRoom = 324;
-               
-        public static bool TryFindRandomCellInSermonArea(BuildingAltar altar, Pawn pawn, out IntVec3 result)
-        {
-            IntVec3 cell;
-            Building chair;
-
-            WatchBuildingUtility.TryFindBestWatchCell(altar, pawn, true, out cell, out chair);
-
-
-            if (chair != null)
-            {
-                result = chair.Position;
-                return true;
-            }
-
-                result = cell;
-            if (cell == null)
-            {
-                return false;
-            }
-                return true;       
-        }
-
+        
         public static List<Building> FreeChairsInRoom(Room room)
         {
             List<Building> chairs = new List<Building>();
@@ -62,16 +40,13 @@ namespace Corruption
 
         public static ThoughtDef GetSermonThoughts(Pawn preacher, Pawn listener)
         {
-            Need_Soul s1 = preacher.needs.TryGetNeed<Need_Soul>();
-            Need_Soul s2 = listener.needs.TryGetNeed<Need_Soul>();
+            CompSoul s1 = CompSoul.GetPawnSoul(preacher);
+            CompSoul s2 = CompSoul.GetPawnSoul(listener);
 
-            bool flag1 = s1.NotCorrupted;
-            bool flag2 = s2.NotCorrupted;
-
-            if (flag1)
+            if (!s1.Corrupted)
             {
 
-                if (flag2)
+                if (!s2.Corrupted)
                 {
                     if (s2.DevotionTrait.SDegree == -2)
                     {
@@ -111,7 +86,7 @@ namespace Corruption
             }
             else
             {
-                if (flag2)
+                if (!s2.Corrupted)
                 {
                     if (listener.IsPrisonerOfColony)
                     {
@@ -149,7 +124,7 @@ namespace Corruption
 
         public static void AttendSermonTickCheckEnd(Pawn pawn, Pawn preacher, WorshipActType worshipActType)
         {
-            var soul = pawn.needs.TryGetNeed<Need_Soul>();
+            var soul = CompSoul.GetPawnSoul(pawn);
             if (soul == null)
             {
                 return;
@@ -165,11 +140,11 @@ namespace Corruption
                 num += 0.005f;
             }
 
-            soul.GainNeed(num);
-            CorruptionStoryTrackerUtilities.currentStoryTracker.AddWorshipProgress(num * 10000, soul.Patron);
+            soul.AffectSoul(num);
+            CorruptionStoryTrackerUtilities.CurrentStoryTracker.AddWorshipProgress(num * 10000, soul.Patron);
             if (worshipActType == WorshipActType.Confession)
             {
-                Need_Soul.TryDiscoverAlignment(preacher, pawn, -0.2f);
+                CompSoul.TryDiscoverAlignment(preacher, pawn, -0.2f);
             }
             else
             {
@@ -179,7 +154,7 @@ namespace Corruption
 
         public static void HoldSermonTickCheckEnd(Pawn preacher, BuildingAltar altar)
         {
-            var soul = preacher.needs.TryGetNeed<Need_Soul>();
+            var soul = CompSoul.GetPawnSoul(preacher);
             if (soul == null)
             {
                 return;
@@ -197,23 +172,23 @@ namespace Corruption
                 num += 0.01f;
             }
 
-            soul.GainNeed(num);
-            CorruptionStoryTrackerUtilities.currentStoryTracker.AddWorshipProgress(num * 20000, soul.Patron);
+            soul.AffectSoul(num);
+            CorruptionStoryTrackerUtilities.CurrentStoryTracker.AddWorshipProgress(num * 20000, soul.Patron);
             altar.activeSermon = false;
         }
 
-        public static bool ShouldAttendSermon(Pawn p, Pawn preacher)
+        public static bool ShouldAttendSermon(Pawn pawn, Pawn preacher)
         {
-            if (!p.HostileTo(Faction.OfPlayer) && p != preacher)
+            if (!pawn.HostileTo(Faction.OfPlayer) && pawn != preacher)
             {
-                if (p.GetLord() != null)
+                if (pawn.GetLord() != null)
                 {
                     return false;
                 }
-                if (!p.Drafted)
+                if (!pawn.Drafted)
                 {
                     int num = 0;
-                    Need_Soul soul = p.needs.TryGetNeed<Need_Soul>();
+                    CompSoul soul = CompSoul.GetPawnSoul(pawn);
 
                     switch (soul.DevotionTrait.SDegree)
                     {
@@ -244,7 +219,7 @@ namespace Corruption
                             }
                     }
 
-                    if (p.CurJob.playerForced)
+                    if (pawn.CurJob.playerForced)
                     {
                         num = 0;
                         if (soul.DevotionTrait.SDegree == 2)
@@ -253,12 +228,12 @@ namespace Corruption
                         }
                     }
 
-                    if (p.CurJob.def == C_JobDefOf.AttendSermon)
+                    if (pawn.CurJob.def == C_JobDefOf.AttendSermon)
                     {
                         num = 0;
                     }
 
-                    if (!SermonUtility.IsBestPreacher(p, preacher))
+                    if (!SermonUtility.IsBestPreacher(pawn, preacher))
                     {
                         num = 0;
                     }
@@ -299,6 +274,17 @@ namespace Corruption
                     attendee.jobs.EndCurrentJob(JobCondition.InterruptForced);
                 }
             }
+        }
+
+        public static bool IsInSermonArea(Pawn pawn)
+        {
+            IntVec3 cell = pawn.mindState.duty.focus.Cell;
+            if (pawn.Position.InHorDistOf(cell, 20f) && GenSight.LineOfSight(pawn.Position, cell, pawn.Map))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public static void ForceSermon(BuildingAltar altar, WorshipActType worshipActType)
@@ -371,7 +357,7 @@ namespace Corruption
 
         public static bool GetBestPreacher(Pawn p, out Pawn bestPreacher, out BuildingAltar altar)
         {
-            List<Pawn> opposingDevotees = p.needs.TryGetNeed<Need_Soul>().OpposingDevotees;
+            List<Pawn> opposingDevotees = CompSoul.GetPawnSoul(p).OpposingDevotees;
             if (opposingDevotees == null) opposingDevotees = new List<Pawn>();
             List<Pawn> availablePreachers = p.Map.mapPawns.FreeColonistsSpawned.ToList<Pawn>().FindAll(s => s.CurJob.def == C_JobDefOf.HoldSermon);
 
@@ -403,11 +389,11 @@ namespace Corruption
             return false;
         }
 
-        public static bool IsBestPreacher(Pawn p, Pawn preacher)
+        public static bool IsBestPreacher(Pawn pawn, Pawn preacher)
         {
-            List<Pawn> opposingDevotees = p.needs.TryGetNeed<Need_Soul>().OpposingDevotees;
+            List<Pawn> opposingDevotees = CompSoul.GetPawnSoul(pawn).OpposingDevotees;
             if (opposingDevotees == null) opposingDevotees = new List<Pawn>();
-            List<Pawn> availablePreachers = p.Map.mapPawns.AllPawnsSpawned.ToList<Pawn>().FindAll(x => SermonUtility.IsPreacher(x));
+            List<Pawn> availablePreachers = pawn.Map.mapPawns.AllPawnsSpawned.ToList<Pawn>().FindAll(x => SermonUtility.IsPreacher(x));
             Pawn bestcurrentPreacher;
             if (availablePreachers != null)
             {
@@ -445,6 +431,18 @@ namespace Corruption
             return y;
         }
 
+        public static bool TryGetSermonWatchPosition(Thing altar, Pawn pawn, out IntVec3 cell, out Building chair)
+        {
+            if (!WatchBuildingUtility.TryFindBestWatchCell(altar, pawn, true, out cell, out chair))
+            {
+                if (!WatchBuildingUtility.TryFindBestWatchCell(altar, pawn, false, out cell, out chair))
+                {
+                    Log.Warning("No watch cell found");
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 
 }

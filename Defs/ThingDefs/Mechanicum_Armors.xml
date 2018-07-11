@@ -3,7 +3,7 @@
 
   <!-- ==========================Standard=============================== -->
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="ArmorMakeableBase" >
     <defName>Mechanicum_PriestRobe</defName>
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <label>Tech priest robe</label>

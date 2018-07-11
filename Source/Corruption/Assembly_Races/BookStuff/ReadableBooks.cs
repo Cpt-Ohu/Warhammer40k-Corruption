@@ -204,7 +204,7 @@ namespace Corruption.BookStuff
         }
         public void ReadCorruptionTick(Pawn pawn, ReadableBooks book)
         {
-            Need_Soul soul = pawn.needs.TryGetNeed<Need_Soul>();
+            CompSoul soul = CompSoul.GetPawnSoul(pawn);
             if (soul != null)
             {
                 float num;
@@ -233,7 +233,7 @@ namespace Corruption.BookStuff
                         }
                 }
                 num = sign * this.Tdef.SoulGainRate * 0.2f / 1200;
-                soul.GainNeed(num);
+                soul.AffectSoul(num);
             }
         }
     }

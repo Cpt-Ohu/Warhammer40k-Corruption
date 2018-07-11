@@ -9,8 +9,6 @@ namespace Corruption.DefOfs
     [DefOf]
     public static class C_NeedDefOf
     {
-        public static NeedDef Need_Soul;
-
         public static NeedDef Beauty;
 
         public static NeedDef Comfort;

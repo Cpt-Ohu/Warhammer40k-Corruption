@@ -4,7 +4,7 @@
 
 
   <!-- ============================ Human ========================== -->
-  <AlienRace.ThingDef_AlienRace ParentName="BasePawn">
+  <AlienRace.ThingDef_AlienRace ParentName="40kBasePawn">
     <defName>Alien_Ork</defName>
     <label>Ork</label>
     <description>The pinnacle of the orkoid species: A fully grown Ork.</description>
@@ -242,7 +242,7 @@
 
   </AlienRace.ThingDef_AlienRace>
 
-  <AlienRace.ThingDef_AlienRace ParentName="BasePawn">
+  <AlienRace.ThingDef_AlienRace ParentName="40kBasePawn">
     <defName>Alien_Gretchin</defName>
     <label>gretchin</label>
     <description>The lesser specimen of the orkoid species.</description>

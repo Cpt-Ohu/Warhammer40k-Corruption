@@ -105,21 +105,22 @@ namespace Corruption
                     }
                     else if (mpdef.IsBuffGiver)
                     {
-                        Need_Soul soul = victim.needs.TryGetNeed<Need_Soul>();
+                        CompSoul soul = CompSoul.GetPawnSoul(victim);
+                        DamageInfo dinfo = new DamageInfo(DamageDefOf.Stun, 0, 0, this.Caster);
                         if (soul != null)
                         {
-                            if (victim.needs.TryGetNeed<Need_Soul>().PsykerPowerLevel != PsykerPowerLevel.Omega)
+                            if (soul.PsykerPowerLevel != PsykerPowerLevel.Omega)
                             {
                                 if (mpdef.BuffDef.isBad)
                                 {
                                     if (CanOverpowerMind(this.Caster, victim))
                                     {
-                                        victim.health.AddHediff(mpdef.BuffDef);
+                                        victim.health.AddHediff(mpdef.BuffDef, null, dinfo);
                                     }
                                 }
                                 else
                                 {
-                                    victim.health.AddHediff(mpdef.BuffDef);
+                                    victim.health.AddHediff(mpdef.BuffDef, null, dinfo);
                                 }
                             }
                         }
@@ -160,8 +161,8 @@ namespace Corruption
             if (hitThing is Pawn)
             {
                 Pawn target = hitThing as Pawn;
-                PsykerPowerLevel casterPower = caster.needs.TryGetNeed<Need_Soul>().PsykerPowerLevel;
-                PsykerPowerLevel targetPower = target.needs.TryGetNeed<Need_Soul>().PsykerPowerLevel;
+                PsykerPowerLevel casterPower = CompSoul.GetPawnSoul(caster).PsykerPowerLevel;
+                PsykerPowerLevel targetPower = CompSoul.GetPawnSoul(target).PsykerPowerLevel;
                 if (casterPower >= targetPower && targetPower != PsykerPowerLevel.Omega || target.Faction == Faction.OfPlayer)
                 {
                     if (!target.Faction.HostileTo(Faction.OfPlayer) && target.Faction != Faction.OfPlayer)

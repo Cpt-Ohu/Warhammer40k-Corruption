@@ -17,8 +17,11 @@ namespace Corruption
             float totalCorruption = 0f;
             foreach (Pawn cpawn in ColonyPawns )
             {
-                if (cpawn.needs!= null && cpawn.needs.TryGetNeed<Need_Soul>() != null)
-                totalCorruption += cpawn.needs.TryGetNeed<Need_Soul>().CurLevel;
+                CompSoul soul = CompSoul.GetPawnSoul(cpawn);
+                if (soul != null)
+                {
+                    totalCorruption += soul.CurLevel;
+                }
             }
             ColonyCorruptionAvg = totalCorruption / ColonyPawns.Count;
             switch(ColonyCorruptionCategory)

@@ -2,6 +2,12 @@
 <Defs>
   
 <ThingCategoryDef>
+ <defName>RessourcePacks</defName>
+ <label>Ressource Packs</label>
+ <parent>Root</parent>
+</ThingCategoryDef>
+  
+<ThingCategoryDef>
  <defName>Books</defName>
  <label>Books</label>
  <parent>Root</parent>
@@ -438,4 +444,11 @@
 	    <parent>Tau</parent>
 	  </ThingCategoryDef>
 
+	  
+<ThingCategoryDef>
+ <defName>ResourcePack</defName>
+ <label>Resource Packs</label>
+ <parent>Root</parent>
+</ThingCategoryDef>
+	  
   </Defs>

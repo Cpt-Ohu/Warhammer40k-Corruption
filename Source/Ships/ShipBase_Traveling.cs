@@ -17,8 +17,8 @@ namespace OHUShips
         private bool alreadyLeft;
         public bool leavingForTarget;
         private bool launchAsFleet;
-        private bool dropPawnsOnTochdown = true;
-        private bool dropItemsOnTouchdown = false;
+        public bool dropPawnsOnTochdown = true;
+        public bool dropItemsOnTouchdown = false;
         private TravelingShipArrivalAction arrivalAction;
 
         public IntVec3 destinationCell = IntVec3.Invalid;

@@ -48,7 +48,10 @@ namespace Corruption
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            this.preacher = Map.mapPawns.FreeColonistsSpawned.RandomElement<Pawn>();
+            if (!respawningAfterLoad)
+            {
+                this.preacher = Map.mapPawns.FreeColonistsSpawned.RandomElement<Pawn>();
+            }
             RoomName = "Temple";
             TickManager f = Find.TickManager;
 

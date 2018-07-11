@@ -20,16 +20,16 @@ namespace Corruption
         }
 
 
-        private Need_Soul soul
+        private CompSoul soul
         {
             get
             {
-                Need_Soul soulInt;
-                if ((soulInt = this.Pawn.needs.TryGetNeed<Need_Soul>()) != null)
+                CompSoul soulInt;
+                if ((soulInt = CompSoul.GetPawnSoul(this.Pawn)) != null)
                     return soulInt;
                 else
                 {
-                    return new Need_Soul(this.Pawn);
+                    throw new Exception("Demonic Possession working on pawn without soul!");
                 }
             }
         }
@@ -39,7 +39,7 @@ namespace Corruption
             base.CompPostTick(ref severityAdjustment);
             if (this.Pawn.def.race.Humanlike)
             {
-                soul.GainNeed(-0.00005f);
+                soul.AffectSoul(-0.00005f);
             }
         }
 

@@ -11,7 +11,7 @@ namespace Corruption.Tithes
     {
         public override void End()
         {
-            Window_IoMTitheDue window = new Window_IoMTitheDue(CorruptionStoryTrackerUtilities.currentStoryTracker);
+            Window_IoMTitheDue window = new Window_IoMTitheDue(CorruptionStoryTrackerUtilities.CurrentStoryTracker);
             Find.WindowStack.Add(window);
             this.gameConditionManager.ActiveConditions.Remove(this);
         }

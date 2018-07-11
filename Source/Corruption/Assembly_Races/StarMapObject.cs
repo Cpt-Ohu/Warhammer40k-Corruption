@@ -100,7 +100,7 @@ namespace Corruption
 
         }
 
-        public void ExposeData()
+        public virtual void ExposeData()
         {
             Scribe_Values.Look<string>(ref this.objectName, "objectName", "None", false);
             Scribe_Values.Look<string>(ref this.texPath, "texPath", "UI/SectorMap/Planet_Medium", false);

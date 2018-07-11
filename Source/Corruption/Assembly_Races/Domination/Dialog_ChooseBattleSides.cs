@@ -20,7 +20,7 @@ namespace Corruption.Domination
                 {
                     return "None".Translate();
                 }
-                else if (this.battleZone.PlayerChosen == CorruptionStoryTrackerUtilities.currentStoryTracker.DominationTracker.PlayerAlliance)
+                else if (this.battleZone.PlayerChosen == CorruptionStoryTrackerUtilities.CurrentStoryTracker.DominationTracker.PlayerAlliance)
                 {
                     return "BattleAttackBoth".Translate();
                 }
@@ -60,7 +60,7 @@ namespace Corruption.Domination
             {
                 List<FloatMenuOption> list = new List<FloatMenuOption>();
                 list.Add(new FloatMenuOption("SpectateBattle".Translate(), delegate { battleZone.PlayerChosen = null; }, MenuOptionPriority.Default, null, null, 0, null));
-                list.Add(new FloatMenuOption("BattleAttackBoth".Translate(), delegate { battleZone.PlayerChosen = CorruptionStoryTrackerUtilities.currentStoryTracker.DominationTracker.PlayerAlliance; }, MenuOptionPriority.Default, null, null, 0, null));
+                list.Add(new FloatMenuOption("BattleAttackBoth".Translate(), delegate { battleZone.PlayerChosen = CorruptionStoryTrackerUtilities.CurrentStoryTracker.DominationTracker.PlayerAlliance; }, MenuOptionPriority.Default, null, null, 0, null));
                 foreach (PoliticalAlliance current in battleZone.WarringAlliances)
                 {
                     list.Add(new FloatMenuOption(current.AllianceName.CapitalizeFirst(), delegate { battleZone.PlayerChosen = current; }, MenuOptionPriority.Low, null, null, 0, null));

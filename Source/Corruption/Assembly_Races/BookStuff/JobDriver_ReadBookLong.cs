@@ -12,16 +12,13 @@ namespace Corruption.BookStuff
         private const TargetIndex BookshelfInd = TargetIndex.A;
         private const TargetIndex BookInd = TargetIndex.B;
         private List<string> Story = new List<string>();
-        private Need_Soul soul;
+        private CompSoul soul;
         private ReadableBooks tempbook;
         private Bookshelf tempshelf;
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            if (pawn.needs.TryGetNeed<Need_Soul>() != null)
-            {
-                this.soul = pawn.needs.TryGetNeed<Need_Soul>();
-            }
+            this.soul = CompSoul.GetPawnSoul(pawn);
             yield return Toils_Goto.GotoCell(TargetIndex.A, PathEndMode.OnCell);
             yield return TakeBookFromBookshelf(TargetIndex.A, pawn, TargetIndex.B);
             yield return CarryBookToSeat(pawn);

@@ -20,7 +20,7 @@ namespace Corruption.IoM
         
         protected override bool TryResolveParmsGeneral(IncidentParms parms)
         {
-            parms.faction = CorruptionStoryTrackerUtilities.currentStoryTracker.IoM_NPC;
+            parms.faction = CorruptionStoryTrackerUtilities.CurrentStoryTracker.IoM_NPC;
             if (parms.faction == null) Log.Message("NUll wanderer faction");
             return true;
         }

@@ -192,6 +192,49 @@
     <uiIconPath>Things/IoM/Containers/TitheContainerBig_icon</uiIconPath>
   </ThingDef>
 
+  
+  <ThingDef ParentName="BuildingBase">
+    <thingClass>Corruption.Tithes.TitheContainer</thingClass>
+    <defName>TitheContainerSmall</defName>
+    <label>small tithe container</label>
+    <description>A non-launchable container for storing tithes. Contains a teleport beacon device.</description>
+    <graphicData>
+      <texPath>Things/IoM/Containers/TitheContainerBig</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,1)</drawSize>
+    </graphicData>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <size>(2,1)</size>
+    <rotatable>true</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <castEdgeShadows>false</castEdgeShadows>
+    <fillPercent>1.0</fillPercent>
+    <designationCategory>Mechanicum</designationCategory>
+    <iconDrawScale>1</iconDrawScale>
+    <inspectorTabs>
+      <li>Corruption.Tithes.ITab_TitheContainer</li>
+    </inspectorTabs>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>3000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <comps>
+      <li Class="Corruption.Tithes.CompProperties_TitheContainer">
+        <compClass>Corruption.Tithes.CompTitheContainer</compClass>
+	   <maxContainerCapacity>250</maxContainerCapacity>
+      </li>
+    </comps>
+		<researchPrerequisites>
+			<li>Smithing</li>
+		</researchPrerequisites>
+    <costStuffCount>100</costStuffCount>
+    <uiIconPath>Things/IoM/Containers/TitheContainerBig_icon</uiIconPath>
+  </ThingDef>
+  
 	<ThingDef ParentName="BenchBase">
     <defName>MechanicumAssemblyBench</defName>
     <label>mechanicum assembly unit</label>
@@ -258,8 +301,7 @@
     <researchPrerequisites>
       <li>MecTec_AssemblyTable</li>
     </researchPrerequisites>
-  </ThingDef>
-
+  </ThingDef> 
 
 
 </Defs>

@@ -16,35 +16,34 @@ namespace FactionColors
     {
         static HarmonyPatches()
         {
-            Log.Message("Generating Patches");
+            Log.Message("Generating FactionColor Patches");
             HarmonyInstance harmony = HarmonyInstance.Create("rimworld.ohu.factionColors.main");
 
             harmony.Patch(AccessTools.Method(typeof(Verse.PawnGraphicSet), "ResolveApparelGraphics", null), new HarmonyMethod(typeof(HarmonyPatches), "ResolveApparelGraphicsOriginal"), null);
             harmony.Patch(AccessTools.Method(typeof(Verse.PawnRenderer), "DrawEquipmentAiming"), new HarmonyMethod(typeof(HarmonyPatches), "DrawEquipmentAimingModded"), null);
+            harmony.Patch(AccessTools.Method(typeof(RimWorld.Page_ConfigureStartingPawns), "CanDoNext"), null, new HarmonyMethod(typeof(HarmonyPatches), "WorldGeneratePostfix"), null);
 
-            harmony.Patch(AccessTools.Method(typeof(RimWorld.ScenPart_PlayerFaction), "PostWorldGenerate"), null, new HarmonyMethod(typeof(HarmonyPatches), "PostWorldGeneratePlayerPostfix"), null);
+            //harmony.Patch(AccessTools.Method(typeof(RimWorld.ScenPart_PlayerFaction), "PostWorldGenerate"), null, new HarmonyMethod(typeof(HarmonyPatches), "PostWorldGeneratePlayerPostfix"), null);
             harmony.Patch(AccessTools.Method(typeof(RimWorld.Faction), "ExposeData"), null, new HarmonyMethod(typeof(HarmonyPatches), "ExposeFactionDataPostfix"));
-            //harmony.Patch(AccessTools.Method(typeof(Verse.Root_Entry), "Update"), new HarmonyMethod(typeof(HarmonyPatches), "UpdatePrefix"), null);
-        }
+       }
 
-        public static bool UpdatePrefix()
-        {
-            GraphicDatabase.Clear();
-            //GraphicDatabase.DebugLogAllGraphics();
-            return true;
-        }
 
-        public static void PostWorldGeneratePlayerPostfix()
+        //public static void PostWorldGeneratePlayerPostfix()
+        //{
+        //    Log.Message("Generating PlayerFaction Story Tracker");
+        //    FactionColorsTracker corrTracker = (FactionColorsTracker)WorldObjectMaker.MakeWorldObject(FactionColorsDefOf.PlayerFactionStoryTracker);
+        //    int tile = 0;
+        //    while (!(Find.WorldObjects.AnyWorldObjectAt(tile) || Find.WorldGrid[tile].biome == BiomeDefOf.Ocean))
+        //    {
+        //        tile = Rand.Range(0, Find.WorldGrid.TilesCount);
+        //    }
+        //    corrTracker.Tile = tile;
+        //    Find.WorldObjects.Add(corrTracker);
+        //}
+
+            public static void WorldGeneratePostfix()
         {
-            Log.Message("Generating PlayerFaction Story Tracker");
-            PlayerFactionStoryTracker corrTracker = (PlayerFactionStoryTracker)WorldObjectMaker.MakeWorldObject(FactionColorsDefOf.PlayerFactionStoryTracker);
-            int tile = 0;
-            while (!(Find.WorldObjects.AnyWorldObjectAt(tile) || Find.WorldGrid[tile].biome == BiomeDefOf.Ocean))
-            {
-                tile = Rand.Range(0, Find.WorldGrid.TilesCount);
-            }
-            corrTracker.Tile = tile;
-            Find.WorldObjects.Add(corrTracker);
+            FactionColorUtilities.currentFactionColorTracker.InitalizeFactions();
         }
 
         public static bool ResolveApparelGraphicsOriginal(PawnGraphicSet __instance)
@@ -73,11 +72,6 @@ namespace FactionColors
                     __instance.apparelGraphics.Add(item);
                 }
             }
-            //    Corruption.AfflictionDrawerUtility.DrawChaosOverlays(this.pawn);
-            //foreach (Apparel app in OriginalItems)
-            //{
-            //    ApparelDetailDrawer.DrawDetails(__instance.pawn, app);
-            //}
             return false;
         }
 

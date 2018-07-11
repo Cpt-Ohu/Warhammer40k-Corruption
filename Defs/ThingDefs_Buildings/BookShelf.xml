@@ -51,7 +51,7 @@
 
 <!--================ Decoration ================-->
 
-<ThingDef ParentName="BookContainerBase" Class="Corruption.BookStuff.ThingDef_Readables">
+<ThingDef ParentName="BookContainerBase">
 		<defName>BookShelfSimple</defName>
 		<label>Simple Book Shelf</label>
 		<thingClass>Corruption.BookStuff.Bookshelf</thingClass>
@@ -87,10 +87,65 @@
 		<neverMultiSelect>true</neverMultiSelect>
 		<socialPropernessMatters>true</socialPropernessMatters>
 		<researchPrerequisites></researchPrerequisites>
-	<BookshelfCapacity>5</BookshelfCapacity>
     <designationCategory>Joy</designationCategory>
-    <StoredBookGraphicPath>Things/Items/Books/ShelfGeneric_Books</StoredBookGraphicPath>
+    <comps>
+      <li Class="Corruption.BookStuff.CompProperties_Bookshelf">
+		<StoredBookGraphicPath>Things/Items/Books/ShelfGeneric_Books</StoredBookGraphicPath>
+	<BookshelfCapacity>5</BookshelfCapacity>
+        <BooksList>
+			<li>Readables_BloodyCanals</li>		
+		</BooksList>
+      </li>
+    </comps>	
+	</ThingDef>
 
+	
+<ThingDef ParentName="BookContainerBase">
+		<defName>BookShelfScientific</defName>
+		<label>Simple Book Shelf</label>
+		<thingClass>Corruption.BookStuff.Bookshelf</thingClass>
+		<category>Building</category>
+		<graphicData>
+		 <texPath>Things/Items/Books/ShelfGeneric</texPath>
+		<shaderType>Cutout</shaderType>
+		<graphicClass>Graphic_Multi</graphicClass>
+		 <drawSize>(1.3,1.3)</drawSize>
+		</graphicData>
+		<uiIconPath>Things/Items/Books/ShelfGeneric_back</uiIconPath>
+		<hasInteractionCell>true</hasInteractionCell>
+		<interactionCellOffset>(0,0,0)</interactionCellOffset>
+		<altitudeLayer>Pawn</altitudeLayer>
+		<statBases>
+			<MaxHitPoints>150</MaxHitPoints>
+			<WorkToMake>500</WorkToMake>
+			<Flammability>1.0</Flammability>
+			<Beauty>50</Beauty>
+		</statBases>
+		<pathCost>1</pathCost>
+		<passability>PassThroughOnly</passability>
+		<size>1,1</size>
+		<description>Simple bookshelf that contains some stories for colonists to read</description>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <costStuffCount>75</costStuffCount>
+		<rotatable>true</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<researchPrerequisites></researchPrerequisites>
+    <designationCategory>Joy</designationCategory>
+    <comps>
+      <li Class="Corruption.BookStuff.CompProperties_Bookshelf">
+		<StoredBookGraphicPath>Things/Items/Books/ShelfGeneric_Books</StoredBookGraphicPath>
+	<BookshelfCapacity>5</BookshelfCapacity>
+        <BooksList>
+			<li>Readables_BloodyCanals</li>		
+		</BooksList>
+      </li>
+    </comps>	
 	</ThingDef>
 
 

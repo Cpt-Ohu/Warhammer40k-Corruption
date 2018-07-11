@@ -1,0 +1,10 @@
+<Patch>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>*/DesignationCategoryDef[defName="Zone"]/specialDesignatorClasses</xpath>
+	  <value>
+      <li>OHUShips.Designator_ZoneAddRunway</li> 
+	  </value>
+	</Operation> 
+
+</Patch>

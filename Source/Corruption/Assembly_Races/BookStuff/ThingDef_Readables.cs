@@ -14,7 +14,6 @@ namespace Corruption.BookStuff
     {
         //Books
         public List<string> BookText = new List<string>();
-        public List<ThingDef> BooksList = new List<ThingDef>();
         public bool IsABook = false;
         public string CloseTexture = "";
         public int TicksToRead = 1500;
@@ -25,8 +24,6 @@ namespace Corruption.BookStuff
         public SoulItemCategories soulItemCategory = SoulItemCategories.Neutral;
         public float SoulGainRate = 0f;
         public List<String> BookCategories;
-        public int BookshelfCapacity = 3;
-        public string StoredBookGraphicPath;
 
         public override void ResolveReferences()
         {

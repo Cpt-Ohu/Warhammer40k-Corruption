@@ -17,7 +17,7 @@ namespace Corruption
             this.PawnFactionOri = this.Pawn.Faction;
             this.Pawn.jobs.EndCurrentJob(Verse.AI.JobCondition.InterruptForced);
 
-            this.Pawn.SetFactionDirect(CorruptionStoryTrackerUtilities.currentStoryTracker.IoM_NPC);
+            this.Pawn.SetFactionDirect(CorruptionStoryTrackerUtilities.CurrentStoryTracker.IoM_NPC);
 
             Find.ColonistBar.MarkColonistsDirty();
             //if (this.Pawn.Faction != Faction.OfPlayer)

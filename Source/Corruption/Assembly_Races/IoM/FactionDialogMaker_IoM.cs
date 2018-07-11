@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using OHUShips;
+using RimWorld;
 using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
@@ -31,17 +32,18 @@ namespace Corruption.IoM
             string text = (faction.leader != null) ? faction.leader.Name.ToStringFull : faction.Name;
             if (faction.PlayerGoodwill < -70f)
             {
-                FactionDialogMaker_IoM.root = new DiaNode("FactionGreetingHostile".Translate(new object[]
+                FactionDialogMaker_IoM.root = new DiaNode("ImperialGreetingHostile".Translate(new object[]
                 {
-                    text
+                    text,
+                    faction.Name
                 }));
             }
             else if (faction.PlayerGoodwill < 40f)
             {
-                string text2 = "FactionGreetingWary".Translate(new object[]
+                string text2 = "ImperialGreetingWeary".Translate(new object[]
                 {
                     text,
-                    negotiator.LabelShort
+                    faction.Name
                 });
                 text2 = text2.AdjustedFor(negotiator);
                 FactionDialogMaker_IoM.root = new DiaNode(text2);
@@ -51,7 +53,7 @@ namespace Corruption.IoM
                 }
                 if (!faction.HostileTo(Faction.OfPlayer) && negotiator.Spawned && negotiator.Map.IsPlayerHome)
                 {
-                    if (CorruptionStoryTrackerUtilities.currentStoryTracker.ImperialFactions.Contains(faction))
+                    if (CorruptionStoryTrackerUtilities.CurrentStoryTracker.ImperialFactions.Contains(faction))
                     {
                         FactionDialogMaker_IoM.root.options.AddRange(FactionDialogMaker_IoM.FactionSpecificOptions(faction, map, negotiator));
                     }          
@@ -59,9 +61,10 @@ namespace Corruption.IoM
             }
             else
             {
-                FactionDialogMaker_IoM.root = new DiaNode("FactionGreetingWarm".Translate(new object[]
+                FactionDialogMaker_IoM.root = new DiaNode("ImperialGreetingWarm".Translate(new object[]
                 {
                     text,
+                    faction.Name,
                     negotiator.LabelShort
                 }));
                 if (!SettlementUtility.IsPlayerAttackingAnySettlementOf(faction))
@@ -70,7 +73,7 @@ namespace Corruption.IoM
                 }
                 if (!faction.HostileTo(Faction.OfPlayer) && negotiator.Spawned && negotiator.Map.IsPlayerHome)
                 {
-                    if (CorruptionStoryTrackerUtilities.currentStoryTracker.IoMCanHelp)
+                    if (CorruptionStoryTrackerUtilities.CurrentStoryTracker.IoMCanHelp)
                     {
                         FactionDialogMaker_IoM.root.options.Add(FactionDialogMaker_IoM.RequestMilitaryAidOption(map));
                     }
@@ -92,11 +95,26 @@ namespace Corruption.IoM
 
         private static IEnumerable<DiaOption> FactionSpecificOptions(Faction faction, Map map, Pawn negotiator)
         {
-            CorruptionStoryTracker tracker = CorruptionStoryTrackerUtilities.currentStoryTracker;
+            CorruptionStoryTracker tracker = CorruptionStoryTrackerUtilities.CurrentStoryTracker;
 
             if (tracker.ImperialFactions.Contains(faction))
             {
                 yield return (FactionDialogMaker_IoM.RequestAcknowledgement_IG(map));
+                yield return TributeOption(map, faction);
+                if (DropShipUtility.MissingRunways(map))
+                {
+                    DiaOption diaOption = new DiaOption("RequestSupplyDrop".Translate());
+                    diaOption.Disable("MissingRunways".Translate());
+                    yield return diaOption;
+                }
+                else
+                {
+                    yield return new DiaOption("RequestSupplyDrop".Translate())
+                    {
+                        link = FactionDialogMaker_IoM.RequestSupplyDrop(map, faction)
+                    };
+                }
+
             }
 
             if (faction == tracker.Mechanicus)
@@ -121,6 +139,41 @@ namespace Corruption.IoM
             yield break;
         }
 
+        static DiaOption TributeOption(Map map, Faction faction)
+        {
+            if (DropShipUtility.MissingRunways(map))
+            {
+                DiaOption diaOption = new DiaOption("PayTribute".Translate());
+                diaOption.Disable("MissingRunways".Translate());
+                return diaOption;
+            }
+            else if (TributesMissing(map))
+            {
+                DiaOption diaOption = new DiaOption("PayTribute".Translate());
+                diaOption.Disable("PayTributeNoTributes".Translate());
+                return diaOption;
+            }
+            else
+            {
+
+                return new DiaOption("PayTribute".Translate())
+                {
+                    action = delegate
+                    {
+                        Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("PayImperialTributeMessage".Translate(new object[] { faction.Name }), delegate { CallTributePickup(map, faction); }));
+                    }
+                };
+            }
+        }
+
+        private static DiaNode RequestSupplyDrop(Map map, Faction faction)
+        {
+            DiaNode node = new DiaNode("RequestSupplyDrop".Translate());
+            node.options.AddRange(ResourceRequestOptions(map, faction));
+            node.options.Add(FactionDialogMaker_IoM.OKToRoot());
+            return node;
+        }
+
         private static DiaNode PurchaseMechanicusTemplates(Map map, Faction faction)
         {
             DiaNode node = new DiaNode("PurchaseMecTemplates".Translate());
@@ -128,7 +181,7 @@ namespace Corruption.IoM
             node.options.Add(FactionDialogMaker_IoM.OKToRoot());
             return node;
         }
-
+        
         private static DiaNode DebugBattleZone()
         {
             DiaNode node = new DiaNode("PurchaseMecTemplates".Translate());
@@ -175,11 +228,13 @@ namespace Corruption.IoM
                         {
                             def.label
                         }).CapitalizeFirst();
+
+                        Action action = delegate { CorruptionStoryTrackerUtilities.GrantResearch(def); };
                         diaOption2.link = new DiaNode(text)
                         {
                             options =
                             {
-                                FactionDialogMaker_IoM.ConfirmPurchase(map, def),
+                                FactionDialogMaker_IoM.ConfirmPurchaseInSilver(map, (int)def.baseCost, action),
                                 new DiaOption("GoBack".Translate())
                             {
                                 linkLateBind = FactionDialogMaker_IoM.ResetToRoot()
@@ -192,14 +247,46 @@ namespace Corruption.IoM
                 }
             }
         }
+        
 
-        private static void GrantMecResearch(ResearchProjectDef def)
+        private static IEnumerable<DiaOption> ResourceRequestOptions(Map map, Faction faction)
         {
-            ResearchManager manager = Find.ResearchManager;
-            ResearchProjectDef oldDef = manager.currentProj;
-            manager.currentProj = def;
-            manager.InstantFinish(def, false);
-            manager.currentProj = oldDef;
+            var tracker = CorruptionStoryTrackerUtilities.CurrentStoryTracker;
+            float relation = faction.RelationWith(Faction.OfPlayer).goodwill;
+            List<SupplyDropDef> defs = DefDatabase<SupplyDropDef>.AllDefsListForReading.FindAll(x => x.AvailableFromFaction.Contains(faction.def));
+            foreach (var def in defs)
+            {
+                if (def.RelationCost <= relation)
+                {
+                    string optionText = "CallSupplyDropConfirmation".Translate() + ": " + def.label + " (" + def.RelationCost + ")";
+
+                    DiaOption diaOption2 = new DiaOption(optionText);
+                    diaOption2.action = delegate
+                    {
+
+                    };
+                    string text = "CallSupplyDropConfirmation".Translate(new object[]
+                    {
+                            def.label
+                    }).CapitalizeFirst();
+                    Action action = delegate { CallSupplyDrop(map, faction, def); };
+                    diaOption2.link = new DiaNode(text)
+                    {
+                        options =
+                            {
+                                FactionDialogMaker_IoM.ConfirmPurchaseRelation(faction, def.RelationCost, action),
+                                new DiaOption("GoBack".Translate())
+                            {
+                                linkLateBind = FactionDialogMaker_IoM.ResetToRoot()
+                            }
+
+                            }
+                    };
+                    yield return diaOption2;
+                }
+            }
+
+            yield break;
         }
 
         private static DiaOption RequestMilitaryAidOption(Map map)
@@ -286,7 +373,7 @@ namespace Corruption.IoM
             };
         }
 
-        private static DiaOption ConfirmPurchase(Map map, ResearchProjectDef def)
+        private static DiaOption ConfirmPurchaseInSilver(Map map, int cost, Action action)
         {
             DiaOption node = new DiaOption("Confirm".Translate())
             {
@@ -294,8 +381,24 @@ namespace Corruption.IoM
             };
             node.action = delegate
             {
-                TradeUtility.LaunchThingsOfType(ThingDefOf.Silver, (int)def.baseCost, map, null);
-                FactionDialogMaker_IoM.GrantMecResearch(def);
+                TradeUtility.LaunchThingsOfType(ThingDefOf.Silver, cost, map, null);
+                action.Invoke();
+                //FactionDialogMaker_IoM.GrantMecResearch(def);
+            };
+            return node;
+        }
+
+        private static DiaOption ConfirmPurchaseRelation(Faction faction, float cost, Action action)
+        {
+            DiaOption node = new DiaOption("Confirm".Translate())
+            {
+                linkLateBind = FactionDialogMaker_IoM.ResetToRoot()
+            };
+            node.action = delegate
+            {
+                CorruptionStoryTrackerUtilities.AffectGoodwillWithSpacerFaction(Faction.OfPlayer, faction, -cost);
+                //faction.AffectGoodwillWith(Faction.OfPlayer, -cost);
+                action.Invoke();
             };
             return node;
         }
@@ -303,7 +406,7 @@ namespace Corruption.IoM
         private static DiaNode RequestHealer(Map map)
         {
             DiaNode node = new DiaNode("RequestSororitasNurse".Translate());
-            float sororitasGoowdill = CorruptionStoryTrackerUtilities.currentStoryTracker.AdeptusSororitas.RelationWith(Faction.OfPlayer).goodwill;
+            float sororitasGoowdill = CorruptionStoryTrackerUtilities.CurrentStoryTracker.AdeptusSororitas.RelationWith(Faction.OfPlayer).goodwill;
             if (sororitasGoowdill > 50)
             {
                 string optionText = "RequestNurses".Translate(new object[] { 1000 });
@@ -356,7 +459,7 @@ namespace Corruption.IoM
             {
                 TradeUtility.LaunchThingsOfType(ThingDefOf.Silver, 1000, map, null);
                 Pawn pawn = null;
-                IoM.IoM_StoryUtilities.GenerateIntrusiveWanderer(map, DefOfs.C_PawnKindDefOf.SororitasNurse, CorruptionStoryTrackerUtilities.currentStoryTracker.AdeptusSororitas, IoMChatType.VisitingHealer, "IoM_HealerArrives", out pawn) ;
+                IoM.IoM_StoryUtilities.GenerateIntrusiveWanderer(map, DefOfs.C_PawnKindDefOf.SororitasNurse, CorruptionStoryTrackerUtilities.CurrentStoryTracker.AdeptusSororitas, IoMChatType.VisitingHealer, "IoM_HealerArrives", out pawn) ;
             };
             return option;
         }
@@ -500,7 +603,7 @@ namespace Corruption.IoM
 
         private static DiaOption RequestAcknowledgement_IG(Map map)
         {
-            CorruptionStoryTracker tracker =  CorruptionStoryTrackerUtilities.currentStoryTracker;
+            CorruptionStoryTracker tracker =  CorruptionStoryTrackerUtilities.CurrentStoryTracker;
             if (tracker.ImperialFactions.Any(x => x.HostileTo(Faction.OfPlayer)) || tracker.PlayerIsEnemyOfMankind)
             {
                 DiaOption diaOption = new DiaOption("RequestIoMAcknowledgement".Translate());
@@ -508,7 +611,7 @@ namespace Corruption.IoM
                 return diaOption;
             }
 
-            if (CorruptionStoryTrackerUtilities.currentStoryTracker.AcknowledgedByImperium)
+            if (CorruptionStoryTrackerUtilities.CurrentStoryTracker.AcknowledgedByImperium)
             {
                 DiaOption diaOption = new DiaOption("RequestIoMAcknowledgement".Translate());
                 diaOption.Disable("AlreadyIoMAcknowledged".Translate());
@@ -518,7 +621,7 @@ namespace Corruption.IoM
             string text = "IoMAcknowledgementGrant".Translate(new object[]
             {
                 Find.World.info.name,
-                CorruptionStoryTrackerUtilities.currentStoryTracker.SubsectorName,
+                CorruptionStoryTrackerUtilities.CurrentStoryTracker.SubsectorName,
                 negotiator.Name
             }).CapitalizeFirst();
 
@@ -545,11 +648,15 @@ namespace Corruption.IoM
             }).CapitalizeFirst();
             diaOption2.action = delegate
             {
-                CorruptionStoryTracker tracker = CorruptionStoryTrackerUtilities.currentStoryTracker;
+                CorruptionStoryTracker tracker = CorruptionStoryTrackerUtilities.CurrentStoryTracker;
                 tracker.PlanetaryGovernor = governorCandidate;
                 Tithes.TitheUtilities.CalculateColonyTithes(tracker);
                 Tithes.TitheUtilities.UpdateAllContaners();
                 tracker.AcknowledgedByImperium = true;
+                foreach (Faction imperialFaction in tracker.ImperialFactions)
+                {
+                    CorruptionStoryTrackerUtilities.AffectGoodwillWithSpacerFaction(Faction.OfPlayer, imperialFaction, 25);
+                }
             };
             diaOption2.link = new DiaNode(text)
             {
@@ -561,5 +668,33 @@ namespace Corruption.IoM
             return diaOption2;
         }
 
+        static void CallTributePickup(Map map, Faction faction)
+        {
+            PawnKindDef haulerDef = DefOfs.C_PawnKindDefOf.ServitorColonist;
+            CorruptionStoryTrackerUtilities.CreateTributePickup(map, faction, haulerDef, 5);
+        }
+
+        public static void CallSupplyDrop(Map map, Faction faction, SupplyDropDef supplyDef)
+        {
+            CorruptionStoryTrackerUtilities.CreateSupplyShip( supplyDef, map, faction);
+        }
+               
+        static bool TributesMissing(Map map)
+        {
+            IEnumerable<ResourcePack> resourcePacks = map.listerThings.AllThings.Where(x => x is ResourcePack).Cast<ResourcePack>();
+            if (resourcePacks.Any(x => x.compResource.IsTribute == true && x.compResource.Resources.Sum(y => y.Count) > 0))
+            { 
+                return false;
+            }
+            return true;
+        }
+
+        static void CreateIoMTributeWindow()
+        {
+            CorruptionStoryTracker tracker = CorruptionStoryTrackerUtilities.CurrentStoryTracker;
+            ImperialTraderOfficial imperialTrader = new ImperialTraderOfficial(DefOfs.C_TraderKindDefs.Orbital_BulkGoods, tracker.Mechanicus);
+            negotiator.Map.passingShipManager.AddShip(imperialTrader);
+            imperialTrader.TryOpenComms(FactionDialogMaker_IoM.negotiator);
+        }
     }
 }

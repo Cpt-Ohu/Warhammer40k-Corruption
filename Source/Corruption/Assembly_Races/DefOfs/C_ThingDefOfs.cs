@@ -22,6 +22,10 @@ namespace Corruption.DefOfs
 
         public static ThingDef ShrineEmperor;
 
-        public static ThingDef IoM_ServitorFuel;        
+        public static ThingDef IoM_ServitorFuel;
+
+        public static ThingDef ImperialFreighterTribute;
+        public static ThingDef ImperialFreighterSupply;
+
     }
 }

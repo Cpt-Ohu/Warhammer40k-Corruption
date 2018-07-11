@@ -30,7 +30,7 @@
 
 
 
-  <ThingDef ParentName="IGArmorMakeable" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="IGArmorMakeable" >
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <defName>IG_Armor</defName>
     <label>Flak Armor</label>
@@ -141,7 +141,7 @@
   </ThingDef>
 
   <!-- ==========================Valhallan=============================== -->
-  <ThingDef ParentName="HatMakeableBase" Name="ValhallanHat" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="HatMakeableBase" Name="ValhallanHat" >
     <defName>Apparel_ValhallanUshanhka</defName>
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <label>ushanka</label>
@@ -198,7 +198,7 @@
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="HatMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="HatMakeableBase" >
     <defName>Apparel_ValhallanPilotka</defName>
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <label>pilotka</label>
@@ -255,7 +255,7 @@
     </comps>
   </ThingDef>
 
-	<ThingDef ParentName="IGApparelMakeable" Class="FactionColors.ApparelUniformDef">
+	<ThingDef ParentName="IGApparelMakeable" >
     	<thingClass>FactionColors.ApparelUniform</thingClass>
 		<defName>Apparel_ValhallanCoat</defName>
 		<label>greatcoat</label>
@@ -319,7 +319,7 @@
     </comps>
 	</ThingDef>
 
-  <ThingDef ParentName="IGApparelMakeable" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="IGApparelMakeable" >
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <defName>IG_UniformShirt</defName>
     <label>imperial undershirt</label>

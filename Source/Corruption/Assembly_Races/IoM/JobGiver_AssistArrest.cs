@@ -24,7 +24,7 @@ namespace Corruption.IoM
         {
             get
             {
-                Pawn pawn = CorruptionStoryTrackerUtilities.currentStoryTracker.PlanetaryGovernor;
+                Pawn pawn = CorruptionStoryTrackerUtilities.CurrentStoryTracker.PlanetaryGovernor;
                 if (pawn != null)
                 {
                     return pawn;

@@ -25,7 +25,7 @@ namespace Corruption.Worship.Wonders
             Pawn pawn = this.target.Thing as Pawn;
             if (pawn != null)
             {
-                Need_Soul soul = CorruptionStoryTrackerUtilities.GetPawnSoul(pawn);
+                CompSoul soul = CompSoul.GetPawnSoul(pawn);
                 if (soul != null)
                 {
                     soul.AddSpecialTrait(this.Def.SpecialSoulTrait);

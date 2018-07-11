@@ -92,13 +92,15 @@ namespace OHUShips
                         FactionDefUniform udef = this.Faction.def as FactionDefUniform;
                         if (udef != null)
                         {
+                            Log.Message("FactionUniformDef");
                             Col1 = udef.FactionColor1;
                             Col2 = udef.FactionColor2;
                         }
                         if (this.Faction == Faction.OfPlayer)
                         {
-                            Col1 = FactionColors.FactionColorUtilities.currentPlayerStoryTracker.PlayerColorOne;
-                            Col2 = FactionColors.FactionColorUtilities.currentPlayerStoryTracker.PlayerColorTwo;
+                            Log.Message("playerfactino??");
+                            Col1 = FactionColors.FactionColorUtilities.currentFactionColorTracker.PlayerColorOne;
+                            Col2 = FactionColors.FactionColorUtilities.currentFactionColorTracker.PlayerColorTwo;
                         }
                     }
                     else
@@ -248,6 +250,12 @@ namespace OHUShips
         {
             base.PostMake();
             this.InitiateShipProperties();
+            this.RecolorShip();
+        }
+
+        public void RecolorShip()
+        {
+            this.FirstSpawned = true;
             this.InitiateColors();
         }
         
@@ -434,9 +442,30 @@ namespace OHUShips
                 this.refuelableComp.ConsumeFuel(this.refuelableComp.Props.fuelConsumptionRate / 60f);
                 if (this.Spawned)
                 {                    
-                    ShipBase_Traveling travelingShip = new ShipBase_Traveling(this);
-                    GenSpawn.Spawn(travelingShip, this.Position, this.Map);
+                    ShipBase_Traveling travelingShip = new ShipBase_Traveling(this,this.LaunchAsFleet, TravelingShipArrivalAction.StayOnWorldMap);
+
+                    Map curMap = this.Map;
+                    IntVec3 curPos = this.Position;
+
+                    //GenSpawn.Spawn(travelingShip, curPos, curMap, this.Rotation, false);
                     this.DeSpawn();
+                    //Log.Message(GenAdj.CellsOccupiedBy(curPos, Rot4.North, def.Size).Count().ToString());
+                    //foreach (IntVec3 current in GenAdj.CellsOccupiedBy(curPos, Rot4.North, def.Size))
+                    //{
+
+                    //    Log.Message("A: " + curMap.thingGrid.ThingsAt(current).ToList<Thing>().Count.ToString());
+                    //    foreach (Thing current2 in curMap.thingGrid.ThingsAt(current).ToList<Thing>())
+                    //    {
+                    //        if (current2.def == null) Log.Message("NoDef?");
+                    //        Log.Message("B");
+                    //        if (GenSpawn.SpawningWipes(def, current2.def))
+                    //        {
+                    //            Log.Message("Destroyng:" + current2.Label);
+                    //            current2.Destroy(DestroyMode.Vanish);
+                    //        }
+                    //    }
+                    //}
+                    GenSpawn.Spawn(travelingShip, curPos, curMap, this.Rotation, false);
                 }
             }
         }
@@ -447,8 +476,10 @@ namespace OHUShips
             {
                 this.shipState = ShipState.Outgoing;
                 ShipBase_Traveling travelingShip = new ShipBase_Traveling(this, target, arriveMode, arrivalAction);
-                GenSpawn.Spawn(travelingShip, this.Position, this.Map);
+                Map curMap = this.Map;
+                IntVec3 curPos = this.Position;
                 this.DeSpawn();
+                GenSpawn.Spawn(travelingShip, curPos, curMap, this.Rotation, false);
                 if (this.LaunchAsFleet)
                 {
                     foreach (ShipBase current in DropShipUtility.currentShipTracker.ShipsInFleet(this.fleetID))
@@ -456,9 +487,11 @@ namespace OHUShips
                         if (current != this)
                         {
                             current.shipState = ShipState.Outgoing;
-                            ShipBase_Traveling travelingShip2 = new ShipBase_Traveling(current, target, arriveMode, arrivalAction);
-                            GenSpawn.Spawn(travelingShip2, current.Position, current.Map);
-                            current.DeSpawn();
+                            ShipBase_Traveling travelingShip2 = new ShipBase_Traveling(current, target, arriveMode, arrivalAction);Log.Message("Spawn 1");
+                            Map shipMap = current.Map;
+                            IntVec3 shipPos = current.Position;
+                            this.DeSpawn();
+                            GenSpawn.Spawn(travelingShip, shipPos, shipMap, current.Rotation, false);
                         }
                     }
                 }
@@ -551,7 +584,7 @@ namespace OHUShips
                 else
                 {
                     Pawn pawn1 = thing as Pawn;
-                    if (pawn1 != null && dropPawns && !pawn1.IsPrisoner && pawn1.def.race.Humanlike || (dropitems && thing.GetType() != typeof(Pawn)))
+                    if ((pawn1 != null && dropPawns && !pawn1.IsPrisoner && pawn1.def.race.Humanlike) || (dropitems && thing.GetType() != typeof(Pawn)))
                     {
                         if(this.GetDirectlyHeldThings().TryDrop(thing, base.Position, this.Map, ThingPlaceMode.Near, out thing2, delegate (Thing placedThing, int count)
                         {

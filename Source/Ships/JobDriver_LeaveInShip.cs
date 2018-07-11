@@ -16,11 +16,13 @@ namespace OHUShips
                 return (ShipBase)base.job.GetTarget(TargetIndex.B).Thing;
             }
         }
-        
+                       
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            yield return Toils_Reserve.Reserve(TargetIndex.B, ship.compShip.sProps.maxPassengers);
-            yield return Toils_Haul.CarryHauledThingToContainer();
+            if (this.pawn.carryTracker.CarriedThing != null)
+            {
+                yield return Toils_Haul.CarryHauledThingToContainer();
+            }
             yield return Toils_Goto.Goto(TargetIndex.B, PathEndMode.ClosestTouch);
 
             Toil leaving = JobDriver_LeaveInShip.EnterShip(this.GetActor(), ship);
@@ -55,7 +57,7 @@ namespace OHUShips
 
         public override bool TryMakePreToilReservations()
         {
-            throw new NotImplementedException();
+            return this.pawn.Reserve(this.job.GetTarget(TargetIndex.A), this.job, ship.compShip.sProps.maxPassengers, 1, null);
         }
     }
 }

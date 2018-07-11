@@ -189,5 +189,261 @@
       <li>Manufactured</li>
     </thingCategories>
   </ThingDef>
+  
+  
+  <ThingDef ParentName="ResourceBase" Name="ResourcePackBase" Abstract="True">
+    <defName>ResPack</defName>
+    <label>Resource Pack</label>
+    <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
+    <graphicData>
+      <texPath>Things/IoM/Containers/TitheContainerBig</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,1)</drawSize>
+    </graphicData>
+	<size>(2,1)</size>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>1</stackLimit>
+    <alwaysHaulable>true</alwaysHaulable>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>500</MarketValue>
+      <Mass>100.0</Mass>
+      <Flammability>1.0</Flammability>
+			<DeteriorationRate>1.0</DeteriorationRate>
+		</statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>	
+    <costList>
+      <Steel>100</Steel>
+    </costList>
+	 <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>	  
+      <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+      <defaultIngredientFilter>
+        <categories>
+          <li>Root</li>
+        </categories>
+      </defaultIngredientFilter>
+    </recipeMaker>
+	
+  </ThingDef>
+  
+  
+  <ThingDef ParentName="ResourcePackBase">
+    <defName>ResPackRawMaterials</defName>
+    <thingClass>Corruption.IoM.ResourcePack</thingClass>
+    <label>Resource Pack (Raw Materials)</label>
+    <description>A container holding raw resources.</description>
+    <graphicData>
+      <texPath>Things/IoM/Containers/Crate_Blue</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+	
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>500</MarketValue>
+      <Mass>100.0</Mass>
+		</statBases>
+		<comps>
+      <li Class="Corruption.IoM.CompProperties_ResourcePack">
+        <Capacity>1000</Capacity>
+		<filters>
+         <li>
+         <categories>
+           <li>ResourcesRaw</li>
+         </categories>		  
+		 </li>
+		</filters>
+		</li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="ResourcePackBase">
+    <defName>ResPackBuildingMaterials</defName>
+    <thingClass>Corruption.IoM.ResourcePack</thingClass>
+    <label>Resource Pack (Building Materials)</label>
+    <description>A container holding building materials.</description>
+    <graphicData>
+      <texPath>Things/IoM/Containers/Crate_Blue</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+	
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>500</MarketValue>
+      <Mass>100.0</Mass>
+		</statBases>
+		<comps>
+      <li Class="Corruption.IoM.CompProperties_ResourcePack">
+        <Capacity>1000</Capacity>
+		<filters>
+         <li>
+         <categories>
+           <li>StoneBlocks</li>
+         </categories>		  
+		 </li>
+		 <li>
+         <thingDefs>
+           <li>IG_SynthAgent</li>
+         </thingDefs>
+		 </li>
+		</filters>
+		</li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="ResourcePackBase">
+    <defName>ResPackFoodRations</defName>
+    <thingClass>Corruption.IoM.ResourcePack</thingClass>
+    <label>Resource Pack (Rations)</label>
+    <description>A container holding building materials.</description>
+    <graphicData>
+      <texPath>Things/IoM/Containers/Crate_Green</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+	
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>500</MarketValue>
+      <Mass>100.0</Mass>
+		</statBases>
+		<comps>
+      <li Class="Corruption.IoM.CompProperties_ResourcePack">
+        <Capacity>50</Capacity>
+		<filters>
+		 <li>
+         <thingDefs>
+           <li>MealNutrientPaste</li>
+           <li>MealSurvivalPack</li>  
+         </thingDefs>
+		 </li>
+		</filters>
+		</li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="ResourcePackBase">
+    <defName>ResPackRawAgri</defName>
+    <label>Resource Pack (Agri-Products)</label>
+    <description>A container holding various agricultural products.</description>
+    <graphicData>
+      <texPath>Things/IoM/Containers/Crate_Green</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>500</MarketValue>
+      <Mass>100.0</Mass>
+		</statBases>
+		<comps>
+      <li Class="Corruption.IoM.CompProperties_ResourcePack">
+        <Capacity>500</Capacity>		
+		<filters>
+         <li>
+         <categories>
+           <li>PlantFoodRaw</li>
+           <li>AnimalProductRaw</li>
+         </categories>		  
+		 </li>
+		</filters>
+      </li>
+    </comps>
+  </ThingDef>	 
 
+   <ThingDef ParentName="ResourcePackBase">
+    <defName>ResPackTextiles</defName>
+    <label>Resource Pack (Textiles)</label>
+    <description>A container holding various pieces of clothing.</description>
+    <graphicData>
+      <texPath>Things/IoM/Containers/Crate_Blue</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>500</MarketValue>
+      <Mass>100.0</Mass>
+		</statBases>
+		<comps>
+      <li Class="Corruption.IoM.CompProperties_ResourcePack">
+        <Capacity>50</Capacity>
+			
+		<filters>
+         <li>
+         <categories>
+           <li>Textiles</li>
+           <li>Leathers</li>
+         </categories>		  
+		 </li>
+		</filters>
+      </li>
+    </comps>
+  </ThingDef>	
+    
+   <ThingDef ParentName="ResourcePackBase">
+    <defName>ResPackMedicine</defName>
+    <label>Resource Pack (Medicine)</label>
+    <description>A container holding medicinal products.</description>
+    <graphicData>
+      <texPath>Things/IoM/Containers/Crate_Neutral</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>800</MarketValue>
+      <Mass>100.0</Mass>
+		</statBases>
+		<comps>
+      <li Class="Corruption.IoM.CompProperties_ResourcePack">
+        <Capacity>50</Capacity>
+			
+		<filters>
+         <li>
+         <categories>
+           <li>Medicine</li>
+         </categories>		  
+		 </li>
+		</filters>
+      </li>
+    </comps>
+  </ThingDef>	
+  
+  <ThingDef ParentName="ResourcePackBase">
+    <defName>ResPackWeapons</defName>
+    <label>Resource Pack (Weapons)</label>
+    <description>A container holding weapons.</description>
+    <graphicData>
+      <texPath>Things/IoM/Containers/Crate_Red</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>900</MarketValue>
+      <Mass>100.0</Mass>
+		</statBases>
+		<comps>
+      <li Class="Corruption.IoM.CompProperties_ResourcePack">
+        <Capacity>10</Capacity>	
+		<filters>
+         <li>
+         <categories>
+           <li>IG_Melee</li>
+           <li>IG_Ranged</li>
+         </categories>		  
+		 </li>
+		</filters>
+      </li>
+    </comps>
+  </ThingDef>	
+
+  
+  
 </Defs>

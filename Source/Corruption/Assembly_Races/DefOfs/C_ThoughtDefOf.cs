@@ -14,5 +14,7 @@ namespace Corruption.DefOfs
         public static ThoughtDef Pain;
 
         public static ThoughtDef ServitorDied;
+
+        public static ThoughtDef AlignmentDiscoveryFailed;
     }
 }

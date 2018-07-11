@@ -9,7 +9,7 @@
     <workSkillLearnFactor>16</workSkillLearnFactor>
   </RecipeDef>
 	
-  <RecipeDef ParentName="SurgeryFlesh">
+  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>TurnIntoServitor_MSU</defName>
 		<label>turn into servitor</label>
 		<description>Turns this pawn into a semi-organic robot for performing simple tasks.</description>
@@ -58,9 +58,9 @@
 			<Medicine>5</Medicine>
 		</skillRequirements>
 		<addsHediff>ServitorImplants</addsHediff>
-  </RecipeDef>
+  </Corruption.RecipeDef_MSU>
 
-  <RecipeDef ParentName="SurgeryFlesh">
+  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallNeuroController_MSU</defName>
 		<label>install NeuroController</label>
 		<description>Installs joywire.</description>
@@ -97,9 +97,9 @@
 			<li>Brain</li>
 		</appliedOnFixedBodyParts>
 		<addsHediff>NeuroController</addsHediff>
-	</RecipeDef>
+	</Corruption.RecipeDef_MSU>
 
-  	  <RecipeDef ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallMechadendritesLabour_MSU</defName>
 		<label>install mechadendrites(labour)</label>
 		<description>Installs mechadendrites.</description>
@@ -134,9 +134,9 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>MechaDendrites_Labour</addsHediff>
-	</RecipeDef>
+	</Corruption.RecipeDef_MSU>
 
-  	  <RecipeDef ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallMechadendritesMedical_MSU</defName>
 		<label>install mechadendrites(medical)</label>
 		<description>Installs mechadendrites.</description>
@@ -171,9 +171,9 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>MechaDendrites_Medical</addsHediff>
-	</RecipeDef>
+	</Corruption.RecipeDef_MSU>
 
-  	  <RecipeDef ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallMechadendritesCombat_MSU</defName>
 		<label>install mechadendrites(combat)</label>
 		<description>Installs mechadendrites.</description>
@@ -208,9 +208,9 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>MechaDendrites_Combat</addsHediff>
-	</RecipeDef>
+	</Corruption.RecipeDef_MSU>
 
-  <RecipeDef ParentName="SurgeryFlesh">
+  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>Tend_MSU</defName>
 		<label>advanced tending</label>
 		<description>Tend to patients.</description>
@@ -232,10 +232,10 @@
         <li>Medicine</li>
       </categories>
 		</fixedIngredientFilter>
-	</RecipeDef>
+	</Corruption.RecipeDef_MSU>
 
 
-  <RecipeDef ParentName="SurgeryFlesh">
+  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>ImplantLobotomyController</defName>
 		<label>implant lobotomizer</label>
 		<description>Implanting lobotomizer.</description>
@@ -260,10 +260,10 @@
 				<count>1</count>
 			</li>
 		</ingredients>
-	</RecipeDef>
+	</Corruption.RecipeDef_MSU>
 
 
-  <RecipeDef ParentName="SurgeryFlesh">
+  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallLobotomiser</defName>
 		<label>install lobotomiser</label>
 		<description>Installs lobotomiser.</description>
@@ -300,119 +300,60 @@
 			<li>Brain</li>
 		</appliedOnFixedBodyParts>
 		<addsHediff>MechanicusLobotomiser</addsHediff>
-	</RecipeDef>
+	</Corruption.RecipeDef_MSU>
 
-  <RecipeDef ParentName="SurgeryFlesh">
-		<defName>ReprogramBattleServitor_MSU</defName>
+	  <Corruption.RecipeDef_MSU Name="ReprogramServitor" ParentName="SurgeryFlesh" Abstract="True">		
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Reprogramming Servitor.</jobString>
+		<workAmount>450</workAmount>
+		<targetsBodyPart>false</targetsBodyPart>
+		<surgerySuccessChanceFactor>0.99</surgerySuccessChanceFactor>
+
+    <deathOnFailedSurgeryChance>0.001</deathOnFailedSurgeryChance>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Component</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<skillRequirements>
+			<Medicine>5</Medicine>
+			<Intellectual>8</Intellectual>
+		</skillRequirements>
+		<RecipeType>ServitorReprogram</RecipeType>
+  </Corruption.RecipeDef_MSU>
+	
+  <Corruption.RecipeDef_MSU ParentName="ReprogramServitor">
+		<defName>ReprogramServitorMSU_Battle</defName>
 		<label>reprogram servitor(battle)</label>
 		<description>Loads combat routines into this servitor's brain.</description>
-		<workerClass>Recipe_InstallImplant</workerClass>
-		<jobString>Reprogramming Servitor.</jobString>
-		<workAmount>450</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
-		<surgerySuccessChanceFactor>0.99</surgerySuccessChanceFactor>
-
-    <deathOnFailedSurgeryChance>0.001</deathOnFailedSurgeryChance>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Component</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<skillRequirements>
-			<Medicine>5</Medicine>
-			<Intellectual>8</Intellectual>
-		</skillRequirements>
 		<addsHediff>ServitorReprogramBattle</addsHediff>
-  </RecipeDef>
+  </Corruption.RecipeDef_MSU>
 
-  <RecipeDef ParentName="SurgeryFlesh">
-		<defName>ReprogramCrafterServitor_MSU</defName>
+  <Corruption.RecipeDef_MSU ParentName="ReprogramServitor">
+		<defName>ReprogramServitorMSU_Crafter</defName>
 		<label>reprogram servitor(crafter)</label>
 		<description>Loads crafting routines into this servitor's brain.</description>
-		<workerClass>Recipe_InstallImplant</workerClass>
-		<jobString>Reprogramming Servitor.</jobString>
-		<workAmount>450</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
-		<surgerySuccessChanceFactor>0.99</surgerySuccessChanceFactor>
-
-    <deathOnFailedSurgeryChance>0.001</deathOnFailedSurgeryChance>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Component</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<skillRequirements>
-			<Medicine>5</Medicine>
-			<Intellectual>8</Intellectual>
-		</skillRequirements>
 		<addsHediff>ServitorReprogramCrafter</addsHediff>
-  </RecipeDef>
+  </Corruption.RecipeDef_MSU>
 
-  <RecipeDef ParentName="SurgeryFlesh">
-		<defName>ReprogramBuilderServitor_MSU</defName>
+  <Corruption.RecipeDef_MSU ParentName="ReprogramServitor">
+		<defName>ReprogramServitorMSU_Builder</defName>
 		<label>reprogram servitor(builder)</label>
-		<description>Loads construction and mining routines into this servitor's brain.</description>
-		<workerClass>Recipe_InstallImplant</workerClass>
-		<jobString>Reprogramming Servitor.</jobString>
-		<workAmount>450</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
-		<surgerySuccessChanceFactor>0.99</surgerySuccessChanceFactor>
-
-    <deathOnFailedSurgeryChance>0.001</deathOnFailedSurgeryChance>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Component</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<skillRequirements>
-			<Medicine>5</Medicine>
-			<Intellectual>8</Intellectual>
-		</skillRequirements>
+		<description>Loads construction and mining routines into this servitor's brain.</description>		
 		<addsHediff>ServitorReprogramConstructor</addsHediff>
-  </RecipeDef>
+  </Corruption.RecipeDef_MSU>
 
-  <RecipeDef ParentName="SurgeryFlesh">
-		<defName>ReprogramGrowerServitor_MSU</defName>
+  <Corruption.RecipeDef_MSU ParentName="ReprogramServitor">
+		<defName>ReprogramServitorMSU_Grower</defName>
 		<label>reprogram servitor(agriculture)</label>
-		<description>Loads plant growing routines into this servitor's brain.</description>
-		<workerClass>Recipe_InstallImplant</workerClass>
-		<jobString>Reprogramming Servitor.</jobString>
-		<workAmount>450</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
-		<surgerySuccessChanceFactor>0.99</surgerySuccessChanceFactor>
-
-    <deathOnFailedSurgeryChance>0.001</deathOnFailedSurgeryChance>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>Component</li>
-					</thingDefs>
-				</filter>
-				<count>1</count>
-			</li>
-		</ingredients>
-		<skillRequirements>
-			<Medicine>5</Medicine>
-			<Intellectual>8</Intellectual>
-		</skillRequirements>
+		<description>Loads plant growing routines into this servitor's brain.</description>	
 		<addsHediff>ServitorReprogramGrower</addsHediff>
-  </RecipeDef>
+  </Corruption.RecipeDef_MSU>
 
 
 </Defs>

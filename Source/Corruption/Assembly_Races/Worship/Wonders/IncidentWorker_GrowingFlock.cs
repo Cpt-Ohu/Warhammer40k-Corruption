@@ -17,7 +17,7 @@ namespace Corruption.Worship.Wonders
                 Find.World.factionManager.FirstFactionOfDef(FactionDefOf.Outlander),
                 Find.World.factionManager.FirstFactionOfDef(FactionDefOf.Tribe),
                 Find.World.factionManager.FirstFactionOfDef(FactionDefOf.Pirate),
-               CorruptionStoryTrackerUtilities.currentStoryTracker.IoM_NPC
+               CorruptionStoryTrackerUtilities.CurrentStoryTracker.IoM_NPC
 
             };
             parms.faction = potentialFactions.RandomElement();
@@ -35,8 +35,8 @@ namespace Corruption.Worship.Wonders
 
             foreach (Pawn pawn in list)
             {
-                Need_Soul soul = CorruptionStoryTrackerUtilities.GetPawnSoul(pawn);
-                soul.GainPatron(PatronDefOf.Emperor, true);
+                CompSoul soul = CompSoul.GetPawnSoul(pawn);
+                soul.GainChaosGod(PatronDefOf.Emperor);
                 pawn.SetFaction(Faction.OfPlayer);
                 pawn.workSettings.EnableAndInitialize();
                 GenSpawn.Spawn(pawn, loc, map);

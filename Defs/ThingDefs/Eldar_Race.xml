@@ -5,7 +5,7 @@
 
   <!-- ============================ Human ========================== -->
 
-  <AlienRace.ThingDef_AlienRace ParentName="BasePawn">
+  <AlienRace.ThingDef_AlienRace ParentName="40kBasePawn">
     <defName>Alien_Eldar</defName>
     <label>eldar</label>
     <description>A member of the capricious Eldar race.</description>

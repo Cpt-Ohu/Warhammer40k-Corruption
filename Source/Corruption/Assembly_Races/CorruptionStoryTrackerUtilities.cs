@@ -55,18 +55,32 @@ namespace Corruption
         public static readonly Texture2D BorderPsyker = ContentFinder<Texture2D>.Get("UI/Background/BorderPsyker", true);
 
 
-        public static float DiscoverAlignmentByChatModifier = -0.3f;
+        public static float DiscoverAlignmentByChatModifier = -0.1f;
         public static float DiscoverAlignmentByPsykerModifier = 0.5f;
-        public static float DiscoverAlignmentByConfessionModifier = -0.2f;
+        public static float DiscoverAlignmentByConfessionModifier = -0.05f;
 
 
         public static bool ImperialInstitutionsSelected = true;
 
-        public static CorruptionStoryTracker currentStoryTracker
+        private static CorruptionStoryTracker tracker;
+
+        public static CorruptionStoryTracker CurrentStoryTracker
         {
             get
             {
-                return Find.World.GetComponent<CorruptionStoryTracker>();
+                if (tracker == null)
+                {
+                    tracker = Find.World.GetComponent<CorruptionStoryTracker>();
+                }
+                return tracker;
+            }            
+        }
+
+        public static Missions.MissionManager CurrentMissionManager
+        {
+            get
+            {
+                return CurrentStoryTracker?.MissionManager;
             }
         }
 
@@ -138,18 +152,6 @@ namespace Corruption
             }
         }
 
-        public static Need_Soul GetPawnSoul(Pawn pawn)
-        {
-            if (pawn.needs != null)
-            {
-                return pawn.needs.TryGetNeed<Need_Soul>();
-            }
-            else
-            {
-                Log.Error("Tried to get Pawns soul with missing needs");
-                return null;
-            }
-        }
         public static void DrawImperialTitheTab(CorruptionStoryTracker tracker, Rect rect)
         {
             Text.Anchor = TextAnchor.MiddleCenter;
@@ -354,11 +356,11 @@ namespace Corruption
 
         public static void InitiateGovernorArrestEvent(Map map)
         {
-            if (CorruptionStoryTrackerUtilities.currentStoryTracker.PlanetaryGovernor == null)
+            if (CorruptionStoryTrackerUtilities.CurrentStoryTracker.PlanetaryGovernor == null)
             {
                 return;
             }
-            Faction faction = CorruptionStoryTrackerUtilities.currentStoryTracker.ImperialGuard;
+            Faction faction = CorruptionStoryTrackerUtilities.CurrentStoryTracker.ImperialGuard;
             List<Pawn> arbites = new List<Pawn>();
             for (int i=0; i< 5; i++)
             {
@@ -391,7 +393,7 @@ namespace Corruption
 
         public static bool IsPsyker(Pawn pawn)
         {
-            Need_Soul soul = CorruptionStoryTrackerUtilities.GetPawnSoul(pawn);
+            CompSoul soul = CompSoul.GetPawnSoul(pawn);
             if (soul.PsykerPowerLevel >= PsykerPowerLevel.Iota)
             {
                 return true;
@@ -504,22 +506,21 @@ namespace Corruption
 
         public static bool GetRandOffensivePsykerPower(Pawn pawn, out PsykerPowerDef powerDef, out AIPsykerPowerCategory aiCategory)
         {
-            Need_Soul soul = CorruptionStoryTrackerUtilities.GetPawnSoul(pawn);
+            CompSoul soul = CompSoul.GetPawnSoul(pawn);
             if (soul != null)
             {
                 CompPsyker compPsyker = soul.compPsyker;
                 if (compPsyker != null)
                 {
-                    Predicate<PsykerPower> validator = delegate (PsykerPower p)
+                    Predicate<PsykerPowerEntry> validator = delegate (PsykerPowerEntry p)
                     {
-                            AIPsykerPowerCategory cat = p.powerdef.AICategory;
+                            AIPsykerPowerCategory cat = p.psykerPowerDef.AICategory;
                             return (cat != AIPsykerPowerCategory.MentalStateGiverFriendly && cat != AIPsykerPowerCategory.AoEFriendly);                        
                     };
-                    compPsyker.UpdatePowers();
-                    List<PsykerPower> offensivePowers = compPsyker.allPowers.FindAll(x => validator(x));
+                    List<PsykerPowerEntry> offensivePowers = compPsyker.AllPsykerPowers.FindAll(x => validator(x));
                     if (offensivePowers.Count > 0)
                     {
-                        PsykerPowerDef newDef = offensivePowers.RandomElement().powerdef;
+                        PsykerPowerDef newDef = offensivePowers.RandomElement().psykerPowerDef;
                         if (newDef != null && compPsyker.IsActive == true && compPsyker.TicksToCast == 0)
                         {
                             aiCategory = newDef.AICategory;
@@ -555,10 +556,10 @@ namespace Corruption
 
         public static void ConsumeFavour(int amount, PatronDef god)
         {
-            currentStoryTracker.PlayerWorshipProgressLookup[god] -= amount;
-            if (currentStoryTracker.PlayerWorshipProgressLookup[god] <= 0)
+            CurrentStoryTracker.PlayerWorshipProgressLookup[god] -= amount;
+            if (CurrentStoryTracker.PlayerWorshipProgressLookup[god] <= 0)
             {
-                currentStoryTracker.PlayerWorshipProgressLookup[god] = 1;
+                CurrentStoryTracker.PlayerWorshipProgressLookup[god] = 1;
             }
 
         }
@@ -589,8 +590,8 @@ namespace Corruption
 
         public static int PsykerPowerDifference(Pawn first, Pawn second)
         {
-            Need_Soul soulFirst = GetPawnSoul(first);
-            Need_Soul soulSecond = GetPawnSoul(second);
+            CompSoul soulFirst = CompSoul.GetPawnSoul(first);
+            CompSoul soulSecond = CompSoul.GetPawnSoul(second);
             return (int)(soulFirst?.PsykerPowerLevel - soulSecond?.PsykerPowerLevel);
         }
         
@@ -623,7 +624,119 @@ namespace Corruption
             altar = null;
             return false;
         }
-        
+
+        public static bool WinPskyerBattle(Pawn attacker, Pawn defender)
+        {
+            CompSoul attackerSoul = CompSoul.GetPawnSoul(attacker);
+            CompSoul defenderSoul = CompSoul.GetPawnSoul(defender);
+
+            if (attackerSoul != null && defenderSoul != null)
+            {
+                float powerDifferenceFactor = PsykerPowerDifference(attacker, defender) / 20;
+
+                if (Rand.Value > powerDifferenceFactor + 0.5f + Rand.Range(0f, 0.2f));
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static void CreateTributePickup(Map map, Faction faction, PawnKindDef pawnKind, int numHaulers)
+        {
+            List<Pawn> pawns = new List<Pawn>();
+            for(int i = 0; i < numHaulers; i++)
+            {
+                Pawn newPawn = PawnGenerator.GeneratePawn(pawnKind, faction);
+                pawns.Add(newPawn);
+            }
+
+            ShipBase ship;
+            if (DropShipUtility.CreateAndDropSingleShip(map, faction, DefOfs.C_ThingDefOfs.ImperialFreighterTribute, pawns, true, out ship))
+            {
+                Lord newLord = LordMaker.MakeNewLord(faction, new LordJob_PickupResourcePacks(ship), map, pawns);
+            }
+        }
+
+        public static void CreateSupplyShip(List<SupplyDropDef> supplyDefs, Map map, Faction faction)
+        {
+            List<Thing> Cargo = new List<Thing>();
+            foreach (var def in supplyDefs)
+            {
+                var newCargo = CreateSupplyCargo(def);
+                Cargo.AddRange(newCargo);
+            }
+            FillAndCreateSupplyShip(Cargo, map, faction);
+        }
+
+        public static void CreateSupplyShip(SupplyDropDef supplyDef, Map map, Faction faction)
+        {
+            List<Thing> Cargo = new List<Thing>();
+
+            var newCargo = CreateSupplyCargo(supplyDef);
+            Cargo.AddRange(newCargo);
+
+            FillAndCreateSupplyShip(Cargo, map, faction);
+        }
+
+        public static List<Thing> CreateSupplyCargo(SupplyDropDef supplyDef)
+        {
+            List<Thing> cargo = new List<Thing>();
+            {
+                foreach (var supply in supplyDef.Supplies)
+                {
+                    if (supply.Def.stackLimit == 1)
+                    {
+                        for (int i = 0; i < supply.Count; i++)
+                        {
+                            Thing item = ThingMaker.MakeThing(supply.Def, GenStuff.DefaultStuffFor(supply.Def));
+                            cargo.Add(item);
+                        }
+                    }
+                    else
+                    {
+                        Thing item = ThingMaker.MakeThing(supply.Def, GenStuff.DefaultStuffFor(supply.Def));
+                        item.stackCount = supply.Count;
+                        cargo.Add(item);
+                    }
+                }
+            }
+            return cargo;
+        }
+        private static void FillAndCreateSupplyShip(List<Thing> cargo, Map map, Faction faction)
+        {
+            foreach (var thing in cargo)
+            {
+                ResourcePack pack = thing as ResourcePack;
+                if (pack != null)
+                {
+                    pack.compResource.FillRandomly();
+                }
+            }
+            ShipBase ship;
+            List<Pawn> pawns = new List<Pawn>();
+            for (int i = 0; i < 3; i++)
+            {
+                Pawn newPawn = PawnGenerator.GeneratePawn(DefOfs.C_PawnKindDefOf.ServitorColonist, faction);
+                pawns.Add(newPawn);
+            }
+            if (DropShipUtility.CreateAndDropSingleShip(map, faction, DefOfs.C_ThingDefOfs.ImperialFreighterSupply, pawns, false, out ship))
+            {
+                foreach (var item in cargo)
+                {
+                    ship.GetDirectlyHeldThings().TryAdd(item);
+                }
+            }
+        }
+
+        public static void GrantResearch(ResearchProjectDef def)
+        {
+            ResearchManager manager = Find.ResearchManager;
+            ResearchProjectDef oldDef = manager.currentProj;
+            manager.currentProj = def;
+            manager.InstantFinish(def, false);
+            manager.currentProj = oldDef;
+        }
     }
 
 }

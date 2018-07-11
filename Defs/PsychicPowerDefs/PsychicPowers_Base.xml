@@ -31,7 +31,7 @@
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
    <projectile>
-		<flyOverhead>true</flyOverhead>
+		<flyOverhead>false</flyOverhead>
 		<damageDef>Cut</damageDef>
 		<damageAmountBase>1</damageAmountBase>
 		<speed>10</speed>
@@ -66,7 +66,7 @@
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
    <projectile>
-		<flyOverhead>true</flyOverhead>
+		<flyOverhead>false</flyOverhead>
 		<damageDef>Cut</damageDef>
 		<damageAmountBase>1</damageAmountBase>
 		<speed>10</speed>
@@ -107,7 +107,7 @@
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
    <projectile>
-		<flyOverhead>true</flyOverhead>
+		<flyOverhead>false</flyOverhead>
 		<damageDef>Cut</damageDef>
 		<damageAmountBase>1</damageAmountBase>
 		<speed>10</speed>
@@ -150,7 +150,7 @@
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
    <projectile>
-		<flyOverhead>true</flyOverhead>
+		<flyOverhead>false</flyOverhead>
 		<damageDef>Cut</damageDef>
 		<damageAmountBase>1</damageAmountBase>
 		<speed>10</speed>
@@ -193,7 +193,7 @@
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
    <projectile>
-		<flyOverhead>true</flyOverhead>
+		<flyOverhead>false</flyOverhead>
 		<damageDef>Cut</damageDef>
 		<damageAmountBase>1</damageAmountBase>
 		<speed>10</speed>
@@ -315,7 +315,7 @@
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
    <projectile>
-		<flyOverhead>true</flyOverhead>
+		<flyOverhead>false</flyOverhead>
 		<damageDef>WarpfireViolet</damageDef>
 		<damageAmountBase>8</damageAmountBase>
 		<speed>40</speed>
@@ -450,7 +450,7 @@
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
    <projectile>
-		<flyOverhead>true</flyOverhead>
+		<flyOverhead>false</flyOverhead>
 		<damageDef>Cut</damageDef>
 		<damageAmountBase>1</damageAmountBase>
 		<speed>10</speed>
@@ -493,7 +493,7 @@
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
    <projectile>
-		<flyOverhead>true</flyOverhead>
+		<flyOverhead>false</flyOverhead>
 		<damageDef>Cut</damageDef>
 		<damageAmountBase>1</damageAmountBase>
 		<speed>10</speed>
@@ -535,7 +535,7 @@
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
    <projectile>
-		<flyOverhead>true</flyOverhead>
+		<flyOverhead>false</flyOverhead>
 		<damageDef>Cut</damageDef>
 		<damageAmountBase>1</damageAmountBase>
 		<speed>10</speed>
@@ -577,7 +577,7 @@
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
    <projectile>
-		<flyOverhead>true</flyOverhead>
+		<flyOverhead>false</flyOverhead>
 		<damageDef>Cut</damageDef>
 		<damageAmountBase>1</damageAmountBase>
 		<speed>10</speed>
@@ -620,7 +620,7 @@
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
    <projectile>
-		<flyOverhead>true</flyOverhead>
+		<flyOverhead>false</flyOverhead>
 		<damageDef>HealMiracle</damageDef>
 		<damageAmountBase>100</damageAmountBase>
 		<speed>10</speed>
@@ -884,7 +884,7 @@
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
    <projectile>
-		<flyOverhead>true</flyOverhead>
+		<flyOverhead>false</flyOverhead>
 		<damageDef>Cut</damageDef>
 		<damageAmountBase>1</damageAmountBase>
 		<speed>10</speed>
@@ -936,7 +936,7 @@
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
    <projectile>
-		<flyOverhead>true</flyOverhead>
+		<flyOverhead>false</flyOverhead>
 		<damageDef>Burn</damageDef>
 		<damageAmountBase>1</damageAmountBase>
 		<speed>10</speed>
@@ -975,6 +975,50 @@
     <PowerLevel>Iota</PowerLevel>
     <MinAfflictionToGet>Lost</MinAfflictionToGet>
     <MaxAfflictionToGet>Pure</MaxAfflictionToGet>
+    <AICategory>BuffGiverHostile</AICategory>
+  </ThingDef>
+  
+  
+  <!-- =========================Probe Mind===================================== -->
+  
+  
+    <ThingDef ParentName="BaseBullet" Class="Corruption.ProjectileDef_WarpPower">
+   <defName>PSYMindProbe</defName>
+   <thingClass>Corruption.Projectile_WarpPower</thingClass>
+   <label>mindprobe spell</label>
+   <graphicData>
+		<texPath>UI/Psyker/Mindcontrol</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+   <projectile>
+		<flyOverhead>false</flyOverhead>
+		<damageDef>Cut</damageDef>
+		<damageAmountBase>1</damageAmountBase>
+		<speed>10</speed>
+   </projectile>
+   <IsBuffGiver>true</IsBuffGiver>
+   <BuffDef>MindProbe</BuffDef>
+ </ThingDef>
+  
+  
+    <ThingDef Class="Corruption.PsykerPowerDef" ParentName="BasePsykerPower">
+    <defName>PsykerPower_ProbeMind</defName>
+    <label>Probe Mind</label>
+    <uiIconPath>UI/Psyker/Mindcontrol</uiIconPath>
+    <description>Probe a targets mind to reveal its alignment.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <MainVerb Class="Corruption.VerbProperties_WarpPower">
+        <verbClass>Corruption.Verb_CastWarpPower</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>PSYMindProbe</defaultProjectile>
+        <warmupTime>5</warmupTime>
+        <TicksToRecharge>1200</TicksToRecharge>
+        <range>15</range>
+        <soundCast>FlameThrower</soundCast>
+        <muzzleFlashScale>20</muzzleFlashScale>
+        <CorruptionFactor>1</CorruptionFactor>
+        <isPrimary>false</isPrimary>
+    </MainVerb>
     <AICategory>BuffGiverHostile</AICategory>
   </ThingDef>
 

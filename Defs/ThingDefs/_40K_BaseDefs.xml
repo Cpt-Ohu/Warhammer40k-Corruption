@@ -2,7 +2,7 @@
 
 <Defs>
 
-  <ThingDef Name="BasePawn" Abstract="True">
+  <ThingDef Name="40kBasePawn" Abstract="True">
     <thingClass>Pawn</thingClass>
     <category>Pawn</category>
     <selectable>true</selectable>
@@ -24,7 +24,7 @@
       <li>ITab_Pawn_Prisoner</li>
       <li>ITab_Pawn_Social</li>
     </inspectorTabs>
-    <comps>
+	      <comps>
       <li>
         <compClass>CompAttachBase</compClass>
       </li>

@@ -6,21 +6,19 @@
     <label>eldar guardian</label>
     <race>Alien_Eldar</race>
     <combatPower>100</combatPower>
-    <baseRecruitDifficulty>0.90</baseRecruitDifficulty>
+    <baseRecruitDifficulty>0.99</baseRecruitDifficulty>
     <backstoryCategory>Eldar</backstoryCategory>
     <defaultFactionType>EldarWarhost</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>8000</maxGenerationAge>
     <itemQuality>Excellent</itemQuality>
-	    <apparelRequired>
-	 <li>Eldar_PowerArmor</li>
-    </apparelRequired>
+    <factionLeader>true</factionLeader>
     <apparelMoney>
       <min>900000</min>
       <max>1000000</max>
     </apparelMoney>
     <apparelTags>
-      <li>Eldar</li>
+      <li>EldarStandard</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
     <apparelAllowHeadwearChance>0.5</apparelAllowHeadwearChance>
@@ -42,12 +40,12 @@
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
 	 <UseForcedPatron>true</UseForcedPatron>
-      <Patron>Ynnead</Patron>
       <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+      <Patron>Ynnead</Patron>
       <LowerPsykerPowerLimit>Iota</LowerPsykerPowerLimit>
-      <UpperPsykerPowerLimit>Epsilon</UpperPsykerPowerLimit>
+      <UpperPsykerPowerLimit>Delta</UpperPsykerPowerLimit>
     </AfflictionProperty>
   </PawnKindDef>
 
@@ -68,7 +66,7 @@
       <max>1000000</max>
     </apparelMoney>
     <apparelTags>
-      <li>Eldar</li>
+      <li>EldarStandard</li>
       <li>Eldar_Psyker</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>

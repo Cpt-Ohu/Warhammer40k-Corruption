@@ -11,7 +11,7 @@ namespace Corruption.Worship
 {
     public class LordJob_Sermon : LordJob
     {
-        public const int ticksToTimeout = 7500;
+        public const int ticksToTimeout = 5000;
 
         public LordJob_Sermon()
         {
@@ -84,7 +84,8 @@ namespace Corruption.Worship
             });
             Messages.Message(message, this.altar, MessageTypeDefOf.PositiveEvent);
             StateGraph stateGraph = new StateGraph();
-            LordToil startingToil = stateGraph.AttachSubgraph(new LordJob_Travel(this.initialPosition).CreateGraph()).StartingToil;
+            LordToil startingToil = new LordToil_TravelUrgent(this.altar.Position);
+            stateGraph.AddToil(startingToil);
             stateGraph.StartingToil = startingToil;
             LordToil_StartSermom sermonToil = new LordToil_StartSermom(this.Preacher, this.altar);
             stateGraph.AddToil(sermonToil);

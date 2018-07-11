@@ -21,20 +21,16 @@ namespace Corruption
             return false;
         }
 
-        protected override ThoughtState CurrentSocialStateInternal(Pawn p, Pawn otherPawn)
+        protected override ThoughtState CurrentSocialStateInternal(Pawn pawn, Pawn otherPawn)
         {
-            bool flag = true;
-
-            Need_Soul s1 = p.needs.TryGetNeed<Need_Soul>();
-            Need_Soul s2 = otherPawn.needs.TryGetNeed<Need_Soul>();
-
-            if (s2.NotCorrupted == false) flag = false;
-
-            if (flag)
+            CompSoul s1 = CompSoul.GetPawnSoul(pawn);
+            CompSoul s2 = CompSoul.GetPawnSoul(otherPawn);
+            
+            if (s2.Corrupted)
             {
                 if (s1.DevotionTrait.SDegree == -2)
                 {
-                    if (p.IsPrisonerOfColony)
+                    if (pawn.IsPrisonerOfColony)
                     {
                         return ThoughtState.ActiveAtStage(4);
                     }
@@ -60,7 +56,7 @@ namespace Corruption
             }
             else
             {
-                if (p.IsPrisonerOfColony)
+                if (pawn.IsPrisonerOfColony)
                 {
                     return ThoughtState.ActiveAtStage(8);
                 }

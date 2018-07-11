@@ -85,15 +85,15 @@ namespace Corruption.IoM
 
         private bool CanPerformMiracle(Pawn pawn, out PsykerPowerDef healPowerDef)
         {
-            Need_Soul soul = CorruptionStoryTrackerUtilities.GetPawnSoul(pawn);
+            CompSoul soul = CompSoul.GetPawnSoul(pawn);
             if (soul != null)
             {
                 CompPsyker compPsyker = soul.compPsyker;
-                List<PsykerPower> healingPowers = compPsyker.allPowers.FindAll(x => (x.powerdef.MainVerb.defaultProjectile as ProjectileDef_WarpPower).IsHealer);
+                List<PsykerPowerEntry> healingPowers = compPsyker.AllPsykerPowers.FindAll(x => (x.psykerPowerDef.MainVerb.defaultProjectile as ProjectileDef_WarpPower).IsHealer);
                 
                 if (healingPowers.Count > 0)
                 {
-                    healPowerDef = healingPowers.RandomElement().powerdef;
+                    healPowerDef = healingPowers.RandomElement().psykerPowerDef;
                     return true;
                 }
             }

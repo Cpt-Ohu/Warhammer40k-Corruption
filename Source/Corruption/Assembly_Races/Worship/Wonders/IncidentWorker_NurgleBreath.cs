@@ -14,7 +14,7 @@ namespace Corruption.Worship.Wonders
             this.ShuffleDiseaseDef();
             if( base.TryExecuteWorker(parms))
             {
-                CorruptionStoryTrackerUtilities.currentStoryTracker.PlayerWorshipProgressLookup[PatronDefOf.Nurgle] += 1000;
+                CorruptionStoryTrackerUtilities.CurrentStoryTracker.PlayerWorshipProgressLookup[PatronDefOf.Nurgle] += 1000;
                 return true;
             }
             return false;

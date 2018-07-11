@@ -10,6 +10,7 @@ namespace OHUShips
         StayOnWorldMap,
         EnterMapFriendly,
         EnterMapAssault,
-        BombingRun
+        BombingRun,
+        Despawn
     }
 }

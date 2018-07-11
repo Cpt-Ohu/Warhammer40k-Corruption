@@ -15,7 +15,7 @@ namespace Corruption
         {
             get
             {
-                return CorruptionStoryTrackerUtilities.currentStoryTracker;
+                return CorruptionStoryTrackerUtilities.CurrentStoryTracker;
             }
         }
 
@@ -35,6 +35,10 @@ namespace Corruption
             this.powerComp = base.GetComp<CompPowerTrader>();
             LessonAutoActivator.TeachOpportunity(ConceptDefOf.BuildOrbitalTradeBeacon, OpportunityType.GoodToKnow);
             LessonAutoActivator.TeachOpportunity(ConceptDefOf.OpeningComms, OpportunityType.GoodToKnow);
+            if (!respawningAfterLoad)
+            {
+                CorruptionStoryTrackerUtilities.CurrentMissionManager.FinishMission(MissionDefOf.BuildCCC);
+            }
         }
 
         private void UseAct(Pawn myPawn, ICommunicable commTarget)

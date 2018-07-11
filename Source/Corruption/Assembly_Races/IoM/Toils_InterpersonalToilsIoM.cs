@@ -36,37 +36,37 @@ namespace Corruption.IoM
         {
             if (chatType != IoMChatType.ConvertTau)
             {
-                Need_Soul talkerSoul = CorruptionStoryTrackerUtilities.GetPawnSoul(talker);
-                Need_Soul talkeeSoul = CorruptionStoryTrackerUtilities.GetPawnSoul(talkee);
+                CompSoul talkerSoul = CompSoul.GetPawnSoul(talker);
+                CompSoul talkeeSoul = CompSoul.GetPawnSoul(talkee);
 
                 if (talkerSoul != null && talkeeSoul != null)
                 {
                     if (chatType != IoMChatType.InquisitorInvestigation)
                     {
-                        if (talkerSoul.NotCorrupted && talkeeSoul.NotCorrupted)
+                        if (talkerSoul.Corrupted && !talkeeSoul.Corrupted)
                         {
                             if (Rand.Range(4, 6) + GetChatIntrigueFactor(talker, talkee) > 0)
                             {
-                                talkeeSoul.GainNeed(0.005f);
+                                talkeeSoul.AffectSoul(0.005f);
                             }
                             else
                             {
                                 talkee.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.SleepDisturbed, talker);
                             }
                         }
-                        else if (talkerSoul.NotCorrupted && !talkeeSoul.NotCorrupted)
+                        else if (!talkerSoul.Corrupted && talkeeSoul.Corrupted)
                         {
                             StartReligiousSocialFight(talker, talkee);
                         }
-                        else if (!talkerSoul.NotCorrupted && !talkeeSoul.NotCorrupted)
+                        else if (talkerSoul.Corrupted && talkeeSoul.Corrupted)
                         {
-                            talkeeSoul.GainNeed(-0.0005f);
+                            talkeeSoul.AffectSoul(-0.0005f);
                         }
-                        else if (!talkerSoul.NotCorrupted && talkeeSoul.NotCorrupted)
+                        else if (!talkerSoul.Corrupted && talkeeSoul.Corrupted)
                         {
                             if (Rand.Range(-4, -1) + GetChatIntrigueFactor(talker, talkee) > 0)
                             {
-                                talkeeSoul.GainNeed(-0.005f);
+                                talkeeSoul.AffectSoul(-0.005f);
                             }
                             else
                             {
@@ -78,9 +78,9 @@ namespace Corruption.IoM
                     {
                         if (talker.IsColonistPlayerControlled)
                         {
-                            Need_Soul.TryDiscoverAlignment(talker, talkee, 1f);
+                            CompSoul.TryDiscoverAlignment(talker, talkee, CorruptionStoryTrackerUtilities.DiscoverAlignmentByChatModifier);
                         }
-                        else if (CorruptionStoryTrackerUtilities.GetPawnSoul(talker).Patron == PatronDefOf.Inquisition)
+                        else if (CompSoul.GetPawnSoul(talker).Patron == PatronDefOf.Inquisition)
                         {
                             Lord lord = talker.GetLord();
                             LordJob_IntrusiveWanderer lordJob = lord.LordJob as LordJob_IntrusiveWanderer;

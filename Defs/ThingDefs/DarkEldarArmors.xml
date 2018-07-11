@@ -3,7 +3,7 @@
 
   <!-- ==========================Standard=============================== -->
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="ArmorMakeableBase" >
     <defName>DE_KabaliteArmor</defName>
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <label>dark eldar armor</label>

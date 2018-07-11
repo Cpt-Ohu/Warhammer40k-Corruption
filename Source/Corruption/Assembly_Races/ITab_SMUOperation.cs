@@ -1,5 +1,4 @@
-﻿using Corruption.Astartes;
-using RimWorld;
+﻿using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 
 namespace Corruption
 {
@@ -90,6 +90,43 @@ namespace Corruption
                 Text.Font = GameFont.Small;
                 GUI.color = Color.white;
                 Text.Anchor = TextAnchor.UpperLeft;
+
+                //if (Widgets.ButtonText(rect, "AddPrisoners".Translate()))
+                //{
+                //    FloatMenu floatMenu = new FloatMenu(this.ForcedPrisonerPatients);
+                //    Find.WindowStack.Add(floatMenu);
+                //}
+            }
+        }
+
+        private List<FloatMenuOption> ForcedPrisonerPatients
+        {
+            get
+            {
+                List<FloatMenuOption> list = new List<FloatMenuOption>();
+                List<Pawn> prisoners = this.medTable.Map.mapPawns.PrisonersOfColonySpawned;
+                List<Pawn> wardens = this.medTable.Map.mapPawns.FreeColonistsSpawned.Where(x => x.workSettings.WorkIsActive(WorkTypeDefOf.Warden)).ToList();
+                if (wardens.Count > 0 && prisoners.Count > 0)
+                {
+                    foreach (Pawn prisoner in prisoners)
+                    {
+                        list.Add(new FloatMenuOption("PrisonerPatient".Translate(), delegate
+                        {
+                            Pawn warden = wardens.FirstOrDefault();
+                            if (warden != null)
+                            {
+                                Job job = new Job(JobDefOf.HaulToContainer, prisoner, this.medTable);
+                                job.count = 1;
+                                warden.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+                            }
+                        }));
+                    }
+                }
+                else
+                {
+                    list.Add(new FloatMenuOption("NoWardensOrPrisoners".Translate(), null, MenuOptionPriority.Default, null, null, 0f, null, null));
+                }
+                return list;
             }
         }
 
@@ -133,11 +170,12 @@ namespace Corruption
             {
                 List<FloatMenuOption> list = new List<FloatMenuOption>();
 
-                List<RecipeDef> advancedRecipes = DefDatabase<RecipeDef>.AllDefsListForReading.FindAll(x => x.defName.Contains("_MSU") || x.defName == "Euthanize");
+
+                List<RecipeDef_MSU> advancedRecipes = DefDatabase<RecipeDef_MSU>.AllDefsListForReading;
                 //advancedRecipes.AddRange(DefDatabase<RecipeDef>.AllDefsListForReading.FindAll(x => x is Astartes.RecipeDef_AstartesImplant));
-                foreach (RecipeDef current in advancedRecipes)
+                foreach (RecipeDef_MSU current in advancedRecipes)
                 {
-                    if (current.AvailableNow && CheckAstartesRecipeDef(current, patient))
+                    if (current.AvailableNow && CheckAstartesRecipeDef(patient,current) && CheckServitorRequirement(patient, current))
                     {
                         IEnumerable<ThingDef> enumerable = current.PotentiallyMissingIngredients(null, medTable.Map);
                         if (enumerable != null && !enumerable.Any((ThingDef x) => x.isBodyPartOrImplant))
@@ -160,6 +198,10 @@ namespace Corruption
                     }
                 }
 
+                if (list.NullOrEmpty())
+                {
+                    list.Add(new FloatMenuOption("NoOptionsMSU".Translate(), null, MenuOptionPriority.Default, null, null, 0f, null, null));
+                }
                 return list;
             };
             Rect rect2 = new Rect(rect.x + 20f, 40f, rect.width, rect.height - curY - 20f);
@@ -167,12 +209,24 @@ namespace Corruption
             return curY;
         }
 
-        private static bool CheckAstartesRecipeDef(RecipeDef def, Pawn patient)
+        private static bool CheckServitorRequirement(Pawn patient, RecipeDef_MSU recipeDef)
         {
-            RecipeDef_AstartesImplant astDef = def as RecipeDef_AstartesImplant;
-            if (astDef != null && astDef.RequiresHediff != null)
+            if (recipeDef.RecipeType == RecipeTypeMSU.ServitorReprogram)
             {
-                if (patient.health.hediffSet.hediffs.Any(x => x.def == astDef.RequiresHediff))
+                if (patient.TryGetComp<CompServitor>() == null)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private static bool CheckAstartesRecipeDef(Pawn patient, RecipeDef_MSU recipeDef)
+        {
+            if (recipeDef.RecipeType == RecipeTypeMSU.AstartesImplant && recipeDef.RequiresHediff != null)
+            {
+                if (patient.health.hediffSet.hediffs.Any(x => x.def == recipeDef.RequiresHediff))
                     {
                     return true;
                 }

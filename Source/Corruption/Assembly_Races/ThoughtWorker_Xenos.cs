@@ -9,16 +9,16 @@ namespace Corruption
 {
     public class ThoughtWorker_Xenos : ThoughtWorker
     {
-        protected override ThoughtState CurrentSocialStateInternal(Pawn p, Pawn otherPawn)
+        protected override ThoughtState CurrentSocialStateInternal(Pawn pawn, Pawn otherPawn)
         {
-            Need_Soul s1 = p.needs.TryGetNeed<Need_Soul>();
-            Need_Soul s2 = otherPawn.needs.TryGetNeed<Need_Soul>();
+            CompSoul s1 = CompSoul.GetPawnSoul(pawn);
+            CompSoul s2 = CompSoul.GetPawnSoul(otherPawn);
 
             if (s1 != null && s2 != null)
             {
                 if (s1.CulturalTolerance == CulturalToleranceCategory.Xenophobe)
                 {
-                    if (p.kindDef.race != otherPawn.kindDef.race)
+                    if (pawn.kindDef.race != otherPawn.kindDef.race)
                     {
                         return ThoughtState.ActiveAtStage(1);
                     }
@@ -26,7 +26,7 @@ namespace Corruption
                 }
                 if (s1.CulturalTolerance == CulturalToleranceCategory.Xenophile)
                 {
-                    if(p.kindDef.race != otherPawn.kindDef.race)
+                    if(pawn.kindDef.race != otherPawn.kindDef.race)
                     {
                         return ThoughtState.ActiveAtStage(2);
                     }

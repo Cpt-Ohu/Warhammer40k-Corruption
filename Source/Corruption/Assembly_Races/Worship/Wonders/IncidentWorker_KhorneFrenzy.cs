@@ -18,7 +18,7 @@ namespace Corruption.Worship.Wonders
                 for (int i = 0; i < pawns.Count; i++)
                 {
                     Pawn pawn = pawns[i];
-                    Need_Soul soul = CorruptionStoryTrackerUtilities.GetPawnSoul(pawn);
+                    CompSoul soul = CompSoul.GetPawnSoul(pawn);
                     if (soul?.Patron == PatronDefOf.Khorne || pawn.Faction != Faction.OfPlayer)
                     {
                         pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.Berserk, "MentalStateKhorneGlory".Translate(), true);

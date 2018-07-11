@@ -31,15 +31,11 @@ namespace Corruption
 
         public List<LocalTargetInfo> TargetsAoE = new List<LocalTargetInfo>();
 
-        public Need_Soul soul
+        public CompSoul soul
         {
             get
             {
-                return this.CasterPawn.needs.TryGetNeed<Need_Soul>();
-            }
-            set
-            {
-
+                return CompSoul.GetPawnSoul(this.CasterPawn);
             }
         }
         
@@ -207,7 +203,7 @@ namespace Corruption
             this.burstShotsLeft = 0;
             if (soul != null)
             {
-                soul.GainNeed(0.01f * (-warpverbprops.CorruptionFactor));
+                soul.AffectSoul(0.01f * (-warpverbprops.CorruptionFactor));
             }
         //    PsykerUtility.PsykerShockEvents(psycomp, psycomp.curPower.PowerLevel);
             return true;

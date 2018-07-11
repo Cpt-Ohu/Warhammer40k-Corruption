@@ -15,11 +15,11 @@ namespace Corruption.BookStuff
         public List<ThingDef> StoredBooks = new List<ThingDef>();
         public Thing ChoosenBook = null;
         public List<ThingDef> MissingBooksList = new List<ThingDef>();
-        public ThingDef_Readables Tdef
+        public CompBookshelf compBookshelf
         {
             get
             {
-                return (ThingDef_Readables)this.def;
+                return this.TryGetComp<CompBookshelf>();
             }
         }
 
@@ -27,9 +27,9 @@ namespace Corruption.BookStuff
         {
             get
             {
-                if (this.Tdef != null && Tdef.StoredBookGraphicPath != null)
+                if (this.compBookshelf != null && compBookshelf.Props.StoredBookGraphicPath != null)
                 {
-                    return GraphicDatabase.Get<Graphic_Multi>(Tdef.StoredBookGraphicPath, ShaderDatabase.Cutout, Vector2.one, Color.white);
+                    return GraphicDatabase.Get<Graphic_Multi>(compBookshelf.Props.StoredBookGraphicPath, ShaderDatabase.Cutout, Vector2.one, Color.white);
                 }
                 return null;
 
@@ -43,11 +43,19 @@ namespace Corruption.BookStuff
             Scribe_Collections.Look<ThingDef>(ref MissingBooksList, "MissingBooksList", LookMode.Def, null);
         }
 
+        public override void PostMake()
+        {
+            base.PostMake();
+
+            foreach (ThingDef bookDef in this.compBookshelf.Props.BooksList)
+            {
+                this.StoredBooks.Add(bookDef);
+            }
+        }
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            this.BookCategories = Tdef.BookCategories;
         }
 
         public Thing JobBook(Pawn reader)

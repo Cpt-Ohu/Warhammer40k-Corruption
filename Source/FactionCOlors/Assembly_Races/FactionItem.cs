@@ -72,7 +72,7 @@ namespace FactionColors
                         FactionColorEntry myEntry;
                         if (this.compF != null)
                         {
-                            if (FactionColorUtilities.currentPlayerStoryTracker.GetColorEntry(Wearer.Faction, out myEntry))
+                            if (FactionColorUtilities.currentFactionColorTracker.GetColorEntry(Wearer.Faction, out myEntry))
                             {
                                 Col1 = myEntry.FactionColor1;
                             }
@@ -127,7 +127,7 @@ namespace FactionColors
                         if (this.compF != null)
                         {
                             FactionColorEntry myEntry;
-                            if (FactionColorUtilities.currentPlayerStoryTracker.GetColorEntry(Wearer.Faction, out myEntry))
+                            if (FactionColorUtilities.currentFactionColorTracker.GetColorEntry(Wearer.Faction, out myEntry))
                             {
                                 Col2 = myEntry.FactionColor2;
                             }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="ArmorMakeableBase" >
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <defName>CSM_PowerArmor</defName>
     <label>power armor MKIV</label>
@@ -89,7 +89,7 @@ The entire suit weighs upwards of several hundred kilos and requires a neuro-con
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="ArmorMakeableBase" >
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <defName>CSM_PowerArmorHelmet</defName>
     <label>power armor helmet</label>

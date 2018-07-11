@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
-  <MainButtonDef>
-    <defName>Worship</defName>
-    <label>worship</label>
-    <tabWindowClass>Corruption.Worship.MainTabWindow_Worship</tabWindowClass>
-
+    <MainButtonDef>
+    <defName>Corruption</defName>
+    <label>corruption</label>
+    <tabWindowClass>Corruption.MaintabWindow_Corruption</tabWindowClass>
   </MainButtonDef>
   
 </Defs>

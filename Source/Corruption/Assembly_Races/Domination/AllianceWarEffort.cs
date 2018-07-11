@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,16 @@ using Verse;
 
 namespace Corruption.Domination
 {
-    public struct AllianceWarEffort : IExposable
+    public class AllianceWarEffort : IExposable
     {
+        public AllianceWarEffort()
+        {
+            this.alliance = null;
+            this.isWeary = false;
+            this.WarWeariness = 0f;
+            this.totalCasualties = 0;
+        }
+
         public AllianceWarEffort(PoliticalAlliance alliance)
         {
             this.alliance = alliance;

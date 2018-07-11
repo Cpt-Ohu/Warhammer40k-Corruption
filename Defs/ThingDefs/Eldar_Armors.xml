@@ -3,8 +3,76 @@
 
   <!-- ==========================Standard=============================== -->
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+    <ThingDef ParentName="ArmorMakeableBase">
     <defName>Eldar_PowerArmor</defName>
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <label>eldar power armir</label>
+    <description>Xenotech armor. May not be used by humans.</description>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>Xenotech_Eldar</researchPrerequisite>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/Eldar/Armor/eldar_robeIcon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+	<thingCategories>
+      <li>E_Armor</li>
+    </thingCategories>
+    <statBases>
+      <WorkToMake>3250000</WorkToMake>
+      <MaxHitPoints>450</MaxHitPoints>
+      <MarketValue>1600</MarketValue>
+      <ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.6</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.35</ArmorRating_Heat>
+      <Insulation_Cold>-15</Insulation_Cold>
+    </statBases>
+    <equippedStatOffsets>
+    </equippedStatOffsets>
+    <costList>
+      <Component>18</Component>
+      <Wraithbone>135</Wraithbone>
+    </costList>
+	<generateCommonality>2</generateCommonality>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Eldar/Armor/eldar_robe</wornGraphicPath>
+      <layers>
+        <li>Shell</li>
+      </layers>
+      <tags>
+        <li>EldarStandard</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>EldarStandard</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="ArmorMakeableBase">
+    <defName>Eldar_PowerArmorF</defName>
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <label>eldar power armor</label>
     <description>Xenotech armor. May not be used by humans.</description>
@@ -28,7 +96,7 @@
     <statBases>
       <WorkToMake>3250000</WorkToMake>
       <MaxHitPoints>500</MaxHitPoints>
-      <MarketValue>4500</MarketValue>
+      <MarketValue>1600</MarketValue>
       <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.65</ArmorRating_Sharp>
       <ArmorRating_Heat>0.30</ArmorRating_Heat>
@@ -41,7 +109,6 @@
       <Component>18</Component>
       <Wraithbone>135</Wraithbone>
     </costList>
-	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -54,10 +121,10 @@
         <li>Shell</li>
       </layers>
       <tags>
-        <li>Eldar</li>
+        <li>EldarStandard</li>
       </tags>
       <defaultOutfitTags>
-        <li>Eldar</li>
+        <li>EldarStandard</li>
       </defaultOutfitTags>
     </apparel>
     <colorGenerator Class="ColorGenerator_Options">
@@ -121,10 +188,10 @@
         <li>Overhead</li>
       </layers>
       <tags>
-        <li>Eldar</li>
+        <li>EldarStandard</li>
       </tags>
       <defaultOutfitTags>
-        <li>Eldar</li>
+        <li>EldarStandard</li>
       </defaultOutfitTags>
     </apparel>
     <colorGenerator Class="ColorGenerator_Options">
@@ -666,7 +733,7 @@
 
   <!-- ==========================DireAvengers=============================== -->
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="ArmorMakeableBase" >
     <defName>Eldar_DAArmor</defName>
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <label>dire avengers power armor</label>

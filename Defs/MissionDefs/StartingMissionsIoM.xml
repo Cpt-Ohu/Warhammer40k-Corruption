@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+  <Corruption.Missions.MissionDef>
+    <defName>BuildCCC</defName>
+    <missionClass>Corruption.Missions.Mission</missionClass>
+    <label>Build Central Command Cogitator</label>
+    <description>In order to actually communicate with Imperial authorities, you need something more powerful than a simple comms console. Build the Central Command Cogitator.</description>
+    <GiverFaction>IoM_Administratum</GiverFaction>
+    <StartingMission>true</StartingMission>
+    <PerequisiteMissions>      
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>SilverReward</li>
+    </RewardedSupplies>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef>
+  
+
+</Defs>

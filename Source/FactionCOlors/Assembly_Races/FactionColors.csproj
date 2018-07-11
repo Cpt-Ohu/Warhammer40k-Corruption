@@ -65,7 +65,6 @@
     <Compile Include="ApparelComposite.cs" />
     <Compile Include="ApparelGraphicGetterFC.cs" />
     <Compile Include="ApparelUniform.cs" />
-    <Compile Include="ApparelUniformDef.cs" />
     <Compile Include="Apparel_HardShield.cs" />
     <Compile Include="Backpack_Accessory.cs" />
     <Compile Include="BannerType.cs" />
@@ -84,7 +83,6 @@
     <Compile Include="Deepstrike_Thingdef.cs" />
     <Compile Include="Dialog_ChooseColor.cs" />
     <Compile Include="FactionColorEntry.cs" />
-    <Compile Include="FactionColorsDefOf.cs" />
     <Compile Include="FactionColorUtilities.cs" />
     <Compile Include="FactionDefUniform.cs" />
     <Compile Include="FactionItem.cs" />
@@ -101,7 +99,7 @@
     <Compile Include="Graphic_SingleFC.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="ITab_FactionColor.cs" />
-    <Compile Include="PlayerFactionStoryTracker.cs" />
+    <Compile Include="FactionColorsTracker.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>

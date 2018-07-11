@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="ArmorMakeableBase" >
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <defName>Apparel_OrkishShirt</defName>
     <label>Orkish vest</label>
@@ -70,7 +70,7 @@
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="ArmorMakeableBase" >
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <defName>Apparel_OrkishChestplate</defName>
     <label>Orkish chestplate</label>
@@ -206,7 +206,7 @@
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="HatBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="HatBase" >
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <defName>OrkBandana</defName>
     <label>ork bandana</label>

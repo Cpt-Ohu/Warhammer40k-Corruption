@@ -11,7 +11,7 @@ namespace Corruption
     {
         protected override ThoughtState CurrentStateInternal(Pawn p)
         {
-            Need_Soul soul = CorruptionStoryTrackerUtilities.GetPawnSoul(p);
+            CompSoul soul = CompSoul.GetPawnSoul(p);
             if (soul != null)
             {
                 PawnKillTracker tracker = soul.PawnKillTracker;

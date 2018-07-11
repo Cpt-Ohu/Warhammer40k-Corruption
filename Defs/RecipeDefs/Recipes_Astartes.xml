@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  	  <RecipeDef ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallSecondHeart_MSU</defName>
 		<label>install secondary heart</label>
 		<description>Installs secondary heart.</description>
@@ -37,10 +37,11 @@
 		<addsHediff>SecondHeart</addsHediff>
 		<appliedOnFixedBodyParts>
 			<li>Torso</li>
-		</appliedOnFixedBodyParts>
-	</RecipeDef>
+		</appliedOnFixedBodyParts>		
+		<RecipeType>AstartesImplant</RecipeType>
+	</Corruption.RecipeDef_MSU>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh" >
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh" >
 		<defName>InstallOssmodula_MSU</defName>
 		<label>install Ossmodula</label>
 		<description>Installs Ossmodula.</description>
@@ -77,10 +78,11 @@
 		<appliedOnFixedBodyParts>
 			<li>Torso</li>
 		</appliedOnFixedBodyParts>
+		<RecipeType>AstartesImplant</RecipeType>
 
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+	</Corruption.RecipeDef_MSU>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallBiscorpea_MSU</defName>
 		<label>install Biscorpea</label>
 		<description>Installs Biscorpea.</description>
@@ -118,11 +120,12 @@
 		<appliedOnFixedBodyParts>
 			<li>Torso</li>
 		</appliedOnFixedBodyParts>
+		<RecipeType>AstartesImplant</RecipeType>
 
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+	</Corruption.RecipeDef_MSU>
 
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallHaemastamen_MSU</defName>
 		<label>install Haemastamen</label>
 		<description>Installs Haemastamen.</description>
@@ -161,9 +164,9 @@
 			<li>Torso</li>
 		</appliedOnFixedBodyParts>
 
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+	</Corruption.RecipeDef_MSU>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstalLarramansOrgan_MSU</defName>
 		<label>install Larramans Organ</label>
 		<description>Installs Larramans Organ.</description>
@@ -202,9 +205,9 @@
 			<li>Torso</li>
 		</appliedOnFixedBodyParts>
 
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+	</Corruption.RecipeDef_MSU>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallCatalepseanNode_MSU</defName>
 		<label>install Catalepsean Node</label>
 		<description>Installs Catalepsean Node.</description>
@@ -243,9 +246,9 @@
 			<li>Brain</li>
 		</appliedOnFixedBodyParts>
 
-	</Corruption.Astartes.RecipeDef_AstartesImplant >
+	</Corruption.RecipeDef_MSU >
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallPreomnor_MSU</defName>
 		<label>install Preomnor</label>
 		<description>Installs Preomnor.</description>
@@ -284,10 +287,10 @@
 			<li>Stomach</li>
 		</appliedOnFixedBodyParts>
 
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+	</Corruption.RecipeDef_MSU>
 
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallOmophagea_MSU</defName>
 		<label>install Omophagea</label>
 		<description>Installs Omophagea.</description>
@@ -326,9 +329,9 @@
 			<li>Stomach</li>
 		</appliedOnFixedBodyParts>
 
-	</Corruption.Astartes.RecipeDef_AstartesImplant >
+	</Corruption.RecipeDef_MSU >
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallMultiLung_MSU</defName>
 		<label>install MultiLung</label>
 		<description>Installs MultiLung.</description>
@@ -367,9 +370,9 @@
 			<li>Torso</li>
 		</appliedOnFixedBodyParts>
 
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+	</Corruption.RecipeDef_MSU>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallOcculobe_MSU</defName>
 		<label>install Occulobe</label>
 		<description>Installs Occulobe.</description>
@@ -408,9 +411,9 @@
 			<li>Brain</li>
 		</appliedOnFixedBodyParts>
 
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+	</Corruption.RecipeDef_MSU>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallLymansEar_MSU</defName>
 		<label>install LymansEar</label>
 		<description>Installs LymansEar.</description>
@@ -450,9 +453,9 @@
 			<li>RightEar</li>
 		</appliedOnFixedBodyParts>
 
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+	</Corruption.RecipeDef_MSU>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallSusanMembrane_MSU</defName>
 		<label>install Susan Membrane</label>
 		<description>Installs Susan Membrane.</description>
@@ -491,9 +494,9 @@
 			<li>Brain</li>
 		</appliedOnFixedBodyParts>
 
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+	</Corruption.RecipeDef_MSU>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallMelanchromicOrgan_MSU</defName>
 		<label>install Melanchromic Organ</label>
 		<description>Installs Melanchromic Organ.</description>
@@ -532,9 +535,9 @@
 			<li>Torso</li>
 		</appliedOnFixedBodyParts>
 
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+	</Corruption.RecipeDef_MSU>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallOoliticKidney_MSU</defName>
 		<label>install Oolitic Kidney</label>
 		<description>Installs Oolitic Kidney.</description>
@@ -573,9 +576,9 @@
 			<li>Torso</li>
 		</appliedOnFixedBodyParts>
 
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+	</Corruption.RecipeDef_MSU>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallNeuroglottis_MSU</defName>
 		<label>install Neuroglottis</label>
 		<description>Installs Susan Membrane.</description>
@@ -614,9 +617,9 @@
 			<li>Jaw</li>
 		</appliedOnFixedBodyParts>
 
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+	</Corruption.RecipeDef_MSU>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallMucranoid_MSU</defName>
 		<label>install Mucranoid</label>
 		<description>Installs Mucranoid.</description>
@@ -655,9 +658,9 @@
 			<li>Torso</li>
 		</appliedOnFixedBodyParts>
 
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+	</Corruption.RecipeDef_MSU>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallBetchersGlands_MSU</defName>
 		<label>install Betchers Glands</label>
 		<description>Installs Betchers Glands.</description>
@@ -696,9 +699,9 @@
 			<li>Jaw</li>
 		</appliedOnFixedBodyParts>
 
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+	</Corruption.RecipeDef_MSU>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallProgenoid_MSU</defName>
 		<label>install Progenoid</label>
 		<description>Installs Progenoid.</description>
@@ -737,9 +740,9 @@
 			<li>Torso</li>
 		</appliedOnFixedBodyParts>
 
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+	</Corruption.RecipeDef_MSU>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallBlackCarpace_MSU</defName>
 		<label>install Black Carpace</label>
 		<description>Installs Black Carpace.</description>
@@ -774,7 +777,7 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>BlackCarpace</addsHediff>
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+	</Corruption.RecipeDef_MSU>
 
 
 </Defs>

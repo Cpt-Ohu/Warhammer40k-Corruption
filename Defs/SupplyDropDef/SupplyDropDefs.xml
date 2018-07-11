@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<Corruption.IoM.SupplyDropDef>
+    <defName>Steel</defName>
+    <label>Steel</label>
+    <RelationCost>5</RelationCost>
+	<Supplies>
+		<li>
+			<Def>Steel</Def>
+			<Count>750</Count>
+		</li>
+		<li>
+			<Def>Component</Def>
+			<Count>25</Count>
+		</li>
+	</Supplies>
+  </Corruption.IoM.SupplyDropDef>
+  
+  <Corruption.IoM.SupplyDropDef>
+    <defName>SilverReward</defName>
+    <label>Credits</label>
+    <RelationCost>5</RelationCost>
+	<Supplies>
+		<li>
+			<Def>Silver</Def>
+			<Count>1000</Count>
+		</li>
+	</Supplies>
+  </Corruption.IoM.SupplyDropDef>
+  
+  <Corruption.IoM.SupplyDropDef>
+    <defName>GoldReward</defName>
+    <label>Credits</label>
+    <RelationCost>5</RelationCost>
+	<Supplies>
+		<li>
+			<Def>Gold</Def>
+			<Count>500</Count>
+		</li>
+	</Supplies>
+  </Corruption.IoM.SupplyDropDef>
+
+  <Corruption.IoM.SupplyDropDef>
+    <defName>BuildingMaterials</defName>
+    <label>Building Materials</label>
+    <RelationCost>5</RelationCost>
+	<Supplies>
+		<li>
+			<Def>ResPackBuildingMaterials</Def>
+			<Count>3</Count>
+		</li>
+	</Supplies>
+	<AvailableFromFaction>
+		<li>IoM_Administratum</li>
+		<li>IoM_Ecclesiarchy</li>
+	</AvailableFromFaction>
+  </Corruption.IoM.SupplyDropDef>
+
+    <Corruption.IoM.SupplyDropDef>
+    <defName>EmergencyRations</defName>
+    <label>Emergency Rations</label>
+    <RelationCost>10</RelationCost>
+	<Supplies>
+		<li>
+			<Def>ResPackFoodRations</Def>
+			<Count>2</Count>
+		</li>
+	</Supplies>
+	<AvailableFromFaction>
+		<li>IoM_Administratum</li>
+		<li>IoM_Ecclesiarchy</li>
+	</AvailableFromFaction>
+  </Corruption.IoM.SupplyDropDef>
+  
+    <Corruption.IoM.SupplyDropDef>
+    <defName>Weapons</defName>
+    <label>Weapons</label>
+    <RelationCost>25</RelationCost>
+	<Supplies>
+		<li>
+			<Def>ResPackWeapons</Def>
+			<Count>1</Count>
+		</li>
+	</Supplies>
+	<AvailableFromFaction>
+		<li>IoM_Administratum</li>
+	</AvailableFromFaction>
+  </Corruption.IoM.SupplyDropDef>
+</Defs>

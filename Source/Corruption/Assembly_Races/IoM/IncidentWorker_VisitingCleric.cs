@@ -18,7 +18,7 @@ namespace Corruption.IoM
         protected override void ResolveParmsPoints(IncidentParms parms)
         {
             base.ResolveParmsPoints(parms);
-            parms.faction = CorruptionStoryTrackerUtilities.currentStoryTracker.AdeptusSororitas;            
+            parms.faction = CorruptionStoryTrackerUtilities.CurrentStoryTracker.AdeptusSororitas;            
         }
 
         protected override bool TryExecuteWorker(IncidentParms parms)

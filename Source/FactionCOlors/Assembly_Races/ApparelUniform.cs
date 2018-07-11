@@ -17,8 +17,8 @@ namespace FactionColors
 
         public bool FirstSpawned = true;
 
-        public Color Col1 = Color.red;
-        public Color Col2 = Color.grey;
+        public Color Col1 = Color.grey;
+        public Color Col2 = Color.black;
         public Graphic Detail;
 
         private FactionDefUniform udef
@@ -67,7 +67,7 @@ namespace FactionColors
                     if (this.Wearer != null)
                     {
                         FactionColorEntry myEntry;
-                        if (FactionColorUtilities.currentPlayerStoryTracker.GetColorEntry(Wearer.Faction, out myEntry))
+                        if (FactionColorUtilities.currentFactionColorTracker.GetColorEntry(Wearer.Faction, out myEntry))
                         {
                             Col1 = myEntry.FactionColor1;
                         }
@@ -106,7 +106,7 @@ namespace FactionColors
                     if (this.Wearer != null)
                     {
                         FactionColorEntry myEntry;
-                        if (FactionColorUtilities.currentPlayerStoryTracker.GetColorEntry(Wearer.Faction, out myEntry))
+                        if (FactionColorUtilities.currentFactionColorTracker.GetColorEntry(Wearer.Faction, out myEntry))
                         {
                             Col2 = myEntry.FactionColor2;
                         }
@@ -185,7 +185,7 @@ namespace FactionColors
             {
                 this.compF.ResolveRandomGraphics();
             }
-            PlayerFactionStoryTracker tracker = FactionColorUtilities.currentPlayerStoryTracker;
+            FactionColorsTracker tracker = FactionColorUtilities.currentFactionColorTracker;
             if (tracker != null)
             {
                 Col1 = tracker.PlayerColorOne;
@@ -205,6 +205,7 @@ namespace FactionColors
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
+            this.FirstSpawned = false;
         }
 
         public override void ExposeData()

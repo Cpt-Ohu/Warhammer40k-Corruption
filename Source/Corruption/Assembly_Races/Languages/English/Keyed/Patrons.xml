@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <PawnAlignment>Pawn Alignment</PawnAlignment>
+ 
+  <ReligiousTraits>Religious Traits</ReligiousTraits>
+
+  <SoulStatus>State of Soul</SoulStatus>
+
+  <Patron>Patron</Patron>
+  <PatronTrait>Patron Trait:</PatronTrait>
+
+  <Lost>Lost</Lost>
+  <Corrupted>Corrupted</Corrupted>
+  <Tainted>Tainted</Tainted>
+  <Warptouched>Warptouched</Warptouched>
+  <Intrigued>Intrigued</Intrigued>
+  <Pure>Pure</Pure>
+
+  <Emperor>Emperor</Emperor>
+  <Emperor_Description>This subject ist loyal to the one true emperor of mankind. May his light protect against the dangers of the Empyrean.</Emperor_Description>
+
+  <ChaosUndivided>Chaos Undivided</ChaosUndivided>
+  <ChaosUndivided_Description>This subject has fallen to Chaos, worshipping the dark Pantheon and the concept of chaos itself.</ChaosUndivided_Description>
+
+
+  <Khorne>Khorne</Khorne>
+  <Khorne_Description>This subject has fallen to Khorne, the god of anger, bloodshed and martial honor.</Khorne_Description>
+
+  <Nurgle>Nurgle</Nurgle>
+  <Nurgle_Description>This subject has fallen to Nurgle, the god of decay, pestilence and stagnation.</Nurgle_Description>
+
+  <Tzeentch>Tzeentch</Tzeentch>
+  <Tzeentch_Description>This subject has fallen to Tzeentch, the god of change, deceit and magic.</Tzeentch_Description>
+
+
+  <Slaanesh>Slaanesh</Slaanesh>
+  <Slaanesh_Description>This subject has fallen to Slaanesh, the god of pleasure and debauchery.</Slaanesh_Description>
+
+  <GorkMork>Orkish</GorkMork>
+  <GorkMork_Description>This is an Ork. It worships Gork, who is brutal but cunning, and Mork, who is cunning but brutal.</GorkMork_Description>
+
+  <Eldar>Eldar</Eldar>
+  <Eldar_Description>This is an Eldar. Their pantheon fell to the clutches of Slaanesh. As such they do not call upon their gods. The Harlequins preserve knowledge of the ancient times in their colorful plays.</Eldar_Description>
+
+  <GreaterGood>TauVa</GreaterGood>
+  <GreaterGood_Description>This subject follows the idea of a Greater Good, where every member of society contributes their strength to the betterment of all.</GreaterGood_Description>
+
+  <Ctan>Ctan</Ctan>
+  <Ctan_Description>This subject is following the Ctan, ancient, etherial beings of pure energy, who have lured the Necrontyr into their own doom.</Ctan_Description>
+
+  <LetterPatronGained>Heretic!</LetterPatronGained>
+  <LetterPatronGained_Content>Beware! {0} has fallen to chaos,  now worshipping {1}.</LetterPatronGained_Content>
+
+
+</LanguageData>

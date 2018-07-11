@@ -157,4 +157,27 @@
     </stages>
   </ThoughtDef>
 
+    <ThoughtDef>
+    <defName>AlignmentDiscoveryFailed</defName>
+    <durationDays>1.0</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>Questioned.</label>
+        <description>I was asked some weird questions today.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>	  
+      <li>
+        <label>Probed.</label>
+        <description>They were trying to get something out of that I didn't feel comfortable sharing.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>	  
+      <li>
+        <label>Interrogated.</label>
+        <description>I was being interrogated! I don't feel comfortable here right now.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
 </Defs>
