@@ -16,7 +16,10 @@ namespace Corruption
             Pawn pawn = hitThing as Pawn;
             if ( pawn != null && !pawn.health.hediffSet.HasHediff(C_HediffDefOf.DE_Toxin))
             {
-                pawn.health.AddHediff(C_HediffDefOf.DE_Toxin);
+                Hediff hediff = HediffMaker.MakeHediff(C_HediffDefOf.DE_Toxin, pawn, null);
+                hediff.Severity = 0.01f;
+                pawn.health.AddHediff(hediff, null, null);
+                
             }
         }
     }

@@ -18,7 +18,7 @@ namespace Corruption
         {
             get
             {
-                return (Pawn)base.CurJob.GetTarget(TargetIndex.A).Thing;
+                return (Pawn)base.job.GetTarget(TargetIndex.A).Thing;
             }
         }
 
@@ -26,8 +26,13 @@ namespace Corruption
         {
             get
             {
-                return (Building_MechanicusMedTable)base.CurJob.GetTarget(TargetIndex.B).Thing;
+                return (Building_MechanicusMedTable)base.job.GetTarget(TargetIndex.B).Thing;
             }
+        }
+
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
+        {
+            return this.pawn.Reserve(this.job.targetA, this.job, 1, -1, null) && this.pawn.Reserve(this.job.targetB, this.job, 1, -1, null);
         }
 
         [DebuggerHidden]
@@ -36,9 +41,7 @@ namespace Corruption
             this.FailOnDestroyedOrNull(TargetIndex.A);
             this.FailOnDestroyedOrNull(TargetIndex.B);
             this.FailOnAggroMentalState(TargetIndex.A);
-            yield return Toils_Reserve.Reserve(TargetIndex.A, 1);
-            yield return Toils_Reserve.Reserve(TargetIndex.B, 1);
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.OnCell).FailOnDestroyedNullOrForbidden(TargetIndex.A).FailOnDespawnedNullOrForbidden(TargetIndex.B).FailOn(() => this.DropPod.GetInnerContainer().Count > 0).FailOn(() => !this.Takee.Downed).FailOn(() => !this.pawn.CanReach(TargetA, PathEndMode.OnCell, Danger.Deadly, false, TraverseMode.ByPawn)).FailOnSomeonePhysicallyInteracting(TargetIndex.A);
+            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.OnCell).FailOnDestroyedNullOrForbidden(TargetIndex.A).FailOnDespawnedNullOrForbidden(TargetIndex.B).FailOn(() => this.DropPod.GetDirectlyHeldThings().Count > 0).FailOn(() => !this.Takee.Downed).FailOn(() => !this.pawn.CanReach(TargetA, PathEndMode.OnCell, Danger.Deadly, false, TraverseMode.ByPawn)).FailOnSomeonePhysicallyInteracting(TargetIndex.A);
             yield return Toils_Haul.StartCarryThing(TargetIndex.A, false, false);
             yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.InteractionCell);
             Toil toil = new Toil();

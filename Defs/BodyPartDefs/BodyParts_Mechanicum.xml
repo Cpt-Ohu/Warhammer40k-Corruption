@@ -5,44 +5,47 @@
     <defName>ServoChassis</defName>
     <label>chassis</label>
     <hitPoints>20</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
     <skinCovered>false</skinCovered>
-    <isSolid>true</isSolid>
-    <isAlive>false</isAlive>
+    <solid>true</solid>
+    <bleedRate>0</bleedRate>
+    <alive>false</alive>
   </BodyPartDef>
 
   <BodyPartDef>
     <defName>NeckConnector</defName>
     <label>neck</label>
     <hitPoints>10</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
     <skinCovered>false</skinCovered>
-    <isSolid>true</isSolid>
-    <isAlive>false</isAlive>
+    <solid>true</solid>
+    <bleedRate>0</bleedRate>
+    <alive>false</alive>
   </BodyPartDef>
 
   <BodyPartDef>
     <defName>SSkullBase</defName>
     <label>human skull</label>
     <hitPoints>30</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
     <skinCovered>false</skinCovered>
-    <isSolid>true</isSolid>
-    <isAlive>false</isAlive>
+    <solid>true</solid>
+    <bleedRate>0</bleedRate>
+    <alive>false</alive>
   </BodyPartDef>
 
   <BodyPartDef>
     <defName>ManipulatorSpine</defName>
     <label>left shoulder</label>
     <hitPoints>25</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
     <skinCovered>false</skinCovered>
-    <isSolid>true</isSolid>
-    <isAlive>false</isAlive>
-    <activities>
-      <li>Manipulation_way0</li>
-      <li>Manipulation_tool</li>
-    </activities>
+    <solid>true</solid>
+    <bleedRate>0</bleedRate>
+    <alive>false</alive>
+    <tags>
+      <li>ManipulationLimbCore</li>
+    </tags>
   </BodyPartDef>
 
   <BodyPartDef>
@@ -50,23 +53,29 @@
     <label>Manipulator Blade</label>
     <hitPoints>20</hitPoints>
     <frostbiteVulnerability>0</frostbiteVulnerability>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
     <skinCovered>false</skinCovered>
-    <isSolid>true</isSolid>
-    <isAlive>false</isAlive>
+    <solid>true</solid>
+    <bleedRate>0</bleedRate>
+    <alive>false</alive>
+    <tags>
+      <li>ManipulationLimbSegment</li>
+    </tags>
+
   </BodyPartDef>
 
   <BodyPartDef>
     <defName>ComputingUnit</defName>
     <label>computing unit</label>
     <hitPoints>30</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
     <skinCovered>false</skinCovered>
-    <isSolid>true</isSolid>
-    <isAlive>false</isAlive>
-    <activities>
-      <li>Consciousness_brain</li>
-    </activities>
+    <solid>true</solid>
+    <bleedRate>0</bleedRate>
+    <alive>false</alive>
+    <tags>
+      <li>ConsciousnessSource</li>
+    </tags>
   </BodyPartDef>
   
 </Defs>

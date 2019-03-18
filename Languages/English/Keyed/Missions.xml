@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <MissionFinished>Mission Finished</MissionFinished>
+  <MissionFinishedDesc>You have finished the mission {0} given by {1}</MissionFinishedDesc>
+
+  <Perequisites>Perequisites</Perequisites>
+  <Rewards>Rewards</Rewards>
+  <GetReward>Get Rewards</GetReward>
+  <CollectRewards>Collect all rewards for this mission</CollectRewards>
+  <MissionSupplyPods>Supply drops containing your rewards for fulfilling the mission {0} arrived.</MissionSupplyPods>
+  <MissionSupplyPodsArrived>Supply pods</MissionSupplyPodsArrived>
+  <MissionFailedMissingRunways>A mission reward could not be paid out because you are lacking Runways!</MissionFailedMissingRunways>
+  <MissionFailed>Mission failed: {0}</MissionFailed>
+  <MissionFailedGeneric>{0} are disappointed by you.</MissionFailedGeneric>
+  <MissionGiverFaction>Issued by {0}</MissionGiverFaction>
+  <MissionTimeLimit>{0} days to finish</MissionTimeLimit>
+  
+</LanguageData>

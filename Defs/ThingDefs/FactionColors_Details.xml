@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <ThingDef ParentName="ApparelBase">
     <defName>Overlay_Headgear</defName>
@@ -14,6 +14,7 @@
       <li>Root</li>
     </thingCategories>
     <statBases>
+      <Mass>15</Mass>
       <WorkToMake>100</WorkToMake>
       <ArmorRating_Blunt>0.0</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.0</ArmorRating_Sharp>
@@ -21,21 +22,21 @@
     </statBases>
     <menuHidden>true</menuHidden>
     <destroyOnDrop>true</destroyOnDrop>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Eyes</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Pawn/Humanlike/Apparel/Tuque/Tuque</worngraphicPath>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/Tuque/Tuque</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
       </tags>
       <defaultOutfitTags>
       </defaultOutfitTags>
     </apparel>
-      <tradeability>Never</tradeability>
+      <tradeability>None</tradeability>
   </ThingDef>
 
 
@@ -52,6 +53,7 @@
       <li>Root</li>
     </thingCategories>
     <statBases>
+      <Mass>15</Mass>
       <WorkToMake>100</WorkToMake>
       <ArmorRating_Blunt>0.0</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.0</ArmorRating_Sharp>
@@ -59,21 +61,21 @@
     </statBases>
     <menuHidden>true</menuHidden>
     <destroyOnDrop>true</destroyOnDrop>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Pawn/Humanlike/Apparel/ShirtBasic/ShirtBasic</worngraphicPath>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/ShirtBasic/ShirtBasic</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
       </tags>
       <defaultOutfitTags>
       </defaultOutfitTags>
     </apparel>
-      <tradeability>Never</tradeability>
+      <tradeability>None</tradeability>
   </ThingDef>
 
-</ThingDefs>
+</Defs>

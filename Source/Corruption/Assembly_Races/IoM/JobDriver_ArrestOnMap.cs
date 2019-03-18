@@ -17,7 +17,7 @@ namespace Corruption.IoM
         {
             get
             {
-                return (Pawn)base.CurJob.GetTarget(TargetIndex.A).Thing;
+                return (Pawn)base.job.GetTarget(TargetIndex.A).Thing;
             }
         }
 
@@ -25,17 +25,20 @@ namespace Corruption.IoM
         {
             get
             {
-                return (ShipBase)base.CurJob.GetTarget(TargetIndex.B).Thing;
+                return (ShipBase)base.job.GetTarget(TargetIndex.B).Thing;
             }
+        }
+
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
+        {
+            return this.pawn.Reserve(this.job.targetA, this.job, 1, -1, null);
         }
 
         [DebuggerHidden]
         protected override IEnumerable<Toil> MakeNewToils()
         {
            // this.FailOnDestroyedOrNull(TargetIndex.B);
-
-                yield return Toils_Reserve.Reserve(TargetIndex.A, 1);
-
+           
                 yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch);
                 yield return Toils_Haul.StartCarryThing(TargetIndex.A, false, false);
                 yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.InteractionCell);

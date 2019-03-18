@@ -9,8 +9,8 @@
     <harmsHealth>true</harmsHealth>
     <hediff>Burn</hediff>
     <impactSoundType>Electric</impactSoundType>
-    <armorCategory>Electric</armorCategory>
-    <explosionDamage>10</explosionDamage>
+    <armorCategory>Heat</armorCategory>
+    
     <explosionSnowMeltAmount>0</explosionSnowMeltAmount>
     <explosionCellMote>Mote_BlastEMP</explosionCellMote>
     <explosionInteriorMote>Mote_ElectricalSpark</explosionInteriorMote>
@@ -23,14 +23,13 @@
     <label>burn</label>
     <hasForcefulImpact>true</hasForcefulImpact>
     <makesBlood>false</makesBlood>
-    <incapChanceMultiplier>1.2</incapChanceMultiplier>
     <canInterruptJobs>false</canInterruptJobs>
     <externalViolence>true</externalViolence>
     <deathMessage>{0} has been shot to death.</deathMessage>
     <hediff>Burn</hediff>
     <armorCategory>Heat</armorCategory>
-    <spreadOut>false</spreadOut>
-    <explosionDamage>10</explosionDamage>
+    
+    
     <explosionHeatEnergyPerCell>15</explosionHeatEnergyPerCell>
     <explosionCellMote>Mote_BlastFlame</explosionCellMote>
     <explosionColorCenter>(1, 0.7, 0.7)</explosionColorCenter>
@@ -66,22 +65,20 @@
     <label>burst</label>
     <externalViolence>true</externalViolence>
     <isExplosive>true</isExplosive>
-    <battleWound>true</battleWound>
     <deathMessage>{0} has died in an explosion.</deathMessage>
     <hediff>Shredded</hediff>
     <hediffSolid>Crack</hediffSolid>
     <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
     <impactSoundType>Blunt</impactSoundType>
     <armorCategory>Blunt</armorCategory>
-    <spreadOut>true</spreadOut>
-    <explosionDamage>10</explosionDamage>
-    <explosionBuildingDamageFactor>1</explosionBuildingDamageFactor>
+    
+    
     <explosionAffectOutsidePartsOnly>false</explosionAffectOutsidePartsOnly>
     <explosionHeatEnergyPerCell>1</explosionHeatEnergyPerCell>
     <explosionCellMote>Mote_BlastDry</explosionCellMote>
     <explosionColorCenter>(38, 0.53, 0.38)</explosionColorCenter>
     <explosionColorEdge>(0.76, 0.86, 0.76)</explosionColorEdge>
-    <soundExplosion>ShotShotgun</soundExplosion>
+    <soundExplosion>Shot_Shotgun</soundExplosion>
     <additionalHediffs>
       <li>
         <hediff>NurglesRot</hediff>
@@ -124,15 +121,13 @@
     <label>bolt</label>
     <externalViolence>true</externalViolence>
     <isExplosive>true</isExplosive>
-    <battleWound>true</battleWound>
     <deathMessage>{0} has been shot to death.</deathMessage>
     <hediff>Gunshot</hediff>
     <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
     <impactSoundType>Bullet</impactSoundType>
     <armorCategory>Sharp</armorCategory>
-    <spreadOut>true</spreadOut>
-    <explosionDamage>15</explosionDamage>
-    <explosionBuildingDamageFactor>2</explosionBuildingDamageFactor>
+    
+    
     <explosionAffectOutsidePartsOnly>false</explosionAffectOutsidePartsOnly>
     <explosionHeatEnergyPerCell>1</explosionHeatEnergyPerCell>
     <explosionCellMote>Mote_BlastDry</explosionCellMote>
@@ -141,6 +136,25 @@
     <soundExplosion>Explosion_Bomb</soundExplosion>
   </DamageDef>
 
+  <DamageDef ParentName="LocalInjuryBase">
+    <defName>WarpfireViolet</defName>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <label>Warpfire</label>
+    <hasForcefulImpact>false</hasForcefulImpact>
+    <makesBlood>false</makesBlood>
+    <canInterruptJobs>false</canInterruptJobs>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} was consumed by warpfire.</deathMessage>
+    <hediff>Burn</hediff>
+    <armorCategory>Heat</armorCategory>
+    
+    
+    <explosionHeatEnergyPerCell>15</explosionHeatEnergyPerCell>
+    <explosionCellMote>Mote_BlastExtinguisher</explosionCellMote>
+    <explosionColorCenter>(0.65, 0.48, 0.95)</explosionColorCenter>
+    <explosionColorEdge>(0.3, 0.3, 0.3)</explosionColorEdge>
+    <soundExplosion>Explosion_Flame</soundExplosion>
+  </DamageDef>
 
 
 

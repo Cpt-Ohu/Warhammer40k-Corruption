@@ -1,8 +1,10 @@
-﻿using RimWorld;
+﻿using Harmony;
+using RimWorld;
 using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using UnityEngine;
 using Verse;
@@ -22,6 +24,10 @@ namespace OHUShips
         public static readonly Texture2D Rename = ContentFinder<Texture2D>.Get("UI/Buttons/Rename", true);
         public static readonly Texture2D shipButton = ContentFinder<Texture2D>.Get("UI/Buttons/ButtonShip", true);
         public static readonly Texture2D DropTexture = ContentFinder<Texture2D>.Get("UI/Buttons/UnloadShip", true);
+        public static readonly Texture2D ParkingSingle = ContentFinder<Texture2D>.Get("UI/Commands/CommandParkingShipSingle", true);
+        public static readonly Texture2D ParkingFleet = ContentFinder<Texture2D>.Get("UI/Commands/CommandParkingShipFleet", true);
+        public static readonly Texture2D ReturnParkingSingle = ContentFinder<Texture2D>.Get("UI/Commands/CommandLaunchParkingSingle", true);
+        public static readonly Texture2D ReturnParkingFleet = ContentFinder<Texture2D>.Get("UI/Commands/CommandLaunchParkingFleet", true);
 
         public static readonly Texture2D TouchDownCommandTex = ContentFinder<Texture2D>.Get("UI/Commands/CommandTouchDown", true);
 
@@ -33,50 +39,41 @@ namespace OHUShips
         public static readonly Texture2D movingShip = ContentFinder<Texture2D>.Get("UI/Images/MovingShip", true);
 
         public static readonly Texture2D TargeterShipAttachment = ContentFinder<Texture2D>.Get("UI/Overlays/LaunchableMouseAttachment", true);
-        
-        public static ShipTracker currentShipTracker
+
+
+        private static ShipTracker _shipTracker;
+        public static ShipTracker CurrentShipTracker
         {
             get
             {
-                ShipTracker tracker = Find.WorldObjects.AllWorldObjects.FirstOrDefault(x => x.def == ShipNamespaceDefOfs.ShipTracker) as ShipTracker;
-                if (tracker == null)
+                if (_shipTracker == null)
                 {
-                    HarmonyPatches.GenerateFactionsIntoWorldPostFix();
-                    return Find.WorldObjects.AllWorldObjects.FirstOrDefault(x => x.def == ShipNamespaceDefOfs.ShipTracker) as ShipTracker;
+                    _shipTracker = Find.World.GetComponent<ShipTracker>();
                 }
-                return tracker;
+                return _shipTracker;
             }
         }
 
-        public static void PassWorldPawnsForLandedShip(ShipBase ship)
-        {
-            List<Pawn> pawnsToMove = new List<Pawn>();
-            foreach (Thing current in ship.GetInnerContainer())
-            {
-                Pawn pawn = current as Pawn;
-                if (pawn != null && !ship.worldPawns.Contains(pawn))
-                {
-                    pawnsToMove.Add(pawn);
-                }
-            }
 
-            ship.worldPawns.AddRange(pawnsToMove);
-            ship.GetInnerContainer().RemoveAll(x => pawnsToMove.Contains<Pawn>(x as Pawn));
-        }
-
-        public static void ReimbarkWorldPawnsForLandedShip(ShipBase ship)
+        public static void ReimbarkWorldPawnsForShip(ShipBase ship)
         {
             List<Thing> pawnsToMove = new List<Thing>();
-            foreach (Pawn current in ship.worldPawns)
+            foreach (Pawn current in ship.GetDirectlyHeldThings())
             {
-                if (!ship.GetInnerContainer().Contains(current))
+                current.holdingOwner = ship.GetDirectlyHeldThings();
+                if (!ship.GetDirectlyHeldThings().Contains(current))
                 {
                     pawnsToMove.Add(current);
                 }
             }
-            ship.GetInnerContainer().TryAddMany(pawnsToMove);
-            ship.worldPawns.RemoveAll(x => pawnsToMove.Contains(x));
+            ship.GetDirectlyHeldThings().TryAddRangeOrTransfer(pawnsToMove);
         }
+
+        public static List<ShipBase> ShipsOnMap(Map map)
+        {
+            return map.listerThings.AllThings.FindAll(x => x is ShipBase).Cast<ShipBase>().ToList();
+        }
+
 
         public static Vector3 DrawPosAt(ShipBase ship, int ticks, ShipBase_Traveling travelingShip = null)
         {
@@ -85,11 +82,11 @@ namespace OHUShips
                 ticks = 0;
             }
 
-            Vector3 result = Gen.TrueCenter(ship);
+            Vector3 result = GenThing.TrueCenter(ship);
 
             if (travelingShip != null)
             {
-                result = Gen.TrueCenter(travelingShip.Position, travelingShip.containingShip.Rotation, travelingShip.containingShip.def.size, Altitudes.AltitudeFor(AltitudeLayer.FlyingItem));
+                result = GenThing.TrueCenter(travelingShip.Position, travelingShip.containingShip.Rotation, travelingShip.containingShip.def.size, Altitudes.AltitudeFor(AltitudeLayer.MetaOverlays));
             }
             result += DropShipUtility.drawOffsetFor(ship, ticks, false);
 
@@ -98,11 +95,11 @@ namespace OHUShips
 
         public static Vector3 drawOffsetFor(ShipBase ship, int ticks, bool isShadow = false)
         {
-            int angle = ship.compShip.sProps.IncomingAngle;            
+            float angle = ship.compShip.sProps.IncomingAngle * Mathf.PI / 180f;
             float num = (float)(ticks * ticks) * 0.01f;
             int sign = 1;
             int signHorizontal = 1;
-            if (ship.shipState == ShipState.Outgoing)
+            if (ship.shipState == ShipState.Incoming)
             {
                 sign = -1;
             }
@@ -117,11 +114,11 @@ namespace OHUShips
                 case 0:
                     return new Vector3(sign * num * Mathf.Cos(angle), 0f, signHorizontal * num * Mathf.Sin(angle));
                 case 1:
-                    return new Vector3(0f, 0f, sign * num * Mathf.Sin(angle));
+                    return new Vector3(0f, 0f, sign * -num * Mathf.Sin(angle));
                 case 2:
                     return new Vector3(sign * -num * Mathf.Cos(angle), 0f, signHorizontal * num * Mathf.Sin(angle));
                 case 3:
-                    return new Vector3(0f, 0f, sign * -num * Mathf.Sin(angle));
+                    return new Vector3(0f, 0f, sign * num * Mathf.Sin(angle));
                 default:
                     Log.Error("Ship with no Rot4 found");
                     return Vector3.zero;
@@ -155,11 +152,11 @@ namespace OHUShips
             {
                 ticks = 0;
             }
-                        
-            Vector3 result = Gen.TrueCenter(ship);
+
+            Vector3 result = GenThing.TrueCenter(ship);
             if (travelingShip != null)
             {
-                result = travelingShip.Position.ToVector3ShiftedWithAltitude(AltitudeLayer.FlyingItem);
+                result = travelingShip.Position.ToVector3ShiftedWithAltitude(AltitudeLayer.Skyfaller);
             }
             result += DropShipUtility.drawOffsetFor(ship, ticks, true);
             result.y = Altitudes.AltitudeFor(AltitudeLayer.Shadows);
@@ -168,7 +165,7 @@ namespace OHUShips
 
             white.a = Mathf.InverseLerp(200f, 150f, (float)ticks);
 
-            DropShipUtility.shadowPropertyBlock.SetColor(ShaderIDs.ColorId, white);
+            DropShipUtility.shadowPropertyBlock.SetColor(Shader.PropertyToID("Cutout"), white);
             Matrix4x4 matrix = default(Matrix4x4);
             matrix.SetTRS(result, ship.compShip.parent.Rotation.AsQuat, new Vector3(1f, 1f, 1f));
             Graphics.DrawMesh(ship.compShip.parent.Graphic.MeshAt(ship.compShip.parent.Rotation), matrix, ship.compShip.dropShadow.MatSingle, 0, null, 0, DropShipUtility.shadowPropertyBlock);
@@ -176,12 +173,12 @@ namespace OHUShips
 
         public static void InitializeDropShipSpawn(ShipBase ship)
         {
-        //    ship.def.selectable = false;
+            //    ship.def.selectable = false;
         }
 
         public static void DropShipLanded(ShipBase ship)
         {
-         //   ship.def.selectable = true;
+            //   ship.def.selectable = true;
         }
 
         public static List<Thing> CurrentFactionShips(Pawn pawn)
@@ -223,6 +220,7 @@ namespace OHUShips
             {
                 ShipBase newShip = (ShipBase)ThingMaker.MakeThing(defs.RandomElementByWeight(x => x.GetCompProperties<CompProperties_Ship>().maxPassengers));
                 newShip.SetFaction(faction);
+                newShip.RecolorShip();
                 newShip.ShouldSpawnFueled = true;
                 shipsToDrop.Add(newShip);
                 num += newShip.compShip.sProps.maxPassengers;
@@ -230,26 +228,50 @@ namespace OHUShips
             DropShipUtility.LoadNewCargoIntoRandomShips(pawns.Cast<Thing>().ToList(), shipsToDrop);
             return shipsToDrop;
         }
-                
+
+        public static bool MissingRunways(Map map)
+        {
+            return !map.zoneManager.AllZones.Any(x => x is Zone_Runway);
+        }
+
         public static List<Pawn> AllPawnsInShip(ShipBase ship)
         {
             List<Pawn> tmp = new List<Pawn>();
-            for (int i = 0; i > ship.GetInnerContainer().Count; i++)
+            for (int i = 0; i > ship.GetDirectlyHeldThings().Count; i++)
             {
-                Pawn pawn = ship.GetInnerContainer()[i] as Pawn;
+                Pawn pawn = ship.GetDirectlyHeldThings()[i] as Pawn;
                 if (pawn != null)
                 {
                     tmp.Add(pawn);
-                }                    
+                }
             }
 
             return tmp;
         }
-        
-        public static void DropShipGroups(IntVec3 dropCenter, Map map, List<ShipBase> shipsToDrop, TravelingShipArrivalAction arrivalAction, bool launchdAsSingleShip = false)
+
+        public static bool ShipIsAlreadyDropping(ShipBase ship, Map map)
         {
-            foreach (ShipBase current in shipsToDrop)
+            if (ship.Spawned)
             {
+                return true;
+            }
+            IEnumerator<Thing> enumerator = map.listerThings.AllThings.Where(x => x is ShipBase_Traveling).GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                ShipBase_Traveling current = enumerator.Current as ShipBase_Traveling;
+                if (current.containingShip == ship)
+                {
+                    return true;
+                }
+
+            }
+            return false;
+        }
+        public static void DropShipGroups(IntVec3 dropCenter, Map map, List<ShipBase> shipsToDrop, ShipArrivalAction arrivalAction, bool launchdAsSingleShip = false)
+        {
+            foreach (ShipBase current in shipsToDrop.Where(x => !DropShipUtility.ShipIsAlreadyDropping(x, map)))
+            {
+                current.shouldSpawnTurrets = true;
                 IntVec3 dropLoc;
                 //      if (TryFindShipDropLocationNear(dropCenter, 200, map, out dropLoc, current.def.size))
                 //   if (DropCellFinder.TryFindRaidDropCenterClose(out dropLoc, map))
@@ -259,7 +281,7 @@ namespace OHUShips
                     dropLoc = dropCenter;
                     if (dropLoc.IsValid && launchdAsSingleShip)
                     {
-                        Log.Message("Dropping single Ship");
+
                     }
                     else
                     {
@@ -272,15 +294,70 @@ namespace OHUShips
                     current.ActivatedLaunchSequence = false;
                     current.shipState = ShipState.Incoming;
                     ShipBase_Traveling incomingShip = new ShipBase_Traveling(current, false, arrivalAction);
-                    //             Log.Message("Dropping " + incomingShip.containingShip.ShipNick);
                     GenSpawn.Spawn(incomingShip, dropLoc, map);
                 }
 
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Log.Error("Couldn't drop ships in map: " + ex.ToString());
                 }
             }
+        }
+
+        public static void DropSingleShip(Map map, IntVec3 dropLoc, ShipBase ship, ShipArrivalAction arrivalAction, bool dropPawns = true, bool dropItems = false)
+        {
+            ship.drawTickOffset = ship.compShip.sProps.TicksToImpact + Rand.Range(10, 60);
+            ship.ActivatedLaunchSequence = false;
+            ship.shipState = ShipState.Incoming;
+            ShipBase_Traveling incomingShip = new ShipBase_Traveling(ship, false, arrivalAction);
+            incomingShip.dropPawnsOnTochdown = dropPawns;
+            incomingShip.dropItemsOnTouchdown = dropItems;
+            GenSpawn.Spawn(incomingShip, dropLoc, map);
+        }
+
+        public static bool CreateAndDropSingleShip(Map map, Faction faction, ThingDef shipDef, List<Pawn> pawns, bool dropPawns, out ShipBase newShip)
+        {
+            List<ShipBase> ships = CreateDropShips(pawns, faction, new List<ThingDef> { shipDef });
+            if (!ships.NullOrEmpty())
+            {
+                ShipBase ship = ships[0];
+                List<Zone> runways = map.zoneManager.AllZones.FindAll(x => x is Zone_Runway);
+
+                bool wipeBuildings;
+                bool doesntFit;
+                IntVec3 dropCell = IntVec3.Zero;
+                Rot4? rot = ship.Rotation;
+                foreach (var runway in runways)
+                {
+
+                    List<IntVec3> cells = runway.Cells;
+                    int x = cells.Min(c => c.x);
+                    int z = cells.Min(c => c.z);
+                    int width = cells.Max(c => c.x) - x;
+                    int height = cells.Max(c => c.z) - z;
+
+                    CellRect rect = new CellRect(x, z, width, height);
+
+
+                    dropCell = (RunwayUtility.FindShipDropPoint(map, rect, ship.def, ref rot, out wipeBuildings, out doesntFit));
+                    if (doesntFit == true)
+                    {
+                        newShip = null;
+                        return false;
+                    }
+                    if (wipeBuildings == true)
+                    {
+                        Messages.Message("LandingZoneBlocked".Translate(), MessageTypeDefOf.RejectInput);
+                        newShip = null;
+                        return false;
+                    }
+                }
+                newShip = ship;
+                DropShipUtility.DropSingleShip(map, dropCell, ship, ShipArrivalAction.EnterMapFriendly, dropPawns);
+                return true;
+            }
+            newShip = null;
+            return false;
         }
 
         public static bool TryFindShipDropSpotNear(ShipBase ship, IntVec3 center, Map map, out IntVec3 result, bool allowFogged, bool canRoofPunch)
@@ -292,11 +369,11 @@ namespace OHUShips
 
             Predicate<IntVec3> validatingExistingShips = (IntVec3 c) =>
             {
-                Vector3 drawSize = ship.def.graphicData.drawSize;
-                List<Thing> ships = map.listerThings.AllThings.FindAll(x => x is ShipBase_Traveling || x is ShipBase);
+                Vector2 drawSize = ship.def.graphicData.drawSize;
+                List<Thing> ships = map.listerThings.AllThings.FindAll(x => x is ShipBase_Traveling || x.GetType().IsAssignableFrom(typeof(ShipBase)));
                 for (int i = 0; i < ships.Count; i++)
                 {
-                    if (ships[i].Position.InHorDistOf(c, Math.Max(drawSize.x, drawSize.z)))
+                    if (GenAdj.OccupiedRect(ships[i]).Overlaps(GenAdj.OccupiedRect(ship).ExpandedBy(1)))
                     {
                         return false;
                     }
@@ -304,8 +381,7 @@ namespace OHUShips
                 return true;
             };
 
-
-            Predicate<IntVec3> validator = (IntVec3 c) => validatingExistingShips(c) &&  DropCellFinder.IsGoodDropSpot(c, map, allowFogged, canRoofPunch) && map.reachability.CanReach(center, c, PathEndMode.OnCell, TraverseMode.PassDoors, Danger.Deadly);
+            Predicate<IntVec3> validator = (IntVec3 c) => validatingExistingShips(c) && DropCellFinder.IsGoodDropSpot(c, map, allowFogged, canRoofPunch) && map.reachability.CanReach(center, c, PathEndMode.OnCell, TraverseMode.PassDoors, Danger.Deadly) && GenAdj.OccupiedRect(c, ship.Rotation, ship.def.Size).InBounds(map);
             int num = 5;
             while (!CellFinder.TryFindRandomCellNear(center, map, num, validator, out result))
             {
@@ -327,7 +403,7 @@ namespace OHUShips
             while (num < 5)
             {
                 Predicate<IntVec3> validator = delegate (IntVec3 c)
-                {                    
+                {
                     foreach (IntVec3 current2 in GenAdj.CellsOccupiedBy(c, Rot4.North, size))
                     {
                         if (!current2.Standable(map))
@@ -376,7 +452,7 @@ namespace OHUShips
             List<Thing> list = map.listerThings.AllThings.FindAll(x => x.TryGetComp<CompShipWeapon>() != null);
 
             List<WeaponSystem> list2 = new List<WeaponSystem>();
-            for (int i=0; i < list.Count; i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 CompShipWeapon comp = list[i].TryGetComp<CompShipWeapon>();
                 if (comp.SProps.weaponSystemType == slot.slotType)
@@ -389,44 +465,57 @@ namespace OHUShips
 
         public static List<Thing> availableWeaponsForSlot(Map map, ShipWeaponSlot slot)
         {
-            return map.listerThings.AllThings.FindAll(x => x.TryGetComp<CompShipWeapon>() != null && x.TryGetComp<CompShipWeapon>().SProps.weaponSystemType == slot.slotType);            
+            return map.listerThings.AllThings.FindAll(x => x.TryGetComp<CompShipWeapon>() != null && x.TryGetComp<CompShipWeapon>().SProps.weaponSystemType == slot.slotType);
         }
 
-        public static float ApproxDaysWorthOfFood_Ship(ShipBase ship, List<TransferableOneWay> transferables)
+        private static List<TransferableOneWay> tmpTransferables = new List<TransferableOneWay>();
+
+        public static float ApproxDaysWorthOfFood_Ship(ShipBase ship, List<TransferableOneWay> transferables, bool canEatPlants)
         {
-            List<TransferableOneWay> tmp = new List<TransferableOneWay>();
-            tmp.AddRange(transferables);
+            tmpTransferables.Clear();
 
-            List<TransferableOneWay> tmpPawns = new List<TransferableOneWay>();
-            List<TransferableOneWay> tmpItems = new List<TransferableOneWay>();
-            foreach (Pawn current in ship.GetInnerContainer().Where(x => x is Pawn))
+            for (int i = 0; i < transferables.Count; i++)
             {
-                if (!current.RaceProps.Eats(FoodTypeFlags.Plant))
-                {
-                    DropShipUtility.AddThingsToTransferables(tmp, current);
-                }
-            }
-            for (int i = 0; i < ship.GetInnerContainer().Count; i++)
-            {
-                if (!(ship.GetInnerContainer()[i] is Pawn))
-                {
-                    DropShipUtility.AddThingsToTransferables(tmp, ship.GetInnerContainer()[i]);
-                }
+                TransferableOneWay oneWay = new TransferableOneWay();
+                oneWay.things.AddRange(transferables[i].things);
+                oneWay.AdjustTo(transferables[i].CountToTransfer);
+                Pawn pawn = oneWay.AnyThing as Pawn;
+
+                tmpTransferables.Add(oneWay);
             }
 
-            return DaysWorthOfFoodCalculator.ApproxDaysWorthOfFood(tmp);
+            foreach (Pawn current in ship.GetDirectlyHeldThings().Where(x => x is Pawn))
+            {
+                DropShipUtility.AddThingsToTransferables(tmpTransferables, current);
+            }
+            for (int i = 0; i < ship.GetDirectlyHeldThings().Count; i++)
+            {
+                if (!(ship.GetDirectlyHeldThings()[i] is Pawn))
+                {
+                    DropShipUtility.AddThingsToTransferables(tmpTransferables, ship.GetDirectlyHeldThings()[i]);
+                }
+            }
+            var potentialFood = tmpTransferables.Where(t => (t.AnyThing is Pawn) == false).SelectMany(x => x.things).ToList();
+            var pawns = tmpTransferables.Where(t => t.AnyThing is Pawn).SelectMany(x => x.things).Cast<Pawn>().ToList();
+            return DaysWorthOfFoodCalculator.ApproxDaysWorthOfFood(pawns, potentialFood, 0, IgnorePawnsInventoryMode.DontIgnore, ship.Faction);
         }
 
         private static void AddThingsToTransferables(List<TransferableOneWay> transferables, Thing thing)
         {
-            TransferableOneWay transferableOneWay = TransferableUtility.TransferableMatching<TransferableOneWay>(thing, transferables);
+            TransferableOneWay transferableOneWay = TransferableUtility.TransferableMatching<TransferableOneWay>(thing, transferables, TransferAsOneMode.PodsOrCaravanPacking);
             if (transferableOneWay == null)
             {
                 transferableOneWay = new TransferableOneWay();
                 transferables.Add(transferableOneWay);
             }
             transferableOneWay.things.Add(thing);
-            transferableOneWay.countToTransfer = thing.stackCount;
+            DropShipUtility.AdjustToOneWayReflection(transferableOneWay, thing.stackCount);
+        }
+
+        private static void AdjustToOneWayReflection(TransferableOneWay transferable, int amount)
+        {
+            int count = Traverse.Create(transferable).Field("countToTransfer").GetValue<int>();
+            count = amount;
         }
 
 
@@ -434,11 +523,13 @@ namespace OHUShips
         {
             for (int i = 0; i < newCargo.Count; i++)
             {
+                newCargo[i].holdingOwner = null;
                 int num = 0;
                 while (!ships.RandomElement().TryAcceptThing(newCargo[i], true))
                 {
                     Pawn pawn = newCargo[i] as Pawn;
                     ships.RandomElement().TryAcceptThing(newCargo[i], true);
+
                     num++;
                 }
 
@@ -449,5 +540,21 @@ namespace OHUShips
             }
             return true;
         }
+
+        public static bool LordShipsDestroyed(Pawn pawn)
+        {
+            LordJob_AerialAssault lordAssault = pawn.GetLord().LordJob as LordJob_AerialAssault;
+            if (lordAssault != null)
+            {
+                return lordAssault.ships.All(x => x.Destroyed || !x.Spawned);
+            }
+            return false;
+        }
+
+        public static bool HasPassengerSeats(ShipBase ship)
+        {
+            return (ship.GetDirectlyHeldThings().ToList<Thing>().Count(x => x is Pawn && x.def.race.Humanlike) < ship.compShip.sProps.maxPassengers);
+        }
     }
+
 }

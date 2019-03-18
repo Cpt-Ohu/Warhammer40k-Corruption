@@ -18,13 +18,16 @@ namespace Corruption
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.LookValue<TargetIndex>(ref this.Spot, "Spot", TargetIndex.C);
+        }
+
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
+        {
+            return true; //this.pawn.Reserve(this.TargetC, this.job, this.job.def.joyMaxParticipants, -1, null);
         }
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
             this.EndOnDespawnedOrNull(Spot, JobCondition.Incompletable);
-            yield return Toils_Reserve.Reserve(Spot, this.CurJob.def.joyMaxParticipants);
             Toil gotoPreacher;
             if (this.TargetC.HasThing)
             {
@@ -40,25 +43,25 @@ namespace Corruption
 
             var altarToil = new Toil();
             altarToil.defaultCompleteMode = ToilCompleteMode.Delay;
-            altarToil.defaultDuration = this.CurJob.def.joyDuration;
+            altarToil.defaultDuration = this.job.def.joyDuration;
             altarToil.AddPreTickAction(() =>
             {
-                this.pawn.Drawer.rotator.FaceCell(this.TargetB.Cell);
+                this.pawn.rotationTracker.FaceCell(this.TargetB.Cell);
                 this.pawn.GainComfortFromCellIfPossible();
             });
             yield return altarToil;
 
             this.AddFinishAction(() =>
             {
-                SermonUtility.AttendSermonTickCheckEnd(this.pawn, this.TargetA.Thing as Pawn);
-                if (this.TargetC.HasThing)
-                {
-                    this.Map.reservationManager.Release(this.CurJob.targetC.Thing, pawn);
-                }
-                else
-                {                    
-                    this.Map.reservationManager.Release(this.CurJob.targetC.Cell, this.pawn);
-                }
+                SermonUtility.AttendSermonTickCheckEnd(this.pawn, this.TargetA.Thing as Pawn, Worship.WorshipActType.None);
+                //if (this.TargetC.HasThing)
+                //{
+                //    this.Map.reservationManager.Release(this.job.targetC.Thing, pawn, this.job);
+                //}
+                //else
+                //{                    
+                //    this.Map.reservationManager.Release(this.job.targetC.Cell, this.pawn, this.job);
+                //}
                 
                 
             });

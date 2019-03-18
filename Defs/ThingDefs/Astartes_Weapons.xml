@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<ThingDefs>
+<Defs>
 
   <ThingDef Name="BaseWeapon_Astartes" ParentName="BaseMeleeWeaponNoTag" Abstract="True">
     <thingClass>ThingWithComps</thingClass>
@@ -9,11 +9,11 @@
       <categories>
         <li>Root</li>
       </categories>
-      <exceptedThingDefs>
+      <disallowedThingDefs>
         <li>Silver</li>
         <li>Gold</li>
         <li>WoodLog</li>
-      </exceptedThingDefs>
+      </disallowedThingDefs>
     </defaultIngredientFilter>
       <workSpeedStat>SmithingSpeed</workSpeedStat>
       <workSkill>Crafting</workSkill>
@@ -22,28 +22,68 @@
       <unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
     </recipeMaker>
     <tradeability>Sellable</tradeability>
+
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+
   </ThingDef>
   
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_AstartesBolt</defName>
+    <label>.95 cal Bolt</label>
+	<graphicData>
+		<texPath>Things/Projectile/Bullet_Big</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+    <projectile>
+		<flyOverhead>false</flyOverhead>
+		<damageDef>BulletBolter</damageDef>
+		<damageAmountBase>32</damageAmountBase>
+	 	<explosionRadius>1.0</explosionRadius>
+		<speed>80</speed>
+    </projectile>
+  </ThingDef>
+
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_HeavyBolt</defName>
+    <label>.95 cal Bolt</label>
+	<graphicData>
+		<texPath>Things/Projectile/Bullet_Big</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+    <projectile>
+		<flyOverhead>false</flyOverhead>
+		<damageDef>BulletBolter</damageDef>
+		<damageAmountBase>35</damageAmountBase>
+	 	<explosionRadius>1.0</explosionRadius>
+		<speed>80</speed>
+    </projectile>
+  </ThingDef>
+
   <!-- ============================================================== -->
   
   <ThingDef ParentName="BaseWeapon_Astartes" Class="FactionColors.FactionItemDef">
     <thingClass>FactionColors.FactionItem</thingClass>
-    <ItemMeshSize>(1.0, 1.0, 1.0)</ItemMeshSize>
+    <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
     <defName>Astartes_Chainsword</defName>
     <label>Astartes Chainsword</label>
     <description>The Chainsword is the preferred close combat melee weapon of many of the military forces of the Imperium of Man. The Chainsword is essentially a sword with powered teeth that run along a single-edged blade like that of a chainsaw.</description>
 	<graphicData>
 		<texPath>Things/IG/Weapons/Chainsword</texPath>
-		<graphicClass>Graphic_Single</graphicClass>
+		<graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
 		<shaderType>CutoutComplex</shaderType>
+      <drawSize>(1.1,1.1)</drawSize>
 	</graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <costStuffCount>150</costStuffCount>
     <statBases>
+      <Mass>10</Mass>
       <MarketValue>600</MarketValue>
       <WorkToMake>20000</WorkToMake>
-      <MeleeWeapon_DamageAmount>30</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.95</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-45</equippedAngleOffset>
     <stuffCategories>
@@ -55,21 +95,41 @@
     <thingCategories>
       <li>Astartes_Melee</li>
     </thingCategories>
-    <verbs>
-      <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
-      </li>
-    </verbs>
     <recipeMaker>
       <recipeUsers>
         <li>TableMachining</li>
       </recipeUsers>
       <researchPrerequisite>MecTec_ManufacturingLicenceIII</researchPrerequisite>
     </recipeMaker>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>6</power>
+        <cooldownTime>1.6</cooldownTime>
+      </li>
+      <li>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>30</power>
+        <cooldownTime>2.37</cooldownTime>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>2.0</cooldownTime>
+      </li>
+    </tools>
+
     <costList>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
       <MecComponent_Weapon>2</MecComponent_Weapon>
     </costList>
 
@@ -85,16 +145,15 @@
     <description>A Power Sword is a Power Weapon that has been shaped into a sword of varying lengths and designs crafted from one of any number of different materials, though usually Adamantium. When its power cell is activated, often by touching a control located on the hilt, the blade is sheathed in a lethal corona of disruptive energy. This energy field allows the blade to carve through flesh, bone and most forms of armour plate alike, making a Power Sword a highly effective Imperial close combat weapon. This is an Astartes pattern sword.</description>
 	<graphicData>
 		<texPath>Things/Astartes/Weapons/AstartesPowerSword</texPath>
-		<graphicClass>Graphic_Single</graphicClass>
+		<graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
 		<shaderType>CutoutComplex</shaderType>
 	</graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <costStuffCount>150</costStuffCount>
     <statBases>
+      <Mass>10</Mass>
       <MarketValue>2000</MarketValue>
       <WorkToMake>18000</WorkToMake>
-      <MeleeWeapon_DamageAmount>35</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.75</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-45</equippedAngleOffset>
     <stuffCategories>
@@ -106,14 +165,32 @@
     <thingCategories>
       <li>Astartes_Melee</li>
     </thingCategories>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
-        <soundCast>SlashMetal</soundCast>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>6</power>
+        <cooldownTime>1.6</cooldownTime>
       </li>
-    </verbs>
+      <li>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>30</power>
+        <cooldownTime>2.37</cooldownTime>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>2.0</cooldownTime>
+      </li>
+    </tools>
     <recipeMaker>
       <recipeUsers>
         <li>MechanicumAssemblyBench</li>
@@ -121,7 +198,7 @@
       <researchPrerequisite>MecTec_ManufacturingLicenceII</researchPrerequisite>
     </recipeMaker>
     <costList>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
       <MecComponent_Weapon>1</MecComponent_Weapon>
     </costList>
   </ThingDef>
@@ -129,21 +206,20 @@
   <ThingDef ParentName="BaseWeapon_Astartes" Class="FactionColors.FactionItemDef">
     <thingClass>FactionColors.FactionItem</thingClass>
     <ItemMeshSize>(1.0, 1.0, 1.0)</ItemMeshSize>
-    <defName>Astartes_PowerSword</defName>
-    <label>Astartes Power Sword</label>
+    <defName>Astartes_PowerAxe</defName>
+    <label>Astartes Power Axe</label>
     <description>A Power Axe is a Power Weapon that has been shaped into a axe of varying lengths and designs crafted from one of any number of different materials, though usually Adamantium. When its power cell is activated, often by touching a control located on the hilt, the blade is sheathed in a lethal corona of disruptive energy. This energy field allows the blade to carve through flesh, bone and most forms of armour plate alike, making a Power axe a highly effective Imperial close combat weapon. This is an Astartes pattern axe.</description>
 	<graphicData>
 		<texPath>Things/Astartes/Weapons/PowerAxe</texPath>
-		<graphicClass>Graphic_Single</graphicClass>
+		<graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
 		<shaderType>CutoutComplex</shaderType>
 	</graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <costStuffCount>150</costStuffCount>
     <statBases>
+      <Mass>10</Mass>
       <MarketValue>2000</MarketValue>
       <WorkToMake>18000</WorkToMake>
-      <MeleeWeapon_DamageAmount>37</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.25</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-45</equippedAngleOffset>
     <stuffCategories>
@@ -155,14 +231,32 @@
     <thingCategories>
       <li>Astartes_Melee</li>
     </thingCategories>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
-        <soundCast>SlashMetal</soundCast>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>6</power>
+        <cooldownTime>1.6</cooldownTime>
       </li>
-    </verbs>
+      <li>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>30</power>
+        <cooldownTime>2.37</cooldownTime>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>2.0</cooldownTime>
+      </li>
+    </tools>
     <recipeMaker>
       <recipeUsers>
         <li>MechanicumAssemblyBench</li>
@@ -170,7 +264,7 @@
       <researchPrerequisite>MecTec_ManufacturingLicenceII</researchPrerequisite>
     </recipeMaker>
     <costList>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
       <MecComponent_Weapon>1</MecComponent_Weapon>
     </costList>
   </ThingDef>
@@ -184,16 +278,18 @@
     <label>Heavy Bolter</label>
     <description>The current standard-issue heavy bolter.</description>
 	<graphicData>
+      <drawSize>(1.3,1.3)</drawSize>
 		<texPath>Things/Astartes/Weapons/HeavyBolter</texPath>
 		<shaderType>CutoutComplex</shaderType>
-		<graphicClass>Graphic_Single</graphicClass>
+		<graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
 	</graphicData>
-    <soundInteract>InteractRifle</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>10</Mass>
       <WorkToMake>20000</WorkToMake>
       <MarketValue>3000</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
-      <AccuracyShort>0.87</AccuracyShort>
+      <AccuracyTouch>0.68</AccuracyTouch>
+      <AccuracyShort>0.64</AccuracyShort>
       <AccuracyMedium>0.67</AccuracyMedium>
       <AccuracyLong>0.43</AccuracyLong>
       <RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
@@ -208,19 +304,29 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_StandardBolt</projectileDef>
+        <defaultProjectile>Bullet_HeavyBolt</defaultProjectile>
         <warmupTime>4.0</warmupTime>
-        <range>32</range>
-        <burstShotCount>10</burstShotCount>
+        <range>40</range>
+        <burstShotCount>6</burstShotCount>
         <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
         <soundCast>Bolter</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
 		<muzzleFlashScale>15</muzzleFlashScale>
       </li>
     </verbs>
+	<tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>3.0</cooldownTime>
+      </li>
+    </tools>
     <costList>
       <MecComponent_Weapon>1</MecComponent_Weapon>
-      <Component>10</Component>
+      <ComponentIndustrial>10</ComponentIndustrial>
       <Steel>135</Steel>
     </costList>
     <recipeMaker>
@@ -235,15 +341,16 @@
     <label>Astartes Issue Bolter</label>
     <description>The current standard-issue bolter is the .75 calibre Astartes Mark Vb Godwyn Pattern Bolter equiped with Standard Bolts</description>
 	<graphicData>
-		<texPath>Things/IG/Weapons/StandardBolter</texPath>
-		<graphicClass>Graphic_Single</graphicClass>
+		<texPath>Things/Astartes/Weapons/AstartesBolter</texPath>
+		<graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
 	</graphicData>
-    <soundInteract>InteractRifle</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>10</Mass>
       <WorkToMake>20000</WorkToMake>
       <MarketValue>2000</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
-      <AccuracyShort>0.87</AccuracyShort>
+      <AccuracyTouch>0.6</AccuracyTouch>
+      <AccuracyShort>0.67</AccuracyShort>
       <AccuracyMedium>0.77</AccuracyMedium>
       <AccuracyLong>0.53</AccuracyLong>
       <RangedWeapon_Cooldown>0.76</RangedWeapon_Cooldown>
@@ -254,14 +361,24 @@
     <thingCategories>
       <li>Astartes_Ranged</li>
     </thingCategories>
+	<tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2.5</cooldownTime>
+      </li>
+    </tools>
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_StandardBolt</projectileDef>
+        <defaultProjectile>Bullet_AstartesBolt</defaultProjectile>
         <warmupTime>1.7</warmupTime>
-        <range>38</range>
-        <burstShotCount>4</burstShotCount>
+        <range>32</range>
+        <burstShotCount>3</burstShotCount>
         <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
         <soundCast>Bolter</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
@@ -270,7 +387,7 @@
     </verbs>
     <costList>
       <MecComponent_Weapon>1</MecComponent_Weapon>
-      <Component>10</Component>
+      <ComponentIndustrial>10</ComponentIndustrial>
       <Steel>135</Steel>
     </costList>
     <recipeMaker>
@@ -286,12 +403,13 @@
     <description>The current standard-issue bolter is the .75 calibre Astartes Mark Vb Godwyn Pattern Bolter equiped with Standard Bolts</description>
 	<graphicData>
 		<texPath>Things/IG/Weapons/Bolt_Pistol</texPath>
-		<graphicClass>Graphic_Single</graphicClass>
+		<graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
 	</graphicData>
-    <soundInteract>InteractRifle</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>10</Mass>
       <MarketValue>1700</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
+      <AccuracyTouch>0.85</AccuracyTouch>
       <AccuracyShort>0.75</AccuracyShort>
       <AccuracyMedium>0.55</AccuracyMedium>
       <AccuracyLong>0.38</AccuracyLong>
@@ -307,17 +425,27 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_StandardBolt</projectileDef>
-        <warmupTime>1.3</warmupTime>
+        <defaultProjectile>Bullet_AstartesBolt</defaultProjectile>
+        <warmupTime>0.9</warmupTime>
         <range>18</range>
         <soundCast>Bolter</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
 		<muzzleFlashScale>9</muzzleFlashScale>
       </li>
     </verbs>
+	<tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>1.5</cooldownTime>
+      </li>
+    </tools>
     <costList>
       <MecComponent_Weapon>1</MecComponent_Weapon>
-      <Component>7</Component>
+      <ComponentIndustrial>7</ComponentIndustrial>
       <Steel>75</Steel>
     </costList>
     <recipeMaker>
@@ -327,4 +455,4 @@
   </ThingDef>
 
     
- </ThingDefs>
+ </Defs>

@@ -11,7 +11,7 @@ namespace Corruption.DefOfs
     public static class C_MentalStateDefOf
     {
 
-        public static MentalStateDef BingingFood;
+        public static MentalStateDef Binging_Food;
 
         public static MentalStateDef LustViolent;
 

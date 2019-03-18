@@ -1,0 +1,20 @@
+<Patch>
+
+	<Operation Class="PatchOperationInsert">
+	  <xpath>*/ThingDef[defName="Human"]/label</xpath>
+	  <value>
+	      <comps>
+      <li>
+        <compClass>CompAttachBase</compClass>
+      </li>
+	  <li>
+        <compClass>Corruption.CompSoul</compClass>
+      </li>
+	  <li>
+        <compClass>Corruption.CompPsyker</compClass>
+      </li>
+    </comps>
+	  </value>
+	</Operation> 
+
+</Patch>

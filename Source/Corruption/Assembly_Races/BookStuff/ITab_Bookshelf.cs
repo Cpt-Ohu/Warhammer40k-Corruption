@@ -107,7 +107,7 @@ namespace Corruption.BookStuff
                 TooltipHandler.TipRegion(rect2, "DropThing".Translate());
                 if (Widgets.ButtonImage(rect2, dropbutton))
                 {
-                    SoundDefOf.TickHigh.PlayOneShotOnCamera();
+                    SoundDefOf.Tick_High.PlayOneShotOnCamera();
                     this.InterfaceDrop(thingDef, this.Shelf);
                 }
                 rect.width -= 24f;

@@ -12,7 +12,7 @@
     <selectable>true</selectable>
     <drawerType>MapMeshAndRealTime</drawerType>
     <repairEffect>Repair</repairEffect>
-    <filthLeaving>BuildingRubble</filthLeaving>
+    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
     <altitudeLayer>Building</altitudeLayer>
     <pathCost>150</pathCost>
     <blockWind>true</blockWind>
@@ -20,6 +20,7 @@
     <fillPercent>1.0</fillPercent>
     <size>(2,2)</size>
     <statBases>
+      <Mass>200</Mass>
       <MaxHitPoints>50000</MaxHitPoints>
       <Flammability>0</Flammability>
       <Beauty>-100</Beauty>
@@ -29,7 +30,7 @@
     <rotatable>true</rotatable>
     <neverMultiSelect>true</neverMultiSelect>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
     <castEdgeShadows>false</castEdgeShadows>
     <forceDebugSpawnable>true</forceDebugSpawnable>
     <graphicData>

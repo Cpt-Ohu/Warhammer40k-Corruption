@@ -51,5 +51,15 @@
         <joyKind>Worship</joyKind>
     </JobDef>
 
+     <JobDef>
+        <defName>PerformMiracleHeal</defName>
+        <driverClass>Corruption.IoM.JobDriver_MiracleHeal</driverClass>
+        <reportString>healing TargetA.</reportString>
+        <joyDuration>2500</joyDuration>
+        <joyGainRate>2</joyGainRate>
+        <joyMaxParticipants>20</joyMaxParticipants>
+        <joyKind>Worship</joyKind>
+    </JobDef>
+
 
 </Defs>

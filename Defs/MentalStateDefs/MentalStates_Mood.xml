@@ -16,14 +16,14 @@
     <nameColor>(0.9,0.2,0.5)</nameColor>
     <beginLetterLabel>Lust(Violent)</beginLetterLabel>
     <beginLetter>{0} is bent on killing something!</beginLetter>
-    <beginLetterType>BadUrgent</beginLetterType>
+    <beginLetterDef>ThreatSmall</beginLetterDef>
     <minTicksBeforeRecovery>2000</minTicksBeforeRecovery>
     <recoveryMtbDays>0.3</recoveryMtbDays>
     <maxTicksBeforeRecovery>10000</maxTicksBeforeRecovery>
     <recoveryMessage>{0}'s lust for bloodshed has subsided.</recoveryMessage>
     <baseInspectLine>Mental state: Violent Lust</baseInspectLine>
     <recoverFromSleep>true</recoverFromSleep>
-    <recoverFromDowned>true</recoverFromDowned>
+    
   </MentalStateDef>
 
   <MentalStateDef ParentName="BaseMentalState">
@@ -36,14 +36,14 @@
     <nameColor>(0.9,0.2,0.5)</nameColor>
     <beginLetterLabel>Slaughterer!</beginLetterLabel>
     <beginLetter>{0} is going to slaughter prisoners!</beginLetter>
-    <beginLetterType>BadUrgent</beginLetterType>
+    <beginLetterDef>ThreatSmall</beginLetterDef>
     <minTicksBeforeRecovery>4000</minTicksBeforeRecovery>
     <recoveryMtbDays>0.3</recoveryMtbDays>
     <maxTicksBeforeRecovery>10000</maxTicksBeforeRecovery>
     <recoveryMessage>{0}'s lust for bloodshed has subsided.</recoveryMessage>
     <baseInspectLine>Mental state: Killing the weak</baseInspectLine>
     <recoverFromSleep>true</recoverFromSleep>
-    <recoverFromDowned>true</recoverFromDowned>
+    
   </MentalStateDef>
 
 </Defs>

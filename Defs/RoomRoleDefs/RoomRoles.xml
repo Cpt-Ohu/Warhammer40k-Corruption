@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<RoomRoleDefs>
+<Defs>
 
     <RoomRoleDef>
         <defName>WorshipTemple</defName>
@@ -9,9 +9,8 @@
             <li>Beauty</li>
             <li>Cleanliness</li>
             <li>Wealth</li>
-            <li>Space</li>
             <li>Impressiveness</li>
         </relatedStats>
     </RoomRoleDef>
 
-</RoomRoleDefs>
+</Defs>

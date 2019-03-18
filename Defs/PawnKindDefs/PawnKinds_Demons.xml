@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<PawnKindDefs>
+<Defs>
 
   <PawnKindDef Name="DemonBase" Abstract="True">
+   <defName>BaseDemon</defName>
     <bodyGraphicData>
       <shaderType>CutoutComplex</shaderType>
     </bodyGraphicData>
@@ -15,7 +16,7 @@
     <label>Bloodletter</label>
     <race>Demon_Bloodletter</race>
     <combatPower>160</combatPower>
-    <defaultFactionType>ChaosCult</defaultFactionType>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
     <aiAvoidCover>true</aiAvoidCover>
     <lifeStages>
       <li>
@@ -43,7 +44,7 @@
     <label>Plaguebearer</label>
     <race>Demon_Plaguebearer</race>
     <combatPower>160</combatPower>
-    <defaultFactionType>ChaosCult</defaultFactionType>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
     <aiAvoidCover>true</aiAvoidCover>
     <lifeStages>
       <li>
@@ -71,7 +72,7 @@
     <label>Daemonette</label>
     <race>Demon_Daemonette</race>
     <combatPower>160</combatPower>
-    <defaultFactionType>ChaosCult</defaultFactionType>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
     <aiAvoidCover>true</aiAvoidCover>
     <lifeStages>
       <li>
@@ -109,7 +110,7 @@
     <label>Horror</label>
     <race>Demon_Horror</race>
     <combatPower>160</combatPower>
-    <defaultFactionType>ChaosCult</defaultFactionType>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
     <aiAvoidCover>true</aiAvoidCover>
     <lifeStages>
       <li>
@@ -148,7 +149,7 @@
     <label>Demon</label>
     <race>Demon_Undivided</race>
     <combatPower>160</combatPower>
-    <defaultFactionType>ChaosCult</defaultFactionType>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
     <aiAvoidCover>true</aiAvoidCover>
     <lifeStages>
       <li>
@@ -224,4 +225,4 @@
   </PawnKindDef>
 
 
-</PawnKindDefs>
+</Defs>

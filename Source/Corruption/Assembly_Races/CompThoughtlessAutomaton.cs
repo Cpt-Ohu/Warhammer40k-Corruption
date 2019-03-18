@@ -22,25 +22,28 @@ namespace Corruption
             }
         }
 
-        public override void PostSpawnSetup()
+        public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            base.PostSpawnSetup();           
+            base.PostSpawnSetup(respawningAfterLoad);           
         }
 
         public override void CompTick()
         {
             RemoveAutomatonNeed(C_NeedDefOf.Beauty);
             RemoveAutomatonNeed(C_NeedDefOf.Comfort);
-            RemoveAutomatonNeed(C_NeedDefOf.Space);
-            if (this.pawn.needs.joy != null)
-            {
-                this.pawn.needs.joy.CurLevel = 0.9f;
-            }
+            RemoveAutomatonNeed(C_NeedDefOf.RoomSize);
+            RemoveAutomatonNeed(NeedDefOf.Joy);
+           // RemoveAutomatonNeed(NeedDefOf.Food);
+            //if (this.pawn.needs.joy != null)
+            //{
+            //    this.pawn.needs.joy.CurLevel = 0.9f;
+            //}
         }
 
         private void RemoveAutomatonNeed(NeedDef nd)
         {
             Need item = pawn.needs.TryGetNeed(nd);
+            if (item != null)
             this.pawn.needs.AllNeeds.Remove(item);
         }
     }

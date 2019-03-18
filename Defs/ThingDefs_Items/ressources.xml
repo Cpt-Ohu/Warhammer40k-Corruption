@@ -36,6 +36,7 @@
     <soundDrop>Metal_Drop</soundDrop>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>1.5</Mass>
       <MarketValue>200.0</MarketValue>
       <SharpDamageMultiplier>1</SharpDamageMultiplier>
       <BluntDamageMultiplier>1</BluntDamageMultiplier>
@@ -50,14 +51,14 @@
       </categories>
       <constructEffect>ConstructMetal</constructEffect>
       <color>(220,210,178)</color>
-      <soundImpactStuff>BulletImpactMetal</soundImpactStuff>
+      <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
       <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
       <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
       <statFactors>
         <MaxHitPoints>1</MaxHitPoints>
         <Beauty>3</Beauty>
         <Flammability>0.2</Flammability>
-        <MeleeWeapon_Cooldown>0.7</MeleeWeapon_Cooldown>
+        <MeleeWeapon_CooldownMultiplier>0.7</MeleeWeapon_CooldownMultiplier>
       </statFactors>
       <smeltable>false</smeltable>
     </stuffProps>
@@ -76,6 +77,7 @@
     <soundInteract>Metal_Drop</soundInteract>
     <soundDrop>Metal_Drop</soundDrop>
     <statBases>
+      <Mass>1.5</Mass>
       <MarketValue>50.0</MarketValue>
       <ArmorRating_Heat>1.3</ArmorRating_Heat>
     </statBases>
@@ -89,7 +91,7 @@
       </categories>
       <constructEffect>ConstructMetal</constructEffect>
       <color>(180,190,191)</color>
-      <soundImpactStuff>BulletImpactMetal</soundImpactStuff>
+      <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
       <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
       <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
       <statFactors>
@@ -115,6 +117,7 @@
     <soundDrop>Metal_Drop</soundDrop>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>1.5</Mass>
       <MarketValue>50.0</MarketValue>
       <ArmorRating_Sharp>1.1</ArmorRating_Sharp>
       <ArmorRating_Heat>1.4</ArmorRating_Heat>
@@ -129,14 +132,14 @@
       </categories>
       <constructEffect>ConstructMetal</constructEffect>
       <color>(70,70,70)</color>
-      <soundImpactStuff>BulletImpactMetal</soundImpactStuff>
+      <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
       <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
       <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
       <statFactors>
         <MaxHitPoints>1</MaxHitPoints>
         <Beauty>3</Beauty>
         <Flammability>0.2</Flammability>
-        <MeleeWeapon_Cooldown>0.7</MeleeWeapon_Cooldown>
+        <MeleeWeapon_CooldownMultiplier>0.7</MeleeWeapon_CooldownMultiplier>
       </statFactors>
       <smeltable>false</smeltable>
     </stuffProps>
@@ -157,6 +160,7 @@
     <stackLimit>75</stackLimit>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>1.5</Mass>
       <MaxHitPoints>50</MaxHitPoints>
       <MarketValue>0.5</MarketValue>
       <Flammability>1.0</Flammability>
@@ -167,4 +171,321 @@
     </thingCategories>
   </ThingDef>
 
+  <ThingDef ParentName="ResourceBase">
+    <defName>IoM_ServitorFuel</defName>
+    <label>Servitor Refueling Unit</label>
+    <description>A set of power crystals and concentrated nutrient tubes used to keep servitors running.</description>
+    <graphicData>
+      <texPath>Things/Mechanicus/Templates/MecTemplate_ServitorFuel</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Wood_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>10</stackLimit>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <Mass>1.5</Mass>
+      <MaxHitPoints>50</MaxHitPoints>
+      <MarketValue>0.1</MarketValue>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <intricate>false</intricate>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+  </ThingDef>
+  
+  
+  <ThingDef ParentName="ResourceBase" Name="ResourcePackBase" Abstract="True">
+    <defName>ResPack</defName>
+    <label>Resource Pack</label>
+    <description>Miscellaneous gears, capacitors, circuit boards, tubes, wheels, sensors, wires, chips, processors, and other electronic and industrial parts. Necessary for assembling complex machines or electronics.</description>
+    <graphicData>
+      <texPath>Things/IoM/Containers/TitheContainerBig</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,1)</drawSize>
+    </graphicData>
+	<size>(2,1)</size>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>1</stackLimit>
+    <alwaysHaulable>true</alwaysHaulable>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>500</MarketValue>
+      <Mass>12</Mass>
+      <Flammability>1.0</Flammability>
+			<DeteriorationRate>1.0</DeteriorationRate>
+		</statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>	
+    <costList>
+      <Steel>100</Steel>
+    </costList>	
+  </ThingDef>
+  
+  
+  <ThingDef ParentName="ResourcePackBase" Name="ResourcePackMakeable" Abstract="True">
+    <defName>ResPackMakeable</defName>
+    <costList>
+      <Steel>100</Steel>
+    </costList>
+	 <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>	  
+      <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+      <defaultIngredientFilter>
+        <categories>
+          <li>Root</li>
+        </categories>
+      </defaultIngredientFilter>
+    </recipeMaker>
+	
+  </ThingDef>
+  
+  
+  <ThingDef ParentName="ResourcePackBase">
+    <defName>ResPackSteel</defName>
+    <thingClass>Corruption.IoM.ResourcePack</thingClass>
+    <label>Resource Pack (Steel)</label>
+    <description>A container holding raw steel.</description>
+    <graphicData>
+      <texPath>Things/IoM/Containers/Crate_Blue</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+	
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>500</MarketValue>
+      <Mass>12</Mass>
+		</statBases>
+		<comps>
+      <li Class="Corruption.IoM.CompProperties_ResourcePack">
+        <Capacity>500</Capacity>
+		<filters>
+         <li>
+         <thingDefs>
+           <li>Steel</li>
+         </thingDefs>		  
+		 </li>
+		</filters>
+		</li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="ResourcePackMakeable">
+    <defName>ResPackRawMaterials</defName>
+    <thingClass>Corruption.IoM.ResourcePack</thingClass>
+    <label>Resource Pack (Raw Materials)</label>
+    <description>A container holding raw resources.</description>
+    <graphicData>
+      <texPath>Things/IoM/Containers/Crate_Blue</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+	
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>500</MarketValue>
+      <Mass>12</Mass>
+		</statBases>
+		<comps>
+      <li Class="Corruption.IoM.CompProperties_ResourcePack">
+        <Capacity>1000</Capacity>
+		<filters>
+         <li>
+         <categories>
+           <li>ResourcesRaw</li>
+         </categories>		  
+		 </li>
+		</filters>
+		</li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="ResourcePackMakeable">
+    <defName>ResPackBuildingMaterials</defName>
+    <thingClass>Corruption.IoM.ResourcePack</thingClass>
+    <label>Resource Pack (Building Materials)</label>
+    <description>A container holding building materials.</description>
+    <graphicData>
+      <texPath>Things/IoM/Containers/Crate_Blue</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+	
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>500</MarketValue>
+      <Mass>12</Mass>
+		</statBases>
+		<comps>
+      <li Class="Corruption.IoM.CompProperties_ResourcePack">
+        <Capacity>1000</Capacity>
+		<filters>
+         <li>
+         <categories>
+           <li>StoneBlocks</li>
+         </categories>		  
+		 </li>
+		 <li>
+         <thingDefs>
+           <li>IG_SynthAgent</li>
+         </thingDefs>
+		 </li>
+		</filters>
+		</li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="ResourcePackMakeable">
+    <defName>ResPackFoodRations</defName>
+    <thingClass>Corruption.IoM.ResourcePack</thingClass>
+    <label>Resource Pack (Rations)</label>
+    <description>A container holding emergency rations.</description>
+    <graphicData>
+      <texPath>Things/IoM/Containers/Crate_Green</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+	
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>500</MarketValue>
+      <Mass>12</Mass>
+		</statBases>
+		<comps>
+      <li Class="Corruption.IoM.CompProperties_ResourcePack">
+        <Capacity>50</Capacity>
+		<filters>
+		 <li>
+         <thingDefs>
+           <li>MealNutrientPaste</li>
+           <li>MealSurvivalPack</li>  
+         </thingDefs>
+		 </li>
+		</filters>
+		</li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="ResourcePackMakeable">
+    <defName>ResPackRawAgri</defName>
+    <label>Resource Pack (Agri-Products)</label>
+    <description>A container holding various agricultural products.</description>
+    <graphicData>
+      <texPath>Things/IoM/Containers/Crate_Green</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>500</MarketValue>
+      <Mass>12</Mass>
+		</statBases>
+		<comps>
+      <li Class="Corruption.IoM.CompProperties_ResourcePack">
+        <Capacity>500</Capacity>		
+		<filters>
+         <li>
+         <categories>
+           <li>PlantFoodRaw</li>
+           <li>AnimalProductRaw</li>
+         </categories>		  
+		 </li>
+		</filters>
+      </li>
+    </comps>
+  </ThingDef>	 
+
+   <ThingDef ParentName="ResourcePackMakeable">
+    <defName>ResPackTextiles</defName>
+    <label>Resource Pack (Textiles)</label>
+    <description>A container holding various pieces of fabric.</description>
+    <graphicData>
+      <texPath>Things/IoM/Containers/Crate_Blue</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>500</MarketValue>
+      <Mass>12</Mass>
+		</statBases>
+		<comps>
+      <li Class="Corruption.IoM.CompProperties_ResourcePack">
+        <Capacity>50</Capacity>
+			
+		<filters>
+         <li>
+         <categories>
+           <li>Textiles</li>
+           <li>Leathers</li>
+         </categories>		  
+		 </li>
+		</filters>
+      </li>
+    </comps>
+  </ThingDef>	
+    
+   <ThingDef ParentName="ResourcePackMakeable">
+    <defName>ResPackMedicineIndustrial</defName>
+    <label>Resource Pack (Medicine)</label>
+    <description>A container holding medicinal products.</description>
+    <graphicData>
+      <texPath>Things/IoM/Containers/Crate_Neutral</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>800</MarketValue>
+      <Mass>12</Mass>
+		</statBases>
+		<comps>
+      <li Class="Corruption.IoM.CompProperties_ResourcePack">
+        <Capacity>50</Capacity>
+			
+		<filters>
+         <li>
+         <categories>
+           <li>Medicine</li>
+         </categories>		  
+		 </li>
+		</filters>
+      </li>
+    </comps>
+  </ThingDef>	
+  
+  <ThingDef ParentName="ResourcePackBase">
+    <defName>ResPackWeapons</defName>
+    <label>Resource Pack (Weapons)</label>
+    <description>A container holding weapons.</description>
+    <graphicData>
+      <texPath>Things/IoM/Containers/Crate_Red</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>900</MarketValue>
+      <Mass>12</Mass>
+		</statBases>
+		<comps>
+      <li Class="Corruption.IoM.CompProperties_ResourcePack">
+        <Capacity>10</Capacity>	
+		<filters>
+         <li>
+         <categories>
+           <li>IG_Melee</li>
+           <li>IG_Ranged</li>
+         </categories>		  
+		 </li>
+		</filters>
+      </li>
+    </comps>
+  </ThingDef>	
+
+  
+  
 </Defs>

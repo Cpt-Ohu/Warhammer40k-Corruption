@@ -8,12 +8,14 @@ namespace Corruption
 {
 
     public class DamageWorker_HealMiracle : DamageWorker
-    {
-        public override float Apply(DamageInfo dinfo, Thing thing)
+    {        
+
+        public override DamageResult Apply(DamageInfo dinfo, Thing victim)
         {
-            Pawn pawn = thing as Pawn;
+            Pawn pawn = victim as Pawn;
             if (pawn != null)
             {
+                DamageResult result = new DamageResult();
                 IEnumerable<Hediff> source = pawn.health.hediffSet.GetHediffs<Hediff>();
                 if (source != null)
                 {
@@ -26,8 +28,9 @@ namespace Corruption
                         hediff.Severity -= dinfo.Amount;
                     }
                 }
+                return result;
             }
-            return 0f;
+            return base.Apply(dinfo, victim);
         }
     }
 }

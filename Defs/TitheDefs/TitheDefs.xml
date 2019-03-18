@@ -9,6 +9,7 @@
       <li>ResourcesRaw</li>
     </categoryDefs>
     <fixedTitheThings>
+      <li>ResPackRawMaterials</li>
     </fixedTitheThings>
     <excludedTitheThings>
     </excludedTitheThings>
@@ -27,6 +28,7 @@
     </categoryDefs>
     <fixedTitheThings>
       <li>MealNutrientPaste</li>
+      <li>ResPackRawAgri</li>
     </fixedTitheThings>
     <optionalTithe>false</optionalTithe>
   </Def>
@@ -61,7 +63,7 @@
   </Def>
 
   <Def Class="Corruption.Tithes.TitheDef">
-    <defName>TitheMedicine</defName>
+    <defName>TitheMedicineIndustrial</defName>
     <label>medicinal products</label>
     <wealthFactor>0.1</wealthFactor>
     <categoryDefs>
@@ -70,7 +72,7 @@
     <fixedTitheThings>
     </fixedTitheThings>
     <excludedTitheThings>
-      <li>HerbalMedicine</li>
+      <li>MedicineHerbal</li>
     </excludedTitheThings>
     <optionalTithe>true</optionalTithe>
   </Def>

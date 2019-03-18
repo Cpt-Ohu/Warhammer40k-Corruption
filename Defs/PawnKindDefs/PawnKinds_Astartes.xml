@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<PawnKindDefs>
+<Defs>
 
   <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
     <defName>Astartes_BattleBrotherAssault</defName>
@@ -7,7 +7,7 @@
     <race>Alien_Astartes</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
-    <backstoryCategory>Astartes</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>Astartes</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
@@ -20,7 +20,7 @@
       <li>Astartes_Armor</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>900</min>
       <max>2500</max>
@@ -41,11 +41,28 @@
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
       <ResolveFactor>1.5</ResolveFactor>
     </AfflictionProperty>
-    <AdditionalImplantCount>
-        <min>7</min>
-        <max>12</max>
-</AdditionalImplantCount>
-  </PawnKindDef>
+    <ForcedStartingImplantRecipes>
+      <li>InstallSecondHeart_MSU</li>
+      <li>InstallOssmodula_MSU</li>
+      <li>InstallBiscorpea_MSU</li>
+      <li>InstallHaemastamen_MSU</li>
+      <li>InstalLarramansOrgan_MSU</li>
+      <li>InstallCatalepseanNode_MSU</li>
+      <li>InstallPreomnor_MSU</li>
+      <li>InstallOmophagea_MSU</li>
+      <li>InstallMultiLung_MSU</li>
+      <li>InstallOcculobe_MSU</li>
+      <li>InstallLymansEar_MSU</li>
+      <li>InstallSusanMembrane_MSU</li>
+      <li>InstallMelanchromicOrgan_MSU</li>
+      <li>InstallOoliticKidney_MSU</li>
+      <li>InstallNeuroglottis_MSU</li>
+      <li>InstallMucranoid_MSU</li>
+      <li>InstallBetchersGlands_MSU</li>
+      <li>InstallProgenoid_MSU</li>
+      <li>InstallBlackCarpace_MSU</li>
+    </ForcedStartingImplantRecipes>  
+</PawnKindDef>
 
 
   <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
@@ -54,7 +71,7 @@
     <race>Alien_Astartes</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
-    <backstoryCategory>Astartes</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>Astartes</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
@@ -67,7 +84,7 @@
       <li>Astartes_Armor</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>5000</min>
       <max>5000</max>
@@ -88,11 +105,29 @@
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
       <ResolveFactor>1.5</ResolveFactor>
     </AfflictionProperty>
-    <AdditionalImplantCount>
-        <min>7</min>
-        <max>12</max>
-</AdditionalImplantCount>
-  </PawnKindDef>
+    <ForcedStartingImplantRecipes>
+      <li>InstallSecondHeart_MSU</li>
+      <li>InstallOssmodula_MSU</li>
+      <li>InstallBiscorpea_MSU</li>
+      <li>InstallHaemastamen_MSU</li>
+      <li>InstalLarramansOrgan_MSU</li>
+      <li>InstallHaemastamen_MSU</li>
+      <li>InstalLarramansOrgan_MSU</li>
+      <li>InstallCatalepseanNode_MSU</li>
+      <li>InstallPreomnor_MSU</li>
+      <li>InstallOmophagea_MSU</li>
+      <li>InstallMultiLung_MSU</li>
+      <li>InstallOcculobe_MSU</li>
+      <li>InstallLymansEar_MSU</li>
+      <li>InstallSusanMembrane_MSU</li>
+      <li>InstallMelanchromicOrgan_MSU</li>
+      <li>InstallOoliticKidney_MSU</li>
+      <li>InstallNeuroglottis_MSU</li>
+      <li>InstallMucranoid_MSU</li>
+      <li>InstallBetchersGlands_MSU</li>
+      <li>InstallProgenoid_MSU</li>
+</ForcedStartingImplantRecipes>  
+</PawnKindDef>
 
   <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
     <defName>Astartes_BattleBrotherDevastator</defName>
@@ -100,7 +135,7 @@
     <race>Alien_Astartes</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
-    <backstoryCategory>Astartes</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>Astartes</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
@@ -113,7 +148,7 @@
       <li>Astartes_Armor</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>5000</min>
       <max>5000</max>
@@ -133,11 +168,28 @@
       <LowerAfflictionLimit>0.6</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
       <ResolveFactor>1.5</ResolveFactor>
-    </AfflictionProperty>
-    <AdditionalImplantCount>
-        <min>7</min>
-        <max>12</max>
-</AdditionalImplantCount>
+    </AfflictionProperty>    <ForcedStartingImplantRecipes>
+      <li>InstallSecondHeart_MSU</li>
+      <li>InstallOssmodula_MSU</li>
+      <li>InstallBiscorpea_MSU</li>
+      <li>InstallHaemastamen_MSU</li>
+      <li>InstalLarramansOrgan_MSU</li>
+      <li>InstallHaemastamen_MSU</li>
+      <li>InstalLarramansOrgan_MSU</li>
+      <li>InstallCatalepseanNode_MSU</li>
+      <li>InstallPreomnor_MSU</li>
+      <li>InstallOmophagea_MSU</li>
+      <li>InstallMultiLung_MSU</li>
+      <li>InstallOcculobe_MSU</li>
+      <li>InstallLymansEar_MSU</li>
+      <li>InstallSusanMembrane_MSU</li>
+      <li>InstallMelanchromicOrgan_MSU</li>
+      <li>InstallOoliticKidney_MSU</li>
+      <li>InstallNeuroglottis_MSU</li>
+      <li>InstallMucranoid_MSU</li>
+      <li>InstallBetchersGlands_MSU</li>
+      <li>InstallProgenoid_MSU</li>
+</ForcedStartingImplantRecipes> 
   </PawnKindDef>
 
   <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
@@ -146,7 +198,7 @@
     <race>Alien_Astartes</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
-    <backstoryCategory>Astartes</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>Astartes</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
@@ -160,7 +212,7 @@
       <li>Astartes_Armor</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>5000</min>
       <max>5000</max>
@@ -182,10 +234,28 @@
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
       <ResolveFactor>1.5</ResolveFactor>
     </AfflictionProperty>
-    <AdditionalImplantCount>
-        <min>7</min>
-        <max>12</max>
-</AdditionalImplantCount>
+    <ForcedStartingImplantRecipes>
+      <li>InstallSecondHeart_MSU</li>
+      <li>InstallOssmodula_MSU</li>
+      <li>InstallBiscorpea_MSU</li>
+      <li>InstallHaemastamen_MSU</li>
+      <li>InstalLarramansOrgan_MSU</li>
+      <li>InstallHaemastamen_MSU</li>
+      <li>InstalLarramansOrgan_MSU</li>
+      <li>InstallCatalepseanNode_MSU</li>
+      <li>InstallPreomnor_MSU</li>
+      <li>InstallOmophagea_MSU</li>
+      <li>InstallMultiLung_MSU</li>
+      <li>InstallOcculobe_MSU</li>
+      <li>InstallLymansEar_MSU</li>
+      <li>InstallSusanMembrane_MSU</li>
+      <li>InstallMelanchromicOrgan_MSU</li>
+      <li>InstallOoliticKidney_MSU</li>
+      <li>InstallNeuroglottis_MSU</li>
+      <li>InstallMucranoid_MSU</li>
+      <li>InstallBetchersGlands_MSU</li>
+      <li>InstallProgenoid_MSU</li>
+</ForcedStartingImplantRecipes> 
   </PawnKindDef>
 
-</PawnKindDefs>
+</Defs>

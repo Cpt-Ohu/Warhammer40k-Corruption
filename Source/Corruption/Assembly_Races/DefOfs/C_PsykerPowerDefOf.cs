@@ -10,5 +10,6 @@ namespace Corruption.DefOfs
     public static class C_PsykerPowerDefOf
     {
         public static PsykerPowerDef PsykerPower_WarpBolt;
+        public static PsykerPowerDef PsykerPower_ProbeMind;
     }
 }

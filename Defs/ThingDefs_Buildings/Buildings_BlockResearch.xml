@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef Name="40kResearchBlocker">
+    <defName>40kResearchBlocker</defName>
+    <thingClass>Building</thingClass>
+    <label>Unknown research facility</label>
+    <category>Building</category>
+    <selectable>false</selectable>
+    <drawerType>None</drawerType>
+    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+		<scatterableOnMapGen>false</scatterableOnMapGen>
+	</ThingDef>
+
+</Defs>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <ThingDef Name="OrkMeleeWeapon" ParentName="BaseMeleeWeaponNoTag" Abstract="True">
     <recipeMaker>
@@ -7,11 +7,11 @@
       <categories>
         <li>Root</li>
       </categories>
-      <exceptedThingDefs>
+      <disallowedThingDefs>
         <li>Silver</li>
         <li>Gold</li>
         <li>WoodLog</li>
-      </exceptedThingDefs>
+      </disallowedThingDefs>
     </defaultIngredientFilter>
     </recipeMaker>
     <weaponTags>
@@ -21,6 +21,11 @@
       <li>Ork_Melee</li>
     </thingCategories>
     <tradeability>Sellable</tradeability>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+     </comps>
   </ThingDef>
 
   <ThingDef Name="BaseOrkGun" ParentName="BaseMakeableGun" Abstract="True">
@@ -41,7 +46,7 @@
     <label>Ork bullet</label>
     <projectile>
       <damageDef>Bullet</damageDef>
-      <damageAmountBase>22</damageAmountBase>
+      <damageAmountBase>23</damageAmountBase>
       <speed>60</speed>
     </projectile>
     <graphicData>
@@ -59,14 +64,16 @@
     <description>Xenotech bolt-action rifle. Unstable, but powerful.</description>
     <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
     <graphicData>
+      <drawSize>(1.1,1.1)</drawSize>
       <texPath>Things/Orks/Weapons/OrkShoota</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <soundInteract>InteractRifle</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>5</Mass>
       <WorkToMake>50000</WorkToMake>
       <MarketValue>400</MarketValue>
-      <AccuracyTouch>0.55</AccuracyTouch>
+      <AccuracyTouch>0.76</AccuracyTouch>
       <AccuracyShort>0.76</AccuracyShort>
       <AccuracyMedium>0.76</AccuracyMedium>
       <AccuracyLong>0.70</AccuracyLong>
@@ -74,18 +81,18 @@
     </statBases>
     <costList>
       <Steel>90</Steel>
-      <Component>3</Component>
+      <ComponentIndustrial>3</ComponentIndustrial>
     </costList>
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Ork</projectileDef>
+        <defaultProjectile>Bullet_Ork</defaultProjectile>
         <warmupTime>2.4</warmupTime>
         <range>20</range>
         <burstShotCount>4</burstShotCount>
         <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
-        <soundCast>ShotSurvivalRifle</soundCast>
+        <soundCast>Shot_BoltActionRifle</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
       </li>
@@ -101,15 +108,16 @@
     <ItemMeshSize>(1.5, 1.5, 1.5)</ItemMeshSize>
     <description>A heavy-duty ork machine gun.</description>
     <graphicData>
+      <drawSize>(2.5,2.5)</drawSize>
       <texPath>Things/Orks/Weapons/OrkDeffgun</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-	 <drawSize>1.3</drawSize>
     </graphicData>
-    <soundInteract>InteractRifle</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>5</Mass>
       <WorkToMake>90000</WorkToMake>
       <MarketValue>800</MarketValue>
-      <AccuracyTouch>0.40</AccuracyTouch>
+      <AccuracyTouch>0.4</AccuracyTouch>
       <AccuracyShort>0.54</AccuracyShort>
       <AccuracyMedium>0.31</AccuracyMedium>
       <AccuracyLong>0.15</AccuracyLong>
@@ -117,18 +125,18 @@
     </statBases>
     <costList>
       <Steel>150</Steel>
-      <Component>4</Component>
+      <ComponentIndustrial>4</ComponentIndustrial>
     </costList>
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_LMG</projectileDef>
-        <warmupTime>2</warmupTime>
-        <range>25</range>
+        <defaultProjectile>Bullet_Ork</defaultProjectile>
+        <warmupTime>2.5</warmupTime>
+        <range>30</range>
         <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
-        <burstShotCount>6</burstShotCount>
-        <soundCast>ShotMinigun</soundCast>
+        <burstShotCount>8</burstShotCount>
+        <soundCast>Shot_Minigun</soundCast>
         <soundCastTail>GunTail_Medium</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
       </li>
@@ -147,7 +155,7 @@
     <thingClass>Projectile_Explosive</thingClass>
     <projectile>
       <damageDef>Bomb</damageDef>
-      <damageAmountBase>30</damageAmountBase>
+      <damageAmountBase>40</damageAmountBase>
       <explosionRadius>3.0</explosionRadius>
       <speed>50</speed>
     </projectile>
@@ -156,17 +164,20 @@
   <ThingDef ParentName="BaseGun" Class="FactionColors.FactionItemDef">
     <thingClass>FactionColors.FactionItem</thingClass>
     <defName>OrkRocketeer</defName>
+    <tickerType>Normal</tickerType>
     <label>ork rocket launcher</label>
     <description>An ork rocket launcher. Very inaccurate, but dangerous nonetheless.</description>
     <ItemMeshSize>(1.5, 1.5, 1.5)</ItemMeshSize>
     <graphicData>
+      <drawSize>(1.5,1.5)</drawSize>
       <texPath>Things/Orks/Weapons/OrkRocketeer</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <statBases>
+      <Mass>5</Mass>
       <MarketValue>1000</MarketValue>
-      <AccuracyTouch>0.4</AccuracyTouch>
-      <AccuracyShort>0.6</AccuracyShort>
+      <AccuracyTouch>0.3</AccuracyTouch>
+      <AccuracyShort>0.33</AccuracyShort>
       <AccuracyMedium>0.72</AccuracyMedium>
       <AccuracyLong>0.68</AccuracyLong>
       <RangedWeapon_Cooldown>4.5</RangedWeapon_Cooldown>
@@ -176,7 +187,7 @@
     </recipeMaker>
     <costList>
       <Steel>190</Steel>
-      <Component>5</Component>
+      <ComponentIndustrial>5</ComponentIndustrial>
     </costList>-->
     <techLevel>Spacer</techLevel>
     <destroyOnDrop>false</destroyOnDrop>
@@ -188,14 +199,14 @@
     </tradeTags>
     <verbs>
       <li>
-        <verbClass>Verb_ShootOneUse</verbClass>
+        <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_OrkRocket</projectileDef>
-        <forcedMissRadius>3.0</forcedMissRadius>
-        <warmupTime>5</warmupTime>
+        <defaultProjectile>Bullet_OrkRocket</defaultProjectile>
+        <forcedMissRadius>2.2</forcedMissRadius>
+        <warmupTime>3</warmupTime>
         <range>40</range>
         <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
-        <burstShotCount>3</burstShotCount>
+        <burstShotCount>1</burstShotCount>
         <soundCast>InfernoCannon_Fire</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
         <stopBurstWithoutLos>false</stopBurstWithoutLos>
@@ -205,6 +216,13 @@
         <muzzleFlashScale>14</muzzleFlashScale>
       </li>
     </verbs>
+	    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2.66</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+      </li>
+    </comps>
   </ThingDef>
 
 
@@ -222,22 +240,26 @@
       <damageAmountBase>40</damageAmountBase>
       <explosionDelay>100</explosionDelay>
     </projectile>
+	
   </ThingDef>
 
   <ThingDef ParentName="BaseEquipment" Class="FactionColors.FactionItemDef">
     <thingClass>FactionColors.FactionItem</thingClass>
     <defName>Weapon_OrkStikkBomb</defName>
+    <tickerType>Normal</tickerType>
     <equipmentType>Primary</equipmentType>
     <label>frag grenades</label>
     <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
     <description>Crude explosives used by orks.</description>
     <graphicData>
+      <drawSize>(1.1,1.1)</drawSize>
       <texPath>Things/Orks/Weapons/OrkStikkBombEQ</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <soundInteract>InteractGrenade</soundInteract>
+    <soundInteract>Interact_Grenade</soundInteract>
     <techLevel>Industrial</techLevel>
     <statBases>
+      <Mass>5</Mass>
       <MarketValue>400</MarketValue>
       <RangedWeapon_Cooldown>2.66</RangedWeapon_Cooldown>
     </statBases>
@@ -248,22 +270,31 @@
       <li>Grenades</li>
     </thingCategories>
     <verbs>
-      <li>
-        <label>throw stikkbomb</label>
-        <verbClass>Verb_LaunchProjectile</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <range>12.9</range>
-        <forcedMissRadius>1.0</forcedMissRadius>
-        <warmupTime>1.5</warmupTime>
-        <noiseRadius>4</noiseRadius>
-        <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
-        <soundCast>ThrowGrenade</soundCast>
-        <targetParams>
-          <canTargetLocations>true</canTargetLocations>
-        </targetParams>
-        <projectileDef>Proj_Stikkbomb</projectileDef>
-      </li>
+			<li>
+				<label>throw stikkbomb</label>
+				<verbClass>Verb_LaunchProjectile</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<range>10.9</range>
+				<forcedMissRadius>2.5</forcedMissRadius>
+				<warmupTime>1.5</warmupTime>
+				<noiseRadius>4</noiseRadius>
+				<ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+				<soundCast>ThrowGrenade</soundCast>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<defaultProjectile>Proj_GrenadeFrag</defaultProjectile>
+        <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+			</li>
     </verbs>
+	
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2.66</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+      </li>
+    </comps>
     <smeltProducts>
       <Steel>10</Steel>
     </smeltProducts>
@@ -276,11 +307,13 @@
     <description>Xenotech flamethrower. Unstable, but powerful.</description>
     <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
     <graphicData>
+      <drawSize>(1.1,1.1)</drawSize>
       <texPath>Things/Orks/Weapons/OrkFlamer</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <soundInteract>InteractRifle</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>5</Mass>
       <WorkToMake>50000</WorkToMake>
       <MarketValue>400</MarketValue>
       <AccuracyTouch>0.75</AccuracyTouch>
@@ -291,15 +324,15 @@
     </statBases>
     <costList>
       <Steel>90</Steel>
-      <Component>3</Component>
+      <ComponentIndustrial>3</ComponentIndustrial>
     </costList>
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_FlameThrower</projectileDef>
+        <defaultProjectile>Bullet_FlameThrower</defaultProjectile>
         <warmupTime>2.3</warmupTime>
-        <range>6</range>
+        <range>10</range>
         <burstShotCount>20</burstShotCount>
         <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
         <soundCast>FlameThrower</soundCast>
@@ -318,27 +351,38 @@
     <description>Xenotech melee weapon. Unwieldy and crude.</description>
     <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
     <graphicData>
+      <drawSize>(1.1,1.1)</drawSize>
       <texPath>Things/Orks/Weapons/OrkChoppa</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>5</Mass>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>100</MarketValue>
-      <MeleeWeapon_DamageAmount>10</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.0</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-65</equippedAngleOffset>
-    <verbs>
+	<tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>14</power>
+        <cooldownTime>1.25</cooldownTime>
       </li>
-    </verbs>
+	   <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>1.95</cooldownTime>
+      </li>
+    </tools>
     <costList>
       <Steel>30</Steel>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <weaponTags>
       <li>Ork_Melee</li>
@@ -352,63 +396,38 @@
     <description>Xenotech melee weapon. Unwieldy and crude.</description>
     <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
     <graphicData>
+      <drawSize>(1.2,1.2)</drawSize>
       <texPath>Things/Orks/Weapons/OrkBigChoppa</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>5</Mass>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>100</MarketValue>
-      <MeleeWeapon_DamageAmount>12</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.0</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-65</equippedAngleOffset>
-    <verbs>
+	<tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
-        <soundCast>SlashMetal</soundCast>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>33</power>
+        <cooldownTime>3.55</cooldownTime>
       </li>
-    </verbs>
+	   <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>1.95</cooldownTime>
+      </li>
+    </tools>
     <costList>
       <Steel>70</Steel>
-      <Component>1</Component>
-    </costList>
-    <weaponTags>
-      <li>Ork_Melee</li>
-    </weaponTags>
-  </ThingDef>
-
-  <ThingDef ParentName="OrkMeleeWeapon" Class="FactionColors.FactionItemDef">
-    <thingClass>FactionColors.FactionItem</thingClass>
-    <defName>Ork_Chainaxe</defName>
-    <label>Ork Choppa</label>
-    <description>Xenotech melee weapon. Unwieldy and crude.</description>
-    <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
-    <graphicData>
-      <texPath>Things/Orks/Weapons/ChoppaSaw</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <shaderType>CutoutComplex</shaderType>
-    </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
-    <statBases>
-      <WorkToMake>1140000</WorkToMake>
-      <MarketValue>100</MarketValue>
-      <MeleeWeapon_DamageAmount>14</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.1</MeleeWeapon_Cooldown>
-    </statBases>
-    <equippedAngleOffset>-65</equippedAngleOffset>
-    <verbs>
-      <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
-      </li>
-    </verbs>
-    <costList>
-      <Steel>75</Steel>
-      <Component>2</Component>
+      <ComponentIndustrial>1</ComponentIndustrial>
     </costList>
     <weaponTags>
       <li>Ork_Melee</li>
@@ -417,4 +436,6 @@
 
 
 
-</ThingDefs>
+
+
+</Defs>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<Corruption.IoM.SupplyDropDef>
+    <defName>SteelReward</defName>
+    <label>Steel</label>
+    <description>A pack of steel and some components.</description>
+    <RelationCost>5</RelationCost>
+	<Supplies>
+		<li>
+			<Def>Steel</Def>
+			<Count>750</Count>
+		</li>
+		<li>
+			<Def>ComponentIndustrial</Def>
+			<Count>25</Count>
+		</li>
+	</Supplies>
+  </Corruption.IoM.SupplyDropDef>
+  
+  <Corruption.IoM.SupplyDropDef>
+    <defName>SilverRewardSmall</defName>
+    <label>Credits (Small)</label>
+    <description>A sum of 150 silver.</description>
+    <RelationCost>5</RelationCost>
+	<Supplies>
+		<li>
+			<Def>Silver</Def>
+			<Count>150</Count>
+		</li>
+	</Supplies>
+  </Corruption.IoM.SupplyDropDef>
+  
+  <Corruption.IoM.SupplyDropDef>
+    <defName>SilverRewardMedium</defName>
+    <label>Credits (Moderate)</label>
+    <description>A sum of 500 silver.</description>
+    <RelationCost>7</RelationCost>
+	<Supplies>
+		<li>
+			<Def>Silver</Def>
+			<Count>500</Count>
+		</li>
+	</Supplies>
+  </Corruption.IoM.SupplyDropDef>
+    
+  <Corruption.IoM.SupplyDropDef>
+    <defName>SilverRewardBig</defName>
+    <label>Credits (Large)</label>
+    <description>A sum of 1000 silver.</description>
+    <RelationCost>12</RelationCost>
+	<Supplies>
+		<li>
+			<Def>Silver</Def>
+			<Count>1000</Count>
+		</li>
+	</Supplies>
+  </Corruption.IoM.SupplyDropDef>
+  <Corruption.IoM.SupplyDropDef>
+    <defName>GoldReward</defName>
+    <label>Credits</label>
+    <description>A sum of 500 gold.</description>
+    <RelationCost>5</RelationCost>
+	<Supplies>
+		<li>
+			<Def>Gold</Def>
+			<Count>500</Count>
+		</li>
+	</Supplies>
+  </Corruption.IoM.SupplyDropDef>
+
+  <Corruption.IoM.SupplyDropDef>
+    <defName>BuildingMaterials</defName>
+    <label>Building Materials</label>
+    <description>A pack of random building materials including synthetic binder for making rockcrete.</description>
+    <RelationCost>5</RelationCost>
+	<Supplies>
+		<li>
+			<Def>ResPackBuildingMaterials</Def>
+			<Count>3</Count>
+		</li>
+	</Supplies>
+	<AvailableFromFaction>
+		<li>IoM_Administratum</li>
+		<li>IoM_Ecclesiarchy</li>
+	</AvailableFromFaction>
+  </Corruption.IoM.SupplyDropDef>
+
+    <Corruption.IoM.SupplyDropDef>
+    <defName>EmergencyRations</defName>
+    <label>Emergency Rations</label>
+    <description>A considerable amount of survival meals or nutrient paste.</description>
+    <RelationCost>10</RelationCost>
+	<Supplies>
+		<li>
+			<Def>ResPackFoodRations</Def>
+			<Count>2</Count>
+		</li>
+	</Supplies>
+	<AvailableFromFaction>
+		<li>IoM_Administratum</li>
+		<li>IoM_Ecclesiarchy</li>
+	</AvailableFromFaction>
+  </Corruption.IoM.SupplyDropDef>
+  
+    <Corruption.IoM.SupplyDropDef>
+    <defName>Weapons</defName>
+    <label>Weapons</label>
+    <description>One pack of standard issue Imperial weapons.</description>
+    <RelationCost>25</RelationCost>
+	<Supplies>
+		<li>
+			<Def>ResPackWeapons</Def>
+			<Count>1</Count>
+		</li>
+	</Supplies>
+	<AvailableFromFaction>
+		<li>IoM_Administratum</li>
+	</AvailableFromFaction>
+  </Corruption.IoM.SupplyDropDef>
+</Defs>

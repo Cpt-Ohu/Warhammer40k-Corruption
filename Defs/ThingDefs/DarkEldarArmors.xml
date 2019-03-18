@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <!-- ==========================Standard=============================== -->
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="ArmorMakeableBase" >
     <defName>DE_KabaliteArmor</defName>
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <label>dark eldar armor</label>
@@ -20,21 +20,24 @@
     </graphicData>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>14</Mass>
       <WorkToMake>3250000</WorkToMake>
       <MaxHitPoints>500</MaxHitPoints>
       <MarketValue>1200</MarketValue>
       <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.65</ArmorRating_Sharp>
       <ArmorRating_Heat>0.30</ArmorRating_Heat>
-      <Insulation_Cold>-45</Insulation_Cold>
+      <Insulation_Cold>65</Insulation_Cold>
+      <Insulation_Heat>65</Insulation_Heat>
     </statBases>
     <equippedStatOffsets>
       <MoveSpeed>-0.05</MoveSpeed>
     </equippedStatOffsets>
     <costList>
-      <Component>18</Component>
+      <ComponentIndustrial>18</ComponentIndustrial>
       <Wraithbone>135</Wraithbone>
     </costList>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -42,11 +45,10 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/DarkEldar/Armor/KabaliteArmor</worngraphicPath>
+      <wornGraphicPath>Things/DarkEldar/Armor/KabaliteArmor</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>KabaliteWarrior</li>
       </tags>
@@ -87,45 +89,46 @@
     <defName>DE_KabaliteHelmet</defName>
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <label>dark eldar helmet</label>
-    <description>A xenotech helmet. Use with care </description>
+    <description>A xenotech helmet. Use with care.</description>
     <techLevel>Spacer</techLevel>
     <recipeMaker>
       <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
       <researchPrerequisite>Xenotech_Eldar</researchPrerequisite>
     </recipeMaker>
     <graphicData>
-      <texPath>Things/DarkEldar/Armor/DarkEldarHelmet</texPath>
+      <texPath>Things/DarkEldar/DarkEldarHelmet/DarkEldarHelmetA</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>2</Mass>
       <WorkToMake>60000</WorkToMake>
       <MaxHitPoints>160</MaxHitPoints>
       <MarketValue>500</MarketValue>
       <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.6</ArmorRating_Sharp>
       <ArmorRating_Heat>0.5</ArmorRating_Heat>
-      <ArmorRating_Electric>0</ArmorRating_Electric>
+      
       <Insulation_Cold>-3</Insulation_Cold>
       <Insulation_Heat>3</Insulation_Heat>
     </statBases>
     <equippedStatOffsets>	
-      <ShootingAccuracy>0.1</ShootingAccuracy>
+      <ShootingAccuracyPawn>0.1</ShootingAccuracyPawn>
       <MoveSpeed>-0.04</MoveSpeed>
     </equippedStatOffsets>
     <costList>
-      <Component>7</Component>
+      <ComponentIndustrial>7</ComponentIndustrial>
       <Wraithbone>60</Wraithbone>
     </costList>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/DarkEldar/Armor/DarkEldarHelmet</worngraphicPath>
+      <wornGraphicPath>Things/DarkEldar/DarkEldarHelmet</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>5</commonality>
       <tags>
         <li>KabaliteWarrior</li>
       </tags>
@@ -148,28 +151,20 @@
       <li Class="FactionColors.CompProperties_FactionColor">
         <compClass>FactionColors.CompFactionColor</compClass>
       </li>
-      <li Class="FactionColors.ApparelDetailProps">
-        <compClass>FactionColors.ApparelDetailDrawer</compClass>
-        <DetailChance>0.9</DetailChance>
-	   <IsHeadDetail>true</IsHeadDetail>
-	   <ApparelDetails>
-		<li>
-			<DetailGraphicPath>Things/DarkEldar/Details/DEHelmet_DetA</DetailGraphicPath>					<Commonality>10</Commonality>
-			<FactionTag>DarkEldarKabal</FactionTag>
-		</li>
-		<li>
-			<DetailGraphicPath>Things/DarkEldar/Details/DEHelmet_DetB</DetailGraphicPath>					<Commonality>10</Commonality>
-			<FactionTag>DarkEldarKabal</FactionTag>		
-		</li>
-		<li>
-			<DetailGraphicPath>Things/DarkEldar/Details/DEHelmet_DetC</DetailGraphicPath>					<Commonality>10</Commonality>
-			<FactionTag>DarkEldarKabal</FactionTag>
-		</li>
-		<li>
-			<DetailGraphicPath>Things/DarkEldar/Details/DEHelmet_DetD</DetailGraphicPath>					<Commonality>10</Commonality>
-			<FactionTag>DarkEldarKabal</FactionTag>
-		</li>
-	   </ApparelDetails>
+	   <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+        <IsRandomMultiGraphic>true</IsRandomMultiGraphic>
+      	<RandomGraphicPaths>
+        		<li>
+ 	       		<first>DarkEldarHelmetA</first> 	       					<second>10</second>
+			</li>
+        		<li>
+ 	       		<first>DarkEldarHelmetB</first> 	       				<second>10</second>
+			</li>
+        		<li>
+ 	       		<first>DarkEldarHelmetC</first> 	       				<second>10</second>
+			</li>
+      	</RandomGraphicPaths>
       </li>
     </comps>
   </ThingDef>
@@ -178,4 +173,4 @@
 
 
 
-</ThingDefs>
+</Defs>

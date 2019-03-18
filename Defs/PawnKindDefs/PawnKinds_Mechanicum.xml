@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<PawnKindDefs>
+<Defs>
 
   <PawnKindDef Name="MechanicumBase" Abstract="True">
+  <defName>MechanicumBase</defName>
     <bodyGraphicData>
       <shaderType>CutoutComplex</shaderType>
     </bodyGraphicData>
@@ -16,7 +17,7 @@
     <race>Alien_Mechanicus_Member</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
-    <backstoryCategory>Skitarius</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>Mechanicus</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
@@ -30,7 +31,7 @@
       <li>Mechanicum</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>5000</min>
       <max>5000</max>
@@ -64,7 +65,7 @@
     <race>Alien_Mechanicus_Member</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
-    <backstoryCategory>Skitarius</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>Mechanicus</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
@@ -78,7 +79,7 @@
       <li>Mechanicum</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>5000</min>
       <max>5000</max>
@@ -104,10 +105,10 @@
   <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
     <defName>MEC_CombatServitor</defName>
     <label>Combat Servitor</label>
-    <race>Alien_Mechanicus_Member</race>
+    <race>Mechanicum_Servitor</race>
     <combatPower>50</combatPower>
     <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
-    <backstoryCategory>Servitor</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>Mechanicus</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
@@ -120,7 +121,7 @@
       <li>Mechanicum</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.5</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>500</min>
       <max>600</max>
@@ -142,6 +143,7 @@
       <IsImmune>true</IsImmune>
       <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
     </AfflictionProperty>
+    <IsServitor>true</IsServitor>
   </PawnKindDef>
 
   <PawnKindDef Parent="MechanicumBase">
@@ -179,7 +181,7 @@
     <race>Alien_Mechanicus_Member</race>
     <combatPower>150</combatPower>
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
-    <backstoryCategory>Techpriest</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>Mechanicus</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <trader>true</trader>
@@ -198,7 +200,7 @@
       <li>MecCowlPriest</li>
     </apparelRequired>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>5000</min>
       <max>5000</max>
@@ -240,7 +242,7 @@
     <race>Alien_Mechanicus_Member</race>
     <combatPower>150</combatPower>
     <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
-    <backstoryCategory>Techpriest</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>Mechanicus</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
@@ -254,12 +256,9 @@
       <li>TechPriest</li>
       <li>Mechanicum</li>
     </apparelTags>
-    <apparelRequired>
-	 <li>Mechanicum_PriestRobe</li>
-      <li>MecCowlPriest</li>
-    </apparelRequired>
+
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>5000</min>
       <max>5000</max>
@@ -294,24 +293,24 @@
   <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
     <defName>ServitorColonist</defName>
     <label>Servitor</label>
-    <race>Alien_Mechanicus_Member</race>
+    <race>Mechanicum_Servitor</race>
     <combatPower>50</combatPower>
     <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
-    <backstoryCategory>Civil</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>PlayerColony</defaultFactionType>
     <isFighter>false</isFighter>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
     <itemQuality>Normal</itemQuality>
     <apparelMoney>
-      <min>500</min>
-      <max>600</max>
+      <min>5</min>
+      <max>6</max>
     </apparelMoney>
     <apparelTags>
-      <li>Mechanicum</li>
+      <li>Spacer</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.5</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
     <techHediffsMoney>
       <min>10</min>
       <max>50</max>
@@ -326,8 +325,7 @@
       <IsImmune>true</IsImmune>
       <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
     </AfflictionProperty>
+    <IsServitor>true</IsServitor>
   </PawnKindDef>
 
-
-
-</PawnKindDefs>
+</Defs>

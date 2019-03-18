@@ -17,7 +17,7 @@ namespace Corruption
         {
             get
             {
-                return (VerbProperties_WarpPower)verbProps;
+                return (VerbProperties_WarpPower)this.verbProps;
             }
         }
 
@@ -25,25 +25,21 @@ namespace Corruption
         {
             get
             {
-                return this.warpverbprops.projectileDef as ProjectileDef_WarpPower;
+                return this.warpverbprops.defaultProjectile as ProjectileDef_WarpPower;
             }
-        } 
+        }
 
         public List<LocalTargetInfo> TargetsAoE = new List<LocalTargetInfo>();
 
-        public Need_Soul soul
+        public CompSoul soul
         {
             get
             {
-                return this.CasterPawn.needs.TryGetNeed<Need_Soul>();
-            }
-            set
-            {
-
+                return CompSoul.GetPawnSoul(this.CasterPawn);
             }
         }
-        
-        
+
+
         public CompPsyker psycomp
         {
             get
@@ -66,7 +62,7 @@ namespace Corruption
                 if (warpProjectileDef != null && warpProjectileDef.IsHealer)
                 {
                     this.TargetsAoE.Add(new LocalTargetInfo(this.currentTarget.Cell));
-                    targets = this.caster.Map.listerThings.AllThings.Where(x => (x.Position.InHorDistOf(caster.Position, this.warpverbprops.range)) && (x.GetType() == this.warpverbprops.AoETargetClass) && !x.Faction.HostileTo(Faction.OfPlayer)).ToList<Thing>();
+                    targets = this.caster.Map.listerThings.AllThings.Where(x => (x.Position.InHorDistOf(caster.Position, this.warpverbprops.range)) && (x.GetType() == this.warpverbprops.AoETargetClass) && !x.HostileTo(CasterPawn)).ToList<Thing>();
                 }
                 else if ((this.warpverbprops.AoETargetClass == typeof(Plant)) || (this.warpverbprops.AoETargetClass == typeof(Building)))
                 {
@@ -75,16 +71,16 @@ namespace Corruption
                     foreach (Thing targ in targets)
                     {
                         LocalTargetInfo tinfo = new LocalTargetInfo(targ);
-                        TargetsAoE.Add(tinfo);                        
+                        TargetsAoE.Add(tinfo);
                     }
                     return;
                 }
                 else
                 {
                     targets.Clear();
-                    targets = this.caster.Map.listerThings.AllThings.Where(x => (x.Position.InHorDistOf(caster.Position, this.warpverbprops.range)) && (x.GetType() == this.warpverbprops.AoETargetClass) && x.Faction.HostileTo(Faction.OfPlayer)).ToList<Thing>();
+                    targets = this.caster.Map.listerThings.AllThings.Where(x => (x.Position.InHorDistOf(caster.Position, this.warpverbprops.range)) && (x.GetType() == this.warpverbprops.AoETargetClass) && x.HostileTo(CasterPawn)).ToList<Thing>();
                 }
-                
+
                 foreach (Thing targ in targets)
                 {
                     TargetInfo tinfo = new TargetInfo(targ);
@@ -103,7 +99,7 @@ namespace Corruption
 
         protected override bool TryCastShot()
         {
-       //     Log.Message("TryCastShot");
+            this.verbTracker = new VerbTracker(this.psycomp);
             this.TargetsAoE.Clear();
             UpdateTargets();
             int burstshots = this.ShotsPerBurst;
@@ -111,10 +107,8 @@ namespace Corruption
             {
                 this.TargetsAoE.RemoveRange(0, TargetsAoE.Count - 1);
             }
-   //         Log.Message("Targeting: " + TargetsAoE.Count.ToString());
             for (int i = 0; i < TargetsAoE.Count; i++)
             {
-       //         Log.Message(TargetsAoE[i].Thing.Label);
                 for (int j = 0; j < burstshots; j++)
                 {
                     ShootLine shootLine;
@@ -124,32 +118,22 @@ namespace Corruption
                         return false;
                     }
                     Vector3 drawPos = this.caster.DrawPos;
-                    Projectile projectile = (Projectile)GenSpawn.Spawn(this.verbProps.projectileDef, shootLine.Source, this.caster.Map);
-                    projectile.FreeIntercept = (this.canFreeInterceptNow && !projectile.def.projectile.flyOverhead);
+                    Projectile projectile = (Projectile)GenSpawn.Spawn(this.verbProps.defaultProjectile, shootLine.Source, this.caster.Map);
                     ShotReport shotReport = ShotReport.HitReportFor(this.caster, this, TargetsAoE[i]);
                     if (!this.warpverbprops.AlwaysHits)
                     {
-                        if (Rand.Value > shotReport.ChanceToNotGoWild_IgnoringPosture)
+                        if (Rand.Value > shotReport.AimOnTargetChance_IgnoringPosture)
                         {
                             if (DebugViewSettings.drawShooting)
                             {
                                 MoteMaker.ThrowText(this.caster.DrawPos, this.caster.Map, "ToWild", -1f);
                             }
-                            shootLine.ChangeDestToMissWild();
-                            if (TargetsAoE[i].HasThing)
-                            {
-                                projectile.ThingToNeverIntercept = TargetsAoE[i].Thing;
-                            }
-                            if (!projectile.def.projectile.flyOverhead)
-                            {
-                                projectile.InterceptWalls = true;
-                            }
-              //              Log.Message("LaunchingIntoWild");
-                            projectile.Launch(this.caster, drawPos, shootLine.Dest, this.ownerEquipment);
+                            shootLine.ChangeDestToMissWild(1f);
+                            projectile.Launch(this.caster, drawPos, shootLine.Dest, this.currentTarget, ProjectileHitFlags.IntendedTarget, this.EquipmentSource);
                             return true;
                         }
-                        if (Rand.Value > shotReport.ChanceToNotHitCover)
-                        {                            
+                        if (Rand.Value > shotReport.PassCoverChance)
+                        {
                             if (DebugViewSettings.drawShooting)
                             {
                                 MoteMaker.ThrowText(this.caster.DrawPos, this.caster.Map, "ToCover", -1f);
@@ -157,12 +141,11 @@ namespace Corruption
                             if (TargetsAoE[i].Thing != null && TargetsAoE[i].Thing.def.category == ThingCategory.Pawn)
                             {
                                 Thing randomCoverToMissInto = shotReport.GetRandomCoverToMissInto();
-                                if (!projectile.def.projectile.flyOverhead)
-                                {
-                                    projectile.InterceptWalls = true;
-                                }
-                    //            Log.Message("LaunchingINtoCover");
-                                projectile.Launch(this.caster, drawPos, randomCoverToMissInto, this.ownerEquipment);
+                                //if (!projectile.def.projectile.flyOverhead)
+                                //{
+                                //    projectile.over = true;
+                                //}
+                                projectile.Launch(this.caster, drawPos, shootLine.Dest, this.currentTarget, ProjectileHitFlags.IntendedTarget, this.EquipmentSource);
                                 return true;
                             }
                         }
@@ -171,29 +154,26 @@ namespace Corruption
                     {
                         MoteMaker.ThrowText(this.caster.DrawPos, this.caster.Map, "ToHit", -1f);
                     }
-                    if (!projectile.def.projectile.flyOverhead)
-                    {
-                        projectile.InterceptWalls = (!TargetsAoE[i].HasThing || TargetsAoE[i].Thing.def.Fillage == FillCategory.Full);
-                    }
+                    //if (!projectile.def.projectile.flyOverhead)
+                    //{
+                    //    projectile.InterceptWalls = (!TargetsAoE[i].HasThing || TargetsAoE[i].Thing.def.Fillage == FillCategory.Full);
+                    //}
                     if (TargetsAoE[i].Thing != null)
                     {
-        //                Log.Message("Release Shot at: " + TargetsAoE[i].Thing.Label);
 
                         if (this.warpverbprops.DrawProjectileOnTarget)
                         {
                             Projectile_WarpPower wprojectile = projectile as Projectile_WarpPower;
                             if (wprojectile != null)
                             {
-          //                      Log.Message("Launched Warpprojectile");
                                 wprojectile.selectedTarget = TargetsAoE[i].Thing;
                                 wprojectile.Caster = this.CasterPawn;
-                                wprojectile.Launch(this.caster, drawPos, TargetsAoE[i]);
+                                wprojectile.Launch(this.caster, shootLine.Dest, TargetsAoE[i], ProjectileHitFlags.IntendedTarget);
                             }
                         }
                         else
                         {
-              //              Log.Message("Launched Projectile");
-                            projectile.Launch(this.caster, drawPos, TargetsAoE[i]);
+                            projectile.Launch(this.caster, shootLine.Dest, TargetsAoE[i], ProjectileHitFlags.IntendedTarget);
                         }
                     }
                     else
@@ -202,10 +182,9 @@ namespace Corruption
                         {
                             Projectile_WarpPower wprojectile = projectile as Projectile_WarpPower;
                             wprojectile.targetVec = shootLine.Dest.ToVector3();
-                            wprojectile.Launch(this.caster, drawPos, TargetsAoE[i]);
+                            wprojectile.Launch(this.caster, shootLine.Dest, TargetsAoE[i], ProjectileHitFlags.IntendedTarget);
                         }
-     //                   Log.Message("LaunchingWild");
-                        projectile.Launch(this.caster, drawPos, shootLine.Dest);
+                        projectile.Launch(this.caster, shootLine.Dest, shootLine.Dest, ProjectileHitFlags.IntendedTarget);
                     }
 
                 }
@@ -216,9 +195,9 @@ namespace Corruption
             this.burstShotsLeft = 0;
             if (soul != null)
             {
-                soul.GainNeed(0.01f * (-warpverbprops.CorruptionFactor));
+                soul.AffectSoul(0.01f * (-warpverbprops.CorruptionFactor));
             }
-        //    PsykerUtility.PsykerShockEvents(psycomp, psycomp.curPower.PowerLevel);
+            //    PsykerUtility.PsykerShockEvents(psycomp, psycomp.curPower.PowerLevel);
             return true;
         }
 
@@ -229,12 +208,23 @@ namespace Corruption
                 return this.verbProps.burstShotCount;
             }
         }
-        
+
         public override void WarmupComplete()
         {
             this.burstShotsLeft = this.ShotsPerBurst;
             this.state = VerbState.Bursting;
             this.TryCastNextBurstShot();
         }
+
+        public override ThingDef Projectile
+        {
+            get
+            {
+                return this.warpverbprops.defaultProjectile;
+            }
+        }
+
+        
     }
+
 }

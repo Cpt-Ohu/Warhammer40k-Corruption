@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	
+	<!--===================== Concepts taught through the learning readout, when opportunities arise ===================-->
+
+	<ConceptDef>
+		<defName>BuildCCC</defName>
+		<label>Contacting the Imperium</label>
+		<priority>50</priority>
+		<needsOpportunity>True</needsOpportunity>
+		<helpText>To contact the outer world, including Imperial institutions, build the Central Command Cogitator.</helpText>
+		<highlightTags>
+		<li>MainTab-Architect-Closed</li>
+		<li>DesignationCategoryButton-Mechanicum-Closed</li>
+		<li>Designator-Build-IGCommsConsole</li>
+		</highlightTags>
+	</ConceptDef>
+
+	<ConceptDef>
+		<defName>IoMINcreaseReputation</defName>
+		<label>Increase Reputation</label>
+		<priority>50</priority>
+		<needsOpportunity>True</needsOpportunity>
+		<helpText>Use the CCC to contact Imperial institutions and pay them a tribute in form of resource packs to increase you standing.</helpText>
+		<highlightTags>
+		<li>MainTab-Architect-Closed</li>
+		<li>DesignationCategoryButton-Mechanicum-Closed</li>
+		<li>Designator-Build-IGCommsConsole</li>
+		</highlightTags>
+	</ConceptDef>
+	
+
+</Defs>

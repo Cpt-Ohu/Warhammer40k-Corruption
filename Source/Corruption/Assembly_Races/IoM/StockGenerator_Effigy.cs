@@ -9,9 +9,9 @@ using Verse;
 namespace Corruption.IoM
 {
     public class StockGenerator_Effigy : StockGenerator
-    {        
+    {
         [DebuggerHidden]
-        public override IEnumerable<Thing> GenerateThings(Map forMap)
+        public override IEnumerable<Thing> GenerateThings(int forTile)
         {
             ThingDef def = DefDatabase<ThingDef>.AllDefsListForReading.FindAll(x => this.HandlesThingDef(x)).RandomElement();
 

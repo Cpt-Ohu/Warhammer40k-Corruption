@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="ArmorMakeableBase" >
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <defName>Astartes_PowerArmor</defName>
     <label>power armor MKVII</label>
@@ -27,7 +27,8 @@ The entire suit weighs upwards of several hundred kilos and requires a neuro-con
       <ArmorRating_Blunt>0.75</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.75</ArmorRating_Sharp>
       <ArmorRating_Heat>0.75</ArmorRating_Heat>
-      <Insulation_Cold>-95</Insulation_Cold>
+	        <Insulation_Cold>60</Insulation_Cold>
+      <Insulation_Heat>60</Insulation_Heat>
     </statBases>
     <equippedStatOffsets>
       <MoveSpeed>-0.05</MoveSpeed>
@@ -41,6 +42,7 @@ The entire suit weighs upwards of several hundred kilos and requires a neuro-con
       <Ceramite>150</Ceramite>
       <Plasteel>150</Plasteel>
     </costList>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -50,13 +52,12 @@ The entire suit weighs upwards of several hundred kilos and requires a neuro-con
         <li>Hands</li>
         <li>Feet</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Astartes/PowerArmor/AstartesPowerArmor</worngraphicPath>
+      <wornGraphicPath>Things/Astartes/PowerArmor/AstartesPowerArmor</wornGraphicPath>
       <layers>
         <li>OnSkin</li>
         <li>Middle</li>
         <li>Shell</li>
       </layers>
-      <commonality>2</commonality>
       <tags>
         <li>Astartes_Armor</li>
       </tags>
@@ -89,7 +90,7 @@ The entire suit weighs upwards of several hundred kilos and requires a neuro-con
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="ArmorMakeableBase" >
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <defName>Astartes_PowerArmorHelmet</defName>
     <label>power armor helmet</label>
@@ -109,30 +110,30 @@ The entire suit weighs upwards of several hundred kilos and requires a neuro-con
       <WorkToMake>40000</WorkToMake>
       <MaxHitPoints>160</MaxHitPoints>
       <MarketValue>2000</MarketValue>
-      <Mass>2.7</Mass>
+      <Mass>10</Mass>
       <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.75</ArmorRating_Sharp>
       <ArmorRating_Heat>0.75</ArmorRating_Heat>
-      <ArmorRating_Electric>30</ArmorRating_Electric>
-      <Insulation_Cold>-30</Insulation_Cold>
-      <Insulation_Heat>30</Insulation_Heat>
+      
+	  <Insulation_Cold>60</Insulation_Cold>
+      <Insulation_Heat>60</Insulation_Heat>
     </statBases>
     <equippedStatOffsets>
       <MoveSpeed>-0.04</MoveSpeed>
     </equippedStatOffsets>
     <costList>
-      <Component>7</Component>
+      <ComponentIndustrial>7</ComponentIndustrial>
       <Plasteel>60</Plasteel>
     </costList>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Astartes/PowerArmorHelmet/AstartesHelmet</worngraphicPath>
+      <wornGraphicPath>Things/Astartes/PowerArmorHelmet/AstartesHelmet</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>2</commonality>
       <tags>
         <li>Astartes_Armor</li>
       </tags>
@@ -159,4 +160,4 @@ The entire suit weighs upwards of several hundred kilos and requires a neuro-con
   </ThingDef>
 
 
-</ThingDefs>
+</Defs>

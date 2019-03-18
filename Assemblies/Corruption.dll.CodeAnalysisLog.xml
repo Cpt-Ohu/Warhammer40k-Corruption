@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio\2017\community\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="15.0">
+ <Targets>
+  <Target Name="C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B19\Assemblies\Corruption.dll">
+   <Modules>
+    <Module Name="corruption.dll">
+     <Namespaces>
+      <Namespace Name="Corruption.ProductionSites">
+       <Types>
+        <Type Name="Dialog_BuildProductionSite" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor(Corruption.Domination.WorldMapBuildableDef,Corruption.Domination.WorldBuilderComp)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2019-03-17 07:36:43Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Warhammer40k-Corruption-B19\Source\Corruption\Assembly_Races\ProductionSites" File="Dialog_BuildProductionSite.cs" Line="21">'Dialog_BuildProductionSite.Dialog_BuildProductionSite(WorldMapBuildableDef, WorldBuilderComp)' enthält eine Aufrufkette, die zu einem Aufruf einer virtuellen Methode führt, die durch die Klasse definiert ist. Überprüfen Sie folgende Aufrufliste auf unerwartete Ergebnisse: &#xD;&#xA;&#xD;&#xA;Dialog_BuildProductionSite..ctor(WorldMapBuildableDef, WorldBuilderComp)&#xD;&#xA;Window.Close(Boolean):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214">
+   <Name>Überschreibbare Methoden in Konstruktoren nicht aufrufen</Name>
+   <Description>Virtuelle Methoden, die in der Klasse definiert sind, sollten nicht von Konstruktoren aufgerufen werden. Wenn eine abgeleitete Klasse die Methode überschrieben hat, wird die Version der abgeleiteten Klasse aufgerufen, bevor der abgeleitete Klassenkonstruktor aufgerufen wird.</Description>
+   <Resolution Name="Default">{0} enthält eine Aufrufkette, die zu einem Aufruf einer virtuellen Methode führt, die durch die Klasse definiert ist. Überprüfen Sie folgende Aufrufliste auf unerwartete Ergebnisse: {1}</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182331.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalWarning</MessageLevel>
+   <File Name="usagerules.dll" Version="15.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Kategorie</String>
+  <String Key="Certainty">Sicherheit</String>
+  <String Key="CollapseAll">Alle zuklappen</String>
+  <String Key="CheckId">Prüf-ID</String>
+  <String Key="Error">Fehler</String>
+  <String Key="Errors">Fehler</String>
+  <String Key="ExpandAll">Alle aufklappen</String>
+  <String Key="Help">Hilfe</String>
+  <String Key="Line">Zeile</String>
+  <String Key="Messages">Meldung(en)</String>
+  <String Key="LocationNotStoredInPdb">[Nicht in PDB gespeicherter Speicherort]</String>
+  <String Key="Project">Projekt</String>
+  <String Key="Resolution">Auflösung</String>
+  <String Key="Rule">Regel</String>
+  <String Key="RuleFile">Regeldatei</String>
+  <String Key="RuleDescription">Regelbeschreibung</String>
+  <String Key="Source">Quelle</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Ziel</String>
+  <String Key="Warning">Warnung</String>
+  <String Key="Warnings">Warnung(en)</String>
+  <String Key="ReportTitle">Codeanalysebericht</String>
+ </Localized>
+</FxCopReport>

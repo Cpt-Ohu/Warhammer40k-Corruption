@@ -19,5 +19,10 @@ namespace Corruption.DefOfs
         public static DutyDef FollowAndCorrupt;
         public static DutyDef FollowAndConvertTau;
         public static DutyDef FollowAndInvestigate;
+        public static DutyDef FollowAndHeal;
+
+
+        public static DutyDef TravelUrgent;
+        public static DutyDef LoadResourcePacks;
     }
 }

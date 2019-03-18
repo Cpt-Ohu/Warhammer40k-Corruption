@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<InteractionDefs>
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
 
   <!-- Random social interactions -->
 
@@ -92,4 +92,4 @@
     </logRulesRecipient>
   </InteractionDef>
   
-</InteractionDefs>
+</Defs>

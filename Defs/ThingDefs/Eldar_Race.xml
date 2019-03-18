@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
 
 
   <!-- ============================ Human ========================== -->
 
-  <AlienRace.ThingDef_AlienRace ParentName="BasePawn">
+  <AlienRace.ThingDef_AlienRace ParentName="40kBasePawn">
     <defName>Alien_Eldar</defName>
     <label>eldar</label>
     <description>A member of the capricious Eldar race.</description>
@@ -13,18 +13,16 @@
 
 	<alienRace>
         <generalSettings>
-            <MaleGenderProbability>0.5</MaleGenderProbability>
-            <PawnsSpecificBackstories>true</PawnsSpecificBackstories>
-            <ImmuneToAge>false</ImmuneToAge>
-			<ForcedRaceTraitEntries>
-            </ForcedRaceTraitEntries>
+            <maleGenderProbability>0.5</maleGenderProbability>
+            
+            <immuneToAge>false</immuneToAge>
+			<forcedRaceTraitEntries>
+            </forcedRaceTraitEntries>
 			<alienPartGenerator>
                 <aliencrowntypes>
                     <li>EldarHead</li>
                 </aliencrowntypes>
                 <alienbodytypes>
-					<li>Hulk</li>
-					<li>Thin</li>
 					<li>Male</li>
 					<li>Female</li>
                 </alienbodytypes>
@@ -70,8 +68,8 @@
             </li>
         </graphicPaths>
 		<hairSettings>
-            <HasHair>true</HasHair>
-            <GetsGreyAt>5000</GetsGreyAt>
+            <hasHair>true</hasHair>
+            <getsGreyAt>5000</getsGreyAt>
         </hairSettings>
 
 		<relationSettings>
@@ -85,25 +83,25 @@
             <relationChanceModifierSpouse>1</relationChanceModifierSpouse>
         </relationSettings>
 		<raceRestriction>
-		  
-		  <apparelList>
-                 <li>Eldar_PowerArmor</li>
-                 <li>Eldar_PowerArmorHelmet</li>
-                 <li>Eldar_WarlockRobe</li>
-                 <li>Eldar_WarlockHelmet</li>
-                 <li>EldarRangerArmor</li>
-                 <li>EldarHelmetNeutral</li>
-                 <li>Eldar_PowerArmor</li>
-                 <li>Eldar_RangerHelmet</li>
-                 <li>Eldar_RangerRobe</li>
-                 <li>Eldar_DAArmor</li>
-                 <li>Eldar_DAHelmet</li>
-</apparelList>
-          <onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
-        </raceRestriction>
+			    <apparelList>
+					<li>Apparel_Parka</li>
+					<li>Eldar_PowerArmorHelmet</li>
+					<li>Eldar_WarlockRobe</li>
+					<li>Eldar_WarlockHelmet</li>
+					<li>EldarRangerArmor</li>
+					<li>EldarHelmetNeutral</li>
+					<li>Eldar_RangerHelmet</li>
+					<li>Eldar_RangerRobe</li>
+					<li>Eldar_DAArmor</li>
+					<li>Eldar_DAHelmet</li>
+					<li>DE_KabaliteArmor</li>
+					<li>DE_KabaliteHelmet</li>
+				</apparelList>
+		          </raceRestriction>
 
 	</alienRace>
     <statBases>
+      <Mass>80</Mass>
       <MarketValue>1750</MarketValue>
       <MoveSpeed>4.61</MoveSpeed>
       <Flammability>1.0</Flammability>
@@ -111,39 +109,59 @@
       <ComfyTemperatureMax>32</ComfyTemperatureMax>
       <LeatherAmount>20</LeatherAmount>
     </statBases>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.45</defaultCooldownTime>
-        <meleeDamageBaseAmount>7</meleeDamageBaseAmount>
-        <meleeDamageDef>Blunt</meleeDamageDef>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.45</defaultCooldownTime>
-        <meleeDamageBaseAmount>7</meleeDamageBaseAmount>
-        <meleeDamageDef>Blunt</meleeDamageDef>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
-      </li>    
-  <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.45</defaultCooldownTime>
-        <meleeDamageBaseAmount>8</meleeDamageBaseAmount>
-        <meleeDamageDef>Blunt</meleeDamageDef>
-        <linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
-
-    </verbs>
-    <race>
+      <li>
+        <label>feet</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>1.8</cooldownTime>
+        <linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>        
+      </li>
+    </tools>    <race>
       <thinkTreeMain>Humanlike</thinkTreeMain>
       <thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
       <intelligence>Humanlike</intelligence>
       <makesFootprints>true</makesFootprints>
       <lifeExpectancy>10000</lifeExpectancy>
-      <leatherColor>(211,194,143)</leatherColor>
-      <leatherCommonalityFactor>0.01</leatherCommonalityFactor>
-      <leatherInsulation>0.70</leatherInsulation>
+      
+      
+      
       <nameCategory>HumanStandard</nameCategory>
       <body>Human</body>
       <baseBodySize>1</baseBodySize>
@@ -183,10 +201,10 @@
       <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
-      <specialshadowData>
+      <specialShadowData>
         <volume>(0.3, 0.8, 0.4)</volume>
         <offset>(0,0,-0.3)</offset>
-      </specialshadowData>
+      </specialShadowData>
       <ageGenerationCurve>
         <points>
           <li>(14,0)</li>
@@ -205,7 +223,7 @@
     </race>
     <recipes>
       <li>InstallPowerClaw</li>
-      <li>InstallScytherBlade</li>
+      
       <li>InstallBionicEye</li>
       <li>InstallBionicArm</li>
       <li>InstallBionicLeg</li>
@@ -225,4 +243,4 @@
     </recipes>
   </AlienRace.ThingDef_AlienRace>
 
-</ThingDefs>
+</Defs>

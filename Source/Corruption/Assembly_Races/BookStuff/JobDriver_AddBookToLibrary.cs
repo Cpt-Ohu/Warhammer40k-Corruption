@@ -26,8 +26,8 @@ namespace Corruption.BookStuff
             {
                 this.FailOnForbidden(TargetIndex.A);
             }
-            yield return Toils_Reserve.Reserve(TargetIndex.B, 2);
-            Toil toil = Toils_Reserve.Reserve(TargetIndex.A, 1);
+            yield return Toils_Reserve.Reserve(TargetIndex.B, 2, 1);
+            Toil toil = Toils_Reserve.Reserve(TargetIndex.A, 1, 1);
             toil.AddFinishAction(delegate
             {
             });

@@ -26,7 +26,7 @@ namespace Corruption
         {
             this.Altar = altar;
             this.forcePause = true;
-            this.closeOnEscapeKey = false;
+            
             this.absorbInputAroundWindow = true;
         }
 
@@ -50,7 +50,7 @@ namespace Corruption
                 }
                 else
                 {
-                    Messages.Message("ColonyNameIsInvalid".Translate(), MessageSound.RejectInput);
+                    Messages.Message("ColonyNameIsInvalid".Translate(), MessageTypeDefOf.NegativeEvent);
                 }
                 Event.current.Use();
             }

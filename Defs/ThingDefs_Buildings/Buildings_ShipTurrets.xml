@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <!--=============== Improvised turret ===============-->
   
@@ -21,10 +21,10 @@
     <stealable>false</stealable>
     <rotatable>false</rotatable>
     <statBases>
+      <Mass>15</Mass>
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
       <WorkToBuild>2500</WorkToBuild>
-      <Mass>100</Mass>
       <Beauty>-60</Beauty>
     </statBases>
     <tickerType>Normal</tickerType>
@@ -43,7 +43,7 @@
     <hasTooltip>true</hasTooltip>
     <costList>
       <Steel>100</Steel>
-      <Component>3</Component>
+      <ComponentIndustrial>3</ComponentIndustrial>
     </costList>
     <altitudeLayer>Blueprint</altitudeLayer>
 
@@ -53,7 +53,7 @@
 			<ai_combatDangerous>true</ai_combatDangerous>
       <turretGunDef>Gun_TwinLinkedBolter</turretGunDef>
       <turretBurstCooldownTime>5.15</turretBurstCooldownTime>
-      <turretTopgraphicPath>Things/Mechanicus/Templates/Turret_TwinLinkedBolter</turretTopgraphicPath>
+      <turretTopGraphicPath>Things/Mechanicus/Templates/Turret_TwinLinkedBolter</turretTopGraphicPath>
 	 <isInert>true</isInert>
       <isEdifice>false</isEdifice>
 
@@ -73,11 +73,12 @@
     </graphicData>
     <menuHidden>true</menuHidden>
     <description>Jury-rigged gun attached to a turret.</description>
-    <soundInteract>InteractRifle</soundInteract>
-    <canBeSpawningInventory>false</canBeSpawningInventory>
-    <tradeability>Never</tradeability>
+    <soundInteract>Interact_Rifle</soundInteract>
+    
+    <tradeability>None</tradeability>
     <destroyOnDrop>true</destroyOnDrop>
     <statBases>
+      <Mass>15</Mass>
       <AccuracyTouch>0.80</AccuracyTouch>
       <AccuracyShort>0.64</AccuracyShort>
       <AccuracyMedium>0.41</AccuracyMedium>
@@ -91,7 +92,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_TurretImprovised</projectileDef>
+        <defaultProjectile>Bullet_MiniTurret</defaultProjectile>
         <warmupTime>1.5</warmupTime>
         <range>25.9</range>
         <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
@@ -124,10 +125,10 @@
     <stealable>false</stealable>
     <rotatable>false</rotatable>
     <statBases>
+      <Mass>15</Mass>
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
       <WorkToBuild>2500</WorkToBuild>
-      <Mass>100</Mass>
       <Beauty>-60</Beauty>
     </statBases>
     <tickerType>Normal</tickerType>
@@ -146,7 +147,7 @@
     <hasTooltip>true</hasTooltip>
     <costList>
       <Steel>250</Steel>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
       <MecComponent_Weapon>1</MecComponent_Weapon>
     </costList>
     <altitudeLayer>Blueprint</altitudeLayer>
@@ -157,7 +158,7 @@
 			<ai_combatDangerous>true</ai_combatDangerous>
       <turretGunDef>Gun_PlasmaCannon</turretGunDef>
       <turretBurstCooldownTime>7.0</turretBurstCooldownTime>
-      <turretTopgraphicPath>Things/Mechanicus/Templates/Turret_PlasmaCannon</turretTopgraphicPath>
+      <turretTopGraphicPath>Things/Mechanicus/Templates/Turret_PlasmaCannon</turretTopGraphicPath>
 	 <isInert>true</isInert>
       <isEdifice>false</isEdifice>
 
@@ -170,6 +171,7 @@
 
   <ThingDef ParentName="BaseHumanGun">
     <defName>Gun_PlasmaCannon</defName>
+	<tickerType>Normal</tickerType>
     <label>plasma cannon</label>
     <graphicData>
       <texPath>Things/Item/Equipment/WeaponRanged/ChargeRifle</texPath>
@@ -177,11 +179,12 @@
     </graphicData>
     <menuHidden>true</menuHidden>
     <description>Jury-rigged gun attached to a turret.</description>
-    <soundInteract>InteractRifle</soundInteract>
-    <canBeSpawningInventory>false</canBeSpawningInventory>
-    <tradeability>Never</tradeability>
+    <soundInteract>Interact_Rifle</soundInteract>
+    
+    <tradeability>None</tradeability>
     <destroyOnDrop>true</destroyOnDrop>
     <statBases>
+      <Mass>15</Mass>
       <AccuracyTouch>0.80</AccuracyTouch>
       <AccuracyShort>0.54</AccuracyShort>
       <AccuracyMedium>0.31</AccuracyMedium>
@@ -195,7 +198,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_ShipPlasmaCannon</projectileDef>
+        <defaultProjectile>Bullet_ShipPlasmaCannon</defaultProjectile>
         <warmupTime>2.5</warmupTime>
         <range>15.9</range>
         <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
@@ -205,24 +208,31 @@
         <muzzleFlashScale>9</muzzleFlashScale>
       </li>
     </verbs>
+	    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2.66</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+      </li>
+    </comps>
   </ThingDef>
 
 	<ThingDef ParentName="BaseBullet">
 		<defName>Bullet_ShipPlasmaCannon</defName>
 		<label>plasma bolt</label>
+		<thingClass>Projectile_Explosive</thingClass>
 		<graphicData>
 		<texPath>Things/IG/Weapons/Projectiles/PlasmaRound</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 			<shaderType>TransparentPostLight</shaderType>
 		</graphicData>
-		<thingClass>Projectile_Explosive</thingClass>
 		<projectile>
 			<speed>40</speed>
 			<damageDef>Burn</damageDef>
 			<damageAmountBase>10</damageAmountBase>
 			<explosionRadius>1.0</explosionRadius>
-			<preExplosionSpawnThingDef>FilthFuel</preExplosionSpawnThingDef>
-			<explosionSpawnChance>0.0</explosionSpawnChance>
+			<preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+			<postExplosionSpawnChance>0.0</postExplosionSpawnChance>
 		</projectile>
 	</ThingDef>
 
@@ -248,10 +258,10 @@
     <stealable>false</stealable>
     <rotatable>false</rotatable>
     <statBases>
+      <Mass>15</Mass>
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
       <WorkToBuild>2500</WorkToBuild>
-      <Mass>100</Mass>
       <Beauty>-60</Beauty>
     </statBases>
     <tickerType>Normal</tickerType>
@@ -270,7 +280,7 @@
     <hasTooltip>true</hasTooltip>
     <costList>
       <Steel>250</Steel>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
       <MecComponent_Weapon>1</MecComponent_Weapon>
     </costList>
     <altitudeLayer>Blueprint</altitudeLayer>
@@ -281,7 +291,7 @@
 			<ai_combatDangerous>true</ai_combatDangerous>
       <turretGunDef>Gun_RocketLauncherShip</turretGunDef>
       <turretBurstCooldownTime>7.0</turretBurstCooldownTime>
-      <turretTopgraphicPath>Things/Mechanicus/Templates/Turret_RocketLauncher</turretTopgraphicPath>
+      <turretTopGraphicPath>Things/Mechanicus/Templates/Turret_RocketLauncher</turretTopGraphicPath>
 	 <isInert>true</isInert>
       <isEdifice>false</isEdifice>
 
@@ -301,11 +311,12 @@
     </graphicData>
     <menuHidden>true</menuHidden>
     <description>Jury-rigged gun attached to a turret.</description>
-    <soundInteract>InteractRifle</soundInteract>
-    <canBeSpawningInventory>false</canBeSpawningInventory>
-    <tradeability>Never</tradeability>
+    <soundInteract>Interact_Rifle</soundInteract>
+    
+    <tradeability>None</tradeability>
     <destroyOnDrop>true</destroyOnDrop>
     <statBases>
+      <Mass>15</Mass>
       <AccuracyTouch>0.80</AccuracyTouch>
       <AccuracyShort>0.65</AccuracyShort>
       <AccuracyMedium>0.31</AccuracyMedium>
@@ -319,7 +330,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Rocket</projectileDef>
+        <defaultProjectile>Bullet_Rocket</defaultProjectile>
         <warmupTime>5.0</warmupTime>
         <range>30</range>
         <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
@@ -329,9 +340,16 @@
         <muzzleFlashScale>9</muzzleFlashScale>
       </li>
     </verbs>
+	    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2.66</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+      </li>
+    </comps>
   </ThingDef>
 
 
 
 
-</ThingDefs>
+</Defs>

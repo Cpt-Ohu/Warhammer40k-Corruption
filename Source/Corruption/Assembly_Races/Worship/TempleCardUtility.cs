@@ -47,7 +47,7 @@ namespace Corruption
             {
                 if (Widgets.ButtonText(rectDebug1, "ForceSermonDebug".Translate(), true, false, true))
                 {
-                    SermonUtility.ForceSermon(altar);
+                    SermonUtility.ForceSermon(altar, Worship.WorshipActType.MorningPrayer);
                 }
                 Rect rectDebug2 = rectDebug1;
                 rectDebug2.y += 25f;
@@ -78,7 +78,7 @@ namespace Corruption
             }
             else
             {
-                return altar.preacher.NameStringShort;
+                return altar.preacher.Name.ToString();
             }
         }
 
@@ -102,13 +102,13 @@ namespace Corruption
                     if (chair != null)
                     {
                         Job J = new Job(C_JobDefOf.AttendSermon, altar.preacher, altar, chair);
-                        p.QueueJob(J);
+                        p.jobs.jobQueue.EnqueueLast(J);
                         p.jobs.EndCurrentJob(JobCondition.InterruptForced);
                     }
                     else
                     {
                         Job J = new Job(C_JobDefOf.AttendSermon, altar.preacher, altar, result);
-                        p.QueueJob(J);
+                        p.jobs.jobQueue.EnqueueLast(J);
                         p.jobs.EndCurrentJob(JobCondition.InterruptForced);
                     }
                 }
@@ -127,10 +127,9 @@ namespace Corruption
             {
                 if (!SermonUtility.IsPreacher(current))
                 {
-                    Need_Soul nsoul = current.needs.TryGetNeed<Need_Soul>();
-                    if (nsoul == null) nsoul = new Need_Soul(current);
+                    CompSoul nsoul = CompSoul.GetPawnSoul(current);
                     SoulTrait strait = nsoul.DevotionTrait;
-                    string text1 = current.NameStringShort + " (" + strait.SoulCurrentData.label + ")";
+                    string text1 = current.Name + " (" + strait.SoulCurrentData.label + ")";
 
                     Action action;
                     Pawn localCol = current;

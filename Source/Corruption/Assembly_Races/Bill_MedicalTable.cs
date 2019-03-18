@@ -105,7 +105,7 @@ namespace Corruption
             if (this.CompletableEver)
             {
                 Pawn giverPawn = this.GiverPawn;
-                this.recipe.Worker.ApplyOnPawn(giverPawn, this.Part, billDoer, ingredients);
+                this.recipe.Worker.ApplyOnPawn(giverPawn, this.Part, billDoer, ingredients, this);
                 if (giverPawn.RaceProps.IsFlesh)
                 {
                     giverPawn.records.Increment(RecordDefOf.OperationsReceived);
@@ -115,18 +115,18 @@ namespace Corruption
             this.billStack.Delete(this);
         }
 
-        public override void Notify_DoBillStarted()
-        {
-            if (!this.GiverPawn.Dead && this.recipe.anesthesize)
+        public override void Notify_DoBillStarted(Pawn billDoer)
+        { 
+            if (!this.GiverPawn.Dead && this.recipe.anesthetize)
             {
-                HealthUtility.TryAnesthesize(this.GiverPawn);
+                HealthUtility.TryAnesthetize(this.GiverPawn);
             }
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.LookValue<int>(ref this.partIndex, "partIndex", 0, false);
+            Scribe_Values.Look<int>(ref this.partIndex, "partIndex", 0, false);
             if (Scribe.mode == LoadSaveMode.ResolvingCrossRefs)
             {
                 if (this.partIndex < 0)

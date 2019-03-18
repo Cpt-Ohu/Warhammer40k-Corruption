@@ -56,7 +56,7 @@
     <driverClass>Corruption.BookStuff.JobDriver_ReadBookLong</driverClass>
     <reportString>Reading a book.</reportString>
     <joyGainRate>1</joyGainRate>
-    <joyKind>Study</joyKind>
+    <joyKind>Meditative</joyKind>
   </JobDef>
 
  <JobDef>
@@ -111,13 +111,28 @@
   </JobDef>
 
   <JobDef>
-    <defName>Pray</defName>
+    <defName>PrayCorruption</defName>
     <driverClass>Corruption.Worship.JobDriver_Prayer</driverClass>
     <reportString>praying.</reportString>
-    <joyDuration>3000</joyDuration>
+    <joyDuration>2500</joyDuration>
     <joyGainRate>1</joyGainRate>
     <joyKind>Meditative</joyKind>
   </JobDef>
+  
+  <JobDef>
+    <defName>FillResourcePack</defName>
+    <driverClass>Corruption.IoM.JobDriver_FillResourcePack</driverClass>
+    <reportString>hauling TargetA.</reportString>
+  </JobDef>
 
+  
+  <JobDef>
+    <defName>HaulToContainerMulti</defName>
+    <driverClass>Corruption.IoM.JobDriver_HaulToContainerMultiPawn</driverClass>
+    <reportString>hauling TargetA.</reportString>
+    <suspendable>false</suspendable>
+  </JobDef>
+  
+  
 
 </Defs>

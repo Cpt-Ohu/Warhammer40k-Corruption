@@ -23,7 +23,7 @@
         <labelTendedWell>bandaged</labelTendedWell>
         <labelTendedWellInner>sutured</labelTendedWellInner>
         <labelSolidTendedWell>set</labelSolidTendedWell>
-        <tendDuration>120000</tendDuration>
+        <baseTendDurationHours>120000</baseTendDurationHours>
       </li>
     </comps>
     <stages>
@@ -52,7 +52,7 @@
   </HediffDef>
 
 
-  <HediffDef ParentName="HediffWeapon">
+  <HediffDef ParentName="HediffWeapon" Name="NurgleRot">
     <defName>NurglesRot</defName>
     <label>nurgle's rot</label>
     <makesSickThought>true</makesSickThought>
@@ -62,7 +62,7 @@
         <labelTendedWell>bandaged</labelTendedWell>
         <labelTendedWellInner>sutured</labelTendedWellInner>
         <labelSolidTendedWell>set</labelSolidTendedWell>
-        <tendDuration>120000</tendDuration>
+        <baseTendDurationHours>120000</baseTendDurationHours>
       </li>
       <li>
         <compClass>Corruption.HediffComp_NurglesRot</compClass>
@@ -115,5 +115,13 @@
     </comps>
   </HediffDef>
 
+  
+
+  <HediffDef ParentName="NurgleRot" >  
+    <defName>NurgleRotInstantDeath</defName>
+    <initialSeverity>1</initialSeverity>
+    <lethalSeverity>0</lethalSeverity>
+  </HediffDef>
+  
 
 </Defs>

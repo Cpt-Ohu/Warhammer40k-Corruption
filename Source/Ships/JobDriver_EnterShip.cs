@@ -10,10 +10,16 @@ namespace OHUShips
 {
     public class JobDriver_EnterShip : JobDriver
     {
+        public override bool TryMakePreToilReservations(bool errorOnFail)
+        {
+            return true;
+            //throw new NotImplementedException();
+        }
+
         [DebuggerHidden]
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            yield return Toils_Reserve.Reserve(TargetIndex.A, 10);
+            //yield return Toils_Reserve.Reserve(TargetIndex.A, 10, 1);
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch);
             Toil toil = new Toil();
             toil.defaultCompleteMode = ToilCompleteMode.Delay;
@@ -27,10 +33,15 @@ namespace OHUShips
                     ShipBase ship = (ShipBase)TargetA.Thing;
                     Action action = delegate
                     {
-                        ship.TryAcceptThing(pawn, true);
+                        if (pawn.carryTracker.CarriedThing != null)
+                        {
+                            ship.TryAcceptThing(pawn.carryTracker.CarriedThing);
+                        }
+                        if (ship.TryAcceptThing(pawn, true))
+                        {
+                            pawn.ClearMind();
+                        }
                     };
-
-                    ship.compShip.Notify_PawnEntered(this.pawn);
 
                     action();                    
                 },

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <SiteCoreDef>
+    <defName>ArtifactRecovery</defName>
+    <label>item stash</label>
+		<description>A stash of valuable items.</description>
+    <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
+    <expandingIconTexture>World/WorldObjects/Expanding/Sites/ItemStash</expandingIconTexture>
+  </SiteCoreDef>
+
+  <GenStepDef>
+    <defName>ArtifactRecovery</defName>
+    <linkWithSite>ArtifactRecovery</linkWithSite>
+    <order>460</order>
+    <genStep Class="GenStep_ItemStash">
+      <thingSetMakerDef>MapGen_HolyItems</thingSetMakerDef>
+      <count>1</count>
+      <nearMapCenter>true</nearMapCenter>
+    </genStep>
+  </GenStepDef>
+  
+  <SiteCoreDef>
+    <defName>SaintRecovery</defName>
+    <label>item stash</label>
+		<description>A stash of valuable items.</description>
+    <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
+    <expandingIconTexture>World/WorldObjects/Expanding/Sites/ItemStash</expandingIconTexture>
+  </SiteCoreDef>
+
+  <GenStepDef>
+    <defName>SaintRecovery</defName>
+    <linkWithSite>SaintRecovery</linkWithSite>
+    <order>460</order>
+    <genStep Class="GenStep_ItemStash">
+      <thingSetMakerDef>MapGen_ImperialShrine</thingSetMakerDef>
+      <count>1</count>
+      <nearMapCenter>true</nearMapCenter>
+    </genStep>
+  </GenStepDef>
+
+  
+  <SiteCoreDef>
+    <defName>SaintRecovery</defName>
+    <label>item stash</label>
+		<description>An old Imperial Shrine holding the remains and gifts of a saint.</description>
+    <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
+    <expandingIconTexture>World/WorldObjects/Expanding/Sites/ItemStash</expandingIconTexture>
+  </SiteCoreDef>
+
+  <GenStepDef>
+    <defName>SaintRecovery</defName>
+    <linkWithSite>SaintRecovery</linkWithSite>
+    <order>460</order>
+    <genStep Class="GenStep_ItemStash">
+      <thingSetMakerDef>MapGen_ImperialShrine</thingSetMakerDef>
+      <count>1</count>
+      <nearMapCenter>true</nearMapCenter>
+    </genStep>
+  </GenStepDef>
+  
+</Defs>

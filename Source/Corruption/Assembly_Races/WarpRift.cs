@@ -14,7 +14,7 @@ namespace Corruption
     {
         private Graphic lightningOverlay = GraphicDatabase.Get<Graphic_Single>("Things/Chaos/Demons/WarpRiftB_Overlay", ShaderDatabase.MoteGlow);
         private float curRotation = 0;
-        private Faction chaos = Find.FactionManager.FirstFactionOfDef(C_FactionDefOf.ChaosCult);
+        private Faction chaos = Find.FactionManager.FirstFactionOfDef(C_FactionDefOf.ChaosCult_NPC);
         List<Pawn> spawnedGroup = new List<Pawn>();
 
         public override void TickRare()
@@ -33,8 +33,8 @@ namespace Corruption
                 spawnedGroup.Clear();
             }
         }
-        
-        public override void DrawAt(Vector3 drawLoc)
+     
+        public override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
     //        base.DrawAt(drawLoc);
         }
@@ -48,7 +48,6 @@ namespace Corruption
         {
             Vector3 drawPos = this.DrawPos;
             drawPos.y += 0.1f;
-     //       Log.Message("Drawing");
             curRotation += 0.5f;
             float scale = 1f;
             if (curRotation > 360)

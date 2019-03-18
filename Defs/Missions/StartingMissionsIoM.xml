@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+  <Corruption.Missions.MissionDef>
+    <defName>BuildCCC</defName>
+    <missionClass>Corruption.Missions.Mission</missionClass>
+    <label>Build Central Command Cogitator</label>
+    <description>In order to actually communicate with Imperial authorities, you need something more powerful than a simple comms console. Build the Central Command Cogitator.</description>
+    <GiverFaction>IoM_Administratum</GiverFaction>
+    <StartingMission>true</StartingMission>
+    <PerequisiteMissions>      
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>SilverRewardSmall</li>
+    </RewardedSupplies>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef>
+  
+  <Corruption.Missions.MissionDef>
+    <defName>UseCCC</defName>
+    <missionClass>Corruption.Missions.Mission</missionClass>
+    <label>Establish contact to the Imperium</label>
+    <description>Use the recently built CCC to contact any Imperial authority in the sector. This should make the wider Imperium aware that you exist.</description>
+    <GiverFaction>IoM_Administratum</GiverFaction>
+    <StartingMission>true</StartingMission>
+    <PerequisiteMissions>      
+	 <li>BuildCCC</li>
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>SilverRewardSmall</li>
+    </RewardedSupplies>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef>
+  
+   <Corruption.Missions.MissionDef>
+    <defName>BuildRunway</defName>
+    <missionClass>Corruption.Missions.Mission</missionClass>
+    <label>Construct a runway</label>
+    <description>In order to enhance logistics and enable better assistance, build a runway near your base and keep it clear. This is vital for better rewards. This mission is fulfilled when the first supply ship lands.</description>
+    <GiverFaction>IoM_Administratum</GiverFaction>
+    <StartingMission>true</StartingMission>
+	<RewardMode>SupplyShip</RewardMode>
+    <PerequisiteMissions>      
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+    </RewardedSupplies>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>
+		<li>PlayerColony</li>
+		<li>PlayerTribe</li>
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef>
+  
+   <Corruption.Missions.MissionDef>
+    <defName>EstablishContactLocals</defName>
+    <missionClass>Corruption.Missions.AllPlanetFactionMission</missionClass>
+    <label>Establish contact to locals</label>
+    <description>Establish proper contact to all local tribes and settlements by sending an envoy.</description>
+    <GiverFaction>IoM_Administratum</GiverFaction>
+	<RewardMode>SupplyShip</RewardMode>
+    <StartingMission>true</StartingMission>
+    <PerequisiteMissions>      
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>SilverRewardSmall</li>
+    </RewardedSupplies>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>
+		<li>ChaosCult_Player</li>			
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef>
+  
+   <Corruption.Missions.MissionDef>
+    <defName>SubjugateLocals</defName>
+    <missionClass>Corruption.Missions.Mission</missionClass>
+    <label>Subjugate Locals</label>
+    <description>Bring at least one local faction under your rule to prove that you are able to govern a planet. The means are up to you.</description>
+    <GiverFaction>IoM_Administratum</GiverFaction>
+    <StartingMission>true</StartingMission>
+	<RewardMode>SupplyShip</RewardMode>
+    <PerequisiteMissions>      
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>GoldReward</li>
+      <li>BuildingMaterials</li>
+      <li>BuildingMaterials</li>
+      <li>SteelReward</li>
+      <li>SteelReward</li>
+    </RewardedSupplies>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>
+		<li>ChaosCult_Player</li>			
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef>
+  
+    <Corruption.Missions.MissionDef>
+    <defName>EcclesiarchyBuildAltar</defName>
+    <missionClass>Corruption.Missions.Mission</missionClass>
+    <label>Build a place of worship.</label>
+    <description>Being a representative of the Imperium you must establish the Imperial Cult on this planet. Build an altar so your people may worship the Emperor.</description>
+    <GiverFaction>IoM_Ecclesiarchy</GiverFaction>
+    <StartingMission>true</StartingMission>
+    <DaysToFinish>60</DaysToFinish>	
+    <PerequisiteMissions>      
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>SilverRewardSmall</li>
+    </RewardedSupplies>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef>
+
+    <Corruption.Missions.MissionDef>
+    <defName>EcclesiarchyGainFavour</defName>
+    <missionClass>Corruption.Missions.Mission</missionClass>
+    <label>Gain the Emperors Favour.</label>
+    <description>Use your newly built altars to hold sermons and gain enough favour to warrant a miracle.</description>
+    <GiverFaction>IoM_Ecclesiarchy</GiverFaction>
+    <StartingMission>false</StartingMission>
+    <DaysToFinish>0</DaysToFinish>	
+    <PerequisiteMissions>
+	<li>EcclesiarchyBuildAltar</li>
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>SilverRewardSmall</li>
+    </RewardedSupplies>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef>  
+  
+   <Corruption.Missions.MissionDef>
+    <defName>EcclesiarchyWonder</defName>
+    <missionClass>Corruption.Missions.Mission</missionClass>
+    <label>Pray for a wonder</label>
+    <description>Use your accumulated favour to pray for a wonder.</description>
+    <GiverFaction>IoM_Ecclesiarchy</GiverFaction>
+    <StartingMission>false</StartingMission>
+    <DaysToFinish>0</DaysToFinish>	
+    <PerequisiteMissions>
+	<li>EcclesiarchyGainFavour</li>
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>SilverRewardMedium</li>
+    </RewardedSupplies>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef>  
+  
+  <Corruption.Missions.MissionDef>
+    <defName>EcclesiarchyFirstPilgrimage</defName>
+    <missionClass>Corruption.Missions.Mission</missionClass>
+    <label>Your first pilgrimage</label>
+    <description>Send at least one member out on a pilgrimage to look for signs of the Emperor, sacred artefacts or new believers.</description>
+    <GiverFaction>IoM_Ecclesiarchy</GiverFaction>
+    <StartingMission>false</StartingMission>
+    <DaysToFinish>0</DaysToFinish>	
+    <PerequisiteMissions>
+	<li>EcclesiarchyBuildAltar</li>
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>SilverRewardSmall</li>
+    </RewardedSupplies>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef>  
+  
+    <Corruption.Missions.MissionDef>
+    <defName>AdministratumIndustrializationI</defName>
+    <missionClass>Corruption.Missions.Mission</missionClass>
+    <label>Planetary Industrialization I</label>
+    <description>This planet should raise its industrial output. Create or take over your first Production Site.</description>
+    <GiverFaction>IoM_Administratum</GiverFaction>
+    <StartingMission>false</StartingMission>
+    <DaysToFinish>0</DaysToFinish>	
+    <PerequisiteMissions>
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>BuildingMaterials</li>
+      <li>BuildingMaterials</li>
+      <li>BuildingMaterials</li>
+      <li>EmergencyRations</li>
+      <li>EmergencyRations</li> 	  
+    </RewardedSupplies>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef> 
+  
+   <Corruption.Missions.MissionDef>
+    <defName>AdministratumIndustrializationIIa</defName>
+    <missionClass>Corruption.Missions.Mission</missionClass>
+    <label>Planetary Industrialization II - Levels</label>
+    <description>Increase a Production Site's level. You have been awarded almost all resources to do so.</description>
+    <GiverFaction>IoM_Administratum</GiverFaction>
+    <StartingMission>false</StartingMission>
+    <DaysToFinish>0</DaysToFinish>	
+    <PerequisiteMissions>
+	<li>AdministratumIndustrializationI</li>
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>GoldReward</li>
+      <li>GoldReward</li>
+      <li>EmergencyRations</li> 	  
+    </RewardedSupplies>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef> 
+
+  
+     <Corruption.Missions.MissionDef>
+    <defName>AdministratumIndustrializationIIb</defName>
+    <missionClass>Corruption.Missions.Mission</missionClass>
+    <label>Planetary Industrialization II - Upgrades</label>
+    <description>Build an upgrade on one of your Production Sites. You have been awarded almost all resources to do so.</description>
+    <GiverFaction>IoM_Administratum</GiverFaction>
+    <StartingMission>false</StartingMission>
+    <DaysToFinish>0</DaysToFinish>	
+    <PerequisiteMissions>
+	<li>AdministratumIndustrializationI</li>
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>GoldReward</li>
+      <li>GoldReward</li>
+      <li>EmergencyRations</li> 	  
+    </RewardedSupplies>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef> 
+</Defs>

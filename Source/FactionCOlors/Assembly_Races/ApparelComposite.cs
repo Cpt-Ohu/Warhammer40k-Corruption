@@ -1,5 +1,4 @@
-﻿using OHUShips;
-using RimWorld;
+﻿using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +36,7 @@ namespace FactionColors
 
         private  Color GetSecondaryStuffColor()
         {
-            List<ThingCountClass> list = this.def.costList;
+            List<ThingDefCountClass> list = this.def.costList;
             for (int i=0; i < list.Count; i++)
             {
                 if(list[i].thingDef.IsStuff)
@@ -59,7 +58,7 @@ namespace FactionColors
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.LookValue<Color>(ref this.col, "col", Color.white, false);
+            Scribe_Values.Look<Color>(ref this.col, "col", Color.white, false);
         }
     }
 }

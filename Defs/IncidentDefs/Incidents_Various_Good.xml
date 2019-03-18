@@ -4,11 +4,32 @@
   <IncidentDef>
     <defName>Visitor_IoMWanderer</defName>
     <label>wanderer</label>
-    <targetType>BaseMap</targetType>
+    <targetTags><li>Map_PlayerHome</li></targetTags>
     <workerClass>Corruption.IoM.IncidentWorker_WanderingTrader</workerClass>
-    <category>AllyArrival</category>
+    <category>FactionArrival</category>
     <baseChance>4</baseChance>
     <pointsScaleable>false</pointsScaleable>
   </IncidentDef>
 
+  <IncidentDef>
+    <defName>Visitor_Healer</defName>
+    <label>healer arrives</label>
+    <targetTags><li>Map_PlayerHome</li></targetTags>
+    <workerClass>Corruption.IoM.IncidentWorker_VisitingHealer</workerClass>
+    <category>FactionArrival</category>
+    <baseChance>1</baseChance>
+    <pointsScaleable>false</pointsScaleable>
+  </IncidentDef>
+
+  
+  <IncidentDef>
+    <defName>GrowingFlock</defName>
+    <label>Growing Flock</label>
+    <targetTags><li>Map_PlayerHome</li></targetTags>
+    <workerClass>Corruption.Worship.Wonders.IncidentWorker_GrowingFlock</workerClass>
+    <category>FactionArrival</category>
+    <baseChance>0.000000001</baseChance>
+    <pointsScaleable>true</pointsScaleable>
+  </IncidentDef>
+  
 </Defs>

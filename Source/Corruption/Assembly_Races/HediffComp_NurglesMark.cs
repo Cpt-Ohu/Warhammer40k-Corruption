@@ -10,24 +10,22 @@ namespace Corruption
 {
     public class HediffComp_NurglesMark : HediffComp
     {
-        private int lastTick;
 
         public override void Notify_PawnDied()
         {
             if (this.Pawn.Corpse.Spawned)
             {
-                GenExplosion.DoExplosion(this.Pawn.Position, this.Pawn.Map, 5, C_DamageDefOf.RottenBurst ,null, null, null, null, ThingDefOf.FilthVomit, 1);
+                GenExplosion.DoExplosion(this.Pawn.Position, this.Pawn.Map, 5, C_DamageDefOf.RottenBurst ,null, 5, 0f, null, null, null, null, ThingDefOf.Filth_Vomit, 1);
                 Pawn.Corpse.Destroy(DestroyMode.Vanish);
             }
         }
 
-        public override void CompPostTick()
+        public override void CompPostTick(ref float severityAdjustment)
         {
-            base.CompPostTick();
-            if (lastTick < Find.TickManager.TicksGame + 6000)
+            base.CompPostTick(ref severityAdjustment);
+            if (Find.TickManager.TicksGame % 60000 == 0)
             {
-                FilthMaker.MakeFilth(this.Pawn.DrawPos.ToIntVec3(), this.Pawn.Map, ThingDefOf.FilthVomit, 1);
-                lastTick = Find.TickManager.TicksGame;
+                FilthMaker.MakeFilth(this.Pawn.DrawPos.ToIntVec3(), this.Pawn.Map, ThingDefOf.Filth_Vomit, 1);
             }
         }
     }

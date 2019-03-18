@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <!-- ==========================Standard=============================== -->
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="ArmorMakeableBase" >
     <defName>Mechanicum_PriestRobe</defName>
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <label>Tech priest robe</label>
@@ -20,13 +20,14 @@
     </graphicData>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>11</Mass>
       <WorkToMake>3250000</WorkToMake>
       <MaxHitPoints>500</MaxHitPoints>
       <MarketValue>1200</MarketValue>
       <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.65</ArmorRating_Sharp>
       <ArmorRating_Heat>0.30</ArmorRating_Heat>
-      <Insulation_Cold>-45</Insulation_Cold>
+      <Insulation_Cold>45</Insulation_Cold>
     </statBases>
     <equippedStatOffsets>
       <WorkSpeedGlobal>0.2</WorkSpeedGlobal>
@@ -37,9 +38,10 @@
       <li>IG_MecApp</li>
     </thingCategories>
     <costList>
-      <Component>18</Component>
+      <ComponentIndustrial>18</ComponentIndustrial>
       <Plasteel>135</Plasteel>
     </costList>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -47,11 +49,10 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Mechanicus/Robes/MagosRobe</worngraphicPath>
+      <wornGraphicPath>Things/Mechanicus/Robes/MagosRobe</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>TechPriest</li>
       </tags>
@@ -82,13 +83,14 @@
     </graphicData>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>11</Mass>
       <WorkToMake>3250000</WorkToMake>
       <MaxHitPoints>500</MaxHitPoints>
       <MarketValue>1200</MarketValue>
       <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.65</ArmorRating_Sharp>
       <ArmorRating_Heat>0.30</ArmorRating_Heat>
-      <Insulation_Cold>-45</Insulation_Cold>
+      <Insulation_Cold>45</Insulation_Cold>
     </statBases>
     <equippedStatOffsets>
       <WorkSpeedGlobal>0.2</WorkSpeedGlobal>
@@ -99,9 +101,10 @@
       <li>IG_MecApp</li>
     </thingCategories>
     <costList>
-      <Component>18</Component>
+      <ComponentIndustrial>18</ComponentIndustrial>
       <Plasteel>135</Plasteel>
     </costList>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -109,11 +112,10 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Mechanicus/Skitarius/SkitariusArmor</worngraphicPath>
+      <wornGraphicPath>Things/Mechanicus/Skitarius/SkitariusArmor</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>Skitarius</li>
       </tags>
@@ -143,28 +145,29 @@
       <li>IG_MecApp</li>
     </thingCategories>
     <statBases>
+      <Mass>1</Mass>
       <WorkToMake>32000</WorkToMake>
       <MaxHitPoints>120</MaxHitPoints>
       <MarketValue>50</MarketValue>
       <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
       <ArmorRating_Heat>0.05</ArmorRating_Heat>
-      <ArmorRating_Electric>0</ArmorRating_Electric>
-      <Insulation_Cold>-4</Insulation_Cold>
+      
+      <Insulation_Cold>4</Insulation_Cold>
       <Insulation_Heat>4</Insulation_Heat>
     </statBases>
     <costList>
       <Cloth>60</Cloth>
     </costList>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Mechanicus/Robes/AcolyteCowl</worngraphicPath>
+      <wornGraphicPath>Things/Mechanicus/Robes/AcolyteCowl</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>5</commonality>
       <tags>
         <li>Mechanicum</li>
       </tags>
@@ -192,29 +195,30 @@
       <li>IG_MecApp</li>
     </thingCategories>
     <statBases>
+      <Mass>1</Mass>
       <WorkToMake>50000</WorkToMake>
       <MaxHitPoints>160</MaxHitPoints>
       <MarketValue>300</MarketValue>
       <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.1</ArmorRating_Sharp>
       <ArmorRating_Heat>0.1</ArmorRating_Heat>
-      <ArmorRating_Electric>1</ArmorRating_Electric>
-      <Insulation_Cold>-4</Insulation_Cold>
+      
+      <Insulation_Cold>4</Insulation_Cold>
       <Insulation_Heat>4</Insulation_Heat>
     </statBases>
     <costList>
       <Cloth>60</Cloth>
-      <Component>1</Component>
+      <ComponentIndustrial>1</ComponentIndustrial>
     </costList>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Mechanicus/Robes/MagosCowl</worngraphicPath>
+      <wornGraphicPath>Things/Mechanicus/Robes/MagosCowl</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>5</commonality>
       <tags>
         <li>TechPriest</li>
       </tags>
@@ -243,34 +247,35 @@
       <li>IG_MecApp</li>
     </thingCategories>
     <statBases>
+      <Mass>1.2</Mass>
       <WorkToMake>60000</WorkToMake>
       <MaxHitPoints>160</MaxHitPoints>
       <MarketValue>500</MarketValue>
       <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.6</ArmorRating_Sharp>
       <ArmorRating_Heat>0.5</ArmorRating_Heat>
-      <ArmorRating_Electric>0</ArmorRating_Electric>
-      <Insulation_Cold>-3</Insulation_Cold>
+      
+      <Insulation_Cold>3</Insulation_Cold>
       <Insulation_Heat>3</Insulation_Heat>
     </statBases>
     <equippedStatOffsets>
-      <ShootingAccuracy>0.2</ShootingAccuracy>
+      <ShootingAccuracyPawn>0.2</ShootingAccuracyPawn>
       <ResearchSpeed>0.2</ResearchSpeed>
       <SocialImpact>-0.2</SocialImpact>
     </equippedStatOffsets>
     <costList>
-      <Component>7</Component>
+      <ComponentIndustrial>7</ComponentIndustrial>
       <Wraithbone>60</Wraithbone>
     </costList>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Mechanicus/Skitarius/SkitariusHelmet</worngraphicPath>
+      <wornGraphicPath>Things/Mechanicus/Skitarius/SkitariusHelmet</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>5</commonality>
       <tags>
         <li>Skitarii</li>
       </tags>
@@ -280,4 +285,4 @@
     </apparel>
   </ThingDef>
 
-</ThingDefs>
+</Defs>

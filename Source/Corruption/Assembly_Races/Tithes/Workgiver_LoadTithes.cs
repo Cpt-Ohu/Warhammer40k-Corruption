@@ -24,7 +24,8 @@ namespace Corruption.Tithes
 
         private int countToHaul;
 
-        public override Job JobOnThing(Pawn pawn, Thing t)
+
+        public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
             TitheContainer container = (TitheContainer)t;
 
@@ -36,12 +37,12 @@ namespace Corruption.Tithes
 
         }
         
-        public override bool HasJobOnThing(Pawn pawn, Thing t)
+        public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
             if (t is TitheContainer)
             {
                 TitheContainer container = (TitheContainer)t;
-                bool flag = this.SetItemToCollect(container, out this.countToHaul, out this.ItemToHaul) && this.countToHaul >0 && container.massUsage < 1f &&  pawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation) && pawn.CanReserveAndReach(t, PathEndMode.Touch, pawn.NormalMaxDanger(), 1) && container.compTithe.tProps.maxContainerCapacity >= container.GetInnerContainer().Count && container.currentTitheEntries.Any(x => x.active);
+                bool flag = this.SetItemToCollect(container, out this.countToHaul, out this.ItemToHaul) && this.countToHaul >0 && container.massUsage < 1f &&  pawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation) && pawn.CanReserveAndReach(t, PathEndMode.Touch, pawn.NormalMaxDanger(), 1) && container.compTithe.tProps.maxContainerCapacity >= container.GetDirectlyHeldThings().Count && container.currentTitheEntries.Any(x => x.active);
                 return flag;
             }
             return false;

@@ -12,19 +12,20 @@ namespace Corruption
 {
     public class IncidentWorker_CorruptiveDrone : IncidentWorker_PsychicEmanation
     {
-        public override bool TryExecute(IncidentParms parms)
+        protected override bool TryExecuteWorker(IncidentParms parms)
         {
-            this.DoConditionAndLetter(Find.VisibleMap, Mathf.RoundToInt(this.def.durationDays.RandomInRange * 60000f), Gender.None);
+            this.DoConditionAndLetter(Find.CurrentMap,60, Gender.None, Mathf.RoundToInt(this.def.durationDays.RandomInRange * 60000f));
             SoundDefOf.PsychicPulseGlobal.PlayOneShotOnCamera();
             return true;
         }
 
-        protected override void DoConditionAndLetter(Map map, int duration, Gender gender)
+        protected override void DoConditionAndLetter(Map map, int duration, Gender gender, float points)
         {
-            MapCondition_CorruptiveDrone MapCondition_corruptiveDrone = (MapCondition_CorruptiveDrone)MapConditionMaker.MakeCondition(C_MapConditionDefOf.CorruptiveDrone, duration, 0);
-            map.mapConditionManager.RegisterCondition(MapCondition_corruptiveDrone);
+            GameCondition_CorruptiveDrone MapCondition_corruptiveDrone = (GameCondition_CorruptiveDrone)GameConditionMaker.MakeCondition(C_GameConditionDefOf.CorruptiveDrone, duration, 0);
+            map.gameConditionManager.RegisterCondition(MapCondition_corruptiveDrone);
             string text = "LetterIncidentCorruptiveDrone".Translate();
-            Find.LetterStack.ReceiveLetter("LetterLabelCorruptiveDrone".Translate(), text, LetterType.BadNonUrgent, null);
+            Find.LetterStack.ReceiveLetter("LetterLabelCorruptiveDrone".Translate(), text, LetterDefOf.NegativeEvent, null);
         }
+
     }
 }

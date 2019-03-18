@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="ArmorMakeableBase" >
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <defName>Apparel_OrkishShirt</defName>
     <label>Orkish vest</label>
@@ -25,17 +25,17 @@
       <Mass>2.25</Mass>
       <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.1</ArmorRating_Sharp>
-      <Insulation_Cold>-3</Insulation_Cold>
+      <Insulation_Cold>3</Insulation_Cold>
     </statBases>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Orks/OrkLeatherVest/OrkLeatherVest</worngraphicPath>
+      <wornGraphicPath>Things/Orks/OrkLeatherVest/OrkLeatherVest</wornGraphicPath>
       <layers>
         <li>OnSkin</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>Ork</li>
       </tags>
@@ -70,7 +70,7 @@
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="ArmorMakeableBase" >
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <defName>Apparel_OrkishChestplate</defName>
     <label>Orkish chestplate</label>
@@ -89,20 +89,20 @@
       <Mass>5.25</Mass>
       <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
-      <Insulation_Cold>-3</Insulation_Cold>
+      <Insulation_Cold>3</Insulation_Cold>
     </statBases>
     <costList>
       <Steel>75</Steel>
     </costList>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Orks/OrkChestPlate/OrkChestPlate</worngraphicPath>
+      <wornGraphicPath>Things/Orks/OrkChestPlate/OrkChestPlate</wornGraphicPath>
       <layers>
         <li>Middle</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>Ork</li>
       </tags>
@@ -144,6 +144,7 @@
       <li>Ork_Armor</li>
     </thingCategories>
     <statBases>
+      <Mass>3</Mass>
       <WorkToMake>6000</WorkToMake>
       <MaxHitPoints>100</MaxHitPoints>
       <MarketValue>150</MarketValue>
@@ -156,15 +157,15 @@
     <costList>
       <Steel>60</Steel>
     </costList>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Orks/OrkHelmet/OrkHelmet</worngraphicPath>
+      <wornGraphicPath>Things/Orks/OrkHelmet/OrkHelmet</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>5</commonality>
       <tags>
         <li>OrkNob</li>
       </tags>
@@ -206,7 +207,7 @@
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="HatBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="HatBase" >
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <defName>OrkBandana</defName>
     <label>ork bandana</label>
@@ -221,6 +222,7 @@
       <li>Ork_Armor</li>
     </thingCategories>
     <statBases>
+      <Mass>1</Mass>
       <MaxHitPoints>100</MaxHitPoints>
       <MarketValue>200</MarketValue>
       <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
@@ -229,15 +231,15 @@
     <equippedStatOffsets>
       <MoveSpeed>0.2</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>UpperHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Orks/OrkHelmet/OrkBandana</worngraphicPath>
+      <wornGraphicPath>Things/Orks/OrkHelmet/OrkBandana</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>OrkKommando</li>
       </tags>
@@ -262,4 +264,4 @@
 
 
 
-</ThingDefs>
+</Defs>

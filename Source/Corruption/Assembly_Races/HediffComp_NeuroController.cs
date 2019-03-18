@@ -8,22 +8,22 @@ using UnityEngine;
 
 namespace Corruption
 {
-    public class HediffComp_NeuroController : HediffComp, IThingContainerOwner
+    public class HediffComp_NeuroController : HediffComp, IThingHolder
     {
         private const int maxWeaponSystems = 4;
 
-        public ThingContainer innerContainer;
+        public ThingOwner innerContainer;
 
         public bool WeaponSystemsActive = false;
                 
         public HediffComp_NeuroController()
         {
-            this.innerContainer = new ThingContainer(this, false, LookMode.Deep);
+            this.innerContainer = new ThingOwner<Thing>(this, false, LookMode.Deep);
         }
 
-        public override void CompPostTick()
+        public override  void CompPostTick(ref float severityAdjustment)
         {
-            base.CompPostTick();
+            base.CompPostTick(ref severityAdjustment);
             for (int i = 0; i < innerContainer.Count; i++)
             {
                 ThingWithComps thingWithComps = this.innerContainer[i] as ThingWithComps;
@@ -42,11 +42,14 @@ namespace Corruption
             }
         }
 
-        public ThingContainer GetInnerContainer()
+        public IThingHolder ParentHolder
         {
-            return this.innerContainer;
+            get
+            {
+                return this.Pawn;
+            }
         }
-        
+
         public IntVec3 GetPosition()
         {
             return this.Pawn.PositionHeld;
@@ -64,6 +67,15 @@ namespace Corruption
                 this.innerContainer.TryAdd(weapon);
             }
         }
-        
+
+        public void GetChildHolders(List<IThingHolder> outChildren)
+        {
+            ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, this.GetDirectlyHeldThings());
+        }
+
+        public ThingOwner GetDirectlyHeldThings()
+        {
+            return this.innerContainer;
+        }
     }
 }

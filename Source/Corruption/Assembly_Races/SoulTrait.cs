@@ -70,13 +70,13 @@ namespace Corruption
 
         public void ExposeData()
         {
-            Scribe_Defs.LookDef<SoulTraitDef>(ref this.SDef, "SDef");
-            Scribe_Collections.LookList<ThoughtDef>(ref this.NullifiedThoughtsInt, "NullifiedThoughtsInt", LookMode.Def, new object[0]);
-            Scribe_Values.LookValue<int>(ref this.sdegree, "sdegree", 0, true);
+            Scribe_Defs.Look<SoulTraitDef>(ref this.SDef, "SDef");
+            Scribe_Collections.Look<ThoughtDef>(ref this.NullifiedThoughtsInt, "NullifiedThoughtsInt", LookMode.Def, new object[0]);
+            Scribe_Values.Look<int>(ref this.sdegree, "sdegree", 0, true);
             if (Scribe.mode == LoadSaveMode.ResolvingCrossRefs && this.SDef == null)
             {
                 this.SDef = DefDatabase<SoulTraitDef>.GetRandom();
-                this.sdegree =  this.SDef.SDegreeDatas.RandomElementByWeight((SoulTraitDegreeData dd) => dd.Commonality).degree;
+                this.sdegree =  this.SDef.SDegreeDatas.RandomElementByWeight((SoulTraitDegreeData dd) => dd.commonality).degree;
             }
         }
     }

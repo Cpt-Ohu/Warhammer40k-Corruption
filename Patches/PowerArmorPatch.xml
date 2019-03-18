@@ -1,0 +1,49 @@
+<Patch>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>*/ThingDef[defName="Apparel_PowerArmor"]/label</xpath>
+	  <value>
+<label>imperial power armor</label>
+	  </value>
+	</Operation> 
+
+	<Operation Class="PatchOperationReplace">
+	  <xpath>*/ThingDef[defName="Apparel_PowerArmor"]/description</xpath>
+	  <value>
+    <description>Powered armor based on the Ignatius pattern. Usually reserved for high Imperial officials and those wealthy enough to pay for them. Very difficult to produce.</description>
+	  </value>
+	</Operation> 
+
+	<Operation Class="PatchOperationReplace">
+	  <xpath>*/ThingDef[defName="Apparel_PowerArmor"]/costList</xpath>
+	  <value>
+    <costList>
+      <PowerArmorTemplate>1</PowerArmorTemplate>
+    </costList>
+	  </value>
+	</Operation> 
+
+	<Operation Class="PatchOperationInsert">
+	  <xpath>*/ThingDef[defName="Apparel_PowerArmor"]/label</xpath>
+	  <value>
+<comps>
+      <li Class="FactionColors.CompProperties_PauldronDrawer">
+        <compClass>FactionColors.CompPauldronDrawer</compClass>
+        <PauldronEntries>
+		<li>
+        	 <shoulderPadType>Both</shoulderPadType>
+  		 <shaderType>Cutout</shaderType>
+    		 <padTexPath>Things/IoM/PadsArmored/PadArmored</padTexPath>
+  		 <commonality>10</commonality>
+		</li>
+        </PauldronEntries></li>
+</comps>
+	  </value>
+	</Operation> 
+
+	<Operation Class="PatchOperationReplace">
+	  <xpath>*/ThingDef[defName="Apparel_PowerArmorHelmet"]/graphicData/texPath</xpath>
+	  <value><texPath>Things/IoM/PowerArmor/PowerArmorHelmet</texPath></value>
+	</Operation> 
+
+
+</Patch>

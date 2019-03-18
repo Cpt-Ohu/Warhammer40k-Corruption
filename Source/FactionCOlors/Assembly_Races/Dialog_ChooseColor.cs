@@ -60,11 +60,11 @@ namespace FactionColors
             {
                 if (this.isSecondaryColor)
                 {
-                    FactionColorUtilities.currentPlayerStoryTracker.PlayerColorTwo = newColor;
+                    FactionColorUtilities.currentFactionColorTracker.PlayerColorTwo = newColor;
                 }
                 else
                 {
-                    FactionColorUtilities.currentPlayerStoryTracker.PlayerColorOne = newColor;
+                    FactionColorUtilities.currentFactionColorTracker.PlayerColorOne = newColor;
                 }                
                 this.Close(true);
             }
@@ -121,9 +121,9 @@ namespace FactionColors
 
             for (int i = 0; i < this.options.Count; i++)
             {
-                if (Widgets.RadioButtonLabeled(rect2, options[i], FactionColorUtilities.currentPlayerStoryTracker.BannerGraphicPath == "UI/Flags/"+options[i]))
+                if (Widgets.RadioButtonLabeled(rect2, options[i], FactionColorUtilities.currentFactionColorTracker.BannerGraphicPath == "UI/Flags/"+options[i]))
                 {
-                    FactionColorUtilities.currentPlayerStoryTracker.BannerGraphicPath = "UI/Flags/" + options[i];
+                    FactionColorUtilities.currentFactionColorTracker.BannerGraphicPath = "UI/Flags/" + options[i];
                 }
                 rect2.y += 28f;
             }

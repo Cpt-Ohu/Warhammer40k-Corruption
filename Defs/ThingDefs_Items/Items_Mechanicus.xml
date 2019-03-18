@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <ThingDef ParentName="ResourceBase">
     <defName>MecComponent_Energy</defName>
@@ -109,7 +109,7 @@
     <costList>
       <MecComponent_General>2</MecComponent_General>
       <MecComponent_Energy>1</MecComponent_Energy>
-      <Component>5</Component>
+      <ComponentIndustrial>5</ComponentIndustrial>
       <Ceramite>75</Ceramite>
       <Plasteel>75</Plasteel>
     </costList>
@@ -151,7 +151,7 @@
     <costList>
       <MecComponent_Weapon>2</MecComponent_Weapon>
       <MecComponent_General>1</MecComponent_General>
-      <Component>5</Component>
+      <ComponentIndustrial>5</ComponentIndustrial>
       <Steel>150</Steel>
     </costList>
     <tickerType>Normal</tickerType>
@@ -182,9 +182,9 @@
     <soundDrop>Standard_Drop</soundDrop>
     <stackLimit>1</stackLimit>
     <statBases>
+      <Mass>15</Mass>
       <MaxHitPoints>200</MaxHitPoints>
       <MarketValue>3500</MarketValue>
-      <Mass>15</Mass>
       <Flammability>1.0</Flammability>
 			<DeteriorationRate>0.3</DeteriorationRate>
 		</statBases>
@@ -206,7 +206,7 @@
     <costList>
       <MecComponent_Weapon>2</MecComponent_Weapon>
       <MecComponent_General>1</MecComponent_General>
-      <Component>5</Component>
+      <ComponentIndustrial>5</ComponentIndustrial>
       <Steel>150</Steel>
     </costList>
     <tickerType>Normal</tickerType>
@@ -261,7 +261,7 @@
     <costList>
       <MecComponent_Weapon>2</MecComponent_Weapon>
       <MecComponent_General>1</MecComponent_General>
-      <Component>5</Component>
+      <ComponentIndustrial>5</ComponentIndustrial>
       <Steel>150</Steel>
     </costList>
     <tickerType>Normal</tickerType>
@@ -280,5 +280,29 @@
     </comps>
   </ThingDef>
 
+  <ThingDef ParentName="ResourceBase">
+    <defName>Mec_Lobotomiser</defName>
+    <label>mechanicus lobotomy chip</label>
+    <description>A neurocontroller that downregulates aggressive behaviour in animals. Most often implanted in Grox to make them docile.</description>
+    <graphicData>
+      <texPath>Things/Mechanicus/Templates/MecTemplate_General</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>10</stackLimit>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>800</MarketValue>
+      <Mass>1.5</Mass>
+      <Flammability>1.0</Flammability>
+			<DeteriorationRate>1.0</DeteriorationRate>
+		</statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>IG_MecTemplates</li>
+    </thingCategories>
+  </ThingDef>
 
-</ThingDefs>
+
+</Defs>

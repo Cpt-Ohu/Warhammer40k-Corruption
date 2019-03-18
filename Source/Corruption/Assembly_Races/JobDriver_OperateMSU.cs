@@ -11,10 +11,14 @@ namespace Corruption
 {
     public class JobDriver_OperateMSU : JobDriver
     {
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
+        {
+            return this.pawn.Reserve(this.job.targetA, this.job, 1, -1, null);
+        }
+
         [DebuggerHidden]
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            yield return Toils_Reserve.Reserve(TargetIndex.A, 1);
             yield return Toils_Goto.GotoCell(TargetIndex.A, PathEndMode.InteractionCell).FailOn(delegate (Toil to)
             {
                 Building_MechanicusMedTable building_CommsConsole = (Building_MechanicusMedTable)to.actor.jobs.curJob.GetTarget(TargetIndex.A).Thing;

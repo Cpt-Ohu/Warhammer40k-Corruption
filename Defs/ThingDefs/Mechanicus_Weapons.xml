@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <ThingDef Name="BaseMeleeWeapon_Mechanicus" Abstract="True">
     <category>Item</category>
@@ -12,8 +12,9 @@
       <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
     </graphicData>
     <drawGUIOverlay>true</drawGUIOverlay>
-    <tradeability>Sellable</tradeability>
+    <tradeability>None</tradeability>
     <statBases>
+      <Mass>5</Mass>
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>0.7</Flammability>
       <DeteriorationRate>1</DeteriorationRate>
@@ -35,7 +36,7 @@
         <compClass>CompQuality</compClass>
       </li>
       <li Class="CompProperties_Art">
-        <nameMaker>ArtName_WeaponMelee</nameMaker>
+        <nameMaker>ArtDescription_WeaponMelee</nameMaker>
         <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
         <minQualityForArtistic>Excellent</minQualityForArtistic>
       </li>
@@ -75,8 +76,10 @@ Class="FactionColors.FactionItemDef">
     </graphicData>
     <destroyOnDrop>True</destroyOnDrop>
     <menuHidden>true</menuHidden>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <tradeability>None</tradeability>
     <statBases>
+      <Mass>5</Mass>
       <WorkToMake>32000</WorkToMake>
       <MarketValue>200</MarketValue>
       <AccuracyTouch>0.91</AccuracyTouch>
@@ -88,17 +91,17 @@ Class="FactionColors.FactionItemDef">
     <costList>
       <Steel>120</Steel>
       <Plasteel>30</Plasteel>
-      <Component>6</Component>
+      <ComponentIndustrial>6</ComponentIndustrial>
     </costList>
     <techLevel>Spacer</techLevel>
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Pistol</projectileDef>
+        <defaultProjectile>Bullet_Revolver</defaultProjectile>
         <warmupTime>1</warmupTime>
         <range>24</range>
-        <soundCast>ShotPistol</soundCast>
+        <soundCast>Shot_Revolver</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
       </li>
@@ -116,14 +119,16 @@ Class="FactionColors.FactionItemDef">
     <description>Long range weapon based on transuranium shells.</description>
     <ItemMeshSize>(1.2, 1.2, 1.2)</ItemMeshSize>
     <graphicData>
+      <drawSize>(1.2,1.2)</drawSize>
       <texPath>Things/Mechanicus/Skitarius/SkitariiTransRifle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <soundInteract>InteractChargeRifle</soundInteract>
+    <soundInteract>Interact_ChargeRifle</soundInteract>
     <statBases>
+      <Mass>5</Mass>
       <WorkToMake>120000</WorkToMake>
       <MarketValue>1500</MarketValue>
-      <AccuracyTouch>0.80</AccuracyTouch>
+      <AccuracyTouch>0.9</AccuracyTouch>
       <AccuracyShort>0.83</AccuracyShort>
       <AccuracyMedium>0.68</AccuracyMedium>
       <AccuracyLong>0.53</AccuracyLong>
@@ -135,7 +140,7 @@ Class="FactionColors.FactionItemDef">
     <costList>
       <Steel>120</Steel>
       <Plasteel>30</Plasteel>
-      <Component>6</Component>
+      <ComponentIndustrial>6</ComponentIndustrial>
     </costList>
     <techLevel>Spacer</techLevel>
     <weaponTags>
@@ -145,10 +150,10 @@ Class="FactionColors.FactionItemDef">
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_SniperRifle</projectileDef>
+        <defaultProjectile>Bullet_SniperRifle</defaultProjectile>
         <warmupTime>3</warmupTime>
         <range>50</range>
-        <soundCast>ShotSniperRifle</soundCast>
+        <soundCast>Shot_SniperRifle</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
       </li>
@@ -165,7 +170,7 @@ Class="FactionColors.FactionItemDef">
     </graphicData>
     <projectile>
       <damageDef>ElectricBurn</damageDef>
-      <damageAmountBase>18</damageAmountBase>
+      <damageAmountBase>22</damageAmountBase>
       <speed>80</speed>
     </projectile>
   </ThingDef>
@@ -177,17 +182,19 @@ Class="FactionColors.FactionItemDef">
     <description>Long range weapon based on concentrated discharge of electric energy.</description>
     <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
     <graphicData>
+      <drawSize>(1.1,1.1)</drawSize>
       <texPath>Things/Mechanicus/Skitarius/SkitariiArcRifle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <soundInteract>InteractChargeRifle</soundInteract>
+    <soundInteract>Interact_ChargeRifle</soundInteract>
     <statBases>
+      <Mass>5</Mass>
       <WorkToMake>120000</WorkToMake>
       <MarketValue>1500</MarketValue>
       <AccuracyTouch>0.80</AccuracyTouch>
       <AccuracyShort>0.83</AccuracyShort>
-      <AccuracyMedium>0.68</AccuracyMedium>
-      <AccuracyLong>0.53</AccuracyLong>
+      <AccuracyMedium>0.8</AccuracyMedium>
+      <AccuracyLong>0.68</AccuracyLong>
       <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
     </statBases>
     <recipeMaker>
@@ -196,7 +203,7 @@ Class="FactionColors.FactionItemDef">
     <costList>
       <Steel>120</Steel>
       <Plasteel>30</Plasteel>
-      <Component>6</Component>
+      <ComponentIndustrial>6</ComponentIndustrial>
     </costList>
     <techLevel>Spacer</techLevel>
     <weaponTags>
@@ -206,7 +213,7 @@ Class="FactionColors.FactionItemDef">
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Arc</projectileDef>
+        <defaultProjectile>Bullet_Arc</defaultProjectile>
         <warmupTime>1.5</warmupTime>
         <range>24</range>
         <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
@@ -228,14 +235,15 @@ Class="FactionColors.FactionItemDef">
       <texPath>Things/Mechanicus/Skitarius/SkitariiArcPistol</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <soundInteract>InteractChargeRifle</soundInteract>
+    <soundInteract>Interact_ChargeRifle</soundInteract>
     <statBases>
+      <Mass>5</Mass>
       <WorkToMake>120000</WorkToMake>
       <MarketValue>3500</MarketValue>
       <AccuracyTouch>0.80</AccuracyTouch>
-      <AccuracyShort>0.83</AccuracyShort>
-      <AccuracyMedium>0.68</AccuracyMedium>
-      <AccuracyLong>0.53</AccuracyLong>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.80</AccuracyMedium>
+      <AccuracyLong>0.68</AccuracyLong>
       <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
     </statBases>
     <recipeMaker>
@@ -244,7 +252,7 @@ Class="FactionColors.FactionItemDef">
     <costList>
       <Steel>80</Steel>
       <Plasteel>25</Plasteel>
-      <Component>3</Component>
+      <ComponentIndustrial>3</ComponentIndustrial>
     </costList>
     <techLevel>Spacer</techLevel>
     <weaponTags>
@@ -254,7 +262,7 @@ Class="FactionColors.FactionItemDef">
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Arc</projectileDef>
+        <defaultProjectile>Bullet_Arc</defaultProjectile>
         <warmupTime>1.5</warmupTime>
         <range>24</range>
         <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
@@ -276,24 +284,34 @@ Class="FactionColors.FactionItemDef">
       <texPath>Things/Mechanicus/Skitarius/SkitariiBasher</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>5</Mass>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>100</MarketValue>
-      <MeleeWeapon_DamageAmount>10</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.0</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-65</equippedAngleOffset>
-    <verbs>
+	<tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>1.95</cooldownTime>
       </li>
-    </verbs>
+	   <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>20</power>
+        <cooldownTime>1.95</cooldownTime>
+      </li>
+    </tools>
     <costList>
       <Steel>30</Steel>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <weaponTags>
       <li>IG_MecMelee</li>
@@ -310,24 +328,34 @@ Class="FactionColors.FactionItemDef">
       <texPath>Things/Mechanicus/Skitarius/Skitarii_TransonicBlade</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>5</Mass>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>100</MarketValue>
-      <MeleeWeapon_DamageAmount>10</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.0</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-65</equippedAngleOffset>
-    <verbs>
+	<tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>1.5</cooldownTime>
       </li>
-    </verbs>
+	   <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>20</power>
+        <cooldownTime>1.45</cooldownTime>
+      </li>
+    </tools>
     <costList>
       <Steel>30</Steel>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <weaponTags>
       <li>IG_MecMelee</li>
@@ -341,38 +369,42 @@ Class="FactionColors.FactionItemDef">
     <description>Power weapon in the shape of an axe. It's a holy icon bestowed upon high rankig members of the Mechanicum.</description>
     <ItemMeshSize>(1.4, 1.4, 1.4)</ItemMeshSize>
     <graphicData>
+      <drawSize>(1.4,1.4)</drawSize>
       <texPath>Things/Mechanicus/Axe/MechanicumAxe</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>5</Mass>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>500</MarketValue>
-      <MeleeWeapon_DamageAmount>20</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.5</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-65</equippedAngleOffset>
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_LascannonRound</projectileDef>
+        <defaultProjectile>Bullet_LascannonRound</defaultProjectile>
         <warmupTime>2.5</warmupTime>
         <range>20</range>
-        <soundCast>ShotChargeRifle</soundCast>
+        <soundCast>Shot_ChargeRifle</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
 	   <muzzleFlashScale>9</muzzleFlashScale>
       </li>
-      <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
-        <soundCast>SlashMetal</soundCast>
-      </li>
     </verbs>
+	<tools>
+      <li>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>20</power>
+        <cooldownTime>1.95</cooldownTime>
+      </li>
+    </tools>
     <costList>
       <Steel>30</Steel>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <weaponTags>
       <li>IG_MecPriest</li>
@@ -380,4 +412,4 @@ Class="FactionColors.FactionItemDef">
   </ThingDef>
 
 
-</ThingDefs>
+</Defs>

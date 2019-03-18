@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+
+  <CommandDesignateTribute>Designate Tribute</CommandDesignateTribute>
+  <CommandDesignateTributeDesc>If activated, Imperial authorities are allowed to claim this container.</CommandDesignateTributeDesc>
+  <CommandEnableRessourceLoad>Enable Loading</CommandEnableRessourceLoad>
+  <CommandEnableRessourceLoadDesc>If activated this container will be filled with ressources.</CommandEnableRessourceLoadDesc>
+    
+  <PayTribute>Pay tribute.</PayTribute>
+  <MissingRunways>No Runways.</MissingRunways>
+  <MessageTributeLoadingStarted>The haulers from {0} will now start loading resource packs.</MessageTributeLoadingStarted>
+  <MessageTributeLeaving>The freighter from {0} have loaded all resource packs and are leaving.</MessageTributeLeaving>
+  <PayTributeNoTributes>No designated tributes.</PayTributeNoTributes>
+  <RequestSupplyDrop>Request Supply Drop</RequestSupplyDrop>
+  <CallSupplyDropConfirmation>Request {0}</CallSupplyDropConfirmation>
+</LanguageData>

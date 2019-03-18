@@ -12,10 +12,18 @@ namespace OHUShips
     public class JobDriver_UninstallShipWeaponSystem : JobDriver
     {
 
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
+		{
+			return true;
+			//throw new NotImplementedException();
+		}
+
         [DebuggerHidden]
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            yield return Toils_Reserve.Reserve(TargetIndex.A, 10);
+            this.FailOnSomeonePhysicallyInteracting(TargetIndex.A);
+            yield return Toils_Reserve.Reserve(TargetIndex.A, 1);
+            //yield return Toils_Reserve.Reserve(TargetIndex.B, 1);
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch);
             Toil toil = new Toil();
             toil.defaultCompleteMode = ToilCompleteMode.Delay;
@@ -26,21 +34,19 @@ namespace OHUShips
             {
                 initAction = delegate
                 {
-                    ShipBase ship = (ShipBase)TargetA.Thing;
-                    Action action = delegate
+                    ShipBase ship = (ShipBase)TargetB.Thing;
+                    
+                        Building_ShipTurret turret = (Building_ShipTurret)TargetA.Thing;
+                    if (turret != null && ship.installedTurrets.ContainsValue(turret))
                     {
-                        Building_ShipTurret turret = (Building_ShipTurret)TargetC.Thing;
-                        if (turret != null && ship.installedTurrets.ContainsValue(turret))
-                        {
-                            Thing t = ThingMaker.MakeThing(turret.installedByWeaponSystem);
-                            GenSpawn.Spawn(t, TargetB.Thing.Position, this.Map);
-                            ship.installedTurrets.Remove(turret.Slot);
-                        }
-                    };
-
-                    ship.compShip.Notify_PawnEntered(this.pawn);
-
-                    action();
+                        Thing t = ThingMaker.MakeThing(turret.installedByWeaponSystem);
+                        GenSpawn.Spawn(t, TargetA.Thing.Position, this.Map);
+                        ship.weaponsToUninstall.RemoveAll(x => x.Value == turret);
+                        ship.installedTurrets[turret.Slot] = null;
+                        ship.assignedTurrets.Remove(turret);
+                        turret.Destroy();
+                    }
+                        
                 },
                 defaultCompleteMode = ToilCompleteMode.Instant
             };

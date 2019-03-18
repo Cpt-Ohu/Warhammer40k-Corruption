@@ -17,11 +17,6 @@ namespace OHUShips
             this.ship = ship;
         }
 
-        public override void LordToilTick()
-        {
-            base.LordToilTick();
-        }
-
         public override bool AllowSatisfyLongNeeds
         {
             get
@@ -34,7 +29,7 @@ namespace OHUShips
         {
             for (int i = 0; i < this.lord.ownedPawns.Count; i++)
             {
-                PawnDuty pawnDuty = new PawnDuty(ShipNamespaceDefOfs.LoadShipCargo, ship);
+                PawnDuty pawnDuty = new PawnDuty(ShipNamespaceDefOfs.LoadShipCargoDuty, ship);
                 this.lord.ownedPawns[i].mindState.duty = pawnDuty;
             }
         }

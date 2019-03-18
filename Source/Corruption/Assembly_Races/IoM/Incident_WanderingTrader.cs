@@ -10,60 +10,79 @@ namespace Corruption.IoM
 {    
     public class IncidentWorker_WanderingTrader : IncidentWorker_NeutralGroup
     {
-        protected IoMChatType ChatType;
-
-        protected override bool TryResolveParms(IncidentParms parms)
+        protected virtual IoMChatType ChatType
         {
-            parms.faction = CorruptionStoryTrackerUtilities.currentStoryTracker.IoM;            
+            get
+            {
+                return IoMChatType.SimpleChat;
+            }
+        }
+        
+        protected override bool TryResolveParmsGeneral(IncidentParms parms)
+        {
+            parms.faction = CFind.StoryTracker.IoM_NPC;
+            if (parms.faction == null) Log.Message("NUll wanderer faction");
             return true;
         }
 
-        public IncidentWorker_WanderingTrader()
+        protected virtual TraderKindDef TraderKind
         {
-            this.ChatType = IoMChatType.SimpleChat;
+            get
+            {
+                return DefOfs.C_TraderKindDefs.Visitor_IoM_Wanderer;
+            }
         }
 
-        public override bool TryExecute(IncidentParms parms)
+        protected virtual PawnKindDef PawnKind
+        {
+            get
+            {
+                return DefOfs.C_PawnKindDefOf.IoM_WanderingTrader;
+            }
+        }
+
+        protected virtual float SocialSkillBoost
+        {
+            get
+            {
+                return 10000f;
+            }
+        }
+
+        protected override bool TryExecuteWorker(IncidentParms parms)
         {
             Map map = (Map)parms.target;
-            if (!this.TryResolveParms(parms))
+            if (!this.TryResolveParmsGeneral(parms))
             {
                 return false;
             }
+            Pawn centerPawn = null;
 
-            Pawn pawn = PawnGenerator.GeneratePawn(DefOfs.C_PawnKindDefOf.IoM_WanderingTrader, parms.faction);
-            if (pawn == null)
+            if (IoM_StoryUtilities.GenerateIntrusiveWanderer(map, PawnKind, parms.faction, this.ChatType, "IoM_WandererArrives", out centerPawn))
             {
-                return false;
-            }
-            IntVec3 loc;
-            RCellFinder.TryFindRandomPawnEntryCell(out loc, map);
-            GenSpawn.Spawn(pawn, loc, map);
-            IntVec3 chillSpot;
-            RCellFinder.TryFindRandomSpotJustOutsideColony(pawn, out chillSpot);
-            LordJob_IntrusiveWanderer lordJob = new LordJob_IntrusiveWanderer(chillSpot, pawn, ChatType);
-            Lord lord = LordMaker.MakeNewLord(parms.faction, lordJob, map);
-            lord.AddPawn(pawn);
-            this.TryConvertOnePawnToSmallTrader(pawn, parms.faction, map);
-            string label = "LetterLabelSingleVisitorArrives".Translate();
-            string text3 = "IoM_WandererArrives".Translate(new object[]
-            {
-                pawn.Name                
-            });
-            text3 = text3.AdjustedFor(pawn);
-            Find.LetterStack.ReceiveLetter(label, text3, LetterType.Good, pawn, null);
-            return true;
+                centerPawn.skills.Learn(SkillDefOf.Social, SocialSkillBoost, true);
+                this.TryConvertOnePawnToSmallTrader(centerPawn, parms.faction, map);
+                return true;
+            }            
+
+            return false;
         }
 
-        private bool TryConvertOnePawnToSmallTrader(Pawn pawn, Faction faction, Map map)
+        private bool TryConvertOnePawnToSmallTrader(Pawn pawn, Faction faction, Map map )
         {
             Lord lord = pawn.GetLord();
             pawn.mindState.wantsToTradeWithColony = true;
             PawnComponentsUtility.AddAndRemoveDynamicComponents(pawn, true);
-            TraderKindDef traderKindDef = DefOfs.C_TraderKindDefs.Visitor_IoM_Wanderer;
+            TraderKindDef traderKindDef = TraderKind;
             pawn.trader.traderKind = traderKindDef;
             pawn.inventory.DestroyAll(DestroyMode.Vanish);
-            foreach (Thing current in TraderStockGenerator.GenerateTraderThings(traderKindDef, map))
+
+            ThingSetMakerParams parms = default(ThingSetMakerParams);
+            parms.traderDef = traderKindDef;
+            parms.tile = map.Tile;
+            parms.traderFaction = faction;
+            
+            foreach (Thing current in ThingSetMakerDefOf.TraderStock.root.Generate(parms))
             {
                 Pawn pawn2 = current as Pawn;
                 if (pawn2 != null)
@@ -83,6 +102,15 @@ namespace Corruption.IoM
             }
             PawnInventoryGenerator.GiveRandomFood(pawn);
             return true;
+        }
+
+        protected override void ResolveParmsPoints(IncidentParms parms)
+        {
+            if (parms.points >= 0f)
+            {
+                return;
+            }
+            parms.points = 500;
         }
     }
 }

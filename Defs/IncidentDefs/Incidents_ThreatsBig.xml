@@ -5,12 +5,27 @@
   <IncidentDef>
     <defName>AerialRaid</defName>
     <label>enemy raid</label>
-    <targetType>BaseMap</targetType>
+    <targetTags><li>Map_PlayerHome</li></targetTags>
     <workerClass>OHUShips.IncidentWorker_AerialRaid</workerClass>
-    <baseChance>3.0</baseChance>
+    <baseChance>0.5</baseChance>
     <category>ThreatBig</category>
     <pointsScaleable>true</pointsScaleable>
   </IncidentDef>
 
+  
+  <IncidentDef>
+    <defName>KhorneFrenzy</defName>
+    <label>Frenzy of the Blood God</label>
+    <targetTags>
+      <li>Map_Misc</li>
+    </targetTags>
+    <workerClass>Corruption.Worship.Wonders.IncidentWorker_KhorneFrenzy</workerClass>
+    <baseChance>0.00001</baseChance>
+    <minRefireDays>99999</minRefireDays>
+    <category>ThreatBig</category>
+    <pointsScaleable>true</pointsScaleable>
+  </IncidentDef>
+  
+  
 
 </Defs>

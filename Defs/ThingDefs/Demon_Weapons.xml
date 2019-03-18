@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
 
   <ThingDef ParentName="BaseMeleeWeaponNoTag" Class="FactionColors.FactionItemDef">
@@ -20,29 +20,39 @@
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>5</Mass>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>3650</MarketValue>
-      <MeleeWeapon_DamageAmount>15</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.0</MeleeWeapon_Cooldown>
     </statBases>
     <costList>
       <Steel>90</Steel>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <recipeMaker>
       <researchPrerequisite>ChargedShot</researchPrerequisite>
     </recipeMaker>
     <equippedAngleOffset>-65</equippedAngleOffset>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>15</power>
+        <cooldownTime>2.0</cooldownTime>
       </li>
-    </verbs>
+	  <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>1.85</cooldownTime>
+      </li>
+    </tools>
     <comps>
       <li Class="Corruption.CompProperties_SoulItem">
         <compClass>Corruption.CompSoulItem</compClass>
@@ -70,29 +80,39 @@
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>5</Mass>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>3650</MarketValue>
-      <MeleeWeapon_DamageAmount>10</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.0</MeleeWeapon_Cooldown>
     </statBases>
     <costList>
       <Steel>90</Steel>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <recipeMaker>
       <researchPrerequisite>ChargedShot</researchPrerequisite>
     </recipeMaker>
     <equippedAngleOffset>-65</equippedAngleOffset>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>CutNurgle</meleeDamageDef>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2.55</cooldownTime>
       </li>
-    </verbs>
+	  <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2.05</cooldownTime>
+      </li>
+    </tools>
     <comps>
       <li Class="Corruption.CompProperties_SoulItem">
         <compClass>Corruption.CompSoulItem</compClass>
@@ -120,29 +140,47 @@
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>5</Mass>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>3650</MarketValue>
-      <MeleeWeapon_DamageAmount>14</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>2.0</MeleeWeapon_Cooldown>
     </statBases>
     <costList>
       <Steel>90</Steel>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <recipeMaker>
       <researchPrerequisite>ChargedShot</researchPrerequisite>
     </recipeMaker>
     <equippedAngleOffset>-65</equippedAngleOffset>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>CutNurgle</meleeDamageDef>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>14</power>
+        <cooldownTime>2.5</cooldownTime>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>CutNurgle</def>
+              <amount>2</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
-    </verbs>
+	  <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2.0</cooldownTime>
+      </li>
+    </tools>
     <comps>
       <li Class="Corruption.CompProperties_SoulItem">
         <compClass>Corruption.CompSoulItem</compClass>
@@ -170,31 +208,41 @@
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
-    <tradeability>Sellable</tradeability>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <tradeability>None</tradeability>
     <statBases>
+      <Mass>5</Mass>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>3650</MarketValue>
-      <MeleeWeapon_DamageAmount>10</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.3</MeleeWeapon_Cooldown>
     </statBases>
     <menuHidden>true</menuHidden>
     <destroyOnDrop>true</destroyOnDrop>
     <costList>
       <Steel>90</Steel>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <recipeMaker>
       <researchPrerequisite>ChargedShot</researchPrerequisite>
     </recipeMaker>
     <equippedAngleOffset>-65</equippedAngleOffset>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>1.3</cooldownTime>
       </li>
-    </verbs>
+	  <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>1.2</cooldownTime>
+      </li>
+    </tools>
   </ThingDef>
 
 
@@ -233,9 +281,10 @@
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>5</Mass>
       <WorkToMake>1140000</WorkToMake>
       <MarketValue>3650</MarketValue>
       <AccuracyTouch>0.79</AccuracyTouch>
@@ -246,7 +295,7 @@
     </statBases>
     <costList>
       <Steel>90</Steel>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <recipeMaker>
       <researchPrerequisite>ChargedShot</researchPrerequisite>
@@ -256,9 +305,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_LightningStrikeTzeentch</projectileDef>
-        <forcedMissRadius>3.5</forcedMissRadius>
-        <ai_IsIncendiary>true</ai_IsIncendiary>
+        <defaultProjectile>Bullet_LightningStrikeTzeentch</defaultProjectile>        
         <warmupTime>5</warmupTime>
         <range>35</range>
         <soundCast>InfernoCannon_Fire</soundCast>
@@ -275,4 +322,4 @@
     </comps>
   </ThingDef>
 
-</ThingDefs>
+</Defs>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <ThingDef ParentName="ResourceBase">
     <defName>ShipTurretTemplate</defName>
@@ -36,7 +36,7 @@
       <researchPrerequisite>GunTurrets</researchPrerequisite>
     </recipeMaker>
     <costList>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
       <Steel>150</Steel>
     </costList>
     <tickerType>Normal</tickerType>
@@ -72,10 +72,10 @@
     <stealable>false</stealable>
     <rotatable>false</rotatable>
     <statBases>
+      <Mass>15</Mass>
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
       <WorkToBuild>2500</WorkToBuild>
-      <Mass>100</Mass>
       <Beauty>-60</Beauty>
     </statBases>
     <tickerType>Normal</tickerType>
@@ -94,7 +94,7 @@
     <hasTooltip>true</hasTooltip>
     <costList>
       <Steel>100</Steel>
-      <Component>3</Component>
+      <ComponentIndustrial>3</ComponentIndustrial>
     </costList>
     <altitudeLayer>Blueprint</altitudeLayer>
 
@@ -102,9 +102,9 @@
     <specialDisplayRadius>25.9</specialDisplayRadius>
     <building>
 			<ai_combatDangerous>true</ai_combatDangerous>
-      <turretGunDef>Gun_TurretImprovised</turretGunDef>
+      <turretGunDef>Gun_MiniTurret</turretGunDef>
       <turretBurstCooldownTime>5.15</turretBurstCooldownTime>
-      <turretTopgraphicPath>Things/Building/Security/TurretImprovised_Top</turretTopgraphicPath>
+      <turretTopGraphicPath>Things/Building/Security/TurretMini_Top</turretTopGraphicPath>
 	 <isInert>true</isInert>
       <isEdifice>false</isEdifice>
 
@@ -116,5 +116,60 @@
   </ThingDef>
 
 
+  <!--=============== PayloadTemplate ===============-->
 
-</ThingDefs>
+  <ThingDef ParentName="ResourceBase">
+    <thingClass>OHUShips.WeaponSystemShipBomb</thingClass>
+    <defName>ShipPayloadTemplate</defName>
+    <label>improvised HE bomb</label>
+    <description>A set of improvised bombs made of locally available materials. Powerful enough to be put on a ship.</description>
+    <graphicData>
+      <texPath>Things/Ships/HEBombs</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>1</stackLimit>
+    <statBases>
+      <Mass>15</Mass>
+      <MaxHitPoints>200</MaxHitPoints>
+      <MarketValue>1000</MarketValue>
+      <Flammability>1.0</Flammability>
+			<DeteriorationRate>0.1</DeteriorationRate>
+		</statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>Weapons</li>
+    </thingCategories>
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>ElectricSmithy</li>
+        <li>FueledSmithy</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>GunTurrets</researchPrerequisite>
+    </recipeMaker>
+    <costList>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <Steel>150</Steel>
+      <Chemfuel>1000</Chemfuel>
+    </costList>
+    <tickerType>Normal</tickerType>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="OHUShips.CompProperties_ShipWeapon">
+        <compClass>OHUShips.CompShipWeapon</compClass>
+        <availableToShips>
+      	<li>OHUDropShip</li>
+	   </availableToShips>
+        <weaponSystemType>Bombing</weaponSystemType>
+        <PayloadToInstall>ShipTurret_Turret</PayloadToInstall>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<PawnKindDefs>
+<Defs>
 
   <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
     <defName>OrkBoy</defName>
@@ -7,7 +7,7 @@
     <race>Alien_Ork</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.99</baseRecruitDifficulty>
-    <backstoryCategory>Ork_Standard</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>Orks</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>100</maxGenerationAge>
@@ -20,7 +20,7 @@
       <li>Ork</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.2</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.2</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>500</min>
       <max>900</max>
@@ -39,11 +39,12 @@
     <techHediffsChance>0.3</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>GorkMork</Patron>
       <ImmuneDevotionDegree>-5</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Orks</IsofFaith>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+	 <canUseCalls>true</canUseCalls>
     </AfflictionProperty>
       <UseFixedGender>true</UseFixedGender>
       <FixedGender>Male</FixedGender>
@@ -55,7 +56,7 @@
     <race>Alien_Ork</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.99</baseRecruitDifficulty>
-    <backstoryCategory>Ork_Nob</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>Orks</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>100</maxGenerationAge>
@@ -69,7 +70,7 @@
       <li>OrkNob</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.7</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.7</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>800</min>
       <max>1200</max>
@@ -88,11 +89,13 @@
     <techHediffsChance>0.7</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>GorkMork</Patron>
       <ImmuneDevotionDegree>-5</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Orks</IsofFaith>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+	 <canUseCalls>true</canUseCalls>
+
     </AfflictionProperty>
       <UseFixedGender>true</UseFixedGender>
       <FixedGender>Male</FixedGender>
@@ -104,28 +107,31 @@
     <race>Alien_Gretchin</race>
     <combatPower>30</combatPower>
     <baseRecruitDifficulty>0.99</baseRecruitDifficulty>
-    <backstoryCategory>Ork_Gretchin</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>Orks</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>100</maxGenerationAge>
     <itemQuality>Poor</itemQuality>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelAllowHeadgearChance>0.1</apparelAllowHeadgearChance>
+    <gearHealthRange>
+      <min>0.5</min>
+      <max>1.8</max>
+    </gearHealthRange>
     <apparelMoney>
-      <min>0</min>
-      <max>1</max>
+      <min>180</min>
+      <max>350</max>
     </apparelMoney>
     <apparelTags>
       <li>Tribal</li>
     </apparelTags>
-    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.1</apparelAllowHeadwearChance>
-    <weaponMoney>
-      <min>100</min>
-      <max>200</max>
-    </weaponMoney>
-    <weaponTags>
-      <li>Gun</li>
-      <li>Melee</li>
-    </weaponTags>
+		<weaponMoney>
+			<min>60</min>
+			<max>400</max>
+		</weaponMoney>
+		<weaponTags>
+			<li>NeolithicMeleeBasic</li>
+		</weaponTags>
     <techHediffsMoney>
       <min>0</min>
       <max>0</max>
@@ -136,9 +142,9 @@
     <techHediffsChance>0.1</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>GorkMork</Patron>
       <ImmuneDevotionDegree>-5</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Orks</IsofFaith>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
     </AfflictionProperty>
@@ -146,4 +152,5 @@
       <FixedGender>Male</FixedGender>
   </PawnKindDef>
 
-</PawnKindDefs>
+
+</Defs>

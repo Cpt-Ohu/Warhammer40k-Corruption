@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+  <ThingSetMakerDef>
+    <defName>MapGen_ImperialShrine</defName>
+    <debugParams>
+      <countRange>
+        <min>1</min>
+        <max>1</max>
+      </countRange>
+      <totalMarketValueRange>
+        <min>10000</min>
+        <max>10000</max>
+      </totalMarketValueRange>
+    </debugParams>
+    <root Class="ThingSetMaker_RandomOption">
+      <options>
+        <li>
+          <weight>1</weight>
+          <thingSetMaker Class="ThingSetMaker_MarketValue">
+            <fixedParams>
+              <maxThingMarketValue>20000</maxThingMarketValue>
+              <filter>
+                <thingDefs>
+				 <li>SarcophagusShrine</li>	
+                </thingDefs>
+                <thingSetMakerTagsToDisallow>
+                  <li>RewardSpecial</li>
+                </thingSetMakerTagsToDisallow>
+              </filter>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+      </options>
+    </root>
+  </ThingSetMakerDef>
+
+  
+  <ThingSetMakerDef>
+    <defName>MapGen_ArcheotecCasketContent</defName>
+    <debugParams>
+      <countRange>
+        <min>10</min>
+        <max>10</max>
+      </countRange>
+      <totalMarketValueRange>
+        <min>10000</min>
+        <max>10000</max>
+      </totalMarketValueRange>
+    </debugParams>
+    <root Class="ThingSetMaker_RandomOption">
+      <options>
+        <li>
+          <weight>1</weight>
+          <thingSetMaker Class="ThingSetMaker_MarketValue">
+            <fixedParams>
+              <maxThingMarketValue>20000</maxThingMarketValue>
+              <filter>
+                <thingDefs>
+				 <li>SarcophagusShrine</li>	
+                </thingDefs>
+                <thingSetMakerTagsToDisallow>
+                  <li>RewardSpecial</li>
+                </thingSetMakerTagsToDisallow>
+              </filter>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+      </options>
+    </root>
+  </ThingSetMakerDef>
+
+  
+  <ThingSetMakerDef>
+    <defName>MapGen_HolyItems</defName>
+    <debugParams>
+      <countRange>
+        <min>1</min>
+        <max>1</max>
+      </countRange>
+      <totalMarketValueRange>
+        <min>10000</min>
+        <max>10000</max>
+      </totalMarketValueRange>
+    </debugParams>
+    <root Class="ThingSetMaker_RandomOption">
+      <options>
+        <li>
+          <weight>1</weight>
+          <thingSetMaker Class="ThingSetMaker_MarketValue">
+            <fixedParams>
+              <maxThingMarketValue>20000</maxThingMarketValue>
+              <filter>
+                <thingDefs>
+				 <li>MeleeWeapon_RelicBlade</li>	
+				 <li>MeleeWeapon_HolyLongsword</li>	
+				 <li>Sororitas_PowerArmor</li>	
+				 <li>Sororitas_PowerArmorHelmet</li>	
+				 <li>Apparel_Rosarius</li>	
+				 <li>IoM_Apparel_InqArmor</li>	
+				 <li>MeleeWeapon_ImpPowerStaffFire</li>	
+				 <li>MeleeWeapon_ImpPowerStaffBlinding</li>	
+				 <li>Sororitas_PowerSword</li>	
+                </thingDefs>
+                <thingSetMakerTagsToDisallow>
+                  <li>RewardSpecial</li>
+                </thingSetMakerTagsToDisallow>
+              </filter>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+      </options>
+    </root>
+  </ThingSetMakerDef>
+
+  
+</Defs>

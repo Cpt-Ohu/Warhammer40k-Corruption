@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+
+  <IoMAlliance>Imperium of Man</IoMAlliance>
+
+  <ChaosAlliance>Forces of Chaos</ChaosAlliance>
+  <ConflictCasualties>Total casualties: {0} pawns</ConflictCasualties>
+  <WarWeariness>Weariness</WarWeariness>
+  <MainStoryConflict>The Great War</MainStoryConflict>
+  <PoliticsNode>Discuss Politics</PoliticsNode>
+
+  <JoinAllianceNPC>Join Alliance</JoinAllianceNPC>
+  <JoinAllianceNPCDesc>So, you wish to join us. Do you swear allegiance to {0}? Do you promise to uphold our values, defend our people and homes? Do you aggree to follow our orders? </JoinAllianceNPCDesc>
+
+  <SwearAllegiance>I do swear.</SwearAllegiance>
+  <AlliancePoliticsNeutral>Welcome to the negotiating table. What is it that you wish to discuss?</AlliancePoliticsNeutral>
+  <DeclareWar>Declare War</DeclareWar>
+  <DeclaredWarDesc>Bloodshed it is then. We'll see each other on the battlefield.</DeclaredWarDesc>
+  <OfferAllianceNPC>Offer to join Alliance</OfferAllianceNPC>
+  <AtWar>You are at war.</AtWar>
+
+  <AlliancePoliticsLeader>Welcome back, {0} of {1}. I hope your people are doing well. What is it that you want to discuss?</AlliancePoliticsLeader>
+  <AlliancePoliticsHostile>May I remind you that we are at war. State your business or leave.</AlliancePoliticsHostile>
+  <OfferTruce>Offer Truce ({0}%)</OfferTruce>
+  <RejectedTruceDesc>We shall not lay down our arms on those terms! This war isn't over.</RejectedTruceDesc>
+  <OfferPeace>Offer peace ({0}%)</OfferPeace>
+  <OfferSubjugation>Offer subjugation</OfferSubjugation>
+  <CannotSubjugate>Wants to destroy you</CannotSubjugate>
+
+</LanguageData>

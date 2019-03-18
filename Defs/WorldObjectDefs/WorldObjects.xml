@@ -15,16 +15,44 @@
   </WorldObjectDef>
 
   <WorldObjectDef>
-    <defName>PlayerFactionStoryTracker</defName>    
-    <worldObjectClass>FactionColors.PlayerFactionStoryTracker</worldObjectClass>
-<description>FactionColors Story Tracker. This shouldn't be visible</description>
-    <canHaveFaction>false</canHaveFaction>
-	<selectable>false</selectable>
-	<neverMultiSelect>true</neverMultiSelect>
-	<useDynamicDrawer>true</useDynamicDrawer>
-    <expandingIcon>false</expandingIcon>
-    <texture>World/WorldObjects/Caravan</texture>
+    <defName>UnfinishedWorldObject</defName>
+    <label>construction site</label>
+    <description>Something is being built here.</description>
+    <worldObjectClass>Corruption.Domination.UnfinishedWorldObject</worldObjectClass>	
+    <texture>World/WorldObjects/Bastion</texture>
+    <expandingIcon>true</expandingIcon>
+    <expandingIconTexture>World/WorldObjects/Expanding/Bastion</expandingIconTexture>
+    <expandingIconPriority>10</expandingIconPriority>
+  </WorldObjectDef>
+  
+  <WorldObjectDef>
+    <defName>DominationBase</defName>
+    <label>base of operations</label>
+    <description>A base of a major alliance.</description>
+    <worldObjectClass>Corruption.Domination.DominationMainBase</worldObjectClass>	
+    <texture>World/WorldObjects/Bastion</texture>
+    <expandingIcon>true</expandingIcon>
+    <expandingIconTexture>World/WorldObjects/Expanding/Bastion</expandingIconTexture>
+    <expandingIconPriority>10</expandingIconPriority>
+    <comps>
+      <li Class="WorldObjectCompProperties_Abandon" />
+      <li Class="WorldObjectCompProperties_TradeRequest" />
+      <li Class="WorldObjectCompProperties_FormCaravan" />
+      <li Class="WorldObjectCompProperties_TimedForcedExit" />
+    </comps>
   </WorldObjectDef>
 
+  <WorldObjectDef>
+    <defName>BattleZone</defName>
+    <label>battle zone</label>
+    <description>A place where a battle is being fought.</description>
+    <worldObjectClass>Corruption.Domination.BattleZone</worldObjectClass>
+    <texture>World/WorldObjects/BattleZone</texture>
+    <expandingIcon>true</expandingIcon>
+    <expandingIconTexture>World/WorldObjects/Expanding/BattleZone</expandingIconTexture>
+    <expandingIconPriority>80</expandingIconPriority>
+    <isTempIncidentMapOwner>true</isTempIncidentMapOwner>
+  </WorldObjectDef>
+  
   
 </Defs>

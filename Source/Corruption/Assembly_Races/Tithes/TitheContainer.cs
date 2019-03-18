@@ -7,7 +7,13 @@ namespace Corruption.Tithes
 {
     public class TitheContainer : Building_Casket
     {
-        private CorruptionStoryTracker storyTracker;
+        private CorruptionStoryTracker storyTracker
+        {
+            get
+            {
+                return CFind.StoryTracker;
+            }
+        }
 
         public CompTitheContainer compTithe;
 
@@ -21,13 +27,12 @@ namespace Corruption.Tithes
 
         public TitheContainer()
         {
-            this.innerContainer = new ThingContainer(this, false, LookMode.Deep);
+            this.innerContainer = new ThingOwner<Thing>(this, false, LookMode.Deep);
             this.tithesEnabled = new Dictionary<TitheEntryGlobal, bool>();
         }
 
         public override void PostMake()
         {
-            this.storyTracker = CorruptionStoryTrackerUtilities.currentStoryTracker;
             base.contentsKnown = true;
             base.PostMake();
         }
@@ -37,11 +42,9 @@ namespace Corruption.Tithes
             return base.Accepts(thing);
         }
 
-
-
-        public override void SpawnSetup(Map map)
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
-            base.SpawnSetup(map);
+            base.SpawnSetup(map, respawningAfterLoad);
             this.UpdateEntries();
             this.compTithe = this.TryGetComp<CompTitheContainer>();
             if (this.compTithe == null)
@@ -101,8 +104,7 @@ namespace Corruption.Tithes
 
         public override void ExposeData()
         {
-            Scribe_References.LookReference<CorruptionStoryTracker>(ref this.storyTracker, "storyTracker", false);
-            Scribe_Collections.LookList<TitheEntryForContainer>(ref this.currentTitheEntries, "currentTitheEntries", LookMode.Deep);
+            Scribe_Collections.Look<TitheEntryForContainer>(ref this.currentTitheEntries, "currentTitheEntries", LookMode.Deep);
             base.ExposeData();
         }
 

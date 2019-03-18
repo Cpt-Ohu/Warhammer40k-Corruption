@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
   <ThingDef Name="BaseGun_IG" Abstract="True">
     <category>Item</category>
     <thingClass>ThingWithComps</thingClass>
@@ -12,6 +12,7 @@
     </graphicData>
     <drawGUIOverlay>true</drawGUIOverlay>
     <statBases>
+      <Mass>2</Mass>
       <WorkToMake>15000</WorkToMake>
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
@@ -34,7 +35,7 @@
         <compClass>CompQuality</compClass>
       </li>
       <li Class="CompProperties_Art">
-        <nameMaker>ArtName_WeaponGun</nameMaker>
+        <nameMaker>ArtDescription_WeaponGun</nameMaker>
         <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
         <minQualityForArtistic>Excellent</minQualityForArtistic>
       </li>
@@ -54,7 +55,7 @@
     </recipeMaker>
     <costList>
       <MecComponent_General>1</MecComponent_General>
-      <Component>18</Component>
+      <ComponentIndustrial>18</ComponentIndustrial>
       <Steel>135</Steel>
     </costList>
   </ThingDef>
@@ -87,7 +88,7 @@
 
   <ThingDef ParentName="BaseBullet">
     <defName>Bullet_StormBolt</defName>
-    <label>.75 cal Bolt</label>
+    <label>.85 cal Bolt</label>
 	<graphicData>
 		<texPath>Things/Projectile/Bullet_Big</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
@@ -95,7 +96,7 @@
     <projectile>
 		<flyOverhead>false</flyOverhead>
 		<damageDef>BulletBolter</damageDef>
-		<damageAmountBase>20</damageAmountBase>
+		<damageAmountBase>30</damageAmountBase>
 	 	<explosionRadius>1.0</explosionRadius>
 		<speed>80</speed>
     </projectile>
@@ -111,7 +112,7 @@
     <projectile>
 		<flyOverhead>false</flyOverhead>
 		<damageDef>Bullet</damageDef>
-		<damageAmountBase>26</damageAmountBase>
+		<damageAmountBase>9</damageAmountBase>
 		<speed>55</speed>
     </projectile>
   </ThingDef>
@@ -127,7 +128,7 @@
    <projectile>
 		<flyOverhead>false</flyOverhead>
 		<damageDef>Laser</damageDef>
-		<damageAmountBase>20</damageAmountBase>
+		<damageAmountBase>25</damageAmountBase>
 		<speed>125</speed>
    </projectile>
     <preFiringInitialIntensity>0</preFiringInitialIntensity>
@@ -188,7 +189,7 @@
    <projectile>
 		<flyOverhead>false</flyOverhead>
 		<damageDef>Laser</damageDef>
-		<damageAmountBase>40</damageAmountBase>
+		<damageAmountBase>60</damageAmountBase>
 		<speed>70</speed>
    </projectile>
     <preFiringInitialIntensity>0</preFiringInitialIntensity>
@@ -210,7 +211,7 @@
    <projectile>
 	 <flyOverhead>false</flyOverhead>
      <damageDef>Bullet</damageDef>
-     <damageAmountBase>42</damageAmountBase>
+     <damageAmountBase>50</damageAmountBase>
      <speed>100</speed>
    </projectile>
  </ThingDef>
@@ -225,7 +226,7 @@
    <projectile>
 	 <flyOverhead>false</flyOverhead>
      <damageDef>Bullet</damageDef>
-     <damageAmountBase>24</damageAmountBase>
+     <damageAmountBase>27</damageAmountBase>
      <speed>90</speed>
    </projectile>
  </ThingDef>
@@ -256,8 +257,9 @@
 		<texPath>Things/IG/Weapons/StandardBolter</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
-    <soundInteract>InteractRifle</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>4</Mass>
       <WorkToMake>20000</WorkToMake>
       <MarketValue>2000</MarketValue>
       <AccuracyTouch>1</AccuracyTouch>
@@ -276,7 +278,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_StandardBolt</projectileDef>
+        <defaultProjectile>Bullet_StandardBolt</defaultProjectile>
         <warmupTime>1.7</warmupTime>
         <range>32</range>
         <burstShotCount>3</burstShotCount>
@@ -288,7 +290,7 @@
     </verbs>
     <costList>
       <MecComponent_Weapon>1</MecComponent_Weapon>
-      <Component>10</Component>
+      <ComponentIndustrial>10</ComponentIndustrial>
       <Steel>135</Steel>
     </costList>
     <recipeMaker>
@@ -306,13 +308,14 @@
 		<texPath>Things/IG/Weapons/Bolt_Pistol</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
-    <soundInteract>InteractRifle</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>4</Mass>
       <MarketValue>1500</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
+      <AccuracyTouch>0.78</AccuracyTouch>
       <AccuracyShort>0.71</AccuracyShort>
-      <AccuracyMedium>0.50</AccuracyMedium>
-      <AccuracyLong>0.32</AccuracyLong>
+      <AccuracyMedium>0.45</AccuracyMedium>
+      <AccuracyLong>0.3</AccuracyLong>
       <RangedWeapon_Cooldown>0.50</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
@@ -325,8 +328,8 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_StandardBolt</projectileDef>
-        <warmupTime>0.7</warmupTime>
+        <defaultProjectile>Bullet_StandardBolt</defaultProjectile>
+        <warmupTime>0.8</warmupTime>
         <range>18</range>
         <soundCast>Bolter</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
@@ -335,7 +338,7 @@
     </verbs>
     <costList>
       <MecComponent_Weapon>1</MecComponent_Weapon>
-      <Component>7</Component>
+      <ComponentIndustrial>7</ComponentIndustrial>
       <Steel>75</Steel>
     </costList>
     <recipeMaker>
@@ -345,20 +348,21 @@
   </ThingDef>
   <!-- ============================================== -->
 
-  <ThingDef ParentName="BaseHumanMakeableGun_IG">
-    <thingClass>ThingWithComps</thingClass>
+  <ThingDef ParentName="BaseHumanMakeableGun_IG" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
     <defName>Gun_StandardLasgun</defName>
     <label>Standard Issue Lasgun</label>
-    <description>The Lasgun is an energy based weapon, and is the most common and widely used type of laser weapon in the Imperium. It is standard issue for all Imperial Guard infantry and most lower-ranked officers. Las rounds cauterize the wound, but can still cause massive amounts of damage to surrounding bone and tissue. </description>
+    <description>The Lasgun is an energy based weapon, and is the most common and widely used type of laser weapon in the Imperium. It is standard issue for all Imperial Guard infantry and most lower-ranked officers. Las rounds cauterize the wound, but can still cause massive amounts of damage to surrounding bone and tissue..</description>
 	<graphicData>
 		<texPath>Things/IG/Weapons/StandardLasgun</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
-    <soundInteract>InteractRifle</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>4</Mass>
       <MarketValue>500</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
-      <AccuracyShort>0.87</AccuracyShort>
+      <AccuracyTouch>0.5</AccuracyTouch>
+      <AccuracyShort>0.57</AccuracyShort>
       <AccuracyMedium>0.77</AccuracyMedium>
       <AccuracyLong>0.69</AccuracyLong>
       <RangedWeapon_Cooldown>0.63</RangedWeapon_Cooldown>
@@ -373,17 +377,17 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Lasround</projectileDef>
+        <defaultProjectile>Bullet_Lasround</defaultProjectile>
         <warmupTime>1.0</warmupTime>
         <range>32</range>
-        <soundCast>ShotChargeRifle</soundCast>
+        <soundCast>Shot_ChargeRifle</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
 		<muzzleFlashScale>9</muzzleFlashScale>
       </li>
     </verbs>
     <costList>
       <MecComponent_General>1</MecComponent_General>
-      <Component>5</Component>
+      <ComponentIndustrial>5</ComponentIndustrial>
       <Steel>75</Steel>
     </costList>
     <recipeMaker>
@@ -396,17 +400,18 @@
   <ThingDef ParentName="BaseHumanMakeableGun_IG">
     <defName>Gun_StandardLaspistol</defName>
     <label>Standard Issue Laspistol</label>
-    <description>The Laspistol is used most often by officers or Commissars of the Imperial Guard. The Laspistol is capable of producing the same amount of damage in a skilled user's hands as the Lasgun, yet it has drastically reduced range as compared to its variant rifle form. The Laspistol lacks the Lasgun's selective fire options, having only the ability to fire single shots. </description>
+    <description>The Laspistol is used most often by officers or Commissars of the Imperial Guard. The Laspistol is capable of producing the same amount of damage in a skilled user's hands as the Lasgun, yet it has drastically reduced range as compared to its variant rifle form. The Laspistol lacks the Lasgun's selective fire options, having only the ability to fire single shots..</description>
 	<graphicData>
 		<texPath>Things/IG/Weapons/StandardLaspistol</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
-    <soundInteract>InteractRifle</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>4</Mass>
       <WorkToMake>12000</WorkToMake>
       <MarketValue>900</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
-      <AccuracyShort>0.71</AccuracyShort>
+      <AccuracyTouch>0.81</AccuracyTouch>
+      <AccuracyShort>0.50</AccuracyShort>
       <AccuracyMedium>0.50</AccuracyMedium>
       <AccuracyLong>0.32</AccuracyLong>
       <RangedWeapon_Cooldown>0.50</RangedWeapon_Cooldown>
@@ -421,17 +426,17 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Lasround</projectileDef>
+        <defaultProjectile>Bullet_Lasround</defaultProjectile>
         <warmupTime>0.7</warmupTime>
         <range>18</range>
-        <soundCast>ShotChargeRifle</soundCast>
+        <soundCast>Shot_ChargeRifle</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
 		<muzzleFlashScale>9</muzzleFlashScale>
       </li>
     </verbs>
     <costList>
       <MecComponent_General>1</MecComponent_General>
-      <Component>3</Component>
+      <ComponentIndustrial>3</ComponentIndustrial>
       <Steel>50</Steel>
     </costList>
     <recipeMaker>
@@ -449,14 +454,15 @@
 		<texPath>Things/IG/Weapons/Plasma_Pistol</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
-    <soundInteract>InteractRifle</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>4</Mass>
       <WorkToMake>18000</WorkToMake>
       <MarketValue>1500</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
+      <AccuracyTouch>0.78</AccuracyTouch>
       <AccuracyShort>0.71</AccuracyShort>
-      <AccuracyMedium>0.50</AccuracyMedium>
-      <AccuracyLong>0.32</AccuracyLong>
+      <AccuracyMedium>0.47</AccuracyMedium>
+      <AccuracyLong>0.28</AccuracyLong>
       <RangedWeapon_Cooldown>1.8</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
@@ -469,19 +475,19 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Plasma_Ball</projectileDef>
+        <defaultProjectile>Plasma_Ball</defaultProjectile>
         <warmupTime>1.4</warmupTime>
         <range>18</range>
-		<burstShotCount>3</burstShotCount>
+		<burstShotCount>1</burstShotCount>
         <ticksBetweenBurstShots>33</ticksBetweenBurstShots>
-        <soundCast>ShotChargeRifle</soundCast>
+        <soundCast>Shot_ChargeRifle</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
 		<muzzleFlashScale>9</muzzleFlashScale>
       </li>
     </verbs>
     <costList>
       <MecComponent_Weapon>1</MecComponent_Weapon>
-      <Component>5</Component>
+      <ComponentIndustrial>5</ComponentIndustrial>
       <Steel>75</Steel>
     </costList>
     <recipeMaker>
@@ -502,14 +508,15 @@ Class="FactionColors.FactionItemDef">
 		<texPath>Things/IG/Weapons/Storm_Bolter</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
-    <soundInteract>InteractRifle</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>4</Mass>
       <WorkToMake>20000</WorkToMake>
       <MarketValue>2500</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
-      <AccuracyShort>0.65</AccuracyShort>
-      <AccuracyMedium>0.40</AccuracyMedium>
-      <AccuracyLong>0.28</AccuracyLong>
+      <AccuracyTouch>0.75</AccuracyTouch>
+      <AccuracyShort>0.69</AccuracyShort>
+      <AccuracyMedium>0.65</AccuracyMedium>
+      <AccuracyLong>0.45</AccuracyLong>
       <RangedWeapon_Cooldown>0.90</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
@@ -523,9 +530,9 @@ Class="FactionColors.FactionItemDef">
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_StormBolt</projectileDef>
+        <defaultProjectile>Bullet_StormBolt</defaultProjectile>
         <warmupTime>2.0</warmupTime>
-        <range>20</range>
+        <range>28</range>
         <burstShotCount>6</burstShotCount>
         <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
         <soundCast>Bolter</soundCast>
@@ -535,7 +542,7 @@ Class="FactionColors.FactionItemDef">
     </verbs>
     <costList>
       <MecComponent_Weapon>1</MecComponent_Weapon>
-      <Component>15</Component>
+      <ComponentIndustrial>15</ComponentIndustrial>
       <Steel>135</Steel>
     </costList>
     <recipeMaker>
@@ -552,10 +559,11 @@ Class="FactionColors.FactionItemDef">
 		<texPath>Things/IG/Weapons/Exitus_Pistol</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
-    <soundInteract>InteractRifle</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>4</Mass>
       <MarketValue>900</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
+      <AccuracyTouch>0.9</AccuracyTouch>
       <AccuracyShort>0.81</AccuracyShort>
       <AccuracyMedium>0.60</AccuracyMedium>
       <AccuracyLong>0.42</AccuracyLong>
@@ -568,17 +576,17 @@ Class="FactionColors.FactionItemDef">
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_ExitusPistolRound</projectileDef>
+        <defaultProjectile>Bullet_ExitusPistolRound</defaultProjectile>
         <warmupTime>0.7</warmupTime>
         <range>24</range>
-        <soundCast>ShotPistol</soundCast>
+        <soundCast>Shot_Revolver</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
 		<muzzleFlashScale>9</muzzleFlashScale>
       </li>
     </verbs>
     <costList>
       <MecComponent_Weapon>1</MecComponent_Weapon>
-      <Component>5</Component>
+      <ComponentIndustrial>5</ComponentIndustrial>
       <Steel>75</Steel>
     </costList>
     <recipeMaker>
@@ -598,13 +606,14 @@ Class="FactionColors.FactionItemDef">
 		<texPath>Things/IoM/Weapons/ExitusSniper</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
-    <soundInteract>InteractRifle</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>4</Mass>
       <MarketValue>2200</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
-      <AccuracyShort>0.95</AccuracyShort>
+      <AccuracyTouch>0.4</AccuracyTouch>
+      <AccuracyShort>0.45</AccuracyShort>
       <AccuracyMedium>0.93</AccuracyMedium>
-      <AccuracyLong>0.90</AccuracyLong>
+      <AccuracyLong>0.70</AccuracyLong>
       <RangedWeapon_Cooldown>2.3</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
@@ -614,17 +623,17 @@ Class="FactionColors.FactionItemDef">
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_ExitusRifleRound</projectileDef>
+        <defaultProjectile>Bullet_ExitusRifleRound</defaultProjectile>
         <warmupTime>5</warmupTime>
-        <range>50</range>
-        <soundCast>ShotSniperRifle</soundCast>
+        <range>120</range>
+        <soundCast>Shot_SniperRifle</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
 		<muzzleFlashScale>9</muzzleFlashScale>
       </li>
     </verbs>
     <costList>
-      <MecComponent_Weapon>1</MecComponent_Weapon>
-      <Component>10</Component>
+      <MecComponent_Weapon>3</MecComponent_Weapon>
+      <ComponentIndustrial>10</ComponentIndustrial>
       <Steel>100</Steel>
     </costList>
     <recipeMaker>
@@ -641,10 +650,11 @@ Class="FactionColors.FactionItemDef">
 		<texPath>Things/IG/Weapons/Melta_Gun</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
-    <soundInteract>InteractRifle</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>4</Mass>
       <MarketValue>2000</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
+      <AccuracyTouch>0.9</AccuracyTouch>
       <AccuracyShort>0.87</AccuracyShort>
       <AccuracyMedium>0.77</AccuracyMedium>
       <AccuracyLong>0.64</AccuracyLong>
@@ -660,17 +670,17 @@ Class="FactionColors.FactionItemDef">
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Melta_Beam</projectileDef>
+        <defaultProjectile>Melta_Beam</defaultProjectile>
         <warmupTime>3</warmupTime>
-        <range>10</range>
-        <soundCast>ShotChargeRifle</soundCast>
+        <range>15</range>
+        <soundCast>Shot_ChargeRifle</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
 		<muzzleFlashScale>9</muzzleFlashScale>
       </li>
     </verbs>
     <costList>
       <MecComponent_Weapon>1</MecComponent_Weapon>
-      <Component>10</Component>
+      <ComponentIndustrial>10</ComponentIndustrial>
       <Steel>135</Steel>
     </costList>
     <recipeMaker>
@@ -690,13 +700,14 @@ Class="FactionColors.FactionItemDef">
 		<texPath>Things/IG/Weapons/Lascannon</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
-    <soundInteract>InteractRifle</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>4</Mass>
       <MarketValue>2000</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
-      <AccuracyShort>0.87</AccuracyShort>
-      <AccuracyMedium>0.77</AccuracyMedium>
-      <AccuracyLong>0.64</AccuracyLong>
+      <AccuracyTouch>0.6</AccuracyTouch>
+      <AccuracyShort>0.65</AccuracyShort>
+      <AccuracyMedium>0.75</AccuracyMedium>
+      <AccuracyLong>0.65</AccuracyLong>
       <RangedWeapon_Cooldown>2.8</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
@@ -709,10 +720,10 @@ Class="FactionColors.FactionItemDef">
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_LascannonRound</projectileDef>
+        <defaultProjectile>Bullet_LascannonRound</defaultProjectile>
         <warmupTime>5</warmupTime>
         <range>32</range>
-        <soundCast>ShotChargeBlaster</soundCast>
+        <soundCast>Shot_ChargeBlaster</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
 		<muzzleFlashScale>9</muzzleFlashScale>
       </li>
@@ -732,14 +743,15 @@ Class="FactionColors.FactionItemDef">
 		<texPath>Things/IG/Weapons/Autogun_M40_Armageddon_Pattern</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
-    <soundInteract>InteractRifle</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <statBases>
+      <Mass>4</Mass>
       <MarketValue>1200</MarketValue>
-      <AccuracyTouch>1</AccuracyTouch>
-      <AccuracyShort>0.87</AccuracyShort>
+      <AccuracyTouch>0.70</AccuracyTouch>
+      <AccuracyShort>0.77</AccuracyShort>
       <AccuracyMedium>0.77</AccuracyMedium>
-      <AccuracyLong>0.64</AccuracyLong>
-      <RangedWeapon_Cooldown>0.30</RangedWeapon_Cooldown>
+      <AccuracyLong>0.44</AccuracyLong>
+      <RangedWeapon_Cooldown>0.70</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
       <li>IG_Ranged_Vet</li>
@@ -751,10 +763,11 @@ Class="FactionColors.FactionItemDef">
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_Autogun</projectileDef>
-        <warmupTime>0.7</warmupTime>
+        <defaultProjectile>Bullet_Autogun</defaultProjectile>
+        <warmupTime>1.5</warmupTime>
         <range>32</range>
-        <soundCast>ShotHeavySMG</soundCast>
+        <burstShotCount>5</burstShotCount>
+        <soundCast>Shot_HeavySMG</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
 		<muzzleFlashScale>9</muzzleFlashScale>
       </li>
@@ -773,14 +786,15 @@ Class="FactionColors.FactionItemDef">
 		<texPath>Things/IG/Weapons/Assault_Shotgun</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
-    <soundInteract>InteractShotgun</soundInteract>
+    <soundInteract>Interact_Shotgun</soundInteract>
     <statBases>
+      <Mass>4</Mass>
       <MarketValue>400</MarketValue>
       <AccuracyTouch>1</AccuracyTouch>
       <AccuracyShort>0.87</AccuracyShort>
       <AccuracyMedium>0.77</AccuracyMedium>
       <AccuracyLong>0.64</AccuracyLong>
-      <RangedWeapon_Cooldown>0.40</RangedWeapon_Cooldown>
+      <RangedWeapon_Cooldown>0.60</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
       <li>IG_Ranged_Ass</li>
@@ -790,10 +804,10 @@ Class="FactionColors.FactionItemDef">
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <projectileDef>Bullet_PumpShotgun</projectileDef>
-        <warmupTime>1</warmupTime>
-        <range>16</range>
-        <soundCast>ShotShotgun</soundCast>
+        <defaultProjectile>Bullet_PumpShotgun</defaultProjectile>
+        <warmupTime>1.1</warmupTime>
+        <range>15</range>
+        <soundCast>Shot_Shotgun</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
 		<muzzleFlashScale>9</muzzleFlashScale>
       </li>
@@ -803,4 +817,4 @@ Class="FactionColors.FactionItemDef">
 	  </recipeMaker>
 
   </ThingDef>
-</ThingDefs>
+</Defs>

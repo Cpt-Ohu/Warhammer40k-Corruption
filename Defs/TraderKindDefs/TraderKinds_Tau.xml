@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<DefPackage-TraderKindDef>
+<Defs>
 
   <TraderKindDef>
     <defName>Visitor_TauTrader</defName>
@@ -13,7 +13,7 @@
         </countRange>
       </li>
       <li Class="StockGenerator_SingleDef">
-        <thingDef>Component</thingDef>
+        <thingDef>ComponentIndustrial</thingDef>
         <countRange>
           <min>-2</min>
           <max>5</max>
@@ -31,7 +31,7 @@
         </countRange>
       </li>
       <li Class="StockGenerator_SingleDef">
-        <thingDef>Medicine</thingDef>
+        <thingDef>MedicineIndustrial</thingDef>
         <countRange>
           <min>2</min>
           <max>6</max>
@@ -64,4 +64,4 @@
     </stockGenerators>
   </TraderKindDef>
 
-</DefPackage-TraderKindDef>
+</Defs>

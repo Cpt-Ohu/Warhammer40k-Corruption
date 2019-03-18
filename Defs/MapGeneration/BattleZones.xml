@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <MapGeneratorDef>
+    <defName>MapGeneratorBattleZone</defName>
+	<genSteps>
+	 <li>BattleZone</li>
+	</genSteps>
+  </MapGeneratorDef>
+  
+  <!-- Generate faction base -->
+  <GenStepDef>
+    <defName>BattleZone</defName>
+    <order>400</order>
+    <genStep Class="Corruption.Domination.GenStep_BattleZone">
+    </genStep>
+  </GenStepDef>
+  
+</Defs>

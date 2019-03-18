@@ -8,9 +8,9 @@ using Verse;
 namespace Corruption.DefOfs
 {
     [DefOf]
-    public static class C_MapConditionDefOf
+    public static class C_GameConditionDefOf
     {
-        public static MapConditionDef CorruptiveDrone;
-        public static MapConditionDef TitheCollectorArrived;
+        public static GameConditionDef CorruptiveDrone;
+        public static GameConditionDef TitheCollectorArrived;
     }
 }

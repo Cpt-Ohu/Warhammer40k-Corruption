@@ -1,92 +1,148 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
 
 
   <!-- ============================ Human ========================== -->
 
-  <AlienRace.ThingDef_AlienRace ParentName="BasePawn">
+  <ThingDef Class="AlienRace.ThingDef_AlienRace" ParentName="40kBasePawn">
     <defName>Alien_Astartes</defName>
     <label>astartes</label>
-    <description>A heavily gene-enhanced warrior, the culmination of humanity's raw potential.</description>
-	<alienRace>
-        <generalSettings>
-            <MaleGenderProbability>1.0</MaleGenderProbability>
-            <PawnsSpecificBackstories>true</PawnsSpecificBackstories>
-            <ImmuneToAge>false</ImmuneToAge>
-			<ForcedRaceTraitEntries>
-            </ForcedRaceTraitEntries>
-			<alienPartGenerator>
-                <customDrawSize>(1.3, 1.3)</customDrawSize>
-                <customPortraitDrawSize>(1, 1)</customPortraitDrawSize>
-            </alienPartGenerator>
-        </generalSettings>
-		<graphicPaths>
-        </graphicPaths>
-		<hairSettings>
-            <HasHair>true</HasHair>
-            <GetsGreyAt>400</GetsGreyAt>
-        </hairSettings>
+    <description>A baseline human, mostly unmodified by gene engineering and mostly unchanged by evolutionary pressures on non-Earth planets.</description>
 
-		<relationSettings>
-            <relationChanceModifierChild>1</relationChanceModifierChild>
-            <relationChanceModifierExLover>1</relationChanceModifierExLover>
-            <relationChanceModifierExSpouse>1</relationChanceModifierExSpouse>
-            <relationChanceModifierFiance>1</relationChanceModifierFiance>
-            <relationChanceModifierLover>1</relationChanceModifierLover>
-            <relationChanceModifierParent>1</relationChanceModifierParent>
-            <relationChanceModifierSibling>1</relationChanceModifierSibling>
-            <relationChanceModifierSpouse>1</relationChanceModifierSpouse>
-        </relationSettings>
-		<raceRestriction>
-		  
-		  <apparelList>
-                 <li>Astartes_PowerArmor</li>
-                 <li>Astartes_PowerArmorHelmet</li>
-</apparelList>
-          <onlyUseRaceRestrictedApparel>true</onlyUseRaceRestrictedApparel>
-        </raceRestriction>
-	</alienRace>
+    <alienRace>
+      <generalSettings>
+        <maleGenderProbability>1.0</maleGenderProbability>
+        <immuneToAge>false</immuneToAge>
+        <forcedRaceTraitEntries>
+        </forcedRaceTraitEntries>
+        <alienPartGenerator>
+          <customDrawSize>(1.3, 1.3)</customDrawSize>
+          <customPortraitDrawSize>(1, 1)</customPortraitDrawSize>
+          <alienbodytypes>
+            <li>Hulk</li>
+          </alienbodytypes>
+        </alienPartGenerator>
+      </generalSettings>
+      <graphicPaths>
+      </graphicPaths>
+      <hairSettings>
+        <hasHair>true</hasHair>
+        <getsGreyAt>400</getsGreyAt>
+      </hairSettings>
+
+      <relationSettings>
+        <relationChanceModifierChild>1</relationChanceModifierChild>
+        <relationChanceModifierExLover>1</relationChanceModifierExLover>
+        <relationChanceModifierExSpouse>1</relationChanceModifierExSpouse>
+        <relationChanceModifierFiance>1</relationChanceModifierFiance>
+        <relationChanceModifierLover>1</relationChanceModifierLover>
+        <relationChanceModifierParent>1</relationChanceModifierParent>
+        <relationChanceModifierSibling>1</relationChanceModifierSibling>
+        <relationChanceModifierSpouse>1</relationChanceModifierSpouse>
+      </relationSettings>
+      <raceRestriction>
+        <apparelList>
+          <li>Astartes_PowerArmor</li>
+          <li>Astartes_PowerArmorHelmet</li>
+          <li>CSM_PowerArmor</li>
+          <li>CSM_PowerArmorHelmet</li>
+        </apparelList>
+        <weaponList>
+          <li>Astartes_Chainsword</li>
+          <li>Astartes_PowerSword</li>
+          <li>Astartes_PowerAxe</li>
+          <li>Gun_AstartesBolter</li>
+          <li>Gun_HeavyBolter</li>
+          <li>CSM_HeavyBolter</li>
+          <li>CSM_Bolter</li>
+          <li>CSM_BoltPistolAstartes</li>
+        </weaponList>
+      </raceRestriction>
+    </alienRace>
 
     <statBases>
-      <MarketValue>3950</MarketValue>
-      <MoveSpeed>5.61</MoveSpeed>
+      <Mass>20</Mass>
+      <MarketValue>5750</MarketValue>
+      <MoveSpeed>5.6</MoveSpeed>
       <Flammability>1.0</Flammability>
-      <ComfyTemperatureMin>0</ComfyTemperatureMin>
+      <ComfyTemperatureMin>-20</ComfyTemperatureMin>
       <ComfyTemperatureMax>50</ComfyTemperatureMax>
-      <LeatherAmount>40</LeatherAmount>
+      <LeatherAmount>75</LeatherAmount>
     </statBases>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.75</defaultCooldownTime>
-        <meleeDamageBaseAmount>9</meleeDamageBaseAmount>
-        <meleeDamageDef>Blunt</meleeDamageDef>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10.2</power>
+        <cooldownTime>1</cooldownTime>
         <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>14</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.75</defaultCooldownTime>
-        <meleeDamageBaseAmount>9</meleeDamageBaseAmount>
-        <meleeDamageDef>Blunt</meleeDamageDef>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10.2</power>
+        <cooldownTime>1</cooldownTime>
         <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>14</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
-    </verbs>
+      <li>
+        <label>teeth</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>8.2</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>0.07</chanceFactor>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>5</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
     <race>
       <thinkTreeMain>Humanlike</thinkTreeMain>
       <thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
       <intelligence>Humanlike</intelligence>
       <makesFootprints>true</makesFootprints>
-      <lifeExpectancy>80</lifeExpectancy>
-      <leatherColor>(211,194,143)</leatherColor>
-      <leatherCommonalityFactor>0.01</leatherCommonalityFactor>
-      <leatherInsulation>0.70</leatherInsulation>
+      <lifeExpectancy>2000</lifeExpectancy>
+      <leatherDef>Leather_Human</leatherDef>
       <nameCategory>HumanStandard</nameCategory>
       <body>Human</body>
       <baseBodySize>1</baseBodySize>
       <baseHealthScale>1</baseHealthScale>
       <foodType>OmnivoreHuman</foodType>
       <gestationPeriodDays>45</gestationPeriodDays>
+      <meatMarketValue>1.5</meatMarketValue>
+      <manhunterOnDamageChance>0.20</manhunterOnDamageChance>
+      <manhunterOnTameFailChance>0.02</manhunterOnTameFailChance>
       <litterSizeCurve>
         <points>
           <li>(0.5, 0)</li>
@@ -120,41 +176,45 @@
       <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
-      <specialshadowData>
+      <specialShadowData>
         <volume>(0.3, 0.8, 0.4)</volume>
         <offset>(0,0,-0.3)</offset>
-      </specialshadowData>
+      </specialShadowData>
       <ageGenerationCurve>
         <points>
-          <li>(18,0)</li>
-          <li>(20,100)</li>
-          <li>(40,100)</li>
+          <li>(14,0)</li>
+          <li>(16,100)</li>
+          <li>(50,100)</li>
           <li>(60,30)</li>
-          <li>(100,18)</li>
-          <li>(300,10)</li>
-          <li>(500,3)</li>
+          <li>(70,18)</li>
+          <li>(80,10)</li>
+          <li>(90,3)</li>
           <li>(100,0)</li>
         </points>
       </ageGenerationCurve>
       <hediffGiverSets>
         <li>OrganicStandard</li>
+        <li>Human</li>
       </hediffGiverSets>
-      <useMeatFrom>
-        <li>Human</li>
-      </useMeatFrom>
-      <useLeatherFrom>
-        <li>Human</li>
-      </useLeatherFrom>
     </race>
     <recipes>
+      <li>InstallArchotechEye</li>
+      <li>InstallArchotechArm</li>
+      <li>InstallArchotechLeg</li>
       <li>InstallPowerClaw</li>
-      <li>InstallScytherBlade</li>
       <li>InstallBionicEye</li>
       <li>InstallBionicArm</li>
       <li>InstallBionicLeg</li>
+      <li>InstallBionicSpine</li>
+      <li>InstallBionicHeart</li>
+      <li>InstallBionicStomach</li>
+      <li>InstallBionicEar</li>
       <li>InstallSimpleProstheticArm</li>
       <li>InstallSimpleProstheticLeg</li>
+      <li>InstallSimpleProstheticHeart</li>
+      <li>InstallCochlearImplant</li>
       <li>InstallPegLeg</li>
+      <li>InstallWoodenFoot</li>
       <li>InstallDenture</li>
       <li>InstallJoywire</li>
       <li>InstallPainstopper</li>
@@ -163,8 +223,10 @@
       <li>InstallNaturalKidney</li>
       <li>InstallNaturalLiver</li>
       <li>ExciseCarcinoma</li>
+      <li>AdministerMechSerumHealer</li>
       <li>RemoveBodyPart</li>
       <li>Euthanize</li>
+      <li>Anesthetize</li>
     </recipes>
-  </AlienRace.ThingDef_AlienRace>
-</ThingDefs>
+  </ThingDef>
+</Defs>

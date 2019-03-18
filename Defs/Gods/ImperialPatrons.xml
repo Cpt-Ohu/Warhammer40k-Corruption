@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+  <Corruption.PatronDef>
+    <defName>Administratum</defName>
+    <label>Adeptus Administratum</label>
+    <description>The Adeptus Administratum, often referred to simply as the Administratum, is the administrative and bureaucratic division of the Adeptus Terra, the heart of the gigantic bureaucracy that controls the government of the Imperium of Man, consisting of untold billions of clerks, scribes and administrative staff constantly working to manage the Imperium at every level, from assembling war fleets to levying taxes. It is the largest of the departments comprising the Adeptus Terra, and ten billion Administratum Adepts work in the Imperial Palace on Terra alone..</description>
+    <TexturePath>UI/Emperor_bg</TexturePath>
+    <SmallTexturePath>UI/Emperor_bg</SmallTexturePath>
+    <MainColor>(0.93, 0.78, 0.19)</MainColor>
+    <PatronTraits>
+	<li>EMPEROR_Hope</li>
+    </PatronTraits>
+    <PsykerPowers>
+	<li>PsykerPower_DivinePronouncement</li>
+	<li>PsykerPower_Purgatus</li>
+	<li>PsykerPower_WarpBolt</li>
+	<li>PsykerPower_Scourging</li>
+    </PsykerPowers>
+    <Wonders>
+	<li>EmperorPilgrimage</li>	
+	<li>EmperorGiftRessources</li>
+	<li>EmperorWandererJoin</li>
+	<li>EmperorGiftFood</li>
+	<li>EmperorHealAll</li>
+	<li>EmperorTurnSaint</li>
+    </Wonders>
+  </Corruption.PatronDef>
+  
+    <Corruption.PatronDef>
+    <defName>Ecclesiarchy</defName>
+    <label>Ecclesiarchy</label>
+    <description>The Adeptus Ministorum, more commonly known as the Ecclesiarchy, is the official state church of the Imperium of Man, which maintains and promotes the worship of the Emperor of Mankind as the one, true God of Humanity</description>
+    <TexturePath>UI/Emperor_bg</TexturePath>
+    <SmallTexturePath>UI/Emperor_bg</SmallTexturePath>
+    <MainColor>(0.93, 0.78, 0.19)</MainColor>
+    <PsykerPowers>
+	<li>PsykerPower_DivinePronouncement</li>
+	<li>PsykerPower_Purgatus</li>
+	<li>PsykerPower_WarpBolt</li>
+	<li>PsykerPower_Scourging</li>
+    </PsykerPowers>
+    <Wonders>
+	<li>EmperorPilgrimage</li>	
+	<li>EmperorGiftRessources</li>
+	<li>EmperorWandererJoin</li>
+	<li>EmperorGiftFood</li>
+	<li>EmperorHealAll</li>
+	<li>EmperorTurnSaint</li>
+    </Wonders>
+  </Corruption.PatronDef>
+
+      <Corruption.PatronDef>
+    <defName>Inquisition</defName>
+    <label>Inquisition</label>
+    <description>The Inquisition (The Holy Orders of the Emperor's Inquisition) is a secret organisation that exists outside the standard administrative hierarchy of the Imperium of Man. The Inquisition acts as the secret police force of the Imperium, hunting down any and all of the myriad threats to the stability of the God-Emperor's realm, from the corruption caused by the Forces of Chaos, Heretics, mutants and rebels, to assaults from vicious alien species like the Tyranids, Orks or Dark Eldar..</description>
+    <TexturePath>UI/Emperor_bg</TexturePath>
+    <SmallTexturePath>UI/Emperor_bg</SmallTexturePath>
+    <MainColor>(0.93, 0.78, 0.19)</MainColor>
+    <PsykerPowers>
+	<li>PsykerPower_DivinePronouncement</li>
+	<li>PsykerPower_Purgatus</li>
+	<li>PsykerPower_WarpBolt</li>
+	<li>PsykerPower_Scourging</li>
+    </PsykerPowers>
+    <Wonders>
+	<li>EmperorPilgrimage</li>	
+	<li>EmperorGiftRessources</li>
+	<li>EmperorWandererJoin</li>
+	<li>EmperorGiftFood</li>
+	<li>EmperorHealAll</li>
+	<li>EmperorTurnSaint</li>
+    </Wonders>
+  </Corruption.PatronDef>
+
+
+</Defs>

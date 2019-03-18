@@ -24,9 +24,9 @@ namespace Corruption
             this.medOpStack = new BillStack(this);
         }
 
-        public override void SpawnSetup(Map map)
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
-            base.SpawnSetup(map);
+            base.SpawnSetup(map, respawningAfterLoad);
             this.powerComp = base.GetComp<CompPowerTrader>();
             this.breakdownableComp = base.GetComp<CompBreakdownable>();
         }
@@ -38,10 +38,6 @@ namespace Corruption
             get
             {
                 return this.ContainedThing as Pawn;
-            }
-            set
-            {
-                this.innerContainer[0] = value;
             }
         }
         
@@ -86,7 +82,7 @@ namespace Corruption
                 if (current.AvailableNow)
                 {
                     IEnumerable<ThingDef> enumerable = current.PotentiallyMissingIngredients(null, medTable.patient.Map);
-                    if (!enumerable.Any((ThingDef x) => x.isBodyPartOrImplant))
+                    if (!enumerable.Any((ThingDef x) => x.isTechHediff))
                     {
                         if (!enumerable.Any((ThingDef x) => x.IsDrug))
                         {
@@ -158,11 +154,9 @@ namespace Corruption
                     Messages.Message("MessageMedicalOperationWillAngerFaction".Translate(new object[]
                     {
                 medTable.Faction
-                    }), medTable, MessageSound.Negative);
+                    }), medTable, MessageTypeDefOf.NegativeEvent);
                 }
                 MethodInfo info = typeof(HealthCardUtility).GetMethod("GetMinRequiredMedicine", BindingFlags.Static | BindingFlags.NonPublic);
-                if (info == null) Log.Message("NoInfo");
-                Log.Message("tryingToInvoke");
                 ThingDef minRequiredMedicine = (ThingDef)info.Invoke(null, new object[] {recipe });
                 if (minRequiredMedicine != null && medTable.patient.playerSettings != null && !medTable.patient.playerSettings.medCare.AllowsMedicine(minRequiredMedicine))
                 {
@@ -171,16 +165,16 @@ namespace Corruption
                 minRequiredMedicine.label,
                 medTable.LabelShort,
                 medTable.patient.playerSettings.medCare.GetLabel()
-                    }), medTable, MessageSound.Negative);
+                    }), medTable, MessageTypeDefOf.NegativeEvent);
                 }
       //          Log.Message("C3");
             };
             return new FloatMenuOption(text, action, MenuOptionPriority.Default, null, null, 0f, null, null);
         }
 
-        //      private List<ThingAmount> necessaryIngredients(RecipeDef recipe)
+        //      private List<ThingCount> necessaryIngredients(RecipeDef recipe)
         //       {
-        //            List<ThingAmount> list = new List<ThingAmount>();
+        //            List<ThingCount> list = new List<ThingCount>();
         //          foreach (ThingDef )
         //      }
 
@@ -194,7 +188,7 @@ namespace Corruption
             Matrix4x4 matrix = default(Matrix4x4);
             matrix.SetTRS(vector, Quaternion.AngleAxis(angle, Vector3.up), s);
             Graphics.DrawMesh(MeshPool.plane10, matrix, this.toolMat, 0);
-            if (this.patient != null && !this.patient.Dead)
+            if (this.patient != null && !this.patient.Dead && this.patient.Drawer.renderer.graphics.AllResolved)
             {
                 this.DrawBody(this.patient.Drawer.renderer);
                 //        Log.Message("patient: " + this.patient.Rotation.ToString() + "   Bed:  " + this.Rotation.ToString());
@@ -205,12 +199,52 @@ namespace Corruption
             }
         }
 
-        private void DrawBody(PawnRenderer renderer)
+        public override void TickRare()
+        {
+            base.TickRare();
+            if (this.patient != null)
+            {
+                if (!this.patient.Drawer.renderer.graphics.AllResolved)
+                {
+                    this.patient.Drawer.renderer.graphics.ResolveAllGraphics();
+                }
+                if (this.patient.health.hediffSet.HasHediff(DefOfs.C_HediffDefOf.ServitorImplants))
+                {
+                    this.ReplacePawn(C_PawnKindDefOf.ServitorColonist);
+                }
+            }
+        }
+
+        private void ReplacePawn(PawnKindDef kindDef)
+        {
+            Pawn pawn = PawnGenerator.GeneratePawn(kindDef, Faction.OfPlayer);
+            pawn.gender = this.patient.gender;
+            pawn.story.hairColor = this.patient.story.hairColor;
+            pawn.story.hairDef = this.patient.story.hairDef;
+            pawn.story.childhood = this.patient.story.childhood;
+            pawn.story.adulthood = this.patient.story.adulthood;
+            pawn.story.bodyType = this.patient.story.bodyType;
+            pawn.Drawer.renderer.graphics.ResolveAllGraphics();
+            pawn.Name = this.patient.Name;            
+            this.patient.apparel.GetDirectlyHeldThings().TryTransferAllToContainer(pawn.apparel.GetDirectlyHeldThings());
+            this.patient.Destroy(DestroyMode.Vanish);
+            foreach (SkillDef current in DefDatabase<SkillDef>.AllDefs)
+            {
+                SkillRecord skill = pawn.skills.GetSkill(current);
+                skill.Level = 0;
+                skill.passion = Passion.None;
+            }
+
+
+            this.TryAcceptThing(pawn);
+        }
+
+        private void DrawBody(PawnRenderer renderer) 
         {
             float angle = this.Rotation.AsAngle;
-            Material bodymat = renderer.graphics.nakedGraphic.MatFront;
-            Material headmat = renderer.graphics.headGraphic.MatFront;
-            Material hairmat = this.patient.Drawer.renderer.graphics.hairGraphic.MatFront;
+            Material bodymat = (renderer.graphics.nakedGraphic != null) ? renderer.graphics.nakedGraphic.MatSingle : new Material(ShaderDatabase.Cutout);
+            Material headmat = renderer.graphics.headGraphic.MatSingle;
+            Material hairmat = this.patient.Drawer.renderer.graphics.hairGraphic.MatSingle;
             Vector3 sBody = new Vector3(1.0f, 1f, 1.0f);
             Matrix4x4 matrixBody = default(Matrix4x4);
             Vector3 vector = this.DrawPos;
@@ -299,6 +333,7 @@ namespace Corruption
                     Action action2 = delegate
                     {
                         Job job = new Job(C_JobDefOf.CarryToMecMedTable, prisoner, this);
+                        job.count = 1;
                         selPawn.jobs.TryTakeOrderedJob(job);
                     };
                     yield return new FloatMenuOption(label2, action2, MenuOptionPriority.Default, null, null, 0f, null, null);
@@ -325,7 +360,7 @@ namespace Corruption
 
         public override void EjectContents()
         {
-            ThingDef filthSlime = ThingDefOf.FilthSlime;
+            ThingDef filthSlime = ThingDefOf.Filth_Slime;
             foreach (Thing current in this.innerContainer)
             {
                 Pawn pawn = current as Pawn;
@@ -343,6 +378,8 @@ namespace Corruption
             base.EjectContents();
         }
 
+
+
         public bool CanWorkWithoutPower
         {
             get
@@ -351,9 +388,14 @@ namespace Corruption
             }
         }
 
-        public bool CurrentlyUsable()
+        public bool CurrentlyUsableForBills()
         {
             return (this.CanWorkWithoutPower || (this.powerComp != null && this.powerComp.PowerOn)) && (this.breakdownableComp == null || !this.breakdownableComp.BrokenDown);
-        }        
+        }
+
+        public bool UsableForBillsAfterFueling()
+        {
+            return true;
+        }
     }
 }

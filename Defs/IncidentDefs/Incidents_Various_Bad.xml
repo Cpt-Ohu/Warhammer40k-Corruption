@@ -5,11 +5,12 @@
     <defName>CorruptiveDrone</defName>
     <label>corruptive drone</label>
     <workerClass>Corruption.IncidentWorker_CorruptiveDrone</workerClass>
+		<category>Misc</category>
+    <targetTags><li>Map_PlayerHome</li></targetTags>
     <letterLabel>Corruptive drone</letterLabel>
     <letterText>There are whispers in the air that resonate in your peoples heads.</letterText>
-    <letterType>BadNonUrgent</letterType>
-    <targetType>BaseMap</targetType>
-    <mapCondition>CorruptiveDrone</mapCondition>
+    <letterDef>ThreatSmall</letterDef>
+    <gameCondition>CorruptiveDrone</gameCondition>
     <baseChance>0.7</baseChance>
     <minRefireDays>15</minRefireDays>
     <durationDays>
@@ -21,14 +22,54 @@
   <IncidentDef>
     <defName>EffigyFound</defName>
     <label>effigy</label>
+		<category>Misc</category>
     <workerClass>Corruption.IncidentWorker_CorruptedEffigy</workerClass>
     <letterLabel>Effigy</letterLabel>
     <letterText>A colonist has produced a small effigy. Whether it was lying around or personally made remains a mystery.</letterText>
-    <letterType>BadNonUrgent</letterType>
-    <targetType>BaseMap</targetType>
+    <letterDef>NegativeEvent</letterDef>
+    <targetTags><li>Map_PlayerHome</li></targetTags>
     <baseChance>4.0</baseChance>
     <minRefireDays>15</minRefireDays>
   </IncidentDef>
 
+  <IncidentDef>
+    <defName>Visitor_Cultist</defName>
+    <label>wanderer</label>
+    <targetTags><li>Map_PlayerHome</li></targetTags>
+    <workerClass>Corruption.IoM.IncidentWorker_VisitingCultist</workerClass>
+    <category>FactionArrival</category>
+    <baseChance>4</baseChance>
+    <pointsScaleable>false</pointsScaleable>
+  </IncidentDef>
 
+  <IncidentDef>  
+	<defName>NurgleBreath</defName>
+    <label>Breath of Nurgle</label>
+    <workerClass>IncidentWorker_Disease</workerClass>
+    <category>DiseaseHuman</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+      <li>Map_TempIncident</li>
+      <li>Map_Misc</li>
+      <li>Map_RaidBeacon</li>
+      <li>Caravan</li>
+    </targetTags>
+	  <diseaseIncident>Flu</diseaseIncident>
+    <diseaseVictimFractionRange>
+      <min>0.2</min>
+      <max>0.5</max>
+    </diseaseVictimFractionRange>
+    <baseChance>0.0000001</baseChance>
+  </IncidentDef>
+
+    <IncidentDef>
+    <defName>SlaaneshOrgy</defName>
+    <label>Orgy</label>
+    <targetTags><li>Map_PlayerHome</li></targetTags>
+    <workerClass>Corruption.Worship.Wonders.IncidentWorker_SlaaneshOrgy</workerClass>
+    <category>ThreatSmall</category>
+    <baseChance>0.0000001</baseChance>
+    <pointsScaleable>false</pointsScaleable>
+  </IncidentDef>
+  
 </Defs>

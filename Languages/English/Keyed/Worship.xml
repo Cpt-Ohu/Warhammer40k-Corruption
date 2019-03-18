@@ -37,5 +37,21 @@
 
   <MessageReligiousSocialFight>{0} has started a social fight with {1} over religious matters.</MessageReligiousSocialFight>
 	
+  <InstallEffigy>Install item of worship ({0})</InstallEffigy>
+  <UninstallEffigy>Uninstall {0}</UninstallEffigy>
+
+  <JobTakeEffigy>Pick up {0}</JobTakeEffigy>
+  <PsychicProbe>Psychic Probe ({0}% chance)</PsychicProbe>
+  <StartConfession>Force Confession ({0}% chance)</StartConfession>
+  <InvestigateAlignment>Investigate Alignment ({0}% chance)</InvestigateAlignment>
+
+  <AlignmentUnknownDesc>You don't know this Pawn's alignment. To discover it you need to investigate, interrogate or make use of psykers.</AlignmentUnknownDesc>
+  <AlignmentDiscoveredHeader>Alignment Discovered</AlignmentDiscoveredHeader>
+  <AlignmentDiscovered>It was discovered that {0} is a follower of {1}!</AlignmentDiscovered>
+  <AlignmentDiscoveryFailed>{0} failed to discover the alignment of {1}</AlignmentDiscoveryFailed>
+  
+  <PilgrimageStartedMessage>A pilgrimage has begun. It will last approximately {0} days.</PilgrimageStartedMessage>
+  <CommandPilgrimageReturnHome>Return immediately</CommandPilgrimageReturnHome>
+  <CommandPilgrimageReturnHomeDesc>Break off your pilgrimage and let your people return home.</CommandPilgrimageReturnHomeDesc>
 
 </LanguageData>

@@ -1,10 +1,79 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <!-- ==========================Standard=============================== -->
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+    <ThingDef ParentName="ArmorMakeableBase">
     <defName>Eldar_PowerArmor</defName>
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <label>eldar power armir</label>
+    <description>Xenotech armor. May not be used by humans.</description>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+      <researchPrerequisite>Xenotech_Eldar</researchPrerequisite>
+    </recipeMaker>
+    <graphicData>
+      <texPath>Things/Eldar/Armor/eldar_robeIcon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+	<thingCategories>
+      <li>E_Armor</li>
+    </thingCategories>
+    <statBases>
+      <Mass>11</Mass>
+      <WorkToMake>3250000</WorkToMake>
+      <MaxHitPoints>450</MaxHitPoints>
+      <MarketValue>1600</MarketValue>
+      <ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.6</ArmorRating_Sharp>
+      <ArmorRating_Heat>0.35</ArmorRating_Heat>
+      <Insulation_Cold>15</Insulation_Cold>
+    </statBases>
+    <equippedStatOffsets>
+    </equippedStatOffsets>
+    <costList>
+      <ComponentIndustrial>18</ComponentIndustrial>
+      <Wraithbone>135</Wraithbone>
+    </costList>
+	<generateCommonality>2</generateCommonality>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Eldar/Armor/eldar_robe</wornGraphicPath>
+      <layers>
+        <li>Shell</li>
+      </layers>
+      <tags>
+        <li>EldarStandard</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>EldarStandard</li>
+      </defaultOutfitTags>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="ArmorMakeableBase">
+    <defName>Eldar_PowerArmorF</defName>
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <label>eldar power armor</label>
     <description>Xenotech armor. May not be used by humans.</description>
@@ -26,19 +95,20 @@
     </thingCategories>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>11</Mass>
       <WorkToMake>3250000</WorkToMake>
       <MaxHitPoints>500</MaxHitPoints>
-      <MarketValue>4500</MarketValue>
+      <MarketValue>1600</MarketValue>
       <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.65</ArmorRating_Sharp>
       <ArmorRating_Heat>0.30</ArmorRating_Heat>
-      <Insulation_Cold>-45</Insulation_Cold>
+      <Insulation_Cold>45</Insulation_Cold>
     </statBases>
     <equippedStatOffsets>
       <MoveSpeed>-0.05</MoveSpeed>
     </equippedStatOffsets>
     <costList>
-      <Component>18</Component>
+      <ComponentIndustrial>18</ComponentIndustrial>
       <Wraithbone>135</Wraithbone>
     </costList>
     <apparel>
@@ -48,16 +118,15 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/Armor/eldar_armor</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/Armor/eldar_armor</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
-        <li>Eldar</li>
+        <li>EldarStandard</li>
       </tags>
       <defaultOutfitTags>
-        <li>Eldar</li>
+        <li>EldarStandard</li>
       </defaultOutfitTags>
     </apparel>
     <colorGenerator Class="ColorGenerator_Options">
@@ -79,7 +148,7 @@
     <defName>Eldar_PowerArmorHelmet</defName>
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <label>eldar power armor helmet</label>
-    <description>A xenotech helmet. Use with care </description>
+    <description>A xenotech helmet. Use with care.</description>
     <techLevel>Spacer</techLevel>
     <recipeMaker>
       <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
@@ -94,37 +163,38 @@
       <li>E_Armor</li>
     </thingCategories>
     <statBases>
+      <Mass>5</Mass>
       <WorkToMake>60000</WorkToMake>
       <MaxHitPoints>160</MaxHitPoints>
       <MarketValue>1500</MarketValue>
       <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.6</ArmorRating_Sharp>
       <ArmorRating_Heat>0.5</ArmorRating_Heat>
-      <ArmorRating_Electric>0</ArmorRating_Electric>
-      <Insulation_Cold>-3</Insulation_Cold>
+      
+      <Insulation_Cold>3</Insulation_Cold>
       <Insulation_Heat>3</Insulation_Heat>
     </statBases>
     <equippedStatOffsets>
       <MoveSpeed>-0.04</MoveSpeed>
     </equippedStatOffsets>
     <costList>
-      <Component>7</Component>
+      <ComponentIndustrial>7</ComponentIndustrial>
       <Wraithbone>60</Wraithbone>
     </costList>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/Armor/eldar_helmet</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/Armor/eldar_helmet</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>5</commonality>
       <tags>
-        <li>Eldar</li>
+        <li>EldarStandard</li>
       </tags>
       <defaultOutfitTags>
-        <li>Eldar</li>
+        <li>EldarStandard</li>
       </defaultOutfitTags>
     </apparel>
     <colorGenerator Class="ColorGenerator_Options">
@@ -165,20 +235,22 @@
       <li>E_Armor</li>
     </thingCategories>
     <statBases>
+      <Mass>10</Mass>
       <WorkToMake>3250000</WorkToMake>
       <MaxHitPoints>450</MaxHitPoints>
       <MarketValue>1600</MarketValue>
       <ArmorRating_Blunt>0.3</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.6</ArmorRating_Sharp>
       <ArmorRating_Heat>0.35</ArmorRating_Heat>
-      <Insulation_Cold>-15</Insulation_Cold>
+      <Insulation_Cold>15</Insulation_Cold>
     </statBases>
     <equippedStatOffsets>
     </equippedStatOffsets>
     <costList>
-      <Component>18</Component>
+      <ComponentIndustrial>18</ComponentIndustrial>
       <Wraithbone>135</Wraithbone>
     </costList>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -186,11 +258,10 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/Armor/eldar_robe</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/Armor/eldar_robe</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>Eldar_Psyker</li>
       </tags>
@@ -217,14 +288,15 @@
     <defName>Eldar_WarlockHelmet</defName>
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <label>eldar warlock helmet</label>
-    <description>A xenotech helmet. Use with care </description>
+    <description>A xenotech helmet. Use with care.</description>
     <techLevel>Spacer</techLevel>
     <recipeMaker>
       <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
       <researchPrerequisite>Xenotech_Eldar</researchPrerequisite>
     </recipeMaker>
     <graphicData>
-      <texPath>Things/Eldar/Armor/Warlock_Helmet_Icon</texPath>
+      <texPath>Things/Eldar/Warlock/Warlock_Helmet/Warlock_HelmetA</texPath>
+  		 <shaderType>CutoutComplex</shaderType>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <tradeability>Sellable</tradeability>
@@ -232,32 +304,33 @@
       <li>E_Armor</li>
     </thingCategories>
     <statBases>
+      <Mass>4</Mass>
       <WorkToMake>60000</WorkToMake>
       <MaxHitPoints>160</MaxHitPoints>
       <MarketValue>1000</MarketValue>
       <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.6</ArmorRating_Sharp>
       <ArmorRating_Heat>0.5</ArmorRating_Heat>
-      <ArmorRating_Electric>0</ArmorRating_Electric>
-      <Insulation_Cold>-3</Insulation_Cold>
+      
+      <Insulation_Cold>3</Insulation_Cold>
       <Insulation_Heat>3</Insulation_Heat>
     </statBases>
     <equippedStatOffsets>
       <MoveSpeed>-0.04</MoveSpeed>
     </equippedStatOffsets>
     <costList>
-      <Component>7</Component>
+      <ComponentIndustrial>7</ComponentIndustrial>
       <Wraithbone>60</Wraithbone>
     </costList>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/Armor/Warlock_Helmet</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/Warlock/Warlock_Helmet</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>5</commonality>
       <tags>
         <li>Eldar_Psyker</li>
       </tags>
@@ -276,26 +349,20 @@
     <comps>
       <li Class="FactionColors.CompProperties_FactionColor">
         <compClass>FactionColors.CompFactionColor</compClass>
+        <IsRandomMultiGraphic>true</IsRandomMultiGraphic>
+      	<RandomGraphicPaths>
+        		<li>
+ 	       		<first>Warlock_HelmetA</first> 	       					<second>10</second>
+			</li>
+        		<li>
+ 	       		<first>Warlock_HelmetB</first> 	       				<second>10</second>
+			</li>
+        		<li>
+ 	       		<first>Warlock_HelmetC</first> 	       				<second>10</second>
+			</li>
+      	</RandomGraphicPaths>
       </li>
-      <li Class="FactionColors.ApparelDetailProps">
-        <compClass>FactionColors.ApparelDetailDrawer</compClass>
-        <DetailChance>0.9</DetailChance>
-	   <IsHeadDetail>true</IsHeadDetail>
-	   <ApparelDetails>
-		<li>
-			<DetailGraphicPath>Things/Eldar/Details/HornVarOne</DetailGraphicPath>					<Commonality>10</Commonality>
-			<FactionTag>EldarWarhost</FactionTag>
-		</li>
-		<li>
-			<DetailGraphicPath>Things/Eldar/Details/WingVarOne</DetailGraphicPath>					<Commonality>10</Commonality>
-			<FactionTag>EldarWarhost</FactionTag>			
-		</li>
-		<li>
-			<DetailGraphicPath>Things/Eldar/Details/HornBackOne</DetailGraphicPath>					<Commonality>10</Commonality>
-			<FactionTag>EldarWarhost</FactionTag>
-		</li>
-	   </ApparelDetails>
-      </li>
+
     </comps>
   </ThingDef>
 
@@ -317,6 +384,7 @@
     </graphicData>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>34</Mass>
       <WorkToMake>60000</WorkToMake>
       <MaxHitPoints>160</MaxHitPoints>
       <MarketValue>900</MarketValue>
@@ -332,15 +400,15 @@
     <costList>
       <Wraithbone>120</Wraithbone>
     </costList>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/Ranger/eldar_rangerarmor</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/Ranger/eldar_rangerarmor</wornGraphicPath>
       <layers>
         <li>Middle</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>EldarRanger</li>
       </tags>
@@ -373,6 +441,7 @@
     </graphicData>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>4</Mass>
       <WorkToMake>60000</WorkToMake>
       <MaxHitPoints>160</MaxHitPoints>
       <MarketValue>600</MarketValue>
@@ -388,15 +457,15 @@
     <costList>
       <Wraithbone>120</Wraithbone>
     </costList>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/Ranger/Eldar_Helmet_Neutral</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/Ranger/Eldar_Helmet_Neutral</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>EldarNeutral</li>
       </tags>
@@ -435,28 +504,29 @@
     </stuffCategories>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>4</Mass>
       <WorkToMake>32500</WorkToMake>
       <MaxHitPoints>150</MaxHitPoints>
       <MarketValue>300</MarketValue>
       <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
       <ArmorRating_Heat>0.05</ArmorRating_Heat>
-      <Insulation_Cold>-5</Insulation_Cold>
+      <Insulation_Cold>5</Insulation_Cold>
     </statBases>
     <equippedStatOffsets>
     </equippedStatOffsets>
 	    <thingCategories>
       <li>E_Armor</li>
     </thingCategories>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/Ranger/RangerCowl</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/Ranger/RangerCowl</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>EldarRanger</li>
       </tags>
@@ -505,28 +575,29 @@
     </costList>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>4</Mass>
       <WorkToMake>32500</WorkToMake>
       <MaxHitPoints>150</MaxHitPoints>
       <MarketValue>300</MarketValue>
       <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.30</ArmorRating_Sharp>
       <ArmorRating_Heat>0.05</ArmorRating_Heat>
-      <Insulation_Cold>-5</Insulation_Cold>
+      <Insulation_Cold>5</Insulation_Cold>
     </statBases>
     <equippedStatOffsets>
     </equippedStatOffsets>
 	    <thingCategories>
       <li>E_Armor</li>
     </thingCategories>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/Ranger/RangerHelmet</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/Ranger/RangerHelmet</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>EldarRanger</li>
       </tags>
@@ -573,19 +644,21 @@
     </stuffCategories>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>10</Mass>
       <WorkToMake>32500</WorkToMake>
       <MaxHitPoints>150</MaxHitPoints>
       <MarketValue>300</MarketValue>
       <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.1</ArmorRating_Sharp>
       <ArmorRating_Heat>0.15</ArmorRating_Heat>
-      <Insulation_Cold>-15</Insulation_Cold>
+      <Insulation_Cold>15</Insulation_Cold>
     </statBases>
     <equippedStatOffsets>
     </equippedStatOffsets>
 	    <thingCategories>
       <li>E_Armor</li>
     </thingCategories>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -593,11 +666,10 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/Ranger/RangerRobe</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/Ranger/RangerRobe</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>EldarRanger</li>
       </tags>
@@ -640,6 +712,7 @@
     <stackLimit>50</stackLimit>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>1</Mass>
       <MaxHitPoints>70</MaxHitPoints>
       <MarketValue>3000</MarketValue>
       <Flammability>1.0</Flammability>
@@ -671,7 +744,7 @@
 
   <!-- ==========================DireAvengers=============================== -->
 
-  <ThingDef ParentName="ArmorMakeableBase" Class="FactionColors.ApparelUniformDef">
+  <ThingDef ParentName="ArmorMakeableBase" >
     <defName>Eldar_DAArmor</defName>
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <label>dire avengers power armor</label>
@@ -691,25 +764,27 @@
     </tradeTags>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>80</Mass>
       <WorkToMake>3250000</WorkToMake>
       <MaxHitPoints>700</MaxHitPoints>
       <MarketValue>5500</MarketValue>
       <ArmorRating_Blunt>0.39</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.69</ArmorRating_Sharp>
       <ArmorRating_Heat>0.35</ArmorRating_Heat>
-      <Insulation_Cold>-45</Insulation_Cold>
+      <Insulation_Cold>45</Insulation_Cold>
     </statBases>
     <equippedStatOffsets>
       <MoveSpeed>-0.05</MoveSpeed>
-	 <ShootingAccuracy>0.1</ShootingAccuracy>
+	 <ShootingAccuracyPawn>0.1</ShootingAccuracyPawn>
     </equippedStatOffsets>
 	    <thingCategories>
       <li>E_DireAvengers</li>
     </thingCategories>
     <costList>
-      <Component>18</Component>
+      <ComponentIndustrial>18</ComponentIndustrial>
       <Wraithbone>150</Wraithbone>
     </costList>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -717,11 +792,10 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/DireAvengers/DHArmor</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/DireAvengers/DHArmor</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>DireAvenger</li>
       </tags>
@@ -748,7 +822,7 @@
     <defName>Eldar_DAHelmet</defName>
     <thingClass>FactionColors.ApparelUniform</thingClass>
     <label>dire avenger helmet</label>
-    <description>A xenotech helmet. Use with care </description>
+    <description>A xenotech helmet. Use with care.</description>
     <techLevel>Spacer</techLevel>
     <recipeMaker>
       <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
@@ -763,32 +837,33 @@
       <li>E_DireAvengers</li>
     </thingCategories>
     <statBases>
+      <Mass>15</Mass>
       <WorkToMake>60000</WorkToMake>
       <MaxHitPoints>160</MaxHitPoints>
       <MarketValue>1500</MarketValue>
       <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.6</ArmorRating_Sharp>
       <ArmorRating_Heat>0.5</ArmorRating_Heat>
-      <ArmorRating_Electric>0</ArmorRating_Electric>
-      <Insulation_Cold>-3</Insulation_Cold>
+      
+      <Insulation_Cold>3</Insulation_Cold>
       <Insulation_Heat>3</Insulation_Heat>
     </statBases>
     <equippedStatOffsets>
       <MoveSpeed>-0.04</MoveSpeed>
     </equippedStatOffsets>
     <costList>
-      <Component>7</Component>
+      <ComponentIndustrial>7</ComponentIndustrial>
       <Wraithbone>60</Wraithbone>
     </costList>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/Eldar/DireAvengers/DHHelmet</worngraphicPath>
+      <wornGraphicPath>Things/Eldar/DireAvengers/DHHelmet</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>5</commonality>
       <tags>
         <li>DireAvenger</li>
       </tags>
@@ -813,4 +888,4 @@
 
 
 
-</ThingDefs>
+</Defs>

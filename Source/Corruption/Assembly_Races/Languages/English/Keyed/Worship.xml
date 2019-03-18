@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+
+  <Temple>Temple</Temple>
+
+  <Church>Church</Church>
+
+  <Shrine>Shrine</Shrine>
+
+  <Chapel>Chapel</Chapel>
+
+  <TabAltar>Altar</TabAltar>
+
+  <Preacher>Preacher</Preacher>
+
+  <RenameTemple>Rename</RenameTemple>
+
+  <NameTempleMessage>Name this place of worship.</NameTempleMessage>
+
+  <MorningSermons>Perform Morning Sermons</MorningSermons>
+
+  <EveningSermons>Perform Evening Sermons</EveningSermons>
+
+  <ForceSermonDebug>Debug: Force Sermon</ForceSermonDebug>
+
+  <ForceListenersDebug>Debug: Force Listeners</ForceListenersDebug>
+
+  <MessageSermonInterrupted>A sermon was interrupted</MessageSermonInterrupted>
+
+  <MessageSermonFinished>A sermon has ended</MessageSermonFinished>
+
+  <StartedSermonMessage>{0} is calling for {1} at {2}</StartedSermonMessage>
+
+  <MorningPrayer>Morning Prayers</MorningPrayer>
+  <EveningPrayer>Evening Prayers</EveningPrayer>
+
+  <MessageReligiousSocialFight>{0} has started a social fight with {1} over religious matters.</MessageReligiousSocialFight>
+	
+  <InstallEffigy>Install item of worship ({0})</InstallEffigy>
+  <UninstallEffigy>Uninstall {0}</UninstallEffigy>
+
+  <JobTakeEffigy>Pick up {0}</JobTakeEffigy>
+  <PsychicProbe>Psychic Probe ({0}% chance)</PsychicProbe>
+  <StartConfession>Force Confession ({0}% chance)</StartConfession>
+  <InvestigateAlignment>Investigate Alignment ({0}% chance)</InvestigateAlignment>
+
+  <AlignmentUnknownDesc>You don't know this Pawn's alignment. To discover it you need to investigate, interrogate or make use of psykers.</AlignmentUnknownDesc>
+  <AlignmentDiscoveredHeader>Alignment Discovered</AlignmentDiscoveredHeader>
+  <AlignmentDiscovered>It was discovered that {0} is a follower of {1}!</AlignmentDiscovered>
+  <AlignmentDiscoveryFailed>{0} failed to discover the alignment of {1}</AlignmentDiscoveryFailed>
+
+</LanguageData>

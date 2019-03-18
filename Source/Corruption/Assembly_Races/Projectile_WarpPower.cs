@@ -84,10 +84,10 @@ namespace Corruption
                 {
                     if (mpdef.IsMentalStateGiver)
                     {
-                       string str = "MentalStateByPsyker".Translate(new object[]
-                        {
-                            victim.NameStringShort,
-                        });
+                        string str = "MentalStateByPsyker".Translate(new object[]
+                         {
+                            victim.Name,
+                         });
                         if (mpdef.InducesMentalState == MentalStateDefOf.Berserk && victim.RaceProps.intelligence < Intelligence.Humanlike)
                         {
                             if (CanOverpowerMind(this.Caster, victim))
@@ -103,13 +103,25 @@ namespace Corruption
                             }
                         }
                     }
-                    else if (mpdef.IsBuffGiver && victim.needs.TryGetNeed<Need_Soul>().PsykerPowerLevel != PsykerPowerLevel.Omega)
+                    else if (mpdef.IsBuffGiver)
                     {
-                        if (mpdef.BuffDef.isBad)
+                        CompSoul soul = CompSoul.GetPawnSoul(victim);
+                        DamageInfo dinfo = new DamageInfo(DamageDefOf.Stun, 1f, 1f, 0, this.Caster);
+                        if (soul != null)
                         {
-                            if (CanOverpowerMind(this.Caster, victim))
+                            if (soul.PsykerPowerLevel != PsykerPowerLevel.Omega)
                             {
-                                victim.health.AddHediff(mpdef.BuffDef);
+                                if (mpdef.BuffDef.isBad)
+                                {
+                                    if (CanOverpowerMind(this.Caster, victim))
+                                    {
+                                        victim.health.AddHediff(mpdef.BuffDef, null, dinfo);
+                                    }
+                                }
+                                else
+                                {
+                                    victim.health.AddHediff(mpdef.BuffDef, null, dinfo);
+                                }
                             }
                         }
                         else
@@ -121,24 +133,26 @@ namespace Corruption
                     {
                         List<Hediff> list = victim.health.hediffSet.hediffs.Where(x => x.def != HediffDefOf.PsychicShock && x.def != C_HediffDefOf.DemonicPossession).ToList<Hediff>();
                         if (Rand.Range(0f, 1f) > this.mpdef.HealFailChance && victim.health.hediffSet.hediffs.Count > 0)
-                        for (int i=0; i < mpdef.HealCapacity+1; i++)
                         {
-                            Hediff hediff = list.RandomElement();
-                            hediff.Heal(this.def.projectile.damageAmountBase);
+                            for (int i = 0; i < mpdef.HealCapacity + 1; i++)
+                            {
+                                Hediff hediff = list.RandomElement();
+                                hediff.Heal(this.def.projectile.GetDamageAmount(1f));
+                            }
                         }
                     }
                     else
                     {
-                        int damageAmountBase = this.def.projectile.damageAmountBase;
+                        int damageAmountBase = this.def.projectile.GetDamageAmount(1f);
                         ThingDef equipmentDef = this.equipmentDef;
-                        DamageInfo dinfo = new DamageInfo(this.def.projectile.damageDef, damageAmountBase, this.ExactRotation.eulerAngles.y, this.launcher, null, equipmentDef);
+                        DamageInfo dinfo = new DamageInfo(this.def.projectile.damageDef, damageAmountBase, base.ArmorPenetration, this.ExactRotation.eulerAngles.y, this.launcher, null, equipmentDef);
                         hitThing.TakeDamage(dinfo);
                     }
                 }
             }
             else
             {
-                SoundDefOf.PowerOffSmall.PlayOneShotOnCamera();
+                //SoundDefOf..PlayOneShotOnCamera();
             }            
         }
 
@@ -147,13 +161,13 @@ namespace Corruption
             if (hitThing is Pawn)
             {
                 Pawn target = hitThing as Pawn;
-                PsykerPowerLevel casterPower = caster.needs.TryGetNeed<Need_Soul>().PsykerPowerLevel;
-                PsykerPowerLevel targetPower = target.needs.TryGetNeed<Need_Soul>().PsykerPowerLevel;
+                PsykerPowerLevel casterPower = CompSoul.GetPawnSoul(caster).PsykerPowerLevel;
+                PsykerPowerLevel targetPower = CompSoul.GetPawnSoul(target).PsykerPowerLevel;
                 if (casterPower >= targetPower && targetPower != PsykerPowerLevel.Omega || target.Faction == Faction.OfPlayer)
                 {
                     if (!target.Faction.HostileTo(Faction.OfPlayer) && target.Faction != Faction.OfPlayer)
                     {
-                        target.Faction.AffectGoodwillWith(Faction.OfPlayer, -10);
+                        target.Faction.TryAffectGoodwillWith(Faction.OfPlayer, -10);
                     }
                     return true;
                 }
@@ -161,7 +175,7 @@ namespace Corruption
                 {
                     if (!target.Faction.HostileTo(Faction.OfPlayer))
                     {
-                        target.Faction.AffectGoodwillWith(Faction.OfPlayer, -30);
+                        target.Faction.TryAffectGoodwillWith(Faction.OfPlayer, -30);
                     }
                     Caster.health.AddHediff(HediffDefOf.PsychicShock);
                     return false;

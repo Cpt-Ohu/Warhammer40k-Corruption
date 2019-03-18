@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="HatBase">
+    <defName>IG_ComCap</defName>
+    <label>commissar cap</label>
+    <description>The official cap of an Imperial Commissar. The bigger the better.</description>
+    <graphicData>
+      <texPath>Things/IG/ComCap/ComCap</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>1</Mass>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>300</MarketValue>
+      <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+    </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>0.0</MoveSpeed>
+    </equippedStatOffsets>
+	<generateCommonality>2</generateCommonality>
+    <apparel>
+      <bodyPartGroups>
+        <li>UpperHead</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/IG/ComCap/ComCap</wornGraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <tags>
+        <li>IG</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>IG_Soldier</li>
+      </defaultOutfitTags> </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="HatBase">
+    <defName>IG_OffCap</defName>
+    <label>officer cap</label>
+    <description>A hat worn by Imperial officers.</description>
+    <graphicData>
+      <texPath>Things/IG/IG_OfficerCap/OfficerCap</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>1</Mass>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>300</MarketValue>
+      <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+    </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>0.0</MoveSpeed>
+    </equippedStatOffsets>
+	<generateCommonality>2</generateCommonality>
+    <apparel>
+      <bodyPartGroups>
+        <li>UpperHead</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/IG/OfficerCap/OfficerCap</wornGraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <tags>
+        <li>IG</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>IG_Soldier</li>
+      </defaultOutfitTags> </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="HatBase">
+    <defName>IG_FieldCap</defName>
+    <label>field cap</label>
+    <description>A hat worn by Imperial officers.</description>
+    <graphicData>
+      <texPath>Things/IG/IG_Fieldcap/IG_FieldCap</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>1</Mass>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>300</MarketValue>
+      <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+    </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>0.0</MoveSpeed>
+    </equippedStatOffsets>
+	<generateCommonality>2</generateCommonality>
+    <apparel>
+      <bodyPartGroups>
+        <li>UpperHead</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/IG/Fieldcap/IG_FieldCap</wornGraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <tags>
+        <li>IG</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>IG_Soldier</li>
+      </defaultOutfitTags> </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="HatBase" >
+    <thingClass>FactionColors.ApparelUniform</thingClass>
+    <defName>IG_Helm</defName>
+    <label>imperial guard helmet</label>
+    <description>A lightweight combat helmet.</description>
+    <graphicData>
+      <texPath>Things/IG/IG_Helm/IG_Helm</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <statBases>
+      <Mass>1</Mass>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>300</MarketValue>
+      <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+    </statBases>
+    <equippedStatOffsets>
+      <MoveSpeed>0.0</MoveSpeed>
+    </equippedStatOffsets>
+	<generateCommonality>2</generateCommonality>
+    <apparel>
+      <bodyPartGroups>
+        <li>UpperHead</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/IG/IG_Helm</wornGraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <tags>
+        <li>IG_STApp</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>IG_STApp</li>
+      </defaultOutfitTags> 
+   </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+        <IsRandomMultiGraphic>true</IsRandomMultiGraphic>
+      	<RandomGraphicPaths>
+        		<li>
+ 	       		<first>IG_Helm</first> 	       					<second>20</second>
+			</li>
+        		<li>
+ 	       		<first>IG_Helm_Gas_Gog</first> 	       				<second>5</second>
+			</li>
+        		<li>
+ 	       		<first>IG_Helm_Gog</first> 	       					<second>10</second>
+			</li>
+        		<li>
+ 	       		<first>IG_Helm_Gog_Strap</first> 	       				<second>10</second>
+			</li>
+      	</RandomGraphicPaths>
+      </li>
+    </comps>
+  </ThingDef>
+
+
+</Defs>

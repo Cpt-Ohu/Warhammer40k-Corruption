@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<BodyPartDefs>
+<Defs>
   
   <BodyPartDef>
     <defName>RibPlate</defName>
     <label>RibPlate</label>
     <hitPoints>200</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
     <skinCovered>false</skinCovered>
-    <isSolid>true</isSolid>
+    <solid>false</solid>
   </BodyPartDef>
   
-</BodyPartDefs>
+</Defs>

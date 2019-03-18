@@ -6,13 +6,20 @@
     <label>dark eldar</label>
     <description>Dark Eldar from a kabal.</description>
     <pawnsPlural>dark eldar</pawnsPlural>
-    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <requiredCountAtGameStart>0</requiredCountAtGameStart>
     <fixedName>DarkEldar</fixedName>
     <canSiege>true</canSiege>
     <canStageAttacks>true</canStageAttacks>
-    <raidCommonality>60</raidCommonality>
+		<raidCommonalityFromPointsCurve>
+			<points>
+				<li>(1000, 0.4)</li>
+				<li>(2500, 1)</li>
+			</points>
+		</raidCommonalityFromPointsCurve>
     <techLevel>Ultra</techLevel>
-    <backstoryCategory>DarkEldar</backstoryCategory>
+    <backstoryCategories>
+	 <li>DarkEldar</li>
+	</backstoryCategories>
     <pawnNameMaker>NamerPersonEldar</pawnNameMaker>
     <leaderTitle>Archon</leaderTitle>
     <hidden>true</hidden>
@@ -33,9 +40,18 @@
       <min>-100</min>
       <max>-100</max>
     </naturalColonyGoodwill>
+		<maxPawnCostPerTotalPointsCurve>
+      <points>
+        <li>(0,350)</li>
+        <li>(70, 500)</li>
+        <li>(700, 1000)</li>
+        <li>(1300, 1500)</li>
+        <li>(100000, 10000)</li>
+      </points>
+    </maxPawnCostPerTotalPointsCurve>  
     <pawnGroupMakers>
       <li>
-        <kindDef>Normal</kindDef>
+        <kindDef>Combat</kindDef>
         <options>
             <DE_KabaliteWarrior>100</DE_KabaliteWarrior>
             <DE_Wych>20</DE_Wych>
@@ -44,6 +60,7 @@
     </pawnGroupMakers>
     <FactionColor1>RGBA(0.31,0.51,0.50,1)</FactionColor1>
     <FactionColor2>RGBA(0.31,0.51,0.50,1)</FactionColor2>
+    <PreferredChaosGod>DrukhariAtheism</PreferredChaosGod>
     <Subfactions>
 	<li>
 		<SubfactionName>Blackheart Kabal</SubfactionName>

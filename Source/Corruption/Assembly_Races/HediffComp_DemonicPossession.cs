@@ -20,26 +20,26 @@ namespace Corruption
         }
 
 
-        private Need_Soul soul
+        private CompSoul soul
         {
             get
             {
-                Need_Soul soulInt;
-                if ((soulInt = this.Pawn.needs.TryGetNeed<Need_Soul>()) != null)
+                CompSoul soulInt;
+                if ((soulInt = CompSoul.GetPawnSoul(this.Pawn)) != null)
                     return soulInt;
                 else
                 {
-                    return new Need_Soul(this.Pawn);
+                    throw new Exception("Demonic Possession working on pawn without soul!");
                 }
             }
         }
 
-        public override void CompPostTick()
+        public override  void CompPostTick(ref float severityAdjustment)
         {
-            base.CompPostTick();
+            base.CompPostTick(ref severityAdjustment);
             if (this.Pawn.def.race.Humanlike)
             {
-                soul.GainNeed(-0.00005f);
+                soul.AffectSoul(-0.00005f);
             }
         }
 
@@ -50,7 +50,7 @@ namespace Corruption
             {
                     this.Pawn.LabelShort,
             });
-            Find.LetterStack.ReceiveLetter(label, text2, LetterType.BadUrgent, this.Pawn, null);
+            Find.LetterStack.ReceiveLetter(label, text2, LetterDefOf.ThreatBig, this.Pawn, null);
 
             GenSpawn.Spawn(Demon, Pawn.Position, this.Pawn.Map);
             Demon.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.ManhunterPermanent);

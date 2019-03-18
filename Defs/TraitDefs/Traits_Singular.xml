@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Corruption.SoulTraitDefs>
+<Defs>
+
+  <Corruption.SoulTraitDef>
+    <defName>EMPEROR_Hope</defName>
+    <SDegreeDatas>
+      <li>
+        <label>Imperial endurance</label>
+        <description>NAME is a follower of the Imperial cult. Though life may seem arduous, complicated and finally with much suffering, NAME will carry on in the knowledge, that the Emperor has a plan. And however long it may take to unfold, the Imperium of Man will prevail until such time.</description>
+      </li>
+    </SDegreeDatas>
+    <NullifiesThoughts>
+    </NullifiesThoughts>  
+</Corruption.SoulTraitDef>
+
 
   <Corruption.SoulTraitDef>
     <defName>Khorne_Fervor</defName>
@@ -150,6 +163,53 @@
     </NullifiesThoughts>
   </Corruption.SoulTraitDef>
 
+  <Corruption.SoulTraitDef>
+    <defName>ELDAR_mastery</defName>
+    <SDegreeDatas>
+      <li>
+        <label>Eldar mastery</label>
+        <description>NAME is an Eldar. They strive for perfection in everything they do.</description>
+      </li>
+    </SDegreeDatas>
+    <NullifiesThoughts>
+      <li>KnowPrisonerSold</li>
+      <li>KnowGuestOrganHarvested</li>
+      <li>KnowBuriedInSarcophagus</li>
+      <li>ButcheredHumanlikeCorpse</li>
+      <li>KnowButcheredHumanlikeCorpse</li>
+      <li>ObservedLayingCorpse</li>
+      <li>ObservedLayingRottingCorpse</li>
+      <li>WitnessedDeathNonAlly</li>
+      <li>KnowGuestExecuted</li>
+      <li>KnowColonistExecuted</li>
+      <li>KnowPrisonerDiedInnocent</li>
+    </NullifiesThoughts>  
+</Corruption.SoulTraitDef>
+
+  <Corruption.SoulTraitDef>
+    <defName>TAU_Philosophy</defName>
+    <SDegreeDatas>
+      <li>
+        <label>Utalitarian Philosophy</label>
+        <description>NAME follows the idea that all beings should strive to ensure the greatest good for the greatest number of beings in the galaxy.</description>
+      </li>
+    </SDegreeDatas>
+    <NullifiesThoughts>
+      <li>KnowPrisonerSold</li>
+      <li>KnowGuestOrganHarvested</li>
+      <li>KnowBuriedInSarcophagus</li>
+      <li>ButcheredHumanlikeCorpse</li>
+      <li>KnowButcheredHumanlikeCorpse</li>
+      <li>ObservedLayingCorpse</li>
+      <li>ObservedLayingRottingCorpse</li>
+      <li>WitnessedDeathNonAlly</li>
+      <li>KnowGuestExecuted</li>
+      <li>KnowColonistExecuted</li>
+      <li>KnowPrisonerDiedInnocent</li>
+    </NullifiesThoughts>  
+</Corruption.SoulTraitDef>
+
+
 
   <Corruption.SoulTraitDef>
     <defName>ORK_Brutality</defName>
@@ -171,7 +231,66 @@
       <li>KnowGuestExecuted</li>
       <li>KnowColonistExecuted</li>
       <li>KnowPrisonerDiedInnocent</li>
-    </NullifiesThoughts>  </Corruption.SoulTraitDef>
+    </NullifiesThoughts>  
+</Corruption.SoulTraitDef>
 
 
-</Corruption.SoulTraitDefs>
+  <Corruption.SoulTraitDef>
+    <defName>HumanSaint</defName>
+    <SDegreeDatas>
+      <li>
+        <label>Living Saint</label>
+        <description>This individual was selected by the Emperor to fulfill a purpose. What this purpose is, remains unclear.</description>
+		 <statFactors>
+          <MarketValue>10.0</MarketValue>
+          <MentalBreakThreshold>2.12</MentalBreakThreshold>
+          <NegotiationAbility>2.25</NegotiationAbility>
+          <SocialImpact>2.5</SocialImpact>
+          <TameAnimalChance>2.0</TameAnimalChance>
+        </statFactors>
+      </li>
+    </SDegreeDatas>
+	</Corruption.SoulTraitDef>
+
+	
+  <Corruption.SoulTraitDef>
+    <defName>KhorneChampion</defName>
+    <SDegreeDatas>
+      <li>
+        <label>Champion of Khorne</label>
+        <description>This individual was selected by Khorne to do battle in his name.</description>
+		 <statFactors>
+          <MarketValue>10.0</MarketValue>
+          <MentalBreakThreshold>3.12</MentalBreakThreshold>
+          <NegotiationAbility>0.25</NegotiationAbility>
+          <MoveSpeed>1.3</MoveSpeed>
+          <MeleeHitChance>3.0</MeleeHitChance>
+          <MeleeDodgeChance>3.0</MeleeDodgeChance>
+          <MeleeHitChance>2.0</MeleeHitChance>
+        </statFactors>
+      </li>
+    </SDegreeDatas>
+	</Corruption.SoulTraitDef>
+	
+	
+  <Corruption.SoulTraitDef>
+    <defName>NurgleChampion</defName>
+    <SDegreeDatas>
+      <li>
+        <label>Champion of Nurgle</label>
+        <description>This individual was selected by Nurgle to spread pestilence.</description>
+		 <statFactors>
+          <MarketValue>10.0</MarketValue>
+          <MentalBreakThreshold>3.12</MentalBreakThreshold>
+          <MoveSpeed>0.5</MoveSpeed>
+        </statFactors>
+		<psykerPowersToUnlock>
+	      <li>PsykerPower_FireLance</li>
+	      <li>PsykerPower_EmpyrealInferno</li>
+	    </psykerPowersToUnlock>
+      </li>
+    </SDegreeDatas>
+	</Corruption.SoulTraitDef>
+
+
+</Defs>

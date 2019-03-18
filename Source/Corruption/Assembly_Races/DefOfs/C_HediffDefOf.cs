@@ -17,5 +17,13 @@ namespace Corruption.DefOfs
         public static HediffDef MarkNurgle;
 
         public static HediffDef DemonicPossession;
+
+        public static HediffDef ServitorImplants;
+        
+        public static HediffDef ServitorOutOfFuel;
+        
+
+
+
     }
 }

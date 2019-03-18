@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Buildings>
+<Defs>
 
   <ThingDef ParentName="BuildingBase">
     <defName>IGCommsConsole</defName>
@@ -26,6 +26,7 @@
       <li>FactionColors.ITab_FactionColor</li>
     </inspectorTabs>
     <statBases>
+      <Mass>15</Mass>
       <MaxHitPoints>250</MaxHitPoints>
       <WorkToBuild>2200</WorkToBuild>
       <Flammability>1.0</Flammability>
@@ -36,10 +37,10 @@
       <li>Metallic</li>
       <li>Stony</li>
     </stuffCategories>
-    <costStuffCount>10</costStuffCount>
+    <costStuffCount>10</costStuffCount> 
     <costList>
       <Steel>200</Steel>
-      <Component>5</Component>
+      <ComponentIndustrial>5</ComponentIndustrial>
     </costList>
     <interactionCellOffset>(0,0,-2)</interactionCellOffset>
     <hasInteractionCell>true</hasInteractionCell>
@@ -51,7 +52,7 @@
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
-        <startElectricalFires>false</startElectricalFires>
+        
         <basePowerConsumption>50</basePowerConsumption>
       </li>
       <li Class="CompProperties_Glower">
@@ -60,9 +61,15 @@
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
+	  
+      <li Class="Corruption.Missions.CompProperties_MissionRelevant">
+        <MissionDef>BuildCCC</MissionDef>
+		<compClass>Corruption.Missions.CompConstructMission</compClass>
+      </li>
+	  
     </comps>
     <staticSunShadowHeight>0.5</staticSunShadowHeight>
-    <designationHotkey>Misc3</designationHotkey>
+    <designationHotKey>Misc3</designationHotKey>
     <researchPrerequisites>
       <li>MicroelectronicsBasics</li>
     </researchPrerequisites>
@@ -72,8 +79,9 @@
   <ThingDef ParentName="BuildingBase">
     <defName>MecSurgicalUnit</defName>
     <label>Mechanicus Surgical Unit</label>
-    <Description>An advanced treatment unit enabling swift and precise surgical procedures guided by several manipulators and advanced diagnostics.</Description>
-    <ThingClass>Corruption.Building_MechanicusMedTable</ThingClass>
+    <description>An advanced treatment unit enabling swift and precise surgical procedures guided by several manipulators and advanced diagnostics.</description>
+    <tickerType>Rare</tickerType>
+    <thingClass>Corruption.Building_MechanicusMedTable</thingClass>
     <inspectorTabs>
       <li>Corruption.ITab_MSUOperation</li>
     </inspectorTabs>
@@ -88,7 +96,7 @@
         <cornerBR>Damage/Corner</cornerBR>
       </damageData>
     </graphicData>
-    <AltitudeLayer>Building</AltitudeLayer>
+    <altitudeLayer>Building</altitudeLayer>
     <statBases>
       <MaxHitPoints>150</MaxHitPoints>
       <WorkToBuild>2850</WorkToBuild>
@@ -98,23 +106,25 @@
       <Comfort>0.80</Comfort>
       <ImmunityGainSpeedFactor>1.144</ImmunityGainSpeedFactor>
       <MedicalTendQualityOffset>0.40</MedicalTendQualityOffset>
+      <MedicalSurgerySuccessChance>5.0</MedicalSurgerySuccessChance>
+
     </statBases>
-    <Size>(3,3)</Size>
+    <size>(3,3)</size>
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
     <costStuffCount>150</costStuffCount>
     <costList>
       <Steel>80</Steel>
-      <Medicine>10</Medicine>
-      <Component>10</Component>
+      <MedicineIndustrial>10</MedicineIndustrial>
+      <ComponentIndustrial>10</ComponentIndustrial>
     </costList>
     <interactionCellOffset>(0,0,-2)</interactionCellOffset>
     <hasInteractionCell>true</hasInteractionCell>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
-        <startElectricalFires>false</startElectricalFires>
+        
         <basePowerConsumption>200</basePowerConsumption>
       </li>
       <li Class="CompProperties_Glower">
@@ -128,12 +138,12 @@
       </li>
     </comps>
     <fillPercent>0.8</fillPercent>
-    <PathCost>90</PathCost>
-    <LeaveResourcesWhenKilled>True</LeaveResourcesWhenKilled>
-    <StaticSunShadowHeight>0.17</StaticSunShadowHeight>
-    <CastEdgeShadows>True</CastEdgeShadows>
-    <Passability>PassThroughOnly</Passability>
-    <DrawGUIOverlay>True</DrawGUIOverlay>
+    <pathCost>90</pathCost>
+    <leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
+    <staticSunShadowHeight>0.17</staticSunShadowHeight>
+    <castEdgeShadows>True</castEdgeShadows>
+    <passability>PassThroughOnly</passability>
+    <drawGUIOverlay>True</drawGUIOverlay>
     <researchPrerequisites>
       <li>MecTec_MSU</li>
     </researchPrerequisites>
@@ -167,11 +177,12 @@
     <castEdgeShadows>false</castEdgeShadows>
     <fillPercent>1.0</fillPercent>
     <designationCategory>Mechanicum</designationCategory>
-    <iconDrawScale>1</iconDrawScale>
+    
     <inspectorTabs>
       <li>Corruption.Tithes.ITab_TitheContainer</li>
     </inspectorTabs>
     <statBases>
+      <Mass>15</Mass>
       <MaxHitPoints>250</MaxHitPoints>
       <WorkToBuild>3000</WorkToBuild>
       <Flammability>0.5</Flammability>
@@ -189,6 +200,50 @@
     <uiIconPath>Things/IoM/Containers/TitheContainerBig_icon</uiIconPath>
   </ThingDef>
 
+  
+  <ThingDef ParentName="BuildingBase">
+    <thingClass>Corruption.Tithes.TitheContainer</thingClass>
+    <defName>TitheContainerSmall</defName>
+    <label>small tithe container</label>
+    <description>A non-launchable container for storing tithes. Contains a teleport beacon device.</description>
+    <graphicData>
+      <texPath>Things/IoM/Containers/TitheContainerBig</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,1)</drawSize>
+    </graphicData>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <size>(2,1)</size>
+    <rotatable>true</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <castEdgeShadows>false</castEdgeShadows>
+    <fillPercent>1.0</fillPercent>
+    <designationCategory>Mechanicum</designationCategory>
+    
+    <inspectorTabs>
+      <li>Corruption.Tithes.ITab_TitheContainer</li>
+    </inspectorTabs>
+    <statBases>
+      <Mass>15</Mass>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>3000</WorkToBuild>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <comps>
+      <li Class="Corruption.Tithes.CompProperties_TitheContainer">
+        <compClass>Corruption.Tithes.CompTitheContainer</compClass>
+	   <maxContainerCapacity>250</maxContainerCapacity>
+      </li>
+    </comps>
+		<researchPrerequisites>
+			<li>Smithing</li>
+		</researchPrerequisites>
+    <costStuffCount>100</costStuffCount>
+    <uiIconPath>Things/IoM/Containers/TitheContainerBig_icon</uiIconPath>
+  </ThingDef>
+  
 	<ThingDef ParentName="BenchBase">
     <defName>MechanicumAssemblyBench</defName>
     <label>mechanicum assembly unit</label>
@@ -198,6 +253,7 @@
     <passability>PassThroughOnly</passability>
     <pathCost>70</pathCost>
     <statBases>
+      <Mass>15</Mass>
       <MaxHitPoints>300</MaxHitPoints>
       <WorkToBuild>5000</WorkToBuild>
       <Flammability>1.0</Flammability>
@@ -205,7 +261,7 @@
     <size>(7,2)</size>
     <costList>
       <Steel>400</Steel>
-      <Component>20</Component>
+      <ComponentIndustrial>20</ComponentIndustrial>
     </costList>
     <comps>
       <li Class="CompProperties_AffectedByFacilities">
@@ -216,13 +272,13 @@
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>250</basePowerConsumption>
-        <startElectricalFires>true</startElectricalFires>
+        
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
     </comps>
     <recipes>
-      <li>MakeComponent</li>
+      <li>Make_ComponentIndustrial</li>
     </recipes>
     <graphicData>
       <texPath>Things/Mechanicus/AssemblyTable/MecAssemblyTable</texPath>
@@ -255,8 +311,246 @@
     <researchPrerequisites>
       <li>MecTec_AssemblyTable</li>
     </researchPrerequisites>
+  </ThingDef> 
+
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>SarcophagusShrine</defName>
+    <label>ornate sarcophagus</label>
+    <thingClass>Corruption.Missions.Building_MissionCasket</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Misc/Sarcophagus</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <description>An ornamented burial receptacle for the honored dead.</description>
+    <size>(1,2)</size>
+    <pathCost>70</pathCost>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.5</fillPercent>
+    <tickerType>Rare</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<preventDeteriorationInside>true</preventDeteriorationInside>
+      <fullGraveGraphicData>
+				<texPath>Things/Building/Misc/SarcophagusFull</texPath>
+				<graphicClass>Graphic_Multi</graphicClass>
+				<drawSize>(3,4)</drawSize>
+			</fullGraveGraphicData>
+      <defaultStorageSettings>
+        <filter>
+          <categories>
+            <li>CorpsesHumanlike</li>
+          </categories>
+          <specialFiltersToDisallow>
+            <li>AllowCorpsesStranger</li>
+          </specialFiltersToDisallow>
+        </filter>
+      </defaultStorageSettings>
+    </building>
+    <statBases>
+      <Mass>15</Mass>
+      <WorkToBuild>2500</WorkToBuild>
+      <MaxHitPoints>250</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <Beauty>0</Beauty>
+    </statBases>
+    <stuffCategories>
+      <li>Woody</li>
+      <li>Metallic</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+    <comps>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>ArtDescription_SarcophagusPlate</nameMaker>
+        <descriptionMaker>ArtDescription_SarcophagusPlate</descriptionMaker>
+        <mustBeFullGrave>false</mustBeFullGrave>
+      </li>
+      <li Class="Corruption.Missions.CompProperties_MissionRelevant">
+        <MissionDef>RecoverArtifact</MissionDef>
+		<compClass>Corruption.Missions.CompArtifactsRetrieval</compClass>
+      </li>
+    </comps>
+    <costStuffCount>60</costStuffCount>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <blockWind>true</blockWind>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <staticSunShadowHeight>0.3</staticSunShadowHeight>
   </ThingDef>
 
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>SarcophagusShrine</defName>
+    <label>ornate sarcophagus</label>
+    <thingClass>Corruption.Missions.Building_MissionCasket</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Misc/Sarcophagus</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <description>An ornamented burial receptacle for the honored dead.</description>
+    <size>(1,2)</size>
+    <pathCost>70</pathCost>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.5</fillPercent>
+    <tickerType>Rare</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<preventDeteriorationInside>true</preventDeteriorationInside>
+      <fullGraveGraphicData>
+				<texPath>Things/Building/Misc/SarcophagusFull</texPath>
+				<graphicClass>Graphic_Multi</graphicClass>
+				<drawSize>(3,4)</drawSize>
+			</fullGraveGraphicData>
+      <defaultStorageSettings>
+        <filter>
+          <categories>
+            <li>CorpsesHumanlike</li>
+          </categories>
+          <specialFiltersToDisallow>
+            <li>AllowCorpsesStranger</li>
+          </specialFiltersToDisallow>
+        </filter>
+      </defaultStorageSettings>
+    </building>
+    <statBases>
+      <Mass>15</Mass>
+      <WorkToBuild>2500</WorkToBuild>
+      <MaxHitPoints>250</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <Beauty>0</Beauty>
+    </statBases>
+    <stuffCategories>
+      <li>Woody</li>
+      <li>Metallic</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+    <comps>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>ArtDescription_SarcophagusPlate</nameMaker>
+        <descriptionMaker>ArtDescription_SarcophagusPlate</descriptionMaker>
+        <mustBeFullGrave>false</mustBeFullGrave>
+      </li>
+      <li Class="Corruption.Missions.CompProperties_MissionRelevant">
+        <MissionDef>RecoverArtifact</MissionDef>
+		<compClass>Corruption.Missions.CompRetrieveSaint</compClass>
+      </li>
+    </comps>
+    <costStuffCount>60</costStuffCount>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <blockWind>true</blockWind>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <staticSunShadowHeight>0.3</staticSunShadowHeight>
+  </ThingDef>
 
-
-</Buildings>
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>ArcheotecCasket</defName>
+    <label>Archeotec casket</label>
+    <thingClass>Corruption.Missions.Building_MissionCasket</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Misc/Sarcophagus</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <description>An ancient casket from the Dark Ages of Technology. It could contain any number of valuable technology.</description>
+    <size>(1,2)</size>
+    <pathCost>70</pathCost>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.5</fillPercent>
+    <tickerType>Rare</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<preventDeteriorationInside>true</preventDeteriorationInside>
+      <fullGraveGraphicData>
+				<texPath>Things/Building/Misc/SarcophagusFull</texPath>
+				<graphicClass>Graphic_Multi</graphicClass>
+				<drawSize>(3,4)</drawSize>
+			</fullGraveGraphicData>
+      <defaultStorageSettings>
+        <filter>
+          <categories>
+            <li>CorpsesHumanlike</li>
+          </categories>
+          <specialFiltersToDisallow>
+            <li>AllowCorpsesStranger</li>
+          </specialFiltersToDisallow>
+        </filter>
+      </defaultStorageSettings>
+    </building>
+    <statBases>
+      <Mass>15</Mass>
+      <WorkToBuild>2500</WorkToBuild>
+      <MaxHitPoints>250</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <Beauty>0</Beauty>
+    </statBases>
+    <stuffCategories>
+      <li>Woody</li>
+      <li>Metallic</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+    <comps>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>ArtDescription_SarcophagusPlate</nameMaker>
+        <descriptionMaker>ArtDescription_SarcophagusPlate</descriptionMaker>
+        <mustBeFullGrave>false</mustBeFullGrave>
+      </li>
+      <li Class="Corruption.Missions.CompProperties_MissionRelevant">
+        <MissionDef>RecoverArtifact</MissionDef>
+		<compClass>Corruption.Missions.CompThingRetrieval</compClass>
+		<ThingSetMakerDefs>
+		 <li>MapGen_ArcheotecCasketContent</li>		
+		</ThingSetMakerDefs>
+      </li>
+    </comps>
+    <costStuffCount>60</costStuffCount>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <blockWind>true</blockWind>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <staticSunShadowHeight>0.3</staticSunShadowHeight>
+  </ThingDef>
+  
+</Defs>

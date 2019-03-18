@@ -12,7 +12,7 @@ namespace Corruption.BookStuff
         
         public void ExposeData()
         {
-            Scribe_Collections.LookDictionary<ThingDef, int>(ref this.ReadableProgressEntry, "ReadableProgressEntry", LookMode.Def, LookMode.Value);
+            Scribe_Collections.Look<ThingDef, int>(ref this.ReadableProgressEntry, "ReadableProgressEntry", LookMode.Def, LookMode.Value);
         }
     }
 }

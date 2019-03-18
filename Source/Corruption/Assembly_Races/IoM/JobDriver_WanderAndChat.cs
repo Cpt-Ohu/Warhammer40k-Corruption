@@ -29,7 +29,7 @@ namespace Corruption.IoM
         {
             get
             {
-                return (Pawn)base.CurJob.targetA.Thing;
+                return (Pawn)base.job.targetA.Thing;
             }
         }
 
@@ -37,31 +37,34 @@ namespace Corruption.IoM
         protected override IEnumerable<Toil> MakeNewToils()
         {
             this.FailOnDespawnedOrNull(TargetIndex.A);
-            this.FailOnMentalState(TargetIndex.A);
             this.FailOnNotAwake(TargetIndex.A);
             this.FailOn(() => IoM_StoryUtilities.PawnInPrivateQuarters(Talkee));
-            yield return Toils_Reserve.Reserve(TargetIndex.A, 1);
-            yield return Toils_InterpersonalToilsIoM.GotoPawn(this.pawn, this.Talkee, this.Talkee.guest.interactionMode);
-            yield return Toils_Interpersonal.WaitToBeAbleToInteract(this.pawn);
-            yield return Toils_InterpersonalToilsIoM.ChatToPawn(this.pawn, this.Talkee, ChatType);
 
             for (int i = 0; i < Rand.Range(2, 5); i++)
             {
-                yield return Toils_InterpersonalToilsIoM.GotoPawn(this.pawn, this.Talkee, PrisonerInteractionMode.Chat);
+                yield return Toils_InterpersonalToilsIoM.GotoPawn(this.pawn, this.Talkee, PrisonerInteractionModeDefOf.ReduceResistance);
+                yield return Toils_Interpersonal.WaitToBeAbleToInteract(this.pawn);
                 yield return Toils_InterpersonalToilsIoM.ChatToPawn(this.pawn, this.Talkee, ChatType);
             }
 
             yield return Toils_Interpersonal.SetLastInteractTime(TargetIndex.A);
-            if (base.CurJob.def == JobDefOf.PrisonerAttemptRecruit)
+            if (base.job.def == JobDefOf.PrisonerAttemptRecruit)
             {
                 yield return Toils_Interpersonal.TryRecruit(TargetIndex.A);
             }
+            this.AddFinishAction(delegate { Toils_InterpersonalToilsIoM.PerformPostChatActions(pawn, Talkee, ChatType); });
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.LookValue<IoMChatType>(ref this.chatType, "chatType");
+            Scribe_Values.Look<IoMChatType>(ref this.chatType, "chatType");
+        }
+
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
+        {
+            return true;
+            //return this.pawn.Reserve(this.job.targetA, this.job, 1, -1, null);
         }
     }
 

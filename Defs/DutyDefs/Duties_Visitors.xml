@@ -21,8 +21,8 @@
             <li Class="ThinkNode_ConditionalRandom">
               <chance>0.5</chance>
               <subNodes>
-                <li Class="JobGiver_GetJoyInPartyArea" />
-            	<li Class="JobGiver_WanderInPartyArea">
+                
+            	<li Class="JobGiver_WanderColony">
               		<ticksBetweenWandersRange>
                 		<min>50</min>
                 		<max>250</max>
@@ -43,19 +43,12 @@
         <li Class="Corruption.IoM.JobGiver_FollowAndCorrupt"/>
                 <li Class="JobGiver_StandAndBeSociallyActive">
                   <ticksRange>
-                    <min>350</min>
-                    <max>750</max>
+                    <min>150</min>
+                    <max>200</max>
                   </ticksRange>
-                </li>
-            <li Class="ThinkNode_ConditionalRandom">
-              <chance>0.1</chance>
-              <subNodes>
-                <li Class="JobGiver_GetJoyInPartyArea" />
-              </subNodes>
-            </li>
-            
+                </li>            
             <!-- Wander -->
-            <li Class="JobGiver_WanderInPartyArea">
+            <li Class="JobGiver_WanderColony">
               <ticksBetweenWandersRange>
                 <min>50</min>
                 <max>250</max>
@@ -80,12 +73,12 @@
             <li Class="ThinkNode_ConditionalRandom">
               <chance>0.1</chance>
               <subNodes>
-                <li Class="JobGiver_GetJoyInPartyArea" />
+                <li Class="JobGiver_GetJoy"/>
               </subNodes>
             </li>
             
             <!-- Wander -->
-            <li Class="JobGiver_WanderInPartyArea">
+            <li Class="JobGiver_WanderColony">
               <ticksBetweenWandersRange>
                 <min>50</min>
                 <max>250</max>
@@ -111,6 +104,37 @@
     <thinkNode Class="ThinkNode_Priority">
       <subNodes>
         <li Class="Corruption.IoM.JobGiver_FollowAndInvestigate"/>
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+
+    <DutyDef>
+    <defName>FollowAndConvertTau</defName>
+    <alwaysShowWeapon>false</alwaysShowWeapon>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="Corruption.IoM.JobGiver_FollowAndConvertTau"/>
+      </subNodes>
+    </thinkNode>
+  </DutyDef>
+  
+    <DutyDef>
+    <defName>FollowAndHeal</defName>
+    <alwaysShowWeapon>false</alwaysShowWeapon>
+    <thinkNode Class="ThinkNode_Priority">
+      <subNodes>
+        <li Class="Corruption.IoM.JobGiver_MiracleHeal"/>
+            <li Class="ThinkNode_ConditionalRandom">              		<chance>0.5</chance>
+      	<subNodes>
+        <li Class="Corruption.IoM.JobGiver_FollowAndChat"/>
+                <li Class="JobGiver_StandAndBeSociallyActive">
+                  <ticksRange>
+                    <min>350</min>
+                    <max>750</max>
+                  </ticksRange>
+                </li>
+      	</subNodes>
+            </li> 
       </subNodes>
     </thinkNode>
   </DutyDef>

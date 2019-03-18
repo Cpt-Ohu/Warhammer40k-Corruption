@@ -13,10 +13,10 @@ namespace FactionColors
         Left
     }
 
-    public struct ShoulderPadEntry
+    public class ShoulderPadEntry
     {
         public ShoulderPadType shoulderPadType;
-        public ShaderType shaderType;
+        public ShaderTypeDef shaderType;
         public string padTexPath;
         public int commonality;
         public bool UseSecondaryColor;

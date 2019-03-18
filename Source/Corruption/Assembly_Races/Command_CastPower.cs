@@ -29,9 +29,10 @@ namespace Corruption
             base.ProcessInput(ev);
         }
 
-        public override GizmoResult GizmoOnGUI(Vector2 topLeft)
+        public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth)
         {
-            Rect rect = new Rect(topLeft.x, topLeft.y, this.Width, 75f);
+            float width = this.GetWidth(maxWidth);
+            Rect rect = new Rect(topLeft.x, topLeft.y, width, 75f);
             bool flag = false;
             if (Mouse.IsOver(rect))
             {
@@ -45,12 +46,12 @@ namespace Corruption
             }
 
             GUI.DrawTexture(rect, Command.BGTex);
-            MouseoverSounds.DoRegion(rect, SoundDefOf.MouseoverCommand);
+            MouseoverSounds.DoRegion(rect, SoundDefOf.Mouseover_Command);
             GUI.color = this.IconDrawColor;
             Widgets.DrawTextureFitted(new Rect(rect), badTex, this.iconDrawScale * 0.85f, this.iconProportions, this.iconTexCoords);
             GUI.color = Color.white;
             bool flag2 = false;
-            Rect rectFil = new Rect(topLeft.x, topLeft.y, this.Width, this.Width);
+            Rect rectFil = new Rect(topLeft.x, topLeft.y, width, width);
 
             KeyCode keyCode = (this.hotKey != null) ? this.hotKey.MainKey : KeyCode.None;
             if (keyCode != KeyCode.None && !GizmoGridDrawer.drawnHotKeys.Contains(keyCode))
@@ -105,7 +106,7 @@ namespace Corruption
                 {
                     if (!this.disabledReason.NullOrEmpty())
                     {
-                        Messages.Message(this.disabledReason, MessageSound.RejectInput);
+                        Messages.Message(this.disabledReason, MessageTypeDefOf.RejectInput);
                     }
                     return new GizmoResult(GizmoState.Mouseover, null);
                 }

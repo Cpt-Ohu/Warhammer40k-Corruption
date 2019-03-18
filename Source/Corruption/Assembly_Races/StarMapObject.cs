@@ -100,18 +100,18 @@ namespace Corruption
 
         }
 
-        public void ExposeData()
+        public virtual void ExposeData()
         {
-            Scribe_Values.LookValue<string>(ref this.objectName, "objectName", "None", false);
-            Scribe_Values.LookValue<string>(ref this.texPath, "texPath", "UI/SectorMap/Planet_Medium", false);
-            Scribe_Values.LookValue<StarMapObjectType>(ref this.objectType, "objectType", StarMapObjectType.PlanetSmall, false);
-            Scribe_Values.LookValue<int>(ref this.diameter, "diameter", 20000, false);
+            Scribe_Values.Look<string>(ref this.objectName, "objectName", "None", false);
+            Scribe_Values.Look<string>(ref this.texPath, "texPath", "UI/SectorMap/Planet_Medium", false);
+            Scribe_Values.Look<StarMapObjectType>(ref this.objectType, "objectType", StarMapObjectType.PlanetSmall, false);
+            Scribe_Values.Look<int>(ref this.diameter, "diameter", 20000, false);
 
-            Scribe_Values.LookValue<float>(ref this.x, "x", 360f, false);
-            Scribe_Values.LookValue<float>(ref this.y, "y", 300f, false);
-            Scribe_Values.LookValue<float>(ref this.width, "width", 60f, false);
-            Scribe_Values.LookValue<float>(ref this.height, "height", 60f, false);
-            // Scribe_Deep.LookDeep<Rect>(ref this.objectRect, "objectRect", new Rect());
+            Scribe_Values.Look<float>(ref this.x, "x", 360f, false);
+            Scribe_Values.Look<float>(ref this.y, "y", 300f, false);
+            Scribe_Values.Look<float>(ref this.width, "width", 60f, false);
+            Scribe_Values.Look<float>(ref this.height, "height", 60f, false);
+            // Scribe_Deep.Look<Rect>(ref this.objectRect, "objectRect", new Rect());
         }
     }
 }

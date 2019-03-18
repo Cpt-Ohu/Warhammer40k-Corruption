@@ -4,7 +4,7 @@
     <defName>Shas_CHILD</defName>
     <title>Fire caste</title>
     <baseDescription>NAME was born as a member of the Fire Caste. As such, the path of the warrior was HIS destiny.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Childhood</slot>
     <workDisables>
@@ -24,7 +24,7 @@
     <defName>Shas_ADULT</defName>
     <title>Fire warrior</title>
     <baseDescription>As a fully grown member of the Fire Caste, NAME will spend his entire life either waging war or preparing for it.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -48,7 +48,7 @@
     <defName>POR_CHILD</defName>
     <title>Water caste</title>
     <baseDescription>NAME was born as a member of the Water Caste. As such, HE was to become part of the administration.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Childhood</slot>
     <workDisables>
@@ -68,7 +68,7 @@
     <defName>POR_ADMIN</defName>
     <title>Administrator</title>
     <baseDescription>NAME became a bureaucrat within the tau administration.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Childhood</slot>
     <workDisables>
@@ -88,7 +88,7 @@
     <defName>POR_DIPLOMAT</defName>
     <title>Diplomat</title>
     <baseDescription>NAME became an envoy for the Tau empire to conduct diplomatic exchanges.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -110,7 +110,7 @@
     <defName>Aun_CHILD</defName>
     <title>Ethereal caste</title>
     <baseDescription>NAME was born as Ethereal caste. As such NAME was destined to become a leading figure in Tau society.</baseDescription>
-    <bodytypeMale>Thin</bodytypeMale>
+    <bodyTypeMale>Thin</bodyTypeMale>
     <bodyTypeFemale>Thin</bodyTypeFemale>
     <slot>Childhood</slot>
     <workDisables>
@@ -130,7 +130,7 @@
     <defName>Aun_ADULT</defName>
     <title>Leader</title>
     <baseDescription>As a fully grown member of the Ethereal Caste, NAME is destined to rule over the other castes in the name of the greater good.</baseDescription>
-    <bodytypeMale>Thin</bodytypeMale>
+    <bodyTypeMale>Thin</bodyTypeMale>
     <bodyTypeFemale>Thin</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -141,7 +141,7 @@
         <amount>8</amount>
       </li>
       <li>
-        <defName>Research</defName>
+        <defName>Intellectual</defName>
         <amount>2</amount>
       </li>
     </skillGains>

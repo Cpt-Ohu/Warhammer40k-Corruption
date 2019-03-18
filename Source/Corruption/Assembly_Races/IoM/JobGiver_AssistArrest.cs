@@ -24,7 +24,7 @@ namespace Corruption.IoM
         {
             get
             {
-                Pawn pawn = CorruptionStoryTrackerUtilities.currentStoryTracker.PlanetaryGovernor;
+                Pawn pawn = CFind.StoryTracker.PlanetaryGovernor;
                 if (pawn != null)
                 {
                     return pawn;
@@ -38,9 +38,9 @@ namespace Corruption.IoM
 
         protected override Job TryGiveJob(Pawn pawn)
         {
-            if (this.Governor != null && pawn.Map.reservationManager.IsReserved(this.Governor, pawn.Faction) && pawn.Faction != this.Governor.Faction)
+            if (this.Governor != null && pawn.Map.reservationManager.IsReservedByAnyoneOf(this.Governor, pawn.Faction) && pawn.Faction != this.Governor.Faction)
             {
-                Pawn followee = pawn.Map.reservationManager.FirstReserverOf(this.Governor, pawn.Faction);
+                Pawn followee = pawn.Map.reservationManager.FirstRespectedReserver(this.Governor, pawn);
                 if (followee == null)
                 {
                     Log.Error(base.GetType() + "has null followee.");
@@ -48,11 +48,6 @@ namespace Corruption.IoM
                 }
                 if (followee.CurJob.def == C_JobDefOf.ArrestGovernor)
                 {
-
-                    if (!GenAI.CanInteractPawn(pawn, followee))
-                    {
-                        return null;
-                    }
                     float radius = 5f;
                     if ((followee.pather.Moving && followee.pather.Destination.Cell.DistanceToSquared(pawn.Position) > radius * radius) || followee.GetRoom() != pawn.GetRoom() || followee.Position.DistanceToSquared(pawn.Position) > radius * radius)
                     {

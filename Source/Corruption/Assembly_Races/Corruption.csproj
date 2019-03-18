@@ -28,7 +28,7 @@
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -41,25 +41,15 @@
   <ItemGroup>
     <Reference Include="0Harmony, Version=1.0.9.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\workshop\content\294100\839005762\Assemblies\0Harmony.dll</HintPath>
-    </Reference>
-    <Reference Include="0OHUShips, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Assemblies\0OHUShips.dll</HintPath>
+      <HintPath>..\..\..\Assemblies\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="AlienRace, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="AlienRace">
       <HintPath>..\..\..\..\..\..\..\workshop\content\294100\839005762\Assemblies\AlienRace.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\..\RimWorldWin_Data\Managed\Assembly-CSharp.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="FactionColors, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Assemblies\FactionColors.dll</HintPath>
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -69,16 +59,19 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\..\RimWorldWin_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Affliction.cs" />
     <Compile Include="AfflictionDrawerUtility.cs" />
+    <Compile Include="AIPsykerPowerCategory.cs" />
     <Compile Include="Astartes\RecipeDef_AstartesImplant.cs" />
     <Compile Include="Bill_MedicalTable.cs" />
     <Compile Include="BookStuff\Bookshelf.cs" />
+    <Compile Include="BookStuff\CompBookshelf.cs" />
+    <Compile Include="BookStuff\CompProperties_Bookshelf.cs" />
     <Compile Include="BookStuff\ITab_Bookshelf.cs" />
     <Compile Include="BookStuff\JobDriver_AddBookToLibrary.cs" />
     <Compile Include="BookStuff\JobDriver_ReadBookLong.cs" />
@@ -86,11 +79,142 @@
     <Compile Include="BookStuff\ReadableEffects.cs" />
     <Compile Include="BookStuff\ReadableEffektEntry.cs" />
     <Compile Include="BookStuff\ThingDef_Readables.cs" />
+    <Compile Include="CFind.cs" />
+    <Compile Include="CompAutoTargeter.cs" />
+    <Compile Include="CompBuffGiverEQ.cs" />
+    <Compile Include="CompProperties_AutoTargeter.cs" />
+    <Compile Include="CompProperties_BuffGiver.cs" />
+    <Compile Include="CompProperties_Soul.cs" />
+    <Compile Include="Domination\ConflictResult.cs" />
+    <Compile Include="Domination\IWorldObjectBuilder.cs" />
+    <Compile Include="Domination\MainTabWindow_Diplomacy.cs" />
+    <Compile Include="Domination\ProductionSiteOriginatorComp.cs" />
+    <Compile Include="Domination\UnfinishedWorldObject.cs" />
+    <Compile Include="Domination\WorldBuilderComp.cs" />
+    <Compile Include="Domination\WorldMapBuildableDef.cs" />
+    <Compile Include="Domination\WorldObjectCompProperties_WorldBuilder.cs" />
+    <Compile Include="Domination\FactionDialogMakerDiplomacy.cs" />
+    <Compile Include="IoM\TributeDemand.cs" />
+    <Compile Include="Missions\CompRetrieveSaint.cs" />
+    <Compile Include="Missions\IncidentWorker_RandomMission.cs" />
+    <Compile Include="Missions\MissionExplore.cs" />
+    <Compile Include="Missions\TributeMission.cs" />
+    <Compile Include="ProductionSites\Dialog_BuildOnWorldMap.cs" />
+    <Compile Include="ProductionSites\Dialog_BuildProductionSite.cs" />
+    <Compile Include="ProductionSites\Dialog_BuildUpgrade.cs" />
+    <Compile Include="ProductionSites\Dialog_ExpandSiteLevel.cs" />
+    <Compile Include="ProductionSites\Dialog_FarmProduce.cs" />
+    <Compile Include="ProductionSites\Dialog_LaunchProductionSitePods.cs" />
+    <Compile Include="ProductionSites\LiveStockProductionComp.cs" />
+    <Compile Include="ProductionSites\ProductionSiteMaker.cs" />
+    <Compile Include="ProductionSites\ResourceProductionCity.cs" />
+    <Compile Include="ProductionSites\TransportPodsArrivalAction_AddStock.cs" />
+    <Compile Include="ProductionSites\UpgradeBuildProgress.cs" />
+    <Compile Include="ProductionSites\WITab_ProductionSite_Production.cs" />
+    <Compile Include="ProductionSites\WITab_ProductionSite_Stock.cs" />
+    <Compile Include="ProductionSites\WorkForceWidget.cs" />
+    <Compile Include="ProductionSites\WorldShipConstructionComp.cs" />
+    <Compile Include="Psykers\CompPsykerPowers.cs" />
+    <Compile Include="CompServitor.cs" />
+    <Compile Include="CompSoul.cs" />
+    <Compile Include="CompTeleporter.cs" />
+    <Compile Include="CorruptionModController.cs" />
+    <Compile Include="CorruptionModSettings.cs" />
+    <Compile Include="DefOfs\C_DesignationCategoryDefOf.cs" />
+    <Compile Include="DefOfs\C_MapGeneratorDefOf.cs" />
+    <Compile Include="DefOfs\C_ThingCategoryDefOf.cs" />
     <Compile Include="DefOfs\C_TraderKindDefs.cs" />
+    <Compile Include="DefOfs\MissionDefOf.cs" />
+    <Compile Include="DefOfs\PawnGroupKindDefOf.cs" />
+    <Compile Include="Dialog_LearnPsykerPower.cs" />
+    <Compile Include="Domination\AllianceWarEffort.cs" />
+    <Compile Include="Domination\BattleResult.cs" />
+    <Compile Include="Domination\BattleSize.cs" />
+    <Compile Include="Domination\BattleType.cs" />
+    <Compile Include="Domination\BattleZone.cs" />
+    <Compile Include="Domination\Dialog_ChooseBattleSides.cs" />
+    <Compile Include="Domination\DominationConflict.cs" />
+    <Compile Include="Domination\DominationDefOfs.cs" />
+    <Compile Include="Domination\DominationMainBase.cs" />
+    <Compile Include="Domination\DominationTracker.cs" />
+    <Compile Include="Domination\DominationUtilities.cs" />
+    <Compile Include="Domination\GenStep_BattleZone.cs" />
+    <Compile Include="Domination\IBattleZone.cs" />
+    <Compile Include="Domination\JobGiver_GoIntoBattle.cs" />
+    <Compile Include="Domination\LordJob_DoBattle.cs" />
+    <Compile Include="Domination\LordToil_DoBattle.cs" />
+    <Compile Include="Domination\LordToil_GoIntoBattle.cs" />
+    <Compile Include="Domination\MainTabWindow_Domination.cs" />
+    <Compile Include="Domination\PoliticalAlliance.cs" />
+    <Compile Include="EquipmentAbility.cs" />
+    <Compile Include="GenAdjExtension.cs" />
+    <Compile Include="Hediffcomp_MindProbe.cs" />
+    <Compile Include="IoM\CompProperties_ResourcePack.cs" />
+    <Compile Include="IoM\CompResorcePack.cs" />
+    <Compile Include="IoM\DialogTrade_Imperial.cs" />
+    <Compile Include="IoM\DropshipCargoLoader.cs" />
+    <Compile Include="IoM\ImperialTraderOfficial.cs" />
+    <Compile Include="IoM\JobDriver_FillResourcePack.cs" />
+    <Compile Include="IoM\JobDriver_HaulToContainerMultiPawn.cs" />
+    <Compile Include="IoM\JobGiver_LoadResourcePack.cs" />
+    <Compile Include="IoM\LordJob_PickupResourcePacks.cs" />
+    <Compile Include="IoM\LordToil_LoadResourcePacks.cs" />
+    <Compile Include="Missions\MissionTargetFinder.cs" />
+    <Compile Include="ProductionSites\AgriProductionComp.cs" />
+    <Compile Include="ProductionSites\FarmProductionComp.cs" />
+    <Compile Include="ProductionSites\ProductionGenOption.cs" />
+    <Compile Include="ProductionSites\ProductionSite.cs" />
+    <Compile Include="IoM\PlaceWorker_SupplyPoint.cs" />
+    <Compile Include="ProductionSites\ProductionSiteLevel.cs" />
+    <Compile Include="ProductionSites\ProductionSiteUpgrades.cs" />
+    <Compile Include="ProductionSites\ProductionSite_TraderTracker.cs" />
+    <Compile Include="IoM\ResourceEntry.cs" />
+    <Compile Include="IoM\ResourcePack.cs" />
+    <Compile Include="IoM\SupplyDropDef.cs" />
+    <Compile Include="IoM\SupplyDropShip.cs" />
+    <Compile Include="IoM\TributeShip.cs" />
+    <Compile Include="ProductionSites\WorkForce.cs" />
+    <Compile Include="IoM\Workgiver_FillRessourcePack.cs" />
+    <Compile Include="MaintabWindow_Corruption.cs" />
+    <Compile Include="MentalState_KillSinglePawn.cs" />
+    <Compile Include="MentalState_PurgeHeretic.cs" />
+    <Compile Include="Missions\AllFactionMission.cs" />
+    <Compile Include="Missions\Building_MissionCasket.cs" />
+    <Compile Include="Missions\CompThingRetrieval.cs" />
+    <Compile Include="Missions\CompConstructMission.cs" />
+    <Compile Include="Missions\CompMissionRelevant.cs" />
+    <Compile Include="Missions\CompProperties_MissionRelevant.cs" />
+    <Compile Include="Missions\FightWorldBattle.cs" />
+    <Compile Include="Missions\KillPawnMission.cs" />
+    <Compile Include="Missions\Mission.cs" />
+    <Compile Include="Missions\MissionDef.cs" />
+    <Compile Include="Missions\MissionManager.cs" />
+    <Compile Include="Missions\MissionRewardMode.cs" />
+    <Compile Include="Missions\MissionSIte.cs" />
+    <Compile Include="Missions\MissionTabUtility.cs" />
+    <Compile Include="Missions\PawnMissionType.cs" />
+    <Compile Include="Missions\RescuePawnMission.cs" />
+    <Compile Include="ProductionSites\ResourceProductionComp.cs" />
+    <Compile Include="Missions\SinglePawnMission.cs" />
+    <Compile Include="Missions\ShippableRewardMissionUtility.cs" />
+    <Compile Include="ProductionSites\WorldFarmComp.cs" />
+    <Compile Include="ProductionSites\WorldObjectCompProperties_ResourceProduction.cs" />
+    <Compile Include="PatronDef.cs" />
+    <Compile Include="PatronDefOf.cs" />
+    <Compile Include="IoM\MechanicumTrader.cs" />
+    <Compile Include="Servitors\HediffCompProperties_ReprogramServitor.cs" />
+    <Compile Include="HediffComp_TurnAstartes.cs" />
+    <Compile Include="IoM\IncidentWorker_VisitingCultist.cs" />
+    <Compile Include="IoM\IncidentWorker_VisitingTauEnvoy.cs" />
     <Compile Include="IoM\IoMChatType.cs" />
     <Compile Include="IoM\IoM_StoryUtilities.cs" />
+    <Compile Include="IoM\JobDriver_MiracleHeal.cs" />
     <Compile Include="IoM\JobDriver_WanderAndChat.cs" />
+    <Compile Include="IoM\StockGenerator_CorruptedItems.cs" />
+    <Compile Include="JobDriver_ServitorIdle.cs" />
+    <Compile Include="JobGiver_AICastPsykerPower.cs" />
     <Compile Include="IoM\JobGiver_FollowAndChat.cs" />
+    <Compile Include="IoM\JobGiver_MiracleHeal.cs" />
     <Compile Include="IoM\LordJob_IntrusiveWanderer.cs" />
     <Compile Include="IoM\Toils_InterpersonalToilsIoM.cs" />
     <Compile Include="HediffCompProperties_MechWeapons.cs" />
@@ -98,6 +222,12 @@
     <Compile Include="IoM\Incident_WanderingTrader.cs" />
     <Compile Include="IoM\LordToil_WanderAndChat.cs" />
     <Compile Include="IoM\StockGenerator_Effigy.cs" />
+    <Compile Include="PawnKillTracker.cs" />
+    <Compile Include="Projectile_Smoking.cs" />
+    <Compile Include="Servitors\HediffComp_ReprogramServitors.cs" />
+    <Compile Include="ShipColorable.cs" />
+    <Compile Include="ThoughtWorker_Khornate.cs" />
+    <Compile Include="WorkGiver_RefuelServitor.cs" />
     <Compile Include="Worship\BuildingAltar.cs" />
     <Compile Include="Worship\BuildingAltarDef.cs" />
     <Compile Include="BuildingWorshipDef.cs" />
@@ -105,7 +235,6 @@
     <Compile Include="Building_MechanicusMedTable.cs" />
     <Compile Include="ChaosGodsUtilities.cs" />
     <Compile Include="Command_CastPower.cs" />
-    <Compile Include="CompAfflictionDrawer.cs" />
     <Compile Include="CompCorruptionTickManager.cs" />
     <Compile Include="CompEldarSpiritStone.cs" />
     <Compile Include="CompMechanicusImplants.cs" />
@@ -113,7 +242,7 @@
     <Compile Include="CompPropertiesAfflictionDrawer.cs" />
     <Compile Include="CompProperties_LaunchProjectile.cs" />
     <Compile Include="CompProperties_MentalStateGiver.cs" />
-    <Compile Include="CompProperties_PsykerVerb.cs" />
+    <Compile Include="CompProperties_Psyker.cs" />
     <Compile Include="CompProperties_StartWithHediff.cs" />
     <Compile Include="CompProperties_UseEffectPsykerPower.cs" />
     <Compile Include="CompPsyker.cs" />
@@ -142,14 +271,13 @@
     <Compile Include="DemonDefOfs.cs" />
     <Compile Include="DemonUtilities.cs" />
     <Compile Include="Dialog_NegotiationIoM.cs" />
-    <Compile Include="FactionDialogMaker_IoM.cs" />
+    <Compile Include="IoM\FactionDialogMaker_IoM.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="HediffCompProperties_DrawImplant.cs" />
     <Compile Include="HediffCompProperties_PostBuff.cs" />
     <Compile Include="HediffComp_DrawImplant.cs" />
     <Compile Include="HediffComp_NeuroController.cs" />
     <Compile Include="HediffComp_PostBuff.cs" />
-    <Compile Include="HediffComp_TurnServitor.cs" />
     <Compile Include="ImplantDrawerType.cs" />
     <Compile Include="IncidentWorker_CorruptedEffigy.cs" />
     <Compile Include="IoM\JobDriver_ArrestOnMap.cs" />
@@ -157,7 +285,6 @@
     <Compile Include="IoM\JobGiver_ArrestGovernor.cs" />
     <Compile Include="IoM\LordJob_ArrestGovernor.cs" />
     <Compile Include="IoM\LordToil_ArrestGovernor.cs" />
-    <Compile Include="JobDriver_TendInMSU.cs" />
     <Compile Include="MapCondition_IncomingIGHostile.cs" />
     <Compile Include="StockGenerator_TagCorruption.cs" />
     <Compile Include="Tithes\MapCondition_TitheCollectors.cs" />
@@ -177,7 +304,6 @@
     <Compile Include="Window_CCMBase.cs" />
     <Compile Include="Dialog_RenameTemple.cs" />
     <Compile Include="ChaosFollowerPawnKindDef.cs" />
-    <Compile Include="ChaosGods.cs" />
     <Compile Include="AfflictionProperty.cs" />
     <Compile Include="CompProperties_SoulItem.cs" />
     <Compile Include="GodThoughtDefOf.cs" />
@@ -186,6 +312,22 @@
     <Compile Include="HediffComp_NurglesRot.cs" />
     <Compile Include="HediffComp_TemporaryRecruit.cs" />
     <Compile Include="IncidentWorker_CorruptiveDrone.cs" />
+    <Compile Include="Worship\CompProperties_Pilgrimage.cs" />
+    <Compile Include="Worship\CompProperties_Shrine.cs" />
+    <Compile Include="Worship\CompShrine.cs" />
+    <Compile Include="Worship\Dialog_FormAndSendPilgrims.cs" />
+    <Compile Include="Worship\LordToil_TravelUrgent.cs" />
+    <Compile Include="Worship\Wonders\IncidentWorker_GrowingFlock.cs" />
+    <Compile Include="Worship\PilgrimageComp.cs" />
+    <Compile Include="Worship\Wonders\GameCondition_EmperorPositive.cs" />
+    <Compile Include="Worship\Wonders\IncidentWorker_KhorneFrenzy.cs" />
+    <Compile Include="Worship\Wonders\IncidentWorker_NurgleBreath.cs" />
+    <Compile Include="Worship\Wonders\IncidentWorker_SlaaneshOrgy.cs" />
+    <Compile Include="Worship\Wonders\WonderWorker_AddHediff.cs" />
+    <Compile Include="Worship\Wonders\WonderWorker_AddSpecialTrait.cs" />
+    <Compile Include="Worship\Wonders\WonderWorker_Pilgrimage.cs" />
+    <Compile Include="Worship\Wonders\WonderWorker_StartMentalState.cs" />
+    <Compile Include="Worship\Wonders\WonderWorker_Targetable.cs" />
     <Compile Include="Worship\ITab_Altar.cs" />
     <Compile Include="ITab_IGCommsConsole.cs" />
     <Compile Include="ITab_Pawn_Alignment.cs" />
@@ -206,9 +348,7 @@
     <Compile Include="MainTabWindow_Alignment.cs" />
     <Compile Include="MapCondition_CorruptiveDrone.cs" />
     <Compile Include="MentalState_KhorneKillWeak.cs" />
-    <Compile Include="Need_Soul.cs" />
     <Compile Include="OtherGods.cs" />
-    <Compile Include="PatronInfo.cs" />
     <Compile Include="ProjectileDef_WarpPower.cs" />
     <Compile Include="Projectile_AoE.cs" />
     <Compile Include="Projectile_Elemental.cs" />
@@ -236,6 +376,7 @@
     <Compile Include="RoomRoleWorker_Church.cs" />
     <Compile Include="Worship\JobDriver_Prayer.cs" />
     <Compile Include="Worship\JoyGiver_Pray.cs" />
+    <Compile Include="Worship\WorshipTabUtility.cs" />
     <Compile Include="Worship\SermonSpot.cs" />
     <Compile Include="Worship\SermonThoughtDefOf.cs" />
     <Compile Include="Worship\SermonUtility.cs" />
@@ -257,8 +398,6 @@
     <Compile Include="ThoughtWorker_CorruptionStatus.cs" />
     <Compile Include="ThoughtWorker_CorruptiveDrone.cs" />
     <Compile Include="ThoughtWorker_CulturalTolerance.cs" />
-    <Compile Include="ThoughtWorker_KhornateNoKill.cs" />
-    <Compile Include="ThoughtWorker_KhornateKill.cs" />
     <Compile Include="ThoughtWorker_NurgleGifts.cs" />
     <Compile Include="ThoughtWorker_Tzeentchian.cs" />
     <Compile Include="ThoughtWorker_Undivided.cs" />
@@ -273,8 +412,53 @@
     <Compile Include="Worship\JobGiver_HoldSermon.cs" />
     <Compile Include="Worship\LordJob_Sermon.cs" />
     <Compile Include="Worship\LordToil_StartSermom.cs" />
+    <Compile Include="Worship\Wonders\WonderDef.cs" />
+    <Compile Include="Worship\Wonders\WonderWorker_HealAllPawns.cs" />
+    <Compile Include="Worship\Wonders\WonderWorker_SpawnThing.cs" />
+    <Compile Include="Worship\Wonders\WonderWorker.cs" />
+    <Compile Include="Worship\Wonders\WonderWorker_FireIncident.cs" />
+    <Compile Include="Worship\WorshipActType.cs" />
+    <Compile Include="Worship\WorshipTracker.cs" />
+    <Compile Include="Xenos\Ork_Rok.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Defs\MissionDefs\StartingMissionsIoM.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Languages\English\Keyed\BattleZones.xml" />
+    <Content Include="Languages\English\Keyed\Buildings.xml" />
+    <Content Include="Languages\English\Keyed\CorruptionSettings.xml" />
+    <Content Include="Languages\English\Keyed\Domination.xml" />
+    <Content Include="Languages\English\Keyed\FactionColorKeys.xml" />
+    <Content Include="Languages\English\Keyed\FactionDialog.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Languages\English\Keyed\Incidents.xml" />
+    <Content Include="Languages\English\Keyed\Messages.xml" />
+    <Content Include="Languages\English\Keyed\Patrons.xml" />
+    <Content Include="Languages\English\Keyed\PsykerPowers.xml" />
+    <Content Include="Languages\English\Keyed\Reading.xml" />
+    <Content Include="Languages\English\Keyed\Ressources.xml" />
+    <Content Include="Languages\English\Keyed\Ship.xml" />
+    <Content Include="Languages\English\Keyed\SoulDescriptions.xml" />
+    <Content Include="Languages\English\Keyed\Worship.xml" />
+    <Content Include="Languages\English\Strings\NameBanks\BattlePrefix.txt" />
+    <Content Include="Languages\English\Strings\NameBanks\EldarNames.txt" />
+    <Content Include="Languages\English\Strings\NameBanks\EldarNick.txt" />
+    <Content Include="Languages\English\Strings\NameBanks\OrkNames.txt" />
+    <Content Include="Languages\English\Strings\NameBanks\OrkPref.txt" />
+    <Content Include="Languages\English\Strings\NameBanks\OrkSuff.txt" />
+    <Content Include="Languages\English\Strings\NameBanks\ShipNames_Generic.txt" />
+    <Content Include="Languages\English\Strings\NameBanks\SororitasFix.txt" />
+    <Content Include="Languages\English\Strings\NameBanks\SororitasName.txt" />
+    <Content Include="Languages\English\Strings\NameBanks\TauAunEl.txt" />
+    <Content Include="Languages\English\Strings\NameBanks\TauPorUi.txt" />
+    <Content Include="Languages\English\Strings\NameBanks\TauShasLa.txt" />
+    <Content Include="Languages\English\Strings\NameBanks\TauShasSuff.txt" />
+    <Content Include="Languages\English\Strings\NameBanks\TauShasUi.txt" />
+    <Content Include="XMLFile1.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="xml\Initializer.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -287,6 +471,24 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="IoM\Favours\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\FactionCOlors\Assembly_Races\FactionColors.csproj">
+      <Project>{88b52eb1-dabc-4533-a9e1-0e894a9237f0}</Project>
+      <Name>FactionColors</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Ships\OHUShips.csproj">
+      <Project>{cbf85efa-5337-4817-a8fe-4674e0ca189f}</Project>
+      <Name>OHUShips</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

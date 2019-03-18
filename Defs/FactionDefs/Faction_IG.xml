@@ -6,13 +6,21 @@
     <label>Imperial Guard</label>
     <description>Men and women from the Emperor's Hammer. They are the first, last and often only line of defence the Imperium has against what is out there</description>
     <pawnsPlural>guardsmen</pawnsPlural>
-    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <requiredCountAtGameStart>0</requiredCountAtGameStart>
     <fixedName>Imperial Guard</fixedName>
     <canSiege>true</canSiege>
     <canStageAttacks>true</canStageAttacks>
-    <raidCommonality>37</raidCommonality>
+		<raidCommonalityFromPointsCurve>
+			<points>
+				<li>(1000, 0.4)</li>
+				<li>(2500, 1)</li>
+			</points>
+		</raidCommonalityFromPointsCurve>
     <techLevel>Spacer</techLevel>
-    <backstoryCategory>Civil</backstoryCategory>
+    <backstoryCategories>
+	 <li>Civil</li>
+	 <li>Raider</li>
+	</backstoryCategories>
     <leaderTitle>Commander</leaderTitle>
     <hidden>true</hidden>
     <hairTags>
@@ -34,9 +42,18 @@
       <min>-100</min>
       <max>100</max>
     </naturalColonyGoodwill>
+	<maxPawnCostPerTotalPointsCurve>
+      <points>
+        <li>(0,70)</li>
+        <li>(70, 100)</li>
+        <li>(700, 200)</li>
+        <li>(1300, 300)</li>
+        <li>(100000, 1000)</li>
+      </points>
+    </maxPawnCostPerTotalPointsCurve>  
     <pawnGroupMakers>
       <li>
-        <kindDef>Normal</kindDef>
+        <kindDef>Combat</kindDef>
         <options>
             <IG_Trooper>100</IG_Trooper>
             <IG_Sergeant>20</IG_Sergeant>
@@ -57,7 +74,7 @@
         </guards>
       </li>
       <li>
-        <kindDef>FactionBase</kindDef>
+        <kindDef>Settlement</kindDef>
         <options>
           <IG_Trooper>100</IG_Trooper>
           <IG_AssaultTrooper>80</IG_AssaultTrooper>
@@ -86,6 +103,16 @@
 		<SubfactionColor1>(0.50,0.54,0.62,1)</SubfactionColor1>
 		<SubfactionColor2>RGBA(0.61,0.57,0.36,1)</SubfactionColor2>
 		<weight>10</weight>
+      <SubfactionPawnGroupMakers>
+      <li>
+        <kindDef>Combat</kindDef>
+        <options>
+            <IG_ValhallanTrooper>100</IG_ValhallanTrooper>
+            <IG_Sergeant>20</IG_Sergeant>
+        </options>
+      </li>
+      </SubfactionPawnGroupMakers>
+
 	</li>
 	<li>
 		<SubfactionName>Konig 33rd</SubfactionName>

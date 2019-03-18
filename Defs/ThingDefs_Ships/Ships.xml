@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
  
   <ThingDef ParentName="BuildingBase" Abstract="True" Name="BaseShip">
     <thingClass>OHUShips.ShipBase</thingClass>
@@ -26,15 +26,16 @@
     <staticSunShadowHeight>0.5</staticSunShadowHeight>
     <fillPercent>1.0</fillPercent>
     <designationCategory>Ship</designationCategory>
-    <iconDrawScale>1</iconDrawScale>
+    
     <statBases>
+      <Mass>120</Mass>
       <MaxHitPoints>250</MaxHitPoints>
       <WorkToBuild>3000</WorkToBuild>
       <Flammability>0</Flammability>
     </statBases>
     <costList>
       <Steel>80</Steel>
-      <Component>1</Component>
+      <ComponentIndustrial>1</ComponentIndustrial>
     </costList>
     <placeWorkers>
       <li>PlaceWorker_NotUnderRoof</li>
@@ -50,6 +51,9 @@
 
   </ThingDef>
 
+  <!--=============== Dropship ===============-->
+
+
   <ThingDef ParentName="BaseShip">
     <thingClass>OHUShips.ShipBase</thingClass>
     <defName>OHUDropShip</defName>
@@ -64,8 +68,7 @@ Manufacturer: OHU (Orbital Hubs United)
 Fuel Capacity: 3000
 Maximum Cargo Capacity: 1000 kg
 Defensive Capabilities: 1x Light Caliber Front Gun
-Offensive Capabilities: 1x Payload Slot
-</description>
+Offensive Capabilities: 1x Payload Slot</description>
     <graphicData>
       <texPath>Things/Ships/OHUDropShip</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -79,28 +82,30 @@ Offensive Capabilities: 1x Payload Slot
     <castEdgeShadows>false</castEdgeShadows>
     <fillPercent>1.0</fillPercent>
     <designationCategory>Ship</designationCategory>
-    <iconDrawScale>1</iconDrawScale>
+    
     <statBases>
+      <Mass>120</Mass>
       <MaxHitPoints>500</MaxHitPoints>
       <WorkToBuild>3000</WorkToBuild>
       <Flammability>0</Flammability>
     </statBases>
     <comps>
       <li Class="OHUShips.CompProperties_Ship">
-        <TicksToImpact>200</TicksToImpact>
-        <TicksToDespawn>200</TicksToDespawn>
+        <TicksToImpact>600</TicksToImpact>
+        <TicksToDespawn>300</TicksToDespawn>
         <WorldMapTravelSpeedFactor>1</WorldMapTravelSpeedFactor>
         <maxCargo>1000</maxCargo>
-        <maxPassengers>5</maxPassengers>
+        <maxPassengers>8</maxPassengers>
         <CanBeStartingShip>true</CanBeStartingShip>
         <availableToFactions>
-		<li>Outlander</li>
+		<li>OutlanderCivil</li>
+		<li>OutlanderRough</li>
 		<li>Pirate</li>
 	   </availableToFactions>
         <LeavingShipDef>OHUDropShipLeaving</LeavingShipDef>
         <IncomingAngle>65</IncomingAngle>
         <ShadowGraphicPath>Things/Ships/OHUDropShipShadow</ShadowGraphicPath>
-        <FleetIconGraphicPath>Things/IoM/Ships/OHUDropShipFleetIcon</FleetIconGraphicPath>
+        <FleetIconGraphicPath>Things/Ships/OHUDropShipFleetIcon</FleetIconGraphicPath>
 
         <weaponSlots>
 	    <li>
@@ -112,7 +117,7 @@ Offensive Capabilities: 1x Payload Slot
 	    <li>
           <SlotName>Payload</SlotName>
           <slotType>Bombing</slotType>
-          <turretPosOffset>(0,0,0)</turretPosOffset>
+          <turretPosOffset>(4,0,0)</turretPosOffset>
 	    </li>
 	   </weaponSlots>
 
@@ -137,7 +142,7 @@ Offensive Capabilities: 1x Payload Slot
     <costList>
       <Steel>800</Steel>
       <Plasteel>100</Plasteel>
-      <Component>20</Component>
+      <ComponentIndustrial>20</ComponentIndustrial>
     </costList>
 		<researchPrerequisites>
 			<li>ShipBasics</li>
@@ -156,7 +161,7 @@ Offensive Capabilities: 1x Payload Slot
   <ThingDef>
     <defName>OHUDropShipLeaving</defName>
     <label>Dropship(leaving)</label>
-    <category>Skyfaller</category>
+    <category>Attachment</category>
 		<thingClass>OHUShips.ShipBase_Traveling</thingClass>
 		<tickerType>Normal</tickerType>
     <graphicData>
@@ -165,15 +170,238 @@ Offensive Capabilities: 1x Payload Slot
       <shaderType>CutoutFlying</shaderType>
       <drawSize>1.9</drawSize>
     </graphicData>
-    <altitudeLayer>FlyingItem</altitudeLayer>
+    <size>(7,2)</size>
+    <altitudeLayer>Skyfaller</altitudeLayer>
+    <useHitPoints>false</useHitPoints>
+    <drawOffscreen>true</drawOffscreen>
+    <selectable>false</selectable>
+  </ThingDef>
+
+  <!--=============== Kestrel ===============-->
+
+  <ThingDef ParentName="BaseShip">
+    <thingClass>OHUShips.ShipBase</thingClass>
+    <defName>OHUKestrel</defName>
+    <label>OHU Kestrel</label>
+    <description>A small jet able to cover distances quickly. It's main purpose is planetary exploration. As such it lacks any offensive capabilities and also doesn't offer a lot of cargo space.
+
+
+Manufacturer: OHU (Orbital Hubs United)
+Fuel Capacity: 500
+Maximum Cargo Capacity: 185 kg</description>
+    <graphicData>
+      <texPath>Things/Ships/OHUKestrel</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+      <drawSize>(6,6)</drawSize>
+    </graphicData>
+    <size>(4,1)</size>
+    <rotatable>true</rotatable>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <passability>Impassable</passability>
+    <castEdgeShadows>false</castEdgeShadows>
+    <fillPercent>1.0</fillPercent>
+    <designationCategory>Ship</designationCategory>
+    
+    <statBases>
+      <Mass>120</Mass>
+      <MaxHitPoints>200</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <comps>
+      <li Class="OHUShips.CompProperties_Ship">
+        <TicksToImpact>600</TicksToImpact>
+        <TicksToDespawn>400</TicksToDespawn>
+        <WorldMapTravelSpeedFactor>1.5</WorldMapTravelSpeedFactor>
+        <maxCargo>185</maxCargo>
+        <maxPassengers>2</maxPassengers>
+        <CanBeStartingShip>false</CanBeStartingShip>
+        <availableToFactions>
+		<li>OutlanderCivil</li>
+		<li>OutlanderRough</li>
+		<li>Pirate</li>
+	   </availableToFactions>
+        <LeavingShipDef>OHUKestrelLeaving</LeavingShipDef>
+        <IncomingAngle>65</IncomingAngle>
+        <ShadowGraphicPath>Things/Ships/OHUDropShipShadow</ShadowGraphicPath>
+        <FleetIconGraphicPath>Things/Ships/OHUDropShipFleetIcon</FleetIconGraphicPath>
+
+        <weaponSlots>
+	   </weaponSlots>
+
+	 </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>5.0</fuelConsumptionRate>
+        <fuelCapacity>500.0</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <showFuelGizmo>true</showFuelGizmo>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <initialConfigurableTargetFuelLevel>200</initialConfigurableTargetFuelLevel>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+        <autoRefuelPercent>0.75</autoRefuelPercent>
+      </li>
+    </comps>
+
+    <costList>
+      <Steel>350</Steel>
+      <Plasteel>25</Plasteel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+    </costList>
+		<researchPrerequisites>
+			<li>ShipBasics</li>
+		</researchPrerequisites>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+  </ThingDef>
+
+
+  <ThingDef>
+    <defName>OHUKestrelLeaving</defName>
+    <label>Kestrel(leaving)</label>
+    <category>Attachment</category>
+		<thingClass>OHUShips.ShipBase_Traveling</thingClass>
+		<tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Special/DropPod</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutFlying</shaderType>
+      <drawSize>1.9</drawSize>
+    </graphicData>
+    <size>(4,1)</size>
+    <altitudeLayer>Skyfaller</altitudeLayer>
     <useHitPoints>false</useHitPoints>
     <drawOffscreen>true</drawOffscreen>
     <selectable>false</selectable>
   </ThingDef>
 
 
+  <!--=============== Albatros ===============-->
+
   <ThingDef ParentName="BaseShip">
     <thingClass>OHUShips.ShipBase</thingClass>
+    <defName>OHUAlbatros</defName>
+    <label>OHU Albatros</label>
+    <description>A one-person glider optimized to travel slowly, but with little fuel consumption over large distances. Absolutely not suited for goods transport.
+
+
+Manufacturer: OHU (Orbital Hubs United)
+Fuel Capacity: 100
+Maximum Cargo Capacity: 80 kg</description>
+    <graphicData>
+      <texPath>Things/Ships/OHUAlbatros</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>Cutout</shaderType>
+      <drawSize>(6,9)</drawSize>
+    </graphicData>
+    <size>(4,1)</size>
+    <rotatable>true</rotatable>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <passability>Impassable</passability>
+    <castEdgeShadows>false</castEdgeShadows>
+    <fillPercent>1.0</fillPercent>
+    <designationCategory>Ship</designationCategory>
+    
+    <statBases>
+      <Mass>120</Mass>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <comps>
+      <li Class="OHUShips.CompProperties_Ship">
+        <TicksToImpact>600</TicksToImpact>
+        <TicksToDespawn>400</TicksToDespawn>
+        <WorldMapTravelSpeedFactor>0.6</WorldMapTravelSpeedFactor>
+        <maxCargo>80</maxCargo>
+        <maxPassengers>1</maxPassengers>
+        <CanBeStartingShip>false</CanBeStartingShip>
+        <availableToFactions>
+		<li>OutlanderCivil</li>
+		<li>OutlanderRough</li>
+		<li>Pirate</li>
+	   </availableToFactions>
+        <LeavingShipDef>OHUAlbatrosLeaving</LeavingShipDef>
+        <IncomingAngle>35</IncomingAngle>
+        <ShadowGraphicPath>Things/Ships/OHUAlbatrosShadow</ShadowGraphicPath>
+        <FleetIconGraphicPath>Things/Ships/OHUDropShipFleetIcon</FleetIconGraphicPath>
+
+        <weaponSlots>
+	   </weaponSlots>
+
+	 </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>0.2</fuelConsumptionRate>
+        <fuelCapacity>100.0</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <showFuelGizmo>true</showFuelGizmo>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <initialConfigurableTargetFuelLevel>80</initialConfigurableTargetFuelLevel>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+        <autoRefuelPercent>0.75</autoRefuelPercent>
+      </li>
+    </comps>
+
+    <costList>
+      <Steel>250</Steel>
+      <Plasteel>10</Plasteel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+    </costList>
+		<researchPrerequisites>
+			<li>ShipBasics</li>
+		</researchPrerequisites>
+    <colorGenerator Class="ColorGenerator_Options">
+      <options>
+        <li>
+          <weight>10</weight>
+          <only>RGBA(1.00,1.00,1.00,1)</only>
+        </li>
+      </options>
+    </colorGenerator>
+  </ThingDef>
+
+
+  <ThingDef>
+    <defName>OHUAlbatrosLeaving</defName>
+    <label>Albatros(leaving)</label>
+    <category>Attachment</category>
+		<thingClass>OHUShips.ShipBase_Traveling</thingClass>
+		<tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Special/DropPod</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutFlying</shaderType>
+      <drawSize>1.9</drawSize>
+    </graphicData>
+    <size>(4,1)</size>
+    <altitudeLayer>Skyfaller</altitudeLayer>
+    <useHitPoints>false</useHitPoints>
+    <drawOffscreen>true</drawOffscreen>
+    <selectable>false</selectable>
+  </ThingDef>
+
+
+
+  <!--=============== Aquila ===============-->
+
+  <ThingDef ParentName="BaseShip">
+    <thingClass>Corruption.ShipColorable</thingClass>
     <defName>AquilaLander</defName>
     <label>aquila lander</label>
     <description>A light shuttle used to transport important staff.</description>
@@ -190,8 +418,9 @@ Offensive Capabilities: 1x Payload Slot
     <castEdgeShadows>false</castEdgeShadows>
     <fillPercent>1.0</fillPercent>
     <designationCategory>Ship</designationCategory>
-    <iconDrawScale>1</iconDrawScale>
+    
     <statBases>
+      <Mass>120</Mass>
       <MaxHitPoints>2000</MaxHitPoints>
       <WorkToBuild>3000</WorkToBuild>
       <Flammability>0</Flammability>
@@ -234,7 +463,7 @@ Offensive Capabilities: 1x Payload Slot
     </comps>
     <costList>
       <Steel>2000</Steel>
-      <Component>50</Component>
+      <ComponentIndustrial>50</ComponentIndustrial>
     </costList>
 		<researchPrerequisites>
 			<li>ShipBasics</li>
@@ -252,7 +481,7 @@ Offensive Capabilities: 1x Payload Slot
   <ThingDef>
     <defName>AquilaLanderLeaving</defName>
     <label>Aquila Lander(leaving)</label>
-    <category>Skyfaller</category>
+    <category>Attachment</category>
 		<thingClass>OHUShips.ShipBase_Traveling</thingClass>
 		<tickerType>Normal</tickerType>
     <graphicData>
@@ -261,7 +490,8 @@ Offensive Capabilities: 1x Payload Slot
       <shaderType>CutoutFlying</shaderType>
       <drawSize>1.9</drawSize>
     </graphicData>
-    <altitudeLayer>FlyingItem</altitudeLayer>
+    <size>(4,2)</size>
+    <altitudeLayer>Skyfaller</altitudeLayer>
     <useHitPoints>false</useHitPoints>
     <drawOffscreen>true</drawOffscreen>
     <selectable>false</selectable>
@@ -270,7 +500,7 @@ Offensive Capabilities: 1x Payload Slot
   <!--=============== Valkyrie ===============-->
 
   <ThingDef ParentName="BaseShip">
-    <thingClass>OHUShips.ShipBase</thingClass>
+    <thingClass>Corruption.ShipColorable</thingClass>
     <defName>Valkyrie</defName>
     <label>valkyrie</label>
     <description>A heavy assault carrier.</description>
@@ -287,8 +517,9 @@ Offensive Capabilities: 1x Payload Slot
     <castEdgeShadows>false</castEdgeShadows>
     <fillPercent>1.0</fillPercent>
     <designationCategory>Ship</designationCategory>
-    <iconDrawScale>1</iconDrawScale>
+    
     <statBases>
+      <Mass>120</Mass>
       <MaxHitPoints>2000</MaxHitPoints>
       <WorkToBuild>3000</WorkToBuild>
       <Flammability>0</Flammability>
@@ -302,7 +533,7 @@ Offensive Capabilities: 1x Payload Slot
         <maxPassengers>8</maxPassengers>
         <availableToFactions>
 		<li>ImperialGuard</li>
-		<li>ChaosCult</li>
+		<li>ChaosCult_NPC</li>
 	   </availableToFactions>
         <LeavingShipDef>ValkyrieLeaving</LeavingShipDef>
         <IncomingAngle>65</IncomingAngle>
@@ -322,7 +553,7 @@ Offensive Capabilities: 1x Payload Slot
           <posOffset>(2.0,-0.5,1.5)</posOffset>
           <turretPosOffset>(1,0,3)</turretPosOffset>
           <turretMinSize>(1,1)</turretMinSize>
-          <altitudeLayer>FlyingItem</altitudeLayer>
+          <altitudeLayer>Skyfaller</altitudeLayer>
 	    </li>
 	    <li>
           <SlotName>Right Wing Gun</SlotName>
@@ -330,7 +561,7 @@ Offensive Capabilities: 1x Payload Slot
           <posOffset>(2.0,-0.5,1.5)</posOffset>
           <turretPosOffset>(1,0,-3)</turretPosOffset>
           <turretMinSize>(1,1)</turretMinSize>
-          <altitudeLayer>FlyingItem</altitudeLayer>
+          <altitudeLayer>Skyfaller</altitudeLayer>
 	    </li>
 	   </weaponSlots>
 	 </li>
@@ -355,7 +586,7 @@ Offensive Capabilities: 1x Payload Slot
     </comps>
     <costList>
       <Steel>2000</Steel>
-      <Component>50</Component>
+      <ComponentIndustrial>50</ComponentIndustrial>
     </costList>
 		<researchPrerequisites>
 			<li>ShipBasics</li>
@@ -365,7 +596,7 @@ Offensive Capabilities: 1x Payload Slot
   <ThingDef>
     <defName>ValkyrieLeaving</defName>
     <label>Valkyrie(leaving)</label>
-    <category>Skyfaller</category>
+    <category>Attachment</category>
 		<thingClass>OHUShips.ShipBase_Traveling</thingClass>
 		<tickerType>Normal</tickerType>
     <graphicData>
@@ -374,11 +605,116 @@ Offensive Capabilities: 1x Payload Slot
       <shaderType>CutoutFlying</shaderType>
       <drawSize>1.9</drawSize>
     </graphicData>
-    <altitudeLayer>FlyingItem</altitudeLayer>
+    <size>(4,2)</size>
+    <altitudeLayer>Skyfaller</altitudeLayer>
     <useHitPoints>false</useHitPoints>
     <drawOffscreen>true</drawOffscreen>
     <selectable>false</selectable>
   </ThingDef>
+  
+  
+   <!--=============== Freighter ===============-->
+
+  <ThingDef ParentName="BaseShip" Name="ImperialFreighter">
+    <thingClass>Corruption.ShipColorable</thingClass>
+    <defName>ImperialFreighter</defName>
+    <label>freighter</label>
+    <description>A basic orbital freight ship commonly used within the Imperium.</description>
+    <graphicData>
+      <texPath>Things/IoM/Ships/ArvusLighter</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(6,6)</drawSize>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <size>(4,4)</size>
+    <rotatable>true</rotatable>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <passability>Impassable</passability>
+    <castEdgeShadows>false</castEdgeShadows>
+    <fillPercent>1.0</fillPercent>
+    <designationCategory>Ship</designationCategory>
+    
+    <statBases>
+      <Mass>120</Mass>
+      <MaxHitPoints>2000</MaxHitPoints>
+      <WorkToBuild>3000</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <comps>
+      <li Class="OHUShips.CompProperties_Ship">
+        <TicksToImpact>200</TicksToImpact>
+        <TicksToDespawn>200</TicksToDespawn>
+        <WorldMapTravelSpeedFactor>0.5</WorldMapTravelSpeedFactor>
+        <maxCargo>1000</maxCargo>
+        <maxPassengers>6</maxPassengers>
+        <availableToFactions>
+		<li>ImperialGuard</li>
+		<li>ChaosCult_NPC</li>
+	   </availableToFactions>
+        <LeavingShipDef>FreigherLeaving</LeavingShipDef>
+        <IncomingAngle>65</IncomingAngle>
+        <ShadowGraphicPath>Things/IoM/Ships/ArvusLighterShadow</ShadowGraphicPath>
+
+	 </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>1.0</fuelConsumptionRate>
+        <fuelCapacity>3000.0</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <showFuelGizmo>true</showFuelGizmo>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <initialConfigurableTargetFuelLevel>200</initialConfigurableTargetFuelLevel>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+        <autoRefuelPercent>0.75</autoRefuelPercent>
+      </li>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+    <costList>
+      <Steel>1000</Steel>
+      <ComponentIndustrial>50</ComponentIndustrial>
+    </costList>
+		<researchPrerequisites>
+			<li>ShipBasics</li>
+		</researchPrerequisites>
+  </ThingDef>
 
   
-</ThingDefs>
+  <ThingDef ParentName="ImperialFreighter">
+    <thingClass>Corruption.IoM.TributeShip</thingClass>
+    <defName>ImperialFreighterTribute</defName>	
+    <designationCategory></designationCategory>
+  </ThingDef>
+  
+  <ThingDef ParentName="ImperialFreighter">
+    <thingClass>Corruption.IoM.SupplyDropShip</thingClass>
+    <defName>ImperialFreighterSupply</defName>	
+    <designationCategory></designationCategory>
+  </ThingDef>
+  
+  <ThingDef>
+    <defName>FreigherLeaving</defName>
+    <label>Freigher(leaving)</label>
+    <category>Attachment</category>
+		<thingClass>OHUShips.ShipBase_Traveling</thingClass>
+		<tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Special/DropPod</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutFlying</shaderType>
+      <drawSize>1.9</drawSize>
+    </graphicData>	
+    <size>(4,4)</size>
+    <altitudeLayer>Skyfaller</altitudeLayer>
+    <useHitPoints>false</useHitPoints>
+    <drawOffscreen>true</drawOffscreen>
+    <selectable>false</selectable>	
+  </ThingDef>
+
+  
+</Defs>

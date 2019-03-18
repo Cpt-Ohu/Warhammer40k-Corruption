@@ -13,11 +13,11 @@ namespace Corruption
         {
             return map.mapPawns.FreeColonistsAndPrisoners.Where(delegate (Pawn p)
             {
-                if (p.holdingContainer != null && p.holdingContainer.owner is Building_CryptosleepCasket)
+                if (p.holdingOwner != null && p.holdingOwner.Owner is Building_CryptosleepCasket)
                 {
                     return false;
                 }
-                Need_Soul soul = p.needs.TryGetNeed<Need_Soul>();
+                CompSoul soul = CompSoul.GetPawnSoul(p);
                 if (soul != null)
                 {
                     if (soul.CurLevel < 0.9f)
@@ -29,13 +29,12 @@ namespace Corruption
             });
         }
 
-
-        protected override bool CanFireNowSub(IIncidentTarget target)
+        protected override bool CanFireNowSub(IncidentParms parms)
         {
-            return this.PotentialVictims((Map)target).Any<Pawn>();
+            return this.PotentialVictims((Map)parms.target).Any<Pawn>();
         }
 
-        public override bool TryExecute(IncidentParms parms)
+        protected override bool TryExecuteWorker(IncidentParms parms)
         {
             Map map = (Map)parms.target;
             Pawn pawn = this.PotentialVictims(map).RandomElement();

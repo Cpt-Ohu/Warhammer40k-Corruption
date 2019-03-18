@@ -30,9 +30,9 @@ namespace Corruption.Tithes
             get
             {
                 float totalFreightMass = 0f;
-                for (int i =0; i < this.container.GetInnerContainer().Count;i++)
+                for (int i =0; i < this.container.GetDirectlyHeldThings().Count;i++)
                 {
-                    totalFreightMass += this.container.GetInnerContainer()[i].GetInnerIfMinified().GetStatValue(StatDefOf.Mass);
+                    totalFreightMass += this.container.GetDirectlyHeldThings()[i].GetInnerIfMinified().GetStatValue(StatDefOf.Mass);
                 }
                 return totalFreightMass / tProps.maxContainerCapacity;
             }

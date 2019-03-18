@@ -5,17 +5,19 @@
   <!--=============== Emperor ====================-->
   
   <ThingDef ParentName="ResourceBase">
+    <thingClass>Corruption.ItemEffigy</thingClass>
     <defName>Effigy_Emperor</defName>
     <label>Effigy of the Emperor</label>
     <description>A small item of worship in the shape of the emperor of mankind. May sooth the mind.</description>
     <graphicData>
-      <texPath>Things/Worship/Effigy_Emperor</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Worship/Effigies/Effigy_Emperor</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
     </graphicData>
     <soundInteract>Metal_Drop</soundInteract>
     <soundDrop>Standard_Drop</soundDrop>
     <stackLimit>1</stackLimit>
     <statBases>
+      <Mass>0.5</Mass>
       <MaxHitPoints>70</MaxHitPoints>
       <MarketValue>21</MarketValue>
       <Flammability>1.0</Flammability>
@@ -29,20 +31,30 @@
       <li>Woody</li>
       <li>Stony</li>
     </stuffCategories>
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Redemption</Category>
+        <GainRate>10.0</GainRate>
+      </li>
+    </comps>
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
+    <thingClass>Corruption.ItemEffigy</thingClass>
     <defName>EcclesiarchyIcon</defName>
     <label>Imperial Cult Icon</label>
     <description>An icon of the Adeptus Munitorum, the Imperial Cult. May fit nicely into a place of worship.</description>
     <graphicData>
-      <texPath>Things/Worship/EcclesiarchIcon</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Worship/Effigies/EcclesiarchIcon</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <soundInteract>Metal_Drop</soundInteract>
     <soundDrop>Standard_Drop</soundDrop>
     <stackLimit>1</stackLimit>
     <statBases>
+      <Mass>0.5</Mass>
       <MaxHitPoints>70</MaxHitPoints>
       <MarketValue>21</MarketValue>
       <Flammability>1.0</Flammability>
@@ -56,20 +68,29 @@
       <li>Woody</li>
       <li>Stony</li>
     </stuffCategories>
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Redemption</Category>
+        <GainRate>5.0</GainRate>
+      </li>
+    </comps>
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
+    <thingClass>Corruption.ItemEffigy</thingClass>
     <defName>Effigy_Chaos</defName>
     <label>Curious effigy</label>
     <description>A small item of worship in the shape of a eight-pointed star.</description>
     <graphicData>
-      <texPath>Things/Worship/Effigy_Emperor</texPath>
+      <texPath>Things/Worship/Effigies/Effigy_Undivided</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <soundInteract>Metal_Drop</soundInteract>
     <soundDrop>Standard_Drop</soundDrop>
     <stackLimit>1</stackLimit>
     <statBases>
+      <Mass>0.5</Mass>
       <MaxHitPoints>70</MaxHitPoints>
       <MarketValue>21</MarketValue>
       <Flammability>1.0</Flammability>
@@ -83,20 +104,29 @@
       <li>Woody</li>
       <li>Stony</li>
     </stuffCategories>
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Corruption</Category>
+        <GainRate>10.0</GainRate>
+      </li>
+    </comps>
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
+    <thingClass>Corruption.ItemEffigy</thingClass>
     <defName>Effigy_Khorne</defName>
     <label>Curious effigy</label>
     <description>A small item of worship in the shape of a horned giant.</description>
     <graphicData>
-      <texPath>Things/Worship/Effigy_Khorne</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Worship/Effigies/Effigy_Khorne</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
     </graphicData>
     <soundInteract>Metal_Drop</soundInteract>
     <soundDrop>Standard_Drop</soundDrop>
     <stackLimit>1</stackLimit>
     <statBases>
+      <Mass>0.5</Mass>
       <MaxHitPoints>70</MaxHitPoints>
       <MarketValue>21</MarketValue>
       <Flammability>1.0</Flammability>
@@ -115,21 +145,28 @@
         <glowRadius>2</glowRadius>
         <glowColor>(200,0,0,0)</glowColor>
       </li>    
-	</comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Corruption</Category>
+        <GainRate>10.0</GainRate>
+      </li>
+    </comps>
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
+    <thingClass>Corruption.ItemEffigy</thingClass>
     <defName>Effigy_Nurgle</defName>
     <label>Curious effigy</label>
     <description>A small item of worship in the shape of a giant, bloated creature.</description>
     <graphicData>
-      <texPath>Things/Worship/Effigy_Nurgle</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Worship/Effigies/Effigy_Nurgle</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
     </graphicData>
     <soundInteract>Metal_Drop</soundInteract>
     <soundDrop>Standard_Drop</soundDrop>
     <stackLimit>1</stackLimit>
     <statBases>
+      <Mass>0.5</Mass>
       <MaxHitPoints>70</MaxHitPoints>
       <MarketValue>21</MarketValue>
       <Flammability>1.0</Flammability>
@@ -147,22 +184,29 @@
       <li Class="CompProperties_Glower">
         <glowRadius>2</glowRadius>
         <glowColor>(0,200,0,0)</glowColor>
-      </li>    
-	</comps>
+      </li>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Corruption</Category>
+        <GainRate>10.0</GainRate>
+      </li>
+    </comps>
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
+    <thingClass>Corruption.ItemEffigy</thingClass>
     <defName>Effigy_Tzeentch</defName>
     <label>Curious effigy</label>
-    <description>A small item of worship. Looks like a hybrid of man and animal.</description>
+    <description>A small item of worship. Looks like some sort of arcane symbol.</description>
     <graphicData>
-      <texPath>Things/Worship/Effigy_Tzeentch</texPath>
+      <texPath>Things/Worship/Effigies/Effigy_Tzeentch</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <soundInteract>Metal_Drop</soundInteract>
     <soundDrop>Standard_Drop</soundDrop>
     <stackLimit>1</stackLimit>
     <statBases>
+      <Mass>0.5</Mass>
       <MaxHitPoints>70</MaxHitPoints>
       <MarketValue>21</MarketValue>
       <Flammability>1.0</Flammability>
@@ -180,22 +224,29 @@
       <li Class="CompProperties_Glower">
         <glowRadius>2</glowRadius>
         <glowColor>(0,200,200,0)</glowColor>
-      </li>    
-	</comps>
+      </li>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Corruption</Category>
+        <GainRate>10.0</GainRate>
+      </li>
+    </comps>
   </ThingDef>
   
   <ThingDef ParentName="ResourceBase">
+    <thingClass>Corruption.ItemEffigy</thingClass>
     <defName>Effigy_Slaanesh</defName>
     <label>Curious effigy</label>
     <description>A small item of worship. Looks like a hermaphrodite.</description>
     <graphicData>
-      <texPath>Things/Worship/Effigy_Slaanesh</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Worship/Effigies/Effigy_Slaanesh</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
     </graphicData>
     <soundInteract>Metal_Drop</soundInteract>
     <soundDrop>Standard_Drop</soundDrop>
     <stackLimit>1</stackLimit>
     <statBases>
+      <Mass>0.5</Mass>
       <MaxHitPoints>70</MaxHitPoints>
       <MarketValue>21</MarketValue>
       <Flammability>1.0</Flammability>
@@ -213,13 +264,18 @@
       <li Class="CompProperties_Glower">
         <glowRadius>2</glowRadius>
         <glowColor>(200,0,0,200)</glowColor>
-      </li>    
-	</comps>
+      </li>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Corruption</Category>
+        <GainRate>100.0</GainRate>
+      </li>
+    </comps>
   </ThingDef>
 
   <!--=============== Component ====================-->
   
-  <ThingDef ParentName="ResourceBase">
+  <ThingDef ParentName="ResourceBase" Name="HumanSkull">
     <defName>HumanSkull</defName>
     <label>human skull</label>
     <description>The cleaned skull of a human being.</description>
@@ -231,6 +287,7 @@
     <soundDrop>Standard_Drop</soundDrop>
     <stackLimit>10</stackLimit>
     <statBases>
+      <Mass>0.5</Mass>
       <MaxHitPoints>50</MaxHitPoints>
       <MarketValue>0.5</MarketValue>
       <Flammability>1.0</Flammability>
@@ -240,8 +297,27 @@
       <li>Manufactured</li>
     </thingCategories>
   </ThingDef>
+  
+  <ThingDef ParentName="HumanSkull">
+    <defName>HumanSkullSaint</defName>
+    <label>skull of a saint</label>
+    <description>The cleaned skull of a renowned figure of Imperial History.</description>
+    <statBases>
+      <Mass>0.5</Mass>
+      <MaxHitPoints>50</MaxHitPoints>
+      <MarketValue>500.0</MarketValue>
+      <Flammability>1.0</Flammability>
+    </statBases>	
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Redemption</Category>
+        <GainRate>1.0</GainRate>
+      </li>
+    </comps>
+  </ThingDef>
 
-  <ThingDef ParentName="ResourceBase">
+  <ThingDef ParentName="ResourceBase" Name="HumanBones">
     <defName>HumanBones</defName>
     <label>human bones</label>
     <description>The cleaned bones of a human being.</description>
@@ -253,6 +329,7 @@
     <soundDrop>Standard_Drop</soundDrop>
     <stackLimit>50</stackLimit>
     <statBases>
+      <Mass>0.5</Mass>
       <MaxHitPoints>50</MaxHitPoints>
       <MarketValue>0.5</MarketValue>
       <Flammability>1.0</Flammability>
@@ -261,6 +338,26 @@
     <thingCategories>
       <li>Manufactured</li>
     </thingCategories>
+  </ThingDef>
+
+  <ThingDef ParentName="HumanBones">
+    <defName>HumanBonesSaint</defName>
+    <label>bones of a saint</label>
+    <description>The cleaned bones of a renowned figure of Imperial history.</description>
+    <stackLimit>50</stackLimit>
+    <statBases>
+      <Mass>0.5</Mass>
+      <MaxHitPoints>50</MaxHitPoints>
+      <MarketValue>100</MarketValue>
+      <Flammability>1.0</Flammability>
+    </statBases>	
+    <comps>
+      <li Class="Corruption.CompProperties_SoulItem">
+        <compClass>Corruption.CompSoulItem</compClass>
+        <Category>Redemption</Category>
+        <GainRate>1.0</GainRate>
+      </li>
+    </comps>
   </ThingDef>
 
 

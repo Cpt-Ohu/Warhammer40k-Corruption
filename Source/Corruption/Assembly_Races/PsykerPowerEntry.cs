@@ -9,6 +9,12 @@ namespace Corruption
 {
     public class PsykerPowerEntry : IExposable
     {
+            
+        public PsykerPowerEntry()
+        {
+            this.psykerPowerDef = null;
+        }
+
         public PsykerPowerEntry(PsykerPowerDef power, bool equipmentDependent = false, ThingDef depdef = null)
         {
             this.psykerPowerDef = power;
@@ -30,9 +36,9 @@ namespace Corruption
 
         public void ExposeData()
         {
-            Scribe_Values.LookValue<bool>(ref this.EquipmentDependent, "EquipmentDependent", false, false);
-            Scribe_Defs.LookDef<ThingDef>(ref this.DependendOn, "DependendOn");
-            Scribe_Defs.LookDef<PsykerPowerDef>(ref this.psykerPowerDef, "psykerPowerDef");
+            Scribe_Values.Look<bool>(ref this.EquipmentDependent, "EquipmentDependent", false, false);
+            Scribe_Defs.Look<ThingDef>(ref this.DependendOn, "DependendOn");
+            Scribe_Defs.Look<PsykerPowerDef>(ref this.psykerPowerDef, "psykerPowerDef");
         }
     }
 }

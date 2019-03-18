@@ -5,7 +5,6 @@ using System.Text;
 using Verse;
 using RimWorld;
 using UnityEngine;
-using Corruption;
 
 namespace FactionColors
 {
@@ -13,7 +12,7 @@ namespace FactionColors
     {
         public Color FactionColor1 = Color.white;
         public Color FactionColor2 = Color.black;
-        public ChaosGods PreferredChaosGod = ChaosGods.Undivided;
+        public string PreferredChaosGod = "ChaosUndivided";
 
 
         public List<Subfaction> Subfactions;

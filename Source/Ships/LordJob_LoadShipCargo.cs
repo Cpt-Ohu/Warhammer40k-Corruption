@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using Verse.AI.Group;
 using Verse;
+using RimWorld;
 
 namespace OHUShips
 {
     public class LordJob_LoadShipCargo : LordJob
     {
         public ShipBase ship;
+
+        private int TimeOutTick = 7500;
 
         public LordJob_LoadShipCargo()
         {
@@ -31,23 +34,30 @@ namespace OHUShips
 
             Transition transition = new Transition(loadToil, lordToil_End);
             transition.AddTrigger(new Trigger_PawnLost());
-    //        transition.AddTrigger(new Trigger_TicksPassed(7500));
-            transition.AddPreAction(new TransitionAction_Message("MessageFailedToLoadTransportersBecauseColonistLost".Translate(), MessageSound.Negative));
+            
+            transition.AddPreAction(new TransitionAction_Message("MessageFailedToLoadTransportersBecauseColonistLost".Translate(), MessageTypeDefOf.NegativeEvent));
             transition.AddPreAction(new TransitionAction_Custom(new Action(this.CancelLoadingProcess)));
             stateGraph.AddTransition(transition);
 
+            Transition endTransition = new Transition(loadToil, lordToil_End);
+            endTransition.AddTrigger(new Trigger_TicksPassed(TimeOutTick));
+            endTransition.AddTrigger(new Trigger_PawnsExhausted());
+            endTransition.AddPreAction(new TransitionAction_Custom(new Action(delegate {
+                this.CancelLoadingProcess();
+            })));
+            stateGraph.AddTransition(endTransition);
             return stateGraph;
         }
 
         private void CancelLoadingProcess()
         {
             this.ship.compShip.CancelLoadCargo(this.Map);
-        }        
-
+        }
+        
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_References.LookReference<ShipBase>(ref this.ship, "ship");
+            Scribe_References.Look<ShipBase>(ref this.ship, "ship");
         }
     }
 }

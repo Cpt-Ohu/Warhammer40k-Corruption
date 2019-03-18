@@ -30,6 +30,7 @@ namespace Corruption
 		{
             this.negotiator = negotiator;
             this.commTarget = commTarget;
+            CFind.MissionManager.FinishMission("UseCCC");
         }
 
         public override void DoWindowContents(Rect inRect)

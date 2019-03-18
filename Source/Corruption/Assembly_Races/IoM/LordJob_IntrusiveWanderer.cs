@@ -35,6 +35,13 @@ namespace Corruption.IoM
 
         public Faction factionInt;
 
+        public LordToil MainToil;
+        
+        protected virtual void InitializeMainToil()
+        {
+            this.MainToil = IoM_StoryUtilities.GetWandererChatToil(this.chatType);
+        }
+
         public LordJob_IntrusiveWanderer()
         {
         }
@@ -44,21 +51,27 @@ namespace Corruption.IoM
             this.chillSpot = chillSpot;
             this.centralPawn = centralPawn;
             this.chatType = chatType;
+            this.MainToil = IoM_StoryUtilities.GetWandererChatToil(this.chatType);
         }
 
         public override StateGraph CreateGraph()
         {
+            if (this.MainToil == null)
+            {
+                Log.Error("Tried to start LordJob with null main toil");
+                return null;
+            }
             StateGraph stateGraph = new StateGraph();
             LordToil startingToil = stateGraph.AttachSubgraph(new LordJob_Travel(this.chillSpot).CreateGraph()).StartingToil;
             stateGraph.StartingToil = startingToil;
-            var lordToil_WanderAndChat = IoM_StoryUtilities.GetWandererChatToil(this.chatType);
+            var lordToil_WanderAndChat = this.MainToil;
             stateGraph.AddToil(lordToil_WanderAndChat);
             LordToil_TakeWoundedGuest lordToil_TakeWoundedGuest = new LordToil_TakeWoundedGuest();
             stateGraph.AddToil(lordToil_TakeWoundedGuest);
             StateGraph stateGraph2 = new LordJob_TravelAndExit(IntVec3.Invalid).CreateGraph();
             LordToil startingToil2 = stateGraph.AttachSubgraph(stateGraph2).StartingToil;
             LordToil target = stateGraph2.lordToils[1];
-            LordToil_ExitMapBest lordToil_ExitMapBest = new LordToil_ExitMapBest(LocomotionUrgency.Walk, true);
+            LordToil_ExitMapAndEscortCarriers lordToil_ExitMapBest = new LordToil_ExitMapAndEscortCarriers();
             stateGraph.AddToil(lordToil_ExitMapBest);
             Transition transition = new Transition(startingToil, lordToil_ExitMapBest);
             transition.AddSources(new LordToil[]
@@ -113,15 +126,15 @@ namespace Corruption.IoM
 
             LordToil_AssaultColony lordtoilAssault = new LordToil_AssaultColony();
             stateGraph.AddToil(lordtoilAssault);
-            lordtoilAssault.avoidGridMode = AvoidGridMode.Smart;
+            lordtoilAssault.useAvoidGrid = true;
             Transition transition7 = new Transition(lordToil_WanderAndChat, lordtoilAssault);
-            transition7.AddPreAction(new TransitionAction_Custom(new Action(delegate { this.factionInt.SetHostileTo(Faction.OfPlayer, true); })));
+            transition7.AddPreAction(new TransitionAction_Custom(new Action(delegate { this.factionInt.TrySetRelationKind(Faction.OfPlayer, FactionRelationKind.Hostile, true); })));
             transition7.AddTrigger(new Trigger_Custom((TriggerSignal x) => this.InquisitorFoundHeretic && IoM_StoryUtilities.InquisitorShouldStartDirectAttack(this.Map, this.centralPawn.GetLord().ownedPawns)));
             stateGraph.AddTransition(transition7);
 
             LordToil_PanicFlee lordToilFlee = new LordToil_PanicFlee();
             Transition transition8 = new Transition(lordToil_WanderAndChat, lordToilFlee);
-            transition8.AddPreAction(new TransitionAction_Custom(new Action(delegate { this.factionInt.SetHostileTo(Faction.OfPlayer, true); })));
+            transition8.AddPreAction(new TransitionAction_Custom(new Action(delegate { this.factionInt.TrySetRelationKind(Faction.OfPlayer, FactionRelationKind.Hostile); })));
             transition8.AddTrigger(new Trigger_Custom((TriggerSignal x) => this.InquisitorFoundHeretic && !IoM_StoryUtilities.InquisitorShouldStartDirectAttack(this.Map, this.centralPawn.GetLord().ownedPawns)));
             stateGraph.AddTransition(transition8);
             return stateGraph;
@@ -129,12 +142,13 @@ namespace Corruption.IoM
 
         public override void ExposeData()
         {
-            Scribe_References.LookReference<Pawn>(ref this.centralPawn, "centralPawn", false);
-            Scribe_Values.LookValue<IntVec3>(ref this.chillSpot, "chillSpot", default(IntVec3), false);
-            Scribe_Values.LookValue<IoMChatType>(ref this.chatType, "chatType", IoMChatType.SimpleChat, false);
-            Scribe_Values.LookValue<bool>(ref this.InquisitorFoundHeretic, "InquisitorFoundHeretic", false, false);
-            Scribe_Values.LookValue<bool>(ref this.isOfficialMission, "isOfficialMission", false, false);
-            Scribe_References.LookReference<Faction>(ref this.factionInt, "factionInt", false);
+            Scribe_References.Look<Pawn>(ref this.centralPawn, "centralPawn", false);
+            Scribe_Values.Look<IntVec3>(ref this.chillSpot, "chillSpot", default(IntVec3), false);
+            Scribe_Values.Look<IoMChatType>(ref this.chatType, "chatType", IoMChatType.SimpleChat, false);
+            Scribe_Values.Look<bool>(ref this.InquisitorFoundHeretic, "InquisitorFoundHeretic", false, false);
+            Scribe_Values.Look<bool>(ref this.isOfficialMission, "isOfficialMission", false, false);
+            Scribe_References.Look<Faction>(ref this.factionInt, "factionInt", false);
+            Scribe_Deep.Look<LordToil>(ref this.MainToil, "MainToil", false);
         }
 
         private void SwitchToHostileFaction()
@@ -143,12 +157,12 @@ namespace Corruption.IoM
             {
                 for (int i = 0; i < this.lord.ownedPawns.Count; i++)
                 {
-                    this.lord.ownedPawns[i].SetFactionDirect(Find.FactionManager.FirstFactionOfDef(FactionDefOf.SpacerHostile));
+                    this.lord.ownedPawns[i].SetFactionDirect(Find.FactionManager.FirstFactionOfDef(FactionDefOf.Mechanoid));
                 }
             }
             else
             {
-                this.factionInt.SetHostileTo(Faction.OfPlayer, true);
+                this.factionInt.TrySetRelationKind(Faction.OfPlayer, FactionRelationKind.Hostile, true);
             }
 
         }

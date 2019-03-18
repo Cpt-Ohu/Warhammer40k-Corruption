@@ -15,7 +15,7 @@ namespace Corruption.IoM
         {
             get
             {
-                Pawn pawn = CorruptionStoryTrackerUtilities.currentStoryTracker.PlanetaryGovernor;
+                Pawn pawn = CFind.StoryTracker.PlanetaryGovernor;
                 if (pawn != null)
                 {
                     return pawn;
@@ -41,7 +41,7 @@ namespace Corruption.IoM
 
         protected override Job TryGiveJob(Pawn pawn)
         {
-            if (this.Governor != null && this.lordArrest != null && !pawn.Map.reservationManager.IsReserved(this.Governor, pawn.Faction))
+            if (this.Governor != null && this.lordArrest != null && !pawn.Map.reservationManager.IsReservedByAnyoneOf(this.Governor, pawn.Faction))
             {
                 LordJob_ArrestGovernor lordJob = (LordJob_ArrestGovernor)lordArrest.LordJob;
                 Job job = new Job(C_JobDefOf.ArrestGovernor, this.Governor, lordJob.ship);

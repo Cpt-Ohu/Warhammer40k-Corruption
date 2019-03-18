@@ -11,10 +11,8 @@ namespace Corruption
     {
         public static ThoughtDef Nurgle_Happy;
 
-        public static ThoughtDef Khornate_Kill;
-
-        public static ThoughtDef Khornate_NoKill;
-
+        public static ThoughtDef Khornate;
+        
         public static ThoughtDef Tzeentch_Happy;
     }
 }

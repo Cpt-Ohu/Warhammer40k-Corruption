@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <NeedDef>
+        <defName>Need_Soul</defName>
+        <needClass>Corruption.Need_Soul</needClass>
+        <label>Purity of Soul</label>
+        <description>How far reaching is the influence of the warp on this individual.</description>
+        <minIntelligence>Humanlike</minIntelligence>
+        <colonistAndPrisonersOnly>false</colonistAndPrisonersOnly>
+        <listPriority>675</listPriority>
+        <major>true</major>
+        <freezeWhileSleeping>true</freezeWhileSleeping>
+    </NeedDef>
+
+</Defs>

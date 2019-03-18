@@ -24,19 +24,19 @@
                   <depth>Inside</depth>
                 </li>
                 <li>
-                  <def>LeftSightSensor</def>
+                  <def>SightSensor</def>
                   <coverage>0.15</coverage>
                 </li>
                 <li>
-                  <def>RightSightSensor</def>
+                  <def>SightSensor</def>
                   <coverage>0.15</coverage>
                 </li>
                 <li>
-                  <def>LeftHearingSensor</def>
+                  <def>HearingSensor</def>
                   <coverage>0.05</coverage>
                 </li>
                 <li>
-                  <def>RightHearingSensor</def>
+                  <def>HearingSensor</def>
                   <coverage>0.05</coverage>
                 </li>
               </parts>

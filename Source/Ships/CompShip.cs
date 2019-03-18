@@ -52,11 +52,11 @@ namespace OHUShips
         {
             get
             {
-                if (this.leftToLoad == null)
+                if (this.leftToLoad.NullOrEmpty())
                 {
                     return null;
                 }
-                TransferableOneWay transferableOneWay = this.leftToLoad.Find((TransferableOneWay x) => x.countToTransfer != 0 && x.HasAnyThing);
+                TransferableOneWay transferableOneWay = this.leftToLoad.Find((TransferableOneWay x) => x.CountToTransfer > 0 && x.HasAnyThing);
                 if (transferableOneWay != null)
                 {
                     return transferableOneWay.AnyThing;
@@ -88,14 +88,14 @@ namespace OHUShips
         {
             if (!t.HasAnyThing || t.CountToTransfer <= 0)
             {
-                Log.Message("NoThingsToTransfer");
+                //Log.Message("NoThingsToTransfer");
                 return;
             }
             if (this.leftToLoad == null)
             {
                 this.leftToLoad = new List<TransferableOneWay>();
             }
-            if (TransferableUtility.TransferableMatching<TransferableOneWay>(t.AnyThing, this.leftToLoad) != null)
+            if (TransferableUtility.TransferableMatching<TransferableOneWay>(t.AnyThing, this.leftToLoad, TransferAsOneMode.PodsOrCaravanPacking) != null)
             {
                 Log.Error("Transferable already exists.");
                 return;
@@ -104,57 +104,72 @@ namespace OHUShips
             TransferableOneWay transferableOneWay = new TransferableOneWay();
             this.leftToLoad.Add(transferableOneWay);
             transferableOneWay.things.AddRange(t.things);
-            transferableOneWay.countToTransfer = count;
+            transferableOneWay.AdjustTo(count);
         }
 
 
         public void TryRemoveLord(Map map)
         {
-            Lord lord = LoadShipCargoUtility.FindLoadLord(ship, map);
-            if (lord != null)
+            if (map != null)
             {
-                for (int i=0; i < lord.ownedPawns.Count; i++)
+                List<Pawn> pawns = new List<Pawn>();
+                Lord lord = LoadShipCargoUtility.FindLoadLord(ship, map);
+                if (lord != null)
                 {
-                    lord.ownedPawns[i].jobs.EndCurrentJob(Verse.AI.JobCondition.InterruptForced);
-               //     lord.ownedPawns[i].ClearMind();
+                    foreach (Pawn p in pawns)
+                    {
+                        lord.Notify_PawnLost(p, PawnLostCondition.LeftVoluntarily);
+
+                    }
+                    map.lordManager.RemoveLord(lord);
                 }
-                map.lordManager.RemoveLord(lord);
             }
         }
 
         public void Notify_PawnEntered(Pawn p)
         {
-            this.SubtractFromToLoadList(p);
+            p.ClearMind(true);
+            this.SubtractFromToLoadList(p, 1);
         }
 
-        public void SubtractFromToLoadList(Thing t)
+        public void SubtractFromToLoadList(Thing t, int count)
         {
-       //     Log.Message("Removing from loadList");
+            //Log.Message("Remaining transferables: " + this.leftToLoad.Count.ToString() + " with Pawns:" + this.leftToLoad.FindAll(x => x.AnyThing is Pawn).Count.ToString());
             if (this.leftToLoad == null)
             {
                 return;
             }
-            TransferableOneWay transferableOneWay = TransferableUtility.TransferableMatching<TransferableOneWay>(t, this.leftToLoad);
+            TransferableOneWay transferableOneWay = TransferableUtility.TransferableMatchingDesperate(t, this.leftToLoad, TransferAsOneMode.PodsOrCaravanPacking);
             if (transferableOneWay == null)
             {
                 return;
             }
-            transferableOneWay.countToTransfer -= t.stackCount;
-            if (transferableOneWay.countToTransfer <= 0)
+            transferableOneWay.AdjustBy(-count);
+            if (transferableOneWay.CountToTransfer <= 0)
             {
                 this.leftToLoad.Remove(transferableOneWay);
             }
+
             if (!this.AnythingLeftToLoad)
             {
-                ship.compShip.cargoLoadingActive = false;
-
+                this.cargoLoadingActive = false;
                 this.TryRemoveLord(this.parent.Map);
                 this.leftToLoad.Clear();
-                
-                Messages.Message("MessageFinishedLoadingShipCargo".Translate(), this.parent, MessageSound.Benefit);
+                this.leftToLoad = new List<TransferableOneWay>();
+              
+                Messages.Message("MessageFinishedLoadingShipCargo".Translate(new object[] { this.ship.ShipNick }), this.parent, MessageTypeDefOf.TaskCompletion);
             }
         }
 
+        public void NotifyItemAdded(Thing t, int count = 0)
+        {
+            this.SubtractFromToLoadList(t, count);
+        }
 
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
+            Scribe_Collections.Look<ShipWeaponSlot>(ref this.sProps.weaponSlots, "weaponSlots", LookMode.Deep);
+        }
     }
 }

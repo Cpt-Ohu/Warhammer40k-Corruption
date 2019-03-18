@@ -51,12 +51,12 @@ namespace Corruption
             Graphics.DrawMesh(MeshPool.plane20, matrix, buffOverlay, 0);
         }
 
-        public override void CompPostTick()
+        public override  void CompPostTick(ref float severityAdjustment)
         {
-            base.CompPostTick();
+            base.CompPostTick(ref severityAdjustment);
             DrawBuff();
         }
-
+        
         public override bool CompShouldRemove
         {
             get

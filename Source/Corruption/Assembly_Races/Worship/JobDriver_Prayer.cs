@@ -11,63 +11,52 @@ namespace Corruption.Worship
 {
     public class JobDriver_Prayer : JobDriver_RelaxAlone
     {
-        public Toil LastToil;
-
-        Need_Soul soul
-        {
-            get
-            {
-                Pawn pawn = this.GetActor();
-                if (pawn != null && pawn.needs != null)
-                {
-                    return pawn.needs.TryGetNeed<Need_Soul>();
-                }
-                return null;
-            }
-        }
-
         [DebuggerHidden]
         protected override IEnumerable<Toil> MakeNewToils()
         {
+            Toil lastToil = new Toil();
             IEnumerator<Toil> enumerator = base.MakeNewToils().GetEnumerator();
             while (enumerator.MoveNext())
             {
-                Toil current = enumerator.Current;
-                LastToil = current;
-
-                yield return current;
+                lastToil = enumerator.Current;
+                yield return enumerator.Current;
             }
 
-            LastToil.preTickActions.Add(new Action(delegate
+            lastToil.AddPreInitAction(new Action(delegate
             {
-                this.ThrowMote(this.pawn);
+                this.ThrowMote(this.GetActor());
             }));
 
-            LastToil.tickAction += delegate
+            lastToil.tickAction = new Action(delegate 
             {
-                if (this.soul != null)
+                if (Find.TickManager.TicksGame % 120 == 0)
+                this.ThrowMote(this.GetActor());
+
+                });
+
+            lastToil.AddFinishAction(new Action(delegate
+            {
+                CompSoul soul = CompSoul.GetPawnSoul(this.GetActor());
+                if (soul != null)
                 {
-                    float num = 0.0005f / 60;
-                    if (soul.NoPatron)
+                    float num = 0.005f;
+                    if (soul.Corrupted)
                     {
-                        num *= -1f * Rand.Range(0.01f, 0.1f);
+                        num *= -1f * Rand.Range(0.5f, 1);
                     }
-                    soul.GainNeed(num);
+                    soul.AffectSoul(num);
                 }
-            };
+            }));
 
             yield break;
         }
-
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.LookValue<Toil>(ref this.LastToil, "LastToil");
         }
 
         protected void ThrowMote(Pawn pawn)
         {
-            //   Log.Message("M1");
             MoteBubble moteBubble2 = (MoteBubble)ThingMaker.MakeThing(ThingDefOf.Mote_Speech, null);
             moteBubble2.SetupMoteBubble(ChaosGodsUtilities.TryGetPreacherIcon(pawn), pawn);
             moteBubble2.Attach(pawn);

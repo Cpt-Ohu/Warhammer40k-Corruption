@@ -26,19 +26,18 @@ namespace Corruption.Worship
                 {
                     IntVec3 result;
                     Building chair;
-                    if (!WatchBuildingUtility.TryFindBestWatchCell(lordJob.altar, pawn, true, out result, out chair))
+                    if (SermonUtility.TryGetSermonWatchPosition(lordJob.altar, pawn, out result, out chair))
                     {
-                        if (!WatchBuildingUtility.TryFindBestWatchCell(lordJob.altar, pawn, false, out result, out chair))
+                        if (chair != null)
                         {
-                            Log.Error("No watch cell found");
-                            return null;
+                            Job attendJobChair = new Job(C_JobDefOf.AttendSermon, lordJob.Preacher, lordJob.altar, chair);
+                            attendJobChair.locomotionUrgency = LocomotionUrgency.Jog;
+                            return attendJobChair;
                         }
+                        Job attendJob = new Job(C_JobDefOf.AttendSermon, lordJob.Preacher, lordJob.altar, result);
+                        attendJob.locomotionUrgency = LocomotionUrgency.Jog;
+                        return attendJob;
                     }
-                    if (chair != null)
-                    {
-                        return new Job(C_JobDefOf.AttendSermon, lordJob.Preacher, lordJob.altar, chair);
-                    }
-                    return new Job(C_JobDefOf.AttendSermon, lordJob.Preacher, lordJob.altar, result);
                 }
             }
             return null;

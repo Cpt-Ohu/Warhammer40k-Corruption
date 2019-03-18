@@ -11,7 +11,7 @@ namespace Corruption
 {
     public class Projectile_Laser : Projectile
     {
-        // Variables.
+        // Variables
         public int tickCounter = 0;
         public Thing hitThing = null;
 
@@ -29,23 +29,36 @@ namespace Corruption
         public float preFiringFinalIntensity = 0f;
         public float postFiringInitialIntensity = 0f;
         public float postFiringFinalIntensity = 0f;
+
+        protected ThingDef_LaserProjectile additionalParameters
+        {
+            get
+            {
+                return this.def as ThingDef_LaserProjectile;
+            }
+        }
+
+        protected void DoBaseTick()
+        {
+            base.Tick();
+        }
+
         public int preFiringDuration = 0;
         public int postFiringDuration = 0;
         public float startFireChance = 0;
         public bool canStartFire = false;
 
-        public override void SpawnSetup(Map map)
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
 		{
-			base.SpawnSetup(map);
+			base.SpawnSetup(map, respawningAfterLoad);
             drawingTexture = this.def.DrawMatSingle;          
 		}
 
         /// <summary>
         /// Get parameters from XML.
         /// </summary>
-        public void GetParametersFromXml()
+        public virtual void GetParametersFromXml()
         {
-            ThingDef_LaserProjectile additionalParameters = def as ThingDef_LaserProjectile;
 
             preFiringDuration = additionalParameters.preFiringDuration;
             postFiringDuration = additionalParameters.postFiringDuration;
@@ -65,7 +78,7 @@ namespace Corruption
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.LookValue<int>(ref tickCounter, "tickCounter", 0);
+            Scribe_Values.Look<int>(ref tickCounter, "tickCounter", 0);
 
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
@@ -290,15 +303,15 @@ namespace Corruption
             }
 
             // Impact the initial targeted pawn.
-            if (this.assignedTarget != null)
+            if (this.intendedTarget != null)
             {
-                Pawn pawn = this.assignedTarget as Pawn;
+                Pawn pawn = this.intendedTarget.Thing as Pawn;
                 if (pawn != null && pawn.Downed && (this.origin - this.destination).magnitude > 5f && Rand.Value < 0.2f)
                 {
                     this.Impact(null);
                     return;
                 }
-                this.Impact(this.assignedTarget);
+                this.Impact(this.intendedTarget.Thing);
                 return;
             }
             else
@@ -331,9 +344,8 @@ namespace Corruption
         {
             if (hitThing != null)
             {
-                int damageAmountBase = this.def.projectile.damageAmountBase;
-                DamageInfo dinfo = new DamageInfo(this.def.projectile.damageDef, damageAmountBase, this.ExactRotation.eulerAngles.y, this.launcher, null, equipmentDef);
-                hitThing.TakeDamage(dinfo);
+                int damageAmountBase = this.def.projectile.GetDamageAmount(1f);
+                DamageInfo dinfo = new DamageInfo(this.def.projectile.damageDef, damageAmountBase, base.ArmorPenetration, this.ExactRotation.eulerAngles.y, this.launcher, null, equipmentDef);
                 hitThing.TakeDamage(dinfo);
                 if (this.canStartFire && Rand.Range(0f, 1f) > startFireChance)
                 {
@@ -349,7 +361,7 @@ namespace Corruption
             else
             {
                 SoundInfo info = SoundInfo.InMap(new TargetInfo(base.Position, this.Map, false), MaintenanceType.None);
-                SoundDefOf.BulletImpactGround.PlayOneShot(info);
+                SoundDefOf.BulletImpact_Ground.PlayOneShot(info);
                 MoteMaker.MakeStaticMote(this.ExactPosition, this.Map, ThingDefOf.Mote_ShotHit_Dirt, 1f);
                 MoteMaker.ThrowMicroSparks(this.ExactPosition, this.Map);
             }

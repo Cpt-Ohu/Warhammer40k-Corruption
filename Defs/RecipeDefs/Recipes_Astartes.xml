@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<RecipeDefs>
+<Defs>
 
-  	  <RecipeDef ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallSecondHeart_MSU</defName>
 		<label>install secondary heart</label>
 		<description>Installs secondary heart.</description>
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Installing secondary heart.</jobString>
 		<workAmount>3000</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
 		<ingredients>
 			<li>
 				<filter>
-          <categories>
-						<li>Medicine</li>
-					</categories>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -28,30 +27,31 @@
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-      <categories>
-        <li>Medicine</li>
-      </categories>
       <thingDefs>
-				<li>SecondHeart</li>
+        <li>MedicineIndustrial</li>
+		<li>SecondHeart</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>SecondHeart</addsHediff>
-	</RecipeDef>
+		<appliedOnFixedBodyParts>
+			<li>Torso</li>
+		</appliedOnFixedBodyParts>		
+		<RecipeType>AstartesImplant</RecipeType>
+	</Corruption.RecipeDef_MSU>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh" >
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh" >
 		<defName>InstallOssmodula_MSU</defName>
 		<label>install Ossmodula</label>
 		<description>Installs Ossmodula.</description>
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Installing Ossmodula.</jobString>
 		<workAmount>3000</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
 		<ingredients>
 			<li>
 				<filter>
-          <categories>
-						<li>Medicine</li>
-					</categories>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -65,17 +65,20 @@
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-      <categories>
-        <li>Medicine</li>
-      </categories>
       <thingDefs>
-				<li>Ossmodula</li>
-			</thingDefs>
+        <li>MedicineIndustrial</li>
+		<li>Ossmodula</li>
+	  </thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>ossmodula</addsHediff>
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+		<appliedOnFixedBodyParts>
+			<li>Torso</li>
+		</appliedOnFixedBodyParts>
+		<RecipeType>AstartesImplant</RecipeType>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallBiscorpea_MSU</defName>
 		<label>install Biscorpea</label>
 		<description>Installs Biscorpea.</description>
@@ -83,13 +86,12 @@
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Installing Biscorpea.</jobString>
 		<workAmount>3000</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
 		<ingredients>
 			<li>
 				<filter>
-          <categories>
-						<li>Medicine</li>
-					</categories>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -103,18 +105,21 @@
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-      <categories>
-        <li>Medicine</li>
-      </categories>
       <thingDefs>
+        <li>MedicineIndustrial</li>
 				<li>Ossmodula</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>biscorpea</addsHediff>
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+		<appliedOnFixedBodyParts>
+			<li>Torso</li>
+		</appliedOnFixedBodyParts>
+		<RecipeType>AstartesImplant</RecipeType>
+
+	</Corruption.RecipeDef_MSU>
 
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallHaemastamen_MSU</defName>
 		<label>install Haemastamen</label>
 		<description>Installs Haemastamen.</description>
@@ -122,13 +127,12 @@
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Installing Haemastamen.</jobString>
 		<workAmount>3000</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
 		<ingredients>
 			<li>
 				<filter>
-          <categories>
-						<li>Medicine</li>
-					</categories>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -142,17 +146,19 @@
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-      <categories>
-        <li>Medicine</li>
-      </categories>
       <thingDefs>
+        <li>MedicineIndustrial</li>
 				<li>Haemastamen</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>haemastamen</addsHediff>
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+		<appliedOnFixedBodyParts>
+			<li>Torso</li>
+		</appliedOnFixedBodyParts>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstalLarramansOrgan_MSU</defName>
 		<label>install Larramans Organ</label>
 		<description>Installs Larramans Organ.</description>
@@ -160,13 +166,12 @@
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Installing Larramans Organ.</jobString>
 		<workAmount>3000</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
 		<ingredients>
 			<li>
 				<filter>
-          <categories>
-						<li>Medicine</li>
-					</categories>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -180,17 +185,19 @@
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-      <categories>
-        <li>Medicine</li>
-      </categories>
       <thingDefs>
+        <li>MedicineIndustrial</li>
 				<li>LarramansOrgan</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>LarramansOrgan</addsHediff>
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+		<appliedOnFixedBodyParts>
+			<li>Torso</li>
+		</appliedOnFixedBodyParts>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallCatalepseanNode_MSU</defName>
 		<label>install Catalepsean Node</label>
 		<description>Installs Catalepsean Node.</description>
@@ -198,13 +205,12 @@
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Installing Catalepsean Node.</jobString>
 		<workAmount>3000</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
 		<ingredients>
 			<li>
 				<filter>
-          <categories>
-						<li>Medicine</li>
-					</categories>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -218,17 +224,19 @@
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-      <categories>
-        <li>Medicine</li>
-      </categories>
       <thingDefs>
+        <li>MedicineIndustrial</li>
 				<li>CatalepseanNode</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>CatalepseanNode</addsHediff>
-	</Corruption.Astartes.RecipeDef_AstartesImplant >
+		<appliedOnFixedBodyParts>
+			<li>Brain</li>
+		</appliedOnFixedBodyParts>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+	</Corruption.RecipeDef_MSU >
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallPreomnor_MSU</defName>
 		<label>install Preomnor</label>
 		<description>Installs Preomnor.</description>
@@ -236,13 +244,12 @@
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Installing Preomnor.</jobString>
 		<workAmount>3000</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
 		<ingredients>
 			<li>
 				<filter>
-          <categories>
-						<li>Medicine</li>
-					</categories>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -256,18 +263,20 @@
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-      <categories>
-        <li>Medicine</li>
-      </categories>
       <thingDefs>
+        <li>MedicineIndustrial</li>
 				<li>Preomnor</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>preomnor</addsHediff>
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+		<appliedOnFixedBodyParts>
+			<li>Stomach</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.RecipeDef_MSU>
 
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallOmophagea_MSU</defName>
 		<label>install Omophagea</label>
 		<description>Installs Omophagea.</description>
@@ -275,13 +284,12 @@
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Installing Omophagea.</jobString>
 		<workAmount>3000</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
 		<ingredients>
 			<li>
 				<filter>
-          <categories>
-						<li>Medicine</li>
-					</categories>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -295,17 +303,19 @@
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-      <categories>
-        <li>Medicine</li>
-      </categories>
       <thingDefs>
+        <li>MedicineIndustrial</li>
 				<li>Omophagea</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>omophagea</addsHediff>
-	</Corruption.Astartes.RecipeDef_AstartesImplant >
+		<appliedOnFixedBodyParts>
+			<li>Stomach</li>
+		</appliedOnFixedBodyParts>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+	</Corruption.RecipeDef_MSU >
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallMultiLung_MSU</defName>
 		<label>install MultiLung</label>
 		<description>Installs MultiLung.</description>
@@ -313,13 +323,12 @@
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Installing MultiLung.</jobString>
 		<workAmount>3000</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
 		<ingredients>
 			<li>
 				<filter>
-          <categories>
-						<li>Medicine</li>
-					</categories>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -333,17 +342,19 @@
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-      <categories>
-        <li>Medicine</li>
-      </categories>
       <thingDefs>
+        <li>MedicineIndustrial</li>
 				<li>MultiLung</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>MultiLung</addsHediff>
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+		<appliedOnFixedBodyParts>
+			<li>Torso</li>
+		</appliedOnFixedBodyParts>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallOcculobe_MSU</defName>
 		<label>install Occulobe</label>
 		<description>Installs Occulobe.</description>
@@ -351,13 +362,12 @@
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Installing Occulobe.</jobString>
 		<workAmount>3000</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
 		<ingredients>
 			<li>
 				<filter>
-          <categories>
-						<li>Medicine</li>
-					</categories>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -371,17 +381,19 @@
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-      <categories>
-        <li>Medicine</li>
-      </categories>
       <thingDefs>
+        <li>MedicineIndustrial</li>
 				<li>Occulobe</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>occulobe</addsHediff>
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+		<appliedOnFixedBodyParts>
+			<li>Brain</li>
+		</appliedOnFixedBodyParts>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallLymansEar_MSU</defName>
 		<label>install LymansEar</label>
 		<description>Installs LymansEar.</description>
@@ -389,13 +401,12 @@
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Installing LymansEar.</jobString>
 		<workAmount>3000</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
 		<ingredients>
 			<li>
 				<filter>
-          <categories>
-						<li>Medicine</li>
-					</categories>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -409,17 +420,19 @@
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-      <categories>
-        <li>Medicine</li>
-      </categories>
       <thingDefs>
+        <li>MedicineIndustrial</li>
 				<li>LymansEar</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>LymansEar</addsHediff>
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+		<appliedOnFixedBodyParts>
+			<li>Ear</li>
+		</appliedOnFixedBodyParts>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallSusanMembrane_MSU</defName>
 		<label>install Susan Membrane</label>
 		<description>Installs Susan Membrane.</description>
@@ -427,13 +440,12 @@
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Installing Susan Membrane.</jobString>
 		<workAmount>3000</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
 		<ingredients>
 			<li>
 				<filter>
-          <categories>
-						<li>Medicine</li>
-					</categories>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -447,17 +459,19 @@
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-      <categories>
-        <li>Medicine</li>
-      </categories>
       <thingDefs>
+        <li>MedicineIndustrial</li>
 				<li>SusanMembrane</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>SusanMembrane</addsHediff>
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+		<appliedOnFixedBodyParts>
+			<li>Brain</li>
+		</appliedOnFixedBodyParts>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallMelanchromicOrgan_MSU</defName>
 		<label>install Melanchromic Organ</label>
 		<description>Installs Melanchromic Organ.</description>
@@ -465,13 +479,12 @@
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Installing Melanchromic Organ.</jobString>
 		<workAmount>3000</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
 		<ingredients>
 			<li>
 				<filter>
-          <categories>
-						<li>Medicine</li>
-					</categories>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -485,17 +498,19 @@
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-      <categories>
-        <li>Medicine</li>
-      </categories>
       <thingDefs>
+        <li>MedicineIndustrial</li>
 				<li>MelanchromicOrgan</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>MelanchromicOrgan</addsHediff>
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+		<appliedOnFixedBodyParts>
+			<li>Torso</li>
+		</appliedOnFixedBodyParts>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallOoliticKidney_MSU</defName>
 		<label>install Oolitic Kidney</label>
 		<description>Installs Oolitic Kidney.</description>
@@ -503,13 +518,12 @@
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Installing Oolitic Kidney.</jobString>
 		<workAmount>3000</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
 		<ingredients>
 			<li>
 				<filter>
-          <categories>
-						<li>Medicine</li>
-					</categories>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -523,17 +537,19 @@
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-      <categories>
-        <li>Medicine</li>
-      </categories>
       <thingDefs>
+        <li>MedicineIndustrial</li>
 				<li>OoliticKidney</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>OoliticKidney</addsHediff>
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+		<appliedOnFixedBodyParts>
+			<li>Torso</li>
+		</appliedOnFixedBodyParts>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallNeuroglottis_MSU</defName>
 		<label>install Neuroglottis</label>
 		<description>Installs Susan Membrane.</description>
@@ -541,13 +557,12 @@
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Installing Neuroglottis.</jobString>
 		<workAmount>3000</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
 		<ingredients>
 			<li>
 				<filter>
-          <categories>
-						<li>Medicine</li>
-					</categories>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -561,17 +576,19 @@
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-      <categories>
-        <li>Medicine</li>
-      </categories>
       <thingDefs>
+        <li>MedicineIndustrial</li>
 				<li>Neuroglottis</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>neuroglottis</addsHediff>
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+		<appliedOnFixedBodyParts>
+			<li>Jaw</li>
+		</appliedOnFixedBodyParts>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallMucranoid_MSU</defName>
 		<label>install Mucranoid</label>
 		<description>Installs Mucranoid.</description>
@@ -579,13 +596,12 @@
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Installing Mucranoid.</jobString>
 		<workAmount>3000</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
 		<ingredients>
 			<li>
 				<filter>
-          <categories>
-						<li>Medicine</li>
-					</categories>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -599,17 +615,19 @@
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-      <categories>
-        <li>Medicine</li>
-      </categories>
       <thingDefs>
+        <li>MedicineIndustrial</li>
 				<li>Mucranoid</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>mucranoid</addsHediff>
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+		<appliedOnFixedBodyParts>
+			<li>Torso</li>
+		</appliedOnFixedBodyParts>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallBetchersGlands_MSU</defName>
 		<label>install Betchers Glands</label>
 		<description>Installs Betchers Glands.</description>
@@ -617,13 +635,12 @@
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Installing Betchers Glands.</jobString>
 		<workAmount>3000</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
 		<ingredients>
 			<li>
 				<filter>
-          <categories>
-						<li>Medicine</li>
-					</categories>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -637,17 +654,19 @@
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-      <categories>
-        <li>Medicine</li>
-      </categories>
       <thingDefs>
+        <li>MedicineIndustrial</li>
 				<li>BetchersGlands</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>BetchersGlands</addsHediff>
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+		<appliedOnFixedBodyParts>
+			<li>Jaw</li>
+		</appliedOnFixedBodyParts>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallProgenoid_MSU</defName>
 		<label>install Progenoid</label>
 		<description>Installs Progenoid.</description>
@@ -655,13 +674,12 @@
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Installing Progenoid.</jobString>
 		<workAmount>3000</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
 		<ingredients>
 			<li>
 				<filter>
-          <categories>
-						<li>Medicine</li>
-					</categories>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -675,17 +693,19 @@
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-      <categories>
-        <li>Medicine</li>
-      </categories>
       <thingDefs>
+        <li>MedicineIndustrial</li>
 				<li>Progenoid</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>progenoid</addsHediff>
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+		<appliedOnFixedBodyParts>
+			<li>Torso</li>
+		</appliedOnFixedBodyParts>
 
-  	  <Corruption.Astartes.RecipeDef_AstartesImplant ParentName="SurgeryFlesh">
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
 		<defName>InstallBlackCarpace_MSU</defName>
 		<label>install Black Carpace</label>
 		<description>Installs Black Carpace.</description>
@@ -693,13 +713,12 @@
 		<workerClass>Recipe_InstallImplant</workerClass>
 		<jobString>Installing Black Carpace.</jobString>
 		<workAmount>3000</workAmount>
-		<targetsBodyPart>false</targetsBodyPart>
 		<ingredients>
 			<li>
 				<filter>
-          <categories>
-						<li>Medicine</li>
-					</categories>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
 				</filter>
 				<count>1</count>
 			</li>
@@ -713,15 +732,13 @@
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
-      <categories>
-        <li>Medicine</li>
-      </categories>
       <thingDefs>
+        <li>MedicineIndustrial</li>
 				<li>BlackCarpace</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<addsHediff>BlackCarpace</addsHediff>
-	</Corruption.Astartes.RecipeDef_AstartesImplant>
+	</Corruption.RecipeDef_MSU>
 
 
-</RecipeDefs>
+</Defs>

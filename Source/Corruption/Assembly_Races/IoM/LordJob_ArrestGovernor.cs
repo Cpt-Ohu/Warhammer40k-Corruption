@@ -27,12 +27,12 @@ namespace Corruption.IoM
         {
             StateGraph stateGraph = new StateGraph();
             LordToil lordToil_wait = new LordToil_DefendPoint(baseCenter, 50f);
-            lordToil_wait.AddFailCondition(() => CorruptionStoryTrackerUtilities.currentStoryTracker.PlanetaryGovernor.Dead);
+            lordToil_wait.AddFailCondition(() => CFind.StoryTracker.PlanetaryGovernor.Dead);
             stateGraph.AddToil(lordToil_wait);
 
             LordToil lordToil_leaveInShip = new LordToil_LeaveInShip();
 
-            LordToil lordToil_leaveMap = new LordToil_ExitMapBest(LocomotionUrgency.Jog);
+            LordToil lordToil_leaveMap = new LordToil_ExitMapAndEscortCarriers();
 
             Transition leaveMapEarly = new Transition(lordToil_leaveInShip, lordToil_leaveMap);
             leaveMapEarly.AddTrigger(new Trigger_Custom((TriggerSignal x) => ship.Destroyed || !ship.Spawned));
@@ -44,7 +44,7 @@ namespace Corruption.IoM
             stateGraph.AddToil(lordToil_main);
 
             Transition governorDiedWaiting = new Transition(lordToil_wait, lordToil_leaveInShip);
-            governorDiedWaiting.AddTrigger(new Trigger_Custom((TriggerSignal x) => CorruptionStoryTrackerUtilities.currentStoryTracker.PlanetaryGovernor.Dead));
+            governorDiedWaiting.AddTrigger(new Trigger_Custom((TriggerSignal x) => CFind.StoryTracker.PlanetaryGovernor.Dead));
             
             stateGraph.AddTransition(governorDiedWaiting);
 
@@ -52,37 +52,37 @@ namespace Corruption.IoM
             transition_fetchingGovernor.AddTrigger(new Trigger_TicksPassed(2500));
             transition_fetchingGovernor.AddPreAction(new TransitionAction_Message("MessageGovernorIsBeingArrested".Translate(new object[]
             {
-                CorruptionStoryTrackerUtilities.currentStoryTracker.PlanetaryGovernor.Name
+                CFind.StoryTracker.PlanetaryGovernor.Name
             })));
             stateGraph.AddTransition(transition_fetchingGovernor);
             
             LordToil lordToil_goAggressive = new LordToil_AssaultColony();
-            lordToil_goAggressive.avoidGridMode = AvoidGridMode.Smart;
+            lordToil_goAggressive.useAvoidGrid = true;
 
             stateGraph.AddToil(lordToil_goAggressive);
 
             Transition transition_useForce = new Transition(lordToil_main, lordToil_goAggressive);
-            transition_useForce.AddTrigger(new Trigger_BecameColonyEnemy());
+            transition_useForce.AddTrigger(new Trigger_BecamePlayerEnemy());
             transition_useForce.AddTrigger(new Trigger_PawnHarmed());
             transition_useForce.AddPreAction(new TransitionAction_Message("MessageGovernorArrestGoneHostile".Translate()));
 
             transition_useForce.AddPreAction(new TransitionAction_Custom(new Action(delegate
             {
-                this.lord.ownedPawns[0].Faction.SetHostileTo(Faction.OfPlayer, true);
+                this.lord.ownedPawns[0].Faction.TrySetRelationKind(Faction.OfPlayer, FactionRelationKind.Hostile);
             })));
 
             stateGraph.AddTransition(transition_useForce);
 
             Transition downedGovernor = new Transition(lordToil_goAggressive, lordToil_main);
-            downedGovernor.AddTrigger(new Trigger_Custom((TriggerSignal x) => CorruptionStoryTrackerUtilities.currentStoryTracker.PlanetaryGovernor.Downed));
+            downedGovernor.AddTrigger(new Trigger_Custom((TriggerSignal x) => CFind.StoryTracker.PlanetaryGovernor.Downed));
             stateGraph.AddTransition(downedGovernor);
 
             Transition killedGovernor = new Transition(lordToil_goAggressive, lordToil_leaveInShip);
-            killedGovernor.AddTrigger(new Trigger_Custom((TriggerSignal x) => CorruptionStoryTrackerUtilities.currentStoryTracker.PlanetaryGovernor.Dead));
+            killedGovernor.AddTrigger(new Trigger_Custom((TriggerSignal x) => CFind.StoryTracker.PlanetaryGovernor.Dead));
             stateGraph.AddTransition(killedGovernor);
 
             Transition transition_leaveWithGovernor = new Transition(lordToil_main, lordToil_leaveInShip);
-            transition_leaveWithGovernor.AddTrigger(new Trigger_Custom((TriggerSignal x) => this.ship.GetInnerContainer().Contains(CorruptionStoryTrackerUtilities.currentStoryTracker.PlanetaryGovernor)));
+            transition_leaveWithGovernor.AddTrigger(new Trigger_Custom((TriggerSignal x) => this.ship.GetDirectlyHeldThings().Contains(CFind.StoryTracker.PlanetaryGovernor)));
 
             stateGraph.AddToil(lordToil_leaveInShip);
             stateGraph.AddTransition(transition_leaveWithGovernor);
@@ -91,7 +91,7 @@ namespace Corruption.IoM
             Transition transition_leaveUnderFire = new Transition(lordToil_main, lordToil_leaveInShip);
             transition_leaveUnderFire.AddPreAction(new TransitionAction_Custom(new Action(delegate
             {
-                this.lord.ownedPawns[0].Faction.SetHostileTo(Faction.OfPlayer, true);
+                this.lord.ownedPawns[0].Faction.TrySetRelationKind(Faction.OfPlayer, FactionRelationKind.Hostile);
             })));
 
             stateGraph.AddToil(lordToil_leaveMap);
@@ -106,8 +106,8 @@ namespace Corruption.IoM
 
         public override void ExposeData()
         {
-            Scribe_References.LookReference<ShipBase>(ref this.ship, "ship", false);
-            Scribe_Values.LookValue<IntVec3>(ref this.baseCenter, "baseCenter", IntVec3.North);
+            Scribe_References.Look<ShipBase>(ref this.ship, "ship", false);
+            Scribe_Values.Look<IntVec3>(ref this.baseCenter, "baseCenter", IntVec3.North);
         }
 
     }   

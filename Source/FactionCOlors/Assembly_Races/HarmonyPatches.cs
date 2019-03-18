@@ -16,39 +16,55 @@ namespace FactionColors
     {
         static HarmonyPatches()
         {
+            Log.Message("Generating FactionColor Patches");
             HarmonyInstance harmony = HarmonyInstance.Create("rimworld.ohu.factionColors.main");
 
-            harmony.Patch(AccessTools.Method(typeof(Verse.PawnGraphicSet), "ResolveApparelGraphics", null),null , new HarmonyMethod(typeof(HarmonyPatches), "ResolveApparelGraphicsOriginal"));
-            harmony.Patch(AccessTools.Method(typeof(Verse.PawnRenderer), "DrawEquipmentAiming", new Type[] { typeof(Thing), typeof(Vector3), typeof(float) }), new HarmonyMethod(typeof(HarmonyPatches), "DrawEquipmentAimingModded"), null);
-            harmony.Patch(AccessTools.Method(typeof(RimWorld.FactionGenerator), "GenerateFactionsIntoWorld", new Type[] { typeof(string) }), null, new HarmonyMethod(typeof(HarmonyPatches), "GenerateFactionsIntoWorldPostFix"));
-        }
+            harmony.Patch(AccessTools.Method(typeof(Verse.PawnGraphicSet), "ResolveApparelGraphics", null), new HarmonyMethod(typeof(HarmonyPatches), "ResolveApparelGraphicsOriginal"), null);
+            harmony.Patch(AccessTools.Method(typeof(Verse.PawnRenderer), "DrawEquipmentAiming"), new HarmonyMethod(typeof(HarmonyPatches), "DrawEquipmentAimingModded"), null);
+            harmony.Patch(AccessTools.Method(typeof(RimWorld.Page_ConfigureStartingPawns), "CanDoNext"), null, new HarmonyMethod(typeof(HarmonyPatches), "WorldGeneratePostfix"), null);
 
-        public static void GenerateFactionsIntoWorldPostFix()
+            //harmony.Patch(AccessTools.Method(typeof(RimWorld.ScenPart_PlayerFaction), "PostWorldGenerate"), null, new HarmonyMethod(typeof(HarmonyPatches), "PostWorldGeneratePlayerPostfix"), null);
+            harmony.Patch(AccessTools.Method(typeof(RimWorld.Faction), "ExposeData"), null, new HarmonyMethod(typeof(HarmonyPatches), "ExposeFactionDataPostfix"));
+       }
+
+
+        //public static void PostWorldGeneratePlayerPostfix()
+        //{
+        //    Log.Message("Generating PlayerFaction Story Tracker");
+        //    FactionColorsTracker corrTracker = (FactionColorsTracker)WorldObjectMaker.MakeWorldObject(FactionColorsDefOf.PlayerFactionStoryTracker);
+        //    int tile = 0;
+        //    while (!(Find.WorldObjects.AnyWorldObjectAt(tile) || Find.WorldGrid[tile].biome == BiomeDefOf.Ocean))
+        //    {
+        //        tile = Rand.Range(0, Find.WorldGrid.TilesCount);
+        //    }
+        //    corrTracker.Tile = tile;
+        //    Find.WorldObjects.Add(corrTracker);
+        //}
+
+            public static void WorldGeneratePostfix()
         {
-            Log.Message("Generating PlayerFaction Story Tracker");
-            PlayerFactionStoryTracker corrTracker = (PlayerFactionStoryTracker)WorldObjectMaker.MakeWorldObject(FactionColorsDefOf.PlayerFactionStoryTracker);
-            corrTracker.Tile = TileFinder.RandomStartingTile();
-            Find.WorldObjects.Add(corrTracker);
+            FactionColorUtilities.currentFactionColorTracker.InitalizeFactions();
         }
 
-        public static void ResolveApparelGraphicsOriginal(PawnGraphicSet __instance)
+        public static bool ResolveApparelGraphicsOriginal(PawnGraphicSet __instance)
         {
             __instance.ClearCache();
             __instance.apparelGraphics.Clear();
             List<Apparel> OriginalItems = new List<Apparel>();
-            foreach (Apparel current in __instance.pawn.apparel.WornApparelInDrawOrder)
+            foreach (Apparel current in __instance.pawn.apparel.WornApparel)
             {
                 ApparelGraphicRecord item;
                 if (current.GetComp<CompFactionColor>() != null)
-                {
+                {                    
                     if ((ApparelGraphicGetterFC.TryGetGraphicApparelModded(current, __instance.pawn.story.bodyType, out item)))
                     {
-                        if (current.GetComp<ApparelDetailDrawer>() != null && !current.Spawned)
+                        __instance.apparelGraphics.Add(item);
+                        ApparelDetailDrawer detailDrawer = current.GetComp<ApparelDetailDrawer>();
+                        if (detailDrawer !=null && !current.Spawned)
                         {
-                            OriginalItems.Add(current);
+                            __instance.apparelGraphics.Add(new ApparelGraphicRecord(detailDrawer.DetailGraphic, current));
                         }
 
-                        __instance.apparelGraphics.Add(item);
                     }
                 }
                 else if (ApparelGraphicRecordGetter.TryGetGraphicApparel(current, __instance.pawn.story.bodyType, out item))
@@ -56,14 +72,10 @@ namespace FactionColors
                     __instance.apparelGraphics.Add(item);
                 }
             }
-            //    Corruption.AfflictionDrawerUtility.DrawChaosOverlays(this.pawn);
-            foreach (Apparel app in OriginalItems)
-            {
-                ApparelDetailDrawer.DrawDetails(__instance.pawn, app);
-            }
+            return false;
         }
 
-        private static ThingDef_AlienRace AlienDefFor(Thing eq, out Pawn pawn)
+        public static ThingDef_AlienRace AlienDefFor(Thing eq, out Pawn pawn)
         {
             ThingWithComps actualThing = eq as ThingWithComps;
             if (actualThing != null)
@@ -93,22 +105,22 @@ namespace FactionColors
                 {
                     case 1:
                         {
-                            drawLoc.x += (alienRaceDef.alienRace.generalSettings.alienPartGenerator.CustomDrawSize.x - 1);
+                            drawLoc.x += (alienRaceDef.alienRace.generalSettings.alienPartGenerator.customDrawSize.x - 1);
                             break;
                         }
                     case 2:
                         {
-                            drawLoc.z -= (alienRaceDef.alienRace.generalSettings.alienPartGenerator.CustomDrawSize.x - 1);
+                            drawLoc.z -= (alienRaceDef.alienRace.generalSettings.alienPartGenerator.customDrawSize.x - 1);
                             break;
                         }
                     case 3:
                         {
-                            drawLoc.x -= (alienRaceDef.alienRace.generalSettings.alienPartGenerator.CustomDrawSize.x - 1);
+                            drawLoc.x -= (alienRaceDef.alienRace.generalSettings.alienPartGenerator.customDrawSize.x - 1);
                             break;
                         }
                 }
             }
-
+            
             float num = aimAngle - 90f;
             Mesh mesh;
             if (aimAngle > 20f && aimAngle < 160f)
@@ -142,25 +154,28 @@ namespace FactionColors
             if (eq.GetType() == typeof(FactionItem))
             {
                 FactionItemDef facdef = eq.def as FactionItemDef;
-                float scalePawn = alienRaceDef != null ? alienRaceDef.alienRace.generalSettings.alienPartGenerator.CustomDrawSize.x : 1f;
+                float scalePawn = alienRaceDef != null ? alienRaceDef.alienRace.generalSettings.alienPartGenerator.customDrawSize.x : 1f;
                 Vector3 scale = facdef.ItemMeshSize * scalePawn;
                 Material Mat = eq.Graphic.MatAt(eq.Rotation);
                 Matrix4x4 matrix = default(Matrix4x4);
                 matrix.SetTRS(drawLoc, Quaternion.AngleAxis(num, Vector3.up), scale * 1.2f);
-                Graphics.DrawMesh(mesh, matrix, matSingle, 0);
-
-                //                Matrix4x4 matrix = default(Matrix4x4);
-                //                matrix.SetTRS(drawLoc, Quaternion.AngleAxis(num, Vector3.up), facdef.ItemMeshSize);
-                //                Graphics.DrawMesh(mesh, matrix, matSingle, 0);
-                //               Graphics.DrawMesh()
+                Graphics.DrawMesh(mesh, matrix, matSingle, 0);                
             }
 
             else
-            {
+            {                
                 Graphics.DrawMesh(mesh, drawLoc, Quaternion.AngleAxis(num, Vector3.up), matSingle, 0);
             }
 
             return false;
+        }
+
+        public static void ExposeFactionDataPostfix(ref Faction __instance)
+        {
+            if (__instance is FactionUniform)
+            {
+                Scribe_Defs.Look(ref __instance.def, "FactionDef");
+            }
         }
     }
 }

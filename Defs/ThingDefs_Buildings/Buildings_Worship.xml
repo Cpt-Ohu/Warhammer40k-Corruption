@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
 
   <ThingDef ParentName="SculptureBase">
@@ -10,10 +10,11 @@
       <graphicClass>Graphic_Random</graphicClass>
       <texPath>Things/Building/Art/SculptureSmall</texPath>
     </graphicData>
-    <minifiedDef>MinifiedSculpture</minifiedDef>
+    <minifiedDef>MinifiedThing</minifiedDef>
     <fillPercent>0.55</fillPercent>
     <rotatable>false</rotatable>
     <statBases>
+      <Mass>15</Mass>
       <MaxHitPoints>90</MaxHitPoints>
       <Beauty>30</Beauty>
       <WorkToMake>24000</WorkToMake>
@@ -47,7 +48,10 @@
         <cornerBR>Damage/Corner</cornerBR>
       </damageData>
     </graphicData>
-    <minifiedDef>MinifiedFurniture</minifiedDef>
+    <minifiedDef>MinifiedThing</minifiedDef>
+	<thingCategories>
+      <li>BuildingsArt</li>
+    </thingCategories>
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
     <altitudeLayer>Building</altitudeLayer>
     <socialPropernessMatters>true</socialPropernessMatters>
@@ -56,11 +60,12 @@
       <li>Corruption.ITab_Altar</li>
     </inspectorTabs>
     <statBases>
+      <Mass>15</Mass>
       <MaxHitPoints>350</MaxHitPoints>
       <WorkToMake>16000</WorkToMake>
       <Flammability>1.0</Flammability>
       <Beauty>10</Beauty>
-      <EntertainmentStrengthFactor>1</EntertainmentStrengthFactor>
+      
     </statBases>
     <size>(3,1)</size>
 		<hasInteractionCell>true</hasInteractionCell>
@@ -116,7 +121,10 @@
         <cornerBR>Damage/Corner</cornerBR>
       </damageData>
     </graphicData>
-    <minifiedDef>MinifiedFurniture</minifiedDef>
+    <minifiedDef>MinifiedThing</minifiedDef>
+	<thingCategories>
+      <li>BuildingsArt</li>
+    </thingCategories>
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
     <altitudeLayer>Building</altitudeLayer>
     <socialPropernessMatters>true</socialPropernessMatters>
@@ -125,11 +133,12 @@
       <li>Corruption.ITab_Altar</li>
     </inspectorTabs>
     <statBases>
+      <Mass>15</Mass>
       <MaxHitPoints>250</MaxHitPoints>
       <WorkToMake>10000</WorkToMake>
       <Flammability>1.0</Flammability>
       <Beauty>5</Beauty>
-      <EntertainmentStrengthFactor>1</EntertainmentStrengthFactor>
+      
     </statBases>
     <size>(3,1)</size>
 		<hasInteractionCell>true</hasInteractionCell>
@@ -154,6 +163,11 @@
     <comps>
       <li>
         <compClass>CompQuality</compClass>
+      </li>
+	  <li Class="Corruption.Worship.CompProperties_Shrine">
+        <compClass>Corruption.Worship.CompShrine</compClass>
+        <requiresEffigy>true</requiresEffigy>
+        <WorshipRatePerTick>1</WorshipRatePerTick>
       </li>
     </comps>
     <costStuffCount>80</costStuffCount>
@@ -180,7 +194,10 @@
         <cornerBR>Damage/Corner</cornerBR>
       </damageData>
     </graphicData>
-    <minifiedDef>MinifiedFurniture</minifiedDef>
+    <minifiedDef>MinifiedThing</minifiedDef>
+	<thingCategories>
+      <li>BuildingsArt</li>
+    </thingCategories>
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
     <altitudeLayer>Building</altitudeLayer>
     <socialPropernessMatters>true</socialPropernessMatters>
@@ -189,11 +206,12 @@
       <li>Corruption.ITab_Altar</li>
     </inspectorTabs>
     <statBases>
+      <Mass>15</Mass>
       <MaxHitPoints>250</MaxHitPoints>
       <WorkToMake>10000</WorkToMake>
       <Flammability>1.0</Flammability>
       <Beauty>5</Beauty>
-      <EntertainmentStrengthFactor>1</EntertainmentStrengthFactor>
+      
     </statBases>
     <size>(3,1)</size>
 		<hasInteractionCell>true</hasInteractionCell>
@@ -218,6 +236,11 @@
     <comps>
       <li>
         <compClass>CompQuality</compClass>
+      </li>
+	 <li Class="Corruption.Worship.CompProperties_Shrine">
+        <compClass>Corruption.Worship.CompShrine</compClass>
+        <requiresEffigy>true</requiresEffigy>
+        <WorshipRatePerTick>1</WorshipRatePerTick>
       </li>
     </comps>
     <costStuffCount>80</costStuffCount>
@@ -247,7 +270,10 @@
         <cornerBR>Damage/Corner</cornerBR>
       </damageData>
     </graphicData>
-    <minifiedDef>MinifiedFurniture</minifiedDef>
+    <minifiedDef>MinifiedThing</minifiedDef>
+	<thingCategories>
+      <li>BuildingsArt</li>
+    </thingCategories>
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
     <altitudeLayer>Building</altitudeLayer>
     <socialPropernessMatters>true</socialPropernessMatters>
@@ -256,11 +282,12 @@
       <li>Corruption.ITab_Altar</li>
     </inspectorTabs>
     <statBases>
+      <Mass>15</Mass>
       <MaxHitPoints>350</MaxHitPoints>
       <WorkToMake>16000</WorkToMake>
       <Flammability>1.0</Flammability>
       <Beauty>5</Beauty>
-      <EntertainmentStrengthFactor>1</EntertainmentStrengthFactor>
+      
     </statBases>
     <size>(3,1)</size>
 		<hasInteractionCell>true</hasInteractionCell>
@@ -315,17 +342,21 @@
         <cornerBR>Damage/Corner</cornerBR>
       </damageData>
     </graphicData>
-    <minifiedDef>MinifiedFurniture</minifiedDef>
+    <minifiedDef>MinifiedThing</minifiedDef>
+	<thingCategories>
+      <li>BuildingsArt</li>
+    </thingCategories>
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
     <altitudeLayer>Building</altitudeLayer>
     <socialPropernessMatters>true</socialPropernessMatters>
     <fillPercent>0.65</fillPercent>
     <statBases>
+      <Mass>15</Mass>
       <MaxHitPoints>350</MaxHitPoints>
       <WorkToMake>100</WorkToMake>
       <Flammability>1.0</Flammability>
       <Beauty>10</Beauty>
-      <EntertainmentStrengthFactor>1</EntertainmentStrengthFactor>
+      
     </statBases>
     <size>(1,1)</size>
 		<hasInteractionCell>true</hasInteractionCell>
@@ -363,17 +394,21 @@
         <rect>(0.35,0.35,0.3,0.3)</rect>
       </damageData>
     </graphicData>
-    <minifiedDef>MinifiedFurniture</minifiedDef>
+    <minifiedDef>MinifiedThing</minifiedDef>
+	<thingCategories>
+      <li>BuildingsArt</li>
+    </thingCategories>
     <castEdgeShadows>true</castEdgeShadows>
     <altitudeLayer>Building</altitudeLayer>
     <socialPropernessMatters>false</socialPropernessMatters>
     <fillPercent>0.05</fillPercent>
     <statBases>
+      <Mass>15</Mass>
       <MaxHitPoints>350</MaxHitPoints>
       <WorkToMake>100</WorkToMake>
       <Flammability>1.0</Flammability>
       <Beauty>-10</Beauty>
-      <EntertainmentStrengthFactor>-1</EntertainmentStrengthFactor>
+      
     </statBases>
     <size>(1,1)</size>
     <stuffCategories>
@@ -409,21 +444,26 @@
         <rect>(0.35,0.35,0.3,0.3)</rect>
       </damageData>
     </graphicData>
-    <minifiedDef>MinifiedFurniture</minifiedDef>
+    <minifiedDef>MinifiedThing</minifiedDef>
+	<thingCategories>
+      <li>BuildingsArt</li>
+    </thingCategories>
     <castEdgeShadows>true</castEdgeShadows>
-    <altitudeLayer>ItemImportant</altitudeLayer>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
     <socialPropernessMatters>false</socialPropernessMatters>
     <fillPercent>0.05</fillPercent>
     <building>
 	 <isInert>true</isInert>
       <isEdifice>false</isEdifice>
+	<canPlaceOverWall>true</canPlaceOverWall>
     </building>
     <statBases>
+      <Mass>15</Mass>
       <MaxHitPoints>100</MaxHitPoints>
       <WorkToMake>100</WorkToMake>
       <Flammability>1.0</Flammability>
       <Beauty>2</Beauty>
-      <EntertainmentStrengthFactor>-1</EntertainmentStrengthFactor>
+      
     </statBases>
     <size>(1,1)</size>
     <comps>
@@ -435,10 +475,68 @@
       <HumanSkull>1</HumanSkull>
     </costList>
     <pathCost>50</pathCost>
-    <passability>PassThroughOnly</passability>
+    <passability>Standable</passability>
     <designationCategory>Worship</designationCategory>
+    <clearBuildingArea>false</clearBuildingArea>
     <uiIconPath>Things/Worship/HumanSkull</uiIconPath>
   </ThingDef>
 
+  <ThingDef ParentName="BuildingBase">
+    <thingClass>Building</thingClass>
+    <defName>SmallShrine</defName>
+    <label>Small Shrine</label>
+    <description>A small shrine. Pawns may put their own trinkets and effigies of worship here.</description>
+    <graphicData>
+      <texPath>Things/Worship/SmallShrine</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(1,1)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <minifiedDef>MinifiedThing</minifiedDef>
+	<thingCategories>
+      <li>BuildingsArt</li>
+    </thingCategories>
+    <staticSunShadowHeight>0.20</staticSunShadowHeight>
+    <altitudeLayer>Building</altitudeLayer>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <fillPercent>0.65</fillPercent>
+    <statBases>
+      <Mass>15</Mass>
+      <MaxHitPoints>350</MaxHitPoints>
+      <WorkToMake>100</WorkToMake>
+      <Flammability>1.0</Flammability>
+      <Beauty>10</Beauty>
+      
+    </statBases>
+    <size>(1,1)</size>
+		<hasInteractionCell>true</hasInteractionCell>
+		<interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <comps>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+	  <li Class="Corruption.Worship.CompProperties_Shrine">
+        <compClass>Corruption.Worship.CompShrine</compClass>
+        <requiresEffigy>true</requiresEffigy>
+        <WorshipRatePerTick>1</WorshipRatePerTick>
+      </li>
+    </comps>
+    <costStuffCount>50</costStuffCount>
+    <pathCost>70</pathCost>
+    <passability>PassThroughOnly</passability>
+    <designationCategory>Worship</designationCategory>
 
-</ThingDefs>
+  </ThingDef>
+
+</Defs>

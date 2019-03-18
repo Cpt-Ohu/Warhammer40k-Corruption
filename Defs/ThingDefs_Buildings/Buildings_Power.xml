@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Buildings>
+<Defs>
 
   <ThingDef ParentName="BuildingBase">
     <defName>IoM_PlasmaGenerator</defName>
@@ -12,6 +12,9 @@
       <drawSize>(2,2)</drawSize>
     </graphicData>
     <altitudeLayer>Building</altitudeLayer>
+	<thingCategories>
+      <li>Buildings</li>
+    </thingCategories>
     <passability>PassThroughOnly</passability>
     <pathCost>150</pathCost>
     <blockWind>true</blockWind>
@@ -19,6 +22,7 @@
     <castEdgeShadows>false</castEdgeShadows>
     <rotatable>false</rotatable>
     <statBases>
+      <Mass>15</Mass>
       <MaxHitPoints>600</MaxHitPoints>
       <WorkToBuild>4000</WorkToBuild>
       <Flammability>0.3</Flammability>
@@ -31,10 +35,10 @@
     </stuffCategories>
     <costStuffCount>200</costStuffCount>
     <building>
-      <ignoreNeedsPower>true</ignoreNeedsPower>
+      
     </building>
     <costList>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
       <MecComponent_Energy>1</MecComponent_Energy>
     </costList>
     <comps>
@@ -57,7 +61,7 @@
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <staticSunShadowHeight>0.5</staticSunShadowHeight>
     <designationCategory>Mechanicum</designationCategory>
-    <designationHotkey>Misc4</designationHotkey>
+    <designationHotKey>Misc4</designationHotKey>
     <researchPrerequisites>
       <li>MecTec_PowerGenerator</li>
     </researchPrerequisites>
@@ -66,4 +70,4 @@
 
 
   
-</Buildings>
+</Defs>

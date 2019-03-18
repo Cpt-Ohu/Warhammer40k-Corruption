@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingSetMakerDef>
+    <defName>IoM_Reliquiary</defName>
+    <root Class="ThingSetMaker_Count">
+      <fixedParams>
+        <qualityGenerator>Reward</qualityGenerator>
+        <maxTotalMass>75</maxTotalMass>
+        <filter>
+          <thingDefs>
+            <li>SarcophagusShrine</li>
+          </thingDefs>
+        </filter>
+      </fixedParams>
+    </root>
+  </ThingSetMakerDef>
+
+  <ThingSetMakerDef>
+    <defName>IoM_HolyItems</defName>
+    <root Class="ThingSetMaker_Count">
+      <fixedParams>
+        <qualityGenerator>Reward</qualityGenerator>
+        <maxTotalMass>75</maxTotalMass>
+        <filter>
+          <thingDefs>
+            <li>MeleeWeapon_RelicBlade</li>
+            <li>MeleeWeapon_HolyLongsword</li>
+            <li>Sororitas_PowerArmor</li>
+            <li>Sororitas_PowerArmorHelmet</li>
+            <li>Apparel_Rosarius</li>
+            <li>IoM_Apparel_InqArmor</li>
+            <li>MeleeWeapon_ImpPowerStaffFire</li>
+            <li>MeleeWeapon_ImpPowerStaffBlinding</li>
+            <li>Sororitas_PowerSword</li>
+          </thingDefs>
+        </filter>
+      </fixedParams>
+    </root>
+  </ThingSetMakerDef>
+
+  <ThingSetMakerDef>
+    <defName>IoM_SaintlyRemains</defName>
+    <root Class="ThingSetMaker_Count">
+      <fixedParams>
+        <qualityGenerator>Reward</qualityGenerator>
+        <maxTotalMass>75</maxTotalMass>
+        <filter>
+          <thingDefs>
+            <li>HumanSkullSaint</li>
+            <li>HumanBonesSaint</li>
+          </thingDefs>
+        </filter>
+      </fixedParams>
+    </root>
+  </ThingSetMakerDef>
+
+</Defs>

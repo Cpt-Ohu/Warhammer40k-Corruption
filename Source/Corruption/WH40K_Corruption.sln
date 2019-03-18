@@ -1,14 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corruption", "Assembly_Races\Corruption.csproj", "{74DCE0E4-19F5-415B-AF5E-BA651ECF87B1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0C9F9BED-541D-4F86-BAE8-A32202EE8873}"
 	ProjectSection(SolutionItems) = preProject
 		RoomRoleDef_Temple.txt = RoomRoleDef_Temple.txt
+		XMLFile1.xml = XMLFile1.xml
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorruptionUnitTests", "CorruptionUnitTests\CorruptionUnitTests.csproj", "{CD0669A0-BA6B-4CB0-A782-0C6CD997C279}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OHUShips", "..\Ships\OHUShips.csproj", "{CBF85EFA-5337-4817-A8FE-4674E0CA189F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactionColors", "..\FactionCOlors\Assembly_Races\FactionColors.csproj", "{88B52EB1-DABC-4533-A9E1-0E894A9237F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,8 +27,22 @@ Global
 		{74DCE0E4-19F5-415B-AF5E-BA651ECF87B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74DCE0E4-19F5-415B-AF5E-BA651ECF87B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74DCE0E4-19F5-415B-AF5E-BA651ECF87B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD0669A0-BA6B-4CB0-A782-0C6CD997C279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD0669A0-BA6B-4CB0-A782-0C6CD997C279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD0669A0-BA6B-4CB0-A782-0C6CD997C279}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBF85EFA-5337-4817-A8FE-4674E0CA189F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF85EFA-5337-4817-A8FE-4674E0CA189F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF85EFA-5337-4817-A8FE-4674E0CA189F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF85EFA-5337-4817-A8FE-4674E0CA189F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88B52EB1-DABC-4533-A9E1-0E894A9237F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88B52EB1-DABC-4533-A9E1-0E894A9237F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88B52EB1-DABC-4533-A9E1-0E894A9237F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88B52EB1-DABC-4533-A9E1-0E894A9237F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E2EF70B-0363-46DC-BE62-E6F7EB5072E4}
 	EndGlobalSection
 EndGlobal

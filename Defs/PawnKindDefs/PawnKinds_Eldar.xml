@@ -1,60 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<PawnKindDefs>
+<Defs>
 
   <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
     <defName>EldarGuardian</defName>
     <label>eldar guardian</label>
     <race>Alien_Eldar</race>
     <combatPower>100</combatPower>
-    <baseRecruitDifficulty>0.90</baseRecruitDifficulty>
-    <backstoryCategory>Eldar</backstoryCategory>
-    <defaultFactionType>EldarWarhost</defaultFactionType>
-    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
-    <maxGenerationAge>8000</maxGenerationAge>
-    <itemQuality>Excellent</itemQuality>
-    <apparelMoney>
-      <min>900000</min>
-      <max>1000000</max>
-    </apparelMoney>
-    <apparelTags>
-      <li>Eldar</li>
-    </apparelTags>
-    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.5</apparelAllowHeadwearChance>
-    <weaponMoney>
-      <min>9000</min>
-      <max>9000</max>
-    </weaponMoney>
-    <weaponTags>
-      <li>E_Ranged</li>
-    </weaponTags>
-    <techHediffsMoney>
-      <min>9000</min>
-      <max>9000</max>
-    </techHediffsMoney>
-    <techHediffsTags>
-      <li>Advanced</li>
-    </techHediffsTags>
-    <techHediffsChance>0.3</techHediffsChance>
-    <AfflictionProperty>
-      <IsImmune>true</IsImmune>
-      <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Eldar</IsofFaith>
-      <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
-      <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
-      <LowerPsykerPowerLimit>Iota</LowerPsykerPowerLimit>
-      <UpperPsykerPowerLimit>Epsilon</UpperPsykerPowerLimit>
-    </AfflictionProperty>
-  </PawnKindDef>
-
-  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
-    <defName>EldarAutarch</defName>
-    <label>eldar autarch</label>
-    <race>Alien_Eldar</race>
-    <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.99</baseRecruitDifficulty>
-    <backstoryCategory>Eldar</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>EldarWarhost</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>8000</maxGenerationAge>
@@ -65,11 +18,10 @@
       <max>1000000</max>
     </apparelMoney>
     <apparelTags>
-      <li>Eldar</li>
-      <li>Eldar_Psyker</li>
+      <li>EldarStandard</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.5</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>9000</min>
       <max>9000</max>
@@ -87,11 +39,60 @@
     <techHediffsChance>0.3</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
       <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Eldar</IsofFaith>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+      <Patron>Ynnead</Patron>
+      <LowerPsykerPowerLimit>Iota</LowerPsykerPowerLimit>
+      <UpperPsykerPowerLimit>Delta</UpperPsykerPowerLimit>
+    </AfflictionProperty>
+  </PawnKindDef>
+
+  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
+    <defName>EldarAutarch</defName>
+    <label>eldar autarch</label>
+    <race>Alien_Eldar</race>
+    <combatPower>100</combatPower>
+    <baseRecruitDifficulty>0.99</baseRecruitDifficulty>
+    <backstoryCategories><li>.*</li></backstoryCategories>
+    <defaultFactionType>EldarWarhost</defaultFactionType>
+    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+    <maxGenerationAge>8000</maxGenerationAge>
+    <itemQuality>Excellent</itemQuality>
+    <factionLeader>true</factionLeader>
+    <apparelMoney>
+      <min>900000</min>
+      <max>1000000</max>
+    </apparelMoney>
+    <apparelTags>
+      <li>EldarStandard</li>
+      <li>Eldar_Psyker</li>
+    </apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
+    <weaponMoney>
+      <min>9000</min>
+      <max>9000</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>E_Ranged</li>
+    </weaponTags>
+    <techHediffsMoney>
+      <min>9000</min>
+      <max>9000</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <techHediffsChance>0.3</techHediffsChance>
+    <AfflictionProperty>
+      <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
+      <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
+      <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+      <Patron>Ynnead</Patron>
       <LowerPsykerPowerLimit>Iota</LowerPsykerPowerLimit>
       <UpperPsykerPowerLimit>Delta</UpperPsykerPowerLimit>
     </AfflictionProperty>
@@ -103,7 +104,7 @@
     <race>Alien_Eldar</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.90</baseRecruitDifficulty>
-    <backstoryCategory>Eldar</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>EldarWarhost</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>8000</maxGenerationAge>
@@ -116,7 +117,7 @@
       <li>Eldar_Psyker</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.5</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>9000</min>
       <max>9000</max>
@@ -134,9 +135,9 @@
     <techHediffsChance>0.3</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
       <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Eldar</IsofFaith>
+      <Patron>Ynnead</Patron>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
       <LowerPsykerPowerLimit>Epsilon</LowerPsykerPowerLimit>
@@ -158,7 +159,7 @@
     <race>Alien_Eldar</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.90</baseRecruitDifficulty>
-    <backstoryCategory>Eldar</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>EldarWarhost</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>8000</maxGenerationAge>
@@ -175,7 +176,7 @@
 	 <li>Eldar_RangerRobe</li>
     </apparelRequired>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.8</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.8</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>9000</min>
       <max>9000</max>
@@ -193,9 +194,9 @@
     <techHediffsChance>0.3</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>Ynnead</Patron>
       <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Eldar</IsofFaith>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
       <LowerPsykerPowerLimit>Iota</LowerPsykerPowerLimit>
@@ -203,18 +204,18 @@
     </AfflictionProperty>
   </PawnKindDef>
 
-  <PawnKindDef ParentName="EldarRanger">
+  <PawnKindDef ParentName="EldarRanger" Class="Corruption.ChaosFollowerPawnKindDef">
     <defName>EldarRangerTrader</defName>
     <label>eldar ranger</label>
     <trader>true</trader>
   </PawnKindDef>
 
-  <PawnKindDef ParentName="EldarRanger">
+  <PawnKindDef ParentName="EldarRanger" Class="Corruption.ChaosFollowerPawnKindDef">
     <defName>EldarColonist</defName>
     <label>colonist</label>
     <race>Alien_Eldar</race>
     <defaultFactionType>PlayerColony</defaultFactionType>
-    <backstoryCategory>DarkEldar</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <maxGenerationAge>8000</maxGenerationAge>
     <itemQuality>Excellent</itemQuality>
     <apparelTags>
@@ -233,7 +234,7 @@
     <race>Alien_Eldar</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.90</baseRecruitDifficulty>
-    <backstoryCategory>Eldar</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>EldarWarhost</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>8000</maxGenerationAge>
@@ -246,7 +247,7 @@
       <li>DireAvenger</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.5</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>9000</min>
       <max>9000</max>
@@ -264,9 +265,9 @@
     <techHediffsChance>0.5</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>Ynnead</Patron>
       <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Eldar</IsofFaith>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
       <LowerPsykerPowerLimit>Iota</LowerPsykerPowerLimit>
@@ -275,4 +276,4 @@
   </PawnKindDef>
 
 
-</PawnKindDefs>
+</Defs>

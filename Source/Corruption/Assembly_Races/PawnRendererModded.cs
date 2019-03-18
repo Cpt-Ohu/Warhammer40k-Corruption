@@ -142,7 +142,7 @@ namespace Corruption
                     for (int j = 0; j < apparelGraphics.Count; j++)
                     {
                         // If the apparel is on the head, let's draw it!
-                        if (apparelGraphics[j].sourceApparel.def.apparel.LastLayer == ApparelLayer.Overhead)
+                        if (apparelGraphics[j].sourceApparel.def.apparel.LastLayer == ApparelLayerDefOf.Overhead)
                         {
                             if ((!_pawn.story.hairDef.hairTags.Contains("DrawUnderHat") && !_pawn.story.hairDef.hairTags.Contains("Beard")) || _pawn.apparel.BodyPartGroupIsCovered(BodyPartGroupDefOf.FullHead))
                             {
@@ -192,7 +192,7 @@ namespace Corruption
                 {
                     ApparelGraphicRecord apparelGraphicRecord = _this.graphics.apparelGraphics[k];
                     // Draw the uppermost piece of apparel
-                    if (apparelGraphicRecord.sourceApparel.def.apparel.LastLayer == ApparelLayer.Shell)
+                    if (apparelGraphicRecord.sourceApparel.def.apparel.LastLayer == ApparelLayerDefOf.Shell)
                     {
                         Material material2 = apparelGraphicRecord.graphic.MatAt(bodyFacing, null);
                         material2 = _this.graphics.flasher.GetDamagedMat(material2);

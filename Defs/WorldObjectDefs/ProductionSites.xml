@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <WorldObjectDef Name="ProductionSiteBase" Abstract="True">
+    <defName>ProductionSiteBase</defName>
+    <worldObjectClass>Corruption.ProductionSites.ProductionSite</worldObjectClass>
+    <expandingIcon>true</expandingIcon>
+    <expandingIconPriority>70</expandingIconPriority>
+    <comps>
+      <li Class="WorldObjectCompProperties_FormCaravan"/>
+      <li Class="WorldObjectCompProperties_TimedForcedExit" />
+    </comps>
+    <IncidentTargetTags>
+      <li>Map_Misc</li>
+    </IncidentTargetTags>
+    <inspectorTabs>
+      <li>Corruption.ProductionSites.WITab_ProductionSite_Production</li>
+      <li>Corruption.ProductionSites.WITab_ProductionSite_Stock</li> 
+    </inspectorTabs>
+  </WorldObjectDef>
+
+
+  <Corruption.ProductionSites.ProductionSiteUpgradeDef>
+    <defName>UpgradeDropPodLauncher</defName>
+    <label>Drop Pod Launch Station</label>	
+    <description>A platform for launching drop pods containing resources.</description>
+	<IconPath>UI/Icons/LaunchPadCluster</IconPath>
+    <Cost>
+      <ResPackBuildingMaterials>1</ResPackBuildingMaterials>
+      <ComponentIndustrial>10</ComponentIndustrial>
+    </Cost>
+  </Corruption.ProductionSites.ProductionSiteUpgradeDef>
+
+
+
+  <!-- ====================== Ore Camp ======================================== -->
+
+  <WorldObjectDef ParentName="ProductionSiteBase">
+    <defName>ProductionSiteOres</defName>
+    <label>Ore Mining Camp</label>
+    <comps>
+      <li Class="Corruption.ProductionSites.WorldObjectCompProperties_ResourceProduction">
+        <compClass>Corruption.ProductionSites.ResourceProductionComp</compClass>
+		<AssociatedSkill>Mining</AssociatedSkill>
+        <FixedProducts>
+          <li>
+            <thingDef>Steel</thingDef>
+            <yieldFactor>1.0</yieldFactor>
+          </li>
+          <li>
+            <thingDef>Silver</thingDef>
+            <yieldFactor>0.05</yieldFactor>
+          </li>
+          <li>
+            <thingDef>Gold</thingDef>
+            <yieldFactor>0.005</yieldFactor>
+          </li>
+          <li>
+            <thingDef>Plasteel</thingDef>
+            <yieldFactor>0.01</yieldFactor>
+          </li>
+        </FixedProducts>
+        <Levels>
+          <li>MineLevel1</li>
+          <li>MineLevel2</li>
+          <li>MineLevel3</li>
+        </Levels>
+		<AllowedHilliness>
+		  <li>Mountainous</li>
+		</AllowedHilliness>
+      </li>
+    </comps>
+  </WorldObjectDef>
+
+  <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>MineLevel1</defName>
+    <label>Shaft Mining</label>
+    <description>A basic tunnel and shaft system for mining ore. Prone to worker death and relatively low output.</description>
+    <Level>0</Level>
+	<MaximumSupportedWorkers>50</MaximumSupportedWorkers>
+    <BaseProduction>1000</BaseProduction>
+    <DaysProductionCycle>30</DaysProductionCycle>
+    <expandingTexturePath>World/WorldObjects/Expanding/Mine</expandingTexturePath>
+	<siteTexturePath>World/WorldObjects/Icon/ProductionSiteMine1</siteTexturePath>
+    <uiIconPath>World/WorldObjects/Icon/MineShaftEntry</uiIconPath>
+    <UnlocksUpgrades>
+	 <li>UpgradeDropPodLauncher</li>
+	</UnlocksUpgrades>
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+
+  <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>MineLevel2</defName>	
+    <label>Mining Industry</label>
+    <description>An industrial-grade network of tunnels and shaft system for mining ore. Reinforced walls, electric lighting, lifts and heavy machinery make for better yield and higher safety</description>
+    <Level>1</Level>
+	<MaximumSupportedWorkers>200</MaximumSupportedWorkers>
+    <BaseProduction>1500</BaseProduction>
+    <DaysProductionCycle>30</DaysProductionCycle>
+	<RequiredTechLevel>Industrial</RequiredTechLevel>
+    <expandingTexturePath>World/WorldObjects/Expanding/Mine</expandingTexturePath>
+	<siteTexturePath>World/WorldObjects/Icon/ProductionSiteMine2</siteTexturePath>
+    <uiIconPath>World/WorldObjects/Icon/MineShaftEntry</uiIconPath>
+    <UnlocksUpgrades>
+	 <li>UpgradeRemoteControl</li>
+	</UnlocksUpgrades>
+	<Cost>
+      <ResPackBuildingMaterials>2</ResPackBuildingMaterials>
+      <ResPackFoodRations>1</ResPackFoodRations>
+      <ComponentIndustrial>10</ComponentIndustrial>
+    </Cost>
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+
+  
+  <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>MineLevel3</defName>
+    <label>Mining Complex</label>
+    <description>A vast network of tunnels and shaft system for mining ore, including advanced technological infrastructure to maintain it.</description>
+    <Level>2</Level>
+	<MaximumSupportedWorkers>300</MaximumSupportedWorkers>
+    <BaseProduction>3000</BaseProduction>
+    <DaysProductionCycle>25</DaysProductionCycle>
+	<RequiredTechLevel>Spacer</RequiredTechLevel>
+    <expandingTexturePath>World/WorldObjects/Expanding/Mine</expandingTexturePath>
+	<siteTexturePath>World/WorldObjects/Icon/ProductionSiteMine2</siteTexturePath>
+    <uiIconPath>World/WorldObjects/Icon/MineShaftEntry</uiIconPath>
+    <UnlocksUpgrades>
+	 <li>UpgradeExcavationAI</li>
+	</UnlocksUpgrades>
+	<Cost>
+      <ResPackBuildingMaterials>7</ResPackBuildingMaterials>
+      <ResPackFoodRations>3</ResPackFoodRations>
+      <ComponentIndustrial>50</ComponentIndustrial>
+    </Cost>
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+  
+  <Corruption.ProductionSites.ProductionSiteUpgradeDef>
+    <defName>UpgradeRemoteControl</defName>
+    <label>Remote Controlled machinery</label>
+    <SpeedBoost>1.5</SpeedBoost>
+    <Cost>
+      <ResPackBuildingMaterials>1</ResPackBuildingMaterials>
+      <ResPackFoodRations>1</ResPackFoodRations>
+      <ComponentIndustrial>50</ComponentIndustrial>
+    </Cost>
+  </Corruption.ProductionSites.ProductionSiteUpgradeDef>
+  
+    <Corruption.ProductionSites.ProductionSiteUpgradeDef>
+    <defName>UpgradeExcavationAI</defName>
+    <label>AI Supported Excavation</label>
+    <YieldBoost>1.5</YieldBoost>
+    <Cost>
+      <ResPackBuildingMaterials>1</ResPackBuildingMaterials>
+      <ResPackFoodRations>1</ResPackFoodRations>
+      <ComponentIndustrial>100</ComponentIndustrial>
+      <AIPersonaCore>1</AIPersonaCore>
+    </Cost>
+  </Corruption.ProductionSites.ProductionSiteUpgradeDef>
+
+  <Corruption.Domination.WorldMapBuildableDef>
+    <defName>BuildMine</defName>
+    <label>Mine</label>
+    <description>Construct a mine here. It will yield valuable minerals and metals.</description>
+    <WorldObjectDef></WorldObjectDef>
+    <Cost>
+      <ResPackBuildingMaterials>2</ResPackBuildingMaterials>
+      <ResPackFoodRations>1</ResPackFoodRations>
+      <ComponentIndustrial>30</ComponentIndustrial>
+    </Cost>
+    <ConstructionTimeDays>7</ConstructionTimeDays>
+  </Corruption.Domination.WorldMapBuildableDef>
+
+  <!-- ====================== Lumber Camp ======================================== -->
+
+
+  <WorldObjectDef ParentName="ProductionSiteBase">
+    <defName>ProductionSiteLumber</defName>
+    <label>Lumber Camp</label>
+    <comps>
+      <li Class="Corruption.ProductionSites.WorldObjectCompProperties_ResourceProduction">
+        <compClass>Corruption.ProductionSites.ResourceProductionComp</compClass>
+		<AssociatedSkill>Plants</AssociatedSkill>
+		<FixedProducts>
+          <li>
+            <thingDef>WoodLog</thingDef>
+            <yieldFactor>1.0</yieldFactor>
+          </li>
+        </FixedProducts>
+        <Levels>
+          <li>LumberLevel1</li>
+          <li>LumberLevel2</li>
+        </Levels>
+		
+		<AllowedBiomes>
+		  <li>TemperateForest</li>
+		  <li>TropicalRainforest</li>
+		  <li>BorealForest</li>
+		</AllowedBiomes>		
+		
+		<AllowedHilliness>
+		  <li>Flat</li>
+		  <li>SmallHills</li>
+		  <li>LargeHills</li>
+		  <li>Mountainous</li>
+		</AllowedHilliness>
+      </li>
+    </comps>
+  </WorldObjectDef>
+
+  <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>LumberLevel1</defName>
+    <label>Logging Cabin</label>
+    <description>A hut in the woods dedicated to forestry.</description>
+    <Level>0</Level>
+	<MaximumSupportedWorkers>50</MaximumSupportedWorkers>
+    <BaseProduction>1000</BaseProduction>
+    <DaysProductionCycle>30</DaysProductionCycle>
+    <expandingTexturePath>World/WorldObjects/Expanding/Lumber</expandingTexturePath>
+    <siteTexturePath>World/WorldObjects/Icon/ProductionSiteLumber1</siteTexturePath>
+    <uiIconPath>World/WorldObjects/Icon/LumberCamp</uiIconPath>
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+  
+    <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>LumberLevel2</defName>
+    <label>Logging Outpost</label>
+    <description>A small wood working industry.</description>
+    <Level>1</Level>
+	<MaximumSupportedWorkers>200</MaximumSupportedWorkers>
+    <BaseProduction>2000</BaseProduction>
+    <DaysProductionCycle>30</DaysProductionCycle>
+	<RequiredTechLevel>Industrial</RequiredTechLevel>
+    <expandingTexturePath>World/WorldObjects/Expanding/Lumber</expandingTexturePath>
+    <siteTexturePath>World/WorldObjects/Icon/ProductionSiteLumber2</siteTexturePath>
+    <uiIconPath>World/WorldObjects/Icon/LumberIndustry</uiIconPath>	
+    <UnlocksUpgrades>
+      <li>UpgradeDryingKiln</li>
+    </UnlocksUpgrades>	
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+
+  <Corruption.ProductionSites.ProductionSiteUpgradeDef>
+    <defName>UpgradeSawmill</defName>
+    <label>Sawmill</label>
+    <SpeedBoost>1.5</SpeedBoost>
+    <Cost>
+      <ResPackBuildingMaterials>1</ResPackBuildingMaterials>
+      <ResPackFoodRations>1</ResPackFoodRations>
+      <ComponentIndustrial>10</ComponentIndustrial>
+    </Cost>
+  </Corruption.ProductionSites.ProductionSiteUpgradeDef>  
+
+  <Corruption.ProductionSites.ProductionSiteUpgradeDef>
+    <defName>UpgradeDryingKiln</defName>
+    <label>Drying Kiln</label>
+    <SpeedBoost>1.3</SpeedBoost>	
+	<DrawPos>(550, 110)</DrawPos>
+	<DrawSize>(128, 180)</DrawSize>
+	<IconPath>UI/Icons/LumberKiln</IconPath>
+    <Cost>
+      <ResPackBuildingMaterials>2</ResPackBuildingMaterials>
+      <ResPackFoodRations>1</ResPackFoodRations>
+      <ComponentIndustrial>10</ComponentIndustrial>
+    </Cost>
+  </Corruption.ProductionSites.ProductionSiteUpgradeDef>
+
+  <Corruption.Domination.WorldMapBuildableDef>
+    <defName>BuildLumbercamp</defName>
+    <label>Lumbercamp</label>
+    <description>Construct a lumbercamp here. It will yield logs from the available trees.</description>
+    <WorldObjectDef>ProductionSiteLumber</WorldObjectDef>
+    <Cost>
+      <ResPackBuildingMaterials>2</ResPackBuildingMaterials>
+      <ResPackFoodRations>1</ResPackFoodRations>
+      <ComponentIndustrial>20</ComponentIndustrial>
+    </Cost>
+    <ConstructionTimeDays>7</ConstructionTimeDays>
+  </Corruption.Domination.WorldMapBuildableDef>
+
+  <!-- ====================== Farm ======================================== -->
+
+
+  <WorldObjectDef ParentName="ProductionSiteBase">
+    <defName>ProductionSiteFarm</defName>
+    <label>Agricultural Site</label>
+    <comps>
+      <li Class="Corruption.ProductionSites.WorldObjectCompProperties_ResourceProduction">
+        <compClass>Corruption.ProductionSites.AgriProductionComp</compClass>		
+		<AssociatedSkill>Plants</AssociatedSkill>
+        <Levels>
+          <li>FarmPlantsLevel1</li>
+          <li>FarmPlantsLevel2</li>
+          <li>FarmPlantsLevel3</li>
+        </Levels>
+		<AllowedBiomes>
+		 <li>BorealForest</li>
+		 <li>TemperateForest</li>
+		 <li>TropicalRainforest</li>
+		 <li>AridShrubland</li>
+		 <li>Tundra</li>
+		</AllowedBiomes>
+	    <AllowedHilliness>
+		  <li>Flat</li>
+		  <li>SmallHills</li>
+		  <li>LargeHills</li>
+		</AllowedHilliness>
+      </li>
+      <li Class="Corruption.ProductionSites.WorldObjectCompProperties_ResourceProduction">
+        <compClass>Corruption.ProductionSites.LiveStockProductionComp</compClass>
+		<AssociatedSkill>Animals</AssociatedSkill>
+        <Levels>
+          <li>FarmAnimalsLevel1</li>
+          <li>FarmAnimalsLevel2</li>
+          <li>FarmAnimalsLevel3</li>
+          <li>FarmAnimalsLevel4</li>
+        </Levels>
+      </li>
+    </comps>
+  </WorldObjectDef>
+
+  <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>FarmPlantsLevel1</defName>
+    <label>Small Farm</label>
+    <description>A small homestead with some acres.</description>
+    <Level>0</Level>
+	<MaximumSupportedWorkers>20</MaximumSupportedWorkers>
+    <BaseProduction>1000</BaseProduction>
+    <DaysProductionCycle>30</DaysProductionCycle>
+    <expandingTexturePath>World/WorldObjects/Expanding/Farm</expandingTexturePath>	
+	<siteTexturePath>World/WorldObjects/Icon/ProductionSiteFarm1</siteTexturePath>
+    <uiIconPath>World/WorldObjects/Icon/FarmHut</uiIconPath>
+    <UnlocksUpgrades></UnlocksUpgrades>
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+
+  <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>FarmPlantsLevel2</defName>
+    <label>Farm</label>
+    <description>A proper farm with a few acres of arable land.</description>
+    <Level>1</Level>
+	<MaximumSupportedWorkers>50</MaximumSupportedWorkers>
+    <BaseProduction>2500</BaseProduction>
+    <DaysProductionCycle>30</DaysProductionCycle>
+	<RequiredTechLevel>Industrial</RequiredTechLevel>
+    <expandingTexturePath>World/WorldObjects/Expanding/Farm</expandingTexturePath>
+	<siteTexturePath>World/WorldObjects/Icon/ProductionSiteFarm2</siteTexturePath>
+    <uiIconPath>World/WorldObjects/Icon/FarmHouse</uiIconPath>
+    <UnlocksUpgrades></UnlocksUpgrades>
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+
+  <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>FarmPlantsLevel3</defName>
+    <label>Agri Hub</label>
+    <description>A factory-like site for crop production.</description>
+    <Level>2</Level>
+	<MaximumSupportedWorkers>100</MaximumSupportedWorkers>
+    <BaseProduction>5000</BaseProduction>
+    <DaysProductionCycle>30</DaysProductionCycle>
+	<RequiredTechLevel>Industrial</RequiredTechLevel>
+    <expandingTexturePath>World/WorldObjects/Expanding/Farm</expandingTexturePath>
+	<siteTexturePath>World/WorldObjects/Icon/ProductionSiteFarm3</siteTexturePath>
+    <uiIconPath>World/WorldObjects/Icon/FarmComplex</uiIconPath>
+    <UnlocksUpgrades></UnlocksUpgrades>
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+
+
+  <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>FarmAnimalsLevel1</defName>
+    <label>Small Pasture</label>
+    <description>A small pasture for breeding small contingents of livestock.</description>
+    <Level>0</Level>
+	<MaximumSupportedWorkers>5</MaximumSupportedWorkers>
+    <BaseProduction>1</BaseProduction>
+    <DaysProductionCycle>30</DaysProductionCycle>
+    <expandingTexturePath>World/WorldObjects/Expanding/Farm</expandingTexturePath>
+	<siteTexturePath>World/WorldObjects/Icon/ProductionSiteFarm1</siteTexturePath>
+    <uiIconPath>World/WorldObjects/Icon/FarmHut</uiIconPath>
+    <UnlocksUpgrades></UnlocksUpgrades>
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+
+  <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>FarmAnimalsLevel2</defName>
+    <label>Pasture</label>
+    <description>A proper pasture for herding.</description>
+    <Level>1</Level>
+	<MaximumSupportedWorkers>20</MaximumSupportedWorkers>
+    <BaseProduction>2</BaseProduction>
+    <DaysProductionCycle>30</DaysProductionCycle>
+    <expandingTexturePath>World/WorldObjects/Expanding/Farm</expandingTexturePath>
+	<siteTexturePath>World/WorldObjects/Icon/ProductionSiteFarm2</siteTexturePath>
+    <uiIconPath>World/WorldObjects/Icon/FarmHouse</uiIconPath>
+    <UnlocksUpgrades></UnlocksUpgrades>
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+
+  <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>FarmAnimalsLevel3</defName>
+    <label>Large Pastures</label>
+    <description>Multiple pastures for holding several herds of cattle.</description>
+    <Level>2</Level>
+	<MaximumSupportedWorkers>50</MaximumSupportedWorkers>
+    <BaseProduction>3</BaseProduction>
+    <DaysProductionCycle>30</DaysProductionCycle>
+    <expandingTexturePath>World/WorldObjects/Expanding/Farm</expandingTexturePath>
+	<siteTexturePath>World/WorldObjects/Icon/ProductionSiteFarm3</siteTexturePath>
+    <uiIconPath>World/WorldObjects/Icon/FarmComplex</uiIconPath>
+    <UnlocksUpgrades></UnlocksUpgrades>
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+
+  <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>FarmAnimalsLevel4</defName>
+    <label>Animal Factory</label>
+    <description>A semi-automated factory that produces livestock.</description>
+    <Level>3</Level>
+	<MaximumSupportedWorkers>100</MaximumSupportedWorkers>
+    <BaseProduction>3</BaseProduction>
+    <DaysProductionCycle>20</DaysProductionCycle>	
+	<RequiredTechLevel>Industrial</RequiredTechLevel>
+    <expandingTexturePath>World/WorldObjects/Expanding/Farm</expandingTexturePath>
+	<siteTexturePath>World/WorldObjects/Icon/ProductionSiteFarm3</siteTexturePath>
+    <uiIconPath>World/WorldObjects/Icon/FarmComplex</uiIconPath>
+    <UnlocksUpgrades></UnlocksUpgrades>
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+
+  <Corruption.ProductionSites.ProductionSiteUpgradeDef>
+    <defName>UpgradeStables</defName>
+    <label>Stables</label>
+    <Cost>
+      <ResPackBuildingMaterials>2</ResPackBuildingMaterials>
+      <ResPackFoodRations>1</ResPackFoodRations>
+    </Cost>
+  </Corruption.ProductionSites.ProductionSiteUpgradeDef>
+
+
+  <Corruption.ProductionSites.ProductionSiteUpgradeDef>
+    <defName>UpgradeAutoIrrigation</defName>
+    <label>Automatic Irrigation</label>
+    <YieldBoost>1.2</YieldBoost>
+    <Cost>
+      <ResPackBuildingMaterials>2</ResPackBuildingMaterials>
+      <ResPackFoodRations>1</ResPackFoodRations>
+      <ComponentIndustrial>20</ComponentIndustrial>
+    </Cost>
+	<IconPath>UI/Icons/LaunchPadCluster</IconPath>
+	<DrawPos>(478,268)</DrawPos>
+	<DrawSize>(162,132)</DrawSize>
+  </Corruption.ProductionSites.ProductionSiteUpgradeDef>
+  
+  
+  <Corruption.ProductionSites.ProductionSiteUpgradeDef>
+    <defName>UpgradeHydroponicsPlant</defName>
+    <label>Hydroponics Plant</label>	
+    <description>An energy-intensive system of hydroponic basins and pots, enabling the farm to grow food all year long.</description>
+	<IconPath>UI/Icons/LaunchPadCluster</IconPath>
+    <Cost>
+      <ResPackBuildingMaterials>1</ResPackBuildingMaterials>
+      <ComponentIndustrial>10</ComponentIndustrial>
+    </Cost>
+	<DrawPos>(0,124)</DrawPos>
+  </Corruption.ProductionSites.ProductionSiteUpgradeDef>
+
+  <Corruption.Domination.WorldMapBuildableDef>
+    <defName>BuildFarm</defName>
+    <label>Farm</label>
+    <description>Construct a farm here. It will yield crops and livestock.</description>
+    <WorldObjectDef>ProductionSiteFarm</WorldObjectDef>
+    <Cost>
+      <ResPackBuildingMaterials>2</ResPackBuildingMaterials>
+      <ResPackFoodRations>1</ResPackFoodRations>
+      <ComponentIndustrial>20</ComponentIndustrial>
+    </Cost>
+    <ConstructionTimeDays>7</ConstructionTimeDays>
+  </Corruption.Domination.WorldMapBuildableDef>
+
+
+  <!-- ====================== Component Factory ======================================== -->
+
+
+
+  <WorldObjectDef ParentName="ProductionSiteBase">
+    <defName>ProductionSiteSettlement</defName>
+    <label>Settlement</label>
+	    <comps>
+      <li Class="Corruption.ProductionSites.WorldObjectCompProperties_ResourceProduction">
+        <compClass>Corruption.ProductionSites.ResourceProductionCity</compClass>
+		<AssociatedSkill>Social</AssociatedSkill>
+        <Levels>
+          <li>CityLevel1</li>
+          <li>CityLevel2</li>
+          <li>CityLevel3</li>
+          <li>CityLevel4</li>
+        </Levels>		
+		<AllowedBiomes>
+		 <li>BorealForest</li>
+		 <li>TemperateForest</li>
+		 <li>TropicalRainforest</li>
+		 <li>AridShrubland</li>
+		 <li>Tundra</li>
+		</AllowedBiomes>
+	    <AllowedHilliness>
+		  <li>Flat</li>
+		  <li>SmallHills</li>
+		  <li>LargeHills</li>
+		</AllowedHilliness>
+      </li>
+      <li Class="Corruption.ProductionSites.WorldObjectCompProperties_ResourceProduction">
+        <compClass>Corruption.ProductionSites.ResourceProductionComp</compClass>
+		<AssociatedSkill>Crafting</AssociatedSkill>
+        <FixedProducts>
+          <li>
+            <thingDef>ComponentIndustrial</thingDef>
+            <yieldFactor>1.0</yieldFactor>
+          </li>
+        </FixedProducts>
+        <Levels>
+          <li>FactoryLevel1</li>
+          <li>FactoryLevel2</li>
+          <li>FactoryLevel3</li>
+          <li>FactoryLevel4</li>
+        </Levels>
+      </li>
+    </comps>
+  </WorldObjectDef>
+
+  
+  <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>CityLevel1</defName>
+    <label>Hamlet</label>
+    <description>A small collection of houses that's barely bigger than a common settlement.</description>
+    <Level>0</Level>
+	<MaximumSupportedWorkers>30</MaximumSupportedWorkers>
+    <BaseProduction>1</BaseProduction>
+    <DaysProductionCycle>60</DaysProductionCycle>
+    <expandingTexturePath>World/WorldObjects/Expanding/Town</expandingTexturePath>
+    <UnlocksUpgrades></UnlocksUpgrades>
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+
+    
+  <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>CityLevel2</defName>
+    <label>Village</label>
+    <description>A collection of houses and basic infrastructure that can support a few dozen people.</description>
+    <Level>1</Level>
+	<MaximumSupportedWorkers>100</MaximumSupportedWorkers>
+    <BaseProduction>2</BaseProduction>
+    <DaysProductionCycle>30</DaysProductionCycle>
+    <expandingTexturePath>World/WorldObjects/Expanding/Town</expandingTexturePath>
+    <UnlocksUpgrades></UnlocksUpgrades>
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+  
+    <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>CityLevel3</defName>
+    <label>Town</label>
+    <description>A collection of houses and infrastructure able to support a small industry and up to a few hundred inhabitants.</description>
+    <Level>2</Level>
+	<MaximumSupportedWorkers>500</MaximumSupportedWorkers>
+    <BaseProduction>5</BaseProduction>
+    <DaysProductionCycle>10</DaysProductionCycle>
+	<RequiredTechLevel>Industrial</RequiredTechLevel>
+    <expandingTexturePath>World/WorldObjects/Expanding/Town</expandingTexturePath>
+    <UnlocksUpgrades></UnlocksUpgrades>
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+  
+    <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>CityLevel4</defName>
+    <label>City</label>
+    <description>A sprawling settlement with several hundred inhabitants and enough infrastructure to support industrialization.</description>
+    <Level>3</Level>
+	<MaximumSupportedWorkers>1000</MaximumSupportedWorkers>
+    <BaseProduction>5</BaseProduction>
+    <DaysProductionCycle>1</DaysProductionCycle>
+	<RequiredTechLevel>Industrial</RequiredTechLevel>
+    <expandingTexturePath>World/WorldObjects/Expanding/Town</expandingTexturePath>
+    <UnlocksUpgrades></UnlocksUpgrades>
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+  
+  <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>FactoryLevel1</defName>
+    <label>Workshop</label>
+    <description>A simple workshop with some machines and tools for manufacturing.</description>
+    <Level>0</Level>
+	<MaximumSupportedWorkers>10</MaximumSupportedWorkers>
+    <BaseProduction>5</BaseProduction>
+    <DaysProductionCycle>1</DaysProductionCycle>
+	<RequiredTechLevel>Industrial</RequiredTechLevel>
+    <expandingTexturePath>World/WorldObjects/Expanding/Town</expandingTexturePath>
+    <UnlocksUpgrades></UnlocksUpgrades>
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+
+  <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>FactoryLevel2</defName>
+    <label>Small Manufactorum</label>
+    <description>A modest assembly of more advanced machines for manufacturing.</description>
+    <Level>1</Level>
+	<MaximumSupportedWorkers>30</MaximumSupportedWorkers>
+	<RequiredAltLevels>
+	 <li>CityLevel2</li>
+	</RequiredAltLevels>
+    <BaseProduction>10</BaseProduction>
+    <DaysProductionCycle>1</DaysProductionCycle>
+	<RequiredTechLevel>Industrial</RequiredTechLevel>
+    <expandingTexturePath>World/WorldObjects/Expanding/Town</expandingTexturePath>
+    <UnlocksUpgrades></UnlocksUpgrades>
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+
+  <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>FactoryLevel3</defName>
+    <label>Manufactorum</label>
+    <description>A standard manufactorum, housing several automated production lines.</description>
+    <Level>2</Level>
+	<MaximumSupportedWorkers>100</MaximumSupportedWorkers>
+    <RequiredAltLevels>
+	 <li>CityLevel3</li>
+	</RequiredAltLevels>
+    <BaseProduction>10</BaseProduction>
+    <DaysProductionCycle>1</DaysProductionCycle>
+	<RequiredTechLevel>Spacer</RequiredTechLevel>
+    <expandingTexturePath>World/WorldObjects/Expanding/Town</expandingTexturePath>
+    <UnlocksUpgrades></UnlocksUpgrades>
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+
+
+  <Corruption.ProductionSites.ProductionSiteLevelDef>
+    <defName>FactoryLevel4</defName>
+    <label>Manufactorial Hub</label>
+    <description>An entire complex of manufactorums and utility buildings.</description>
+    <Level>3</Level>
+	<MaximumSupportedWorkers>1000</MaximumSupportedWorkers>
+    <RequiredAltLevels>
+	 <li>CityLevel4</li>
+	</RequiredAltLevels>
+    <BaseProduction>10</BaseProduction>
+    <DaysProductionCycle>1</DaysProductionCycle>
+	<RequiredTechLevel>Spacer</RequiredTechLevel>
+    <expandingTexturePath>World/WorldObjects/Expanding/Town</expandingTexturePath>
+    <UnlocksUpgrades></UnlocksUpgrades>
+  </Corruption.ProductionSites.ProductionSiteLevelDef>
+
+  <Corruption.ProductionSites.ProductionSiteUpgradeDef>
+    <defName>UpgradeChemfuelRefinery</defName>
+    <label>Chemfuel Refinery</label>
+    <extraProduct>
+      <thingDef>Chemfuel</thingDef>
+      <yieldFactor>10.0</yieldFactor>
+    </extraProduct>
+    <Cost>
+      <ResPackBuildingMaterials>1</ResPackBuildingMaterials>
+      <ResPackFoodRations>1</ResPackFoodRations>
+      <ComponentIndustrial>10</ComponentIndustrial>
+    </Cost>
+  </Corruption.ProductionSites.ProductionSiteUpgradeDef>
+
+  <Corruption.ProductionSites.ProductionSiteUpgradeDef>
+    <defName>UpgradeComponentsFabrication</defName>
+    <label>Component Fabrication</label>
+    <extraProduct>
+      <thingDef>ComponentIndustrial</thingDef>
+      <yieldFactor>10.0</yieldFactor>
+    </extraProduct>
+    <Cost>
+      <ResPackBuildingMaterials>3</ResPackBuildingMaterials>
+      <ResPackFoodRations>1</ResPackFoodRations>
+      <ComponentIndustrial>30</ComponentIndustrial>
+    </Cost>
+  </Corruption.ProductionSites.ProductionSiteUpgradeDef>
+
+  <Corruption.ProductionSites.ProductionSiteUpgradeDef>
+    <defName>UpgradeSynthAgentRefinery</defName>
+    <label>SynthAgent Refinery</label>
+    <extraProduct>
+      <thingDef>IG_SynthAgent</thingDef>
+      <yieldFactor>10.0</yieldFactor>
+    </extraProduct>
+    <Cost>
+      <ResPackBuildingMaterials>3</ResPackBuildingMaterials>
+      <ResPackFoodRations>1</ResPackFoodRations>
+      <ComponentIndustrial>30</ComponentIndustrial>
+    </Cost>
+  </Corruption.ProductionSites.ProductionSiteUpgradeDef>
+
+  <Corruption.ProductionSites.ProductionSiteUpgradeDef>
+    <defName>UpgradeParmaceuticProduction</defName>
+    <label>Pharmaceutic Plant</label>
+    <extraProduct>
+      <thingDef>MedicineIndustrial</thingDef>
+      <yieldFactor>0.5</yieldFactor>
+    </extraProduct>
+    <Cost>
+      <ResPackBuildingMaterials>3</ResPackBuildingMaterials>
+      <ResPackFoodRations>1</ResPackFoodRations>
+      <ComponentIndustrial>30</ComponentIndustrial>
+    </Cost>
+  </Corruption.ProductionSites.ProductionSiteUpgradeDef>
+
+  <Corruption.Domination.WorldMapBuildableDef>
+    <defName>BuildFactory</defName>
+    <label>Component Factory</label>
+    <description>Construct a factory here. It will yield components and similar technical products.</description>
+    <WorldObjectDef></WorldObjectDef>
+    <Cost>
+      <ResPackBuildingMaterials>3</ResPackBuildingMaterials>
+      <ResPackFoodRations>2</ResPackFoodRations>
+      <ComponentIndustrial>100</ComponentIndustrial>
+    </Cost>
+    <ConstructionTimeDays>30</ConstructionTimeDays>
+  </Corruption.Domination.WorldMapBuildableDef>
+
+</Defs>

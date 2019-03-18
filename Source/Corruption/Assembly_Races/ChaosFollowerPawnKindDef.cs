@@ -10,7 +10,7 @@ namespace Corruption
     public class ChaosFollowerPawnKindDef : PawnKindDef
     {
         public AfflictionProperty AfflictionProperty;
-
+        
         public bool RenamePawns = false;
 
         public bool UseFixedGender = false;
@@ -26,6 +26,8 @@ namespace Corruption
         public List<HediffDef> DisallowedStartingHediffs = new List<HediffDef>();
 
         public List<RecipeDef> ForcedStartingImplantRecipes = new List<RecipeDef>();
+
+        public bool IsServitor;
     }   
     
 }

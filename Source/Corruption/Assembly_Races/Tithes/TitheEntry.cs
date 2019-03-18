@@ -5,6 +5,7 @@ using System.Text;
 using RimWorld;
 using Verse;
 using UnityEngine;
+using Corruption.IoM;
 
 namespace Corruption.Tithes
 {
@@ -16,7 +17,7 @@ namespace Corruption.Tithes
         {
             this.requestedTitheAmount = (int)TitheUtilities.TaxCalculation(50000);
             this.titheDef = DefDatabase<TitheDef>.GetRandom();
-   //         this.ID = CorruptionStoryTrackerUtilities.currentStoryTracker.GetTitheID();
+   //         this.ID = CFind.StoryTracker.GetTitheID();
         }
 
         public TitheEntryGlobal(TitheDef titheDef, float requestedAmount)
@@ -24,7 +25,7 @@ namespace Corruption.Tithes
             this.titheDef = titheDef;
             this.requestedTitheAmount = (int)requestedAmount;
             GetTitheItemdefs();
-            this.ID = CorruptionStoryTrackerUtilities.currentStoryTracker.GetTitheID();
+            this.ID = CFind.StoryTracker.GetTitheID();
         }        
 
         public TitheDef titheDef;
@@ -64,10 +65,19 @@ namespace Corruption.Tithes
             for (int j = 0; j < list.Count; j++)
             {
                 TitheContainer current = (TitheContainer)list[j];
+                ThingOwner currentThings = current.GetDirectlyHeldThings();
                 for (int k = 0; k < this.thingDefs.Count; k++)
                 {
-                    int items = current.GetInnerContainer().TotalStackCountOfDef(thingDefs[k]);
+                    int items = currentThings.TotalStackCountOfDef(thingDefs[k]);
                     num += items * thingDefs[k].BaseMarketValue;
+                }
+                for (int l = 0; l < currentThings.Count; l++)
+                {
+                    ResourcePack resPack = currentThings[l] as ResourcePack;
+                    if (resPack != null)
+                    {
+                        num += resPack.TotalValue;
+                    }
                 }
             }
 
@@ -93,10 +103,9 @@ namespace Corruption.Tithes
 
         public void ExposeData()
         {
-            Scribe_Defs.LookDef<TitheDef>(ref this.titheDef, "titheDef");
-            Scribe_Values.LookValue<float>(ref this.requestedTitheAmount, "requestedTitheAmount", 1000, true);
-          //  Scribe_Values.LookValue<float>(ref this.collectedTitheAmount, "collectedTitheAmount", 0, true);
-            Scribe_Values.LookValue<int>(ref this.ID, "ID", 0, true);
+            Scribe_Defs.Look<TitheDef>(ref this.titheDef, "titheDef");
+            Scribe_Values.Look<float>(ref this.requestedTitheAmount, "requestedTitheAmount", 1000, true);
+            Scribe_Values.Look<int>(ref this.ID, "ID", 0, true);
         }
 
         public string GetUniqueLoadID()

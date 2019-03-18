@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
-  <ThingDef ParentName="ApparelMakeableBase">
+  <ThingDef ParentName="IGArmorMakeable">
     <thingClass>FactionColors.ApparelComposite</thingClass>
     <defName>IoM_Apparel_LeathArmor</defName>
     <description>A heavy leather robe, reinforced with steel.</description>
@@ -25,18 +25,20 @@
       <Steel>75</Steel>
     </costList>
     <statBases>
+      <Mass>12</Mass>
       <MarketValue>600</MarketValue>
       <MaxHitPoints>360</MaxHitPoints>
       <WorkToMake>90000</WorkToMake>
       <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
       <ArmorRating_Heat>0.1</ArmorRating_Heat>
-      <Insulation_Cold>-15</Insulation_Cold>
+      <Insulation_Cold>15</Insulation_Cold>
       <Insulation_Heat>15</Insulation_Heat>
     </statBases>
     <equippedStatOffsets>
       <MoveSpeed>-0.04</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -44,11 +46,10 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/IoM/LeatherRobe/LeatherRobe</worngraphicPath>
+      <wornGraphicPath>Things/IoM/LeatherRobe/LeatherRobe</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>IoM_Apparel</li>
       </tags>
@@ -135,18 +136,20 @@
     </costList>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>12</Mass>
       <MarketValue>900</MarketValue>
       <MaxHitPoints>360</MaxHitPoints>
       <WorkToMake>90000</WorkToMake>
       <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.3</ArmorRating_Sharp>
       <ArmorRating_Heat>0.1</ArmorRating_Heat>
-      <Insulation_Cold>-15</Insulation_Cold>
+      <Insulation_Cold>15</Insulation_Cold>
       <Insulation_Heat>15</Insulation_Heat>
     </statBases>
     <equippedStatOffsets>
       <MoveSpeed>-0.04</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -154,11 +157,10 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/IoM/InquisitorRobe/InquisitorRobe</worngraphicPath>
+      <wornGraphicPath>Things/IoM/InquisitorRobe/InquisitorRobe</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>IoM_Inquisition</li>
       </tags>
@@ -240,27 +242,28 @@
     </thingCategories>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>1</Mass>
       <MarketValue>100</MarketValue>
       <MaxHitPoints>120</MaxHitPoints>
       <WorkToMake>50000</WorkToMake>
       <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
       <ArmorRating_Heat>0.1</ArmorRating_Heat>
-      <Insulation_Cold>-10</Insulation_Cold>
+      <Insulation_Cold>10</Insulation_Cold>
       <Insulation_Heat>10</Insulation_Heat>
     </statBases>
     <equippedStatOffsets>
       <MoveSpeed>-0.04</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>UpperHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/IoM/Hats/WitchHunterHat</worngraphicPath>
+      <wornGraphicPath>Things/IoM/Hats/WitchHunterHat</wornGraphicPath>
       <layers>
         <li>Overhead</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>IoM_Inquisition</li>
       </tags>
@@ -275,7 +278,7 @@
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="ApparelMakeableBase">
+  <ThingDef ParentName="IGApparelMakeable">
     <thingClass>FactionColors.ApparelComposite</thingClass>
     <defName>IoM_Apparel_RobeGen</defName>
     <description>A simple robe, commonplace in the Galaxy.</description>
@@ -297,19 +300,21 @@
       <li>Apparel</li>
     </thingCategories>
     <tradeability>Sellable</tradeability>
-    <statBases>      
+    <statBases>
+      <Mass>3</Mass>      
 	<MarketValue>50</MarketValue>
       <MaxHitPoints>150</MaxHitPoints>
       <WorkToMake>50000</WorkToMake>
       <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
       <ArmorRating_Heat>0.1</ArmorRating_Heat>
-      <Insulation_Cold>-15</Insulation_Cold>
+      <Insulation_Cold>15</Insulation_Cold>
       <Insulation_Heat>15</Insulation_Heat>
     </statBases>
     <equippedStatOffsets>
       <MoveSpeed>-0.04</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -317,11 +322,10 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/IoM/RobeGeneric/RobeGeneric</worngraphicPath>
+      <wornGraphicPath>Things/IoM/RobeGeneric/RobeGeneric</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>1</commonality>
       <tags>
         <li>IoM_Apparel</li>
       </tags>
@@ -358,7 +362,7 @@
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="ArmorMakeableBase">
+  <ThingDef ParentName="IGArmorMakeable">
     <defName>IoM_CarapaceArmor</defName>
     <label>carapace armor</label>
     <description>Imperial armor made up by overlapping plates of advanced composite materials. Very heavy, but protective.</description>
@@ -373,13 +377,14 @@
     </graphicData>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>11</Mass>
       <WorkToMake>100000</WorkToMake>
       <MaxHitPoints>300</MaxHitPoints>
       <MarketValue>1500</MarketValue>
       <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.45</ArmorRating_Sharp>
       <ArmorRating_Heat>0.20</ArmorRating_Heat>
-      <Insulation_Cold>-25</Insulation_Cold>
+      <Insulation_Cold>25</Insulation_Cold>
     </statBases>
     <equippedStatOffsets>
       <MoveSpeed>-0.10</MoveSpeed>
@@ -389,13 +394,14 @@
       <li>Apparel</li>
     </thingCategories>
     <costList>
-      <Component>3</Component>
-      <Plasteel>20</Plasteel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+      <Plasteel>25</Plasteel>
     </costList>
     <stuffCategories>
       <li>AdvancedAlloy</li>
     </stuffCategories>
     <costStuffCount>100</costStuffCount>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
@@ -403,11 +409,10 @@
         <li>Arms</li>
         <li>Legs</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/IoM/Arbites/ArbitesArmor</worngraphicPath>
+      <wornGraphicPath>Things/IoM/Arbites/ArbitesArmor</wornGraphicPath>
       <layers>
         <li>Middle</li>
       </layers>
-      <commonality>0.1</commonality>
       <tags>
         <li>IG_Commissar</li>
         <li>IG_VetApp</li>
@@ -432,7 +437,7 @@
 
   </ThingDef>
 
-  <ThingDef ParentName="ArmorMakeableBase">
+  <ThingDef ParentName="IGArmorMakeable">
     <defName>IoM_CarapaceHelmet</defName>
     <label>carapace helmet</label>
     <description>Imperial helmet made up by plates of advanced materials. Very heavy, but protective.</description>
@@ -447,13 +452,14 @@
     </graphicData>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>6</Mass>
       <WorkToMake>70000</WorkToMake>
       <MaxHitPoints>200</MaxHitPoints>
       <MarketValue>700</MarketValue>
       <ArmorRating_Blunt>0.3</ArmorRating_Blunt>
       <ArmorRating_Sharp>0.5</ArmorRating_Sharp>
       <ArmorRating_Heat>0.20</ArmorRating_Heat>
-      <Insulation_Cold>-25</Insulation_Cold>
+      <Insulation_Cold>25</Insulation_Cold>
     </statBases>
     <equippedStatOffsets>
       <MoveSpeed>-0.05</MoveSpeed>
@@ -463,23 +469,22 @@
       <li>Apparel</li>
     </thingCategories>
     <costList>
-      <Component>1</Component>
+      <ComponentIndustrial>1</ComponentIndustrial>
       <Plasteel>15</Plasteel>
     </costList>
     <stuffCategories>
       <li>AdvancedAlloy</li>
     </stuffCategories>
-    <costStuffCount>75</costStuffCount>
+    <costStuffCount>30</costStuffCount>
+	<generateCommonality>2</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>UpperHead</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/IoM/Arbites/ArbitesHelmet</worngraphicPath>
+      <wornGraphicPath>Things/IoM/Arbites/ArbitesHelmet</wornGraphicPath>
       <layers>
         <li>Overhead</li>
-      </layers>
-      <commonality>0.1</commonality>
-      <tags>
+      </layers>      <tags>
         <li>IG_Commissar</li>
         <li>IG_VetApp</li>
       </tags>
@@ -489,170 +494,7 @@
     </apparel>
   </ThingDef>
 
-  <ThingDef ParentName="ArmorMakeableBase">
-    <defName>Apparel_PowerArmor</defName>
-    <label>power armor</label>
-    <description>Powered armor based on the Ignatius pattern. Usually reserved for high Imperial officials and those wealthy enough to pay for them. Very difficult to produce.</description>
-    <techLevel>Spacer</techLevel>
-    <recipeMaker>
-      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
-      <researchPrerequisite>PoweredArmor</researchPrerequisite>
-    </recipeMaker>
-    <graphicData>
-      <texPath>Things/Pawn/Humanlike/Apparel/PowerArmor/PowerArmor</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <statBases>
-      <WorkToMake>10000</WorkToMake>
-      <MaxHitPoints>400</MaxHitPoints>
-      <MarketValue>4500</MarketValue>
-      <Mass>15</Mass>
-      <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
-      <ArmorRating_Sharp>0.65</ArmorRating_Sharp>
-      <ArmorRating_Heat>0.30</ArmorRating_Heat>
-      <Insulation_Cold>-45</Insulation_Cold>
-    </statBases>
-    <equippedStatOffsets>
-      <MoveSpeed>-0.10</MoveSpeed>
-      <WorkSpeedGlobal>-0.10</WorkSpeedGlobal>
-    </equippedStatOffsets>
-    <thingCategories>
-      <li>Apparel</li>
-    </thingCategories>
-    <costList>
-      <PowerArmorTemplate>1</PowerArmorTemplate>
-    </costList>
-    <apparel>
-      <bodyPartGroups>
-        <li>Torso</li>
-        <li>Shoulders</li>
-        <li>Arms</li>
-        <li>Legs</li>
-      </bodyPartGroups>
-      <worngraphicPath>Things/Pawn/Humanlike/Apparel/PowerArmor/PowerArmor</worngraphicPath>
-      <layers>
-        <li>Middle</li>
-        <li>Shell</li>
-      </layers>
-      <commonality>2</commonality>
-      <tags>
-        <li>Outlander</li>
-        <li>Spacer</li>
-        <li>Military</li>
-      </tags>
-      <defaultOutfitTags>
-        <li>Soldier</li>
-      </defaultOutfitTags>
-    </apparel>
-    <colorGenerator Class="ColorGenerator_Options">
-      <options>
-        <li>
-          <weight>10</weight>
-          <only>RGBA(0.33,0.33,0.33,1)</only>
-        </li>
-        <li>
-          <weight>10</weight>
-          <only>RGBA(0.65,0.65,0.65,1)</only>
-        </li>
-        <li>
-          <weight>6</weight>
-          <min>RGBA(0.3,0.3,0.3,1)</min>
-          <max>RGBA(0.5,0.5,0.5,1)</max>
-        </li>
-        <li>
-          <weight>10</weight>
-          <only>RGBA(0.9,0.9,0.9,1)</only>
-        </li>
-      </options>
-    </colorGenerator>
-    <comps>
-      <li Class="FactionColors.CompProperties_PauldronDrawer">
-        <compClass>FactionColors.CompPauldronDrawer</compClass>
-        <PauldronEntries>
-		<li>
-        	 <shoulderPadType>Both</shoulderPadType>
-  		 <shaderType>Cutout</shaderType>
-    		 <padTexPath>Things/IoM/PadsArmored/PadArmored</padTexPath>
-  		 <commonality>10</commonality>
-		</li>
-        </PauldronEntries>      </li>
-    </comps>
-
-  </ThingDef>
-
-  <ThingDef ParentName="ArmorHelmetMakeableBase">
-    <defName>Apparel_PowerArmorHelmet</defName>
-    <label>power armor helmet</label>
-    <description>A part of a Power Armor set. Very rare and difficult to produce.</description>
-    <techLevel>Spacer</techLevel>
-    <recipeMaker>
-      <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
-      <researchPrerequisite>PoweredArmor</researchPrerequisite>
-    </recipeMaker>
-    <graphicData>
-      <texPath>Things/IoM/PowerArmor/PowerArmorHelmet</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <statBases>
-      <WorkToMake>40000</WorkToMake>
-      <MaxHitPoints>160</MaxHitPoints>
-      <MarketValue>2000</MarketValue>
-      <Mass>2.7</Mass>
-      <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
-      <ArmorRating_Sharp>0.6</ArmorRating_Sharp>
-      <ArmorRating_Heat>0.5</ArmorRating_Heat>
-      <ArmorRating_Electric>0</ArmorRating_Electric>
-      <Insulation_Cold>-3</Insulation_Cold>
-      <Insulation_Heat>3</Insulation_Heat>
-    </statBases>
-    <equippedStatOffsets>
-      <MoveSpeed>-0.04</MoveSpeed>
-    </equippedStatOffsets>
-    <costList>
-      <Component>5</Component>
-      <MecComponent_General>2</MecComponent_General>
-      <Ceramite>70</Ceramite>
-    </costList>
-    <apparel>
-      <bodyPartGroups>
-        <li>FullHead</li>
-      </bodyPartGroups>
-      <worngraphicPath>Things/IoM/PowerArmor/PowerArmorHelmet</worngraphicPath>
-      <layers>
-        <li>Overhead</li>
-      </layers>
-      <commonality>2</commonality>
-      <tags>
-        <li>Military</li>
-      </tags>
-      <defaultOutfitTags>
-        <li>Soldier</li>
-      </defaultOutfitTags>
-    </apparel>
-    <colorGenerator Class="ColorGenerator_Options">
-      <options>
-        <li>
-          <weight>10</weight>
-          <only>RGBA(0.33,0.33,0.33,1)</only>
-        </li>
-        <li>
-          <weight>10</weight>
-          <only>RGBA(0.65,0.65,0.65,1)</only>
-        </li>
-        <li>
-          <weight>6</weight>
-          <min>RGBA(0.3,0.3,0.3,1)</min>
-          <max>RGBA(0.5,0.5,0.5,1)</max>
-        </li>
-        <li>
-          <weight>10</weight>
-          <only>RGBA(0.9,0.9,0.9,1)</only>
-        </li>
-      </options>
-    </colorGenerator>
-  </ThingDef>
-
-  <ThingDef ParentName="ApparelMakeableBase">
+  <ThingDef ParentName="IGApparelMakeable">
     <defName>CoatNoble</defName>
     <label>noble coat</label>
     <description>An embroidered coat with shoulderpads, usually worn by nobles and high ranking officials.</description>
@@ -677,22 +519,22 @@
       <Mass>2.7</Mass>
       <ArmorRating_Sharp>0.09</ArmorRating_Sharp>
       <ArmorRating_Heat>0.04</ArmorRating_Heat>
-      <Insulation_Cold>-15</Insulation_Cold>
+      <Insulation_Cold>15</Insulation_Cold>
     </statBases>
     <equippedStatOffsets>
       <MoveSpeed>-0.03</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
         <li>Shoulders</li>
         <li>Arms</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/IoM/NobleCoat/CoatNoble</worngraphicPath>
+      <wornGraphicPath>Things/IoM/NobleCoat/CoatNoble</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>0.1</commonality>
       <tags>
         <li>Noble</li>
       </tags>
@@ -741,7 +583,7 @@
     </comps>
   </ThingDef>
 
-  <ThingDef ParentName="ApparelMakeableBase">
+  <ThingDef ParentName="IGApparelMakeable">
     <defName>CoatOfficer</defName>
     <label>officer coat</label>
     <description>An embroidered coat with shoulderpads, usually worn by military officials.</description>
@@ -766,22 +608,22 @@
       <Mass>2.7</Mass>
       <ArmorRating_Sharp>0.09</ArmorRating_Sharp>
       <ArmorRating_Heat>0.04</ArmorRating_Heat>
-      <Insulation_Cold>-15</Insulation_Cold>
+      <Insulation_Cold>15</Insulation_Cold>
     </statBases>
     <equippedStatOffsets>
       <MoveSpeed>-0.03</MoveSpeed>
     </equippedStatOffsets>
+	<generateCommonality>1</generateCommonality>
     <apparel>
       <bodyPartGroups>
         <li>Torso</li>
         <li>Shoulders</li>
         <li>Arms</li>
       </bodyPartGroups>
-      <worngraphicPath>Things/IoM/AdmiralCoat/CoatAdmiral</worngraphicPath>
+      <wornGraphicPath>Things/IoM/AdmiralCoat/CoatAdmiral</wornGraphicPath>
       <layers>
         <li>Shell</li>
       </layers>
-      <commonality>0.1</commonality>
       <tags>
         <li>IoM_Officer</li>
       </tags>
@@ -829,60 +671,4 @@
       </li>
     </comps>
   </ThingDef>
-
-  <ThingDef ParentName="ApparelMakeableBase">
-    <defName>IoM_Apparel_RobeWanderer</defName>
-    <description>A simple robe, commonplace in the Galaxy.</description>
-    <label>wanderer's robe</label>
-    <recipeMaker>
-      <researchPrerequisite>ComplexClothing</researchPrerequisite>
-    </recipeMaker>
-    <graphicData>
-      <texPath>Things/IoM/WandererRobe/LC_Icon</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <shaderType>CutoutComplex</shaderType>
-    </graphicData>
-    <costStuffCount>75</costStuffCount>
-    <stuffCategories>
-      <li>Leathery</li>
-      <li>Fabric</li>
-    </stuffCategories>
-    <thingCategories>
-      <li>Apparel</li>
-    </thingCategories>
-    <tradeability>Sellable</tradeability>
-    <statBases>      
-	<MarketValue>50</MarketValue>
-      <MaxHitPoints>150</MaxHitPoints>
-      <WorkToMake>50000</WorkToMake>
-      <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
-      <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
-      <ArmorRating_Heat>0.1</ArmorRating_Heat>
-      <Insulation_Cold>-15</Insulation_Cold>
-      <Insulation_Heat>15</Insulation_Heat>
-    </statBases>
-    <equippedStatOffsets>
-      <MoveSpeed>-0.04</MoveSpeed>
-    </equippedStatOffsets>
-    <apparel>
-      <bodyPartGroups>
-        <li>Torso</li>
-        <li>Shoulders</li>
-        <li>Arms</li>
-        <li>Legs</li>
-      </bodyPartGroups>
-      <worngraphicPath>Things/IoM/WandererRobe/LC</worngraphicPath>
-      <layers>
-        <li>Shell</li>
-      </layers>
-      <commonality>1</commonality>
-      <tags>
-        <li>IoM_Apparel</li>
-      </tags>
-      <defaultOutfitTags>
-        <li>Worker</li>
-      </defaultOutfitTags>
-    </apparel>
-  </ThingDef>
-
-</ThingDefs>
+</Defs>

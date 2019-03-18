@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+   <Corruption.Missions.MissionDef>
+    <defName>BountyMissionI</defName>
+    <missionClass>Corruption.Missions.Mission</missionClass>
+    <label>Dead or Alive I</label>
+    <description>You are to eliminate a certain figure walking somewhere on the surface of this world.Step 1: Find the target.</description>
+    <GiverFaction>IoM_NPCFaction</GiverFaction>
+    <StartingMission>false</StartingMission>
+	<NeedsTarget>true</NeedsTarget>
+	<RewardMode>SupplyShip</RewardMode>
+    <PerequisiteMissions>      
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>SilverRewardSmall</li>
+    </RewardedSupplies>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>	
+		<li>PlayerColony</li>	
+		<li>PlayerTribe</li>		
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef>  
+
+   <Corruption.Missions.MissionDef>
+    <defName>BountyMissionII</defName>
+    <missionClass>Corruption.Missions.Mission</missionClass>
+    <label>Dead or Alive II</label>
+    <description>You are to eliminate a certain figure walking somewhere on the surface of this world. You found them, now eliminate the target.</description>
+    <GiverFaction>IoM_NPCFaction</GiverFaction>
+    <StartingMission>false</StartingMission>
+	<NeedsTarget>true</NeedsTarget>
+	<RewardMode>SupplyShip</RewardMode>
+    <PerequisiteMissions>      
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>SilverRewardBig</li>
+    </RewardedSupplies>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>	
+		<li>PlayerColony</li>	
+		<li>PlayerTribe</li>		
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef>  
+
+  
+   <Corruption.Missions.MissionDef>
+    <defName>RecoverArtifact</defName>
+    <missionClass>Corruption.Missions.Mission</missionClass>
+    <label>Recover Artifact</label>
+    <description>There are rumours of an artifact that's been unearthed somewhere on this planet. Verify the rumours and secure the artifact in the name of your Emperor.</description>
+    <GiverFaction>IoM_Ecclesiarchy</GiverFaction>
+    <StartingMission>false</StartingMission>
+	<RewardMode>SupplyShip</RewardMode>
+    <PerequisiteMissions>      
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>SilverRewardSmall</li>
+    </RewardedSupplies>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>	
+		<li>PlayerColony</li>	
+		<li>PlayerTribe</li>		
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef>
+  
+   <Corruption.Missions.MissionDef>
+    <defName>RecoverRelic</defName>
+    <missionClass>Corruption.Missions.Mission</missionClass>
+    <label>Recover Relic</label>
+    <description>A technological relic has been discovered. Find it before others do, place a teleport beacon so it may be savely carried off world to be studied.</description>
+    <GiverFaction>Mechanicus</GiverFaction>
+    <StartingMission>false</StartingMission>
+	<RewardMode>SupplyShip</RewardMode>
+    <PerequisiteMissions>      
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>SilverRewardSmall</li>
+    </RewardedSupplies>	
+    <ReputationReward>10</ReputationReward>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>	
+		<li>PlayerColony</li>	
+		<li>PlayerTribe</li>		
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef>
+  
+   <Corruption.Missions.MissionDef>
+    <defName>DestroySettlement</defName>
+    <missionClass>Corruption.Missions.Mission</missionClass>
+    <label>Destroy settlement</label>
+    <description>You have been tasked to eradicate a specific enemy settlement.</description>
+    <GiverFaction>ImperialGuard</GiverFaction>
+    <StartingMission>false</StartingMission>
+	<RewardMode>SupplyShip</RewardMode>
+    <PerequisiteMissions>      
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <ReputationReward>5</ReputationReward>
+    <RewardedSupplies>
+      <li>SilverRewardBig</li>
+    </RewardedSupplies>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>	
+		<li>PlayerColony</li>	
+		<li>PlayerTribe</li>		
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef>
+  
+   <Corruption.Missions.MissionDef>
+    <defName>TributeRandom</defName>
+    <missionClass>Corruption.Missions.TributeMission</missionClass>
+    <label>Pay Tribute</label>
+    <description>You have been tasked to pay tribute to a faction.</description>
+    <GiverFaction>ImperialGuard</GiverFaction>
+    <StartingMission>false</StartingMission>
+	<RewardMode>SupplyShip</RewardMode>
+    <PerequisiteMissions>      
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <ReputationReward>5</ReputationReward>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>	
+		<li>PlayerColony</li>	
+		<li>PlayerTribe</li>		
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef>
+  
+   <Corruption.Missions.MissionDef>
+    <defName>AidResources</defName>
+    <missionClass>Corruption.Missions.TributeMission</missionClass>
+    <label>Resource aid</label>
+    <description>A faction has asked for help out with some desperately needed resources.</description>
+    <GiverFaction>OutlanderCivil</GiverFaction>
+    <StartingMission>false</StartingMission>
+    <ReputationReward>15</ReputationReward>
+    <RewardedResearch>
+    </RewardedResearch>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>	
+		<li>PlayerColony</li>	
+		<li>PlayerTribe</li>		
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef>
+</Defs>

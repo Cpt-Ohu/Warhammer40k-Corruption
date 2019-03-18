@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+
+  <IoMAlliance>Imperium of Man</IoMAlliance>
+
+  <ChaosAlliance>Forces of Chaos</ChaosAlliance>
+  <ConflictCasualties>Total casualties: {0} pawns</ConflictCasualties>
+  <WarWeariness>Weariness</WarWeariness>
+  <MainStoryConflict>The Great War</MainStoryConflict>
+  
+  
+
+</LanguageData>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+   <Corruption.Missions.MissionDef>
+    <defName>FindChaosCultI</defName>
+    <missionClass>Corruption.Missions.Mission</missionClass>
+    <label>The Great War: Signs of Chaos</label>
+    <description>Search the world map for any sign of Heretical activities.</description>
+    <GiverFaction>IoM_Administratum</GiverFaction>
+    <StartingMission>false</StartingMission>
+	<RewardMode>SupplyShip</RewardMode>
+    <PerequisiteMissions>      
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+	<FollowUpMissions> 
+		<li>FindChaosCultII</li>
+    </FollowUpMissions>
+    <RewardedSupplies>
+      <li>SilverRewardSmall</li>
+    </RewardedSupplies>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>		
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef>
+  
+     <Corruption.Missions.MissionDef>
+    <defName>FindChaosCultII</defName>
+    <missionClass>Corruption.Missions.Mission</missionClass>
+    <label>The Great War: Prepare for War</label>
+    <description>With the enemy present, war is inevitable. Prepare for open conflict by mustering troops and calling in the Inquisition.</description>
+    <GiverFaction>IoM_Administratum</GiverFaction>
+    <StartingMission>false</StartingMission>
+	<RewardMode>SupplyShip</RewardMode>
+    <PerequisiteMissions> 
+		<li>FindChaosCultI</li>
+    </PerequisiteMissions>
+    <RewardedResearch>
+    </RewardedResearch>
+    <RewardedSupplies>
+      <li>GoldReward</li>
+    </RewardedSupplies>
+	<AllowedPlayerFactions>
+		<li>IoM_PlayerFaction</li>		
+	</AllowedPlayerFactions>
+  </Corruption.Missions.MissionDef>
+
+
+</Defs>

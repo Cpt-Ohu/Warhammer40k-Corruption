@@ -11,11 +11,13 @@ namespace Corruption.Worship
 {
     public class LordJob_Sermon : LordJob
     {
+        public const int ticksToTimeout = 5000;
+
         public LordJob_Sermon()
         {
         }
 
-        public LordJob_Sermon(BuildingAltar altar, bool isMorningPrayer = true)
+        public LordJob_Sermon(BuildingAltar altar, WorshipActType worshipType)
         {
             this.altar = altar;
             if (this.altar != null)
@@ -26,10 +28,10 @@ namespace Corruption.Worship
             {
                 this.initialPosition = IntVec3.Invalid;
             }
-            this.isMorningPrayer = isMorningPrayer;
+            this.worshipType = worshipType;
         }
 
-        private bool isMorningPrayer = true;
+        private WorshipActType worshipType;
 
         public BuildingAltar altar;
 
@@ -45,12 +47,28 @@ namespace Corruption.Worship
             }
         }
 
-        private string MorningPrayerString
+        private string SermonMessageString
         {
             get
             {
-                if (this.isMorningPrayer) return "MorningPrayer".Translate();
-                return "EveningPrayer".Translate();
+                switch(this.worshipType)
+                {
+                    case WorshipActType.MorningPrayer:
+                        {
+                            return "MorningPrayer".Translate();
+                        }
+
+                    case WorshipActType.EveningPrayer:
+                        {
+                            return "EveningPrayer".Translate();
+                        }
+
+                    case WorshipActType.Confession:
+                        {
+                            return "PreacherConfession".Translate();
+                        }
+                }
+                return "";
             }
         }
 
@@ -61,12 +79,13 @@ namespace Corruption.Worship
             string message = "StartedSermonMessage".Translate(new object[]
                 {
                 this.Preacher.Name,
-                this.MorningPrayerString,
+                this.SermonMessageString,
                 this.altar.RoomName
             });
-            Messages.Message(message, this.altar, MessageSound.Negative);
+            Messages.Message(message, this.altar, MessageTypeDefOf.PositiveEvent);
             StateGraph stateGraph = new StateGraph();
-            LordToil startingToil = stateGraph.AttachSubgraph(new LordJob_Travel(this.initialPosition).CreateGraph()).StartingToil;
+            LordToil startingToil = new LordToil_TravelUrgent(this.altar.Position);
+            stateGraph.AddToil(startingToil);
             stateGraph.StartingToil = startingToil;
             LordToil_StartSermom sermonToil = new LordToil_StartSermom(this.Preacher, this.altar);
             stateGraph.AddToil(sermonToil);
@@ -77,13 +96,15 @@ namespace Corruption.Worship
             stateGraph.AddToil(lordToil_End);
             Transition failedTransition = new Transition(startingToil, lordToil_End);
             failedTransition.AddSource(sermonToil);
+            failedTransition.AddTrigger(new Trigger_TicksPassed(ticksToTimeout));
             failedTransition.AddTrigger(new Trigger_TickCondition(() => this.ShouldBeCalledOff()));
             failedTransition.AddTrigger(new Trigger_PawnLostViolently());
-            failedTransition.AddPreAction(new TransitionAction_Message("MessageSermonInterrupted".Translate(), MessageSound.Negative, new TargetInfo(this.altar.Position, base.Map, false)));
+            failedTransition.AddPreAction(new TransitionAction_Message("MessageSermonInterrupted".Translate(), MessageTypeDefOf.NegativeEvent, new TargetInfo(this.altar.Position, base.Map, false)));
             stateGraph.AddTransition(failedTransition);
             Transition transition2 = new Transition(sermonToil, lordToil_End);
             transition2.AddTrigger(new Trigger_TickCondition(() => !this.altar.activeSermon));
-            transition2.AddPreAction(new TransitionAction_Message("MessageSermonFinished".Translate(), MessageSound.Negative, new TargetInfo(this.altar.Position, base.Map, false)));
+            transition2.AddTrigger(new Trigger_TicksPassed(ticksToTimeout));
+            transition2.AddPreAction(new TransitionAction_Message("MessageSermonFinished".Translate(), MessageTypeDefOf.NegativeEvent, new TargetInfo(this.altar.Position, base.Map, false)));
 
             stateGraph.AddTransition(transition2);
             return stateGraph;
@@ -91,15 +112,15 @@ namespace Corruption.Worship
 
         private bool ShouldBeCalledOff()
         {
-            return !PartyUtility.AcceptableMapConditionsToContinueParty(base.Map) || (!this.altar.Position.Roofed(base.Map) && !JoyUtility.EnjoyableOutsideNow(base.Map, null));
+            return !PartyUtility.AcceptableGameConditionsToContinueParty(base.Map) || (!this.altar.Position.Roofed(base.Map) && !JoyUtility.EnjoyableOutsideNow(base.Map, null));
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_References.LookReference<BuildingAltar>(ref this.altar, "altar");
-            Scribe_Values.LookValue<IntVec3>(ref this.initialPosition, "initialPosition", IntVec3.Zero);
-            Scribe_Values.LookValue<bool>(ref this.isMorningPrayer, "isMorningPrayer", false);
+            Scribe_References.Look<BuildingAltar>(ref this.altar, "altar");
+            Scribe_Values.Look<IntVec3>(ref this.initialPosition, "initialPosition", IntVec3.Zero);
+            Scribe_Values.Look<WorshipActType>(ref this.worshipType, "worshipType", 0);
         }
     }
 }

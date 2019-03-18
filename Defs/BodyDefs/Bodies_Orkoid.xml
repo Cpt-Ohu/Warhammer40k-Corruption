@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<BodyDefs>
+<Defs>
 
 
 	
@@ -32,22 +32,22 @@
 					<depth>Inside</depth>
 				</li>
 				<li>
-					<def>LeftLung</def>
+					<def>Kidney</def>
 					<coverage>0.03</coverage>
 					<depth>Inside</depth>
 				</li>
 				<li>
-					<def>RightLung</def>
+					<def>Lung</def>
 					<coverage>0.03</coverage>
 					<depth>Inside</depth>
 				</li>
 				<li>
-					<def>LeftKidney</def>
+					<def>Kidney</def>
 					<coverage>0.03</coverage>
 					<depth>Inside</depth>
 				</li>
 				<li>
-					<def>RightKidney</def>
+					<def>Kidney</def>
 					<coverage>0.03</coverage>
 					<depth>Inside</depth>
 				</li>
@@ -72,25 +72,25 @@
 									<parts>
 										<li>
 											<def>Brain</def>
-											<coverage>1</coverage>
+											<coverage>0.4</coverage>
 											<depth>Inside</depth>
 										</li>
 									</parts>
 								</li>
 								<li>
-									<def>LeftEye</def>
+									<def>Eye</def>
 									<coverage>0.15</coverage>
 								</li>
 								<li>
-									<def>RightEye</def>
+									<def>Eye</def>
 									<coverage>0.15</coverage>
 								</li>
 								<li>
-									<def>LeftEar</def>
+									<def>Ear</def>
 									<coverage>0.05</coverage>
 								</li>
 								<li>
-									<def>RightEar</def>
+									<def>Ear</def>
 									<coverage>0.05</coverage>
 								</li>
 								<li>
@@ -109,23 +109,23 @@
 					</parts>
 				</li>
 				<li>
-					<def>RearLeftLeg</def>
+					<def>Leg</def>
 					<coverage>0.1</coverage>
 					<height>Bottom</height>
 					<parts>
 						<li>
-							<def>RearLeftPaw</def>
+							<def>Paw</def>
 							<coverage>0.1</coverage>
 						</li>
 					</parts>
 				</li>
 				<li>
-					<def>RearRightLeg</def>
+					<def>Leg</def>
 					<coverage>0.1</coverage>
 					<height>Bottom</height>
 					<parts>
 						<li>
-							<def>RearRightPaw</def>
+							<def>Paw</def>
 							<coverage>0.1</coverage>
 						</li>
 					</parts>
@@ -134,4 +134,4 @@
 		</corePart>
 	</BodyDef>
 	
-</BodyDefs>
+</Defs>

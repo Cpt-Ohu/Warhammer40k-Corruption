@@ -1,0 +1,1 @@
+FOR /R %f IN (*_front*) DO REN "%f" *_south*

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<PawnKindDefs>
+<Defs>
 
   <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
     <defName>CultistBasic</defName>
@@ -7,8 +7,8 @@
     <race>Human</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
-    <backstoryCategory>Civil</backstoryCategory>
-    <defaultFactionType>ChaosCult</defaultFactionType>
+    <backstoryCategories><li>.*</li></backstoryCategories>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
     <itemQuality>Normal</itemQuality>
@@ -23,14 +23,14 @@
       <li>CorruptedApparel</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.0</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.0</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>500</min>
       <max>600</max>
     </weaponMoney>
     <weaponTags>
       <li>Gun</li>
-      <li>Melee</li>
+      <li>NonNeolithicOnlyMelee</li>
     </weaponTags>
     <techHediffsMoney>
       <min>10</min>
@@ -52,8 +52,8 @@
     <race>Human</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
-    <backstoryCategory>Civil</backstoryCategory>
-    <defaultFactionType>ChaosCult</defaultFactionType>
+    <backstoryCategories><li>.*</li></backstoryCategories>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
     <itemQuality>Normal</itemQuality>
@@ -68,7 +68,7 @@
       <li>CorruptedApparel</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.7</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.7</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>900</min>
       <max>1200</max>
@@ -97,8 +97,8 @@
     <race>Human</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
-    <backstoryCategory>Civil</backstoryCategory>
-    <defaultFactionType>ChaosCult</defaultFactionType>
+    <backstoryCategories><li>.*</li></backstoryCategories>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
     <itemQuality>Normal</itemQuality>
@@ -114,7 +114,7 @@
       <li>CorruptedApparel</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.0</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.0</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>3500</min>
       <max>3500</max>
@@ -135,6 +135,14 @@
       <UpperAfflictionLimit>0.25</UpperAfflictionLimit>
       <LowerPsykerPowerLimit>Iota</LowerPsykerPowerLimit>
       <UpperPsykerPowerLimit>Delta</UpperPsykerPowerLimit>
+       <CommmonPsykerPowers>
+        <li>PsykerPower_DoomBolt</li>
+        <li>PsykerPower_FireLance</li>
+        <li>PsykerPower_Scourging</li>
+        <li>PsykerPower_EmpyrealInferno</li>
+        <li>PsykerPower_Mindcontrol</li>
+        <li>PsykerPower_BuffRage</li>
+       </CommmonPsykerPowers>
     </AfflictionProperty>
   </PawnKindDef>
 
@@ -144,8 +152,8 @@
     <race>Human</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
-    <backstoryCategory>Civil</backstoryCategory>
-    <defaultFactionType>ChaosCult</defaultFactionType>
+    <backstoryCategories><li>.*</li></backstoryCategories>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
     <itemQuality>Excellent</itemQuality>
@@ -162,7 +170,7 @@
       <li>Soldier</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>1.0</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>1.0</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>3500</min>
       <max>3500</max>
@@ -183,8 +191,110 @@
       <UpperAfflictionLimit>0.10</UpperAfflictionLimit>
       <LowerPsykerPowerLimit>Iota</LowerPsykerPowerLimit>
       <UpperPsykerPowerLimit>Delta</UpperPsykerPowerLimit>
+       <CommmonPsykerPowers>
+        <li>PsykerPower_DoomBolt</li>
+        <li>PsykerPower_FireLance</li>
+        <li>PsykerPower_Scourging</li>
+        <li>PsykerPower_EmpyrealInferno</li>
+        <li>PsykerPower_Mindcontrol</li>
+        <li>PsykerPower_BuffRage</li>
+       </CommmonPsykerPowers>
     </AfflictionProperty>
+
   </PawnKindDef>
 
 
-</PawnKindDefs>
+  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
+    <defName>KhornateBerserker</defName>
+    <label>Khornate Berserker</label>
+    <race>Human</race>
+    <combatPower>100</combatPower>
+    <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
+    <backstoryCategories><li>Civil</li></backstoryCategories>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
+    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+    <maxGenerationAge>58</maxGenerationAge>
+    <itemQuality>Normal</itemQuality>
+    <apparelMoney>
+      <min>100</min>
+      <max>200</max>
+    </apparelMoney>
+    <apparelRequired>
+      <li>Apparel_CultistLeathers</li>
+    </apparelRequired>
+    <apparelTags>
+      <li>CorruptedApparel</li>
+    </apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelAllowHeadgearChance>0.0</apparelAllowHeadgearChance>
+    <weaponMoney>
+      <min>2500</min>
+      <max>3600</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>MedievalMeleeDecent</li>
+    </weaponTags>
+    <techHediffsMoney>
+      <min>10</min>
+      <max>100</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <techHediffsChance>0.1</techHediffsChance>
+    <AfflictionProperty>
+      <LowerAfflictionLimit>0</LowerAfflictionLimit>
+      <UpperAfflictionLimit>0.25</UpperAfflictionLimit>
+    <UseForcedPatron>true</UseForcedPatron>
+      <Patron>Khorne</Patron>
+    </AfflictionProperty>
+  </PawnKindDef>
+
+  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
+    <defName>CultistVisitor</defName>
+    <race>Human</race>
+    <label>wanderer</label>
+    <combatPower>20</combatPower>
+    <baseRecruitDifficulty>0.80</baseRecruitDifficulty>
+    <isFighter>false</isFighter>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <forceNormalGearQuality>true</forceNormalGearQuality>
+    <backstoryCategories><li>.*</li></backstoryCategories>
+    <defaultFactionType>ChaosCult_NPC</defaultFactionType>
+    <chemicalAddictionChance>0.06</chemicalAddictionChance>
+    <apparelTags>
+      <li>IoM_Apparel</li>
+    </apparelTags>
+    <apparelRequired>
+	 <li>Apparel_BasicShirt</li>
+    </apparelRequired>
+    <apparelMoney>
+      <min>1000</min>
+      <max>1500</max>
+    </apparelMoney>
+    <weaponMoney>
+      <min>3500</min>
+      <max>3500</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>SorcererWeapons</li>
+    </weaponTags>
+    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+    <trader>true</trader>
+    <AfflictionProperty>
+      <LowerAfflictionLimit>0</LowerAfflictionLimit>
+      <UpperAfflictionLimit>0.25</UpperAfflictionLimit>
+      <LowerPsykerPowerLimit>Iota</LowerPsykerPowerLimit>
+      <UpperPsykerPowerLimit>Delta</UpperPsykerPowerLimit>
+       <CommmonPsykerPowers>
+        <li>PsykerPower_DoomBolt</li>
+        <li>PsykerPower_FireLance</li>
+        <li>PsykerPower_Scourging</li>
+        <li>PsykerPower_EmpyrealInferno</li>
+        <li>PsykerPower_BuffRage</li>
+       </CommmonPsykerPowers>
+    </AfflictionProperty>
+
+  </PawnKindDef>
+
+</Defs>

@@ -95,14 +95,6 @@ namespace Corruption
                         {
                             continue;
                         }
-                        if (!Building_CommsConsole.LeaderIsAvailableToTalk(faction))
-                        {
-                            list.Add(new FloatMenuOption(text + " (" + "LeaderUnavailable".Translate(new object[]
-                            {
-                            faction.leader.LabelShort
-                            }) + ")", null, MenuOptionPriority.Default, null, null, 0f, null, null));
-                            continue;
-                        }
                     }
                     Action action = delegate
                     {

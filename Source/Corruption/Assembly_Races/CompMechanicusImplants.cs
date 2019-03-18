@@ -7,20 +7,20 @@ using Verse;
 
 namespace Corruption
 {
-    public class CompMechanicusImplantManager : ThingComp, IThingContainerOwner
+    public class CompMechanicusImplantManager : ThingComp, IThingHolder
     {
-        public ThingContainer innerContainer;
+        public ThingOwner innerContainer;
 
         public Pawn pawn;
 
         public CompMechanicusImplantManager()
         {
-            this.innerContainer = new ThingContainer(this, false);
+            this.innerContainer = new ThingOwner<Thing>(this, false, LookMode.Deep);
         }
 
         public CompMechanicusImplantManager(Pawn pawn)
         {
-            this.innerContainer = new ThingContainer(this, false);
+            this.innerContainer = new ThingOwner<Thing>(this, false, LookMode.Deep);
             this.pawn = pawn;
         }
 
@@ -30,11 +30,6 @@ namespace Corruption
             {
                 return this.parent.Spawned;
             }
-        }
-
-        public ThingContainer GetInnerContainer()
-        {
-            return this.innerContainer;
         }
 
         public IntVec3 GetPosition()
@@ -50,9 +45,9 @@ namespace Corruption
         public void DrawThing(Thing thingToDraw)
         {
             float angle = this.pawn.Rotation.AsAngle;
-            Material bodymat = this.pawn.Drawer.renderer.graphics.nakedGraphic.MatFront;
-            Material headmat = this.pawn.Drawer.renderer.graphics.headGraphic.MatFront;
-            Material hairmat = this.pawn.Drawer.renderer.graphics.hairGraphic.MatFront;
+            Material bodymat = this.pawn.Drawer.renderer.graphics.nakedGraphic.MatSingle;
+            Material headmat = this.pawn.Drawer.renderer.graphics.headGraphic.MatSingle;
+            Material hairmat = this.pawn.Drawer.renderer.graphics.hairGraphic.MatSingle;
             Vector3 sBody = new Vector3(1.0f, 1f, 1.0f);
             Matrix4x4 matrixBody = default(Matrix4x4);
             Vector3 vector = this.parent.DrawPos;
@@ -66,6 +61,16 @@ namespace Corruption
             matrixHead.SetTRS(headVec, Quaternion.AngleAxis(angle, Vector3.up), new Vector3(1.0f, 1f, 1.0f));
             Graphics.DrawMesh(MeshPool.humanlikeHeadSet.MeshAt(this.parent.Rotation), matrixHead, headmat, 0);
             Graphics.DrawMesh(MeshPool.humanlikeHairSetAverage.MeshAt(this.parent.Rotation), matrixHead, hairmat, 0);
+        }
+
+        public void GetChildHolders(List<IThingHolder> outChildren)
+        {
+            ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, this.GetDirectlyHeldThings());
+        }
+
+        public ThingOwner GetDirectlyHeldThings()
+        {
+            return this.innerContainer;
         }
     }
 }

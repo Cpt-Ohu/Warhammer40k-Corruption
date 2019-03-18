@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
 
 
   <!-- ============================ Human ========================== -->
 
-  <AlienRace.ThingDef_AlienRace ParentName="BasePawn">
+  <AlienRace.ThingDef_AlienRace ParentName="40kBasePawn">
     <defName>Alien_TauSHAS</defName>
     <label>tau (Shas)</label>
     <description>A Tau of the Fire Caste.</description>
@@ -13,11 +13,11 @@
 
 	<alienRace>
         <generalSettings>
-	<PawnsSpecificBackstories>true</PawnsSpecificBackstories>
-            <MaleGenderProbability>0.5</MaleGenderProbability>
-            <ImmuneToAge>false</ImmuneToAge>
-			<ForcedRaceTraitEntries>
-            </ForcedRaceTraitEntries>
+	
+            <maleGenderProbability>0.5</maleGenderProbability>
+            <immuneToAge>false</immuneToAge>
+			<forcedRaceTraitEntries>
+            </forcedRaceTraitEntries>
 			<alienPartGenerator>
                 <aliencrowntypes>
 	  <li>Narrow_Normal</li>
@@ -47,8 +47,8 @@
             </li>
         </graphicPaths>
 		<hairSettings>
-            <HasHair>false</HasHair>
-            <GetsGreyAt>5000</GetsGreyAt>
+            <hasHair>false</hasHair>
+            <getsGreyAt>5000</getsGreyAt>
         </hairSettings>
 		<relationSettings>
             <relationChanceModifierChild>1</relationChanceModifierChild>
@@ -72,6 +72,7 @@
 	</alienRace>
 
     <statBases>
+      <Mass>15</Mass>
       <MarketValue>1750</MarketValue>
       <MoveSpeed>4.61</MoveSpeed>
       <Flammability>1.0</Flammability>
@@ -79,39 +80,59 @@
       <ComfyTemperatureMax>32</ComfyTemperatureMax>
       <LeatherAmount>25</LeatherAmount>
     </statBases>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.45</defaultCooldownTime>
-        <meleeDamageBaseAmount>7</meleeDamageBaseAmount>
-        <meleeDamageDef>Blunt</meleeDamageDef>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>7</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.45</defaultCooldownTime>
-        <meleeDamageBaseAmount>7</meleeDamageBaseAmount>
-        <meleeDamageDef>Blunt</meleeDamageDef>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>7</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
-      </li>    
-  <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.45</defaultCooldownTime>
-        <meleeDamageBaseAmount>8</meleeDamageBaseAmount>
-        <meleeDamageDef>Blunt</meleeDamageDef>
-        <linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
-
-    </verbs>
-    <race>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>1.8</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+      </li>
+    </tools>    <race>
       <thinkTreeMain>Humanlike</thinkTreeMain>
       <thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
       <intelligence>Humanlike</intelligence>
       <makesFootprints>true</makesFootprints>
       <lifeExpectancy>80</lifeExpectancy>
-      <leatherColor>(122,171,204)</leatherColor>
-      <leatherCommonalityFactor>0.01</leatherCommonalityFactor>
-      <leatherInsulation>0.70</leatherInsulation>
+      
+      
+      
       <nameCategory>HumanStandard</nameCategory>
       <body>Human</body>
       <baseBodySize>1</baseBodySize>
@@ -151,10 +172,10 @@
       <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
-      <specialshadowData>
+      <specialShadowData>
         <volume>(0.3, 0.8, 0.4)</volume>
         <offset>(0,0,-0.3)</offset>
-      </specialshadowData>
+      </specialShadowData>
       <ageGenerationCurve>
         <points>
           <li>(14,0)</li>
@@ -173,7 +194,7 @@
     </race>
     <recipes>
       <li>InstallPowerClaw</li>
-      <li>InstallScytherBlade</li>
+      
       <li>InstallBionicEye</li>
       <li>InstallBionicArm</li>
       <li>InstallBionicLeg</li>
@@ -193,7 +214,7 @@
     </recipes>
   </AlienRace.ThingDef_AlienRace>
 
-  <AlienRace.ThingDef_AlienRace ParentName="BasePawn">
+  <AlienRace.ThingDef_AlienRace ParentName="40kBasePawn">
     <defName>Alien_TauPOR</defName>
     <label>tau (por)</label>
     <description>A Tau of the Fire Caste.</description>
@@ -201,11 +222,11 @@
 
 	<alienRace>
         <generalSettings>
-	<PawnsSpecificBackstories>true</PawnsSpecificBackstories>
-            <MaleGenderProbability>0.5</MaleGenderProbability>
-            <ImmuneToAge>false</ImmuneToAge>
-			<ForcedRaceTraitEntries>
-            </ForcedRaceTraitEntries>
+	
+            <maleGenderProbability>0.5</maleGenderProbability>
+            <immuneToAge>false</immuneToAge>
+			<forcedRaceTraitEntries>
+            </forcedRaceTraitEntries>
 			<alienPartGenerator>
                 <aliencrowntypes>
 	  <li>Narrow_Normal</li>
@@ -235,8 +256,8 @@
             </li>
         </graphicPaths>
 		<hairSettings>
-            <HasHair>false</HasHair>
-            <GetsGreyAt>5000</GetsGreyAt>
+            <hasHair>false</hasHair>
+            <getsGreyAt>5000</getsGreyAt>
         </hairSettings>
 
 		<thoughtSettings>
@@ -261,6 +282,7 @@
 
 
     <statBases>
+      <Mass>15</Mass>
       <MarketValue>1750</MarketValue>
       <MoveSpeed>4.61</MoveSpeed>
       <Flammability>1.0</Flammability>
@@ -268,39 +290,59 @@
       <ComfyTemperatureMax>32</ComfyTemperatureMax>
       <LeatherAmount>25</LeatherAmount>
     </statBases>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.45</defaultCooldownTime>
-        <meleeDamageBaseAmount>7</meleeDamageBaseAmount>
-        <meleeDamageDef>Blunt</meleeDamageDef>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>7</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.45</defaultCooldownTime>
-        <meleeDamageBaseAmount>7</meleeDamageBaseAmount>
-        <meleeDamageDef>Blunt</meleeDamageDef>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>7</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
-      </li>    
-  <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.45</defaultCooldownTime>
-        <meleeDamageBaseAmount>8</meleeDamageBaseAmount>
-        <meleeDamageDef>Blunt</meleeDamageDef>
-        <linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
-
-    </verbs>
-    <race>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>1.8</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+      </li>
+    </tools>    <race>
       <thinkTreeMain>Humanlike</thinkTreeMain>
       <thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
       <intelligence>Humanlike</intelligence>
       <makesFootprints>true</makesFootprints>
       <lifeExpectancy>80</lifeExpectancy>
-      <leatherColor>(122,171,204)</leatherColor>
-      <leatherCommonalityFactor>0.01</leatherCommonalityFactor>
-      <leatherInsulation>0.70</leatherInsulation>
+      
+      
+      
       <nameCategory>HumanStandard</nameCategory>
       <body>Human</body>
       <baseBodySize>1</baseBodySize>
@@ -340,10 +382,10 @@
       <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
-      <specialshadowData>
+      <specialShadowData>
         <volume>(0.3, 0.8, 0.4)</volume>
         <offset>(0,0,-0.3)</offset>
-      </specialshadowData>
+      </specialShadowData>
       <ageGenerationCurve>
         <points>
           <li>(14,0)</li>
@@ -362,7 +404,7 @@
     </race>
     <recipes>
       <li>InstallPowerClaw</li>
-      <li>InstallScytherBlade</li>
+      
       <li>InstallBionicEye</li>
       <li>InstallBionicArm</li>
       <li>InstallBionicLeg</li>
@@ -384,7 +426,7 @@
   </AlienRace.ThingDef_AlienRace>
 
 
-  <AlienRace.ThingDef_AlienRace ParentName="BasePawn">
+  <AlienRace.ThingDef_AlienRace ParentName="40kBasePawn">
     <defName>Alien_TauAUN</defName>
     <label>tau (Aun)</label>
     <description>A Tau of the Ethereal Caste.</description>
@@ -392,11 +434,11 @@
 
 	<alienRace>
         <generalSettings>
-	<PawnsSpecificBackstories>true</PawnsSpecificBackstories>
-            <MaleGenderProbability>0.5</MaleGenderProbability>
-            <ImmuneToAge>false</ImmuneToAge>
-			<ForcedRaceTraitEntries>
-            </ForcedRaceTraitEntries>
+	
+            <maleGenderProbability>0.5</maleGenderProbability>
+            <immuneToAge>false</immuneToAge>
+			<forcedRaceTraitEntries>
+            </forcedRaceTraitEntries>
 			<alienPartGenerator>
                 <aliencrowntypes>
 	  <li>Narrow_Normal</li>
@@ -426,8 +468,8 @@
             </li>
         </graphicPaths>
 		<hairSettings>
-            <HasHair>false</HasHair>
-            <GetsGreyAt>5000</GetsGreyAt>
+            <hasHair>false</hasHair>
+            <getsGreyAt>5000</getsGreyAt>
         </hairSettings>
 
 		<thoughtSettings>
@@ -452,6 +494,7 @@
 
 
     <statBases>
+      <Mass>15</Mass>
       <MarketValue>2750</MarketValue>
       <MoveSpeed>4.21</MoveSpeed>
       <Flammability>1.0</Flammability>
@@ -459,39 +502,60 @@
       <ComfyTemperatureMax>32</ComfyTemperatureMax>
       <LeatherAmount>15</LeatherAmount>
     </statBases>
-    <verbs>
+    <tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.45</defaultCooldownTime>
-        <meleeDamageBaseAmount>7</meleeDamageBaseAmount>
-        <meleeDamageDef>Blunt</meleeDamageDef>
+        <label>left fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>7</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.45</defaultCooldownTime>
-        <meleeDamageBaseAmount>7</meleeDamageBaseAmount>
-        <meleeDamageDef>Blunt</meleeDamageDef>
+        <label>right fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>7</power>
+        <cooldownTime>1.6</cooldownTime>
         <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
-      </li>    
-  <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <defaultCooldownTime>1.45</defaultCooldownTime>
-        <meleeDamageBaseAmount>8</meleeDamageBaseAmount>
-        <meleeDamageDef>Blunt</meleeDamageDef>
-        <linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>22</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
       </li>
-
-    </verbs>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>1.8</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+      </li>
+    </tools>
     <race>
       <thinkTreeMain>Humanlike</thinkTreeMain>
       <thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
       <intelligence>Humanlike</intelligence>
       <makesFootprints>true</makesFootprints>
       <lifeExpectancy>80</lifeExpectancy>
-      <leatherColor>(122,171,204)</leatherColor>
-      <leatherCommonalityFactor>0.01</leatherCommonalityFactor>
-      <leatherInsulation>0.70</leatherInsulation>
+      
+      
+      
       <nameCategory>HumanStandard</nameCategory>
       <body>Human</body>
       <baseBodySize>1</baseBodySize>
@@ -531,10 +595,10 @@
       <soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
-      <specialshadowData>
+      <specialShadowData>
         <volume>(0.3, 0.8, 0.4)</volume>
         <offset>(0,0,-0.3)</offset>
-      </specialshadowData>
+      </specialShadowData>
       <ageGenerationCurve>
         <points>
           <li>(14,0)</li>
@@ -553,7 +617,7 @@
     </race>
     <recipes>
       <li>InstallPowerClaw</li>
-      <li>InstallScytherBlade</li>
+      
       <li>InstallBionicEye</li>
       <li>InstallBionicArm</li>
       <li>InstallBionicLeg</li>
@@ -574,4 +638,4 @@
   </AlienRace.ThingDef_AlienRace>
 
 
-</ThingDefs>
+</Defs>

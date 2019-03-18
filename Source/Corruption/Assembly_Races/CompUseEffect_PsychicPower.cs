@@ -12,11 +12,11 @@ namespace Corruption
 
         public override void DoEffect(Pawn usedBy)
         {
-            Need_Soul soul;
+            CompSoul soul;
                 
-            if ((soul = usedBy.needs.TryGetNeed<Need_Soul>()) != null)
+            if ((soul = CompSoul.GetPawnSoul(usedBy)) != null)
             {
-                soul.GainNeed(0.01f);
+                soul.AffectSoul(0.01f);
             }
         }
     }

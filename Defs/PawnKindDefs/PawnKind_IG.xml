@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<PawnKindDefs>
+<Defs>
 
-  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
+  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef" Name="IGTrooperBase">
     <defName>IG_Trooper</defName>
     <label>Trooper</label>
     <race>Human</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
-    <backstoryCategory>Civil</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>ImperialGuard</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
     <forceNormalGearQuality>true</forceNormalGearQuality>
     <apparelRequired>
 	 <li>IG_Armor</li>
+	 <li>IG_UniformShirt</li>
     </apparelRequired>
     <apparelMoney>
       <min>1800</min>
@@ -23,10 +24,10 @@
       <li>IG_STApp</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
     <weaponMoney>
-      <min>500</min>
-      <max>600</max>
+      <min>600</min>
+      <max>1000</max>
     </weaponMoney>
     <weaponTags>
       <li>IG_Ranged_Std</li>
@@ -52,13 +53,14 @@
     <race>Human</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
-    <backstoryCategory>Civil</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>ImperialGuard</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
     <itemQuality>Normal</itemQuality>
     <apparelRequired>
 	 <li>IG_Armor</li>
+	 <li>IG_UniformShirt</li>
     </apparelRequired>
     <apparelMoney>
       <min>1800</min>
@@ -68,7 +70,7 @@
       <li>IG_STApp</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>900</min>
       <max>1200</max>
@@ -98,13 +100,14 @@
     <race>Human</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
-    <backstoryCategory>Civil</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>ImperialGuard</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
     <itemQuality>Good</itemQuality>
     <apparelRequired>
 	 <li>IG_Armor</li>
+	 <li>IG_UniformShirt</li>
     </apparelRequired>
     <apparelMoney>
       <min>1800</min>
@@ -114,7 +117,7 @@
       <li>IG_STApp</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.5</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>1900</min>
       <max>3900</max>
@@ -144,7 +147,7 @@
     <race>Human</race>
     <combatPower>50</combatPower>
     <baseRecruitDifficulty>0.50</baseRecruitDifficulty>
-    <backstoryCategory>Civil</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>ImperialGuard</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
@@ -160,10 +163,10 @@
       <li>IoM_Apparel</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.5</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>600</min>
-      <max>900</max>
+      <max>1200</max>
     </weaponMoney>
     <weaponTags>
       <li>IG_Melee</li>
@@ -191,7 +194,7 @@
     <race>Human</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
-    <backstoryCategory>Civil</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>ImperialGuard</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
@@ -209,7 +212,7 @@
       <li>IG_Commissar</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>3000</min>
       <max>4000</max>
@@ -239,7 +242,7 @@
     <race>Human</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
-    <backstoryCategory>Civil</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>ImperialGuard</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
@@ -258,7 +261,7 @@
       <li>IG_Commissar</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>3000</min>
       <max>4000</max>
@@ -282,4 +285,22 @@
     </AfflictionProperty>
   </PawnKindDef>
 
-</PawnKindDefs>
+  <!-- ==========================Valhallan=============================== -->
+
+  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef" ParentName="IGTrooperBase">
+    <defName>IG_ValhallanTrooper</defName>
+    <label>Trooper</label>
+    <race>Human</race>
+    <apparelRequired>
+	 <li>Apparel_ValhallanCoat</li>
+    </apparelRequired>
+    <apparelTags>
+      <li>Valhallan</li>
+    </apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
+  </PawnKindDef>
+
+
+
+</Defs>

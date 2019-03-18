@@ -10,7 +10,7 @@ namespace Corruption.IoM
 {
     public static class IoM_StoryUtilities
     {
-        public static LordToil GetWandererChatToil(IoMChatType chatType)
+        public static LordToil_WanderAndChat GetWandererChatToil(IoMChatType chatType)
         {
             switch (chatType)
             {
@@ -20,15 +20,19 @@ namespace Corruption.IoM
                     }
                 case IoMChatType.ConvertEmperor:
                     {
-                        return new LordToil_WanderAndChat(DefOfs.C_DutyDefOfs.FollowAndChat);
+                        return new LordToil_WanderAndChat(DefOfs.C_DutyDefOfs.FollowAndPraise);
                     }
                 case IoMChatType.ConvertChaos:
                     {
-                        return new LordToil_WanderAndChat(DefOfs.C_DutyDefOfs.FollowAndChat);
+                        return new LordToil_WanderAndChat(DefOfs.C_DutyDefOfs.FollowAndCorrupt);
                     }
                 case IoMChatType.ConvertTau:
                     {
-                        return new LordToil_WanderAndChat(DefOfs.C_DutyDefOfs.FollowAndChat);
+                        return new LordToil_WanderAndChat(DefOfs.C_DutyDefOfs.FollowAndConvertTau);
+                    }
+                case IoMChatType.VisitingHealer:
+                    {
+                        return new LordToil_WanderAndChat(DefOfs.C_DutyDefOfs.FollowAndHeal);
                     }
                 case IoMChatType.InquisitorInvestigation:
                     {
@@ -76,5 +80,30 @@ namespace Corruption.IoM
             return true;
         }
         
+        public static bool GenerateIntrusiveWanderer(Map map, PawnKindDef healerDef, Faction faction, IoMChatType chattype, string LetterContent, out Pawn wanderer)
+        {
+            Pawn pawn = PawnGenerator.GeneratePawn(healerDef, faction);
+            wanderer = pawn;
+            if (wanderer == null)
+            {
+                return false;
+            }
+            IntVec3 loc;
+            RCellFinder.TryFindRandomPawnEntryCell(out loc, map, 0.8f);
+            GenSpawn.Spawn(wanderer, loc, map);
+            IntVec3 chillSpot;
+            RCellFinder.TryFindRandomSpotJustOutsideColony(pawn, out chillSpot);
+            LordJob_IntrusiveWanderer lordJob = new LordJob_IntrusiveWanderer(chillSpot, wanderer, chattype);
+            Lord lord = LordMaker.MakeNewLord(faction, lordJob, map);
+            lord.AddPawn(wanderer);
+            string label = "LetterLabelSingleVisitorArrives".Translate();
+            string text3 = LetterContent.Translate(new object[]
+            {
+                wanderer.Name
+            });
+            text3 = text3.AdjustedFor(wanderer);
+            Find.LetterStack.ReceiveLetter(label, text3, LetterDefOf.PositiveEvent, wanderer, null);
+            return true;
+        }        
     }
 }

@@ -23,7 +23,7 @@ namespace Corruption.Tithes
         public override void PreOpen()
         {
             base.PreOpen();
-            SoundStarter.PlayOneShotOnCamera(SoundDefOf.LetterArriveBadUrgent);
+            SoundStarter.PlayOneShotOnCamera(SoundDefOf.LetterArrive_BadUrgent);
         }
 
         public override void DoWindowContents(Rect inRect)
@@ -36,7 +36,7 @@ namespace Corruption.Tithes
             Text.Anchor = TextAnchor.UpperLeft;
             Text.Font = GameFont.Small;
             Rect descRect = new Rect(titleRect.x, titleRect.yMax + 30f, inRect.width, 70f);
-            Widgets.Label(descRect, C_MapConditionDefOf.TitheCollectorArrived.description);
+            Widgets.Label(descRect, C_GameConditionDefOf.TitheCollectorArrived.description);
             Rect imageRect = new Rect(titleRect.x, descRect.yMax + 5f, 384f, 128f);
             GUI.DrawTexture(imageRect, CorruptionStoryTrackerUtilities.ShipsArrival);
             if (Widgets.CloseButtonFor(inRect.AtZero()))

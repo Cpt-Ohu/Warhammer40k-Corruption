@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<PawnKindDefs>
+<Defs>
 
   <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
     <defName>IoM_Arbites</defName>
@@ -7,7 +7,7 @@
     <race>Human</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
-    <backstoryCategory>Civil</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>ImperialGuard</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
@@ -26,7 +26,7 @@
       <li>IG_Commissar</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>3000</min>
       <max>4000</max>
@@ -61,7 +61,7 @@
     <forceNormalGearQuality>true</forceNormalGearQuality>
     <label>colonist</label>
     <defaultFactionType>IoM_PlayerFaction</defaultFactionType>
-    <backstoryCategory>Civil</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <chemicalAddictionChance>0.06</chemicalAddictionChance>
     <apparelTags>
       <li>Spacer</li>
@@ -84,14 +84,13 @@
     <isFighter>false</isFighter>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
     <forceNormalGearQuality>true</forceNormalGearQuality>
-    <backstoryCategory>Civil</backstoryCategory>
-    <defaultFactionType>Outlander</defaultFactionType>
+    <backstoryCategories><li>.*</li></backstoryCategories>
+    <defaultFactionType>IoM_NPCFaction</defaultFactionType>
     <chemicalAddictionChance>0.06</chemicalAddictionChance>
     <apparelTags>
       <li>IoM_Apparel</li>
     </apparelTags>
     <apparelRequired>
-	 <li>IoM_Apparel_RobeWanderer</li>
 	 <li>Apparel_BasicShirt</li>
     </apparelRequired>
     <apparelMoney>
@@ -108,7 +107,7 @@
     <race>Human</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
-    <backstoryCategory>Inquisitor</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>IoM_NPCFaction</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
@@ -126,7 +125,7 @@
       <li>IG_Commissar</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>3000</min>
       <max>4000</max>
@@ -159,6 +158,152 @@
 
   </PawnKindDef>
 
+  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
+    <defName>IoM_Prefect</defName>
+    <label>Prefect</label>
+    <race>Human</race>
+    <combatPower>100</combatPower>
+    <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
+    <backstoryCategories><li>.*</li></backstoryCategories>
+    <defaultFactionType>IoM_Administratum</defaultFactionType>
+    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+    <maxGenerationAge>58</maxGenerationAge>
+    <itemQuality>Excellent</itemQuality>
+    <factionLeader>true</factionLeader>
+    <apparelRequired>
+	 <li>IoM_CarapaceArmor</li>
+      <li>CoatNoble</li>
+    </apparelRequired>
+    <apparelMoney>
+      <min>3800</min>
+      <max>5000</max>
+    </apparelMoney>
+    <apparelTags>
+      <li>IG_STApp</li>
+      <li>IG_Commissar</li>
+    </apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
+    <weaponMoney>
+      <min>3000</min>
+      <max>4000</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>IG_Ranged_Vet</li>
+      <li>IG_Melee</li>
+    </weaponTags>
+    <techHediffsMoney>
+      <min>1000</min>
+      <max>5000</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <techHediffsChance>0.6</techHediffsChance>
+    <AfflictionProperty>
+      <LowerAfflictionLimit>0.4</LowerAfflictionLimit>
+      <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+      <ResolveFactor>1.4</ResolveFactor>
+    </AfflictionProperty>
+  </PawnKindDef>
+  
+  <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
+    <defName>IoM_Cardinal</defName>
+    <label>Cardinal</label>
+    <race>Human</race>
+    <combatPower>100</combatPower>
+    <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
+    <backstoryCategories><li>.*</li></backstoryCategories>
+    <defaultFactionType>IoM_Ecclesiarchy</defaultFactionType>
+    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+    <maxGenerationAge>58</maxGenerationAge>
+    <itemQuality>Excellent</itemQuality>
+    <factionLeader>true</factionLeader>
+    <apparelRequired>
+	 <li>IoM_CarapaceArmor</li>
+      <li>CoatNoble</li>
+    </apparelRequired>
+    <apparelMoney>
+      <min>3800</min>
+      <max>5000</max>
+    </apparelMoney>
+    <apparelTags>
+      <li>IG_STApp</li>
+      <li>IG_Commissar</li>
+    </apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
+    <weaponMoney>
+      <min>3000</min>
+      <max>4000</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>IG_Ranged_Vet</li>
+      <li>IG_Melee</li>
+    </weaponTags>
+    <techHediffsMoney>
+      <min>1000</min>
+      <max>5000</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <techHediffsChance>0.6</techHediffsChance>
+    <AfflictionProperty>
+      <LowerAfflictionLimit>0.4</LowerAfflictionLimit>
+      <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+      <ResolveFactor>1.4</ResolveFactor>
+    </AfflictionProperty>
+  </PawnKindDef>
+  
+   <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
+    <defName>IoM_LordInquisitor</defName>
+    <label>Inquisitor Lord</label>
+    <race>Human</race>
+    <combatPower>100</combatPower>
+    <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
+    <backstoryCategories><li>.*</li></backstoryCategories>
+    <defaultFactionType>IoM_Inquisition</defaultFactionType>
+    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+    <maxGenerationAge>58</maxGenerationAge>
+    <itemQuality>Excellent</itemQuality>
+    <factionLeader>true</factionLeader>
+    <apparelRequired>
+	 <li>IoM_CarapaceArmor</li>
+      <li>CoatNoble</li>
+    </apparelRequired>
+    <apparelMoney>
+      <min>3800</min>
+      <max>5000</max>
+    </apparelMoney>
+    <apparelTags>
+      <li>IG_STApp</li>
+      <li>IG_Commissar</li>
+    </apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
+    <weaponMoney>
+      <min>3000</min>
+      <max>4000</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>IG_Ranged_Vet</li>
+      <li>IG_Melee</li>
+    </weaponTags>
+    <techHediffsMoney>
+      <min>1000</min>
+      <max>5000</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <techHediffsChance>0.6</techHediffsChance>
+    <AfflictionProperty>
+      <LowerAfflictionLimit>0.4</LowerAfflictionLimit>
+      <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
+      <ResolveFactor>1.4</ResolveFactor>
+    </AfflictionProperty>
+  </PawnKindDef>
 
 
-</PawnKindDefs>
+</Defs>

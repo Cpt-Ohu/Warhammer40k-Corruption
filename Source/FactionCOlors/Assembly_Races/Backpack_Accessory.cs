@@ -12,12 +12,12 @@ namespace FactionColors
     {
         private Graphic WornGraphic;
 
-        public Graphic BackpackGraphic(BodyType bodyType, string graphicPath)
+        public Graphic BackpackGraphic(BodyTypeDef bodyType, string graphicPath)
         {
-            if (bodyType == BodyType.Undefined)
+            if (bodyType == null)
             {
                 Log.Error("Getting naked body graphic with undefined body type.");
-                bodyType = BodyType.Male;
+                bodyType = BodyTypeDefOf.Male;
             }
             string path = graphicPath + bodyType.ToString();
             return GraphicDatabase.Get<Graphic_Multi>(path, ShaderDatabase.CutoutComplex, Vector2.one, this.DrawColor, this. DrawColorTwo);
@@ -26,9 +26,9 @@ namespace FactionColors
         public override void Tick()
         {
             base.Tick();
-            if (this.wearer != null)
+            if (this.Wearer != null)
             {
-                this.WornGraphic = BackpackGraphic(this.wearer.story.bodyType, this.Graphic.path);
+                this.WornGraphic = BackpackGraphic(this.Wearer.story.bodyType, this.Graphic.path);
             }
             else
             {
@@ -40,10 +40,10 @@ namespace FactionColors
         {
             if (this.WornGraphic != null)
             {
-                Vector3 vector = this.wearer.Drawer.DrawPos;
+                Vector3 vector = this.Wearer.Drawer.DrawPos;
                 vector.y = Altitudes.AltitudeFor(AltitudeLayer.MoteOverhead)+2;
-                float angle = this.wearer.Rotation.AsInt;
-                Material bmat = this.WornGraphic.MatAt(this.wearer.Rotation);
+                float angle = this.Wearer.Rotation.AsInt;
+                Material bmat = this.WornGraphic.MatAt(this.Wearer.Rotation);
                 Vector3 s = new Vector3(1.4f, 1.4f, 1.4f);
                 Matrix4x4 matrix = default(Matrix4x4);
                 matrix.SetTRS(vector, Quaternion.AngleAxis(angle, Vector3.up), s);

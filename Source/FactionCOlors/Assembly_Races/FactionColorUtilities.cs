@@ -39,16 +39,16 @@ namespace FactionColors
         {
             get
             {                
-                return GraphicDatabase.Get<Graphic_Single>(currentPlayerStoryTracker.BannerGraphicPath, ShaderDatabase.CutoutComplex, Vector2.one, currentPlayerStoryTracker.PlayerColorOne, currentPlayerStoryTracker.PlayerColorTwo);
+                return GraphicDatabase.Get<Graphic_Single>(currentFactionColorTracker.BannerGraphicPath, ShaderDatabase.CutoutComplex, Vector2.one, currentFactionColorTracker.PlayerColorOne, currentFactionColorTracker.PlayerColorTwo);
             }           
 
         }
 
-        public static PlayerFactionStoryTracker currentPlayerStoryTracker
+        public static FactionColorsTracker currentFactionColorTracker
         {
             get
             {
-                return Find.WorldObjects.AllWorldObjects.FirstOrDefault(x => x.def == FactionColorsDefOf.PlayerFactionStoryTracker) as PlayerFactionStoryTracker;
+                return Find.World.GetComponent<FactionColorsTracker>();
             }
         }
 
@@ -67,20 +67,20 @@ namespace FactionColors
             Rect rect5 = new Rect(rect2.x, rect2.height + 5f, 150f, 30f);
             Rect pos = new Rect(rect5.x + 150f, rect5.y, 15f, 15f);
             Widgets.Label(rect5, "PlayerColorOne".Translate());
-            Widgets.DrawRectFast(pos, FactionColorUtilities.currentPlayerStoryTracker.PlayerColorOne);
+            Widgets.DrawRectFast(pos, FactionColorUtilities.currentFactionColorTracker.PlayerColorOne);
             if (Widgets.ButtonInvisible(pos, true))
             {
-                ShowColorDialog(FactionColorUtilities.currentPlayerStoryTracker.PlayerColorOne, false);
+                ShowColorDialog(FactionColorUtilities.currentFactionColorTracker.PlayerColorOne, false);
             }
 
             Rect rect6 = rect5;
             rect6.y += rect5.height + 5f;
             Rect pos2 = new Rect(rect6.x + 150f, rect6.y, 15f, 15f);
             Widgets.Label(rect6, "PlayerColorTwo".Translate());
-            Widgets.DrawRectFast(pos2, FactionColorUtilities.currentPlayerStoryTracker.PlayerColorTwo);
+            Widgets.DrawRectFast(pos2, FactionColorUtilities.currentFactionColorTracker.PlayerColorTwo);
             if (Widgets.ButtonInvisible(pos2, true))
             {
-                ShowColorDialog(FactionColorUtilities.currentPlayerStoryTracker.PlayerColorTwo, true);
+                ShowColorDialog(FactionColorUtilities.currentFactionColorTracker.PlayerColorTwo, true);
             }
             //        Texture2D bannerTint = ContentFinder<Texture2D>.Get(FactionColorUtilities.currentPlayerStoryTracker.BannerGraphicPath);
             Texture2D bannerTint = currentPlayerBanner.MatSingle.GetMaskTexture();
@@ -112,7 +112,7 @@ namespace FactionColors
 
         private static void ShowBannerDialog()
         {
-            List<string> options = FactionColorUtilities.currentPlayerStoryTracker.BannerOptions;
+            List<string> options = FactionColorUtilities.currentFactionColorTracker.BannerOptions;
             Dialog_ChooseBanner dialog_Options = new Dialog_ChooseBanner(options);
             Find.WindowStack.Add(dialog_Options);
         }

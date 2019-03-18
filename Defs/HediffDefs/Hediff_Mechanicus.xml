@@ -70,8 +70,7 @@
           </capMods>
         <statOffsets>
       	<MedicalOperationSpeed>0.3</MedicalOperationSpeed>
-      	<HealingSpeed>0.2</HealingSpeed>
-      	<SurgerySuccessChance>0.2</SurgerySuccessChance>
+      	<MedicalPotency>0.2</MedicalPotency>
         </statOffsets>
 
       </li>
@@ -100,12 +99,44 @@
         <statOffsets>
       	<MeleeHitChance>0.4</MeleeHitChance>
       	<MeleeDPS>1.00</MeleeDPS>
-      	<ShootingAccuracy>0.3</ShootingAccuracy>
+      	<ShootingAccuracyPawn>0.3</ShootingAccuracyPawn>
         </statOffsets>
       </li>
     </stages>
     <spawnThingOnRemoved>MechaDendrites_Combat</spawnThingOnRemoved>
   </HediffDef>
 
+  <HediffDef ParentName="MechanicusImplant">
+    <defName>Lobotomiser</defName>
+    <label>Lobotomy Neurocontroller</label>
+    <stages>
+      <li>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>0.1</offset>
+            </li>
+          </capMods>
+      </li>
+    </stages>
+    <spawnThingOnRemoved>Mec_Lobotomiser</spawnThingOnRemoved>
+  </HediffDef>
+
+
+  <HediffDef ParentName="MechanicusImplant">
+    <defName>MechanicusLobotomiser</defName>
+    <label>Lobotomiser</label>
+    <stages>
+      <li>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>0.1</offset>
+            </li>
+          </capMods>
+      </li>
+    </stages>
+    <spawnThingOnRemoved>Mec_Lobotomiser</spawnThingOnRemoved>
+  </HediffDef>
 
 </Defs>

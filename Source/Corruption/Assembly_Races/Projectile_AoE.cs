@@ -30,8 +30,6 @@ namespace Corruption
             TargetingParameters parms = new TargetingParameters();
             parms.canTargetPawns = true;
             target = this.Map.thingGrid.ThingAt(destination.ToIntVec3(), ThingCategory.Pawn);
-            if (target != null) Log.Message("FoundTarget");
-            if (target == null) Log.Message("No Target??");
         }
 
         public override void Draw()
@@ -52,7 +50,7 @@ namespace Corruption
             }
         }
 
-        public override void DrawAt(Vector3 drawLoc)
+        public override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
             if (target != null)
             {

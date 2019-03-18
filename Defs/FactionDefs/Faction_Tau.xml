@@ -10,9 +10,14 @@
     <fixedName>Tau</fixedName>
     <canSiege>true</canSiege>
     <canStageAttacks>true</canStageAttacks>
-    <raidCommonality>37</raidCommonality>
+		<raidCommonalityFromPointsCurve>
+			<points>
+				<li>(1000, 0.4)</li>
+				<li>(2500, 1)</li>
+			</points>
+		</raidCommonalityFromPointsCurve>
     <techLevel>Ultra</techLevel>
-    <backstoryCategory>Civil</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <leaderTitle>Shas-O</leaderTitle>
     <hidden>true</hidden>
     <hairTags>
@@ -35,9 +40,18 @@
     <visitorTraderKinds>
       <li>Visitor_TauTrader</li>
     </visitorTraderKinds>
+		<maxPawnCostPerTotalPointsCurve>
+      <points>
+        <li>(0,350)</li>
+        <li>(70, 500)</li>
+        <li>(700, 1000)</li>
+        <li>(1300, 1500)</li>
+        <li>(100000, 10000)</li>
+      </points>
+    </maxPawnCostPerTotalPointsCurve>
     <pawnGroupMakers>
       <li>
-        <kindDef>Normal</kindDef>
+        <kindDef>Combat</kindDef>
         <options>
             <TauShasLa>100</TauShasLa>
             <Tau_GVTrooper>50</Tau_GVTrooper>
@@ -60,5 +74,7 @@
     </pawnGroupMakers>
     <FactionColor1>RGBA(0.89,0.71,0.27,1)</FactionColor1>
     <FactionColor2>RGBA(0.44,0.34,0.24,1)</FactionColor2>
+    <PreferredChaosGod>GreaterGood</PreferredChaosGod>
+
   </FactionDef>  
 </Defs>

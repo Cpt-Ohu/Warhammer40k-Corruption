@@ -32,7 +32,7 @@ namespace Corruption.Tithes
 
         public override void OnOpen()
         {
-            //       TitheUtilities.CalculateColonyTithes(CorruptionStoryTrackerUtilities.currentStoryTracker);
+            //       TitheUtilities.CalculateColonyTithes(CFind.StoryTracker);
             this.titheEntries = this.titheContainer.tithesEnabled.Keys.ToList();
             this.titheEnabled = this.titheContainer.tithesEnabled.Values.ToList();
             base.OnOpen();
@@ -41,7 +41,7 @@ namespace Corruption.Tithes
         protected override void FillTab()
         {
             Rect mainrect = new Rect(0f, 80f, this.size.x, this.size.y);
-     //       Log.Message(CorruptionStoryTrackerUtilities.currentStoryTracker.currentTithes.Count.ToString());
+     //       Log.Message(CFind.StoryTracker.currentTithes.Count.ToString());
             Rect rect = new Rect(0f, 0f, this.size.x, 30f);
             Text.Anchor = TextAnchor.MiddleCenter;
             Text.Font = GameFont.Medium;
@@ -60,7 +60,7 @@ namespace Corruption.Tithes
                         TitheEntryGlobal entry = titheContainer.currentTitheEntries[i].Tithe;
                         Thing stuff = ThingMaker.MakeThing(entry.thingDefs.RandomElement());
                         stuff.stackCount = (int)((1 - entry.tithePercent) * entry.requestedTitheAmount / stuff.def.BaseMarketValue);
-                        titheContainer.GetInnerContainer().TryAdd(stuff);
+                        titheContainer.GetDirectlyHeldThings().TryAdd(stuff);
                     }
                 }
             }

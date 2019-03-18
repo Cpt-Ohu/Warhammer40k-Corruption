@@ -28,72 +28,71 @@ namespace Corruption
 
         public static Texture2D TryGetPatronIcon(Pawn pawn)
         {
-            Need_Soul soul;
-            if ((soul = pawn.needs.TryGetNeed<Need_Soul>()) != null)
+            CompSoul soul;
+            if ((soul = CompSoul.GetPawnSoul(pawn)) != null)
             {
-                return ChaosGodsUtilities.GetPatronIcon(soul.patronInfo.PatronName);
+                return ChaosGodsUtilities.GetPatronIcon(soul.Patron);
             }
             return new Texture2D(10,10);
         }
 
         public static Texture2D TryGetPreacherIcon(Pawn pawn)
         {
-            Need_Soul soul;
-            if ((soul = pawn.needs.TryGetNeed<Need_Soul>()) != null)
+            CompSoul soul;
+            if ((soul = CompSoul.GetPawnSoul(pawn)) != null)
             {
-                if (soul.NoPatron)
+                if (soul.Corrupted)
                 {
-                    return ChaosGodsUtilities.MoteSermonHoly;
+                    return ChaosGodsUtilities.MoteSermonDark;
                 }
                 else
                 {
-                    return ChaosGodsUtilities.MoteSermonDark;
+                    return ChaosGodsUtilities.MoteSermonHoly;
                 }
             }
             return new Texture2D(10, 10);
         }
 
-        public static Texture2D GetPatronIcon(string patron)
+        public static Texture2D GetPatronIcon(PatronDef patron)
         {
-            switch(patron)
+            if (patron == PatronDefOf.Emperor)
             {
-                case "Undivided":
-                    {
-                        return ChaosGodsUtilities.ButtonUndivided;
-                    }
-                case "Khorne":
-                    {
-                        return ChaosGodsUtilities.ButtonKhorne;
-                    }
-                case "Nurgle":
-                    {
-                        return ChaosGodsUtilities.ButtonNurgle;
-                    }
-                case "Tzeentch":
-                    {
-                        return ChaosGodsUtilities.ButtonTzeentch;
-                    }
-                case "Slaanesh":
-                    {
-                        return ChaosGodsUtilities.ButtonSlaanesh;
-                    }
-                case "Orks":
-                    {
-                        return ChaosGodsUtilities.OrkButton;
-                    }
-                case "Eldar":
-                    {
-                        return ChaosGodsUtilities.EldarButton;
-                    }
-                case "Tau":
-                    {
-                        return ChaosGodsUtilities.TauButton;
-                    }
-                default:
-                    {
-                        return ChaosGodsUtilities.ButtonEmperor;
-                    }
+                return ChaosGodsUtilities.ButtonEmperor;
             }
+            else if (patron == PatronDefOf.ChaosUndivided)
+            {
+                return ChaosGodsUtilities.ButtonUndivided;
+            }
+            else if (patron == PatronDefOf.Khorne)
+            {
+                return ChaosGodsUtilities.ButtonKhorne;
+            }
+            else if (patron == PatronDefOf.Nurgle)
+            {
+                return ChaosGodsUtilities.ButtonNurgle;
+            }
+            else if (patron == PatronDefOf.Tzeentch)
+            {
+                return ChaosGodsUtilities.ButtonTzeentch;
+            }
+            else if (patron == PatronDefOf.Slaanesh)
+            {
+                return ChaosGodsUtilities.ButtonSlaanesh;
+            }
+            else if (patron == PatronDefOf.GorkMork)
+            {
+                return ChaosGodsUtilities.OrkButton;
+            }
+            else if (patron == PatronDefOf.Ynnead)
+            {
+                return ChaosGodsUtilities.EldarButton;
+            }
+            else if (patron == PatronDefOf.GreaterGood)
+            {
+                return ChaosGodsUtilities.ButtonUndivided;
+            }
+
+            return ChaosGodsUtilities.ButtonEmperor;
         } 
 
 
@@ -103,11 +102,10 @@ namespace Corruption
             {
                 return;
             }
-            Log.Message(mdef.ToString());
             target.mindState.mentalStateHandler.TryStartMentalState(mdef, null, false);
         }
 
-        public static MentalStateDef SlaaneshEffects(Pawn pawn, Need_Soul soul)
+        public static MentalStateDef SlaaneshEffects(Pawn pawn)
         {
             int num = Rand.RangeInclusive(1, 9);
 
@@ -117,16 +115,16 @@ namespace Corruption
             }
             if (num > 5)
             {
-                return MentalStateDefOf.BingingDrugExtreme;
+                return MentalStateDefOf.Binging_DrugExtreme;
             }
             if (num > 3)
             {
-                return MentalStateDefOf.BingingDrugMajor;
+                return MentalStateDefOf.Binging_DrugMajor;
             }
-            return C_MentalStateDefOf.BingingFood;
+            return C_MentalStateDefOf.Binging_Food;
         }
 
-        public static MentalStateDef KhorneEffects(Pawn pawn, Need_Soul soul)
+        public static MentalStateDef KhorneEffects(Pawn pawn)
         {
             int num = Rand.RangeInclusive(1, 9);
 

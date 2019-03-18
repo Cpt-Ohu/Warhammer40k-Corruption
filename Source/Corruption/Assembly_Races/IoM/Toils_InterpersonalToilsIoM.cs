@@ -28,14 +28,7 @@ namespace Corruption.IoM
                 },
                 socialMode = RandomSocialMode.Off,
                 defaultCompleteMode = ToilCompleteMode.Delay,
-                defaultDuration = 240,
-                finishActions = new List<Action>()
-                    {
-                        delegate
-                        {
-                            PerformPostChatActions(pawn, talkee, chatType);
-                        },
-                }                
+                defaultDuration = 240,                 
             };
         }
 
@@ -43,37 +36,37 @@ namespace Corruption.IoM
         {
             if (chatType != IoMChatType.ConvertTau)
             {
-                Need_Soul talkerSoul = CorruptionStoryTrackerUtilities.GetPawnSoul(talker);
-                Need_Soul talkeeSoul = CorruptionStoryTrackerUtilities.GetPawnSoul(talkee);
+                CompSoul talkerSoul = CompSoul.GetPawnSoul(talker);
+                CompSoul talkeeSoul = CompSoul.GetPawnSoul(talkee);
 
                 if (talkerSoul != null && talkeeSoul != null)
                 {
                     if (chatType != IoMChatType.InquisitorInvestigation)
                     {
-                        if (talkerSoul.NoPatron && talkeeSoul.NoPatron)
+                        if (talkerSoul.Corrupted && !talkeeSoul.Corrupted)
                         {
                             if (Rand.Range(4, 6) + GetChatIntrigueFactor(talker, talkee) > 0)
                             {
-                                talkeeSoul.GainNeed(-0.0005f);
+                                talkeeSoul.AffectSoul(0.005f);
                             }
                             else
                             {
-                                talkee.needs.mood.thoughts.memories.TryGainMemoryThought(ThoughtDefOf.SleepDisturbed, talker);
+                                talkee.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.SleepDisturbed, talker);
                             }
                         }
-                        else if (talkerSoul.NoPatron && !talkeeSoul.NoPatron)
+                        else if (!talkerSoul.Corrupted && talkeeSoul.Corrupted)
                         {
                             StartReligiousSocialFight(talker, talkee);
                         }
-                        else if (!talkerSoul.NoPatron && !talkeeSoul.NoPatron)
+                        else if (talkerSoul.Corrupted && talkeeSoul.Corrupted)
                         {
-                            talkeeSoul.GainNeed(0.005f);
+                            talkeeSoul.AffectSoul(-0.0005f);
                         }
-                        else if (!talkerSoul.NoPatron && talkeeSoul.NoPatron)
+                        else if (!talkerSoul.Corrupted && talkeeSoul.Corrupted)
                         {
-                            if (Rand.Range(-2, 0) + GetChatIntrigueFactor(talker, talkee) > 0)
+                            if (Rand.Range(-4, -1) + GetChatIntrigueFactor(talker, talkee) > 0)
                             {
-                                talkeeSoul.GainNeed(-0.0005f);
+                                talkeeSoul.AffectSoul(-0.005f);
                             }
                             else
                             {
@@ -83,27 +76,16 @@ namespace Corruption.IoM
                     }
                     else
                     {
-                        //switch (talkeeSoul.CurCategory)
-                        //{
-                        //    case SoulAffliction.Lost:
-                        //        {
-
-                        //            return;
-                        //        }
-                        //    case SoulAffliction.Corrupted:
-                        //        {
-
-                        //            return;
-                        //        }
-                        //    case SoulAffliction.Tainted:
-                        //        {
-
-                        //            return;
-                        //        }
-                        //}
-                        Lord lord = talker.GetLord();
-                        LordJob_IntrusiveWanderer lordJob = lord.LordJob as LordJob_IntrusiveWanderer;
-                        lordJob.InquisitorFoundHeretic = true;
+                        if (talker.IsColonistPlayerControlled)
+                        {
+                            CompSoul.TryDiscoverAlignment(talker, talkee, CorruptionStoryTrackerUtilities.DiscoverAlignmentByChatModifier);
+                        }
+                        else if (CompSoul.GetPawnSoul(talker).Patron == PatronDefOf.Inquisition)
+                        {
+                            Lord lord = talker.GetLord();
+                            LordJob_IntrusiveWanderer lordJob = lord.LordJob as LordJob_IntrusiveWanderer;
+                            lordJob.InquisitorFoundHeretic = true;
+                        }
                     }
                 }
             }
@@ -116,15 +98,13 @@ namespace Corruption.IoM
         {
             Messages.Message("MessageReligiousSocialFight".Translate(new object[]
             {
-                talker.LabelShort,
-                talkee.LabelShort,
-            }), talker, MessageSound.SeriousAlert);
-
-
+                talker.Name,
+                talkee.Name,
+            }), talker, MessageTypeDefOf.NegativeEvent);
+            
             talker.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.SocialFighting, null, false, false, talkee);
             MentalStateHandler handlerTalkee = talkee.mindState.mentalStateHandler;
-            Pawn otherPawn2 = talker;
-            handlerTalkee.TryStartMentalState(MentalStateDefOf.SocialFighting, null, false, false, otherPawn2);
+            handlerTalkee.TryStartMentalState(MentalStateDefOf.SocialFighting, null, false, false, talker);
         }
 
         private static int GetChatIntrigueFactor(Pawn pawn, Pawn talkee)
@@ -132,7 +112,7 @@ namespace Corruption.IoM
             return pawn.skills.GetSkill(SkillDefOf.Social).Level - talkee.skills.GetSkill(SkillDefOf.Social).Level;
         }
 
-        public static Toil GotoPawn(Pawn pawn, Pawn talkee, PrisonerInteractionMode mode)
+        public static Toil GotoPawn(Pawn pawn, Pawn talkee, PrisonerInteractionModeDef mode)
         {
             Toil toil = new Toil();
             toil.initAction = delegate

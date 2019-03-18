@@ -2,7 +2,7 @@
 <Defs>
 
   <FactionDef Abstract="True" Name="PlayerFactionBase">
-    <homeIconPath>World/WorldObjects/DefaultFactionBase</homeIconPath>
+    <homeIconPath>World/WorldObjects/DefaultSettlement</homeIconPath>
     <colorSpectrum>
       <li>(0, 0.737, 0.847)</li>
     </colorSpectrum>
@@ -15,9 +15,14 @@
     <isPlayer>true</isPlayer>
     <basicMemberKind>IoM_Colonist</basicMemberKind>
     <pawnsPlural>colonists</pawnsPlural>
-    <factionBaseNameMaker>NamerFactionBasePlayerColony</factionBaseNameMaker>
+		<settlementNameMaker>NamerInitialSettlementColony</settlementNameMaker>
+		<playerInitialSettlementNameMaker>NamerInitialSettlementColony</playerInitialSettlementNameMaker>
+		<factionNameMaker>NamerFactionOutlander</factionNameMaker>
     <techLevel>Industrial</techLevel>
-    <backstoryCategory>Civil</backstoryCategory>
+    <backstoryCategories>
+	 <li>Civil</li>
+	 <li>Raider</li>
+	</backstoryCategories>
     <expandingIconTexture>World/WorldObjects/Expanding/Town</expandingIconTexture>
     <startingResearchTags>
       <li>ClassicStart</li>
@@ -35,8 +40,8 @@
     <isPlayer>false</isPlayer>
     <basicMemberKind>IoM_Colonist</basicMemberKind>
     <pawnsPlural>colonists</pawnsPlural>
-    <requiredCountAtGameStart>1</requiredCountAtGameStart>
-    <factionBaseNameMaker>NamerFactionBasePlayerColony</factionBaseNameMaker>
+    <requiredCountAtGameStart>0</requiredCountAtGameStart>
+    <settlementNameMaker>NamerInitialSettlementColony</settlementNameMaker>
     <expandingIconTexture>World/WorldObjects/Expanding/Town</expandingIconTexture>
     <startingResearchTags>
       <li>ClassicStart</li>
@@ -55,10 +60,217 @@
     </naturalColonyGoodwill>
     <canSiege>true</canSiege>
     <canStageAttacks>false</canStageAttacks>
-    <raidCommonality>1</raidCommonality>
+		<raidCommonalityFromPointsCurve>
+			<points>
+				<li>(1000, 0.4)</li>
+				<li>(2500, 1)</li>
+			</points>
+		</raidCommonalityFromPointsCurve>
     <techLevel>Ultra</techLevel>
-    <backstoryCategory>Civil</backstoryCategory>
+    <backstoryCategories>
+	 <li>Civil</li>
+	 <li>Raider</li>
+	</backstoryCategories>
     <leaderTitle>Emperor</leaderTitle>
+		<maxPawnCostPerTotalPointsCurve>
+      <points>
+        <li>(0,70)</li>
+        <li>(70, 100)</li>
+        <li>(700, 200)</li>
+        <li>(1300, 300)</li>
+        <li>(100000, 1000)</li>
+      </points>
+    </maxPawnCostPerTotalPointsCurve>  
+	<pawnGroupMakers>
+      <li>
+        <kindDef>Combat</kindDef>
+        <options>
+			<IoM_Colonist>50</IoM_Colonist>
+		</options>
+      </li>
+    </pawnGroupMakers>
+	
+  </FactionDef>
+  
+   <FactionDef ParentName="PlayerFactionBase" Class="FactionColors.FactionDefUniform">
+    <defName>IoM_Administratum</defName>
+    <label>Adeptus Administratum</label>
+    <description>The Adeptus Administratum is the biggest bureaucracy in the galaxy.</description>
+    <fixedName>Adeptus Administratum</fixedName>
+    <isPlayer>false</isPlayer>
+    <basicMemberKind>IoM_Colonist</basicMemberKind>
+    <pawnsPlural>adepts</pawnsPlural>
+    <requiredCountAtGameStart>0</requiredCountAtGameStart>
+    <settlementNameMaker>NamerInitialSettlementColony</settlementNameMaker>
+    <expandingIconTexture>World/WorldObjects/Expanding/Town</expandingIconTexture>
+    <startingResearchTags>
+      <li>ClassicStart</li>
+    </startingResearchTags>
+    <hairTags>
+      <li>Urban</li>
+    </hairTags>
+    <hidden>true</hidden>
+    <startingGoodwill>
+      <min>0</min>
+      <max>10</max>
+    </startingGoodwill>
+    <naturalColonyGoodwill>
+      <min>-100</min>
+      <max>100</max>
+    </naturalColonyGoodwill>
+    <canSiege>true</canSiege>
+    <canStageAttacks>false</canStageAttacks>
+		<raidCommonalityFromPointsCurve>
+			<points>
+				<li>(1000, 0.4)</li>
+				<li>(2500, 1)</li>
+			</points>
+		</raidCommonalityFromPointsCurve>
+    <techLevel>Ultra</techLevel>
+    <backstoryCategories>
+	 <li>Civil</li>
+	</backstoryCategories>
+    <leaderTitle>Master of the Administratum</leaderTitle>	
+		<maxPawnCostPerTotalPointsCurve>
+      <points>
+        <li>(0,70)</li>
+        <li>(70, 100)</li>
+        <li>(700, 200)</li>
+        <li>(1300, 300)</li>
+        <li>(100000, 1000)</li>
+      </points>
+    </maxPawnCostPerTotalPointsCurve>  
+	<pawnGroupMakers>
+      <li>
+        <kindDef>Combat</kindDef>
+        <options>
+			<IoM_Colonist>50</IoM_Colonist>
+		</options>
+      </li>
+    </pawnGroupMakers>	
+	<FactionColor1>RGBA(0.19,0.28,0.13,1)</FactionColor1>
+    <FactionColor2>RGBA(0.61,0.57,0.36,1)</FactionColor2>
+  </FactionDef>
+  
+  <FactionDef ParentName="PlayerFactionBase" Class="FactionColors.FactionDefUniform">
+    <defName>IoM_Ecclesiarchy</defName>
+    <label>Ecclesiarchy</label>
+    <description>The Ecclesiarchy is the biggest church in the galaxy.</description>
+    <fixedName>Ecclesiarchy</fixedName>
+    <isPlayer>false</isPlayer>
+    <basicMemberKind>IoM_Colonist</basicMemberKind>
+    <pawnsPlural>adepts</pawnsPlural>
+    <requiredCountAtGameStart>0</requiredCountAtGameStart>
+    <settlementNameMaker>NamerInitialSettlementColony</settlementNameMaker>
+    <expandingIconTexture>World/WorldObjects/Expanding/Town</expandingIconTexture>
+    <startingResearchTags>
+      <li>ClassicStart</li>
+    </startingResearchTags>
+    <hairTags>
+      <li>Urban</li>
+    </hairTags>
+    <hidden>true</hidden>
+    <startingGoodwill>
+      <min>0</min>
+      <max>10</max>
+    </startingGoodwill>
+    <naturalColonyGoodwill>
+      <min>-100</min>
+      <max>100</max>
+    </naturalColonyGoodwill>
+    <canSiege>true</canSiege>
+    <canStageAttacks>false</canStageAttacks>
+		<raidCommonalityFromPointsCurve>
+			<points>
+				<li>(1000, 0.4)</li>
+				<li>(2500, 1)</li>
+			</points>
+		</raidCommonalityFromPointsCurve>
+    <techLevel>Ultra</techLevel>
+    <backstoryCategories>
+	 <li>Civil</li>
+	</backstoryCategories>
+    <leaderTitle>Ecclesiarch</leaderTitle>	
+		<maxPawnCostPerTotalPointsCurve>
+      <points>
+        <li>(0,70)</li>
+        <li>(70, 100)</li>
+        <li>(700, 200)</li>
+        <li>(1300, 300)</li>
+        <li>(100000, 1000)</li>
+      </points>
+    </maxPawnCostPerTotalPointsCurve>  
+	<pawnGroupMakers>
+      <li>
+        <kindDef>Combat</kindDef>
+        <options>
+			<IoM_Colonist>50</IoM_Colonist>
+		</options>
+      </li>
+    </pawnGroupMakers>	
+	<FactionColor1>RGBA(0.9,0.9,0.9,1)</FactionColor1>
+    <FactionColor2>RGBA(0.7,0.0,0.0,1)</FactionColor2>
+  </FactionDef>
+  
+  <FactionDef ParentName="PlayerFactionBase" Class="FactionColors.FactionDefUniform">
+    <defName>IoM_Inquisition</defName>
+    <label>Inquisition</label>
+    <description>The Inquisition is the biggest group of detectives in the galaxy.</description>
+    <fixedName>Inquisition</fixedName>
+    <isPlayer>false</isPlayer>
+    <basicMemberKind>IoM_Colonist</basicMemberKind>
+    <pawnsPlural>adepts</pawnsPlural>
+    <requiredCountAtGameStart>0</requiredCountAtGameStart>
+    <settlementNameMaker>NamerInitialSettlementColony</settlementNameMaker>
+    <expandingIconTexture>World/WorldObjects/Expanding/Town</expandingIconTexture>
+    <startingResearchTags>
+      <li>ClassicStart</li>
+    </startingResearchTags>
+    <hairTags>
+      <li>Urban</li>
+    </hairTags>
+    <hidden>true</hidden>
+    <startingGoodwill>
+      <min>0</min>
+      <max>10</max>
+    </startingGoodwill>
+    <naturalColonyGoodwill>
+      <min>-100</min>
+      <max>100</max>
+    </naturalColonyGoodwill>
+    <canSiege>true</canSiege>
+    <canStageAttacks>false</canStageAttacks>
+		<raidCommonalityFromPointsCurve>
+			<points>
+				<li>(1000, 0.4)</li>
+				<li>(2500, 1)</li>
+			</points>
+		</raidCommonalityFromPointsCurve>
+    <techLevel>Ultra</techLevel>
+    <backstoryCategories>
+	 <li>Civil</li>
+	 <li>Raider</li>
+	</backstoryCategories>
+    <leaderTitle>Representative</leaderTitle>
+	<maxPawnCostPerTotalPointsCurve>
+      <points>
+        <li>(0,70)</li>
+        <li>(70, 100)</li>
+        <li>(700, 200)</li>
+        <li>(1300, 300)</li>
+        <li>(100000, 1000)</li>
+      </points>
+    </maxPawnCostPerTotalPointsCurve>  	
+	<pawnGroupMakers>
+      <li>
+        <kindDef>Combat</kindDef>
+        <options>
+			<IoM_Colonist>50</IoM_Colonist>
+		</options>
+      </li>
+    </pawnGroupMakers>	
+	<FactionColor1>RGBA(0.3,0.3,0.3,1)</FactionColor1>
+    <FactionColor2>RGBA(0.8,0.0,0.0,1)</FactionColor2>
   </FactionDef>
 
 

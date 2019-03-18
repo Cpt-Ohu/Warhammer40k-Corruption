@@ -4,10 +4,19 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace Corruption.Astartes
+namespace Corruption
 {
-    public class RecipeDef_AstartesImplant : RecipeDef
+    public class RecipeDef_MSU : RecipeDef
     {
         public HediffDef RequiresHediff;
+
+        public RecipeTypeMSU RecipeType;
+    }
+
+    public enum RecipeTypeMSU
+    {
+        Standard,
+        ServitorReprogram,
+        AstartesImplant
     }
 }

@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using UnityEngine;
@@ -11,12 +12,12 @@ namespace FactionColors
     public static class ApparelGraphicGetterFC
     {
 
-        public static bool TryGetGraphicApparelModded(Apparel apparel, BodyType bodyType, out ApparelGraphicRecord rec)
+        public static bool TryGetGraphicApparelModded(Apparel apparel, BodyTypeDef bodyType, out ApparelGraphicRecord rec)
         {
-            if (bodyType == BodyType.Undefined)
+            if (bodyType == null)
             {
                 Log.Error("Getting apparel graphic with undefined body type.");
-                bodyType = BodyType.Male;
+                bodyType = BodyTypeDefOf.Male;
             }
             if (apparel.def.apparel.wornGraphicPath.NullOrEmpty())
             {
@@ -24,13 +25,19 @@ namespace FactionColors
                 return false;
             }
             string path;
-            if (apparel.def.apparel.LastLayer == ApparelLayer.Overhead)
+            path = apparel.def.apparel.wornGraphicPath;
+            CompFactionColor compF = apparel.TryGetComp<CompFactionColor>();
+            if (compF != null)
             {
-                path = apparel.def.apparel.wornGraphicPath;
+                if (compF.CProps.IsRandomMultiGraphic)
+                {
+                    path += "/" + compF.randomGraphicPath + "/" + compF.randomGraphicPath;
+                }
             }
-            else
+
+            if (apparel.def.apparel.LastLayer != ApparelLayerDefOf.Overhead)
             {
-                path = apparel.def.apparel.wornGraphicPath + "_" + bodyType.ToString();
+                path += "_" + bodyType.ToString();
             }
 
             Graphic graphic = new Graphic();

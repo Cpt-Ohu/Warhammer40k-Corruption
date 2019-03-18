@@ -4,7 +4,7 @@
     <defName>Progena</defName>
     <title>Progena</title>
     <baseDescription>NAME was orphaned when HIS parents died in the service of the emperor. HE was transferred to the Schola Progenium, to become the backbone of the Imperium's society.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Childhood</slot>
     <workDisables>
@@ -21,7 +21,7 @@
         <amount>2</amount>
       </li>
       <li>
-        <defName>Research</defName>
+        <defName>Intellectual</defName>
         <amount>1</amount>
       </li>
     </skillGains>
@@ -36,7 +36,7 @@
     <title>Militant sister</title>
     <titleShort>Militant</titleShort>
     <baseDescription>From the very start NAME showed proficiency for warfare. HIS transfer to the Order Militant was only a matter of time.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -78,7 +78,7 @@
     <title>Blessed nurse</title>
     <titleShort>Nurse</titleShort>
     <baseDescription>During HIS training NAME showed a gift for healing. HE worked many years in a hospital of an Order Hospitaller and only recently transferred to an Order Militant.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -103,7 +103,7 @@
     <title>Translator</title>
     <titleShort>Translator</titleShort>
     <baseDescription>During HIS education NAME showed a gift for languages. HE joined the Order Dialogous and translated both Low Gothic Accents and xeno languages. HE recently transferred to an Order Militant.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -114,7 +114,7 @@
         <amount>3</amount>
       </li>
       <li>
-        <defName>Research</defName>
+        <defName>Intellectual</defName>
         <amount>2</amount>
       </li>
       <li>
@@ -136,7 +136,7 @@
     <title>Famula advance</title>
     <titleShort>Famula</titleShort>
     <baseDescription>NAME was elected to serve as advisor for an imperial governor as a member of the Ordo Famulos, engaging in diplomatic missions. HE recently transferred to an Order Militant.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>

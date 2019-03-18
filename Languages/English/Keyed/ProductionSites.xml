@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+<TabProductionSite>Production</TabProductionSite>
+<TabProductionSiteStock>Stock</TabProductionSiteStock>
+<Stock>Stock</Stock>
+
+<BuildOnWorldMap>Build {0}</BuildOnWorldMap>
+<BuildCommand>Build</BuildCommand>
+
+<UpgradeProduction>Upgrade Production</UpgradeProduction>
+<UpgradeProductionDesc>Increase the level of this site.</UpgradeProductionDesc>
+<AverageWorkSkill>Average Skill: {0}</AverageWorkSkill>
+<AvailableWorkerCount>Available: {0}</AvailableWorkerCount>
+<WorkForce>Work Force</WorkForce>
+
+<ResourceCost>Required Resources</ResourceCost>
+
+<ApproximateYield>{0} p.a.</ApproximateYield>
+<ProductionSpeed>Production Speed</ProductionSpeed>
+<YieldBoost>Yield Boost</YieldBoost>
+<ExtraProduct>Extra Product</ExtraProduct>
+
+<ExpandProduction>Expand Production</ExpandProduction>
+<ProductionOutput>Output</ProductionOutput>
+<BaseProduction>Base Production: {0} p.a.</BaseProduction>
+<BaseProductionCycle>Production Cycle: {0} days.</BaseProductionCycle>
+
+<NextSiteLevelInfo>{0}</NextSiteLevelInfo>
+<BuildUpgradeCommand>Build Upgrade</BuildUpgradeCommand>
+
+<SendResourcesToProductionSite>Send Resources to {0}</SendResourcesToProductionSite>
+<MessageTransportPodsArrivedAndAddedToProductionSite>The transport pods carrying resources have arrived at {0}.</MessageTransportPodsArrivedAndAddedToProductionSite>
+
+</LanguageData>

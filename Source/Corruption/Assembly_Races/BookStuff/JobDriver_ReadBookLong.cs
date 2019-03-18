@@ -12,16 +12,13 @@ namespace Corruption.BookStuff
         private const TargetIndex BookshelfInd = TargetIndex.A;
         private const TargetIndex BookInd = TargetIndex.B;
         private List<string> Story = new List<string>();
-        private Need_Soul soul;
+        private CompSoul soul;
         private ReadableBooks tempbook;
         private Bookshelf tempshelf;
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            if (pawn.needs.TryGetNeed<Need_Soul>() != null)
-            {
-                this.soul = pawn.needs.TryGetNeed<Need_Soul>();
-            }
+            this.soul = CompSoul.GetPawnSoul(pawn);
             yield return Toils_Goto.GotoCell(TargetIndex.A, PathEndMode.OnCell);
             yield return TakeBookFromBookshelf(TargetIndex.A, pawn, TargetIndex.B);
             yield return CarryBookToSeat(pawn);
@@ -36,7 +33,7 @@ namespace Corruption.BookStuff
             this.AddFinishAction(delegate
             {
                 Job newjob = new Job(DefDatabase<JobDef>.GetNamed("AddBookToLibrary"), TargetB, TargetA);
-                pawn.QueueJob(newjob);
+                pawn.jobs.jobQueue.EnqueueLast(newjob);
             });
          //   yield return Bookshelf.PlaceBookInShelf(tempbook, this.TargetA.Thing as Bookshelf);
             yield break;
@@ -86,7 +83,6 @@ namespace Corruption.BookStuff
                                 prog = current.Value;
                                 oldprog = prog;
                                 s = current.Value / 150;
-                                Log.Message("Old Progression Found: " + prog.ToString());
                                 break;
                             }
                         }
@@ -115,7 +111,7 @@ namespace Corruption.BookStuff
                     i++;
                 }
                 
-                reader.Drawer.rotator.FaceCell(thingBook.Position);
+                reader.rotationTracker.FaceCell(thingBook.Position);
             };
             toil.defaultCompleteMode = ToilCompleteMode.Delay;
             toil.FailOnDespawnedOrNull(TargetIndex.B);
@@ -131,7 +127,6 @@ namespace Corruption.BookStuff
                     }
                     else
                     {
-                        Log.Message("Adding Entry");
                         entries.Add(thingBook.def, prog);
                     }
                 }
@@ -204,13 +199,13 @@ namespace Corruption.BookStuff
                 if (thing != null)
                 {
                     position = thing.Position;
-                    this.pawn.Map.reservationManager.Reserve(carryBook.actor, thing);
+                    this.pawn.Map.reservationManager.Reserve(carryBook.actor, this.job, thing);
                 }
                 else
                 {
                     position = RCellFinder.SpotToChewStandingNear(carryBook.actor, carryBook.actor.CurJob.targetA.Thing);
                 }
-                this.pawn.Map.pawnDestinationManager.ReserveDestinationFor(carryBook.actor, position);
+                this.pawn.Map.pawnDestinationReservationManager.Reserve(carryBook.actor, this.job, position);
                 carryBook.actor.pather.StartPath(position, PathEndMode.OnCell);
             };
             carryBook.defaultCompleteMode = ToilCompleteMode.PatherArrival;
@@ -227,7 +222,6 @@ namespace Corruption.BookStuff
                 ThingDef_Readables Readables_Def = (ThingDef_Readables)carriedThing.def;
                 if (!Readables_Def.IsABook)
                 {
-                    Log.Message(actor + " tried to place book for reading but was carrying " + actor.carryTracker.CarriedThing);
                     actor.jobs.EndCurrentJob(JobCondition.Incompletable);
                 }
                 else
@@ -312,9 +306,9 @@ namespace Corruption.BookStuff
                 }
                 if (flag)
                 {
-                    if (this.pawn.Map.reservationManager.FirstReserverOf(bookshelf, bookshelf.Faction) == reader)
+                    if (this.pawn.Map.reservationManager.FirstRespectedReserver(bookshelf, pawn) == reader)
                     {
-                        this.pawn.Map.reservationManager.Release(bookshelf, reader);
+                        this.pawn.Map.reservationManager.Release(bookshelf, reader, this.job);
                     }
                 }
             };
@@ -377,6 +371,11 @@ namespace Corruption.BookStuff
             }
             result = false;
             return result;
+        }
+
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
+        {
+            return true;
         }
     }
 }

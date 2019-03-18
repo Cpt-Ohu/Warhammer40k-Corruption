@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ThingDefs>
+<Defs>
 
   <ThingDef Name="ImplantBase" Abstract="True">
     <label>implant</label>
@@ -8,6 +8,7 @@
     <useHitPoints>true</useHitPoints>
     <selectable>true</selectable>
     <statBases>
+      <Mass>0.5</Mass>
       <MaxHitPoints>50</MaxHitPoints>
       <Flammability>1.0</Flammability>
 			<DeteriorationRate>2.0</DeteriorationRate>
@@ -16,7 +17,7 @@
     <altitudeLayer>Item</altitudeLayer>
     <tickerType>Never</tickerType>
     <alwaysHaulable>true</alwaysHaulable>
-    <isBodyPartOrImplant>true</isBodyPartOrImplant>
+    <isTechHediff>true</isTechHediff>
     <tradeTags>
       <li>BodyPartOrImplant</li>
     </tradeTags>
@@ -34,7 +35,7 @@
     <label>NeuroController</label>
     <description>A set of cogitators and connectors implanted directly into the brain and spine to enhance mental capabilities and enable the use of high-tech manipulators.</description>
     <graphicData>
-      <texPath>Things/Item/Implant/Implant</texPath>
+      <texPath>Things/Item/Health/HealthItemBionic</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <statBases>
@@ -51,7 +52,7 @@
     <label>Servitor Implants</label>
     <description>A set of cogitators and connectors implanted directly into the brain to allow its reprogramming. This component is required for the creation of a servitor.</description>
     <graphicData>
-      <texPath>Things/Item/Implant/Implant</texPath>
+      <texPath>Things/Item/Health/HealthItemBionic</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <statBases>
@@ -101,8 +102,7 @@
     <description>A set of tendril-like bionic tools. Contains the following parts:
 
 Manipulator Mechadendrite - Used for handling heavy gear.
-Utilitys Mechadendrite - Used for general menial tasks.
-</description>
+Utilitys Mechadendrite - Used for general menial tasks.</description>
     <graphicData>
       <texPath>Things/Mechanicus/MechaDendrites/MechaDendrites</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -127,8 +127,7 @@ Utilitys Mechadendrite - Used for general menial tasks.
     <description>A set of tendril-like bionic tools. Contains the following parts:
 
 Ballistic Mechadendrite - Used for self-defense.
-Manipulator Mechadendrite - Used for handling heavy gear.
-</description>
+Manipulator Mechadendrite - Used for handling heavy gear.</description>
     <graphicData>
       <texPath>Things/Mechanicus/Dendrites_Med/DendMed</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -155,8 +154,7 @@ Manipulator Mechadendrite - Used for handling heavy gear.
 
 Medicae Mechadendrite - Provides Medical assistance.
 Optical Mechadendrite - Used for advanced visualization.
-Explorator Mechadendrite - Used for sample analysis.
-</description>
+Explorator Mechadendrite - Used for sample analysis.</description>
     <graphicData>
       <texPath>Things/Mechanicus/Dendrites_Med/DendMed</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -171,11 +169,11 @@ Explorator Mechadendrite - Used for sample analysis.
     <costList>
       <MecComponent_General>1</MecComponent_General>
       <MecComponent_Energy>1</MecComponent_Energy>
-      <Medicine>10</Medicine>
+      <MedicineIndustrial>10</MedicineIndustrial>
       <Steel>35</Steel>
     </costList>
 
   </ThingDef>
 
     
-</ThingDefs>
+</Defs>

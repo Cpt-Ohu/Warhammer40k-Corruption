@@ -10,13 +10,13 @@ namespace Corruption
 {
     public class ITab_Pawn_Alignment : ITab
     {
-        public String SelPawnPatron;
+        public PatronDef SelPawnPatron;
 
         public Texture PatronImage;
 
         public ITab_Pawn_Alignment()
         {
-            this.SelPawnPatron = this.SelPawn.needs.TryGetNeed<Need_Soul>().PatronName(SelPawn);
+            this.SelPawnPatron = CompSoul.GetPawnSoul(SelPawn).Patron;
             this.size = new Vector2(440f, 450f);
             String texpath = SelPawnPatron + "_bg";
             this.PatronImage = ContentFinder<Texture2D>.Get(texpath, true);
@@ -24,7 +24,7 @@ namespace Corruption
 
         public ITab_Pawn_Alignment(Pawn pawn)
         {
-            this.SelPawnPatron = pawn.needs.TryGetNeed<Need_Soul>().PatronName(SelPawn);
+            this.SelPawnPatron = CompSoul.GetPawnSoul(pawn).Patron;
             this.size = new Vector2(440f, 450f);
             String texpath = "UI/Emperor_bg";
             this.PatronImage = ContentFinder<Texture2D>.Get(texpath, true);
@@ -41,7 +41,7 @@ namespace Corruption
             Rect rect = new Rect(mainRect);
             Text.Anchor = TextAnchor.MiddleCenter;
             Text.Font = GameFont.Medium;
-            Widgets.Label(rect, SelPawnPatron);
+            Widgets.Label(rect, SelPawnPatron.label);
             Rect rect2 = new Rect((rect.x / 2) + 150f, rect.y + 20f, 300f, 300f);
             Widgets.DrawTextureFitted(rect2, PatronImage as Texture2D, 1f);
             Rect rect3 = new Rect(rect2);

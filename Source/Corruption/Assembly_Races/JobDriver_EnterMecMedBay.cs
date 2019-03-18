@@ -10,11 +10,14 @@ namespace Corruption
 {
     public class JobDriver_EnterMecMedBay : JobDriver
     {
-        
-		[DebuggerHidden]
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
+        {
+            return this.pawn.Reserve(this.job.targetA, this.job, 1, -1, null);
+        }
+
+        [DebuggerHidden]
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            yield return Toils_Reserve.Reserve(TargetIndex.A, 1);
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell);
             Toil toil = new Toil();
             toil.defaultCompleteMode = ToilCompleteMode.Delay;
@@ -29,6 +32,7 @@ namespace Corruption
                     Building_MechanicusMedTable pod = (Building_MechanicusMedTable)actor.CurJob.targetA.Thing;
                     Action action = delegate
                     {
+                        actor.DeSpawn();
                         pod.TryAcceptThing(actor, true);
                     };
                     if (!pod.def.building.isPlayerEjectable)

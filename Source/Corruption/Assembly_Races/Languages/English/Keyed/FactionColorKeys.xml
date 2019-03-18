@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+
+  <PlayerHeraldry>Coat of Arms</PlayerHeraldry>
+
+  <PlayerColorOne>Primary Color</PlayerColorOne>
+
+  <PlayerColorTwo>Secondary Color</PlayerColorTwo>
+
+  <BannerType>Banner Type</BannerType>
+
+
+  <PrimaryColor>Primary Color</PrimaryColor>
+
+  <SecondaryColor>Secondary Color</SecondaryColor>
+
+  <TabCoA>CoA</TabCoA>
+
+</LanguageData>

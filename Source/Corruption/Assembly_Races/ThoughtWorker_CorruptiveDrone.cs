@@ -12,20 +12,16 @@ namespace Corruption
         protected override ThoughtState CurrentStateInternal(Pawn p)
         {
 
-            Need_Soul soul = p.needs.TryGetNeed<Need_Soul>();
-            if (soul == null)
-            {
-                soul = new Need_Soul(p);
-            }
+            CompSoul soul = CompSoul.GetPawnSoul(p);
 
             float factor = 1f;
-            soul.GainNeed(factor * 0.00001f);
+            soul.AffectSoul(factor * 0.00001f);
 
             PsychicDroneLevel psychicDroneLevel = PsychicDroneLevel.None;
-            MapCondition_PsychicEmanation activeCondition = p.Map.mapConditionManager.GetActiveCondition<MapCondition_PsychicEmanation>();
-            if (activeCondition != null && activeCondition.def.droneLevel > psychicDroneLevel)
+            GameCondition_PsychicEmanation activeCondition = p.Map.gameConditionManager.GetActiveCondition<GameCondition_PsychicEmanation>();
+            if (activeCondition != null && activeCondition.def.defaultDroneLevel > psychicDroneLevel)
             {
-                psychicDroneLevel = activeCondition.def.droneLevel;
+                psychicDroneLevel = activeCondition.def.defaultDroneLevel;
             }
             else return ThoughtState.Inactive;
             switch (psychicDroneLevel)
@@ -50,7 +46,7 @@ namespace Corruption
             }
 
 
-            if (soul.NoPatron)
+            if (!soul.Corrupted)
             {
                 return ThoughtState.ActiveAtStage(0);
             }

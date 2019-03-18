@@ -3,7 +3,7 @@
 <Defs>
   
   	<HediffDef Name="addedAstartesImplant" Abstract="True">
-		<hediffClass>Hediff_AddedPart</hediffClass>
+		<hediffClass>HediffWithComps</hediffClass>
          <defaultLabelColor>(35,150,35)</defaultLabelColor>
 		<isBad>false</isBad>
 	</HediffDef>
@@ -21,7 +21,7 @@
 		<spawnThingOnRemoved>SecondHeart</spawnThingOnRemoved>
 		<addedPartProps>
 			<partEfficiency>2.0</partEfficiency>
-			<isSolid>true</isSolid>
+			<solid>true</solid>
 		</addedPartProps>
 		<stages>
 			<li>
@@ -52,7 +52,7 @@
 		<spawnThingOnRemoved>Ossmodula</spawnThingOnRemoved>
 		<addedPartProps>
 			<partEfficiency>2.0</partEfficiency>
-			<isSolid>true</isSolid>
+			<solid>true</solid>
 		</addedPartProps>
 		<stages>
 			<li>
@@ -79,7 +79,7 @@
 		<spawnThingOnRemoved>Biscorpea</spawnThingOnRemoved>
 		<addedPartProps>
 			<partEfficiency>2.0</partEfficiency>
-			<isSolid>true</isSolid>
+			<solid>true</solid>
 		</addedPartProps>
 		<stages>
 			<li>
@@ -106,7 +106,7 @@
 		<spawnThingOnRemoved>Haemastamen</spawnThingOnRemoved>
 		<addedPartProps>
 			<partEfficiency>2.0</partEfficiency>
-			<isSolid>true</isSolid>
+			<solid>true</solid>
 		</addedPartProps>
 		<stages>
 			<li>
@@ -143,7 +143,7 @@
 		<spawnThingOnRemoved>LarramansOrgan</spawnThingOnRemoved>
 		<addedPartProps>
 			<partEfficiency>2.0</partEfficiency>
-			<isSolid>true</isSolid>
+			<solid>true</solid>
 		</addedPartProps>
 		<stages>
 			<li>
@@ -175,7 +175,7 @@
 		<spawnThingOnRemoved>CatalepseanNode</spawnThingOnRemoved>
 		<addedPartProps>
 			<partEfficiency>2.0</partEfficiency>
-			<isSolid>true</isSolid>
+			<solid>true</solid>
 		</addedPartProps>
 		<stages>
 			<li>
@@ -198,7 +198,7 @@
 		<spawnThingOnRemoved>Preomnor</spawnThingOnRemoved>
 		<addedPartProps>
 			<partEfficiency>2.0</partEfficiency>
-			<isSolid>true</isSolid>
+			<solid>true</solid>
 		</addedPartProps>
 		<stages>
 			<li>
@@ -216,7 +216,7 @@
 		<spawnThingOnRemoved>Omophagea</spawnThingOnRemoved>
 		<addedPartProps>
 			<partEfficiency>2.0</partEfficiency>
-			<isSolid>true</isSolid>
+			<solid>true</solid>
 		</addedPartProps>
 		<stages>
 			<li>
@@ -239,7 +239,7 @@
 		<spawnThingOnRemoved>MultiLung</spawnThingOnRemoved>
 		<addedPartProps>
 			<partEfficiency>2.0</partEfficiency>
-			<isSolid>true</isSolid>
+			<solid>true</solid>
 		</addedPartProps>
 		<stages>
 			<li>
@@ -269,7 +269,7 @@
 		<spawnThingOnRemoved>Occulobe</spawnThingOnRemoved>
 		<addedPartProps>
 			<partEfficiency>2.0</partEfficiency>
-			<isSolid>true</isSolid>
+			<solid>true</solid>
 		</addedPartProps>
 		<stages>
 			<li>
@@ -295,7 +295,7 @@
 		<addedPartProps>
 					
 			<partEfficiency>2.0</partEfficiency>
-			<isSolid>true</isSolid>
+			<solid>true</solid>
 		</addedPartProps>
 		<stages>
 			<li>
@@ -318,7 +318,7 @@
 		<spawnThingOnRemoved>SusanMembrane</spawnThingOnRemoved>
 		<addedPartProps>
 			<partEfficiency>2.0</partEfficiency>
-			<isSolid>true</isSolid>
+			<solid>true</solid>
 		</addedPartProps>
 		<stages>
 			<li>
@@ -341,7 +341,7 @@
 		<spawnThingOnRemoved>MelanchromicOrgan</spawnThingOnRemoved>
 		<addedPartProps>
 			<partEfficiency>2.0</partEfficiency>
-			<isSolid>true</isSolid>
+			<solid>true</solid>
 		</addedPartProps>
 		<stages>
 			<li>
@@ -360,7 +360,7 @@
 		<spawnThingOnRemoved>OoliticKidney</spawnThingOnRemoved>
 		<addedPartProps>
 			<partEfficiency>2.0</partEfficiency>
-			<isSolid>true</isSolid>
+			<solid>true</solid>
 		</addedPartProps>
 		<stages>
 			<li>
@@ -381,7 +381,7 @@
 		<spawnThingOnRemoved>Neuroglottis</spawnThingOnRemoved>
 		<addedPartProps>
 			<partEfficiency>2.0</partEfficiency>
-			<isSolid>true</isSolid>
+			<solid>true</solid>
 		</addedPartProps>
 		<stages>
 			<li>
@@ -397,7 +397,7 @@
 		<spawnThingOnRemoved>Mucranoid</spawnThingOnRemoved>
 		<addedPartProps>
 			<partEfficiency>2.0</partEfficiency>
-			<isSolid>true</isSolid>
+			<solid>true</solid>
 		</addedPartProps>
 		<stages>
 			<li>
@@ -413,7 +413,7 @@
 		<spawnThingOnRemoved>BetchersGlands</spawnThingOnRemoved>
 		<addedPartProps>
 			<partEfficiency>1.0</partEfficiency>
-			<isSolid>true</isSolid>
+			<solid>true</solid>
 		</addedPartProps>
 		<stages>
 			<li>
@@ -430,7 +430,7 @@
 		<spawnThingOnRemoved>Progenoid</spawnThingOnRemoved>
 		<addedPartProps>
 			<partEfficiency>1.0</partEfficiency>
-			<isSolid>true</isSolid>
+			<solid>true</solid>
 		</addedPartProps>
 		<stages>
 			<li>
@@ -448,7 +448,7 @@
 		<spawnThingOnRemoved>BlackCarpace</spawnThingOnRemoved>
 		<addedPartProps>
 			<partEfficiency>2.0</partEfficiency>
-			<isSolid>true</isSolid>
+			<solid>true</solid>
 		</addedPartProps>
 		<stages>
 			<li>
@@ -470,7 +470,7 @@
       <spawnThingOnRemoved>SecondHeart</spawnThingOnRemoved>
       <addedPartProps>
 	  
-         <isSolid>true</isSolid>
+         <solid>true</solid>
          <partEfficiency>1.0</partEfficiency>
       </addedPartProps>
       <stages>
@@ -542,7 +542,7 @@
             <compClass>HediffComp_VerbGiver</compClass>
             <verbs>
                <li>
-                  <verbClass>Verb_MeleeAttack</verbClass>
+                  <verbClass>Verb_MeleeAttackDamage</verbClass>
                   <defaultCooldownTicks>90</defaultCooldownTicks>
                   <meleeDamageBaseAmount>15</meleeDamageBaseAmount>
                   <meleeDamageDef>Blunt</meleeDamageDef>

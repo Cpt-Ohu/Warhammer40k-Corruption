@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<PawnKindDefs>
+<Defs>
 
   <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
     <defName>Tau_GVTrooper</defName>
@@ -7,7 +7,7 @@
     <race>Human</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
-    <backstoryCategory>Civil</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>TauVanguard</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>58</maxGenerationAge>
@@ -24,7 +24,7 @@
       <li>Tau_Aux</li> 
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.1</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.1</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>9000</min>
       <max>9000</max>
@@ -42,6 +42,8 @@
     </techHediffsTags>
     <techHediffsChance>0.3</techHediffsChance>
     <AfflictionProperty>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>GreaterGood</Patron>
       <LowerAfflictionLimit>0.6</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
       <ResolveFactor>1.0</ResolveFactor>
@@ -55,7 +57,7 @@
     <race>Alien_TauSHAS</race>
     <combatPower>90</combatPower>
     <baseRecruitDifficulty>0.90</baseRecruitDifficulty>
-    <backstoryCategory>TauShas</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>TauVanguard</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>80</maxGenerationAge>
@@ -71,7 +73,7 @@
       <li>Tau_Basic</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>1.0</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>1.0</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>9000</min>
       <max>9000</max>
@@ -89,9 +91,9 @@
     <techHediffsChance>0.3</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>GreaterGood</Patron>
       <ImmuneDevotionDegree>0</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Tau</IsofFaith>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
       <LowerPsykerPowerLimit>Sigma</LowerPsykerPowerLimit>
@@ -108,7 +110,7 @@
     <race>Alien_TauSHAS</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.90</baseRecruitDifficulty>
-    <backstoryCategory>TauShas</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>TauVanguard</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>80</maxGenerationAge>
@@ -124,7 +126,7 @@
       <li>Tau_Basic</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>1.0</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>1.0</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>9000</min>
       <max>9000</max>
@@ -142,9 +144,9 @@
     <techHediffsChance>0.9</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>GreaterGood</Patron>
       <ImmuneDevotionDegree>0</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Tau</IsofFaith>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
       <LowerPsykerPowerLimit>Sigma</LowerPsykerPowerLimit>
@@ -161,7 +163,7 @@
     <race>Alien_TauPOR</race>
     <combatPower>40</combatPower>
     <baseRecruitDifficulty>0.90</baseRecruitDifficulty>
-    <backstoryCategory>TauPOR</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>TauVanguard</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>80</maxGenerationAge>
@@ -177,7 +179,7 @@
       <li>Tau_Basic</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.0</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.0</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>1200</min>
       <max>2000</max>
@@ -195,9 +197,9 @@
     <techHediffsChance>0.9</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>GreaterGood</Patron>
       <ImmuneDevotionDegree>0</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Tau</IsofFaith>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
       <LowerPsykerPowerLimit>Sigma</LowerPsykerPowerLimit>
@@ -214,7 +216,7 @@
     <race>Alien_TauAUN</race>
     <combatPower>40</combatPower>
     <baseRecruitDifficulty>0.90</baseRecruitDifficulty>
-    <backstoryCategory>TauAUN</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>TauVanguard</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>80</maxGenerationAge>
@@ -231,7 +233,7 @@
       <li>Tau_Basic</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.0</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.0</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>1200</min>
       <max>2000</max>
@@ -249,9 +251,9 @@
     <techHediffsChance>0.9</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>GreaterGood</Patron>
       <ImmuneDevotionDegree>0</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Tau</IsofFaith>
       <LowerAfflictionLimit>0.99</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.99</UpperAfflictionLimit>
       <LowerPsykerPowerLimit>Sigma</LowerPsykerPowerLimit>
@@ -262,4 +264,4 @@
   </PawnKindDef>
 
 
-</PawnKindDefs>
+</Defs>

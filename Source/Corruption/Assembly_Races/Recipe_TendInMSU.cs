@@ -9,11 +9,12 @@ namespace Corruption
 {
     public class Recipe_TendInMSU : Recipe_Surgery
     {
-        public override void ApplyOnPawn(Pawn pawn, BodyPartRecord part, Pawn billDoer, List<Thing> ingredients)
+
+        public override void ApplyOnPawn(Pawn pawn, BodyPartRecord part, Pawn billDoer, List<Thing> ingredients, Bill bill)
         {
             if (billDoer != null)
             {
-                if (base.CheckSurgeryFail(billDoer, pawn, ingredients, part))
+                if (base.CheckSurgeryFail(billDoer, pawn, ingredients, part, bill))
                 {
                     return;
                 }

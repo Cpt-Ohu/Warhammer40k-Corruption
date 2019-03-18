@@ -10,18 +10,6 @@ namespace Corruption.DefOfs
     [DefOf]
     public class C_ThingDefOfs
     { 
-        public static ThingDef Overlay_Khorne;
-
-        public static ThingDef Overlay_Nurgle;
-
-        public static ThingDef Overlay_Undivided;
-
-        public static ThingDef Overlay_Tzeentch;
-
-        public static ThingDef Overlay_Head;
-
-        public static ThingDef Overlay_Hair;
-
         public static ThingDef Valkyrie;
 
         public static ThingDef TableButcher;
@@ -30,6 +18,14 @@ namespace Corruption.DefOfs
         
         public static ThingDef WarpRift;
 
-        public static ThingDef Chemfuel;   
+        public static ThingDef Chemfuel;
+
+        public static ThingDef ShrineEmperor;
+
+        public static ThingDef IoM_ServitorFuel;
+
+        public static ThingDef ImperialFreighterTribute;
+        public static ThingDef ImperialFreighterSupply;
+
     }
 }

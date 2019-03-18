@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<ThingDefs> 
+<Defs> 
   <!-- ============================================================== -->
   
   <ThingDef ParentName="BaseMeleeWeaponNoTag">
@@ -11,26 +11,35 @@
 		<texPath>Things/IG/Weapons/Chainsword</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <costStuffCount>150</costStuffCount>
     <tradeability>Sellable</tradeability>
     <statBases>
+      <Mass>2</Mass>
       <WorkToMake>20000</WorkToMake>
-      <MeleeWeapon_DamageAmount>26</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.95</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-45</equippedAngleOffset>
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
-    <verbs>
+	<tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
-        <soundCast>SlashMetal</soundCast>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>26</power>
+        <cooldownTime>1.95</cooldownTime>
       </li>
-    </verbs>
+	   <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>24</power>
+        <cooldownTime>1.95</cooldownTime>
+      </li>
+    </tools>
     <weaponTags>
       <li>Sororitas_Melee</li>
     </weaponTags>	
@@ -57,31 +66,41 @@
 		<texPath>Things/Sororitas/Weapons/SororitasSword</texPath>
 		<graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
-    <soundInteract>InteractPistol</soundInteract>
+    <soundInteract>Interact_Rifle</soundInteract>
     <costStuffCount>150</costStuffCount>
     <statBases>
+      <Mass>2</Mass>
       <WorkToMake>18000</WorkToMake>
-      <MeleeWeapon_DamageAmount>26</MeleeWeapon_DamageAmount>
-      <MeleeWeapon_Cooldown>1.95</MeleeWeapon_Cooldown>
     </statBases>
     <equippedAngleOffset>-45</equippedAngleOffset>
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
-    <verbs>
+	<tools>
       <li>
-        <verbClass>Verb_MeleeAttack</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-        <meleeDamageDef>Cut</meleeDamageDef>
+        <label>blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>26</power>
+        <cooldownTime>1.95</cooldownTime>
       </li>
-    </verbs>
+	   <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>22</power>
+        <cooldownTime>1.95</cooldownTime>
+      </li>
+    </tools>
     <weaponTags>
       <li>Sororitas_Melee</li>
     </weaponTags>
 	<thingCategories>
       <li>Sororitas_Melee</li>
     </thingCategories>
-    <TickerType>Rare</TickerType>
+    <tickerType>Rare</tickerType>
     <comps>
       <li Class="Corruption.CompProperties_SoulItem">
         <compClass>Corruption.CompSoulItem</compClass>
@@ -119,4 +138,4 @@ Unlockable Power: Healing Hand</description>
     </comps>
   </ThingDef>
   
- </ThingDefs>
+ </Defs>

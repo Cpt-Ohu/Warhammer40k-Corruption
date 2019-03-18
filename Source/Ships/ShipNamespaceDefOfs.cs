@@ -12,8 +12,6 @@ namespace OHUShips
     public class ShipNamespaceDefOfs
     {
         public static WorldObjectDef ShipTracker;
-        public static WorldObjectDef TravelingSuborbitalShip;
-        public static WorldObjectDef LandedShip;
         public static WorldObjectDef ShipDropSite;
 
         public static JobDef UninstallShipWeapon;
@@ -23,16 +21,17 @@ namespace OHUShips
         public static JobDef LoadContainerMultiplePawns;
 
         public static JobDef LeaveInShip;
+        public static JobDef RescueToShip;
 
         public static DutyDef LeaveInShipDuty;
+        public static DutyDef StealForShipDuty;
 
-        public static DutyDef LoadShipCargo;
-        
-
-
-
-
+        public static DutyDef LoadShipCargoDuty;   
 
         public static ThingDef Chemfuel;
+
+        public static WorldObjectDef WorldShip;
+
+        public static object Shi { get; internal set; }
     }
 }

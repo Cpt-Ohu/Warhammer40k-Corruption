@@ -15,11 +15,11 @@ namespace Corruption.BookStuff
         public List<ThingDef> StoredBooks = new List<ThingDef>();
         public Thing ChoosenBook = null;
         public List<ThingDef> MissingBooksList = new List<ThingDef>();
-        public ThingDef_Readables Tdef
+        public CompBookshelf compBookshelf
         {
             get
             {
-                return (ThingDef_Readables)this.def;
+                return this.TryGetComp<CompBookshelf>();
             }
         }
 
@@ -27,9 +27,9 @@ namespace Corruption.BookStuff
         {
             get
             {
-                if (this.Tdef != null && Tdef.StoredBookGraphicPath != null)
+                if (this.compBookshelf != null && compBookshelf.Props.StoredBookGraphicPath != null)
                 {
-                    return GraphicDatabase.Get<Graphic_Multi>(Tdef.StoredBookGraphicPath, ShaderDatabase.Cutout, Vector2.one, Color.white);
+                    return GraphicDatabase.Get<Graphic_Multi>(compBookshelf.Props.StoredBookGraphicPath, ShaderDatabase.Cutout, Vector2.one, Color.white);
                 }
                 return null;
 
@@ -39,15 +39,23 @@ namespace Corruption.BookStuff
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Collections.LookList<ThingDef>(ref StoredBooks, "StoredBooks", LookMode.Def, null);
-            Scribe_Collections.LookList<ThingDef>(ref MissingBooksList, "MissingBooksList", LookMode.Def, null);
+            Scribe_Collections.Look<ThingDef>(ref StoredBooks, "StoredBooks", LookMode.Def, null);
+            Scribe_Collections.Look<ThingDef>(ref MissingBooksList, "MissingBooksList", LookMode.Def, null);
         }
 
-
-        public override void SpawnSetup(Map map)
+        public override void PostMake()
         {
-            base.SpawnSetup(map);
-            this.BookCategories = Tdef.BookCategories;
+            base.PostMake();
+
+            foreach (ThingDef bookDef in this.compBookshelf.Props.BooksList)
+            {
+                this.StoredBooks.Add(bookDef);
+            }
+        }
+
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad);
         }
 
         public Thing JobBook(Pawn reader)
@@ -98,9 +106,9 @@ namespace Corruption.BookStuff
                         Action storebook = delegate
                         {
                             Job newjob = new Job(DefDatabase<JobDef>.GetNamed("AddBookToLibrary"), current, this);
-                            myPawn.QueueJob(newjob);
-                            myPawn.jobs.StopAll();
-                            myPawn.Reserve(this);
+                            myPawn.jobs.jobQueue.EnqueueFirst(newjob);
+                            //myPawn.jobs.StopAll();
+                            myPawn.Reserve(this, newjob);
                         };
                         list.Add(new FloatMenuOption("AddBookToLibrary".Translate(new object[] { current.LabelCap}), storebook));
 
@@ -115,10 +123,10 @@ namespace Corruption.BookStuff
                         Action action = delegate
                         {
                             Job newJob = new Job(DefDatabase<JobDef>.GetNamed("SitAndRead"), this);
-                            myPawn.QueueJob(newJob);
-                            myPawn.jobs.StopAll();
+                            myPawn.jobs.jobQueue.EnqueueFirst(newJob);
+                            //myPawn.jobs.StopAll();
                             pawn = myPawn;
-                            myPawn.Reserve(this);
+                            myPawn.Reserve(this, newJob);
                         };
                         list.Add(new FloatMenuOption("ReadABook".Translate(), action));        
                     }
@@ -129,7 +137,7 @@ namespace Corruption.BookStuff
             return result;
         }
         
-        public override void DeSpawn()
+        public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
         {
             if (MissingBooksList.Count > 0)
             {
@@ -154,7 +162,6 @@ namespace Corruption.BookStuff
 
             ReadableBooks bookint = (ReadableBooks)pawn.jobs.curJob.GetTarget(book).Thing;
             Bookshelf bookshelf = (Bookshelf)pawn.jobs.curJob.GetTarget(shelf).Thing;
-            Log.Message("Trying to place book");
             Toil toil = new Toil();
             toil.defaultCompleteMode = ToilCompleteMode.Instant;
             toil.AddPreInitAction(delegate

@@ -18,6 +18,11 @@ namespace Corruption
             }
         }
 
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
+        {
+            return true;
+        }
+
         protected override IEnumerable<Toil> MakeNewToils()
         {
 
@@ -29,7 +34,7 @@ namespace Corruption
             {
                 if (compPsyker.IsActive)
                 {
-                    PsykerUtility.PsykerShockEvents(compPsyker, compPsyker.curPower.PowerLevel);
+                    PsykerUtility.PsykerShockEvents(compPsyker);
                 }
                 compPsyker.IsActive = false;
                 compPsyker.ShotFired = true;

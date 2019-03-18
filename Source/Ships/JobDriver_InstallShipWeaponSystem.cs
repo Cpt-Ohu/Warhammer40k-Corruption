@@ -10,6 +10,15 @@ namespace OHUShips
 {
     public class JobDriver_InstallShipWeaponSystem : JobDriver
     {
+		//public override bool TryMakePreToilReservations(bool errorOnFail)
+		//{
+		//    throw new NotImplementedException();
+		//}
+		public override bool TryMakePreToilReservations(bool errorOnFail)
+		{
+			return true;
+			//throw new NotImplementedException();
+		}
 
         [DebuggerHidden]
         protected override IEnumerable<Toil> MakeNewToils()
@@ -18,7 +27,7 @@ namespace OHUShips
             this.FailOnDestroyedNullOrForbidden(TargetIndex.B);
             yield return Toils_Reserve.Reserve(TargetIndex.A, 1);
             yield return Toils_Reserve.ReserveQueue(TargetIndex.A, 1);
-            yield return Toils_Reserve.Reserve(TargetIndex.B, 1);
+            yield return Toils_Reserve.Reserve(TargetIndex.B, 10, 1);
             yield return Toils_Reserve.ReserveQueue(TargetIndex.B, 1);
             Toil toil = Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnSomeonePhysicallyInteracting(TargetIndex.A);
             yield return toil;
@@ -41,10 +50,35 @@ namespace OHUShips
                     
                     Action action = delegate
                     {
-                        if (ship.TryInstallTurret(comp.slotToInstall, comp))
+                        if (comp != null)
                         {
-                            this.pawn.carryTracker.GetInnerContainer().Remove(TargetA.Thing);
-                            ship.weaponsToInstall.Remove(comp.slotToInstall);
+                            switch (comp.SProps.weaponSystemType)
+                            {
+                                case WeaponSystemType.LightCaliber:
+                                    {
+
+                                        if (ship.TryInstallTurret(comp))
+                                        {
+                                            this.pawn.carryTracker.GetDirectlyHeldThings().Remove(TargetA.Thing);
+                                            ship.weaponsToInstall.Remove(comp.slotToInstall);
+                                        }
+                                        break; 
+                                    }
+                                case WeaponSystemType.HeavyCaliber:
+                                    {
+                                        break;
+                                    }
+                                case WeaponSystemType.Bombing:
+                                    {
+                                        WeaponSystemShipBomb bomb = thing as WeaponSystemShipBomb;
+                                        if (ship.TryInstallPayload(bomb, comp))
+                                        {
+                                            this.pawn.carryTracker.GetDirectlyHeldThings().Remove(TargetA.Thing);
+                                            ship.weaponsToInstall.Remove(comp.slotToInstall);
+                                        }
+                                        break;
+                                    }
+                            }
                         }
                     };
 

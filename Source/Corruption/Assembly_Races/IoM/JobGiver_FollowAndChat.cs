@@ -13,9 +13,12 @@ namespace Corruption.IoM
         protected override Job TryGiveJob(Pawn pawn)
         {
             Pawn colonist = pawn.Map.mapPawns.FreeColonistsSpawned.Where((Pawn p) => p.Awake()).RandomElement();
-            if(!IoM_StoryUtilities.PawnInPrivateQuarters(colonist))
+            if (colonist != null && this.TargetPawnValid(colonist))
             {
-                 return this.FollowJob(colonist);                
+                if (!IoM_StoryUtilities.PawnInPrivateQuarters(colonist))
+                {
+                    return this.FollowJob(colonist);
+                }
             }
             return null;
         }
@@ -24,6 +27,11 @@ namespace Corruption.IoM
         {
             Job job = new Job(DefOfs.C_JobDefOf.FollowAndChat, colonist, 1200);
             return job;
+        }
+
+        protected virtual bool TargetPawnValid(Pawn pawn)
+        {
+            return true;
         }
     }
 
@@ -55,7 +63,7 @@ namespace Corruption.IoM
     {
         protected override Job FollowJob(Pawn colonist)
         {
-            Job job = new Job(DefOfs.C_JobDefOf.FollowAndInvestigate, colonist, 1200);
+            Job job = new Job(DefOfs.C_JobDefOf.FollowAndInvestigate, colonist, 2000);
             return job;
         }
     }

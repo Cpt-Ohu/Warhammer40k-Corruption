@@ -15,6 +15,7 @@ namespace FactionColors
         public ShoulderPadType padType;
         private bool useSecondaryColor;
         private bool useFactionTextures;
+        private bool pauldronInitialized = false;
         public Apparel apparel
         {
             get
@@ -27,7 +28,7 @@ namespace FactionColors
         {
             get
             {
-                return this.apparel.wearer;
+                return this.apparel.Wearer;
             }
         }
 
@@ -40,14 +41,21 @@ namespace FactionColors
                     return this.parent.DrawColorTwo;
                 }
                 return this.parent.DrawColor;
-            }           
+            }
         }
 
+
+        private Graphic _pauldronGraphic;
         public Graphic PauldronGraphic
         {
             get
             {
-                return GraphicDatabase.Get<Graphic_Multi>(graphicPath + "_" + pawn.story.bodyType.ToString(), shader,  Vector2.one, this.mainColor, this.parent.DrawColorTwo);
+                if (_pauldronGraphic == null)
+                {
+                    string path = graphicPath + "_" + pawn.story.bodyType.ToString();
+                    this._pauldronGraphic = GraphicDatabase.Get<Graphic_Multi>(path, shader, Vector2.one, this.mainColor, this.parent.DrawColorTwo);
+                }
+                return _pauldronGraphic;
             }
         }
 
@@ -69,7 +77,7 @@ namespace FactionColors
                     CompPauldronDrawer drawer;
                     if ((drawer = curr.TryGetComp<CompPauldronDrawer>()) != null)
                     {
-                        drawer.PostSpawnSetup();
+                        if (!drawer.pauldronInitialized) drawer.PostSpawnSetup(false);
                         if (drawer.PauldronGraphic != null)
                         {
                             if (drawer.CheckPauldronRotation(pawn, drawer.padType))
@@ -101,31 +109,31 @@ namespace FactionColors
             }
             return true;
         }
-       
 
-
-        public override void PostSpawnSetup()
+        public override void PostSpawnSetup(bool respawningAfterLoad)
         {
-            base.PostSpawnSetup();
+            base.PostSpawnSetup(respawningAfterLoad);
             ShoulderPadEntry entry = this.pprops.PauldronEntries.RandomElementByWeight((ShoulderPadEntry x) => x.commonality);
             this.graphicPath = entry.padTexPath;
 
             if (entry.UseFactionTextures)
             {
-                this.graphicPath += ("_" + this.apparel.wearer.Faction.Name);
+                this.graphicPath += ("_" + this.apparel.Wearer?.Faction.Name);
             }
-            this.shader = ShaderDatabase.ShaderFromType(entry.shaderType);
+            this.shader = ShaderDatabase.LoadShader(entry.shaderType.shaderPath);
             this.useSecondaryColor = entry.UseSecondaryColor;
             this.padType = entry.shoulderPadType;
+            pauldronInitialized = true;
+
         }
 
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.LookValue<string>(ref this.graphicPath, "graphicPath", null, false);
-            Scribe_Values.LookValue<Shader>(ref this.shader, "shader", ShaderDatabase.Cutout, false);
-            Scribe_Values.LookValue<ShoulderPadType>(ref this.padType, "padType", ShoulderPadType.Both, false);
-            Scribe_Values.LookValue<bool>(ref this.useSecondaryColor, "useSecondaryColor", false, false);
+            Scribe_Values.Look<string>(ref this.graphicPath, "graphicPath", null, false);
+            //Scribe_Values.Look<Shader>(ref this.shader, "shader", ShaderDatabase.Cutout, false);
+            Scribe_Values.Look<ShoulderPadType>(ref this.padType, "padType", ShoulderPadType.Both, false);
+            Scribe_Values.Look<bool>(ref this.useSecondaryColor, "useSecondaryColor", false, false);
 
         }
 

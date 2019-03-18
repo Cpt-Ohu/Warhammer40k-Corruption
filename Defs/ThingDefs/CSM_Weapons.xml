@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+  <ThingDef Name="BaseWeapon_CSM" ParentName="BaseMeleeWeaponNoTag" Abstract="True">
+    <thingClass>ThingWithComps</thingClass>
+    <recipeMaker>
+    <defaultIngredientFilter>
+      <categories>
+        <li>Root</li>
+      </categories>
+      <disallowedThingDefs>
+        <li>Silver</li>
+        <li>Gold</li>
+        <li>WoodLog</li>
+      </disallowedThingDefs>
+    </defaultIngredientFilter>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+    </recipeMaker>
+    <tradeability>Sellable</tradeability>
+
+    <comps>
+      <li Class="FactionColors.CompProperties_FactionColor">
+        <compClass>FactionColors.CompFactionColor</compClass>
+      </li>
+    </comps>
+
+  </ThingDef>
+  
+
+  <!-- ============================================================== -->
+  
+
+  <ThingDef ParentName="BaseWeapon_CSM" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <ItemMeshSize>(1.3, 1.3, 1.3)</ItemMeshSize>
+    <defName>CSM_HeavyBolter</defName>
+    <label>Heavy Bolter</label>
+    <description>The current standard-issue heavy bolter.</description>
+	<graphicData>
+      <drawSize>(1.3,1.3)</drawSize>
+		<texPath>Things/Astartes/Weapons/HeavyBolter</texPath>
+		<shaderType>CutoutComplex</shaderType>
+		<graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
+	</graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <Mass>15</Mass>
+      <WorkToMake>20000</WorkToMake>
+      <MarketValue>3000</MarketValue>
+      <AccuracyTouch>0.68</AccuracyTouch>
+      <AccuracyShort>0.64</AccuracyShort>
+      <AccuracyMedium>0.67</AccuracyMedium>
+      <AccuracyLong>0.43</AccuracyLong>
+      <RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+    </statBases>
+    <weaponTags>
+      <li>CSM_Heavy</li>
+    </weaponTags>
+    <thingCategories>
+      <li>Astartes_Heavy</li>
+    </thingCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_HeavyBolt</defaultProjectile>
+        <warmupTime>4.0</warmupTime>
+        <range>40</range>
+        <burstShotCount>6</burstShotCount>
+        <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+        <soundCast>Bolter</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+		<muzzleFlashScale>15</muzzleFlashScale>
+      </li>
+    </verbs>
+	<tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>3.0</cooldownTime>
+      </li>
+    </tools>
+    <costList>
+      <MecComponent_Weapon>1</MecComponent_Weapon>
+      <ComponentIndustrial>10</ComponentIndustrial>
+      <Steel>135</Steel>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>MecTec_ManufacturingLicenceIII</researchPrerequisite>
+	</recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseWeapon_CSM" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <ItemMeshSize>(1.00, 1.00, 1.00)</ItemMeshSize>
+    <defName>CSM_Bolter</defName>
+    <label>Astartes Issue Bolter</label>
+    <description>The current standard-issue bolter is the .75 calibre Astartes Mark Vb Godwyn Pattern Bolter equiped with Standard Bolts</description>
+	<graphicData>
+		<texPath>Things/Chaos/CSM/Weapons/CSMBolter</texPath>
+		<graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
+	</graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <Mass>15</Mass>
+      <WorkToMake>20000</WorkToMake>
+      <MarketValue>2000</MarketValue>
+      <AccuracyTouch>0.6</AccuracyTouch>
+      <AccuracyShort>0.67</AccuracyShort>
+      <AccuracyMedium>0.77</AccuracyMedium>
+      <AccuracyLong>0.53</AccuracyLong>
+      <RangedWeapon_Cooldown>0.76</RangedWeapon_Cooldown>
+    </statBases>
+    <weaponTags>
+      <li>CSM_Ranged</li>
+    </weaponTags>
+    <thingCategories>
+      <li>Astartes_Ranged</li>
+    </thingCategories>
+	<tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2.5</cooldownTime>
+      </li>
+    </tools>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_AstartesBolt</defaultProjectile>
+        <warmupTime>1.7</warmupTime>
+        <range>32</range>
+        <burstShotCount>3</burstShotCount>
+        <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+        <soundCast>Bolter</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+		<muzzleFlashScale>15</muzzleFlashScale>
+      </li>
+    </verbs>
+    <costList>
+      <MecComponent_Weapon>1</MecComponent_Weapon>
+      <ComponentIndustrial>10</ComponentIndustrial>
+      <Steel>135</Steel>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>MecTec_ManufacturingLicenceIII</researchPrerequisite>
+	</recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseWeapon_CSM" Class="FactionColors.FactionItemDef">
+    <thingClass>FactionColors.FactionItem</thingClass>
+    <ItemMeshSize>(1.1, 1.1, 1.1)</ItemMeshSize>
+    <defName>CSM_BoltPistolAstartes</defName>
+    <label>Astartes Issue Bolt Pistol</label>
+    <description>The current standard-issue bolter is the .75 calibre Astartes Mark Vb Godwyn Pattern Bolter equiped with Standard Bolts</description>
+	<graphicData>
+		<texPath>Things/IG/Weapons/Bolt_Pistol</texPath>
+		<graphicClass>FactionColors.Graphic_SingleFC</graphicClass>
+	</graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <Mass>10</Mass>
+      <MarketValue>1700</MarketValue>
+      <AccuracyTouch>0.85</AccuracyTouch>
+      <AccuracyShort>0.75</AccuracyShort>
+      <AccuracyMedium>0.55</AccuracyMedium>
+      <AccuracyLong>0.38</AccuracyLong>
+      <RangedWeapon_Cooldown>0.50</RangedWeapon_Cooldown>
+    </statBases>
+    <weaponTags>
+      <li>CSM_Assault</li>
+    </weaponTags>
+    <thingCategories>
+      <li>Astartes_Ranged</li>
+    </thingCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_AstartesBolt</defaultProjectile>
+        <warmupTime>0.9</warmupTime>
+        <range>18</range>
+        <soundCast>Bolter</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+	<tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>1.5</cooldownTime>
+      </li>
+    </tools>
+    <costList>
+      <MecComponent_Weapon>1</MecComponent_Weapon>
+      <ComponentIndustrial>7</ComponentIndustrial>
+      <Steel>75</Steel>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>MecTec_ManufacturingLicenceII</researchPrerequisite>
+	  </recipeMaker>
+
+  </ThingDef>
+
+    
+ </Defs>

@@ -13,16 +13,16 @@ namespace Corruption
 
         private Pawn Victim;
 
-        private Need_Soul soul
+        private CompSoul soul
         {
             get
             {
-                Need_Soul soulInt;
-                if ((soulInt = this.Pawn.needs.TryGetNeed<Need_Soul>()) != null)
+                CompSoul soulInt;
+                if ((soulInt = CompSoul.GetPawnSoul(Pawn)) != null)
                     return soulInt;
                 else
                 {
-                    return new Need_Soul(this.Pawn);
+                    throw new Exception("Pawn with Nurgle's rot has no soul!");
                 }
             }
         }
@@ -33,19 +33,19 @@ namespace Corruption
             this.Victim = this.Pawn;           
         }
 
-        public override void CompPostTick()
+        public override  void CompPostTick(ref float severityAdjustment)
         {
-            base.CompPostTick();
+            base.CompPostTick(ref severityAdjustment);
             if (this.Pawn.def.race.Humanlike)
             {
-                soul.GainNeed(-0.00005f);
+                soul.AffectSoul(-0.00005f);
                 if (this.parent.Severity > 0.4f)
                 {
                     if (soul.CurLevel < 0.5f)
                     {
                         this.Pawn.health.AddHediff(C_HediffDefOf.MarkNurgle);
-                        soul.GainPatron(ChaosGods.Nurgle, true);
-                        soul.GainNeed(-0.3f);
+                        soul.GainChaosGod(PatronDefOf.Nurgle);
+                        soul.AffectSoul(-0.3f);
                         this.parent.Heal(1f);
                     }
                 }
@@ -56,7 +56,7 @@ namespace Corruption
         {
             if (this.Pawn.Corpse.Spawned)
             {
-                GenExplosion.DoExplosion(this.Pawn.Position, this.Pawn.Map, 1, C_DamageDefOf.RottenBurst, null, null, null, null, ThingDefOf.FilthVomit, 1);
+                GenExplosion.DoExplosion(this.Pawn.Position, this.Pawn.Corpse.Map, 1, C_DamageDefOf.RottenBurst, null, 1, 0f,null, null, null,null, ThingDefOf.Filth_Vomit, 1);
             }
         }
 

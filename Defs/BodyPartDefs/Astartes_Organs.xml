@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<BodyPartDefs>
+<Defs>
  
  <!-- 1  Second Heart -->
  
@@ -9,8 +9,8 @@
     <defName>SecondHeart</defName>
     <label>Second Heart</label>
     <hitPoints>1</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
-    <bleedingRateMultiplier>0</bleedingRateMultiplier>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+    <bleedRate>0</bleedRate>
     <skinCovered>false</skinCovered>
     </BodyPartDef>
  
@@ -20,8 +20,8 @@
     <defName>Ossmodula</defName>
     <label>Ossmodula</label>
     <hitPoints>1</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
-    <bleedingRateMultiplier>0</bleedingRateMultiplier>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+    <bleedRate>0</bleedRate>
     <skinCovered>false</skinCovered>
     </BodyPartDef>
  
@@ -32,8 +32,8 @@
     <defName>Biscorpea</defName>
     <label>Biscorpea</label>
     <hitPoints>1</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
-    <bleedingRateMultiplier>0</bleedingRateMultiplier>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+    <bleedRate>0</bleedRate>
     <skinCovered>false</skinCovered>
     </BodyPartDef>
 
@@ -42,8 +42,8 @@
     <defName>Haemastamen</defName>
     <label>Haemastamen</label>
     <hitPoints>1</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
-    <bleedingRateMultiplier>0</bleedingRateMultiplier>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+    <bleedRate>0</bleedRate>
     <skinCovered>false</skinCovered>
     </BodyPartDef>
 
@@ -54,8 +54,8 @@
     <defName>LarramansOrgan</defName>
     <label>Larramans Organ</label>
     <hitPoints>1</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
-    <bleedingRateMultiplier>0</bleedingRateMultiplier>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+    <bleedRate>0</bleedRate>
     <skinCovered>false</skinCovered>
     </BodyPartDef>
 	
@@ -66,8 +66,8 @@
     <defName>CatalepseanNode</defName>
     <label>Catalepsean Node</label>
     <hitPoints>1</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
-    <bleedingRateMultiplier>0</bleedingRateMultiplier>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+    <bleedRate>0</bleedRate>
     <skinCovered>false</skinCovered>
     </BodyPartDef>
 	
@@ -77,8 +77,8 @@
     <defName>Preomnor</defName>
     <label>Preomnor</label>
     <hitPoints>1</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
-    <bleedingRateMultiplier>0</bleedingRateMultiplier>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+    <bleedRate>0</bleedRate>
     <skinCovered>false</skinCovered>
     </BodyPartDef>
 	
@@ -87,8 +87,8 @@
     <defName>Omophagea</defName>
     <label>Omophagea</label>
     <hitPoints>1</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
-    <bleedingRateMultiplier>0</bleedingRateMultiplier>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+    <bleedRate>0</bleedRate>
     <skinCovered>false</skinCovered>
     </BodyPartDef>	
 	
@@ -99,8 +99,8 @@
     <defName>MultiLung</defName>
     <label>Multi-Lung</label>
     <hitPoints>1</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
-    <bleedingRateMultiplier>0</bleedingRateMultiplier>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+    <bleedRate>0</bleedRate>
     <skinCovered>false</skinCovered>
     </BodyPartDef>		
 	
@@ -110,8 +110,8 @@
     <defName>Occulobe</defName>
     <label>Occulobe</label>
     <hitPoints>1</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
-    <bleedingRateMultiplier>0</bleedingRateMultiplier>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+    <bleedRate>0</bleedRate>
     <skinCovered>false</skinCovered>
     </BodyPartDef>		
 	
@@ -122,8 +122,8 @@
     <defName>SusanMembrane</defName>
     <label>Sus-An Membran</label>
     <hitPoints>1</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
-    <bleedingRateMultiplier>0</bleedingRateMultiplier>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+    <bleedRate>0</bleedRate>
     <skinCovered>false</skinCovered>
     </BodyPartDef>			
 	
@@ -132,8 +132,8 @@
     <defName>MelanchromicOrgan</defName>
     <label>Melanchromic Organ</label>
     <hitPoints>1</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
-    <bleedingRateMultiplier>0</bleedingRateMultiplier>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+    <bleedRate>0</bleedRate>
     <skinCovered>false</skinCovered>
     </BodyPartDef>		
 	
@@ -146,8 +146,8 @@
     <defName>Neuroglottis</defName>
     <label>Neuroglottis</label>
     <hitPoints>1</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
-    <bleedingRateMultiplier>0</bleedingRateMultiplier>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+    <bleedRate>0</bleedRate>
     <skinCovered>false</skinCovered>
     </BodyPartDef>	
 	
@@ -156,8 +156,8 @@
     <defName>Mucranoid</defName>
     <label>Mucranoid</label>
     <hitPoints>1</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
-    <bleedingRateMultiplier>0</bleedingRateMultiplier>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+    <bleedRate>0</bleedRate>
     <skinCovered>false</skinCovered>
     </BodyPartDef>		
 	
@@ -167,8 +167,8 @@
     <defName>BetchersGlands</defName>
     <label>Betchers Glands</label>
     <hitPoints>1</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
-    <bleedingRateMultiplier>0</bleedingRateMultiplier>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+    <bleedRate>0</bleedRate>
     <skinCovered>false</skinCovered>
     </BodyPartDef>	
 	
@@ -178,8 +178,8 @@
     <defName>Progenoid</defName>
     <label>Progenoid</label>
     <hitPoints>1</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
-    <bleedingRateMultiplier>0</bleedingRateMultiplier>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+    <bleedRate>0</bleedRate>
     <skinCovered>false</skinCovered>
     </BodyPartDef>	
 	
@@ -189,11 +189,11 @@
     <defName>BlackCarpace</defName>
     <label>Black Carpace</label>
     <hitPoints>1</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
-    <bleedingRateMultiplier>0</bleedingRateMultiplier>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+    <bleedRate>0</bleedRate>
     <skinCovered>false</skinCovered>
     </BodyPartDef>		
 
  
   
-</BodyPartDefs>
+</Defs>

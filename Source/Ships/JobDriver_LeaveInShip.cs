@@ -13,20 +13,22 @@ namespace OHUShips
         {
             get
             {
-                return (ShipBase)base.CurJob.GetTarget(TargetIndex.B).Thing;
+                return (ShipBase)base.job.GetTarget(TargetIndex.B).Thing;
             }
         }
-        
+                       
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            yield return Toils_Reserve.Reserve(TargetIndex.B, ship.compShip.sProps.maxPassengers);
-            yield return Toils_Haul.CarryHauledThingToContainer();
+            if (this.pawn.carryTracker.CarriedThing != null)
+            {
+                yield return Toils_Haul.CarryHauledThingToContainer();
+            }
             yield return Toils_Goto.Goto(TargetIndex.B, PathEndMode.ClosestTouch);
 
             Toil leaving = JobDriver_LeaveInShip.EnterShip(this.GetActor(), ship);
             leaving.AddFinishAction(delegate
             {
-                if (!ship.pilotPresent)
+                if (ship.pilotPresent)
                 {
                     ship.PrepareForLaunchIn(1000);
                 }
@@ -42,11 +44,20 @@ namespace OHUShips
             {
                 initAction = delegate
                 {
-                   ship.TryAcceptThing(pawn, true);                    
+                    if (pawn.carryTracker.CarriedThing != null)
+                    {
+                        ship.TryAcceptThing(pawn.carryTracker.CarriedThing);
+                    }
+                    ship.TryAcceptThing(pawn, true);
                 },
                 defaultCompleteMode = ToilCompleteMode.Instant
             };
             return gotoShip;
+        }
+
+        public override bool TryMakePreToilReservations(bool failOnError)
+        {
+            return this.pawn.Reserve(this.job.GetTarget(TargetIndex.A), this.job, ship.compShip.sProps.maxPassengers, 1, null);
         }
     }
 }

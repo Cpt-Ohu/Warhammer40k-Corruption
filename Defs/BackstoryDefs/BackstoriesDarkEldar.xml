@@ -4,7 +4,7 @@
     <defName>DE_Trueborn</defName>
     <title>Trueborn</title>
     <baseDescription>NAME was naturally conceived and born by a Dark Eldar couple, giving him an elevated status in society.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Childhood</slot>
     <workDisables>
@@ -26,7 +26,7 @@
     <defName>DE_Halfborn</defName>
     <title>Half born</title>
     <baseDescription>NAME was grown in a vat in Commorragh. These creations usually end up as slaves.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Childhood</slot>
     <workDisables>
@@ -48,7 +48,7 @@
     <title>Torturer</title>
     <titleShort>Torturer</titleShort>
     <baseDescription>NAME has served as torturer for a trueborn master, conferring skills to inflict pain beyond human comprehension.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -69,7 +69,7 @@
     <title>Fallen</title>
     <titleShort>Fallen</titleShort>
     <baseDescription>NAME was a high-ranking member of society before making the wrong enemies, leaving HIM disgraced and stripped of most possessions.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -93,7 +93,7 @@
     <title>Gladiator</title>
     <titleShort>Gladiator</titleShort>
     <baseDescription>NAME was thrown into the gladiatorial arenas of Commorragh as punishment, and survived. This opened the way back into the service of a Kabal.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -117,7 +117,7 @@
     <title>Gladiator</title>
     <titleShort>Gladiator</titleShort>
     <baseDescription>NAME was thrown into the gladiatorial arenas of Commorragh as punishment, and survived. This opened the way back into the service of a Kabal.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -141,7 +141,7 @@
     <title>Intrigant</title>
     <titleShort>Mercenary</titleShort>
     <baseDescription>NAME raised to his position by excelling in playing the labyrinthine politics of Dark Eldar society.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>
@@ -165,7 +165,7 @@
     <title>Intrigant</title>
     <titleShort>Mercenary</titleShort>
     <baseDescription>NAME raised to his position by excelling in playing the labyrinthine politics of Dark Eldar society.</baseDescription>
-    <bodytypeMale>Male</bodytypeMale>
+    <bodyTypeMale>Male</bodyTypeMale>
     <bodyTypeFemale>Female</bodyTypeFemale>
     <slot>Adulthood</slot>
     <workDisables>

@@ -14,4 +14,22 @@
     </stages>
   </Corruption.ThoughtDefCorruption>
 
+  <ThoughtDef ParentName="DeathMemory">
+    <defName>ServitorDied</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>5</stackLimit>
+    <nullifyingTraits>
+      <li>Psychopath</li>
+      <li>Bloodlust</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>colonist died</label>
+        <description>One of our servitors was destroyed. I can't help feeling a bit of empathy.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+
 </Defs>

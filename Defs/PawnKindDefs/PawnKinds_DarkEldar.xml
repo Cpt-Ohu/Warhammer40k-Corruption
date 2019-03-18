@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<PawnKindDefs>
+<Defs>
 
   <PawnKindDef Class="Corruption.ChaosFollowerPawnKindDef">
     <defName>DE_KabaliteWarrior</defName>
@@ -7,7 +7,7 @@
     <race>Alien_DarkEldar</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.90</baseRecruitDifficulty>
-    <backstoryCategory>DarkEldar</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>DarkEldarKabal</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>8000</maxGenerationAge>
@@ -20,7 +20,7 @@
       <li>KabaliteWarrior</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>9000</min>
       <max>9000</max>
@@ -38,9 +38,9 @@
     <techHediffsChance>0.9</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>Ynnead</Patron>
       <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Eldar</IsofFaith>
       <LowerAfflictionLimit>0.5</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.8</UpperAfflictionLimit>
       <CommonSoulTrait>DE_Depravity</CommonSoulTrait>
@@ -53,7 +53,7 @@
     <race>Alien_DarkEldar</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.90</baseRecruitDifficulty>
-    <backstoryCategory>DarkEldar</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>DarkEldarKabal</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>8000</maxGenerationAge>
@@ -66,7 +66,7 @@
       <li>KabaliteWarrior</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.0</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.0</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>9000</min>
       <max>9000</max>
@@ -84,9 +84,9 @@
     <techHediffsChance>0.9</techHediffsChance>
     <AfflictionProperty>
       <IsImmune>true</IsImmune>
+	 <UseForcedPatron>true</UseForcedPatron>
+      <Patron>Ynnead</Patron>
       <ImmuneDevotionDegree>-3</ImmuneDevotionDegree>
-      <UseOtherFaith>true</UseOtherFaith>
-      <IsofFaith>Eldar</IsofFaith>
       <LowerAfflictionLimit>0.5</LowerAfflictionLimit>
       <UpperAfflictionLimit>0.8</UpperAfflictionLimit>
       <CommonSoulTrait>DE_Depravity</CommonSoulTrait>
@@ -100,7 +100,7 @@
     <label>colonist</label>
     <race>Alien_DarkEldar</race>
     <defaultFactionType>PlayerColony</defaultFactionType>
-    <backstoryCategory>Civil</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <maxGenerationAge>8000</maxGenerationAge>
     <itemQuality>Excellent</itemQuality>
     <apparelTags>
@@ -113,4 +113,4 @@
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
   </PawnKindDef>
 
-</PawnKindDefs>
+</Defs>

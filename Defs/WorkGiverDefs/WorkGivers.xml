@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<WorkGivers>
+<Defs>
 
   <!-- ============= MSUOperator ============= -->
   
@@ -36,6 +36,21 @@
   </WorkGiverDef>
 
   <WorkGiverDef>
+    <defName>FillRessourcePack</defName>
+    <label>filling ressource pack</label>
+    <giverClass>Corruption.IoM.Workgiver_FillRessourcePack</giverClass>
+    <workType>Hauling</workType>
+    <verb>filling ressource pack</verb>
+    <gerund>filling ressource pack</gerund>
+    <priorityInType>100</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+
+  
+  <WorkGiverDef>
     <defName>DoBillsMecTable</defName>
     <label>do bills at assembly unit</label>
     <giverClass>WorkGiver_DoBill</giverClass>
@@ -52,4 +67,18 @@
     <prioritizeSustains>true</prioritizeSustains>
   </WorkGiverDef>
 
-</WorkGivers>
+  <WorkGiverDef>
+    <defName>RefuelServitor</defName>
+    <label>refuel servitor</label>
+    <giverClass>Corruption.Workgiver_RefuelServitor</giverClass>
+    <workType>Hauling</workType>
+    <verb>refuel</verb>
+    <gerund>refueling</gerund>
+    <priorityInType>150</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+
+</Defs>

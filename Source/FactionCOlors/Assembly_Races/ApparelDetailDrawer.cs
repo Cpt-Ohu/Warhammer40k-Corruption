@@ -40,20 +40,20 @@ namespace FactionColors
         {
             get
             {
-                if(this.AppDetail!= null && this.apparel.wearer == null)
+                if(this.AppDetail!= null && this.apparel.Wearer == null)
                 {
                     detailGraphicInt = GraphicDatabase.Get<Graphic_Multi>(AppDetail.DetailGraphicPath, ShaderDatabase.CutoutComplex, drawSize, parent.DrawColor, parent.DrawColorTwo);                    
                 }
-                else if(this.AppDetail != null && this.apparel.wearer != null)
+                else if(this.AppDetail != null && this.apparel.Wearer != null)
                 {
                     string path;
-                    if (this.apparel.def.apparel.LastLayer == ApparelLayer.Overhead)
+                    if (this.apparel.def.apparel.LastLayer == ApparelLayerDefOf.Overhead)
                     {
                         path = this.AppDetail.DetailGraphicPath;
                     }
                     else
                     {
-                        path = this.AppDetail.DetailGraphicPath + "_" + this.apparel.wearer.story.bodyType.ToString();
+                        path = this.AppDetail.DetailGraphicPath + "_" + this.apparel.Wearer.story.bodyType.ToString();
                     }
                     detailGraphicInt = GraphicDatabase.Get<Graphic_Multi>(path, ShaderDatabase.CutoutComplex, drawSize, parent.DrawColor, parent.DrawColorTwo);
                 }
@@ -63,7 +63,7 @@ namespace FactionColors
 
         public bool HasDetail = false;
 
-        private Vector2 drawSize = new Vector2(2f, 2f);
+        private Vector2 drawSize = new Vector2(1.5f, 1.5f);
 
         private string texPath;
 
@@ -84,9 +84,9 @@ namespace FactionColors
             }
         }        
 
-        public override void PostSpawnSetup()
+        public override void PostSpawnSetup(bool respawnAfterLoad)
         {
-            base.PostSpawnSetup();
+            base.PostSpawnSetup(respawnAfterLoad);
             if (this.AppDetail == null) Log.Message("NoAppdetail");
             if (this.DetailGraphic == null) Log.Message("NoAppGraphic");
             InitiateDetails();
@@ -108,76 +108,7 @@ namespace FactionColors
             }
             FirstSpawn = false;
         }
- 
-
-        public static bool ReturnApparelDetails(Apparel curr, out ApparelGraphicRecord result)
-        {
-            ApparelDetailDrawer drawer;
-            if((drawer = curr.TryGetComp<ApparelDetailDrawer>()) != null)
-            {
-          //      Log.Message("Checking Available Details");
-                if (drawer.HasDetail)
-                {
-        //            Log.Message("Found Detail");
-                    ApparelGraphicRecord recDetail;
-                    if (ApparelDetailDrawer.TryGetApparelDetails(curr, drawer.DetailGraphic, out recDetail))
-                    {
-          //              Log.Message("Gotten ApparelDetailRecord");
-                        result = recDetail;
-                        return true;
-                    }
-                }
-            }
-            result = new ApparelGraphicRecord();
-            return false;
-        }
-
-        public static bool TryGetApparelDetails(Apparel curr, Graphic detailgraphic, out ApparelGraphicRecord recDetail)
-        {
-  //          Log.Message("Trying to get GraphicRecord");
-            Apparel temp1 = new Apparel();
-            if (curr.def.apparel.LastLayer == ApparelLayer.Overhead)
-            {
-                temp1.def = FactionColorsDefOf.Overlay_Headgear;
-            }
-            else
-            {
-                temp1.def = FactionColorsDefOf.Overlay_Body;
-            }
- //           Log.Message("GraphicRecord of DEF: "+ temp1.def.ToString());
-            recDetail = new ApparelGraphicRecord(detailgraphic, temp1);
-            return true;
-        }
-
-
-        public static void DrawDetails(Pawn pawn, Apparel curr)
-        {
-            try
-            {
-                if (pawn.needs != null && pawn.story != null && !pawn.kindDef.factionLeader)
-                {
-                    ApparelDetailDrawer drawer;
-                    if ((drawer = curr.TryGetComp<ApparelDetailDrawer>()) != null)
-                    {
-                        drawer.PostSpawnSetup();
-                        if (drawer.HasDetail)
-                        {
-                            ApparelGraphicRecord recDetail;
-                            if (ApparelDetailDrawer.TryGetApparelDetails(curr, drawer.DetailGraphic, out recDetail))
-                            {
-  //                              Log.Message("Inserting Detail");
-                                pawn.Drawer.renderer.graphics.apparelGraphics.Add(recDetail);
-                            }
-                        }
-                    }
-                }
-            }
-            catch
-            {
-            }
-
-        }
-
+                        
         public static bool GetDetailGraphic(Pawn pawn, Apparel curr, Rot4 bodyFacing, out Material detailGraphic)
         {
             detailGraphic = null;
@@ -188,7 +119,7 @@ namespace FactionColors
                     ApparelDetailDrawer drawer;
                     if ((drawer = curr.TryGetComp<ApparelDetailDrawer>()) != null)
                     {
-                        drawer.PostSpawnSetup();
+                        drawer.PostSpawnSetup(false);
                         if (drawer.HasDetail)
                         {
                             detailGraphic = drawer.DetailGraphic.MatAt(bodyFacing);
@@ -205,13 +136,23 @@ namespace FactionColors
 
         }
 
+        //public override void PostDraw()
+        //{
+        //    base.PostDraw();
+        //    Mesh mesh = this.DetailGraphic.MeshAt(this.parent.Rotation);
+        //    Material material2 = this.DetailGraphic.MatAt(this.parent.Rotation, null);
+        //    Vector3 vector = this.parent.DrawPos;
+        //    vector.y += 0.1f;
+        //    GenDraw.DrawMeshNowOrLater(mesh, vector, Quaternion.identity, material2, false);
+        //}
+
 
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.LookValue<bool>(ref HasDetail, "HasDetail", true, false);
-            Scribe_Values.LookValue<bool>(ref FirstSpawn, "FirstSpawn", false, false);
-            Scribe_Values.LookValue<string>(ref this.texPath, "texPath", null, false);
+            Scribe_Values.Look<bool>(ref HasDetail, "HasDetail", true, false);
+            Scribe_Values.Look<bool>(ref FirstSpawn, "FirstSpawn", false, false);
+            Scribe_Values.Look<string>(ref this.texPath, "texPath", null, false);
         }     
 
     }

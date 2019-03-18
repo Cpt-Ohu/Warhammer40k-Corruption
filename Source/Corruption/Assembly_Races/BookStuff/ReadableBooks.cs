@@ -10,10 +10,17 @@ namespace Corruption.BookStuff
     public class ReadableBooks : ThingWithComps
     {
         public Pawn currentReader = null;
-        public ThingDef_Readables Tdef;
+        public ThingDef_Readables Tdef
+        {
+            get
+            {
+                return this.def as ThingDef_Readables;
+            }
+        }
         private List<string> BookText = new List<string>();
         public bool TexChange = false;
-        private Graphic OpenBook;
+        private string currentTexPath = "Items/Books/Cover_BookGeneric";
+
         private List<string> DefaultText = new List<string>
         {
             "It was a dark and stormy night.",
@@ -38,17 +45,15 @@ namespace Corruption.BookStuff
         {
             get
             {
-                ReadFormXML();
-                Graphic result;
-                if (!TexChange && OpenBook != null)
+                //ReadFormXML();
+                if (!TexChange)
                 {
-                    result = OpenBook;
+                    return GraphicDatabase.Get<Graphic_Single>(currentTexPath, ShaderDatabase.CutoutComplex, Vector2.one, DrawColor, DrawColorTwo); ;
                 }
                 else
                 {
-                    result = base.Graphic;
+                    return base.Graphic;
                 }
-                return result;
             }
         }
         public List<string> PrepareText()
@@ -95,20 +100,21 @@ namespace Corruption.BookStuff
                 Destroy();
             }
         }
-        public override void SpawnSetup(Map map)
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
-            base.SpawnSetup(map);
+            base.SpawnSetup(map, respawningAfterLoad);
             ReadFormXML();
-            if (OpenBook == null)
+            if (currentTexPath == "")
             {
-                OpenBook = GraphicDatabase.Get<Graphic_Single>("Items/Books/Cover_BookGeneric");
+                currentTexPath ="Items/Books/Cover_BookGeneric";
             }
         }
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Collections.LookList<string>(ref BookText, "BookText", LookMode.Undefined, null);
-            Scribe_References.LookReference<Pawn>(ref currentReader, "currentReader");
+            Scribe_Collections.Look<string>(ref BookText, "BookText", LookMode.Undefined, null);
+            Scribe_Values.Look<string>(ref this.currentTexPath, "currentTexPath", "Items/Books/Cover_BookGeneric");
+            Scribe_References.Look<Pawn>(ref currentReader, "currentReader");
         }
         private List<string> TextChooping(List<string> textlist)
         {
@@ -136,9 +142,8 @@ namespace Corruption.BookStuff
             }
             if (!Readables_Def.CloseTexture.NullOrEmpty())
             {
-                OpenBook = GraphicDatabase.Get<Graphic_Single>(Readables_Def.CloseTexture, ShaderDatabase.CutoutComplex, Vector2.one, DrawColor, DrawColorTwo);
+                this.currentTexPath = Readables_Def.CloseTexture;
             }
-            this.Tdef = (ThingDef_Readables)this.def;
         }
 
         public void PostReadEffectSelection(int prog, int oldprog)
@@ -156,7 +161,6 @@ namespace Corruption.BookStuff
    //                 Log.Message("Process is " + progperc.ToString() + " and ReadBefore is :" + readbefore.ToString());
                     if (threshold <= progperc && !readbefore)
                     {
-                        Log.Message("Trying Effect");
                         this.TryPostReadEffect(entry);
                     }
                 }
@@ -169,11 +173,14 @@ namespace Corruption.BookStuff
             {
                 case (ReadableEffectCategory.LearnPsykerPower):
                     {
-                        CompPsyker compPsyker;
-                        if ((compPsyker = this.currentReader.GetComp<CompPsyker>()) != null)
+                        if (CorruptionModSettings.AllowPsykers)
                         {
-                            compPsyker.psykerPowerManager.AddPsykerPower(entry.PsykerPowerUnlocked);
-                            return;
+                            CompPsyker compPsyker;
+                            if ((compPsyker = this.currentReader.GetComp<CompPsyker>()) != null)
+                            {
+                                compPsyker.PsykerPowerManager.AddPsykerPower(entry.PsykerPowerUnlocked);
+                                return;
+                            }
                         }
                         return;
                     }
@@ -197,7 +204,7 @@ namespace Corruption.BookStuff
         }
         public void ReadCorruptionTick(Pawn pawn, ReadableBooks book)
         {
-            Need_Soul soul = pawn.needs.TryGetNeed<Need_Soul>();
+            CompSoul soul = CompSoul.GetPawnSoul(pawn);
             if (soul != null)
             {
                 float num;
@@ -226,7 +233,7 @@ namespace Corruption.BookStuff
                         }
                 }
                 num = sign * this.Tdef.SoulGainRate * 0.2f / 1200;
-                soul.GainNeed(num);
+                soul.AffectSoul(num);
             }
         }
     }

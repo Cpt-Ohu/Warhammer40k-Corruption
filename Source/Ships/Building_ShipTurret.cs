@@ -19,7 +19,7 @@ namespace OHUShips
             {
                 if (this.parentShipCached == null)
                 {
-                    this.parentShipCached = DropShipUtility.currentShipTracker.AllWorldShips.FirstOrDefault(x => x.GetUniqueLoadID() == this.parentShipLoadID);
+                    this.parentShipCached = DropShipUtility.CurrentShipTracker.AllPlanetShips.FirstOrDefault(x => x.GetUniqueLoadID() == this.parentShipLoadID);
                 }
                 return this.parentShipCached;
             }
@@ -35,10 +35,10 @@ namespace OHUShips
         {
             this.parentShipLoadID = ship.GetUniqueLoadID();
         }
-
-        public override void SpawnSetup(Map map)
+        
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
-            base.SpawnSetup(map);
+            base.SpawnSetup(map, respawningAfterLoad);
         }
 
         public void SwitchTurret(bool active)
@@ -114,9 +114,9 @@ namespace OHUShips
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.LookValue<string>(ref this.assignedSlotName, "assignedSlotName");
-            Scribe_Values.LookValue<string>(ref this.parentShipLoadID, "parentShipLoadID");
-            Scribe_Defs.LookDef<ThingDef>(ref this.installedByWeaponSystem, "installedByWeaponSystem");
+            Scribe_Values.Look<string>(ref this.assignedSlotName, "assignedSlotName");
+            Scribe_Values.Look<string>(ref this.parentShipLoadID, "parentShipLoadID");
+            Scribe_Defs.Look<ThingDef>(ref this.installedByWeaponSystem, "installedByWeaponSystem");
         }
     }
 }

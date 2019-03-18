@@ -11,6 +11,11 @@ namespace Corruption
 {
     public class JobDriver_Summoning : JobDriver
     {
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
+        {
+            return true;
+        }
+
         protected override IEnumerable<Toil> MakeNewToils()
         {
             IntVec3 centercell;

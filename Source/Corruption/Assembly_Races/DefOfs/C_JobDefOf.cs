@@ -38,5 +38,9 @@ namespace Corruption.DefOfs
         public static JobDef FollowAndCorrupt;
         public static JobDef FollowAndConvertTau;
         public static JobDef FollowAndInvestigate;
+        public static JobDef PerformMiracleHeal;
+
+        public static JobDef FillResourcePack;
+        public static JobDef HaulToContainerMulti;
     }
 }

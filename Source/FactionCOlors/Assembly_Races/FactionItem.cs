@@ -9,87 +9,173 @@ namespace FactionColors
 {
     public class FactionItem : ThingWithComps
     {
-        public Graphic newGraphic;
+        public bool FirstSpawned = true;
+        private bool firstResolved;
+        private bool secResolved;
 
-        private Vector2 drawSize = new Vector2(1f, 1f);
 
-        private Vector3 meshSize;
+        public Color Col1 = Color.magenta;
+        public Color Col2 = Color.grey;
+        public Graphic Detail;
 
-        private Mesh drawMesh;
+        private Pawn Wearer
+        {
+            get
+            {
+                CompEquippable compEQ = this.TryGetComp<CompEquippable>();
+                if (compEQ!=null)
+                {
+                    Pawn holder = compEQ.PrimaryVerb.CasterPawn;
+                    return holder;
+                }
+                return null;
+            }
+        }
 
-        private Vector3 drawPos;
+        private FactionDefUniform udef
+        {
+            get
 
-        private Material Mat;
+            {
+                if (this.Wearer != null)
+                {
+                    return this.Wearer.Faction.def as FactionDefUniform;
+                }
+                return null;
+            }
+        }
 
-        public Color col1 = Color.white;
-
-        public Color col2 = Color.gray;
-
-        private string textpath;
-
-        private bool FirstSpawned = true;
-
+        private CompFactionColor compF
+        {
+            get
+            {
+                return this.GetComp<CompFactionColor>();
+            }
+        }
+        
         public override Graphic Graphic
         {
             get
             {
-                    textpath = this.def.graphicData.texPath;
-                    GetFactionColors();  
-                    return newGraphic = GraphicDatabase.Get<Graphic_Single>(textpath, ShaderDatabase.CutoutComplex, drawSize, col1, col2);
+                return GraphicDatabase.Get<Graphic_Single>(this.def.graphicData.texPath, ShaderDatabase.CutoutComplex, this.def.graphicData.drawSize, this.DrawColor, this.DrawColorTwo);
             }
         }
 
-        public override void SpawnSetup(Map map)
+        public override Color DrawColor
         {
-            base.SpawnSetup(map);
-            FactionItemDef newDef = this.def as FactionItemDef;
-            meshSize = newDef.ItemMeshSize;
-            drawPos = this.DrawPos;
-            drawMesh = this.Graphic.MeshAt(this.Rotation);
-            Mat = this.Graphic.MatSingle;
-        }
-
-        public void GetFactionColors()
-        {
-            if (FirstSpawned)
+            get
             {
-                if (this.GetComp<CompEquippable>().PrimaryVerb.CasterPawn != null)
+                if (!firstResolved)
                 {
-                    Pawn holder = this.GetComp<CompEquippable>().PrimaryVerb.CasterPawn;
-                    if (holder != null && holder.Faction.def.GetType() == typeof(FactionDefUniform))
+                    if (this.Wearer != null)
                     {
-                        FactionDefUniform facdef = holder.Faction.def as FactionDefUniform;
-                        col1 = facdef.FactionColor1;
-                        col2 = facdef.FactionColor2;
+                        FactionColorEntry myEntry;
+                        if (this.compF != null)
+                        {
+                            if (FactionColorUtilities.currentFactionColorTracker.GetColorEntry(Wearer.Faction, out myEntry))
+                            {
+                                Col1 = myEntry.FactionColor1;
+                            }
+                        }
+                        else
+                        {
+                            Col1 = this.def.graphicData.color;
+                        }
                     }
                     else
                     {
-                        col1 = this.DrawColor;
-                        col2 = this.DrawColorTwo;
+                        {
+                            CompColorable comp = this.GetComp<CompColorable>();
+                            if (comp != null && comp.Active)
+                            {
+                                Col1 = comp.Color;
+                            }
+                            else if (this.Stuff != null)
+                            {
+                                Col1 = this.Stuff.stuffProps.color;
+                            }
+                            else if (this.def.graphicData != null)
+                            {
+                                Col1 = this.def.graphicData.color;
+                            }
+                        }
+
                     }
+                    if ((compF != null && compF.CProps.UseCamouflageColor))
+                    {
+                        Col1 = CamouflageColorsUtility.CamouflageColors[0];
+                    }
+                    this.firstResolved = true;
                 }
-                FirstSpawned = false;
+                return Col1;
             }
-            drawSize.x = meshSize.y;
-            drawSize.y = meshSize.z;
+            set
+            {
+                this.SetColor(value, true);
+            }
+        }
+
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad);
+        }
+        
+        public override Color DrawColorTwo
+        {
+            get
+            {
+                if (!secResolved)
+                {
+                    if (this.Wearer != null)
+                    {
+                        if (this.compF != null)
+                        {
+                            FactionColorEntry myEntry;
+                            if (FactionColorUtilities.currentFactionColorTracker.GetColorEntry(Wearer.Faction, out myEntry))
+                            {
+                                Col2 = myEntry.FactionColor2;
+                            }
+                        }
+                        else
+                        {
+                            Col2 = this.def.graphicData.colorTwo;
+                        }
+                    }
+                    else
+                    {
+                        CompColorable comp = this.GetComp<CompColorable>();
+                        if (comp != null && comp.Active)
+                        {
+                            Col2 = comp.Color;
+                        }
+                        else
+                        {
+                            Col2 = this.def.graphicData.colorTwo;
+                        }
+                    }
+
+                    this.secResolved = true;
+                }
+                return Col2;
+            }
         }
 
         public override void Draw()
         {
-            drawMesh = this.Graphic.MeshAt(this.Rotation);
-            Mat = this.Graphic.MatAt(this.Rotation);
+            base.Draw();
+            Vector3 s = new Vector3(this.def.graphicData.drawSize.x, 1f, this.def.graphicData.drawSize.y);
             Matrix4x4 matrix = default(Matrix4x4);
-            matrix.SetTRS(drawPos, Quaternion.AngleAxis(0, Vector3.up), 0.7f*meshSize);
-            Graphics.DrawMesh(drawMesh, matrix, Mat, 0);
-            this.Comps_PostDraw()
-;        }
+            matrix.SetTRS(this.DrawPos, Quaternion.AngleAxis(0, Vector3.up), s);
+            Graphics.DrawMesh(MeshPool.plane10, matrix, this.Graphic.MatSingle, 0);
+        }
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.LookValue<bool>(ref FirstSpawned, "FirstSpawned", false, false);
-            Scribe_Values.LookValue<Color>(ref col1, "col1", Color.white, false);
-            Scribe_Values.LookValue<Color>(ref col2, "col2", Color.white, false);
+            Scribe_Values.Look<bool>(ref secResolved, "secResolved", false, false);
+            Scribe_Values.Look<bool>(ref firstResolved, "firstResolved", false, false);
+            Scribe_Values.Look<Color>(ref Col1, "col1", Color.white, false);
+            Scribe_Values.Look<Color>(ref Col2, "col2", Color.white, false);
         }
 
     }

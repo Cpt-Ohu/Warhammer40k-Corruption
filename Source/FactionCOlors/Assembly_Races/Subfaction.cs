@@ -5,7 +5,6 @@ using System.Text;
 using UnityEngine;
 using Verse;
 using RimWorld;
-using Corruption;
 
 namespace FactionColors
 {
@@ -19,6 +18,6 @@ namespace FactionColors
         public List<PawnGroupMaker> SubfactionPawnGroupMakers;
         public RulePackDef SubfactionNameMaker;
         public float weight;
-        public ChaosGods SubfactionPreferredChaosGod = ChaosGods.Undivided;
+        public string SubfactionPreferredChaosGod = "ChaosUndivided";
     }
 }

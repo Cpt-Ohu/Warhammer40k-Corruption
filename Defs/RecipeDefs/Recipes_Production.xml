@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<RecipeDefs>
+<Defs>
 
 	<RecipeDef>
     <defName>MakeMecTemplateEnergy</defName>
@@ -15,7 +15,7 @@
       <li>
         <filter>
           <thingDefs>
-            <li>Component</li>
+            <li>ComponentIndustrial</li>
           </thingDefs>
         </filter>
         <count>6</count>
@@ -23,17 +23,14 @@
     </ingredients>
     <fixedIngredientFilter>
       <thingDefs>
-        <li>Component</li>
+        <li>ComponentIndustrial</li>
       </thingDefs>
     </fixedIngredientFilter>
     <products>
-      <MecComponent_General>1</MecComponent_General>
+      <MecComponent_Energy>1</MecComponent_Energy>
     </products>
 		<skillRequirements>
-			<li>
-				<skill>Crafting</skill>
-				<minLevel>5</minLevel>
-			</li>
+				<Crafting>5</Crafting>
 		</skillRequirements>
     <workSkill>Crafting</workSkill>
     <recipeUsers>
@@ -55,7 +52,7 @@
       <li>
         <filter>
           <thingDefs>
-            <li>Component</li>
+            <li>ComponentIndustrial</li>
           </thingDefs>
         </filter>
         <count>6</count>
@@ -63,17 +60,14 @@
     </ingredients>
     <fixedIngredientFilter>
       <thingDefs>
-        <li>Component</li>
+        <li>ComponentIndustrial</li>
       </thingDefs>
     </fixedIngredientFilter>
     <products>
       <MecComponent_Weapon>1</MecComponent_Weapon>
     </products>
 		<skillRequirements>
-			<li>
-				<skill>Crafting</skill>
-				<minLevel>5</minLevel>
-			</li>
+				<Crafting>5</Crafting>
 		</skillRequirements>
     <workSkill>Crafting</workSkill>
     <recipeUsers>
@@ -95,7 +89,7 @@
       <li>
         <filter>
           <thingDefs>
-            <li>Component</li>
+            <li>ComponentIndustrial</li>
           </thingDefs>
         </filter>
         <count>2</count>
@@ -103,17 +97,14 @@
     </ingredients>
     <fixedIngredientFilter>
       <thingDefs>
-        <li>Component</li>
+        <li>ComponentIndustrial</li>
       </thingDefs>
     </fixedIngredientFilter>
     <products>
       <MecComponent_General>1</MecComponent_General>
     </products>
 		<skillRequirements>
-			<li>
-				<skill>Crafting</skill>
-				<minLevel>5</minLevel>
-			</li>
+				<Crafting>5</Crafting>
 		</skillRequirements>
     <workSkill>Crafting</workSkill>
     <recipeUsers>
@@ -150,10 +141,7 @@
       <Armaplas>1</Armaplas>
     </products>
 		<skillRequirements>
-			<li>
-				<skill>Crafting</skill>
-				<minLevel>5</minLevel>
-			</li>
+				<Crafting>5</Crafting>
 		</skillRequirements>
     <workSkill>Crafting</workSkill>
     <recipeUsers>
@@ -202,10 +190,7 @@
       <Ceramite>1</Ceramite>
     </products>
 		<skillRequirements>
-			<li>
-				<skill>Crafting</skill>
-				<minLevel>5</minLevel>
-			</li>
+				<Crafting>5</Crafting>
 		</skillRequirements>
     <workSkill>Crafting</workSkill>
     <recipeUsers>
@@ -214,5 +199,50 @@
   </RecipeDef>
 
 
-
-</RecipeDefs>
+ <RecipeDef>
+    <defName>MakeServitorFuel</defName>
+    <label>make servitor power pack</label>
+    <description>Craft a power pack used to keep servitors running.</description>
+    <jobString>Making servitor fuel.</jobString>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <requiredGiverWorkType>Cooking</requiredGiverWorkType>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+		<fixedIngredientFilter>
+      <thingDefs>
+        <li>ComponentIndustrial</li>
+      </thingDefs>
+			<categories>
+				<li>FoodRaw</li>
+			</categories>
+		</fixedIngredientFilter>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>FoodRaw</li>
+          </categories>
+        </filter>
+        <count>10</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+		<products>
+			<IoM_ServitorFuel>3</IoM_ServitorFuel>
+		</products>
+		<workSkill>Crafting</workSkill>
+    <recipeUsers>
+	<li>TableMachining</li>
+    </recipeUsers>
+	</RecipeDef>
+	
+</Defs>

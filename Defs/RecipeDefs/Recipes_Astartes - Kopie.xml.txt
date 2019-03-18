@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RecipeDefs>
+
+  	  <RecipeDef ParentName="SurgeryFlesh">
+		<defName>InstallSecondHeart_MSU</defName>
+		<label>install secondary heart</label>
+		<description>Installs secondary heart.</description>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing secondary heart.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<Defs>
+						<li>SecondHeart</li>
+					</Defs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <Defs>
+				<li>SecondHeart</li>
+			</Defs>
+		</fixedIngredientFilter>
+		<addsHediff>SecondHeart</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>SecondHeart</li>
+		</appliedOnFixedBodyParts>
+	</RecipeDef>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh" >
+		<defName>InstallOssmodula_MSU</defName>
+		<label>install Ossmodula</label>
+		<description>Installs Ossmodula.</description>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Ossmodula.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<Defs>
+						<li>Ossmodula</li>
+					</Defs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <Defs>
+				<li>Ossmodula</li>
+			</Defs>
+		</fixedIngredientFilter>
+		<addsHediff>ossmodula</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>Ossmodula</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
+		<defName>InstallBiscorpea_MSU</defName>
+		<label>install Biscorpea</label>
+		<description>Installs Biscorpea.</description>
+		<RequiresHediff>ossmodula</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Biscorpea.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<Defs>
+						<li>Biscorpea</li>
+					</Defs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <Defs>
+				<li>Ossmodula</li>
+			</Defs>
+		</fixedIngredientFilter>
+		<addsHediff>biscorpea</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>Biscorpea</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.RecipeDef_MSU>
+
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
+		<defName>InstallHaemastamen_MSU</defName>
+		<label>install Haemastamen</label>
+		<description>Installs Haemastamen.</description>
+		<RequiresHediff>biscorpea</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Haemastamen.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<Defs>
+						<li>Haemastamen</li>
+					</Defs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <Defs>
+				<li>Haemastamen</li>
+			</Defs>
+		</fixedIngredientFilter>
+		<addsHediff>haemastamen</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>Haemastamen</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
+		<defName>InstalLarramansOrgan_MSU</defName>
+		<label>install Larramans Organ</label>
+		<description>Installs Larramans Organ.</description>
+		<RequiresHediff>haemastamen</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Larramans Organ.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<Defs>
+						<li>LarramansOrgan</li>
+					</Defs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <Defs>
+				<li>LarramansOrgan</li>
+			</Defs>
+		</fixedIngredientFilter>
+		<addsHediff>LarramansOrgan</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>LarramansOrgan</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
+		<defName>InstallCatalepseanNode_MSU</defName>
+		<label>install Catalepsean Node</label>
+		<description>Installs Catalepsean Node.</description>
+		<RequiresHediff>LarramansOrgan</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Catalepsean Node.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<Defs>
+						<li>CatalepseanNode</li>
+					</Defs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <Defs>
+				<li>CatalepseanNode</li>
+			</Defs>
+		</fixedIngredientFilter>
+		<addsHediff>CatalepseanNode</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>Brain</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.RecipeDef_MSU >
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
+		<defName>InstallPreomnor_MSU</defName>
+		<label>install Preomnor</label>
+		<description>Installs Preomnor.</description>
+		<RequiresHediff>CatalepseanNode</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Preomnor.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<Defs>
+						<li>Preomnor</li>
+					</Defs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <Defs>
+				<li>Preomnor</li>
+			</Defs>
+		</fixedIngredientFilter>
+		<addsHediff>preomnor</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>Preomnor</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.RecipeDef_MSU>
+
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
+		<defName>InstallOmophagea_MSU</defName>
+		<label>install Omophagea</label>
+		<description>Installs Omophagea.</description>
+		<RequiresHediff>preomnor</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Omophagea.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<Defs>
+						<li>Omophagea</li>
+					</Defs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <Defs>
+				<li>Omophagea</li>
+			</Defs>
+		</fixedIngredientFilter>
+		<addsHediff>omophagea</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>Omophagea</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.RecipeDef_MSU >
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
+		<defName>InstallMultiLung_MSU</defName>
+		<label>install MultiLung</label>
+		<description>Installs MultiLung.</description>
+		<RequiresHediff>omophagea</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing MultiLung.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<Defs>
+						<li>MultiLung</li>
+					</Defs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <Defs>
+				<li>MultiLung</li>
+			</Defs>
+		</fixedIngredientFilter>
+		<addsHediff>MultiLung</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>MultiLung</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
+		<defName>InstallOcculobe_MSU</defName>
+		<label>install Occulobe</label>
+		<description>Installs Occulobe.</description>
+		<RequiresHediff>MultiLung</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Occulobe.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<Defs>
+						<li>Occulobe</li>
+					</Defs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <Defs>
+				<li>Occulobe</li>
+			</Defs>
+		</fixedIngredientFilter>
+		<addsHediff>occulobe</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>LeftEye</li>
+			<li>RightEye</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
+		<defName>InstallLymansEar_MSU</defName>
+		<label>install LymansEar</label>
+		<description>Installs LymansEar.</description>
+		<RequiresHediff>occulobe</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing LymansEar.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<Defs>
+						<li>LymansEar</li>
+					</Defs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <Defs>
+				<li>LymansEar</li>
+			</Defs>
+		</fixedIngredientFilter>
+		<addsHediff>LymansEar</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>LeftEar</li>
+			<li>RightEar</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
+		<defName>InstallSusanMembrane_MSU</defName>
+		<label>install Susan Membrane</label>
+		<description>Installs Susan Membrane.</description>
+		<RequiresHediff>LymansEar</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Susan Membrane.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<Defs>
+						<li>SusanMembrane</li>
+					</Defs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <Defs>
+				<li>SusanMembrane</li>
+			</Defs>
+		</fixedIngredientFilter>
+		<addsHediff>SusanMembrane</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>SusanMembrane</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
+		<defName>InstallMelanchromicOrgan_MSU</defName>
+		<label>install Melanchromic Organ</label>
+		<description>Installs Melanchromic Organ.</description>
+		<RequiresHediff>SusanMembrane</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Melanchromic Organ.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<Defs>
+						<li>MelanchromicOrgan</li>
+					</Defs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <Defs>
+				<li>MelanchromicOrgan</li>
+			</Defs>
+		</fixedIngredientFilter>
+		<addsHediff>MelanchromicOrgan</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>MelanchromicOrgan</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
+		<defName>InstallOoliticKidney_MSU</defName>
+		<label>install Oolitic Kidney</label>
+		<description>Installs Oolitic Kidney.</description>
+		<RequiresHediff>MelanchromicOrgan</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Oolitic Kidney.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<Defs>
+						<li>OoliticKidney</li>
+					</Defs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <Defs>
+				<li>OoliticKidney</li>
+			</Defs>
+		</fixedIngredientFilter>
+		<addsHediff>OoliticKidney</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>Kidney</li>
+			<li>Kidney</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
+		<defName>InstallNeuroglottis_MSU</defName>
+		<label>install Neuroglottis</label>
+		<description>Installs Susan Membrane.</description>
+		<RequiresHediff>OoliticKidney</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Neuroglottis.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<Defs>
+						<li>Neuroglottis</li>
+					</Defs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <Defs>
+				<li>Neuroglottis</li>
+			</Defs>
+		</fixedIngredientFilter>
+		<addsHediff>neuroglottis</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>Neuroglottis</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
+		<defName>InstallMucranoid_MSU</defName>
+		<label>install Mucranoid</label>
+		<description>Installs Mucranoid.</description>
+		<RequiresHediff>neuroglottis</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Mucranoid.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<Defs>
+						<li>Mucranoid</li>
+					</Defs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <Defs>
+				<li>Mucranoid</li>
+			</Defs>
+		</fixedIngredientFilter>
+		<addsHediff>mucranoid</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>Mucranoid</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
+		<defName>InstallBetchersGlands_MSU</defName>
+		<label>install Betchers Glands</label>
+		<description>Installs Betchers Glands.</description>
+		<RequiresHediff>mucranoid</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Betchers Glands.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<Defs>
+						<li>BetchersGlands</li>
+					</Defs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <Defs>
+				<li>BetchersGlands</li>
+			</Defs>
+		</fixedIngredientFilter>
+		<addsHediff>BetchersGlands</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>BetchersGlands</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
+		<defName>InstallProgenoid_MSU</defName>
+		<label>install Progenoid</label>
+		<description>Installs Progenoid.</description>
+		<RequiresHediff>BetchersGlands</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Progenoid.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<Defs>
+						<li>Progenoid</li>
+					</Defs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <Defs>
+				<li>Progenoid</li>
+			</Defs>
+		</fixedIngredientFilter>
+		<addsHediff>progenoid</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>Progenoid</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.RecipeDef_MSU>
+
+  	  <Corruption.RecipeDef_MSU ParentName="SurgeryFlesh">
+		<defName>InstallBlackCarpace_MSU</defName>
+		<label>install Black Carpace</label>
+		<description>Installs Black Carpace.</description>
+		<RequiresHediff>progenoid</RequiresHediff>
+		<workerClass>Recipe_InstallImplant</workerClass>
+		<jobString>Installing Black Carpace.</jobString>
+		<workAmount>3000</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+          <thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<Defs>
+						<li>BlackCarpace</li>
+					</Defs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+      <Defs>
+				<li>BlackCarpace</li>
+			</Defs>
+		</fixedIngredientFilter>
+		<addsHediff>BlackCarpace</addsHediff>
+		<appliedOnFixedBodyParts>
+			<li>BlackCarpace</li>
+		</appliedOnFixedBodyParts>
+
+	</Corruption.RecipeDef_MSU>
+
+
+</RecipeDefs>

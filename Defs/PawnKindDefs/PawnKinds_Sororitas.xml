@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<PawnKindDefs>
+<Defs>
 
 
 
@@ -10,7 +10,7 @@
     <race>Alien_Sororitas</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.70</baseRecruitDifficulty>
-    <backstoryCategory>Sororitas</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>AdeptusSororitas</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>80</maxGenerationAge>
@@ -26,7 +26,7 @@
       <li>IoM_Apparel</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.2</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.2</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>1000</min>
       <max>3000</max>
@@ -62,7 +62,7 @@
     <race>Alien_Sororitas</race>
     <combatPower>100</combatPower>
     <baseRecruitDifficulty>0.70</baseRecruitDifficulty>
-    <backstoryCategory>Sororitas</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>AdeptusSororitas</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>80</maxGenerationAge>
@@ -75,7 +75,7 @@
       <li>Sororitas_Apparel</li>
     </apparelTags>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.2</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.2</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>1000</min>
       <max>3000</max>
@@ -106,7 +106,7 @@
     <race>Alien_Sororitas</race>
     <combatPower>150</combatPower>
     <baseRecruitDifficulty>0.80</baseRecruitDifficulty>
-    <backstoryCategory>Sororitas</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>AdeptusSororitas</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <maxGenerationAge>80</maxGenerationAge>
@@ -115,14 +115,8 @@
       <min>9000</min>
       <max>10000</max>
     </apparelMoney>
-    <apparelTags>
-      <li>Sororitas_Apparel</li>
-    </apparelTags>
-    <apparelRequired>
-	 <li>Apparel_Rosarius</li>
-    </apparelRequired>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.7</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.7</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>9000</min>
       <max>9000</max>
@@ -155,7 +149,7 @@
     <race>Alien_Sororitas</race>
     <combatPower>160</combatPower>
     <baseRecruitDifficulty>0.80</baseRecruitDifficulty>
-    <backstoryCategory>Sororitas</backstoryCategory>
+    <backstoryCategories><li>.*</li></backstoryCategories>
     <defaultFactionType>AdeptusSororitas</defaultFactionType>
     <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
     <factionLeader>true</factionLeader>
@@ -172,7 +166,7 @@
 	 <li>Apparel_Rosarius</li>
     </apparelRequired>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <apparelAllowHeadwearChance>0.9</apparelAllowHeadwearChance>
+    <apparelAllowHeadgearChance>0.9</apparelAllowHeadgearChance>
     <weaponMoney>
       <min>9000</min>
       <max>9000</max>
@@ -201,4 +195,4 @@
       <FixedGender>Female</FixedGender>
   </PawnKindDef>
 
-</PawnKindDefs>
+</Defs>

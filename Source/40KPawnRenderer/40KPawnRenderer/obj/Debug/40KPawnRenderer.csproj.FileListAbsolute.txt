@@ -1,4 +1,0 @@
-D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\YaWH40Km-Public_A16\Assemblies\40KPawnRenderer.dll
-D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\YaWH40Km-Public_A16\Assemblies\40KPawnRenderer.pdb
-D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\YaWH40Km-Public_A16\Source\40KPawnRenderer\40KPawnRenderer\obj\Debug\40KPawnRenderer.dll
-D:\Spiele\Steam\SteamApps\common\RimWorld\Mods\YaWH40Km-Public_A16\Source\40KPawnRenderer\40KPawnRenderer\obj\Debug\40KPawnRenderer.pdb
